@@ -13,11 +13,11 @@
 - **L08_UserInput.cpp** — Reading user input with `cin` for string and integer types
 - **L09_BinaryNumbers.cpp** — Notes-only file covering binary system, bits/bytes, variable memory sizes, and overflow
 - **L10_IntegerTypes.cpp** — Using `<limits>` header and `sizeof` to display min/max values and byte sizes for int, short, long, and long long
-- **L11_FloatingPointTypes.cpp** — Empty — no content yet
-- **L12_CharAndBool.cpp** — Empty — no content yet
-- **L13_If.cpp** — Empty — no content yet
-- **L14_IfElse.cpp** — Empty — no content yet
-- **L15_IfElseIfElse.cpp** — Empty — no content yet
+- **L11_FloatingPointTypes.cpp** — Float vs double precision, integer division trap, iomanip manipulators (fixed, scientific, setprecision)
+- **L12_CharAndBool.cpp** — Char type, escape sequences, bool type and boolean logic
+- **L13_If.cpp** — Basic if statements with conditions (fixed logic bug: second condition now uses >= 18)
+- **L14_IfElse.cpp** — If-else control flow
+- **L15_IfElseIfElse.cpp** — If-else if-else chains (fixed: replaced endl with \n for consistency)
 - **L16_ComparingFloats.cpp** — Empty — no content yet
 - **L17_Conditions.cpp** — Empty — no content yet
 - **L18_WhileLoops.cpp** — Empty — no content yet
