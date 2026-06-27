@@ -8,7 +8,7 @@
 [![GCC](https://img.shields.io/badge/GCC-15.2.0-F16822?style=flat-square&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
 [![Platform](https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows&logoColor=white)](https://github.com/brechtsanders/winlibs_mingw)
 [![Editor](https://img.shields.io/badge/VSCode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
-[![Progress](https://img.shields.io/badge/Progress-L10%20%2F%2082-yellow?style=flat-square)](#progress)
+[![Progress](https://img.shields.io/badge/Progress-L15%20%2F%2082-yellow?style=flat-square)](#progress)
 
 </div>
 
@@ -21,7 +21,7 @@ Personal learning repo for C++ — going from zero, building solid fundamentals 
 | # | Section | Lessons | Status |
 |---|---------|---------|:------:|
 | 01 | Getting Started | L01 – L05 | ✅ |
-| 02 | Basic Syntax | L06 – L26 | 🔄 `L10` |
+| 02 | Basic Syntax | L06 – L26 | 🔄 `L15` |
 | 03 | Subroutines | L27 – L30 | ⬜ |
 | 04 | Object Oriented Coding | L31 – L38 | ⬜ |
 | 05 | Pointers and Memory | L39 – L52 | ⬜ |
@@ -53,6 +53,28 @@ make run    # compile and run
 > [!NOTE]
 > Each section folder has its own `makefile`. No global build — compile only what you're working on.
 
+## Exercises
+
+Practice problems to reinforce what I have learned. Each exercise has only the instructions — I write the code myself.
+
+```bash
+cd exercises
+make run-E01_VariableTypes   # compile and run
+```
+
+| # | Exercise | Topic | Difficulty |
+|---|----------|-------|------------|
+| E01 | Variable Types | int, double, char, bool | Easy |
+| E02 | Name and Age | cin, string concatenation | Easy |
+| E03 | Sizeof Types | sizeof for all basic types | Easy |
+| E04 | Float Precision | float vs double, setprecision | Medium |
+| E05 | Integer Division | Integer division trap | Medium |
+| E06 | Char ASCII | char, casting, ASCII arithmetic | Easy |
+| E07 | Grade Check | if / else | Easy |
+| E08 | Age Classifier | if / else if / else chain | Medium |
+| E09 | Compare Numbers | Comparing two numbers | Easy |
+| E10 | Simple Calculator | Operators, division by zero | Hard |
+
 ## Repository Structure
 
 ```
@@ -73,6 +95,11 @@ LearningCpp/
 ├── 09_Conclusion/          # L76–L77  · Next steps
 ├── 10_Bonus/               # L78–L81  · Polymorphism, static libraries
 ├── 11_Advanced/            # L82      · Advanced C++
+├── exercises/              # Practice exercises for L06–L15
+│   ├── 01_variables/       # E01–E03  · Types, sizeof
+│   ├── 02_operations/      # E04–E06  · Precision, ASCII
+│   ├── 03_conditionals/    # E07–E09  · if, if-else, if-else if
+│   └── 04_combined/        # E10      · Calculator
 ├── GLOSSARY.md             # C++ terms defined in simple language
 ├── MISTAKES.md             # Common errors and how to fix them
 ├── RESOURCES.md            # Useful links, tools, and references
@@ -109,12 +136,12 @@ LearningCpp/
 - L07 · Strings
 - L08 · User Input
 - L09 · Binary Numbers and Computer Memory
-- **L10 · Integer Types** ← current
+- L10 · Integer Types
 - L11 · Floating Point Types
 - L12 · Char and Bool
 - L13 · If
 - L14 · If-Else
-- L15 · If-Else If-Else
+- **L15 · If-Else If-Else** ← current
 - L16 · Comparing Floats
 - L17 · Conditions
 - L18 · While Loops
