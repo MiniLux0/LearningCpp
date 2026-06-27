@@ -58,7 +58,12 @@ make run    # compile and run
 ```
 LearningCpp/
 ├── 01_GettingStarted/      # L01–L05  · First program, text output
+│   └── summary/
+│       └── GettingStarted_Notes.md
 ├── 02_BasicSyntax/         # L06–L26  · Variables, types, loops, arrays
+│   └── summary/
+│       ├── BasicSyntax_Notes.md
+│       └── LearningProgress.md
 ├── 03_Subroutines/         # L27–L30  · Functions, headers, prototypes
 ├── 04_ObjectOriented/      # L31–L38  · Classes, constructors, OOP
 ├── 05_PointersMemory/      # L39–L52  · Pointers, dynamic memory, references
@@ -67,8 +72,22 @@ LearningCpp/
 ├── 08_ParticleFire/        # L58–L75  · SDL2 particle fire project
 ├── 09_Conclusion/          # L76–L77  · Next steps
 ├── 10_Bonus/               # L78–L81  · Polymorphism, static libraries
-└── 11_Advanced/            # L82      · Advanced C++
+├── 11_Advanced/            # L82      · Advanced C++
+├── GLOSSARY.md             # C++ terms defined in simple language
+├── MISTAKES.md             # Common errors and how to fix them
+├── RESOURCES.md            # Useful links, tools, and references
+└── CHANGELOG.md            # Progress log with dates
 ```
+
+## Study Materials
+
+| File | Description |
+|------|-------------|
+| `GLOSSARY.md` | C++ terms explained in simple language — growing as I learn |
+| `MISTAKES.md` | Errors I have made and how I fixed them — so I do not repeat them |
+| `RESOURCES.md` | Useful links: documentation, tools, practice sites, YouTube channels |
+| `CHANGELOG.md` | When I completed each section — tracks my timeline |
+| `*/summary/*_Notes.md` | Personal study notes per section with key concepts |
 
 ## Lesson Index
 
