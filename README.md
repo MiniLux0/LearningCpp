@@ -2,7 +2,7 @@
 
 # Learning C++
 
-*Notes and exercises from **C++ Tutorial for Complete Beginners** — John Purcell (Udemy)*
+*C++ course exercises and notes — John Purcell (Udemy). Tracking my progress lesson by lesson.*
 
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?style=flat-square&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![GCC](https://img.shields.io/badge/GCC-15.2.0-F16822?style=flat-square&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
