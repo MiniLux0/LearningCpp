@@ -16,13 +16,7 @@ using namespace std;
 
 int main() {
 
-    char ch;
-
-    cout << "Enter a character: ";
-    cin >> ch;
-
-    cout << "ASCII value: " << (int)ch << "\n";
-    cout << "Next character: " << (char)(ch + 1) << "\n";
+    // Tu codigo aqui
 
     return 0;
 }

@@ -14,16 +14,7 @@ using namespace std;
 
 int main() {
 
-    string name;
-    int age;
-
-    cout << "Enter your name: ";
-    cin >> name;
-
-    cout << "Enter your age: ";
-    cin >> age;
-
-    cout << "Hola " << name << ", tienes " << age << " anios.\n";
+    // Tu codigo aqui
 
     return 0;
 }

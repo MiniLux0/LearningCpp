@@ -14,16 +14,7 @@ using namespace std;
 
 int main() {
 
-    int grade;
-
-    cout << "Enter your grade (0-100): ";
-    cin >> grade;
-
-    if (grade >= 60) {
-        cout << "Aprobado\n";
-    } else {
-        cout << "Reprobado\n";
-    }
+    // Tu codigo aqui
 
     return 0;
 }

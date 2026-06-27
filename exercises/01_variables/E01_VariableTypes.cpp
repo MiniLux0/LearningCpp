@@ -16,15 +16,7 @@ using namespace std;
 
 int main() {
 
-    int myInt = 42;
-    double myDouble = 3.14;
-    char myChar = 'A';
-    bool myBool = true;
-
-    cout << "int: " << myInt << "\n";
-    cout << "double: " << myDouble << "\n";
-    cout << "char: " << myChar << "\n";
-    cout << "bool: " << myBool << "\n";
+    int 
 
     return 0;
 }

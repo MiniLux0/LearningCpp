@@ -20,14 +20,7 @@ using namespace std;
 
 int main() {
 
-    cout << "sizeof(int):       " << sizeof(int) << " bytes\n";
-    cout << "sizeof(short):     " << sizeof(short) << " bytes\n";
-    cout << "sizeof(long):      " << sizeof(long) << " bytes\n";
-    cout << "sizeof(long long): " << sizeof(long long) << " bytes\n";
-    cout << "sizeof(float):     " << sizeof(float) << " bytes\n";
-    cout << "sizeof(double):    " << sizeof(double) << " bytes\n";
-    cout << "sizeof(char):      " << sizeof(char) << " bytes\n";
-    cout << "sizeof(bool):      " << sizeof(bool) << " bytes\n";
+    // Tu codigo aqui
 
     return 0;
 }

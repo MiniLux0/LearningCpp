@@ -8,7 +8,7 @@
  *
  * Ejemplo:
  *   Input:  10, 3, +
- *   Output: 10 + 3 = 13
+ *   Output: 10 + 3 = 13.00
  */
 
 #include <iostream>
@@ -17,35 +17,7 @@ using namespace std;
 
 int main() {
 
-    double a, b;
-    char op;
-
-    cout << "Enter first number: ";
-    cin >> a;
-
-    cout << "Enter operator (+, -, *, /): ";
-    cin >> op;
-
-    cout << "Enter second number: ";
-    cin >> b;
-
-    cout << fixed;
-
-    if (op == '+') {
-        cout << a << " + " << b << " = " << setprecision(2) << a + b << "\n";
-    } else if (op == '-') {
-        cout << a << " - " << b << " = " << setprecision(2) << a - b << "\n";
-    } else if (op == '*') {
-        cout << a << " * " << b << " = " << setprecision(2) << a * b << "\n";
-    } else if (op == '/') {
-        if (b == 0) {
-            cout << "Error: division por cero\n";
-        } else {
-            cout << a << " / " << b << " = " << setprecision(2) << a / b << "\n";
-        }
-    } else {
-        cout << "Error: operador no valido '" << op << "'\n";
-    }
+    // Tu codigo aqui
 
     return 0;
 }
