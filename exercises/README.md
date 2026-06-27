@@ -54,7 +54,7 @@ make clean
 
 Marca los ejercicios que completes:
 
-- [ ] E01 — Variable Types
+- [x] E01 — Variable Types
 - [ ] E02 — Name and Age
 - [ ] E03 — Sizeof Types
 - [ ] E04 — Float Precision
