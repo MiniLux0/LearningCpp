@@ -1,0 +1,45 @@
+# Ignorar todo por defecto
+*
+
+# ===========================
+# Permitir explícitamente
+# ===========================
+!*/                        # permitir carpetas
+!*.cpp                     # código fuente
+!*.h                       # headers
+!makefile                  # makefiles (sin extensión)
+!Makefile
+!README.md
+!.gitignore
+
+# ===========================
+# Forzar exclusión (aunque estén en carpetas permitidas)
+# ===========================
+
+# Compilados y binarios
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.dll
+*.so
+
+# Build dirs
+build/
+buildasan/
+output/
+trash/
+
+# Temporales
+*.log
+*.tmp
+*.cache
+*.bak
+
+# VSCode local
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
