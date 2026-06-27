@@ -1,0 +1,63 @@
+# =========================
+# Archivos temporales
+# =========================
+*.log
+*.tmp
+*.cache
+*.d
+
+# =========================
+# VSCode
+# =========================
+.vscode/
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Make
+# =========================
+makefile.bak
+
+# =========================
+# Personal
+# =========================
+INSTRUCCIONES.md
+
+# =========================
+# Permitir explícitamente
+# =========================
+!01_GettingStarted/
+!02_BasicSyntax/
+!03_Subroutines/
+!04_ObjectOriented/
+!05_PointersMemory/
+!06_Inheritance/
+!07_OddsAndEnds/
+!08_ParticleFire/
+!09_Conclusion/
+!10_Bonus/
+!11_Advanced/
+!*.cpp
+!*.h
+!makefile
+!Makefile
+!README.md
+!summary/
+!summary/**
+!.gitignore
+
+# =========================
+# Ignorar después de permitir
+# =========================
+build/
+buildasan/
+output/
+trash/
+*.exe
+*.out
+*.o
+*.obj
