@@ -45,10 +45,19 @@ Personal notes from section 02 of **John Purcell's** course on Udemy. Here I cov
 - `sizeof(type)` shows how many bytes it occupies
 - `<limits>` header provides `INT_MAX`, `INT_MIN`, etc.
 
-## L11 — Floating Point Types *(pending)*
+## L11 — Floating Point Types
 
-- `float` and `double` for decimal numbers
+- `float` (4 bytes) and `double` (8 bytes) for decimal numbers
 - `double` is more precise and commonly used
+- **Integer division trap:** `1 / 3 = 0` because both are `int` → truncates decimals
+- **Fix:** Make at least one operand a decimal: `1.0 / 3 = 0.333333`
+- `float` has ~7 significant digits, `double` has ~15-17
+- `<iomanip>` provides output manipulators:
+  - `fixed` — forces decimal notation (e.g., `0.333333`)
+  - `scientific` — forces scientific notation (e.g., `3.33e-01`)
+  - `setprecision(n)` — controls number of decimal places
+  - `defaultfloat` — returns to default behavior
+- Manipulators are "sticky" — once set, they affect all subsequent output
 
 ## L12 — Char and Bool *(pending)*
 
@@ -91,4 +100,4 @@ Personal notes from section 02 of **John Purcell's** course on Udemy. Here I cov
 
 ---
 
-*Last updated: L10 — Integer Types*
+*Last updated: L11 — Floating Point Types*
