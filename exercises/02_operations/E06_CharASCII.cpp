@@ -14,9 +14,13 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
+    char cValue;
+    cout << "Enter a caracter: ";
+    cin >> cValue;
 
-    // Tu codigo aqui
-
+    cout << "ASCII Value: " << (int)cValue <<"\n";
+    cout << "Next ASCII Value: " << char((int)cValue + 1) << ", ASCII Value: " << (int)cValue + 1 << "\n";
     return 0;
 }

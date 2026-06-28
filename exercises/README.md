@@ -55,12 +55,12 @@ make clean
 Marca los ejercicios que completes:
 
 - [x] E01 — Variable Types
-- [ ] E02 — Name and Age
-- [ ] E03 — Sizeof Types
-- [ ] E04 — Float Precision
-- [ ] E05 — Integer Division
-- [ ] E06 — Char ASCII
+- [x] E02 — Name and Age
+- [x] E03 — Sizeof Types
+- [x] E04 — Float Precision
+- [x] E05 — Integer Division
+- [x] E06 — Char ASCII
 - [ ] E07 — Grade Check
 - [ ] E08 — Age Classifier
-- [ ] E09 — Compare Numbers
-- [ ] E10 — Simple Calculator
+- [x] E09 — Compare Numbers
+- [x] E10 — Simple Calculator

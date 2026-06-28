@@ -12,9 +12,17 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
 
-    // Tu codigo aqui
+    string name;
+    int age;
 
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Enter your age: ";
+    cin >> age;
+
+    cout << "Hi " << name << " you are " << age << " years.";
     return 0;
 }

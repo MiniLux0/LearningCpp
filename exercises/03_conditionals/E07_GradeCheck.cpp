@@ -12,9 +12,19 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
 
-    // Tu codigo aqui
+    double dValue;
+
+    cout << "Enter your note: ";
+    cin >> dValue;
+
+    if(dValue >= 60){
+        cout << "Approved";
+    } else{
+        cout<< "Dissproved";
+    }
 
     return 0;
 }

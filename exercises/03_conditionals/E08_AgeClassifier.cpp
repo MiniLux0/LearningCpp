@@ -17,7 +17,20 @@ using namespace std;
 
 int main() {
 
-    // Tu codigo aqui
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;
+
+    if(age >= 65){
+        cout << "Older Adult";
+    } else if ( 18<=age  && age <= 64){
+        cout << "Adult";
+    } else if (13<= age && age <=17){
+        cout << "adolescent";
+    }else{
+        cout << "Kid";
+    }
+    
 
     return 0;
 }
