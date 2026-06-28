@@ -8,7 +8,7 @@
 [![GCC](https://img.shields.io/badge/GCC-15.2.0-F16822?style=flat-square&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
 [![Platform](https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows&logoColor=white)](https://github.com/brechtsanders/winlibs_mingw)
 [![Editor](https://img.shields.io/badge/VSCode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
-[![Progress](https://img.shields.io/badge/Progress-L15%20%2F%2082-yellow?style=flat-square)](#progress)
+[![Progress](https://img.shields.io/badge/Progress-L16%20%2F%2082-yellow?style=flat-square)](#progress)
 
 </div>
 
@@ -21,7 +21,7 @@ Personal learning repo for C++ — going from zero, building solid fundamentals 
 | # | Section | Lessons | Status |
 |---|---------|---------|:------:|
 | 01 | Getting Started | L01 – L05 | ✅ |
-| 02 | Basic Syntax | L06 – L26 | 🔄 `L15` |
+| 02 | Basic Syntax | L06 – L26 | 🔄 `L16` |
 | 03 | Subroutines | L27 – L30 | ⬜ |
 | 04 | Object Oriented Coding | L31 – L38 | ⬜ |
 | 05 | Pointers and Memory | L39 – L52 | ⬜ |
@@ -141,8 +141,8 @@ LearningCpp/
 - L12 · Char and Bool
 - L13 · If
 - L14 · If-Else
-- **L15 · If-Else If-Else** ← current
-- L16 · Comparing Floats
+- L15 · If-Else If-Else
+- **L16 · Comparing Floats** ← current
 - L17 · Conditions
 - L18 · While Loops
 - L19 · Do-While Loops

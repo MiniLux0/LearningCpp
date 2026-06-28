@@ -59,12 +59,22 @@ Personal notes from section 02 of **John Purcell's** course on Udemy. Here I cov
   - `defaultfloat` — returns to default behavior
 - Manipulators are "sticky" — once set, they affect all subsequent output
 
-## L12 — Char and Bool *(pending)*
+## L16 — Comparing Floats
+
+- **Never** compare floats with `==` directly
+- Floating point arithmetic has precision errors: `0.1 + 0.2 != 0.3`
+- Solution: use an **epsilon** (tolerance)
+- `#include <cmath>` provides `abs()` for absolute value
+- Pattern: `abs(a - b) < epsilon` means "a and b are close enough"
+- Typical epsilon: `0.000001` (depends on precision needed)
+- `float` has ~7 significant digits, `double` has ~15-17
+
+## L12 — Char and Bool
 
 - `char` holds a single character in single quotes: `'A'`
 - `bool` holds `true` or `false`
 
-## L13–L17 — Conditionals *(pending)*
+## L13–L15 — Conditionals
 
 - `if`, `if-else`, `if-else if-else`
 - Comparison operators: `==`, `!=`, `<`, `>`, `<=`, `>=`

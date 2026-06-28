@@ -26,7 +26,8 @@ Progress log: when I completed each section.
   - L13: If ✅
   - L14: If Else ✅
   - L15: If Else If Else ✅
-  - L16–L26: Pending
+  - L16: Comparing Floats ✅
+  - L17–L26: Pending
 
 ### Added
 - README.md with structure and progress

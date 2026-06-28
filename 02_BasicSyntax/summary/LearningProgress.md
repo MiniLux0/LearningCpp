@@ -18,7 +18,7 @@
 - **L13_If.cpp** — Basic if statements with conditions (fixed logic bug: second condition now uses >= 18)
 - **L14_IfElse.cpp** — If-else control flow
 - **L15_IfElseIfElse.cpp** — If-else if-else chains (fixed: replaced endl with \n for consistency)
-- **L16_ComparingFloats.cpp** — Empty — no content yet
+- **L16_ComparingFloats.cpp** — Comparing floats with epsilon tolerance, avoiding == for floating point
 - **L17_Conditions.cpp** — Empty — no content yet
 - **L18_WhileLoops.cpp** — Empty — no content yet
 - **L19_DoWhileLoops.cpp** — Empty — no content yet
