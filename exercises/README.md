@@ -60,7 +60,7 @@ Marca los ejercicios que completes:
 - [x] E04 — Float Precision
 - [x] E05 — Integer Division
 - [x] E06 — Char ASCII
-- [ ] E07 — Grade Check
-- [ ] E08 — Age Classifier
+- [x] E07 — Grade Check
+- [x] E08 — Age Classifier
 - [x] E09 — Compare Numbers
 - [x] E10 — Simple Calculator
