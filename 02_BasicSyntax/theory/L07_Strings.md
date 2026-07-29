@@ -24,4 +24,12 @@ int main() {
 
     return 0;
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L06 — Variables & Data Types**](L06_Variables.md) | [**Basic Syntax**](../) | [**L08 — Advanced User Input**](L08_UserInput.md) |
+
 ```

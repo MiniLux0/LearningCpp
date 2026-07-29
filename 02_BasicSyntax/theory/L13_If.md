@@ -19,3 +19,11 @@ if (condition) {
 - `<=` (Less than or equal to)
 - `==` (Equal to — **not** single `=`)
 - `!=` (Not equal to)
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L12 — Char & Bool Types**](L12_CharAndBool.md) | [**Basic Syntax**](../) | [**L14 — Conditionals: if-else**](L14_IfElse.md) |
+

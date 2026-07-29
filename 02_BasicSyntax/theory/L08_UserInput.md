@@ -21,4 +21,12 @@ int main() {
     cout << "You entered: " << full_sentence << "\n";
     return 0;
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L07 — Working with Strings**](L07_Strings.md) | [**Basic Syntax**](../) | [**L09 — Binary & Memory Layout**](L09_BinaryNumbers.md) |
+
 ```

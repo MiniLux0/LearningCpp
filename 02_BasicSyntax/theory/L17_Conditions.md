@@ -17,4 +17,12 @@ int divisor = 0;
 if (divisor != 0 && (100 / divisor > 5)) {
     // Process calculation
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L16 — Comparing Floats**](L16_ComparingFloats.md) | [**Basic Syntax**](../) | [**L18 — The while Loop**](L18_WhileLoops.md) |
+
 ```

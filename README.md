@@ -107,7 +107,8 @@ make
 ## 📚 Documentation & Resources
 
 - 📜 [**TEMARIO.md**](TEMARIO.md): Detailed lesson syllabus.
-- 🛠️ [**MAKEFILE_GUIDE.md**](docs/MAKEFILE_GUIDE.md): Complete guide to the C++ build system, flags, AddressSanitizer, and Makefile reuse.
+- ⚙️ [**COMPILATION_GUIDE.md**](docs/COMPILATION_GUIDE.md): Beginner step-by-step tutorial on compiling C++ manually with GCC and using Makefiles.
+- 🛠️ [**MAKEFILE_GUIDE.md**](docs/MAKEFILE_GUIDE.md): Complete technical guide to the build system, compiler flags, AddressSanitizer, and Makefile reuse.
 - 🔗 [**RESOURCES.md**](RESOURCES.md): Catalog of books, handouts, and official Stanford CS106X assignments.
 
 ---

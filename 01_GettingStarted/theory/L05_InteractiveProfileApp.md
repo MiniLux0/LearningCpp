@@ -62,3 +62,11 @@ int main() {
 - [x] Variable declaration (`std::string`, `int`)
 - [x] User input capture with `std::cin >>`
 - [x] Output chaining `std::cout << "Text: " << variable << "\n";`
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Module |
+|:------------------:|:---------------:|:--------------:|
+| [**L04 — Interactive User Input**](L04_UserInputCin.md) | [**Getting Started**](../) | [**L06 — Variables & Data Types**](../../02_BasicSyntax/theory/L06_Variables.md) |
+

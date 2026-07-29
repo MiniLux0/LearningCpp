@@ -18,4 +18,12 @@ int main() {
     std::cout << std::setprecision(10) << pi << "\n";
     return 0;
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L10 — Integer Data Types**](L10_IntegerTypes.md) | [**Basic Syntax**](../) | [**L12 — Char & Bool Types**](L12_CharAndBool.md) |
+
 ```

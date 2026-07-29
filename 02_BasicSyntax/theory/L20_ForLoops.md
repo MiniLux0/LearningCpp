@@ -28,4 +28,12 @@ for (int row = 1; row <= 3; ++row) {
     }
     cout << "\n";
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L19 — The do-while Loop**](L19_DoWhileLoops.md) | [**Basic Syntax**](../) | [**L21 — break and continue**](L21_BreakAndContinue.md) |
+
 ```

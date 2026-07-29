@@ -17,3 +17,11 @@ Adding `unsigned` eliminates negative numbers, doubling the positive range (e.g.
 
 ### Integer Overflow:
 Exceeding the maximum limit wraps around to negative values (Two's Complement overflow behavior).
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L09 — Binary & Memory Layout**](L09_BinaryNumbers.md) | [**Basic Syntax**](../) | [**L11 — Floating-Point Types**](L11_FloatingPointTypes.md) |
+

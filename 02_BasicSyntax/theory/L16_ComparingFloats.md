@@ -26,4 +26,12 @@ Compare floating-point values using an **epsilon threshold** ($10^{-9}$):
 bool are_equal(double x, double y, double epsilon = 1e-9) {
     return std::abs(x - y) < epsilon;
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L15 — Conditionals: if-else if-else**](L15_IfElseIfElse.md) | [**Basic Syntax**](../) | [**L17 — Complex Logical Conditions**](L17_Conditions.md) |
+
 ```

@@ -55,3 +55,11 @@ int main() {
 1. **Consistent Indentation**: Always indent code inside `{}` blocks by 4 spaces.
 2. **One Statement per Line**: Keep lines clean; don't pack multiple statements together.
 3. **End with Semicolons**: Every statement MUST end with `;`.
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L02 — Namespaces & std::**](L02_NamespacesAndStd.md) | [**Getting Started**](../) | [**L04 — Interactive User Input**](L04_UserInputCin.md) |
+

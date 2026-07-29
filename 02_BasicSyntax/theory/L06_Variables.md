@@ -26,3 +26,11 @@ bool isPassed = true;   // Boolean (true/false)
 | `*` | Multiplication | `a * b` | `30` |
 | `/` | Division | `a / b` | `3` (Integer division truncates decimals!) |
 | `%` | Modulo (Remainder) | `a % b` | `1` |
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Module | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L05 — Profile Generator**](../../01_GettingStarted/theory/L05_InteractiveProfileApp.md) | [**Basic Syntax**](../) | [**L07 — Working with Strings**](L07_Strings.md) |
+

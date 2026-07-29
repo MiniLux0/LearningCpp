@@ -48,3 +48,11 @@ int main() {
 1. **Declare Variables First**: You must declare a variable (e.g., `std::string name;`) before passing it to `std::cin >> name;`.
 2. **Single-Word Reading**: `std::cin >>` reads up to the first whitespace (space, tab, newline). To read full sentences with spaces, we use `std::getline()`.
 3. **Data Type Matching**: Make sure the user inputs the expected type (e.g., entering letters into an `int` variable will cause an input error).
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L03 — Comments & Formatting**](L03_CommentsAndFormatting.md) | [**Getting Started**](../) | [**L05 — Profile Generator Project**](L05_InteractiveProfileApp.md) |
+

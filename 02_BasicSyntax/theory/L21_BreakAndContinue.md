@@ -23,4 +23,12 @@ for (int i = 1; i <= 5; ++i) {
     if (i == 3) continue; // Skips printing 3
     cout << i << " ";
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L20 — The for Loop**](L20_ForLoops.md) | [**Basic Syntax**](../) | [**L22 — switch-case Statement**](L22_Switch.md) |
+
 ```

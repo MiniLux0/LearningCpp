@@ -18,4 +18,12 @@ if (age >= 18 && score >= 70) {
 } else {
     cout << "Score insufficient.\n";
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L14 — Conditionals: if-else**](L14_IfElse.md) | [**Basic Syntax**](../) | [**L16 — Comparing Floats**](L16_ComparingFloats.md) |
+
 ```

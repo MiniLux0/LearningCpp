@@ -20,4 +20,12 @@ while (counter <= 5) {
     cout << "Count: " << counter << "\n";
     counter++; // Increment step
 }
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L17 — Complex Logical Conditions**](L17_Conditions.md) | [**Basic Syntax**](../) | [**L19 — The do-while Loop**](L19_DoWhileLoops.md) |
+
 ```

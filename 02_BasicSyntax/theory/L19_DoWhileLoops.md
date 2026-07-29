@@ -19,4 +19,12 @@ do {
     cout << "1. Play\n2. Exit\nEnter choice: ";
     cin >> choice;
 } while (choice != 1 && choice != 2);
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L18 — The while Loop**](L18_WhileLoops.md) | [**Basic Syntax**](../) | [**L20 — The for Loop**](L20_ForLoops.md) |
+
 ```

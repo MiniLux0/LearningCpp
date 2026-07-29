@@ -20,3 +20,11 @@ char next = letter + 1;       // ASCII math: 'B'
 ## 🔘 2. Booleans (`bool`)
 
 Stores truth values: `true` (evaluates to `1`) or `false` (evaluates to `0`).
+
+---
+
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L11 — Floating-Point Types**](L11_FloatingPointTypes.md) | [**Basic Syntax**](../) | [**L13 — Conditionals: if**](L13_If.md) |
+
