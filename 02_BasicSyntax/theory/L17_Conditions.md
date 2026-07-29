@@ -1,22 +1,44 @@
-# Lesson 17 — Complex Logical Conditions & Short-Circuit Evaluation
+# Lesson 17 — Complex Conditions & Short-Circuit Evaluation
 
-In this lesson, you will learn truth tables and short-circuit evaluation in boolean expressions.
+In C++, boolean expressions inside `if` statements are evaluated efficiently using **Short-Circuit Evaluation**.
+
+Understanding short-circuiting is crucial because it allows you to write safe code that avoids runtime crashes (like dividing by zero)!
 
 ---
 
-## ⚡ Short-Circuit Evaluation
+## ⚡ 1. How Short-Circuit Evaluation Works
 
-- In `A && B`: If `A` is `false`, `B` is **never evaluated** (because the result is guaranteed to be `false`).
-- In `A || B`: If `A` is `true`, `B` is **never evaluated** (because the result is guaranteed to be `true`).
+- **In `A && B` (AND)**: If `A` is `false`, C++ stops immediately and evaluates the entire expression as `false`. `B` is **never executed**.
+- **In `A || B` (OR)**: If `A` is `true`, C++ stops immediately and evaluates the entire expression as `true`. `B` is **never executed**.
 
-### Safe Division Guard Example:
+---
+
+## 🛡️ 2. Real-World Use Case: Crash Guarding
+
+Suppose you want to divide numbers, but you must prevent a **divide-by-zero crash**:
+
 ```cpp
-int divisor = 0;
+#include <iostream>
+using namespace std;
 
-// Safe! 'divisor != 0' is false, so (100 / divisor) is NEVER executed, avoiding divide-by-zero crash!
-if (divisor != 0 && (100 / divisor > 5)) {
-    // Process calculation
+int main() {
+    int divisor = 0;
+
+    // Safe! 'divisor != 0' is FALSE, so (100 / divisor) is NEVER evaluated!
+    if (divisor != 0 && (100 / divisor > 5)) {
+        cout << "Calculation successful.\n";
+    } else {
+        cout << "Safe Guard Activated: Division by zero avoided!\n";
+    }
+
+    return 0;
 }
+```
+
+### Expected Output:
+```text
+Safe Guard Activated: Division by zero avoided!
+```
 
 ---
 
@@ -24,5 +46,3 @@ if (divisor != 0 && (100 / divisor > 5)) {
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:---------------:|:--------------:|
 | [**L16 — Comparing Floats**](L16_ComparingFloats.md) | [**Basic Syntax**](../) | [**L18 — The while Loop**](L18_WhileLoops.md) |
-
-```

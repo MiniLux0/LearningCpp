@@ -1,6 +1,10 @@
 # Lesson 13 — Conditionals: The `if` Statement
 
-Conditionals allow a program to make decisions and execute code blocks dynamically based on conditions.
+Up until now, our programs executed code sequentially from top to bottom. But what if we want our program to make decisions?
+
+For example: *"IF the user's balance is greater than $50, allow them to buy the game."*
+
+In C++, we use the **`if` statement** to execute code conditionally.
 
 ---
 
@@ -8,17 +12,50 @@ Conditionals allow a program to make decisions and execute code blocks dynamical
 
 ```cpp
 if (condition) {
-    // Code executed ONLY if condition evaluates to true
+    // Code block inside {} is executed ONLY IF condition is TRUE
 }
 ```
 
-### Relational Operators:
-- `>` (Greater than)
-- `<` (Less than)
-- `>=` (Greater than or equal to)
-- `<=` (Less than or equal to)
-- `==` (Equal to — **not** single `=`)
-- `!=` (Not equal to)
+---
+
+## ⚖️ 2. Relational Comparison Operators
+
+To build conditions inside `if (...)`, we use comparison operators:
+
+| Operator | Meaning | Example (`age = 20`) | Evaluates To |
+|:--------:|---------|----------------------|:------------:|
+| `>` | Greater than | `age > 18` | `true` |
+| `<` | Less than | `age < 18` | `false` |
+| `>=` | Greater than or equal to | `age >= 20` | `true` |
+| `<=` | Less than or equal to | `age <= 15` | `false` |
+| `==` | Equal to | `age == 20` | `true` |
+| `!=` | Not equal to | `age != 20` | `false` |
+
+> [!WARNING]
+> **The Common `=` vs `==` Bug**:
+> - `x = 5` is **assignment** (stores 5 into x).
+> - `x == 5` is **comparison** (checks if x equals 5).
+> 
+> Writing `if (x = 5)` instead of `if (x == 5)` is one of the most common beginner bugs in C++!
+
+---
+
+## 💻 3. Code Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age = 20;
+
+    if (age >= 18) {
+        cout << "Access Granted: You are an adult!\n";
+    }
+
+    return 0;
+}
+```
 
 ---
 
@@ -26,4 +63,3 @@ if (condition) {
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:---------------:|:--------------:|
 | [**L12 — Char & Bool Types**](L12_CharAndBool.md) | [**Basic Syntax**](../) | [**L14 — Conditionals: if-else**](L14_IfElse.md) |
-

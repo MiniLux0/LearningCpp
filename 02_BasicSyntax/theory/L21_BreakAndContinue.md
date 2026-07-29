@@ -1,28 +1,59 @@
 # Lesson 21 — Loop Control: `break` and `continue`
 
-Flow control statements allow altering standard loop iteration sequences dynamically.
+Sometimes during a loop iteration, you need to alter the standard flow:
+- You want to **exit the loop immediately** when a specific condition occurs (e.g., target item found).
+- You want to **skip the current item** and jump straight to the next iteration (e.g., ignore negative numbers).
+
+In C++, we use **`break`** and **`continue`**.
 
 ---
 
-## ⏹️ 1. `break`
-Exits the loop immediately, transferring control to the statement after the loop.
+## ⏹️ 1. `break`: Early Exit
+
+The `break` statement instantly terminates the entire loop, jumping out to the code after the loop body.
 
 ```cpp
-for (int i = 1; i <= 10; ++i) {
-    if (i == 5) break; // Exits loop when i reaches 5
+#include <iostream>
+using namespace std;
+
+int main() {
+    int target = 3;
+
+    for (int i = 1; i <= 5; ++i) {
+        if (i == target) {
+            cout << "Target " << target << " found! Exiting loop early.\n";
+            break; // Exits loop immediately
+        }
+        cout << "Checking " << i << "...\n";
+    }
+
+    return 0;
 }
 ```
 
 ---
 
-## ⏭️ 2. `continue`
-Skips the remainder of the current loop body and proceeds directly to the next iteration.
+## ⏭️ 2. `continue`: Skip Iteration
+
+The `continue` statement skips the rest of the code inside the loop for the current iteration and jumps directly to the next iteration.
 
 ```cpp
-for (int i = 1; i <= 5; ++i) {
-    if (i == 3) continue; // Skips printing 3
-    cout << i << " ";
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Printing ODD numbers (skipping even numbers):\n  ";
+    for (int i = 1; i <= 10; ++i) {
+        if (i % 2 == 0) {
+            continue; // Skip even numbers!
+        }
+        cout << i << " ";
+    }
+    cout << "\n";
+
+    return 0;
 }
+```
 
 ---
 
@@ -30,5 +61,3 @@ for (int i = 1; i <= 5; ++i) {
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:---------------:|:--------------:|
 | [**L20 — The for Loop**](L20_ForLoops.md) | [**Basic Syntax**](../) | [**L22 — switch-case Statement**](L22_Switch.md) |
-
-```
