@@ -1,74 +1,61 @@
-# L23 — Functions: Why and Anatomy
+# Lesson 23 — Introduction to Functions (Subroutines)
 
-> **Concepto central**: Extraer código repetido a **funciones reutilizables** con nombre, parámetros y retorno.
+Imagine you are building a house. Instead of manufacturing every brick, pipe, and window from scratch every single time, you use pre-built components that do specific jobs.
 
----
-
-## 🎯 Por qué funciones
-
-| Problema *copy-paste* | Solución: Función |
-|------------------------|-------------------|
-| Bug en una copia → arreglar en **todas** | Bug en **un lugar** |
-| Código repetido = ilegible | `raiseToPower(3,4)` se **lee solo** |
-| Otro programador reimplementa | Otro programador **reutiliza** |
+In programming, **functions** (also called subroutines) are reusable blocks of code designed to perform a specific task.
 
 ---
 
-## 🔬 Anatomía de una función
+## 🛠️ 1. Why Do We Need Functions?
+
+Without functions, if you need to calculate a tax 10 times in your code, you would have to copy and paste the same 5 lines of math 10 times.
+- If the tax formula changes, you have to update it in 10 different places!
+- Functions follow the **DRY Principle** (*Don't Repeat Yourself*).
+
+---
+
+## 💻 2. Function Syntax & Anatomy
 
 ```cpp
-int raiseToPower(int base, int exponent)  // ← SIGNATURE (firma)
-{                                          // ← BODY (cuerpo)
-    int result = 1;
-    for (int i = 0; i < exponent; ++i) {
-        result = result * base;
-    }
-    return result;                         // ← RETURN statement
+#include <iostream>
+using namespace std;
+
+// 1. Defining a Function
+void showWelcomeBanner() {
+    cout << "========================================\n";
+    cout << "   WELCOME TO SUBROUTINES IN C++        \n";
+    cout << "========================================\n";
+}
+
+int main() {
+    // 2. Calling (Invoking) the Function
+    showWelcomeBanner();
+    cout << "Program logic running...\n";
+    showWelcomeBanner(); // Called again!
+
+    return 0;
 }
 ```
 
-| Parte | Qué es | Ejemplo |
-|-------|--------|---------|
-| **Return type** | Tipo que devuelve | `int` |
-| **Name** | Identificador | `raiseToPower` |
-| **Parameters** | Entradas (tipo + nombre) | `int base, int exponent` |
-| **Body** | Implementación | `{ ... }` |
-| **Return** | Valor de salida + salida inmediata | `return result;` |
+### Breakdown:
+- **`void`**: Return type indicating this function performs an action but does **not** return a value.
+- **`showWelcomeBanner()`**: Function name followed by parentheses `()`.
+- **`showWelcomeBanner();`**: Function call executing the body.
 
-> ⚠️ **El orden de parámetros importa**: `raiseToPower(2,3) = 8` pero `raiseToPower(3,2) = 9`
-
----
-
-## 🧪 Pregunta de chequeo
-
-```cpp
-int resta(int a, int b) { return a - b; }
+### Expected Output:
+```text
+========================================
+   WELCOME TO SUBROUTINES IN C++        
+========================================
+Program logic running...
+========================================
+   WELCOME TO SUBROUTINES IN C++        
+========================================
 ```
 
-| Llamada | Resultado | Por qué |
-|---------|-----------|---------|
-| `resta(10, 3)` | `7` | `10 - 3` |
-| `resta(3, 10)` | `-7` | `3 - 10` |
-
-**El orden de argumentos define semántica** — no son intercambiables aunque sean mismo tipo.
-
 ---
 
-## 📝 Código de referencia
-
-Ver [`L23_Functions.cpp`](../L23_Functions.cpp) — incluye:
-- `raiseToPower` reutilizable
-- Demo de orden de parámetros
-- `resta` con ambas llamadas
-
----
-
-## 🔗 Archivos relacionados
-
-- [`../L23_Functions.cpp`](../L23_Functions.cpp) — Implementación completa con ejemplos ejecutables
-
-## 🔗 Navegación
-
-| ← Anterior | Siguiente → |
-|------------|-------------|
-| [L22 — Switch](../../02_BasicSyntax/L22_Switch.cpp) | [L24 — Return Values](L24_ReturnValues.md) |
+### 🧭 Navigation & Progression
+| ⬅️ Previous Module | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L22 — switch-case Statement**](../../02_BasicSyntax/theory/L22_Switch.md) | [**Subroutines**](../) | [**L24 — Return Values**](L24_ReturnValues.md) |

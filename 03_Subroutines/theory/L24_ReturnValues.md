@@ -1,171 +1,59 @@
-# L24 — Return Values (Valores de Retorno)
+# Lesson 24 — Return Values & Function Types
 
-> **Concepto central**: Una función devuelve **exactamente un valor** cuyo tipo debe coincidir con la declaración.
+Think of a function like a calculator or a coffee machine: you press a button or feed it data, it performs work, and it **gives you back a result** (a number or a cup of coffee).
 
----
-
-## 🎯 Objetivos de aprendizaje
-
-- [ ] Entender la regla básica: tipo de retorno = tipo del valor en `return`
-- [ ] Saber cuándo y cómo usar `void`
-- [ ] Entender que `void` no es tipo de variable
-- [ ] Usar *early return* (return anticipado) como *guard clause*
-- [ ] Comprender *function overloading* (sobrecarga por parámetros)
-- [ ] Resolver promoción de `char` en resolución de sobrecarga
+In C++, functions can return data back to the place where they were called using the **`return`** keyword.
 
 ---
 
-## 1. Regla básica: el tipo debe coincidir
+## ↩️ 1. Return Types
+
+Instead of `void`, you replace `void` with the **data type** of the value the function will return:
 
 ```cpp
-int foo() {
-    return "hello";  // ❌ ERROR: "hello" es const char*, no int
+#include <iostream>
+using namespace std;
+
+// Function returning an integer (int)
+int calculateSquare(int number) {
+    return number * number; // Sends result back to caller
 }
 
-char* foo() {
-    return "hello";  // ✅ OK: coincide char*
-}
-```
-
-| Declaración | `return` válido | `return` inválido |
-|-------------|-----------------|-------------------|
-| `int f()` | `42`, `x + y` | `"hola"`, `3.14` |
-| `double f()` | `3.14`, `42` (promoción) | `"hola"` |
-| `string f()` | `"hola"`, `s` | `42` |
-| `void f()` | `return;` (solo salida) | `return 5;` ❌ |
-
-> **Regla**: *El tipo de lo que retornas debe coincidir con el tipo de retorno declarado.*
-
----
-
-## 2. `void` — cuando no retornas nada
-
-```cpp
-void printNumber(int num) {
-    cout << "number is " << num << endl;
-    // return;  // opcional en void
-    // return 5; // ❌ ERROR: void no puede retornar valor
+// Function returning a boolean (bool)
+bool isEven(int number) {
+    return (number % 2 == 0);
 }
 
 int main() {
-    printNumber(4);  // number is 4
-    return 0;
-}
-```
+    int val = 7;
 
-### ⚠️ Trampa clásica: `void` no es tipo de variable
+    // Storing returned value in a variable
+    int result = calculateSquare(val);
+    cout << "Square of " << val << " = " << result << "\n";
 
-```cpp
-int main() {
-    void x;  // ❌ ERROR: void solo existe como tipo de RETORNO
-    return 0;
-}
-```
-
-> `void` significa "esta función no produce valor" — no "un valor vacío".
-
----
-
-## 3. Return anticipado (Early Return) — Guard Clauses
-
-El `return` sale **inmediatamente** de la función, sin importar código posterior.
-
-```cpp
-void printNumberIfEven(int num) {
-    if (num % 2 == 1) {
-        cout << "odd number" << endl;
-        return;  // sale AQUÍ si es impar
+    // Using return value directly inside if condition
+    if (isEven(val)) {
+        cout << val << " is Even\n";
+    } else {
+        cout << val << " is Odd\n";
     }
-    cout << "even number; number is " << num << endl;
+
+    return 0;
 }
 ```
 
-**Patrón Guard Clause**: valida precondiciones al inicio, retorna temprano si fallan.
-
-```cpp
-double divideSeguro(double a, double b) {
-    if (b == 0.0) return 0.0;  // guard clause
-    return a / b;
-}
+### Expected Output:
+```text
+Square of 7 = 49
+7 is Odd
 ```
 
----
-
-## 4. Function Overloading (Sobrecarga)
-
-Mismo nombre, **distintos parámetros** (tipo o cantidad). El compilador elige según los **argumentos** de la llamada.
-
-```cpp
-// Sobrecarga por TIPO
-void printOnNewLine(int x) {
-    cout << "Integer: " << x << endl;
-}
-void printOnNewLine(char* x) {
-    cout << "String: " << x << endl;
-}
-
-// Sobrecarga por CANTIDAD
-void printOnNewLine(int x) {
-    cout << "1 integer: " << x << endl;
-}
-void printOnNewLine(int x, int y) {
-    cout << "2 integers: " << x << " and " << y << endl;
-}
-```
-
-| Llamada | Resuelve a |
-|---------|------------|
-| `printOnNewLine(3)` | `void printOnNewLine(int)` |
-| `printOnNewLine("hello")` | `void printOnNewLine(char*)` |
-| `printOnNewLine(10)` | `void printOnNewLine(int)` (1 arg) |
-| `printOnNewLine(10, 20)` | `void printOnNewLine(int, int)` (2 args) |
-
-> **El tipo de retorno NO diferencia sobrecargas** — solo los parámetros.
+> [!WARNING]
+> Once a function executes a `return` statement, it **immediately exits**. Any code written below a `return` line inside that function will never be executed!
 
 ---
 
-## 5. Pregunta de chequeo: Promoción de `char`
-
-```cpp
-void mostrar(int x)    { cout << "int: " << x << endl; }
-void mostrar(double x) { cout << "double: " << x << endl; }
-
-mostrar(5);    // → int: 5     (coincidencia exacta int)
-mostrar(5.0);  // → double: 5  (coincidencia exacta double)
-mostrar('A');  // → int: 65    (char se PROMUEVE a int, NO a double)
-```
-
-### ¿Por qué `char` → `int` y no `double`?
-
-| Conversión | Tipo | Costo |
-|------------|------|-------|
-| `char` → `int` | **Promoción integral** | Barata (preferida) |
-| `char` → `double` | Conversión flotante | Más cara |
-
-> En C++, `char` es un tipo entero pequeño. Su promoción natural es a `int` (su valor ASCII). El compilador elige la conversión **más barata/preferida**.
-
----
-
-## 📋 Resumen clave L28
-
-| Concepto | Regla |
-|----------|-------|
-| Tipo retorno | Debe coincidir exactamente con `return` |
-| `void` | Sin retorno — solo `return;` |
-| `void` variable | ❌ Prohibido |
-| Early return | Sale ya — útil para guard clauses |
-| Overloading | Mismo nombre, **distintos parámetros** |
-| Retorno en overload | **No cuenta** para diferenciar |
-| `char` en overload | Se promueve a `int` (no `double`) |
-
----
-
-## 🔗 Archivos relacionados
-
-- [`../L24_ReturnValues.cpp`](../L24_ReturnValues.cpp) — Implementación completa con ejemplos ejecutables
-
-## 🔗 Navegación
-
-| ← Anterior | Siguiente → |
-|------------|-------------|
-| [L23 — Functions](L23_Functions.md) | [L25 — Function Parameters](L25_FunctionParameters.md) |
+### 🧭 Navigation & Progression
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L23 — Introduction to Functions**](L23_Functions.md) | [**Subroutines**](../) | [**L25 — Function Parameters**](L25_FunctionParameters.md) |
