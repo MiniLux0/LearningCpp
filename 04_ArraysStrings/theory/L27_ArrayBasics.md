@@ -168,8 +168,7 @@ int main() {
 
 - [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp) — Código ejecutable con declaración, inicialización y recorrido de arreglos
 
-## Navegación
-
-| ← Anterior | Siguiente → |
-|------------|-------------|
-| [L30 — Headers and Prototypes](../../03_Subroutines/theory/L30_HeadersAndPrototypes.md) | [L28 — Arrays as Parameters](L28_ArraysAsParameters.md) |
+### 🧭 Navigation & Progression
+| ⬅️ Previous Module | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:---------------:|:--------------:|
+| [**L26 — Headers & Prototypes**](../../03_Subroutines/theory/L26_HeadersAndPrototypes.md) | [**Arrays & Strings**](../) | [**L28 — Arrays as Parameters**](L28_ArraysAsParameters.md) |

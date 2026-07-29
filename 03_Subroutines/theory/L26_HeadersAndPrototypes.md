@@ -42,4 +42,4 @@ In professional C++ software development:
 ### 🧭 Navigation & Progression
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Module |
 |:------------------:|:---------------:|:--------------:|
-| [**L25 — Function Parameters**](L25_FunctionParameters.md) | [**Subroutines**](../) | [**L27 — Arrays & Strings**](../../04_ArraysStrings/theory/L27_Arrays.md) |
+| [**L25 — Function Parameters**](L25_FunctionParameters.md) | [**Subroutines**](../) | [**L27 — Array Basics**](../../04_ArraysStrings/theory/L27_ArrayBasics.md) |
