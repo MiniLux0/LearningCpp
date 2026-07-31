@@ -32,20 +32,20 @@ For a complete breakdown of course difficulty levels, pedagogical differences, a
 
 ## 📊 Modules Map & Progress
 
-| # | Module | Lessons | Base Source | Key Topics | Status |
-|---|--------|---------|-------------|------------|:------:|
-| **01** | [`01_GettingStarted`](01_GettingStarted/) | L01 – L05 | MIT L1 / CS106L | First program, text output, comments, `std::cin` & `std::cout` | ✅ |
-| **02** | [`02_BasicSyntax`](02_BasicSyntax/) | L06 – L22 | MIT L2 / CS106L | Primitive types, Uniform Initialization `{}` , conditionals, loops | 🔄 |
-| **03** | [`03_Subroutines`](03_Subroutines/) | L23 – L26 | MIT L3 / CS106L | Functions, pass-by-reference (`&`, `const &`), `.h` headers | ✅ |
-| **04** | [`04_ArraysStrings`](04_ArraysStrings/) | L27 – L30 | MIT L4 / CS106L | 1D/2D arrays, C-strings, `std::string`, stringstreams | 🔄 |
-| **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | L31 – L38 | Stanford CS106B/X | Recursion, Big-O Notation, MergeSort, QuickSort | ⬜ |
-| **06** | [`06_Pointers`](06_Pointers/) | L39 – L46 | MIT L5 / CS106L | Pointers, references, Const-Correctness, callbacks, 2D matrices | ⬜ |
-| **07** | [`07_Classes`](07_Classes/) | L47 – L52 | MIT L6 / CS106L | Structs, classes, encapsulation, Operator Overloading | ⬜ |
-| **08** | [`08_OOP`](08_OOP/) | L53 – L58 | MIT L7 / CS106L | Inheritance, polymorphism, `virtual`, destructors | ⬜ |
-| **09** | [`09_MemoryManagement`](09_MemoryManagement/) | L59 – L63 | MIT L8 / CS106L | Stack vs Heap, `new`/`delete`, RAII, Rule of 0/3/5, Move Semantics, Smart Pointers | ⬜ |
-| **10** | [`10_DataStructures`](10_DataStructures/) | L64 – L68 | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Graphs | ⬜ |
-| **11** | [`11_FileIO`](11_FileIO/) | L69 – L72 | MIT L10 / CS106L | Stream states, Text (`.txt`) and Binary (`.bin`) Files | ⬜ |
-| **12** | [`12_AdvancedCPP`](12_AdvancedCPP/) | L73 – L75 | MIT L9-10 / CS106L | Templates, STL Containers, Lambdas, Huffman & WikiRacer | ⬜ |
+| # | Module | Lessons | Base Source | Key Topics | Theory Notes | Code Lab | Status |
+|---|--------|---------|-------------|------------|:------------:|:--------:|:------:|
+| **01** | [`01_GettingStarted`](01_GettingStarted/) | L01 – L05 | MIT L1 / CS106L | First program, text output, comments, `std::cin` & `std::cout` | 📘 [`theory/`](01_GettingStarted/theory/) | 💻 [`code/`](01_GettingStarted/code/) | ✅ |
+| **02** | [`02_BasicSyntax`](02_BasicSyntax/) | L06 – L22 | MIT L2 / CS106L | Primitive types, Uniform Initialization `{}` , conditionals, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | 🔄 |
+| **03** | [`03_Subroutines`](03_Subroutines/) | L23 – L26 | MIT L3 / CS106L | Functions, pass-by-reference (`&`, `const &`), `.h` headers | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
+| **04** | [`04_ArraysStrings`](04_ArraysStrings/) | L27 – L30 | MIT L4 / CS106L | 1D/2D arrays, C-strings, `std::string`, stringstreams | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | 🔄 |
+| **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | L31 – L38 | Stanford CS106B/X | Recursion, Big-O Notation, MergeSort, QuickSort | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **06** | [`06_Pointers`](06_Pointers/) | L39 – L46 | MIT L5 / CS106L | Pointers, references, Const-Correctness, callbacks, 2D matrices | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **07** | [`07_Classes`](07_Classes/) | L47 – L52 | MIT L6 / CS106L | Structs, classes, encapsulation, Operator Overloading | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **08** | [`08_OOP`](08_OOP/) | L53 – L58 | MIT L7 / CS106L | Inheritance, polymorphism, `virtual`, destructors | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **09** | [`09_MemoryManagement`](09_MemoryManagement/) | L59 – L63 | MIT L8 / CS106L | Stack vs Heap, `new`/`delete`, RAII, Rule of 0/3/5, Move Semantics | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **10** | [`10_DataStructures`](10_DataStructures/) | L64 – L68 | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Graphs | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **11** | [`11_FileIO`](11_FileIO/) | L69 – L72 | MIT L10 / CS106L | Stream states, Text (`.txt`) and Binary (`.bin`) Files | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **12** | [`12_AdvancedCPP`](12_AdvancedCPP/) | L73 – L75 | MIT L9-10 / CS106L | Templates, STL Containers, Lambdas, Huffman & WikiRacer | 📘 `theory/` | 💻 `code/` | ⬜ |
 
 > 📜 For a detailed step-by-step lesson breakdown, check [**TEMARIO.md**](TEMARIO.md).
 

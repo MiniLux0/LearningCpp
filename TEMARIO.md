@@ -18,20 +18,20 @@
 
 ## 📊 Complete Modules Map (Lessons L01 – L75)
 
-| # | Section | Base Source | Key Content | Status |
-|---|---------|-------------|-------------|:------:|
-| **01** | `01_GettingStarted` | MIT L1 / CS106L L1 | First program, compilation pipeline, tokens, `cout`/`cin` | ✅ |
-| **02** | `02_BasicSyntax` | MIT L2 / CS106L L2-3 | Primitive types, Uniform Initialization `{}` , conditionals, loops | 🔄 |
-| **03** | `03_Subroutines` | MIT L3 / CS106L L3 | Functions, pass-by-value/reference (`&`, `const &`), `.h` headers | ✅ |
-| **04** | `04_ArraysStrings` | MIT L4 / CS106L L4 | Static 1D/2D arrays, C-strings (`<cstring>`), Streams & `std::string` | 🔄 |
-| **05** | `05_RecursionAlgorithms` | Stanford CS106B/X | Recursion vs. Iteration, Backtracking, Big-O Notation, Search & Sorting | ⬜ |
-| **06** | `06_Pointers` | MIT L5 / CS106L L3,11 | Pointers, pointer arithmetic, references, Const-Correctness, callbacks | ⬜ |
-| **07** | `07_Classes` | MIT L6 / CS106L L2,10,12 | Structs vs Classes, encapsulation, constructors, Operator Overloading | ⬜ |
-| **08** | `08_OOP` | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, virtual functions, abstract classes | ⬜ |
-| **09** | `09_MemoryManagement` | MIT L8 / CS106L L13-15 | Stack vs Heap, RAII, Rule of 0/3/5, Move Semantics (`std::move`), Smart Pointers | ⬜ |
-| **10** | `10_DataStructures` | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Priority Queues | ⬜ |
-| **11** | `11_FileIO` | MIT L10 / CS106L L4 | Stream States (`stringstream`, `ifstream`), Text & Binary File I/O | ⬜ |
-| **12** | `12_AdvancedCPP` | MIT L9-10 / CS106L L5-9 | Templates, STL Containers & Iterators, Lambdas, Exceptions, Huffman Compression | ⬜ |
+| # | Section | Base Source | Key Content | Theory Notes | Code Lab | Status |
+|---|---------|-------------|-------------|:------------:|:--------:|:------:|
+| **01** | [`01_GettingStarted`](01_GettingStarted/) | MIT L1 / CS106L L1 | First program, compilation pipeline, tokens, `cout`/`cin` | 📘 [`theory/`](01_GettingStarted/theory/) | 💻 [`code/`](01_GettingStarted/code/) | ✅ |
+| **02** | [`02_BasicSyntax`](02_BasicSyntax/) | MIT L2 / CS106L L2-3 | Primitive types, Uniform Initialization `{}` , conditionals, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | 🔄 |
+| **03** | [`03_Subroutines`](03_Subroutines/) | MIT L3 / CS106L L3 | Functions, pass-by-value/reference (`&`, `const &`), `.h` headers | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
+| **04** | [`04_ArraysStrings`](04_ArraysStrings/) | MIT L4 / CS106L L4 | Static 1D/2D arrays, C-strings (`<cstring>`), Streams & `std::string` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | 🔄 |
+| **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | Stanford CS106B/X | Recursion vs. Iteration, Backtracking, Big-O Notation, Search & Sorting | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **06** | [`06_Pointers`](06_Pointers/) | MIT L5 / CS106L L3,11 | Pointers, pointer arithmetic, references, Const-Correctness, callbacks | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **07** | [`07_Classes`](07_Classes/) | MIT L6 / CS106L L2,10,12 | Structs vs Classes, encapsulation, constructors, Operator Overloading | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **08** | [`08_OOP`](08_OOP/) | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, virtual functions, abstract classes | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **09** | [`09_MemoryManagement`](09_MemoryManagement/) | MIT L8 / CS106L L13-15 | Stack vs Heap, RAII, Rule of 0/3/5, Move Semantics (`std::move`), Smart Pointers | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **10** | [`10_DataStructures`](10_DataStructures/) | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Priority Queues | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **11** | [`11_FileIO`](11_FileIO/) | MIT L10 / CS106L L4 | Stream States (`stringstream`, `ifstream`), Text & Binary File I/O | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **12** | [`12_AdvancedCPP`](12_AdvancedCPP/) | MIT L9-10 / CS106L L5-9 | Templates, STL Containers & Iterators, Lambdas, Exceptions, Huffman Compression | 📘 `theory/` | 💻 `code/` | ⬜ |
 
 ---
 
