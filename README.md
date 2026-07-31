@@ -23,6 +23,11 @@ This repository serves as a personal log and hands-on laboratory for learning **
 - ⚡ **Stanford CS106X** (*Accelerated Programming Abstractions*): High-performance challenges, 4-way Priority Queue implementations, Huffman compression, and capstone projects.
 - ⚙️ **Stanford CS106L** (*Standard C++ Programming*): Modern C++ standards (C++11/17/20), Uniform Initialization, Streams, Containers, Custom Iterators, Lambdas, Const-Correctness, Operator Overloading, Special Member Functions (Rule of 0/3/5), Move Semantics (`std::move`), RAII, and Smart Pointers (`std::unique_ptr`, `std::shared_ptr`).
 
+### 📁 Academic Materials Archive (`files/`)
+All original academic resources supporting this study plan—lecture PDFs, problem sets, solutions, starter code, textbooks, and specialized course syllabi—are housed in the [`files/`](files/) directory. 
+
+For a complete breakdown of course difficulty levels, pedagogical differences, and open-source learning roadmaps, consult the 🌐 [**Master Academic Guide**](files/Master_Academic_Guide.md).
+
 ---
 
 ## 📊 Modules Map & Progress
@@ -68,10 +73,10 @@ LearningCpp/
 ├── files/                       # Academic materials, textbooks & syllabi
 │   ├── Master_Academic_Guide.md # 🌐 Master guide & course comparison matrix
 │   ├── README.md                # Academic files entry hub
-│   ├── mit6096/                 # MIT 6.096 (MIT_6096_Syllabus.md, lectures/, assignments/)
-│   ├── cs106b/                  # Stanford CS106B (CS106B_Syllabus.md, textbook/, assignments/)
-│   ├── cs106x/                  # Stanford CS106X (CS106X_Syllabus.md)
-│   └── cs106l/                  # Stanford CS106L (CS106L_Syllabus.md, lectures/, assignments/)
+│   ├── mit6096/                 # MIT 6.096 (README.md, lectures/, assignments/, solutions/, project/)
+│   ├── cs106b/                  # Stanford CS106B (README.md, textbook/, assignments/, sections/, libraries/)
+│   ├── cs106x/                  # Stanford CS106X (README.md, 34 handouts & 7 assignments catalog)
+│   └── cs106l/                  # Stanford CS106L (README.md, 17 lecture PDFs, 3 projects)
 │
 ├── TEMARIO.md                   # Full 75-lesson syllabus
 ├── RESOURCES.md                 # Stanford & MIT handouts, lectures, and assignments catalog
@@ -110,10 +115,12 @@ make
 
 ## 📚 Documentation & Resources
 
-- 📜 [**TEMARIO.md**](TEMARIO.md): Detailed lesson syllabus.
-- ⚙️ [**COMPILATION_GUIDE.md**](docs/COMPILATION_GUIDE.md): Beginner step-by-step tutorial on compiling C++ manually with GCC and using Makefiles.
+- 🌐 [**Master Academic Guide (`files/Master_Academic_Guide.md`)**](files/Master_Academic_Guide.md): Complete matrix comparison, course levels, learning roadmap, and syllabus alignment for MIT 6.096, Stanford CS106B, CS106X, and CS106L.
+- 📄 [**Academic Materials Archive (`files/README.md`)**](files/README.md): Central hub for local PDF lectures, problem sets, starter code, solutions, and course syllabi.
+- 📜 [**TEMARIO.md**](TEMARIO.md): Detailed 75-lesson syllabus map.
+- 🔗 [**RESOURCES.md**](RESOURCES.md): Detailed catalog of textbooks, handouts, MIT lectures, and Stanford assignments.
+- ⚙️ [**COMPILATION_GUIDE.md**](docs/COMPILATION_GUIDE.md): Beginner step-by-step tutorial on compiling C++ manually with GCC and Makefiles.
 - 🛠️ [**MAKEFILE_GUIDE.md**](docs/MAKEFILE_GUIDE.md): Complete technical guide to the build system, compiler flags, AddressSanitizer, and Makefile reuse.
-- 🔗 [**RESOURCES.md**](RESOURCES.md): Catalog of books, handouts, MIT lectures, and Stanford CS106B/X/L assignments.
 
 ---
 
