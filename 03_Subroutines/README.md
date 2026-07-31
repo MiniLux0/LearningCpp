@@ -1,9 +1,26 @@
+<div align="center">
+
 # 🚀 Section 03: Subroutines — Functions, References & Header Files
 
 > **Lessons**: L23 – L26  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 03) / Stanford CS106L (Lecture 03 & 04)  
-> 📖 **Theory Documentation Directory**: 📂 [**`03_Subroutines/theory/`**](theory/)  
+> 📖 **Theory Documentation**: 📂 [**`03_Subroutines/theory/`**](theory/)  
 > 🎯 **Primary Focus**: Modular function design, return types, parameter passing (by-value, by-reference `&`, `const &`), header file separation (`.h` / `.cpp`), and preprocessor guards.
+
+---
+
+### 🧭 Module Navigation Hub
+
+[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
+[![Master Syllabus](https://img.shields.io/badge/📜_Master-TEMARIO-F16822?style=for-the-badge)](../TEMARIO.md)
+[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
+[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| [**⬅️ Section 02: Basic Syntax**](../02_BasicSyntax/README.md) | **Section 03: Subroutines** | [**Section 04: Arrays & Strings ➡️**](../04_ArraysStrings/README.md) |
+
+</div>
 
 ---
 
@@ -81,12 +98,15 @@ make
 
 ---
 
-## 🔗 Navigation & Quick Links
+<div align="center">
 
-- ⬅️ [Previous Module: Section 02 — Basic Syntax](../02_BasicSyntax/README.md)
-- 📋 [Master Syllabus (`TEMARIO.md`)](../TEMARIO.md)
-- 🌐 [Academic Files Hub (`files/README.md`)](../files/README.md)
-- ➡️ [Next Module: Section 04 — Arrays & Strings](../04_ArraysStrings/README.md)
+### 🧭 Module Navigation Hub
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| [**⬅️ Section 02: Basic Syntax**](../02_BasicSyntax/README.md) | **Section 03: Subroutines** | [**Section 04: Arrays & Strings ➡️**](../04_ArraysStrings/README.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 03*

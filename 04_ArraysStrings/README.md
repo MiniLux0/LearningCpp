@@ -1,9 +1,26 @@
+<div align="center">
+
 # 🚀 Section 04: Arrays & Strings — Fixed Arrays, C-Strings & Streams
 
 > **Lessons**: L27 – L30  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 04) / Stanford CS106L (Lecture 04 & 05) / Stanford CS106B (Assignment 1)  
-> 📖 **Theory Documentation Directory**: 📂 [**`04_ArraysStrings/theory/`**](theory/) \| 📂 [**`04_ArraysStrings/summary/`**](summary/)  
+> 📖 **Theory Documentation**: 📂 [**`04_ArraysStrings/theory/`**](theory/) \| 📂 [**`04_ArraysStrings/summary/`**](summary/)  
 > 🎯 **Primary Focus**: Fixed-size 1D and 2D arrays, array decay to pointer, passing arrays to functions, null-terminated C-strings (`char[]`), `<cstring>` functions, and `std::string` stream processing.
+
+---
+
+### 🧭 Module Navigation Hub
+
+[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
+[![Master Syllabus](https://img.shields.io/badge/📜_Master-TEMARIO-F16822?style=for-the-badge)](../TEMARIO.md)
+[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
+[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| [**⬅️ Section 03: Subroutines**](../03_Subroutines/README.md) | **Section 04: Arrays & Strings** | [**Section 05: Recursion & Algorithms ➡️**](../05_RecursionAlgorithms/README.md) |
+
+</div>
 
 ---
 
@@ -83,12 +100,15 @@ make
 
 ---
 
-## 🔗 Navigation & Quick Links
+<div align="center">
 
-- ⬅️ [Previous Module: Section 03 — Subroutines](../03_Subroutines/README.md)
-- 📋 [Master Syllabus (`TEMARIO.md`)](../TEMARIO.md)
-- 🌐 [Academic Files Hub (`files/README.md`)](../files/README.md)
-- ➡️ [Next Module: Section 05 — Recursion & Algorithms](../05_RecursionAlgorithms/README.md)
+### 🧭 Module Navigation Hub
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| [**⬅️ Section 03: Subroutines**](../03_Subroutines/README.md) | **Section 04: Arrays & Strings** | [**Section 05: Recursion & Algorithms ➡️**](../05_RecursionAlgorithms/README.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 04*

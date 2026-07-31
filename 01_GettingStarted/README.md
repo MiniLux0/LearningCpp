@@ -1,9 +1,26 @@
+<div align="center">
+
 # 🚀 Section 01: Getting Started — C++ Fundamentals
 
 > **Lessons**: L01 – L05  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 01) / Stanford CS106L (Lecture 01 & 02)  
-> 📖 **Theory Documentation Directory**: 📂 [**`01_GettingStarted/theory/`**](theory/)  
+> 📖 **Theory Documentation**: 📂 [**`01_GettingStarted/theory/`**](theory/)  
 > 🎯 **Primary Focus**: C++ program anatomy, compilation pipeline, namespaces, formatting, user input (`std::cin`), and initial interactive applications.
+
+---
+
+### 🧭 Module Navigation Hub
+
+[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
+[![Master Syllabus](https://img.shields.io/badge/📜_Master-TEMARIO-F16822?style=for-the-badge)](../TEMARIO.md)
+[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
+[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| 🏠 [**Root Index**](../README.md) | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
+
+</div>
 
 ---
 
@@ -39,7 +56,7 @@ All theoretical concepts, compiler diagrams, and syntax rules for this module ar
 | # | Lesson | Theory Note | Code Implementation | Key Technical Concepts | Status |
 |---|--------|-------------|---------------------|------------------------|:------:|
 | **L01** | **Hello World** | 📘 [`theory/L01_HelloWorld.md`](theory/L01_HelloWorld.md) | 💻 [`L01_HelloWorld.cpp`](code/L01_HelloWorld.cpp) | Entry point `main()`, `#include <iostream>`, `std::cout`, stream insertion `<<`, return status `0`. | ✅ |
-| **L02** | **Namespaces** | 📘 [`theory/L02_NamespacesAndStd.md`](theory/L02_NamespacesAndStd.md) | 💻 [`L02_Namespaces.cpp`](code/L02_Namespaces.cpp) | Scope resolution `::`, `using namespace std;` vs explicit `std::`, preventing symbol naming collisions. | ✅ |
+| **L02** | **Namespaces** | 📘 [`theory/L02_NamespacesAndStd.md`](theory/L02_NamespacesAndStd.md) | 💻 [`L02_NamespacesAndStd.cpp`](code/L02_NamespacesAndStd.cpp) | Scope resolution `::`, `using namespace std;` vs explicit `std::`, preventing symbol naming collisions. | ✅ |
 | **L03** | **Comments & Formatting** | 📘 [`theory/L03_CommentsAndFormatting.md`](theory/L03_CommentsAndFormatting.md) | 💻 [`L03_CommentsAndFormatting.cpp`](code/L03_CommentsAndFormatting.cpp) | Single-line `//` and multi-line `/* */` comments, escape sequences (`\n`, `\t`, `\"`), `std::endl` vs `\n`. | ✅ |
 | **L04** | **Interactive User Input** | 📘 [`theory/L04_UserInputCin.md`](theory/L04_UserInputCin.md) | 💻 [`L04_UserInputCin.cpp`](code/L04_UserInputCin.cpp) | `std::cin` stream input, variable binding, combining `cin` and `cout` for interactive CLI prompts. | ✅ |
 | **L05** | **Profile Generator App** | 📘 [`theory/L05_InteractiveProfileApp.md`](theory/L05_InteractiveProfileApp.md) | 💻 [`L05_InteractiveProfileApp.cpp`](code/L05_InteractiveProfileApp.cpp) | Capstone mini-project combining user inputs, formatted output cards, and interactive variables. | ✅ |
@@ -83,12 +100,15 @@ make
 
 ---
 
-## 🔗 Navigation & Quick Links
+<div align="center">
 
-- ⬅️ [Back to Repository Root (`README.md`)](../README.md)
-- 📋 [Master Syllabus (`TEMARIO.md`)](../TEMARIO.md)
-- 🌐 [Academic Files Hub (`files/README.md`)](../files/README.md)
-- ➡️ [Next Module: Section 02 — Basic Syntax](../02_BasicSyntax/README.md)
+### 🧭 Module Navigation Hub
+
+| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
+|:------------------:|:------------------:|:--------------:|
+| 🏠 [**Root Index**](../README.md) | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 01*
