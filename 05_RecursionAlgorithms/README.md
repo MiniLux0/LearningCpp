@@ -4,7 +4,7 @@
 
 > **Lessons**: L31 – L38  
 > 🏛️ **Academic Base Source**: Stanford CS106B (Lectures 07–11) / MIT 6.096 (Lecture 05)  
-> 📖 **Theory Documentation Directory**: 📂 [**`05_RecursionAlgorithms/theory/`**](theory/)  
+> 📖 **Theory Directory**: 📂 [**`05_RecursionAlgorithms/theory/`**](theory/)  
 > 🎯 **Primary Focus**: Mathematical induction, call stack memory, base cases vs recursive steps, Big-O complexity Analysis, linear/binary search, quadratic sorts (Selection, Insertion), $O(N \log N)$ Divide & Conquer (MergeSort, QuickSort), and Recursive Backtracking.
 
 ---
@@ -26,14 +26,14 @@
 
 ## 📌 Module Overview
 
-This module introduces algorithmic thinking and recursive problem solving. It explores how functions invoke themselves on smaller subproblems, managing stack frames on the call stack, avoiding stack overflow, analyzing algorithmic efficiency via Big-O notation, binary search, recursive sorting algorithms (MergeSort, QuickSort), and exploring solution spaces via recursive backtracking.
+This module introduces algorithmic thinking and recursive problem solving: managing call stack frames, avoiding stack overflow, analyzing algorithmic efficiency with Big-O notation, binary search, recursive sorting algorithms (MergeSort, QuickSort), and recursive backtracking state exploration.
 
 ---
 
-## 💻 Lessons & Code Inventory (`05_RecursionAlgorithms/`)
+## 📋 Lessons, Theory & Code Inventory
 
-| # | Lesson | Code Implementation | Key Technical Concepts | Status |
-|---|--------|---------------------|------------------------|:------:|
+| # | Lesson Name | 💻 Code Lab | Key Technical Concepts | Status |
+|---|-------------|-------------|------------------------|:------:|
 | **L31** | **Thinking Recursively** | 💻 [`code/L31_ThinkingRecursively.cpp`](code/L31_ThinkingRecursively.cpp) | Base cases, call stack frames, induction, call stack unwind. | ✅ |
 | **L32** | **Recursive Problems** | 💻 [`code/L32_RecursiveProblems.cpp`](code/L32_RecursiveProblems.cpp) | Factorials, Fibonacci sequence, string reversal, call depth. | ✅ |
 | **L33** | **Big-O Notation** | 💻 [`code/L33_BigONotation.cpp`](code/L33_BigONotation.cpp) | Asymptotic analysis ($O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$). | ✅ |
@@ -54,7 +54,7 @@ cd 05_RecursionAlgorithms/code
 # Compile all lessons using Makefile
 make
 
-# Run a specific lesson executable
+# Run executables (Windows PowerShell / CMD)
 .\L31_ThinkingRecursively.exe
 .\L36_MergeSort.exe
 ```
