@@ -32,6 +32,7 @@ trash/
 *.json
 
 # =========================
-# Large Files (>100MB for GitHub limits)
+# AI Assistant Internal Artifacts
 # =========================
-files/cs106b/textbook/CS106BX-Reader.pdf
+.agents/
+.gemini/
