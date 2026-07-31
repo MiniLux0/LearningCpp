@@ -2,6 +2,7 @@
 
 > **Lessons**: L01 – L05  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 01) / Stanford CS106L (Lecture 01 & 02)  
+> 📖 **Theory Documentation Directory**: 📂 [**`01_GettingStarted/theory/`**](theory/)  
 > 🎯 **Primary Focus**: C++ program anatomy, compilation pipeline, namespaces, formatting, user input (`std::cin`), and initial interactive applications.
 
 ---
@@ -9,6 +10,18 @@
 ## 📌 Module Overview
 
 This module covers the first steps of C++ programming. It introduces the GCC compilation model, preprocessor directives (`#include`), entry point mechanics (`int main()`), output formatting (`std::cout`, `\n`, `std::endl`), scope management via namespaces (`std::`), and interactive console input (`std::cin`).
+
+---
+
+## 📖 Theory & Conceptual Documentation (`01_GettingStarted/theory/`)
+
+All theoretical concepts, compiler diagrams, and syntax rules for this module are documented in dedicated markdown notes:
+
+- 📘 [**`theory/L01_HelloWorld.md`**](theory/L01_HelloWorld.md) — Program anatomy, `#include <iostream>`, `int main()`, and compilation phases.
+- 📘 [**`theory/L02_NamespacesAndStd.md`**](theory/L02_NamespacesAndStd.md) — Scope resolution `::`, `using namespace std;` risks, and explicit namespace qualification.
+- 📘 [**`theory/L03_CommentsAndFormatting.md`**](theory/L03_CommentsAndFormatting.md) — Commenting standards, escape sequences (`\n`, `\t`), and `std::endl` vs `\n` performance.
+- 📘 [**`theory/L04_UserInputCin.md`**](theory/L04_UserInputCin.md) — Stream extraction `std::cin >>`, type safety, and buffer management.
+- 📘 [**`theory/L05_InteractiveProfileApp.md`**](theory/L05_InteractiveProfileApp.md) — Profile card application design, string input, and stream formatting.
 
 ---
 
@@ -21,15 +34,15 @@ This module covers the first steps of C++ programming. It introduces the GCC com
 
 ---
 
-## 💻 Lessons & Code Inventory (`01_GettingStarted/code/`)
+## 💻 Lessons, Code & Theory Inventory (`01_GettingStarted/`)
 
-| # | Lesson | Code File | Key Technical Concepts | Status |
-|---|--------|-----------|------------------------|:------:|
-| **L01** | **Hello World** | [`L01_HelloWorld.cpp`](code/L01_HelloWorld.cpp) | Entry point `main()`, `#include <iostream>`, `std::cout`, stream insertion `<<`, return status `0`. | ✅ |
-| **L02** | **Namespaces** | [`L02_Namespaces.cpp`](code/L02_Namespaces.cpp) | Scope resolution `::`, `using namespace std;` vs explicit `std::`, preventing symbol naming collisions. | ✅ |
-| **L03** | **Comments & Formatting** | [`L03_CommentsAndFormatting.cpp`](code/L03_CommentsAndFormatting.cpp) | Single-line `//` and multi-line `/* */` comments, escape sequences (`\n`, `\t`, `\"`), `std::endl` vs `\n`. | ✅ |
-| **L04** | **Interactive User Input** | [`L04_UserInputCin.cpp`](code/L04_UserInputCin.cpp) | `std::cin` stream input, variable binding, combining `cin` and `cout` for interactive CLI prompts. | ✅ |
-| **L05** | **Profile Generator App** | [`L05_InteractiveProfileApp.cpp`](code/L05_InteractiveProfileApp.cpp) | Capstone mini-project combining user inputs, formatted output cards, and interactive variables. | ✅ |
+| # | Lesson | Theory Note | Code Implementation | Key Technical Concepts | Status |
+|---|--------|-------------|---------------------|------------------------|:------:|
+| **L01** | **Hello World** | 📘 [`theory/L01_HelloWorld.md`](theory/L01_HelloWorld.md) | 💻 [`L01_HelloWorld.cpp`](code/L01_HelloWorld.cpp) | Entry point `main()`, `#include <iostream>`, `std::cout`, stream insertion `<<`, return status `0`. | ✅ |
+| **L02** | **Namespaces** | 📘 [`theory/L02_NamespacesAndStd.md`](theory/L02_NamespacesAndStd.md) | 💻 [`L02_Namespaces.cpp`](code/L02_Namespaces.cpp) | Scope resolution `::`, `using namespace std;` vs explicit `std::`, preventing symbol naming collisions. | ✅ |
+| **L03** | **Comments & Formatting** | 📘 [`theory/L03_CommentsAndFormatting.md`](theory/L03_CommentsAndFormatting.md) | 💻 [`L03_CommentsAndFormatting.cpp`](code/L03_CommentsAndFormatting.cpp) | Single-line `//` and multi-line `/* */` comments, escape sequences (`\n`, `\t`, `\"`), `std::endl` vs `\n`. | ✅ |
+| **L04** | **Interactive User Input** | 📘 [`theory/L04_UserInputCin.md`](theory/L04_UserInputCin.md) | 💻 [`L04_UserInputCin.cpp`](code/L04_UserInputCin.cpp) | `std::cin` stream input, variable binding, combining `cin` and `cout` for interactive CLI prompts. | ✅ |
+| **L05** | **Profile Generator App** | 📘 [`theory/L05_InteractiveProfileApp.md`](theory/L05_InteractiveProfileApp.md) | 💻 [`L05_InteractiveProfileApp.cpp`](code/L05_InteractiveProfileApp.cpp) | Capstone mini-project combining user inputs, formatted output cards, and interactive variables. | ✅ |
 
 ---
 
@@ -56,15 +69,16 @@ make
 ```
 01_GettingStarted/
 ├── README.md               # 📄 Module guide (this file)
-├── code/                   # C++ source files (L01–L05) & Makefile
-│   ├── L01_HelloWorld.cpp
-│   ├── L02_Namespaces.cpp
-│   ├── L03_CommentsAndFormatting.cpp
-│   ├── L04_UserInputCin.cpp
-│   ├── L05_InteractiveProfileApp.cpp
+├── theory/                 # 📘 Detailed Markdown theory notes (L01–L05)
+│   ├── L01_HelloWorld.md
+│   ├── L02_NamespacesAndStd.md
+│   ├── L03_CommentsAndFormatting.md
+│   ├── L04_UserInputCin.md
+│   └── L05_InteractiveProfileApp.md
+├── code/                   # 💻 C++ source files (L01–L05) & Makefile
+│   ├── L01_HelloWorld.cpp ... L05_InteractiveProfileApp.cpp
 │   └── makefile
-├── theory/                 # Detailed Markdown notes & theory docs
-└── exercise/               # Practical exercises and self-assessment challenges
+└── exercise/               # ✏️ Practical exercises and self-assessment challenges
 ```
 
 ---

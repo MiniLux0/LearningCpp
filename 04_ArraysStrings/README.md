@@ -2,6 +2,7 @@
 
 > **Lessons**: L27 – L30  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 04) / Stanford CS106L (Lecture 04 & 05) / Stanford CS106B (Assignment 1)  
+> 📖 **Theory Documentation Directory**: 📂 [**`04_ArraysStrings/theory/`**](theory/) \| 📂 [**`04_ArraysStrings/summary/`**](summary/)  
 > 🎯 **Primary Focus**: Fixed-size 1D and 2D arrays, array decay to pointer, passing arrays to functions, null-terminated C-strings (`char[]`), `<cstring>` functions, and `std::string` stream processing.
 
 ---
@@ -9,6 +10,17 @@
 ## 📌 Module Overview
 
 This module explores sequential memory layouts in C++. It starts with contiguous fixed-size 1D static arrays, zero-initialization, out-of-bounds safety risks, 2D matrix representations, and how arrays decay into raw pointers when passed to subroutines. It then covers null-terminated C-style strings (`char[]`), `<cstring>` manipulation functions (`strlen`, `strcpy`, `strcmp`), transitioning into modern `std::string` and stringstream processing (`std::stringstream`).
+
+---
+
+## 📖 Theory & Conceptual Documentation (`04_ArraysStrings/theory/`)
+
+All theoretical concepts, memory layout diagrams, and string stream mechanics for this module are documented in dedicated markdown notes:
+
+- 📘 [**`theory/L27_ArrayBasics.md`**](theory/L27_ArrayBasics.md) — 1D contiguous arrays, element indexing, stack allocation, bounds risks.
+- 📘 [**`theory/L28_ArraysAsParameters.md`**](theory/L28_ArraysAsParameters.md) — Array decay to raw pointer (`T*`), passing array size, in-place modification.
+- 📘 [**`theory/L29_MultidimensionalArrays.md`**](theory/L29_MultidimensionalArrays.md) — 2D matrices, Row-Major Order memory storage, matrix transpositions.
+- 📘 [**`theory/L30_CStrings.md`**](theory/L30_CStrings.md) — Null terminator `'\0'`, `<cstring>` functions (`strlen`, `strcpy`, `strcmp`), `std::string` streams.
 
 ---
 
@@ -22,14 +34,14 @@ This module explores sequential memory layouts in C++. It starts with contiguous
 
 ---
 
-## 💻 Lessons & Code Inventory (`04_ArraysStrings/code/`)
+## 💻 Lessons, Code & Theory Inventory (`04_ArraysStrings/`)
 
-| # | Lesson | Code File | Key Technical Concepts | Status |
-|---|--------|-----------|------------------------|:------:|
-| **L27** | **Array Basics** | [`L27_ArrayBasics.cpp`](code/L27_ArrayBasics.cpp) | 1D fixed static arrays, element access, bounds risks, array initialization lists `{}`. | ✅ |
-| **L28** | **Arrays as Parameters** | [`L28_ArraysAsParameters.cpp`](code/L28_ArraysAsParameters.cpp) | Array decay to pointer (`int arr[]` $\rightarrow$ `int*`), passing array size, modifying elements in-place. | ✅ |
-| **L29** | **Multidimensional Arrays** | [`L29_MultidimensionalArrays.cpp`](code/L29_MultidimensionalArrays.cpp) | 2D matrices, nested loops, Row-Major indexing, 2D grid operations. | ✅ |
-| **L30** | **C-Strings** | [`L30_CStrings.cpp`](code/L30_CStrings.cpp) | Null-terminated `char[]` arrays, `'\0'` marker, `<cstring>` library functions, string streams. | ✅ |
+| # | Lesson | Theory Note | Code Implementation | Key Technical Concepts | Status |
+|---|--------|-------------|---------------------|------------------------|:------:|
+| **L27** | **Array Basics** | 📘 [`theory/L27_ArrayBasics.md`](theory/L27_ArrayBasics.md) | 💻 [`L27_ArrayBasics.cpp`](code/L27_ArrayBasics.cpp) | 1D fixed static arrays, element access, bounds risks, array initialization lists `{}`. | ✅ |
+| **L28** | **Arrays as Parameters** | 📘 [`theory/L28_ArraysAsParameters.md`](theory/L28_ArraysAsParameters.md) | 💻 [`L28_ArraysAsParameters.cpp`](code/L28_ArraysAsParameters.cpp) | Array decay to pointer (`int arr[]` $\rightarrow$ `int*`), passing array size, modifying elements in-place. | ✅ |
+| **L29** | **Multidimensional Arrays** | 📘 [`theory/L29_MultidimensionalArrays.md`](theory/L29_MultidimensionalArrays.md) | 💻 [`L29_MultidimensionalArrays.cpp`](code/L29_MultidimensionalArrays.cpp) | 2D matrices, nested loops, Row-Major indexing, 2D grid operations. | ✅ |
+| **L30** | **C-Strings** | 📘 [`theory/L30_CStrings.md`](theory/L30_CStrings.md) | 💻 [`L30_CStrings.cpp`](code/L30_CStrings.cpp) | Null-terminated `char[]` arrays, `'\0'` marker, `<cstring>` library functions, string streams. | ✅ |
 
 ---
 
@@ -56,15 +68,16 @@ make
 ```
 04_ArraysStrings/
 ├── README.md               # 📄 Module guide (this file)
-├── code/                   # C++ source files (L27–L30) & Makefile
-│   ├── L27_ArrayBasics.cpp
-│   ├── L28_ArraysAsParameters.cpp
-│   ├── L29_MultidimensionalArrays.cpp
-│   ├── L30_CStrings.cpp
+├── theory/                 # 📘 Detailed Markdown theory notes (L27–L30)
+│   ├── L27_ArrayBasics.md
+│   ├── L28_ArraysAsParameters.md
+│   ├── L29_MultidimensionalArrays.md
+│   └── L30_CStrings.md
+├── summary/                # 📝 Comprehensive summary notes
+├── code/                   # 💻 C++ source files (L27–L30) & Makefile
+│   ├── L27_ArrayBasics.cpp ... L30_CStrings.cpp
 │   └── makefile
-├── theory/                 # Detailed Markdown notes & theory docs
-├── summary/                # Detailed section summary notes
-├── exercise/               # Practical exercises and array challenges
+├── exercise/               # ✏️ Practical exercises and array challenges
 └── ejercicios_arrays_strings.md
 ```
 
