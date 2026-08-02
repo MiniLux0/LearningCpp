@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L29: Multidimensional Arrays**](L29_MultidimensionalArrays.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L31: Thinking Recursively ➡️**](../../05_RecursionAlgorithms/theory/L31_ThinkingRecursively.md) |
+| [**⬅️ L29 — Multidimensional Arrays**](L29_MultidimensionalArrays.md) | [**🏠 Arrays & Strings**](../README.md) | [**L31 — Thinking Recursively ➡️**](../../05_RecursionAlgorithms/theory/L31_ThinkingRecursively.md) |
 
 </div>
 

@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L31: Thinking Recursively**](L31_ThinkingRecursively.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L33: Big-O Notation ➡️**](L33_BigONotation.md) |
+| [**⬅️ L31 — Thinking Recursively**](L31_ThinkingRecursively.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L33 — Big-O Notation ➡️**](L33_BigONotation.md) |
 
 </div>
 

@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L34: Linear & Binary Search**](L34_LinearBinarySearch.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L36: MergeSort ➡️**](L36_MergeSort.md) |
+| [**⬅️ L34 — Linear & Binary Search**](L34_LinearBinarySearch.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L36 — MergeSort ➡️**](L36_MergeSort.md) |
 
 </div>
 

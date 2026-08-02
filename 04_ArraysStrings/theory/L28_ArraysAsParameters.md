@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L27: Array Basics**](L27_ArrayBasics.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L29: Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
+| [**⬅️ L27 — Array Basics**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
 
 </div>
 

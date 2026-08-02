@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L28: Arrays as Parameters**](L28_ArraysAsParameters.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L30: C-Strings ➡️**](L30_CStrings.md) |
+| [**⬅️ L28 — Arrays as Parameters**](L28_ArraysAsParameters.md) | [**🏠 Arrays & Strings**](../README.md) | [**L30 — C-Strings ➡️**](L30_CStrings.md) |
 
 </div>
 

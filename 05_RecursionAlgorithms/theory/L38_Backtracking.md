@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L37: QuickSort**](L37_QuickSort.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**Section 06: Pointers ➡️**](../../06_Pointers/) |
+| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Section 06: Pointers ➡️**](../../06_Pointers/) |
 
 </div>
 

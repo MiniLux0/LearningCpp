@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L32: Recursive Problems**](L32_RecursiveProblems.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L34: Linear & Binary Search ➡️**](L34_LinearBinarySearch.md) |
+| [**⬅️ L32 — Recursive Problems**](L32_RecursiveProblems.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L34 — Linear & Binary Search ➡️**](L34_LinearBinarySearch.md) |
 
 </div>
 

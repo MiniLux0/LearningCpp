@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L33: Big-O Notation**](L33_BigONotation.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L35: Quadratic Sorts ➡️**](L35_QuadraticSorts.md) |
+| [**⬅️ L33 — Big-O Notation**](L33_BigONotation.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L35 — Quadratic Sorts ➡️**](L35_QuadraticSorts.md) |
 
 </div>
 

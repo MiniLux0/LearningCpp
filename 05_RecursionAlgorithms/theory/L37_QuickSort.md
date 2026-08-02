@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L36: MergeSort**](L36_MergeSort.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L38: Backtracking ➡️**](L38_Backtracking.md) |
+| [**⬅️ L36 — MergeSort**](L36_MergeSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L38 — Backtracking ➡️**](L38_Backtracking.md) |
 
 </div>
 

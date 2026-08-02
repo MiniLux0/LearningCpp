@@ -2,7 +2,7 @@
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L35: Quadratic Sorts**](L35_QuadraticSorts.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L37: QuickSort ➡️**](L37_QuickSort.md) |
+| [**⬅️ L35 — Quadratic Sorts**](L35_QuadraticSorts.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L37 — QuickSort ➡️**](L37_QuickSort.md) |
 
 </div>
 
