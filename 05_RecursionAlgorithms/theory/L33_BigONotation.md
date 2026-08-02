@@ -1,4 +1,4 @@
-# L33 — Notación Big-O: Análisis Asintótico de Complejidad Temporal y Espacial
+# L33 — Notación Big-O: Análisis Asintótico y Clases de Complejidad
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.2** *Computational complexity* (p. 435) y **10.4** *Standard complexity classes* (p. 449).
@@ -16,126 +16,181 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender qué mide la **Notación Big-O ($O$)** y por qué es independiente del hardware/reloj de la CPU.
-- [ ] Diferenciar entre **Complejidad Temporal** (*Time Complexity*) y **Complejidad Espacial** (*Space Complexity*).
-- [ ] Clasificar las funciones de crecimiento estándar: $O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$, $O(2^N)$.
-- [ ] Aplicar las reglas de simplificación asintótica (descartar constantes y términos no dominantes).
+- [ ] Entender qué es el **Análisis Asintótico** y por qué la notación Big-O mide el crecimiento del tiempo en función de $N \to \infty$ (Sección 10.2).
+- [ ] Aplicar la definición matemática formal de **Big-O ($O(g(N))$)** ($T(N) \le C \cdot g(N)$).
+- [ ] Dominar las **Reglas de Simplificación Asintótica**: eliminar constantes multiplicativas y términos no dominantes.
+- [ ] Clasificar la **Jerarquía de Clases de Complejidad Estándar** (Sección 10.4): $O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$, $O(2^N)$, $O(N!)$.
 
 ---
 
-## 1. ¿Por qué necesitamos la Notación Big-O?
+## 1. Fundamentos del Análisis Asintótico (Sección 10.2)
 
-No podemos medir la eficiencia de un algoritmo simplemente usando un cronómetro (`std::chrono`), porque el tiempo en segundos depende de:
-- La potencia del procesador (CPU).
-- El compilador y sus optimizaciones (`-O3`).
-- Otros programas abiertos en el sistema operativo.
+La velocidad de ejecución de un programa depende del reloj de la CPU, el compilador y la RAM. Sin embargo, en ciencias de la computación necesitamos una métrica pura para comparar algoritmos **independientemente del hardware**: la **Notación Big-O ($O$)**.
 
-> [!IMPORTANT]
-> **La Notación Big-O** mide cómo **crece el número de operaciones requeridas** a medida que el tamaño de los datos de entrada ($N$) tiende al infinito ($N \to \infty$).
+> [!TIP]
+> **Definición Formal de Big-O (Eric Roberts, Sec. 10.2):**  
+> Decimos que un algoritmo tiene un tiempo de ejecución $O(g(N))$ si existen constantes positivas $C$ y $N_0$ tales que para todo $N \ge N_0$:
+> $$T(N) \le C \times g(N)$$
 
----
-
-## 2. Jerarquía de Complejidades Comunes
-
-A continuación se muestra el ranking de eficiencias ordenadas de más rápida a más lenta:
-
-| Notación Big-O | Nombre Complejidad | Ejemplo Algorítmico típico | Evaluación para $N = 1000$ |
-| :---: | :--- | :--- | :--- |
-| **$O(1)$** | **Constante** | Acceso a un elemento de un arreglo `arr[i]` o push en pila. | $1$ operación |
-| **$O(\log N)$** | **Logarítmica** | Búsqueda Binaria (*Binary Search*). | $\approx 10$ operaciones |
-| **$O(N)$** | **Lineal** | Búsqueda Lineal (*Linear Search*) o recorrer un arreglo de inicio a fin. | $1000$ operaciones |
-| **$O(N \log N)$** | **Lineal-Logarítmica** | Algoritmos de ordenamiento eficientes: **MergeSort**, **QuickSort**. | $\approx 10,000$ operaciones |
-| **$O(N^2)$** | **Cuadrática** | Bucles anidados simples: **Bubble Sort**, **Selection Sort**, **Insertion Sort**. | $1,000,000$ operaciones |
-| **$O(2^N)$** | **Exponencial** | Fibonacci recursivo ingenuo o generación de todos los subconjuntos. | $1.07 \times 10^{301}$ op. 💥 |
+### Las 2 Reglas de Simplificación Asintótica:
+1. **Descartar las constantes multiplicativas:** $O(5 \cdot N) \longrightarrow O(N)$.
+2. **Descartar los términos de menor orden:** $O(N^2 + 100N + 500) \longrightarrow O(N^2)$.
 
 ---
 
-## 3. Reglas de Simplificación Asintótica
+## 2. Jerarquía de Clases de Complejidad Estándar (Sección 10.4)
 
-Para calcular el Big-O de cualquier bloque de código C++:
+Eric Roberts clasifica las familias de rendimiento algorítmico en una jerarquía de crecimiento de menor a mayor costo:
 
-### Regla 1: Descartar Constantes Multiplicativas
-Si un algoritmo realiza $5N$ operaciones, constantes como el $5$ no cambian la tasa de crecimiento para $N$ grande:
-$$O(5N) \implies O(N)$$
+$$O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)$$
 
-### Regla 2: Mantener únicamente el Término Dominante
-Si un algoritmo realiza $N^2 + 100N + 500$ operaciones, cuando $N = 1,000,000$, el término $N^2 = 10^{12}$ domina por completo sobre $100N = 10^8$:
-$$O(N^2 + 100N + 500) \implies O(N^2)$$
+```mermaid
+graph LR
+    O1["O(1) Constante"] --> OlogN["O(log N) Logarítmico"]
+    OlogN --> ON["O(N) Lineal"]
+    ON --> ONlogN["O(N log N) Linealítmico"]
+    ONlogN --> ON2["O(N²) Cuadrático"]
+    ON2 --> O2N["O(2ᴺ) Exponencial"]
+    O2N --> ONFact["O(N!) Factorial"]
+
+    style O1 fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style OlogN fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style ON fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style ONlogN fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style ON2 fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    style O2N fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    style ONFact fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+```
 
 ---
 
-## 4. Ejemplos Prácticos de Código C++
+## 3. Desglose Detallado por Clase de Complejidad
 
-### Ejemplo A: Complejidad Constante $O(1)$
+### ⚡ 1. Complejidad Constante — $O(1)$
+El tiempo de ejecución es fijo y no depende del tamaño de la entrada $N$.
+- **Ejemplos:** Acceso directo por índice a un arreglo `arr[i]`, inserción al final de `std::vector` (`push_back`), operaciones aritméticas.
+
 ```cpp
-bool esPrimerElementoPar(const int arr[], int size) {
-    if (size == 0) return false;
-    return arr[0] % 2 == 0; // Se ejecuta en 1 sola operación independientemente de si N es 10 o 1,000,000
+int obtenerPrimerElemento(const vector<int>& v) {
+    if (v.empty()) return -1;
+    return v[0]; // O(1)
 }
 ```
 
-### Ejemplo B: Complejidad Lineal $O(N)$
+---
+
+### 🔍 2. Complejidad Logarítmica — $O(\log N)$
+Divide el espacio del problema a la mitad en cada paso. Extremadamente eficiente.
+- **Ejemplos:** Búsqueda Binaria (*Binary Search*), operaciones en árboles AVL/BST balanceados.
+- **Impacto Real:** Para $N = 1,000,000$, $\log_2(1,000,000) \approx 20$ comparaciones.
+
 ```cpp
-int sumarElementos(const int arr[], int n) {
+int contarPasosLogaritmicos(int n) {
+    int pasos = 0;
+    while (n > 1) {
+        n /= 2; // Divide el espacio a la mitad
+        pasos++;
+    }
+    return pasos; // O(log N)
+}
+```
+
+---
+
+### 📏 3. Complejidad Lineal — $O(N)$
+El tiempo de ejecución crece en proporción directa al número de elementos $N$.
+- **Ejemplos:** Búsqueda Lineal (*Linear Search*), recorrido de arreglos, conteo de elementos.
+
+```cpp
+int calcularSuma(const vector<int>& v) {
     int suma = 0;
-    for (int i = 0; i < n; i++) { // Se ejecuta exactamente N veces
-        suma += arr[i];
+    for (int num : v) { // N iteraciones
+        suma += num;
     }
-    return suma;
+    return suma; // O(N)
 }
-```
-
-### Ejemplo C: Complejidad Cuadrática $O(N^2)$
-```cpp
-void imprimirMatrizBucleAnidado(int n) {
-    for (int i = 0; i < n; i++) {         // N iteraciones exteriores
-        for (int j = 0; j < n; j++) {     // N iteraciones interiores
-            cout << "(" << i << "," << j << ") ";
-        }
-    }
-} // Total: N * N = N^2 operaciones -> O(N^2)
 ```
 
 ---
 
-## 5. Complejidad Espacial (*Space Complexity*)
-
-No solo medimos el tiempo, sino también la **memoria adicional** que consume el programa:
-- **$O(1)$ Espacial:** Si solo usamos un par de variables simples (`int i`, `double temp`).
-- **$O(N)$ Espacial:** Si creamos un arreglo secundario de tamaño $N$, o si realizamos $N$ llamadas recursivas en el *Call Stack*.
-
----
-
-## ❓ Pregunta de Chequeo #1 — Cálculo de Complejidad
-
-Calcula el Big-O del siguiente código C++:
+### ⚡ 4. Complejidad Linealítmica — $O(N \log N)$
+Aparece típicamente en algoritmos de Divide y Vencerás que dividen el problema en subproblemas logarítmicos y luego procesan los $N$ elementos para combinarlos.
+- **Ejemplos:** MergeSort, QuickSort (caso promedio), HeapSort, `std::sort`.
 
 ```cpp
-void algoritmoMisterioso(int n) {
-    for (int i = 0; i < n; i++) {
-        cout << i << endl;
-    }
-    for (int j = 0; j < n; j++) {
-        for (int k = 0; j < n; j++) { // Atención aquí
-            // Operaciones O(1)
+long long simularTrabajoLinearithmic(int n) {
+    long long operaciones = 0;
+    for (int i = 0; i < n; i++) { // N iteraciones
+        int temp = n;
+        while (temp > 1) { // log N iteraciones
+            temp /= 2;
+            operaciones++;
         }
     }
+    return operaciones; // O(N log N)
 }
 ```
 
-**¿Cuál es la complejidad temporal asintótica en notación Big-O?**
+---
+
+### 🐢 5. Complejidad Cuadrática — $O(N^2)$
+Aparece cuando se emplean bucles anidados donde cada elemento se compara con todos los demás.
+- **Ejemplos:** Selection Sort, Insertion Sort, Bubble Sort, búsqueda de pares duplicados ingenuamente.
+
+```cpp
+int contarParesIguales(const vector<int>& v) {
+    int contador = 0;
+    int n = v.size();
+    for (int i = 0; i < n; i++) {       // N iteraciones
+        for (int j = 0; j < n; j++) {   // N iteraciones
+            if (i != j && v[i] == v[j]) contador++;
+        }
+    }
+    return contador; // O(N^2)
+}
+```
+
+---
+
+### 💣 6. Complejidad Exponencial — $O(2^N)$
+El tiempo de ejecución se duplica con cada nuevo elemento añadido a la entrada. Se vuelve inmanejable rápidamente para $N > 40$.
+- **Ejemplos:** Naive Fibonacci, resolución del problema del Subconjunto (*Subset-Sum* por fuerza bruta), traslado de Torres de Hanói.
+
+```cpp
+int ramificacionesExponenciales(int n) {
+    if (n <= 1) return 1;
+    return ramificacionesExponenciales(n - 1) + ramificacionesExponenciales(n - 1); // O(2^N)
+}
+```
+
+---
+
+## 📊 Tabla Comparativa de Escalamiento ($N \to \text{Operaciones}$)
+
+| $N$ | $O(1)$ | $O(\log_2 N)$ | $O(N)$ | $O(N \log_2 N)$ | $O(N^2)$ | $O(2^N)$ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **10** | $1$ | $3.3$ | $10$ | $33$ | $100$ | $1,024$ |
+| **100** | $1$ | $6.6$ | $100$ | $664$ | $10,000$ | $1.26 \times 10^{30}$ |
+| **1,000** | $1$ | $9.9$ | $1,000$ | $9,965$ | $1,000,000$ | Impossible |
+| **1,000,000** | $1$ | $19.9$ | $1,000,000$ | $19,931,568$ | $10^{12}$ | Impossible |
+
+---
+
+## ❓ Pregunta de Chequeo #1 — Simplificación Asintótica
+
+Considera un algoritmo que realiza exactamente $T(N) = 3N^3 + 500N^2 + 2000N + 7500$ operaciones.
+
+**¿Cuál es su complejidad asintótica en Notación Big-O?**
 
 <details>
 <summary>🔍 <strong>Ver Explicación y Respuesta</strong></summary>
 
-> [!TIP]
-> **Respuesta:** **$O(N^2)$**
->
-> **Explicación:**
-> El primer bucle realiza $N$ operaciones $\to O(N)$.
-> El segundo bloque contiene dos bucles anidados que realizan $N \times N = N^2$ operaciones $\to O(N^2)$.
-> Sumando ambos bloques: $O(N + N^2)$.
-> Aplicando la **Regla del Término Dominante**, ignoramos $N$ y nos quedamos con la potencia mayor: **$O(N^2)$**.
+**Respuesta:** Su complejidad es **$O(N^3)$**.
+
+**Explicación:**
+1. **Regla 1 (Términos no dominantes):** Descartamos $500N^2$, $2000N$ y $7500$ porque al tender $N \to \infty$, $N^3$ domina completamente el tiempo de ejecución.
+2. **Regla 2 (Constantes multiplicativas):** Descartamos el coeficiente $3$ de $3N^3$.
+3. Resultado final: $O(N^3)$.
 
 </details>
 
@@ -143,10 +198,10 @@ void algoritmoMisterioso(int n) {
 
 ## 📝 Resumen Resumido de L33
 
-1. **Big-O** describe el límite superior del crecimiento del tiempo o espacio en función del tamaño de entrada $N$.
-2. **Ignorar constantes:** $O(2N)$ es $O(N)$.
-3. **Quedarse con el término dominante:** $O(N^2 + N)$ es $O(N^2)$.
-4. **Ranking de eficiencia:** $O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N)$.
+1. **Notación Big-O:** Mide la tasa de crecimiento asintótico del tiempo o espacio cuando $N \to \infty$.
+2. **Simplificación:** Se eliminan coeficientes constantes y términos de menor orden.
+3. **Jerarquía:** $O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)$.
+4. **Casos:** Distinguir siempre entre Peor Caso (*Worst Case*), Caso Promedio (*Average Case*) y Mejor Caso (*Best Case*).
 
 ---
 
