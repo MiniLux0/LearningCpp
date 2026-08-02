@@ -112,7 +112,7 @@ The CS106X curriculum includes 7 intensive discussion section handouts (Handouts
 - 🏛️ [MIT 6.096 Syllabus](../mit6096/README.md)
 - 🌲 [Stanford CS106B Syllabus](../cs106b/README.md)
 - ⚙️ [Stanford CS106L Syllabus](../cs106l/README.md)
-- 📋 [Master Repository Syllabus (`TEMARIO.md`)](../../TEMARIO.md)
+- 📋 [Master Repository Syllabus (`SYLLABUS.md`)](../../SYLLABUS.md)
 
 ---
 *MiniLux0 — Stanford CS106X Syllabus Documentation*

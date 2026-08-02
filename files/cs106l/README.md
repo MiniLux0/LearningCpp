@@ -93,7 +93,7 @@ CS106L includes interactive code exercises focusing on:
 - 🏛️ [MIT 6.096 Syllabus](../mit6096/README.md)
 - 🌲 [Stanford CS106B Syllabus](../cs106b/README.md)
 - ⚡ [Stanford CS106X Syllabus](../cs106x/README.md)
-- 📋 [Master Repository Syllabus (`TEMARIO.md`)](../../TEMARIO.md)
+- 📋 [Master Repository Syllabus (`SYLLABUS.md`)](../../SYLLABUS.md)
 
 ---
 *MiniLux0 — Stanford CS106L Syllabus Documentation*

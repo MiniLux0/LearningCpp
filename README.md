@@ -15,7 +15,7 @@
 
 > ### ⚡ Quick Start & Repository Navigation
 > 
-> * 📜 **Complete 75-Lesson Syllabus**: [**`TEMARIO.md`**](TEMARIO.md) — Step-by-step lesson breakdown (L01 to L75).
+> * 📜 **Complete 75-Lesson Syllabus**: [**`SYLLABUS.md`**](SYLLABUS.md) — Step-by-step lesson breakdown (L01 to L75).
 > * 🌐 **Academic Guide & PDF Catalog**: [**`files/Master_Academic_Guide.md`**](files/Master_Academic_Guide.md) — MIT & Stanford lecture slides, assignments, and textbooks.
 > * 📖 **Theory Notes**: Located inside each module's `theory/` directory (e.g., [`01_GettingStarted/theory/`](01_GettingStarted/theory/)).
 > * 💻 **Executable Code Labs**: Located inside each module's `code/` directory with automated `makefile` compilation.
@@ -59,7 +59,7 @@ LearningCpp/
 │   ├── cs106x/                  # Stanford CS106X handouts & capstone projects
 │   └── cs106l/                  # Stanford CS106L modern C++ lecture PDFs & projects
 │
-├── TEMARIO.md                   # Full 75-lesson syllabus map
+├── SYLLABUS.md                   # Full 75-lesson syllabus map
 ├── RESOURCES.md                 # Academic handout catalog
 └── makefile                     # Root build script
 ```

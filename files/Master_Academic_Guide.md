@@ -101,7 +101,7 @@ Below is the master catalog mapping local academic files across all course direc
 - 🌲 [**Stanford CS106B Syllabus & PDF Analysis**](cs106b/README.md)
 - ⚡ [**Stanford CS106X Syllabus & PDF Analysis**](cs106x/README.md)
 - ⚙️ [**Stanford CS106L Syllabus & PDF Analysis**](cs106l/README.md)
-- 📋 [**Master Repository Syllabus (`TEMARIO.md`)**](../TEMARIO.md)
+- 📋 [**Master Repository Syllabus (`SYLLABUS.md`)**](../SYLLABUS.md)
 
 ---
 *MiniLux0 — Learning C++ Master Academic Guide*

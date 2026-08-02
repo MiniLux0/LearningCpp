@@ -13,7 +13,7 @@
 ### 🧭 Module Navigation Hub
 
 [![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-TEMARIO-F16822?style=for-the-badge)](../TEMARIO.md)
+[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
 [![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
 [![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 

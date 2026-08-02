@@ -101,7 +101,7 @@ Weekly discussion section starter code in [`files/cs106b/sections/`](sections/):
 - 🏛️ [MIT 6.096 Syllabus](../mit6096/README.md)
 - ⚡ [Stanford CS106X Syllabus](../cs106x/README.md)
 - ⚙️ [Stanford CS106L Syllabus](../cs106l/README.md)
-- 📋 [Master Repository Syllabus (`TEMARIO.md`)](../../TEMARIO.md)
+- 📋 [Master Repository Syllabus (`SYLLABUS.md`)](../../SYLLABUS.md)
 
 ---
 *MiniLux0 — Stanford CS106B Syllabus Documentation*

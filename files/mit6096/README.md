@@ -89,7 +89,7 @@ The MIT 6.096 curriculum includes integrated lab problem sets focusing on:
 - 🌲 [Stanford CS106B Syllabus](../cs106b/README.md)
 - ⚡ [Stanford CS106X Syllabus](../cs106x/README.md)
 - ⚙️ [Stanford CS106L Syllabus](../cs106l/README.md)
-- 📋 [Master Repository Syllabus (`TEMARIO.md`)](../../TEMARIO.md)
+- 📋 [Master Repository Syllabus (`SYLLABUS.md`)](../../SYLLABUS.md)
 
 ---
 *MiniLux0 — MIT 6.096 Syllabus Documentation*
