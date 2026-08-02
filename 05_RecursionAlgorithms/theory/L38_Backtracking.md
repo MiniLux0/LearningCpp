@@ -74,14 +74,34 @@ void generarSubconjuntos(const vector<char>& elems, int idx, vector<char>& actua
 
 **Árbol de decisión** para `{A, B, C}`:
 
-```
-                    []
-          ┌──────────┴──────────┐
-         []                    [A]
-       ┌──┴──┐              ┌───┴───┐
-      []    [B]           [A]     [A,B]
-     ┌┴┐   ┌┴──┐        ┌──┴──┐   ┌──┴──┐
-    {} {C} {B} {B,C}  {A}  {A,C} {A,B} {A,B,C}
+```mermaid
+graph TD
+    R["idx=0: A incluir?"]
+    R -->|"No"| B1["idx=1: B incluir?"]
+    R -->|"Si A"| B2["idx=1: B incluir?"]
+
+    B1 -->|"No"| C1["idx=2: C incluir?"]
+    B1 -->|"Si B"| C2["idx=2: C incluir?"]
+    B2 -->|"No"| C3["idx=2: C incluir?"]
+    B2 -->|"Si B"| C4["idx=2: C incluir?"]
+
+    C1 -->|"No"| R1["{} vacio"]
+    C1 -->|"Si C"| R2["{C}"]
+    C2 -->|"No"| R3["{B}"]
+    C2 -->|"Si C"| R4["{B C}"]
+    C3 -->|"No"| R5["{A}"]
+    C3 -->|"Si C"| R6["{A C}"]
+    C4 -->|"No"| R7["{A B}"]
+    C4 -->|"Si C"| R8["{A B C}"]
+
+    style R1 fill:#023e8a,color:#fff
+    style R2 fill:#023e8a,color:#fff
+    style R3 fill:#023e8a,color:#fff
+    style R4 fill:#023e8a,color:#fff
+    style R5 fill:#023e8a,color:#fff
+    style R6 fill:#023e8a,color:#fff
+    style R7 fill:#023e8a,color:#fff
+    style R8 fill:#023e8a,color:#fff
 ```
 
 Total: $2^3 = 8$ subconjuntos — el Power Set completo.
@@ -124,6 +144,34 @@ bool solveMaze(int r, int c) {
 }
 ```
 
+```mermaid
+graph TD
+    CALL["solveMaze(r, c)"]
+    CB1{"arr-r-c == E?"}
+    CB2{"Fuera de bounds, pared o visitada?"}
+    CHOOSE["1. ELEGIR: marcar celda con punto"]
+    EXP["2. EXPLORAR las 4 direcciones"]
+    FOUND{"Alguna direccion retorna true?"}
+    UNCHOOSE["3. DESHACER: desmarcar celda"]
+    RETTRUE["return true"]
+    RETFALSE["return false"]
+
+    CALL --> CB1
+    CB1 -->|"Si: Caso Base 1"| RETTRUE
+    CB1 -->|"No"| CB2
+    CB2 -->|"Si: Caso Base 2"| RETFALSE
+    CB2 -->|"No"| CHOOSE
+    CHOOSE --> EXP
+    EXP --> FOUND
+    FOUND -->|"Si"| RETTRUE
+    FOUND -->|"No"| UNCHOOSE
+    UNCHOOSE --> RETFALSE
+
+    style RETTRUE fill:#1b4332,color:#fff
+    style RETFALSE fill:#370617,color:#fff
+    style UNCHOOSE fill:#6d4c41,color:#fff
+```
+
 ### Traza del Laberinto (Demo 2)
 
 ```
@@ -155,6 +203,23 @@ Inicial:           Solución (camino con '.'):
 ### Estrategia Óptima: Mutua Recursión
 
 Roberts describe una estrategia elegante usando dos funciones **mutuamente recursivas**:
+
+```mermaid
+graph LR
+    FGM["findGoodMove(n)\nBuscar movimiento que deje\nal rival en posicion MALA"]
+    IBP["isBadPosition(n)\nVerificar si no existe\nningun buen movimiento"]
+    CB1["n == 1: Caso Base\nreturn true - MALA"]
+    CB2["Devuelve numero de monedas\na tomar o -1"]
+
+    FGM -->|"Llama para cada take=1,2,3"| IBP
+    IBP -->|"findGoodMove devuelve -1"| FGM
+    IBP --> CB1
+    FGM --> CB2
+
+    style FGM fill:#1d3557,color:#fff
+    style IBP fill:#457b9d,color:#fff
+    style CB1 fill:#9d0208,color:#fff
+```
 
 ```cpp
 // Una posición es BUENA si existe al menos un movimiento que deja al rival en posición MALA

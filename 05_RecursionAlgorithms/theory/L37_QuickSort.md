@@ -44,22 +44,24 @@ Tanto MergeSort como QuickSort emplean **Divide y Vencerás**, pero con una dife
 
 El algoritmo de 3 pasos que describe Roberts en la Sección 10.5:
 
-```
-CASO BASE: Si el vector tiene 0 o 1 elementos → ya está ordenado. Retornar.
+```mermaid
+graph TD
+    START["quickSort llamada"]
+    CB{"0 o 1 elementos?"}
+    PIVOT["1. Elegir Pivote: arr-low"]
+    PART["2. Particionar: elementos menores a la izquierda, mayores a la derecha"]
+    RECL["3a. quickSort subarreglo izquierdo"]
+    RECR["3b. quickSort subarreglo derecho"]
+    DONE["Arreglo Ordenado"]
 
-PASO 1 — ELEGIR PIVOTE:
-    Seleccionar un elemento del arreglo como pivote (punto divisorio).
-    Estrategia simple: tomar el primer elemento.
-
-PASO 2 — PARTICIONAR:
-    Reorganizar el arreglo IN-PLACE de forma que:
-        - Todos los elementos < pivote queden a la IZQUIERDA del pivote.
-        - El PIVOTE queda en su posición definitiva e inmutable.
-        - Todos los elementos >= pivote queden a la DERECHA del pivote.
-
-PASO 3 — CONQUISTAR RECURSIVAMENTE:
-    quickSort(arr, low, pivotIdx - 1)  → ordenar subarreglo izquierdo
-    quickSort(arr, pivotIdx + 1, high) → ordenar subarreglo derecho
+    START --> CB
+    CB -->|"Si: Caso Base"| DONE
+    CB -->|"No"| PIVOT
+    PIVOT --> PART
+    PART --> RECL
+    PART --> RECR
+    RECL --> DONE
+    RECR --> DONE
 ```
 
 ---
@@ -75,21 +77,28 @@ La parte más importante y sutil de QuickSort. Tony Hoare's original partitionin
 
 Asumimos que el pivote es `arr[low]` (primer elemento). Se usan dos punteros `lh` (left-hand) y `rh` (right-hand):
 
-```
-Pivote = arr[low] = 56
-Array:  [56 | 25  37  58  19  30  40  70]
-              lh                      rh
+```mermaid
+sequenceDiagram
+    autonumber
+    participant P  as Pivote=56
+    participant LH as lh avanza -->
+    participant RH as <-- rh retrocede
 
-1. lh avanza → hasta arr[lh] >= pivote   →  lh detiene en 58 (índice 3)
-2. rh retrocede → hasta arr[rh] < pivote →  rh detiene en 30 (índice 5)
-3. lh < rh → swap(arr[lh], arr[rh])
-   Array: [56 | 25  37  30  19  58  40  70]
-
-4. Continuar: lh avanza → rh retrocede...
-   lh detiene en 58 (índice 5), rh en 19 (índice 4)
-5. lh > rh → romper el bucle
-6. swap(arr[low], arr[rh]) → poner el pivote en su posición definitiva
-   Array: [19  25  30  40 |56| 58  70  ...] ✅
+    Note over P,RH: Array inicial: 56  25  37  58  19  30  40  70
+    LH->>LH: lh en idx 1 (25): 25 menor que 56, avanzar
+    LH->>LH: lh en idx 2 (37): 37 menor que 56, avanzar
+    LH->>LH: lh en idx 3 (58): 58 mayor que 56, DETENERSE
+    RH->>RH: rh en idx 7 (70): 70 mayor que 56, retroceder
+    RH->>RH: rh en idx 6 (40): 40 menor que 56, DETENERSE
+    Note over LH,RH: lh=3 menor que rh=6: swap arr-3 con arr-6
+    Note over P,RH: Array: 56  25  37  40  19  30  58  70
+    LH->>LH: lh=4 (19): menor que 56, avanzar
+    LH->>LH: lh=5 (30): menor que 56, avanzar
+    LH->>LH: lh=6 (58): mayor que 56, DETENERSE
+    RH->>RH: rh=5 (30): menor que 56, DETENERSE
+    Note over LH,RH: lh=6 mayor que rh=5: ROMPER BUCLE
+    P->>RH: swap Pivote con arr-rh: swap arr-0 con arr-5
+    Note over P,RH: Array final: 30  25  37  40  19  56  58  70. Pivote 56 en posicion definitiva idx 5
 ```
 
 ### Implementación C++ del Esquema de Hoare
@@ -129,21 +138,38 @@ Si el pivote es siempre la **mediana** del sub-arreglo, cada partición divide e
 
 $$T(N) = O(N \log N)$$
 
-### ⚠️ Peor Caso: $O(N^2)$ — El Arreglo Ya Ordenado
+### Peor Caso: $O(N^2)$ — El Arreglo Ya Ordenado
 
 > [!WARNING]
-> **La Paradoja del Peor Caso (Eric Roberts, Sec. 10.5 p. 458):**  
+> **La Paradoja del Peor Caso (Eric Roberts, Sec. 10.5 p. 458):**
 > Si el pivote siempre es el **elemento más pequeño** del subarreglo (ej. primer elemento de un arreglo ya ordenado), una partición de $N$ elementos produce subarreglos de tamaños **0** y **N-1**, degenerando a:
 >
 > $$T(N) = N + (N-1) + (N-2) + \dots + 1 = \frac{N(N-1)}{2} = O(N^2)$$
 >
 > En el código del laboratorio esto se puede ver en la Demo 2: para $N=8$ ya ordenado, se requieren **35 comparaciones** vs **17** en el caso aleatorio.
 
-```
-Arreglo ya ordenado: [1, 2, 3, 4, 5, 6, 7, 8]
-Pivote = 1 → partición produce: [] | [1] | [2,3,4,5,6,7,8]
-Pivote = 2 → partición produce: [] | [2] | [3,4,5,6,7,8]
-...                                               ← árbol degenerado O(N^2)
+```mermaid
+graph TD
+    subgraph Equilibrado ["Caso Promedio: arbol equilibrado O(N log N)"]
+        A0["1 2 3 4 5 6 7 8 - Pivote aleatorio"]
+        A1["1 2 3 4"]
+        A2["5 6 7 8"]
+        A1 --> A3["1 2"]
+        A1 --> A4["3 4"]
+        A2 --> A5["5 6"]
+        A2 --> A6["7 8"]
+        A0 --> A1
+        A0 --> A2
+    end
+    subgraph Degenerado ["Peor Caso: arbol degenerado O(N^2)"]
+        B0["1 2 3 4 5 6 7 8 - Pivote=1"]
+        B1["2 3 4 5 6 7 8 - Pivote=2"]
+        B2["3 4 5 6 7 8 - Pivote=3"]
+        B3["..."]
+        B0 --> B1 --> B2 --> B3
+    end
+    style Equilibrado fill:#1b4332,color:#fff
+    style Degenerado fill:#370617,color:#fff
 ```
 
 ---
