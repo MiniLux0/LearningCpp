@@ -37,7 +37,7 @@ En matemática y computación, la recursividad no es un "truco especial de C++",
 >   - La pregunta avanza hasta llegar a la persona de la **Fila 1**.
 >   - La persona de la Fila 1 responde: *"¡Estoy en la fila 1!"* (**Caso Base**).
 >   - La persona detrás responde: *"Entonces yo estoy en la $1 + 1 = 2$"*.
->   - La respuesta regresa hasta ti: tu fila es $\text{fila\_delante} + 1$.
+>   - La respuesta regresa hasta ti: tu fila es $\text{fila delante} + 1$.
 
 ```mermaid
 graph TD
