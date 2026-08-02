@@ -1,56 +1,48 @@
-# Lesson 13 — Conditionals: The `if` Statement
+# Lesson 13 — Control Flow: `if` Statements & Comparison Operators
 
-Up until now, our programs executed code sequentially from top to bottom. But what if we want our program to make decisions?
-
-For example: *"IF the user's balance is greater than $50, allow them to buy the game."*
-
-In C++, we use the **`if` statement** to execute code conditionally.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## 🔀 1. Syntax of `if`
+## 🧭 Quick Navigation
 
-```cpp
-if (condition) {
-    // Code block inside {} is executed ONLY IF condition is TRUE
-}
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 02: Branching & Conditional Execution](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Control Statements in C++](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L13_If.cpp`](../code/L13_If.cpp)
+
+---
+
+## Learning Objectives
+
+- [ ] Divert linear instruction execution using conditional branching (`if`).
+- [ ] Evaluate Boolean relational operators (`>`, `<`, `>=`, `<=`, `==`, `!=`).
+- [ ] Identify and avoid the classic **Assignment inside Condition Bug** (`if (x = 5)`).
+
+---
+
+## 1. Conditional Branching Mechanics
+
+Programs often require executing specific blocks of code only when dynamic runtime conditions are met. The `if` statement evaluates a boolean expression:
+
+```mermaid
+graph TD
+    Start["Program Flow"] --> Cond{"Is condition true?"}
+    Cond -- Yes (true) --> Branch["Execute Code Block inside { }"]
+    Cond -- No (false) --> Skip["Skip Code Block"]
+    Branch --> Continue["Continue Sequential Execution"]
+    Skip --> Continue
 ```
-
----
-
-## ⚖️ 2. Relational Comparison Operators
-
-To build conditions inside `if (...)`, we use comparison operators:
-
-| Operator | Meaning | Example (`age = 20`) | Evaluates To |
-|:--------:|---------|----------------------|:------------:|
-| `>` | Greater than | `age > 18` | `true` |
-| `<` | Less than | `age < 18` | `false` |
-| `>=` | Greater than or equal to | `age >= 20` | `true` |
-| `<=` | Less than or equal to | `age <= 15` | `false` |
-| `==` | Equal to | `age == 20` | `true` |
-| `!=` | Not equal to | `age != 20` | `false` |
-
-> [!WARNING]
-> **The Common `=` vs `==` Bug**:
-> - `x = 5` is **assignment** (stores 5 into x).
-> - `x == 5` is **comparison** (checks if x equals 5).
-> 
-> Writing `if (x = 5)` instead of `if (x == 5)` is one of the most common beginner bugs in C++!
-
----
-
-## 💻 3. Code Example
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    int age = 20;
+    int score = 85;
 
-    if (age >= 18) {
-        cout << "Access Granted: You are an adult!\n";
+    if (score >= 70) {
+        std::cout << "Congratulations! You passed the assessment.\n";
     }
 
     return 0;
@@ -59,7 +51,60 @@ int main() {
 
 ---
 
+## 2. Relational Comparison Operators
+
+| Operator | Comparison Name | Evaluation Example ($x = 20$) | Boolean Result |
+| :---: | :--- | :--- | :---: |
+| **`>`** | Greater Than | `x > 18` | `true` |
+| **`<`** | Less Than | `x < 18` | `false` |
+| **`>=`** | Greater Than or Equal To | `x >= 20` | `true` |
+| **`<=`** | Less Than or Equal To | `x <= 15` | `false` |
+| **`==`** | Equality | `x == 20` | `true` |
+| **`!=`** | Inequality | `x != 20` | `false` |
+
+> [!CAUTION]
+> **The `=` vs. `==` Disaster:**
+> - `x = 5` (Single Equals) is the **Assignment Operator**. It overwrites `x` with `5` and returns `5` (which evaluates as `true`!).
+> - `x == 5` (Double Equals) is the **Equality Comparison Operator**.
+>
+> Writing `if (x = 5)` instead of `if (x == 5)` will mutate your variable and always evaluate to `true`!
+
+---
+
+## ❓ Self-Assessment Checkpoint #1 — The Single Equals Trap
+
+What happens if you write `if (age = 18)` when `age` was previously `10`?
+
+<details>
+<summary>🔍 <strong>View Explanation & Output</strong></summary>
+
+> [!WARNING]
+> **Behavior:**
+> 1. `age` is mutated to `18`.
+> 2. `18` is non-zero, so the condition evaluates as `true`.
+> 3. The `if` block executes every single time, regardless of what `age` was before!
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **`if`:** Diverts execution based on boolean truth values.
+2. **Relational Operators:** Return `true` or `false`.
+3. **Comparison:** Always use `==` for testing equality.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L12 — Char & Bool Types**](L12_CharAndBool.md) | [**Basic Syntax**](../) | [**L14 — Conditionals: if-else**](L14_IfElse.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L12 — Char & Bool Types**](L12_CharAndBool.md) | [**🏠 Basic Syntax**](../README.md) | [**L14 — Control Flow: if-else ➡️**](L14_IfElse.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

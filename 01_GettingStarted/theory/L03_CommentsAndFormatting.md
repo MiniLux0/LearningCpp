@@ -1,65 +1,130 @@
-# Lesson 03 — Comments, Newlines & Code Formatting
+# Lesson 03 — Comments, Escape Sequences & Code Formatting
 
-In this lesson, you will learn how to write comments, format text output using escape sequences, and follow clean code practices.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106L Lecture 01** ([`WLecture1_intro.pdf`](../../files/cs106l/lectures/WLecture1_intro.pdf)).
 
 ---
 
-## 📝 1. Comments in C++
+## 🧭 Quick Navigation
 
-Comments are notes written for human developers. The compiler completely ignores them during compilation.
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 01: Code Formatting & Comments](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 01: Escape Sequences & Stream Buffer Flushing](../../files/cs106l/lectures/WLecture1_intro.pdf)
+- 💻 **Code Lab:** [`L03_CommentsAndFormatting.cpp`](../code/L03_CommentsAndFormatting.cpp)
+
+---
+
+## Learning Objectives
+
+- [ ] Write single-line (`//`) and multi-line (`/* */`) comments effectively without over-commenting obvious code.
+- [ ] Master common **escape sequences** (`\n`, `\t`, `\"`, `\\`).
+- [ ] Understand the technical performance difference between `\n` and `std::endl` (buffer flushing).
+- [ ] Apply clean C++ formatting and consistent 4-space indentation rules.
+
+---
+
+## 1. Comments in C++
+
+Comments are developer notes ignored completely by the C++ preprocessor and compiler. They do not consume runtime memory or CPU cycles in the compiled executable.
 
 ### Single-Line Comments (`//`)
 ```cpp
 // This is a single-line comment
-int x = 10; // Comment after code
+int score = 100; // Inline explanation
 ```
 
 ### Multi-Line Comments (`/* ... */`)
 ```cpp
 /*
-   This is a multi-line comment.
-   It can span as many lines as needed
-   to explain complex algorithms.
-*/
+ * Multi-line comment block.
+ * Used for high-level module descriptions,
+ * algorithm documentation, or license notices.
+ */
 ```
+
+> [!TIP]
+> **Self-Documenting Code Rule:**
+> Write comments that explain **WHY** an algorithm performs a specific task or calculation, not **WHAT** the code literally states. Prefer clear variable names (`int elapsedSeconds;`) over cryptic names with explanatory comments (`int s; // seconds`).
 
 ---
 
-## 🔤 2. Newlines & Escape Sequences
+## 2. Escape Sequences & Formatting
 
-Escape sequences are special characters preceded by a backslash `\` that control text formatting:
+Escape sequences begin with a backslash `\` and allow inserting non-printable or special characters into string literals:
 
-| Escape Sequence | Effect | Description |
-|-----------------|--------|-------------|
-| `\n` | Newline | Moves the cursor to the beginning of the next line |
-| `std::endl` | Newline + Flush | Moves to next line AND flushes the output buffer |
-| `\t` | Tab | Inserts a tab space for aligning text columns |
-| `\"` | Double Quote | Prints a literal `"` character inside strings |
-| `\\` | Backslash | Prints a literal `\` character |
+| Escape Sequence | Symbol Name | Description / Output Behavior |
+| :---: | :--- | :--- |
+| **`\n`** | Newline | Moves the output cursor to the beginning of the next line. |
+| **`\t`** | Horizontal Tab | Inserts a tab stop space for aligning tabular data. |
+| **`\"`** | Double Quote | Escapes double quotes inside a string literal (`"Hello \"World\""`). |
+| **`\\`** | Backslash | Prints a literal backslash character (`\\`). |
 
-### Example Code:
+---
+
+## 3. `\n` vs. `std::endl` — Buffer Flushing Performance
+
+Both `\n` and `std::endl` move the console output cursor to the next line, but they behave differently under the hood:
+
+```mermaid
+graph TD
+    A["std::cout << 'Text\n'"] -->|Fast| B["Writes 'Text' and newline to I/O Buffer in RAM"]
+    C["std::cout << 'Text' << std::endl"] -->|Slower| D["Writes 'Text' and newline to I/O Buffer"]
+    D -->|Forced Flush| E["Flushes RAM I/O Buffer immediately to OS Console"]
+```
+
+- **`\n` (Recommended Default):** Appends a newline character to the output stream buffer in RAM. The OS flushes the buffer automatically when full or at program termination.
+- **`std::endl`:** Appends a newline **AND forces an immediate hardware flush** of the stream buffer to screen.
+
+> [!IMPORTANT]
+> Calling `std::endl` repeatedly in tight loops (e.g., printing $1,000,000$ lines) slows down execution significantly due to millions of redundant hardware I/O flushes. Use `\n` by default, and reserve `std::endl` for interactive prompts where immediate screen feedback is required.
+
+---
+
+## ❓ Self-Assessment Checkpoint #1 — Output Prediction
+
+Predict the exact output printed by the following statement:
+
 ```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Line 1\nLine 2\n";
-    std::cout << "Column 1\tColumn 2\n";
-    std::cout << "She said: \"C++ is awesome!\"\n";
-    return 0;
-}
+std::cout << "C:\\Program Files\\App\n\"C++\"\tRules!\n";
 ```
 
+<details>
+<summary>🔍 <strong>View Explanation & Output</strong></summary>
+
+> [!NOTE]
+> **Output:**
+> ```text
+> C:\Program Files\App
+> "C++"    Rules!
+> ```
+>
+> **Explanation:**
+> 1. `\\` outputs a single literal backslash `\`.
+> 2. `\n` moves execution to a new line.
+> 3. `\"` prints literal quotes `"C++"`.
+> 4. `\t` inserts a tab space before `Rules!`.
+
+</details>
+
 ---
 
-## 🎨 3. Code Formatting Best Practices
-1. **Consistent Indentation**: Always indent code inside `{}` blocks by 4 spaces.
-2. **One Statement per Line**: Keep lines clean; don't pack multiple statements together.
-3. **End with Semicolons**: Every statement MUST end with `;`.
+## 📝 Summary & Key Takeaways
+
+1. **Comments:** Ignored by compiler; used to document intent (**why**, not **what**).
+2. **Escape Sequences:** Preceded by `\` (`\n` for newline, `\t` for tab, `\"` for quotes).
+3. **Performance:** Prefer `\n` over `std::endl` to avoid unnecessary stream buffer flushes.
 
 ---
+
+<div align="center">
 
 ### 🧭 Navigation & Progression
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L02 — Namespaces & std::**](L02_NamespacesAndStd.md) | [**Getting Started**](../) | [**L04 — Interactive User Input**](L04_UserInputCin.md) |
 
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L02 — Namespaces & std::**](L02_NamespacesAndStd.md) | [**🏠 Getting Started**](../README.md) | [**L04 — User Input std::cin ➡️**](L04_UserInputCin.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 01*

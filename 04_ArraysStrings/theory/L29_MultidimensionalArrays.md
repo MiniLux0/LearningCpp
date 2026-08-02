@@ -1,227 +1,99 @@
-# L29 — Multidimensional Arrays: Matrices, Memory Layout and Functions
+# Lesson 29 — Multidimensional Arrays: Matrices & Row-Major Layout
 
-> **Core concept:** C++ does not have "real" matrices in hardware. A 2D array `int m[3][4]` is a **syntactic abstraction** stored as a **1D contiguous block in memory** following Row-Major Order.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 11** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 04** ([`Lecture04_Arrays.pdf`](../../files/mit6096/lectures/Lecture04_Arrays.pdf)).
+
+---
+
+## 🧭 Quick Navigation
+
+- 📄 **Base Academic Lectures:**
+  - 🌲 [Stanford CS106B — Chapter 11: Multidimensional Grid Allocation](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 04: Row-Major Order Memory Layout](../../files/mit6096/lectures/Lecture04_Arrays.pdf)
+- 💻 **Code Lab:** [`L29_MultidimensionalArrays.cpp`](../code/L29_MultidimensionalArrays.cpp)
 
 ---
 
 ## Learning Objectives
 
-- [ ] Understand how 2D and 3D matrices are represented in RAM memory (Row-Major Order)
-- [ ] Master the syntax of declaration, explicit, partial and zero initialization
-- [ ] Apply the rule of mandatory dimensions in function parameters (`int m[][COLS]`)
-- [ ] Dynamically calculate rows and columns using `sizeof`
-- [ ] Manipulate 2D arrays of characters (arrays of C-style strings)
+- [ ] Understand **Row-Major Order** mapping of 2D grids into 1D RAM memory.
+- [ ] Calculate 2D-to-1D index offset formulas: $\text{flat index} = i \times \text{COLS} + j$.
+- [ ] Traverse 2D matrices using nested `for` loops.
+- [ ] Pass 2D arrays to functions (why column dimensions `COLS` are mandatory in parameters).
 
 ---
 
-## 1. The core idea: Row-Major Order
+## 1. Row-Major Memory Mapping
 
-A 2D matrix of `3 rows x 4 columns` (`int m[3][4]`) in C++ is not a physical grid. In RAM memory, the rows are placed **consecutively one after another**:
+Computer RAM hardware is strictly 1-dimensional. A 2D matrix `int matrix[2][3]` is stored as a 1D sequence of rows placed end-to-end:
 
-```
-Conceptually (3x4 Grid):
-
-        Col 0   Col 1   Col 2   Col 3
-Row 0  [  1  ] [  2  ] [  3  ] [  4  ]
-Row 1  [  5  ] [  6  ] [  7  ] [  8  ]
-Row 2  [  9  ] [ 10  ] [ 11  ] [ 12  ]
-
-In RAM Memory (Contiguous block of 12 ints = 48 bytes):
-+----+----+----+----+----+----+----+----+----+----+----+----+
-|  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 |
-+----+----+----+----+----+----+----+----+----+----+----+----+
- <---- Row 0 ---->   <---- Row 1 ---->   <---- Row 2 ---->
+```mermaid
+graph LR
+    SubGraph1["Row 0: matrix[0][0], matrix[0][1], matrix[0][2]"] --- SubGraph2["Row 1: matrix[1][0], matrix[1][1], matrix[1][2]"]
 ```
 
-### Address calculation by the compiler
+$$\text{Flat Index}(i, j) = i \times \text{COLS} + j$$
 
-To access `m[i][j]`, the compiler performs the offset addressing formula:
-
-$$\text{Address}(m[i][j]) = \text{Base Address} + (i \times \text{COLS} + j) \times \text{sizeof(type)}$$
-
-- `m[0][0]` → $(0 \times 4 + 0) = 0$
-- `m[1][2]` → $(1 \times 4 + 2) = 6$ → offset position 6 (element `7`)
-- **Conclusion:** `int m[2][4]` and `int m[8]` occupy exactly the same bytes in memory.
+> [!IMPORTANT]
+> **Why Column Bounds are Mandatory in Function Parameters:**
+> To calculate element address `matrix[i][j]`, the compiler must know the exact number of columns `COLS` to skip past full rows. This is why functions taking 2D arrays MUST specify column dimensions in parameter definitions:
+> ```cpp
+> void printMatrix(int m[][3], int rows); // COLS (3) is MANDATORY!
+> ```
 
 ---
 
-## 2. Declaration and Initialization
+## 2. Matrix Traversal & Initialization
 
-### A. Direct assignment by indices
 ```cpp
-int m[2][3];
-m[0][0] = 1; m[0][1] = 2; m[0][2] = 3;
-m[1][0] = 4; m[1][1] = 5; m[1][2] = 6;
+#include <iostream>
+
+const int ROWS = 2;
+const int COLS = 3;
+
+void display(const int grid[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            std::cout << grid[i][j] << "\t";
+        }
+        std::cout << "\n";
+    }
+}
+
+int main() {
+    int matrix[ROWS][COLS]{
+        {1, 2, 3}, // Row 0
+        {4, 5, 6}  // Row 1
+    };
+    display(matrix);
+    return 0;
+}
 ```
 
-### B. Initialization with nested braces (Recommended for clarity)
-```cpp
-int m[3][4] = {
-    {1, 2, 3, 4},   // Row 0
-    {5, 6, 7, 8},   // Row 1
-    {9, 10, 11, 12} // Row 2
-};
-```
+---
 
-### C. Flattened initialization (Takes advantage of row-major order)
-```cpp
-int m[2][4] = {6, 0, 9, 6, 2, 0, 1, 1};
-// Row 0: 6, 0, 9, 6
-// Row 1: 2, 0, 1, 1
-```
+## ❓ Self-Assessment Checkpoint #1 — Flat Offset Calculation
 
-### D. Partial initialization (Implicit zeros)
-If you do not specify all the elements, the missing ones are automatically filled with `0`:
-```cpp
-int partial[2][3] = {{1, 2}, {3}};
-// Results in:
-// {1, 2, 0}
-// {3, 0, 0}
+Given a matrix `int grid[4][5]`, what is the 1D flat memory index of element `grid[2][3]`?
 
-int zeros[3][4] = {0}; // Fills all 12 elements with 0 (also equivalent to = {})
-```
+<details>
+<summary>🔍 <strong>View Explanation & Calculation</strong></summary>
 
-### E. Precaution: Uninitialized variables (Garbage values vs. Zeros)
-
-> ⚠️ **Attention!** Declaring `int matrix[2][2];` inside a function (like `main()`) **does NOT guarantee that its elements are `0`**.
+> [!NOTE]
+> **Calculation:** $\text{flat index} = (2 \times 5) + 3 = 13$.
 >
-> - **Inside a function (Local):** `int m[2][2];` contains **garbage values** from RAM memory. You must use `= {}` or `= {0}` to initialize it to zeros.
-> - **Outside functions (Global) or with `static`:** C++ guarantees automatic zero initialization (*zero-initialization*).
+> **Explanation:**
+> Row $2$ skips past $2$ full rows of $5$ columns each ($10$ elements). Adding column index $3$ offsets $13$ positions from the array base address.
 
----
-
-## 3. Rule of Dimensions: Why is the second dimension MANDATORY?
-
-When declaring and initializing in a single step, the **first dimension (rows)** can be omitted and the compiler deduces it:
-
-```cpp
-int m[][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}}; // Correct: deduces 2 rows
-```
-
-However, the **secondary dimensions (columns) can NEVER be omitted**:
-```cpp
-// int m[2][] = {{1, 2}, {3, 4}}; // ❌ COMPILATION ERROR
-```
-
-> **Why?** To calculate `m[i][j]`, the formula requires knowing $\text{COLS}$ ($i \times \text{COLS} + j$). Without the number of columns, the compiler does not know how many elements to skip to advance to the next row.
-
----
-
-## 4. Passing Multidimensional Arrays to Functions
-
-Due to pointer decay, when passing a matrix to a function, the **first dimension is optional**, but **all other dimensions must be fixed**:
-
-```cpp
-// Function definition (COLS = 4 mandatory)
-void print2D(const int m[][4], int rows) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < 4; j++) {
-            cout << m[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
-// Call in main:
-int matrix[3][4] = {...};
-print2D(matrix, 3);
-```
-
----
-
-## 5. Calculation of Rows and Columns with `sizeof`
-
-When the matrix is in the same scope as its declaration:
-
-```cpp
-int matrix[3][4];
-
-int totalBytes = sizeof(matrix);        // 3 * 4 * 4 = 48 bytes
-int rowBytes   = sizeof(matrix[0]);     // 4 * 4 = 16 bytes
-int elemBytes  = sizeof(matrix[0][0]);  // 4 bytes
-
-int rows = sizeof(matrix) / sizeof(matrix[0]);       // 48 / 16 = 3
-int cols = sizeof(matrix[0]) / sizeof(matrix[0][0]); // 16 / 4  = 4
-```
-
----
-
-## 6. Three-Dimensional Arrays (3D)
-
-A 3D array can be visualized as a volume (layers $\times$ rows $\times$ columns):
-
-```cpp
-int cube[2][3][4] = {0}; // 2 matrices of 3x4 (total 24 integers)
-cube[1][2][3] = 99;      // Layer 1, Row 2, Column 3
-
-// Triple nested traversal:
-for (int c = 0; c < 2; c++) {
-    for (int r = 0; r < 3; r++) {
-        for (int col = 0; col < 4; col++) {
-            // process cube[c][r][col]
-        }
-    }
-}
-```
-
----
-
-## 7. Arrays of C-Strings (2D `char` Matrix)
-
-A matrix `char names[ROWS][LENGTH]` behaves as a list of C-style text strings:
-
-```cpp
-char names[3][20] = {"Ana", "Carlos", "Beatriz"};
-
-// names[0] is a C-string "Ana\0"
-// names[1] is "Carlos\0"
-// names[2] is "Beatriz\0"
-
-for (int i = 0; i < 3; i++) {
-    cout << "Person " << i + 1 << ": " << names[i] << endl;
-}
-```
-
----
-
-## 8. Checkpoint Questions
-
-<details>
-<summary><strong>1. Why are <code>int arr[2][4]</code> and <code>int arr[8]</code> identical in RAM memory?</strong></summary>
-
-Because both reserve 8 consecutive integers in memory (32 bytes). The 2D notation `[2][4]` is just an abstraction that uses the formula `i * 4 + j` to access the indices.
-</details>
-
-<details>
-<summary><strong>2. Why does the signature <code>void f(int m[][])</code> cause a compilation error?</strong></summary>
-
-Because without specifying the number of columns (`COLS`), the function cannot calculate the jump between rows `i * COLS + j`. The first dimension can be omitted, but the columns must be fixed.
-</details>
-
-<details>
-<summary><strong>3. If I declare <code>int m[2][2];</code> inside <code>main()</code>, are all its elements 0?</strong></summary>
-
-No. Being a local variable without an explicit initializer, its elements will contain **garbage values** from RAM memory. To force them all to zero you must write `int m[2][2] = {};`.
 </details>
 
 ---
 
-## 9. Proposed Exercise
+## 📝 Summary & Key Takeaways
 
-> **Transpose of a square matrix in-place (3x3):**
-> Write a function `void transpose(int m[3][3])` that swaps `m[i][j]` with `m[j][i]` for all $i < j$.
-
-```cpp
-void transpose(int m[3][3]) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = i + 1; j < 3; j++) {
-            int temp = m[i][j];
-            m[i][j] = m[j][i];
-            m[j][i] = temp;
-        }
-    }
-}
-```
+1. **Row-Major Order:** Rows are laid out contiguously in 1D RAM memory.
+2. **Indexing:** Computed as $i \times \text{COLS} + j$.
+3. **Parameters:** Column bounds `COLS` must be specified in function parameter signatures.
 
 ---
 
@@ -234,3 +106,6 @@ void transpose(int m[3][3]) {
 | [**⬅️ L28 — Arrays as Parameters**](L28_ArraysAsParameters.md) | [**🏠 Arrays & Strings**](../README.md) | [**L30 — C-Strings ➡️**](L30_CStrings.md) |
 
 </div>
+
+---
+*MiniLux0 — Learning C++ Section 04*

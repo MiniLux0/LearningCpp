@@ -1,63 +1,104 @@
-# Lesson 21 — Loop Control: `break` and `continue`
+# Lesson 21 — Loop Interruption (`break` & `continue`)
 
-Sometimes during a loop iteration, you need to alter the standard flow:
-- You want to **exit the loop immediately** when a specific condition occurs (e.g., target item found).
-- You want to **skip the current item** and jump straight to the next iteration (e.g., ignore negative numbers).
-
-In C++, we use **`break`** and **`continue`**.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## ⏹️ 1. `break`: Early Exit
+## 🧭 Quick Navigation
 
-The `break` statement instantly terminates the entire loop, jumping out to the code after the loop body.
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 02: Early Loop Termination & Jump Statements](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Managing Loop Iterations](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L21_BreakAndContinue.cpp`](../code/L21_BreakAndContinue.cpp)
+
+---
+
+## Learning Objectives
+
+- [ ] Early terminate active loops using `break`.
+- [ ] Skip the remainder of the current iteration using `continue`.
+- [ ] Differentiate between `break` (exit loop) vs. `continue` (skip to next pass).
+
+---
+
+## 1. `break` vs. `continue` Mechanics
+
+```mermaid
+graph TD
+    SubGraph1["loop body"] --> CheckBreak{"if (condition) break;"}
+    CheckBreak -- Fired --> Exit["Exit loop immediately"]
+    
+    SubGraph2["loop body"] --> CheckCont{"if (condition) continue;"}
+    CheckCont -- Fired --> NextPass["Skip remaining lines & jump to next step pass"]
+```
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    int target = 3;
-
-    for (int i = 1; i <= 5; ++i) {
-        if (i == target) {
-            cout << "Target " << target << " found! Exiting loop early.\n";
-            break; // Exits loop immediately
-        }
-        cout << "Checking " << i << "...\n";
+    std::cout << "--- Demo: continue (Skipping 3) ---\n";
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) continue; // Skips printing 3
+        std::cout << i << " ";
     }
 
+    std::cout << "\n\n--- Demo: break (Aborting at 3) ---\n";
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) break; // Terminates loop completely
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
     return 0;
 }
 ```
 
+> [!IMPORTANT]
+> **Nested Loop Behavior:**
+> When used inside nested loops, `break` or `continue` applies **ONLY to the innermost enclosing loop** where the statement appears. It does NOT break out of parent outer loops.
+
 ---
 
-## ⏭️ 2. `continue`: Skip Iteration
+## ❓ Self-Assessment Checkpoint #1 — Output Prediction
 
-The `continue` statement skips the rest of the code inside the loop for the current iteration and jumps directly to the next iteration.
-
+What is printed by:
 ```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "Printing ODD numbers (skipping even numbers):\n  ";
-    for (int i = 1; i <= 10; ++i) {
-        if (i % 2 == 0) {
-            continue; // Skip even numbers!
-        }
-        cout << i << " ";
-    }
-    cout << "\n";
-
-    return 0;
+for (int i = 1; i <= 4; i++) {
+    if (i % 2 == 0) continue;
+    std::cout << i << " ";
 }
 ```
 
+<details>
+<summary>🔍 <strong>View Explanation & Output</strong></summary>
+
+> [!NOTE]
+> **Output:** `1 3 `.
+>
+> **Explanation:**
+> When `i = 2` and `i = 4`, `i % 2 == 0` is `true`. `continue` fires, skipping `std::cout` and advancing directly to the step increment `i++`. Only odd values `1` and `3` are printed.
+
+</details>
+
 ---
+
+## 📝 Summary & Key Takeaways
+
+1. **`break`:** Terminates the loop immediately and jumps to code following the loop.
+2. **`continue`:** Skips the rest of the current iteration and jumps directly to the step increment.
+3. **Scope:** Affects only the innermost enclosing loop block.
+
+---
+
+<div align="center">
 
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L20 — The for Loop**](L20_ForLoops.md) | [**Basic Syntax**](../) | [**L22 — switch-case Statement**](L22_Switch.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L20 — Count-Controlled for Loops**](L20_ForLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L22 — Multiway Branching: switch ➡️**](L22_Switch.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

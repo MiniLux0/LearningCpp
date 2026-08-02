@@ -1,57 +1,122 @@
-# Lesson 12 — Character Types, ASCII & Booleans
+# Lesson 12 — Characters (`char`), ASCII Encoding & Booleans (`bool`)
 
-In this lesson, we cover two fundamental primitive types: `char` (for individual characters) and `bool` (for logical true/false flags).
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106B Textbook Chapter 3** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## 🔤 1. Characters (`char`) & The ASCII Table
+## 🧭 Quick Navigation
 
-A `char` variable stores a **single character** inside single quotes (`'A'`, `'7'`, `'#'`).
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 01: Character Encodings & Boolean Logic](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
+  - 🌲 [Stanford CS106B — Chapter 3: ASCII Codes & Character Functions](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L12_CharAndBool.cpp`](../code/L12_CharAndBool.cpp)
 
-Under the hood, computers store characters as numbers using the **ASCII Table** (American Standard Code for Information Interchange). For example:
-- Letter `'A'` has an ASCII numeric value of `65`.
-- Letter `'a'` has an ASCII numeric value of `97`.
-- Character `'0'` has an ASCII numeric value of `48`.
+---
 
-### ASCII Math Code Example:
+## Learning Objectives
+
+- [ ] Understand `char` as an 8-bit integer type storing ASCII numerical encodings ($0 \dots 127$).
+- [ ] Perform character arithmetic (e.g., `'a' - 'A'` case shifting).
+- [ ] Understand `bool` logical states (`true` / `false`) stored as 1 byte in RAM.
+- [ ] Format boolean stream output using `std::boolalpha`.
+
+---
+
+## 1. Characters (`char`) & ASCII Numerical Encoding
+
+In C++, a `char` stores a single character enclosed in **single quotes** (`'A'`). Under the hood, a `char` is simply a 1-byte (8-bit) integer storing an **ASCII code**:
+
+```mermaid
+graph LR
+    Literal["char letter = 'A';"] -->|Compiler Mapping| ASCII["ASCII Integer: 65"]
+    ASCII -->|RAM Memory| Binary["Binary: 01000001 (1 byte)"]
+```
+
+- `'A'` $\rightarrow$ ASCII `65`
+- `'a'` $\rightarrow$ ASCII `97`
+- `'0'` $\rightarrow$ ASCII `48`
+
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    char letter = 'A';
+    char ch = 'A';
+    std::cout << "Character Value : " << ch << "\n";
+    std::cout << "ASCII Numerical : " << static_cast<int>(ch) << "\n"; // Outputs 65
 
-    cout << "Character: " << letter << "\n";
-    cout << "ASCII Numeric Value: " << (int)letter << "\n"; // Casting char to int
+    // ASCII Arithmetic
+    char nextChar = ch + 1; // 65 + 1 = 66 -> 'B'
+    std::cout << "Next Character  : " << nextChar << "\n";
+    return 0;
+}
+```
 
-    // Adding 1 to 'A' (65 + 1 = 66 -> 'B')
-    char next_letter = letter + 1;
-    cout << "Next Character: " << next_letter << "\n";
+> [!TIP]
+> **Case Conversion Math:**
+> Because ASCII uppercase `'A'` ($65$) and lowercase `'a'` ($97$) are separated by a constant offset of $32$:
+> ```cpp
+> char upper = 'G';
+> char lower = upper + ('a' - 'A'); // Converts 'G' -> 'g'
+> ```
 
+---
+
+## 2. Booleans (`bool`) & Stream Formatting
+
+A `bool` represents a binary truth state (`true` or `false`). In memory, `bool` reserves **1 byte** (8 bits).
+
+By default, `std::cout` prints `bool` values as numeric integers (`1` for `true`, `0` for `false`). To output literal text `"true"` or `"false"`, use `std::boolalpha`:
+
+```cpp
+#include <iostream>
+
+int main() {
+    bool isPassed = true;
+    bool isFailed = false;
+
+    std::cout << "Numeric Default : " << isPassed << ", " << isFailed << "\n"; // Outputs: 1, 0
+    std::cout << "With boolalpha   : " << std::boolalpha << isPassed << ", " << isFailed << "\n"; // Outputs: true, false
     return 0;
 }
 ```
 
 ---
 
-## 🔘 2. Booleans (`bool`)
+## ❓ Self-Assessment Checkpoint #1 — Character Digit Conversion
 
-A `bool` variable stores a binary logical state: either `true` or `false`.
+How do you convert a numeric character `'7'` into its integer value `7` in C++?
 
-```cpp
-bool is_logged_in = true;
-bool has_admin_access = false;
-
-cout << "Logged In: " << is_logged_in << "\n";       // Prints 1
-cout << "Admin Access: " << has_admin_access << "\n"; // Prints 0
-```
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
 
 > [!NOTE]
-> By default, `cout` prints `1` for `true` and `0` for `false`. If you want it to print `"true"` or `"false"` as text, add `cout << boolalpha;`!
+> **Code:** `int num = '7' - '0';`
+>
+> **Explanation:**
+> In the ASCII table, digits `'0'` through `'9'` are stored contiguously ($48 \dots 57$). Subtracting `'0'` ($48$) from any digit character yields its exact numeric integer value ($55 - 48 = 7$).
+
+</details>
 
 ---
 
+## 📝 Summary & Key Takeaways
+
+1. **`char`:** 1-byte integer type storing ASCII numerical encodings.
+2. **ASCII Math:** Perform arithmetic directly on characters (`'A' + 1 == 'B'`).
+3. **`bool`:** Stores `true`/`false`; use `std::boolalpha` to display boolean text.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L11 — Floating-Point Types**](L11_FloatingPointTypes.md) | [**Basic Syntax**](../) | [**L13 — Conditionals: if**](L13_If.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L11 — Floating-Point Types**](L11_FloatingPointTypes.md) | [**🏠 Basic Syntax**](../README.md) | [**L13 — Control Flow: if Statements ➡️**](L13_If.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

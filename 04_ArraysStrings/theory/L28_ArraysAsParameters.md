@@ -1,181 +1,99 @@
-# L28 — Arrays as Parameters: Pass by Address and `const`
+# Lesson 28 — Arrays as Parameters: Array Decay, Pass-by-Address & `const`
 
-> **Core concept:** When you pass an array to a function, the elements are not copied — only the **start address** is copied. The function accesses the **same memory** as `main()`. That is why you do not need `&` as with normal variables.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 11** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 04** ([`Lecture04_Arrays.pdf`](../../files/mit6096/lectures/Lecture04_Arrays.pdf)).
+
+---
+
+## 🧭 Quick Navigation
+
+- 📄 **Base Academic Lectures:**
+  - 🌲 [Stanford CS106B — Chapter 11: Array Parameters & Pointer Decay](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 04: Passing Arrays to Functions](../../files/mit6096/lectures/Lecture04_Arrays.pdf)
+- 💻 **Code Lab:** [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp)
+
+---
 
 ## Learning Objectives
 
-- [ ] Understand why arrays are passed "by address" automatically
-- [ ] Contrast with pass by value of a normal `int` (Lesson 3)
-- [ ] Use `const` to protect an array from accidental writing
-- [ ] Read the compact `for` loop with `i++` in the index (post-increment)
-- [ ] Write a function that modifies an array in-place (without `const`)
+- [ ] Understand **Array Decay**: How arrays decay into pointers to their first element when passed to functions.
+- [ ] Understand why array size must be passed explicitly as a separate parameter (`int size`).
+- [ ] Protect array contents from accidental modification using `const int arr[]`.
 
 ---
 
-## 1. The array name is the start address
+## 1. Array Pointer Decay Mechanics
 
-When you declare `int arr[] = {1, 2, 3, 4, 5, 6, 7};`, the name `arr` is not "the 7 values" — it is the **address** of the first house in memory:
+When an array is passed as a function argument, it is **NEVER copied**. Instead, the array name "decays" into a pointer holding the RAM memory address of its first element (`&arr[0]`):
 
+```mermaid
+graph LR
+    Caller["main() Array: int scores[4] (RAM: 0x5000)"] -->|Passes Address 0x5000| Func["printArray(const int arr[], int size)"]
+    Func -->|Accesses Same Memory| Direct["RAM Memory 0x5000"]
 ```
-arr → start address (e.g. house 2000)
-       [1] [2] [3] [4] [5] [6] [7]
-        ↑
-   arr points here
-```
-
-When you call `sum(arr, 7)`:
-- The 7 elements are **not** copied one by one
-- **Only that address** is copied — a single number (4 or 8 bytes)
-- The function receives that address and "walks" through the **same houses** as `main()`
-
----
-
-## 2. Contrast with normal `int` (without `&`)
-
-This is what makes arrays special compared to what we saw in L29 (Pass by Value):
 
 ```cpp
-// Normal variable — the value is COPIED
-void attemptToModify(int x) {
-    x = 999;  // only modifies the local copy
+#include <iostream>
+
+// arr decays to a pointer (const int* arr)
+void printArray(const int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << "\n";
 }
 
 int main() {
-    int myVariable = 42;
-    attemptToModify(myVariable);
-    // myVariable is still 42 — the value was copied
-    // They are two different memory houses
+    int data[3]{10, 20, 30};
+    printArray(data, 3); // Passes memory address of data[0]
+    return 0;
 }
 ```
 
-| What is passed | What is copied? | Does it modify the original? |
-|----------------|-----------------|------------------------------|
-| `int x` (without `&`) | The full **value** | ❌ No — they are two distinct houses |
-| `int arr[]` | Only the **address** | ✅ Yes — same memory house |
-| `int &x` (with `&`) | **Alias** (reference) | ✅ Yes — as we saw in L29 |
-
-> **Important:** With arrays there is no copy of content, only copy of the **address**. That is why it behaves "as if" it were pass by reference, without needing `&`.
+> [!IMPORTANT]
+> **Why `sizeof(arr)` Fails inside Functions:**
+> Inside `main()`, `sizeof(data)` returns $3 \times 4 = 12$ bytes. But inside `printArray()`, `sizeof(arr)` returns $8$ bytes (the size of a memory pointer on a 64-bit system!). This is why array size **MUST ALWAYS** be passed as a separate parameter.
 
 ---
 
-## 3. `const` — "read only, do not modify"
+## 2. Preventing Mutation with `const`
 
-Since the array is passed by address, **without `const` the function could modify your original array** without you noticing. `const` is a safeguard:
+Because functions access original array elements in memory directly, omitting `const` allows the function to mutate `main()`'s array:
 
 ```cpp
-int sum(const int array[], const int length) {
-    // array[0] = 999;  ← ❌ Compilation ERROR: array is const
-    long sum = 0;
-    for (int i = 0; i < length; i++) {
-        sum += array[i];
-    }
-    return sum;
+void zeroOut(int arr[], int size) { // Modifies caller array!
+    for (int i = 0; i < size; i++) arr[i] = 0;
+}
+
+void readOnly(const int arr[], int size) { // Read-only safety!
+    // arr[0] = 5; // COMPILER ERROR! Forbidden write.
 }
 ```
 
-- ✅ `const int array[]` = promise to the compiler: **"this function can only read, not write"**
-- ❌ If you try to break the promise → **compilation error** — it protects you
-- Without `const`, doing `array[0] = 999;` inside `sum()` **would** modify `arr` in `main()`
-
 ---
 
-## 4. The compact `for` with `i++` in the index
+## ❓ Self-Assessment Checkpoint #1 — Pointer Decay
 
-In the reading, `sum` uses a compact style that compresses everything into one line:
-
-```cpp
-for(int i = 0; i < length; sum += array[i++]);
-```
-
-Breakdown:
-```
-for (initialization;  condition;      update)                 body;
-     int i = 0;       i < length;     sum += array[i++]      ;  ← EMPTY
-```
-
-**The body of the loop is the empty `;`.** All the work happens in the "update".
-
-### `i++` (post-increment) inside `array[i++]`
-
-It does **two things** in one step:
-1. **Uses** the current value of `i` to read → `array[i]`
-2. **Afterwards**, increments `i` by 1
-
-It is equivalent to:
-```cpp
-sum += array[i];  // uses i as it is
-i++;              // then increments i
-```
-
-### Step-by-step traversal with `{1, 2, 3, 4, 5, 6, 7}`
-
-| Turn | `i` on entry | `array[i]` | `sum` after | `i` on exit |
-|------|--------------|------------|-------------|-------------|
-| 1    | 0            | 1          | 0 + 1 = 1   | 1           |
-| 2    | 1            | 2          | 1 + 2 = 3   | 2           |
-| 3    | 2            | 3          | 3 + 3 = 6   | 3           |
-| 4    | 3            | 4          | 6 + 4 = 10  | 4           |
-| 5    | 4            | 5          | 10 + 5 = 15 | 5           |
-| 6    | 5            | 6          | 15 + 6 = 21 | 6           |
-| 7    | 6            | 7          | 21 + 7 = 28 | 7           |
-| —    | 7            | —          | — (exits)   | —           |
-
-`i` reaches 7 (`length`) → false condition → loop ends → `return 28`.
-
-> **Note:** The compact style is valid but hard to read. In readable code it is written like this:
-> ```cpp
-> for (int i = 0; i < length; i++) {
->     sum += array[i];
-> }
-> ```
-
----
-
-## 5. Checkpoint question
+Why does passing a 1,000,000-element array to a function in C++ execute instantaneously with zero memory overhead?
 
 <details>
-<summary><strong>If you remove the <code>const</code> from <code>array[]</code> in <code>sum</code>, and inside you do <code>array[0] = 999;</code>, what happens to <code>arr</code> in <code>main()</code>?</strong></summary>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
 
-The first element of `arr` in `main()` **is modified to 999**. The function is writing directly to the same memory that `main()` uses, because the array was passed by address — it is not a copy.
-
-</details>
-
-<details>
-<summary><strong>And why is it different from an <code>int</code> passed without <code>&</code>?</strong></summary>
-
-With `void func(int x) { x = 999; }` the **value is copied** to `x` — they are two distinct houses. Modifying `x` does not touch the original variable. With arrays there is no copy of content, only copy of the **address** — that is why the original is modified without needing `&`.
+> [!NOTE]
+> **Answer:** Array decay passes only an 8-byte memory address pointer.
+>
+> **Explanation:**
+> C++ passes arrays by pointer address rather than copying element data. Passing a 1-element array vs. a 1,000,000-element array copies exactly 8 bytes of address data to the function's stack frame in $O(1)$ time.
 
 </details>
 
 ---
 
-## 6. Exercise: `duplicate` — in-place modification
+## 📝 Summary & Key Takeaways
 
-> Write `void duplicate(int arr[], int length)` that multiplies each element by 2, modifying the original (**without** `const`). Then in `main()`, show the array before and after to verify that it did change.
-
-```cpp
-void duplicate(int arr[], int length) {
-    for (int i = 0; i < length; i++) {
-        arr[i] *= 2;
-    }
-}
-```
-
-- **Without `const`** because the function needs to **write** to the array
-- The change is reflected in `main()` because the address was passed, not a copy
-
----
-
-## Key Summary L28
-
-| Concept | Detail |
-|---------|--------|
-| Array name | It is the **start address** of the block in memory |
-| When passed to function | Only the **address** is copied, not the elements |
-| Without `const` | The function **can modify** the original array |
-| With `const` | The function **can only read** — the compiler forbids writing |
-| `i++` post-increment | First **uses** `i`, **then** increments |
-| Contrast with `int` | Normal `int` is **copied** (value) — array is passed by **address** |
+1. **Array Decay:** Arrays passed to functions decay into a pointer to element 0.
+2. **Explicit Size:** Always pass array size explicitly (`int size`).
+3. **Const Guard:** Use `const int arr[]` to protect read-only array parameters.
 
 ---
 
@@ -188,3 +106,6 @@ void duplicate(int arr[], int length) {
 | [**⬅️ L27 — Array Basics**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
 
 </div>
+
+---
+*MiniLux0 — Learning C++ Section 04*

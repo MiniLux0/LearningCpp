@@ -1,56 +1,106 @@
-# Lesson 15 — Conditionals: `if-else if-else` & Logical Operators
+# Lesson 15 — Multi-Branch Decisions (`if - else if - else`)
 
-Real life isn't always a simple black-and-white choice between two options. Often, we have **multiple possibilities** or need to combine multiple conditions together.
-
-In this lesson, you will learn:
-1. Multi-branch logic using `else if`.
-2. Logical Operators: `&&` (AND), `||` (OR), `!` (NOT).
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## 🔗 1. Logical Operators
+## 🧭 Quick Navigation
 
-Logical operators allow you to combine multiple conditions inside a single `if` statement:
-
-| Operator | Name | Rule | Example |
-|:--------:|------|------|---------|
-| `&&` | **AND** | `true` ONLY IF **both** conditions are true | `(age >= 18 && score >= 70)` |
-| `\|\|` | **OR** | `true` IF **at least one** condition is true | `(is_student \|\| has_coupon)` |
-| `!` | **NOT** | Inverts a boolean (`true` becomes `false`) | `(!is_logged_in)` |
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 02: Multi-Way Conditional Chains](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Cascading Conditions](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L15_IfElseIfElse.cpp`](../code/L15_IfElseIfElse.cpp)
 
 ---
 
-## 🔀 2. Multi-Branch Logic (`else if`)
+## Learning Objectives
+
+- [ ] Construct multi-way decision chains using `if`, `else if`, and `else`.
+- [ ] Understand short-circuit branch evaluation order (top-to-bottom).
+- [ ] Implement fallback handling using trailing `else` catch-alls.
+
+---
+
+## 1. Multi-Branch Evaluation Chains
+
+When a scenario requires evaluating multiple distinct conditions sequentially, C++ chains `else if` statements:
+
+```mermaid
+graph TD
+    Start["Check Condition 1"] --> Cond1{"score >= 90?"}
+    Cond1 -- Yes --> A["Grade = A"]
+    Cond1 -- No --> Cond2{"score >= 80?"}
+    Cond2 -- Yes --> B["Grade = B"]
+    Cond2 -- No --> Cond3{"score >= 70?"}
+    Cond3 -- Yes --> C["Grade = C"]
+    Cond3 -- No --> Fallback["Grade = F"]
+```
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    int age = 22;
     int score = 85;
 
-    // Checking applicant eligibility using logical AND (&&) and multi-branching
-    if (age >= 18 && score >= 70) {
-        cout << "Passed qualification!\n";
-    } else if (age < 18) {
-        cout << "Underage applicant.\n";
+    if (score >= 90) {
+        std::cout << "Grade: A\n";
+    } else if (score >= 80) {
+        std::cout << "Grade: B\n";
+    } else if (score >= 70) {
+        std::cout << "Grade: C\n";
     } else {
-        cout << "Score insufficient.\n";
+        std::cout << "Grade: F\n";
     }
 
     return 0;
 }
 ```
 
-### Expected Output:
-```text
-Passed qualification!
-```
+> [!IMPORTANT]
+> **First-Match Short-Circuiting:**
+> C++ evaluates conditions strictly from **top to bottom**. As soon as ONE condition evaluates to `true`, its corresponding block executes, and the compiler **skips all remaining `else if` and `else` branches immediately**.
 
 ---
 
+## ❓ Self-Assessment Checkpoint #1 — Order of Conditions
+
+What prints if `score = 95` and the conditions are ordered as follows?
+```cpp
+if (score >= 70) { std::cout << "C"; }
+else if (score >= 90) { std::cout << "A"; }
+```
+
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+
+> [!WARNING]
+> **Output:** `"C"`.
+>
+> **Explanation:**
+> Because `score >= 70` is true for `95`, the first branch fires immediately. The second branch (`score >= 90`) is short-circuited and never evaluated. Multi-way branch conditions must be ordered from most specific to least specific!
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **`else if`:** Allows testing multiple sequential conditions.
+2. **Short-Circuiting:** Stops evaluating as soon as the first matching condition succeeds.
+3. **Ordering:** Always arrange range conditions from most strict to least strict.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L14 — Conditionals: if-else**](L14_IfElse.md) | [**Basic Syntax**](../) | [**L16 — Comparing Floats**](L16_ComparingFloats.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L14 — Dual-Branch if-else**](L14_IfElse.md) | [**🏠 Basic Syntax**](../README.md) | [**L16 — Safe Float Comparisons ➡️**](L16_ComparingFloats.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

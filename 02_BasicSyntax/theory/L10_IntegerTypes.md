@@ -1,63 +1,115 @@
-# Lesson 10 — Integer Types, Ranges & Memory Limits
+# Lesson 10 — Integer Types, Memory Sizes & Overflow
 
-In C++, not all integer numbers require the same amount of memory. A small counter from 1 to 10 doesn't need as much space as the population of Earth (8 billion people)!
-
-C++ gives you different integer data types so you can choose the right tool for the job.
-
----
-
-## 📊 1. Integer Types & Memory Sizes
-
-| Data Type | Memory Size | Minimum Value | Maximum Value | Best Used For |
-|-----------|:-----------:|:-------------:|:-------------:|---------------|
-| `short` | 2 Bytes (16 bits) | -32,768 | 32,767 | Small numbers (e.g., age, day of month) |
-| `int` | 4 Bytes (32 bits) | -2,147,483,648 | 2,147,483,647 | Default choice for general counting |
-| `long long` | 8 Bytes (64 bits) | $\approx -9 \times 10^{18}$ | $\approx 9 \times 10^{18}$ | Huge numbers (e.g., world population, bytes in terabytes) |
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106B Textbook Appendix A** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## ➕ 2. Signed vs Unsigned Integers
+## 🧭 Quick Navigation
 
-By default, integer types are **signed** (they can store both positive and negative values).
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 01: Integer Types & Fixed Width Allocation](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
+  - 🌲 [Stanford CS106B — Appendix A: Representation of Integers & Limits](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L10_IntegerTypes.cpp`](../code/L10_IntegerTypes.cpp)
 
-If you know a value will **never be negative** (like inventory count or pixel coordinates), you can prefix it with `unsigned`:
+---
+
+## Learning Objectives
+
+- [ ] Select appropriate integer types (`short`, `int`, `long long`) based on memory bounds.
+- [ ] Understand signed vs. unsigned binary representation (Two's Complement).
+- [ ] Inspect platform limits using `#include <climits>` (`INT_MAX`, `INT_MIN`, `LLONG_MAX`).
+- [ ] Recognize and prevent **Integer Overflow** and Undefined Behavior.
+
+---
+
+## 1. Integer Data Types & Memory Bounds
+
+| Data Type | Standard Memory | Minimum Value ($2^{k-1}$) | Maximum Value ($2^{k-1}-1$) | Typical Application |
+| :--- | :---: | :---: | :---: | :--- |
+| **`short`** | 2 Bytes (16 bits) | $-32,768$ | $+32,767$ | Memory-constrained embedded sensors. |
+| **`int`** | 4 Bytes (32 bits) | $-2,147,483,648$ | $+2,147,483,647$ | Default choice for general loop counters and quantities. |
+| **`long long`** | 8 Bytes (64 bits) | $\approx -9.22 \times 10^{18}$ | $\approx +9.22 \times 10^{18}$ | Financial balances, timestamps, planetary distances. |
+
+> [!TIP]
+> **Checking Machine Limits at Runtime:**
+> You can query exact hardware size limits using `<climits>`:
+> ```cpp
+> #include <iostream>
+> #include <climits>
+> 
+> std::cout << "Max int: " << INT_MAX << "\n"; // 2147483647
+> ```
+
+---
+
+## 2. Signed vs. Unsigned Integers (Two's Complement)
+
+By default, integers are **signed** (the most significant bit MSB acts as a negative sign flag in Two's Complement representation).
+
+When a variable is declared `unsigned`, the sign bit is re-purposed as a magnitude bit, **doubling the positive maximum range**:
+
+```mermaid
+graph LR
+    Signed["signed int (32 bits)<br/>Range: -2,147,483,648 to +2,147,483,647"]
+    Unsigned["unsigned int (32 bits)<br/>Range: 0 to 4,294,967,295"]
+```
 
 ```cpp
-unsigned int score = 5000; // Stores only 0 and positive numbers (up to 4.2 billion!)
+unsigned int score = 4000000000U; // Valid! Fits within 4.2 billion unsigned limit
 ```
 
 ---
 
-## 💥 3. What is Integer Overflow?
+## 3. Integer Overflow (Two's Complement Wrap-Around)
 
-When a number exceeds the maximum value its type can hold, it "overflows" and wraps around to negative values!
+What happens if you add `1` to `INT_MAX`?
 
 ```cpp
-#include <iostream>
-#include <climits>
-using namespace std;
-
-int main() {
-    int max_int = INT_MAX; // 2,147,483,647
-    cout << "Max Int: " << max_int << "\n";
-
-    // Adding 1 causes integer overflow!
-    max_int = max_int + 1;
-    cout << "After +1 (Overflow!): " << max_int << "\n";
-
-    return 0;
-}
+int maxVal = INT_MAX; // 2,147,483,647
+maxVal = maxVal + 1;  // OVERFLOW! Wraps around to -2,147,483,648
 ```
 
-### Expected Output:
-```text
-Max Int: 2147483647
-After +1 (Overflow!): -2147483648
-```
+> [!CAUTION]
+> **Undefined Behavior (UB):**
+> In C++, signed integer overflow is officially **Undefined Behavior (UB)** under the ISO C++ standard. Modern compilers with optimization enabled (`-O2` or `-O3`) may assume signed overflow never happens and optimize away loop termination checks entirely!
 
 ---
+
+## ❓ Self-Assessment Checkpoint #1 — Overflow Behavior
+
+If `short count = 32767;` and you execute `count++;`, what value will `count` contain on a standard 16-bit short system?
+
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+
+> [!NOTE]
+> **Result:** `-32768`.
+>
+> **Explanation:**
+> `32767` in 16-bit binary is `0111 1111 1111 1111`. Adding `1` yields `1000 0000 0000 0000`, which represents `-32768` in Two's Complement signed representation.
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Selection:** Use `int` for general calculations; use `long long` for values exceeding 2 billion.
+2. **Unsigned:** Doubles positive range, but cannot store negative numbers.
+3. **Overflow:** Exceeding type limits wraps around and causes undefined behavior in signed types.
+
+---
+
+<div align="center">
 
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L09 — Binary & Memory Layout**](L09_BinaryNumbers.md) | [**Basic Syntax**](../) | [**L11 — Floating-Point Types**](L11_FloatingPointTypes.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L09 — Binary & Bit Layouts**](L09_BinaryNumbers.md) | [**🏠 Basic Syntax**](../README.md) | [**L11 — Floating-Point Types ➡️**](L11_FloatingPointTypes.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

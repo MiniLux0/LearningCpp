@@ -1,57 +1,106 @@
 # Lesson 07 — Working with Text Strings (`std::string`)
 
-In real-world applications, programs spend a lot of time processing words, sentences, email addresses, and usernames. In C++, we use **`std::string`** to store text.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 05** ([`WL5_Containers.pdf`](../../files/cs106l/lectures/WL5_Containers.pdf)) and **Stanford CS106B Textbook Chapter 3** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## 🧵 1. What is a String?
+## 🧭 Quick Navigation
 
-A **string** is simply a sequence of characters glued together. While a `char` stores a single letter inside single quotes (`'A'`), a `string` stores words or sentences inside double quotes (`"Hello World"`).
-
-To use strings, we include the `<string>` library header at the top of our file: `#include <string>`.
+- 📄 **Base Academic Lectures:**
+  - ⚙️ [Stanford CS106L — Lecture 05: STL String Containers](../../files/cs106l/lectures/WL5_Containers.pdf)
+  - 🌲 [Stanford CS106B — Chapter 3: Strings & Characters](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L07_Strings.cpp`](../code/L07_Strings.cpp)
 
 ---
 
-## 💻 2. Combining and Manipulating Strings
+## Learning Objectives
+
+- [ ] Understand `std::string` as a dynamic C++ Standard Library container class (`#include <string>`).
+- [ ] Differentiate between single characters (`char` in `' '`) and string objects (`std::string` in `" "`).
+- [ ] Perform string concatenation using `operator+`.
+- [ ] Query string length (`.length()` / `.size()`) and index characters using `operator[]`.
+
+---
+
+## 1. What is `std::string`?
+
+A `std::string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `std::string` manages its own memory automatically on the heap as text grows or shrinks.
+
+```mermaid
+graph LR
+    Str["std::string name = 'Ada';"] -->|Internal Memory Layout| Arr["['A'] ['d'] ['a'] ['\0']"]
+    Arr --> Method1[".length() -> 3"]
+    Arr --> Method2["operator[0] -> 'A'"]
+```
+
+---
+
+## 2. String Concatenation & Traversal
 
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string first_name = "Ada";
-    string last_name = "Lovelace";
+    std::string firstName = "Ada";
+    std::string lastName = "Lovelace";
 
-    // 1. Concatenation: Joining strings together using '+'
-    string full_name = first_name + " " + last_name;
-    cout << "Full Name: " << full_name << "\n";
+    // 1. Concatenation (+)
+    std::string fullName = firstName + " " + lastName;
+    std::cout << "Full Name: " << fullName << "\n";
 
-    // 2. Length: Finding how many characters are in a string
-    cout << "Character Count: " << full_name.length() << " characters\n";
+    // 2. Length Inspection (.length() / .size())
+    std::cout << "Total Characters: " << fullName.length() << "\n";
 
-    // 3. Accessing Individual Characters using zero-based index []
-    cout << "First Letter: " << full_name[0] << "\n"; // 'A'
-    cout << "Second Letter: " << full_name[1] << "\n"; // 'd'
+    // 3. Zero-indexed Character Access ([])
+    std::cout << "First Character : " << fullName[0] << "\n"; // 'A'
+    std::cout << "Last Character  : " << fullName[fullName.length() - 1] << "\n"; // 'e'
 
     return 0;
 }
 ```
 
-### Expected Output:
-```text
-Full Name: Ada Lovelace
-Character Count: 12 characters
-First Letter: A
-Second Letter: d
-```
-
-> [!TIP]
-> **Zero-Based Indexing**: In programming, we always start counting positions from `0`. The 1st letter is at index `0`, the 2nd letter is at index `1`, and so on.
+> [!IMPORTANT]
+> **Zero-Based Indexing:**
+> Like arrays, string indexing starts at `0`. The first character of a string `s` is `s[0]`, and the last valid character is `s[s.length() - 1]`.
 
 ---
 
+## ❓ Self-Assessment Checkpoint #1 — Single vs. Double Quotes
+
+What is the difference between `'A'` and `"A"` in C++?
+
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+
+> [!WARNING]
+> **Syntax Breakdown:**
+> - `'A'` is a **`char` literal** representing a single character value stored as 1 byte of ASCII (`65`).
+> - `"A"` is a **string literal** (a null-terminated sequence of characters containing `'A'` and `'\0'`) stored as 2 bytes in memory.
+> Assigning `"A"` to a `char` variable (`char c = "A";`) will result in a compile-time type mismatch error.
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Header:** Include `<string>` to use `std::string`.
+2. **Operators:** Use `+` for concatenation and `[]` for character indexing.
+3. **Methods:** `.length()` and `.size()` both return the character count in $O(1)$ time.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L06 — Variables & Data Types**](L06_Variables.md) | [**Basic Syntax**](../) | [**L08 — Advanced User Input**](L08_UserInput.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L06 — Variables & Types**](L06_Variables.md) | [**🏠 Basic Syntax**](../README.md) | [**L08 — Advanced User Input ➡️**](L08_UserInput.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

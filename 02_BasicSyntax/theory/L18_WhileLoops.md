@@ -1,57 +1,94 @@
-# Lesson 18 — The `while` Loop
+# Lesson 18 — Iteration: Pre-Test `while` Loops
 
-Imagine you want to print numbers from 1 to 100. Writing `cout << 1; cout << 2; ...` would take a hundred lines of tedious code!
-
-In programming, **loops** allow us to repeat a block of code automatically as long as a condition remains true.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
 
 ---
 
-## 🔄 1. Syntax of `while`
+## 🧭 Quick Navigation
 
-```cpp
-while (condition) {
-    // Code block repeated as long as condition evaluates to true
-    // Remember to update your counter inside to avoid INFINITE LOOPS!
-}
+- 📄 **Base Academic Lectures:**
+  - 🏛️ [MIT 6.096 — Lecture 02: Iterative Statements & while Loops](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Repetition Statements](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+- 💻 **Code Lab:** [`L18_WhileLoops.cpp`](../code/L18_WhileLoops.cpp)
+
+---
+
+## Learning Objectives
+
+- [ ] Execute repetitive tasks using pre-test `while` loops.
+- [ ] Maintain loop control variables and update conditions to prevent infinite loops.
+- [ ] Understand pre-test evaluation behavior ($0 \dots N$ iteration guarantee).
+
+---
+
+## 1. Pre-Test `while` Loop Mechanics
+
+A `while` loop repeatedly executes a block of code **as long as its boolean condition remains `true`**:
+
+```mermaid
+graph TD
+    Start["Enter Loop"] --> Cond{"Is condition true?"}
+    Cond -- True --> Body["Execute Body Block { }"]
+    Body --> Update["Update Loop State"]
+    Update --> Cond
+    Cond -- False --> Exit["Exit Loop & Continue"]
 ```
-
----
-
-## 💻 2. Code Example: Counting from 1 to 5
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    int counter = 1; // 1. Loop variable initialization
+    int counter = 1; // 1. Initialization
 
-    while (counter <= 5) { // 2. Condition check
-        cout << "Count: " << counter << "\n";
-        counter++; // 3. Update step (counter = counter + 1)
+    while (counter <= 5) { // 2. Condition Check
+        std::cout << "Count: " << counter << "\n";
+        counter++; // 3. State Update (Crucial!)
     }
 
-    cout << "Loop Finished!\n";
     return 0;
 }
 ```
 
-### Expected Output:
-```text
-Count: 1
-Count: 2
-Count: 3
-Count: 4
-Count: 5
-Loop Finished!
-```
-
 > [!WARNING]
-> **Infinite Loop Hazard**: If you forget to update the counter (`counter++`), the condition `counter <= 5` will remain `true` forever, freezing your program in an infinite loop! Press `Ctrl + C` in terminal to terminate an infinite loop.
+> **The Infinite Loop Hazard:**
+> If you forget to update the loop control variable (`counter++`), the condition `counter <= 5` remains `true` forever. The CPU will execute the loop infinitely until the process is forcefully killed.
 
 ---
 
+## ❓ Self-Assessment Checkpoint #1 — Pre-Test Behavior
+
+How many times does the body of `while (x < 0)` execute if `x = 10` initially?
+
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+
+> [!NOTE]
+> **Answer:** 0 times.
+>
+> **Explanation:**
+> Because `while` is a **pre-test loop**, the condition `10 < 0` is checked *before* entering the body. Since it evaluates to `false` immediately, the loop body is skipped entirely.
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Pre-Test:** Condition is tested *before* executing the body (may execute $0$ times).
+2. **Loop Control:** Always initialize, check, and update loop state variables.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L17 — Complex Logical Conditions**](L17_Conditions.md) | [**Basic Syntax**](../) | [**L19 — The do-while Loop**](L19_DoWhileLoops.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L17 — Complex Conditions**](L17_Conditions.md) | [**🏠 Basic Syntax**](../README.md) | [**L19 — Post-Test do-while Loops ➡️**](L19_DoWhileLoops.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*

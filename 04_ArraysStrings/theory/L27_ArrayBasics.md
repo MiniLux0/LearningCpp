@@ -1,166 +1,96 @@
-# L27: Array Basics — Declaration, Initialization, and Index Access
+# Lesson 27 — Array Basics: Declaration, Contiguous Memory & Indexing
 
-## 1. The core idea: contiguous memory
-
-A normal variable (`int x;`) reserves **one space** for **one value**.
-
-An **array** (`int arr[4];`) reserves **a contiguous block** of memory for **multiple values of the same type**, all placed one after another.
-
-```
-memory:  [house 2000] [house 2001] [house 2002] [house 2003]  ← 4 bytes = 1 int
-         [house 2004] [house 2005] [house 2006] [house 2007]  ← 2nd int
-         [house 2008] [house 2009] [house 2010] [house 2011]  ← 3rd int
-         [house 2012] [house 2013] [house 2014] [house 2015]  ← 4th int
-         ↑ start address (arr[0])
-```
-
-**The index does not "search" — it calculates an address:**
-```
-arr_address[i] = start_address + i × sizeof(type)
-```
-
-- `arr[0]` → offset 0 → start_address
-- `arr[1]` → offset 1 × 4 = 4 bytes → start_address + 4
-- `arr[2]` → offset 2 × 4 = 8 bytes → start_address + 8
-
-That is why the first index is **0**: you don't move, you are already at the beginning.
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 11** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 04** ([`Lecture04_Arrays.pdf`](../../files/mit6096/lectures/Lecture04_Arrays.pdf)).
 
 ---
 
-## 2. Three ways to initialize
+## 🧭 Quick Navigation
 
-### Way 1: Declare and assign later
-```cpp
-int arr[4];
-arr[0] = 6;
-arr[1] = 0;
-arr[2] = 9;
-arr[3] = 6;
-```
-
-### Way 2: Initialize in the declaration (explicit size)
-```cpp
-int arr[4] = {6, 0, 9, 6};
-```
-
-### Way 3: Size inferred by the compiler
-```cpp
-int arr[] = {6, 0, 9, 6, 2, 0, 1, 1};  // size = 8
-```
-The compiler **counts the elements** and sets the dimension. Advantage: there is no risk of the size and the value list getting out of sync.
+- 📄 **Base Academic Lectures:**
+  - 🌲 [Stanford CS106B — Chapter 11: Arrays & Memory Allocation](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 04: Fixed-Size Array Allocation](../../files/mit6096/lectures/Lecture04_Arrays.pdf)
+- 💻 **Code Lab:** [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp)
 
 ---
 
-## 3. Partial initialization → the rest are zeros
+## Learning Objectives
 
-```cpp
-int arr[5] = {1, 2};  // arr = {1, 2, 0, 0, 0}
-int zeros[10] = {0};  // all zeros
+- [ ] Understand static arrays as fixed-size, contiguous blocks of RAM memory.
+- [ ] Calculate memory offset formulas: $\text{address} = \text{base} + i \times \text{sizeof(type)}$.
+- [ ] Declare and initialize native C++ fixed-size arrays (`int arr[5]`).
+- [ ] Recognize and prevent Out-of-Bounds array indexing and memory corruption.
+
+---
+
+## 1. Contiguous RAM Memory Layout
+
+An **array** is a collection of elements of the same data type stored in **contiguous (adjacent) RAM memory locations**:
+
+```mermaid
+graph LR
+    Base["Base Address: 0x1000<br/>arr[0] = 10"] --- E1["Address: 0x1004<br/>arr[1] = 20"]
+    E1 --- E2["Address: 0x1008<br/>arr[2] = 30"]
+    E2 --- E3["Address: 0x100C<br/>arr[3] = 40"]
 ```
 
-Rule: **unspecified elements are initialized to 0** (value-initialization).
+$$\text{Element Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))$$
+
+> [!TIP]
+> **Why Indexing Starts at 0:**
+> The index $i$ represents a **memory byte offset multiplier**. Index `0` means zero offset from the array's base memory address.
 
 ---
 
-## 4. Index access
-
-```cpp
-int data[5] = {10, 20, 30, 40, 50};
-
-cout << data[0];   // 10
-cout << data[4];   // 50
-
-int i = 2;
-cout << data[i];        // 30  (variable as index)
-cout << data[i + 1];    // 40  (expression as index)
-```
-
-**Valid range:** `0` to `n-1` (where `n` = dimension).
-- `data[5]` → **undefined behavior** (reads/writes outside the block)
-- There is no guaranteed compilation or execution error — it corrupts memory silently.
-
----
-
-## 5. Array size at runtime
-
-```cpp
-int arr[5] = {10, 20, 30, 40, 50};
-int n = sizeof(arr) / sizeof(arr[0]);  // 5 (C++98 compatible)
-
-// C++17: std::size (requires <iterator>)
-#include <iterator>
-int n17 = std::size(arr);  // 5 — clearer, works with any container
-```
-
-> **Watch out:** `sizeof(arr) / sizeof(arr[0])` only works in the **scope where the array was declared**. If you pass the array to a function, it "decays" to a pointer and `sizeof` returns the size of the pointer (8 bytes on 64 bits), not the array. `std::size` has the same limitation.
-
----
-
-## 6. Typical traversal
-
-```cpp
-// classic for with index
-for (int i = 0; i < n; i++) {
-    cout << arr[i] << ' ';
-}
-
-// range-based for (C++11) — read-only or modification by reference
-for (int x : arr) {
-    cout << x << ' ';
-}
-
-for (int &x : arr) {
-    x *= 2;  // modifies the original
-}
-
-// C++17: structured bindings do not apply to native arrays directly
-// but std::array does support them
-```
-
----
-
-## 7. Checkpoint question
-
-> **If you write `int data[5];` without initializing and then do `cout << data[2];` — what does it print?**
-
-**Answer:** **Garbage (indeterminate value)**.
-- The declaration reserves the contiguous block, but **does not clean it**.
-- Those bytes contain whatever was in that memory before.
-- It is not 0, it is not an error — it is "whatever happens to be there".
-
----
-
-## 8. Proposed exercise
-
-> **Write a program that:**
->
-> - Declares an integer array of size 6 (use a constant or variable for the size, don't repeat it as a magic number in the loop — this is where I watch for your "fixed numbers" pattern)
-> - Asks the user for the 6 values one by one with `cin`
-> - Prints them all again, separated by space
+## 2. Declaration & Initialization
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    const int SIZE = 6;           // constant for the size — without hardcoding 6 in the loop
-    int values[SIZE];
+    // 1. Explicit Size & Uniform Brace Initialization
+    int scores[4]{10, 20, 30, 40};
 
-    for (int i = 0; i < SIZE; i++) {
-        cout << "value[" << i << "]: ";
-        cin >> values[i];
+    // 2. Zero-Initialization
+    int zeros[5]{}; // All 5 elements set to 0
+
+    // 3. Array Traversal
+    for (int i = 0; i < 4; i++) {
+        std::cout << "Element [" << i << "] = " << scores[i] << "\n";
     }
 
-    cout << "\nRead values: ";
-    for (int i = 0; i < SIZE; i++) {
-        cout << values[i] << ' ';
-    }
-    cout << endl;
     return 0;
 }
 ```
 
-> **C++17 Note:** In modern code, for sizes decided at runtime, `std::vector<int>` (header `<vector>`) is preferred. It manages memory automatically and knows its size with `.size()`. Native fixed-size arrays are for when the dimension is known at compile time.
+> [!CAUTION]
+> **Out-of-Bounds Memory Access:**
+> C++ does NOT perform bounds checking on native arrays. Accessing `scores[10]` on a 4-element array accesses unreserved RAM memory, corrupting neighboring variables or causing a Segmentation Fault crash!
+
+---
+
+## ❓ Self-Assessment Checkpoint #1 — Memory Bounds Calculation
+
+If an `int` array `arr[5]` starts at memory address `0x2000`, what is the RAM memory address of `arr[3]` assuming `sizeof(int) == 4` bytes?
+
+<details>
+<summary>🔍 <strong>View Explanation & Calculation</strong></summary>
+
+> [!NOTE]
+> **Calculation:** `0x2000` $+ (3 \times 4) =$ `0x2000` $+ 12$ bytes $=$ `0x200C`.
+>
+> **Explanation:**
+> The CPU multiplies index `3` by `4` bytes (`sizeof(int)`), offsetting 12 bytes past the base address `0x2000` to arrive directly at `0x200C`.
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Contiguous Storage:** Array elements are placed back-to-back in RAM.
+2. **Fixed Size:** Native array size must be known at compile time and cannot be resized.
+3. **Safety:** Always ensure indices remain within $[0, N-1]$.
 
 ---
 
@@ -173,3 +103,6 @@ int main() {
 | [**⬅️ L26 — Headers & Prototypes**](../../03_Subroutines/theory/L26_HeadersAndPrototypes.md) | [**🏠 Arrays & Strings**](../README.md) | [**L28 — Arrays as Parameters ➡️**](L28_ArraysAsParameters.md) |
 
 </div>
+
+---
+*MiniLux0 — Learning C++ Section 04*

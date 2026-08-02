@@ -1,60 +1,124 @@
-# Lesson 08 — Advanced User Input (`cin` vs `getline`)
+# Lesson 08 — Advanced User Input (`std::cin` vs. `std::getline`)
 
-In previous lessons, we learned how `cin >> variable` reads keyboard input from the user. However, beginners often hit a surprising bug when trying to read full sentences with spaces!
-
-In this lesson, we will understand **why** this happens and how to fix it using `getline()`.
-
----
-
-## 🛑 1. The Limitation of `cin >>`
-
-When you use `cin >> name;`, C++ reads characters until it hits a **whitespace** (space, tab, or newline).
-
-- If the user types: `Albert Einstein`
-- `cin >> name;` will ONLY store `"Albert"` and leave `"Einstein"` stuck inside the keyboard buffer!
+> [!NOTE]
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 04** ([`WL4_Streams.pdf`](../../files/cs106l/lectures/WL4_Streams.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
 
 ---
 
-## 🟢 2. The Solution: `getline(cin, variable)`
+## 🧭 Quick Navigation
 
-To read an entire line of text including spaces, we use `getline(cin, variable)`:
+- 📄 **Base Academic Lectures:**
+  - ⚙️ [Stanford CS106L — Lecture 04: Advanced Stream Reading & Line Buffers](../../files/cs106l/lectures/WL4_Streams.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 01: Line-Oriented Input Processing](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
+- 💻 **Code Lab:** [`L08_UserInput.cpp`](../code/L08_UserInput.cpp)
+
+---
+
+## Learning Objectives
+
+- [ ] Understand why `std::cin >>` fails when reading multi-word strings containing spaces.
+- [ ] Master line-oriented string extraction using `std::getline(std::cin, str)`.
+- [ ] Resolve the classic **`std::cin` buffer newline trap** using `std::cin.ignore()`.
+
+---
+
+## 1. The Whitespace Limitation of `std::cin >>`
+
+The stream extraction operator `std::cin >>` reads formatted tokens until it encounters the first **whitespace character** (space, tab, newline).
+
+```mermaid
+graph TD
+    Input["Keyboard Input: 'Albert Einstein\n'"] -->|std::cin >> name| Part1["name = 'Albert'"]
+    Input -->|Residual in Buffer| Buffer["Stream Buffer: ' Einstein\n'"]
+```
+
+If the user enters `"Albert Einstein"`, `std::cin >> name` extracts `"Albert"` and leaves `" Einstein\n"` inside the RAM stream buffer, contaminating subsequent reads.
+
+---
+
+## 2. Line-Oriented Input: `std::getline()`
+
+To capture full sentences containing spaces, C++ provides `std::getline(std::cin, stringVariable)`:
 
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string full_name;
-    string favorite_quote;
+    std::string fullName;
 
-    cout << "Enter your full name (with spaces): ";
-    getline(cin, full_name);
+    std::cout << "Enter your full name (with spaces): ";
+    std::getline(std::cin, fullName); // Reads the ENTIRE line up to '\n'
 
-    cout << "Enter your favorite quote: ";
-    getline(cin, favorite_quote);
-
-    cout << "\n--- Summary ---\n";
-    cout << "Name: " << full_name << "\n";
-    cout << "Quote: \"" << favorite_quote << "\"\n";
-
+    std::cout << "Welcome, " << fullName << "!\n";
     return 0;
 }
 ```
 
-### Expected Output:
-```text
-Enter your full name (with spaces): Margaret Hamilton
-Enter your favorite quote: Software engineering is about clarity and precision.
+---
 
---- Summary ---
-Name: Margaret Hamilton
-Quote: "Software engineering is about clarity and precision."
+## 3. The `std::cin >>` followed by `getline()` Trait & Fix
+
+Mixing `std::cin >>` (for numbers) with `std::getline()` (for text) creates a notorious C++ beginner bug:
+
+```cpp
+int age;
+std::string address;
+
+std::cout << "Enter age: ";
+std::cin >> age; // User types 25 and presses Enter ('25\n')
+
+std::cout << "Enter address: ";
+std::getline(std::cin, address); // SKIPPED! Reads residual '\n' left by std::cin
+```
+
+> [!CAUTION]
+> **The Newline Buffer Trap:**
+> `std::cin >> age` reads `25` but leaves the trailing newline `'\n'` in the buffer. When `std::getline()` immediately follows, it reads that leftover `'\n'`, sees an empty line, and returns immediately!
+
+### The Fix: `std::cin.ignore()`
+```cpp
+std::cin >> age;
+std::cin.ignore(10000, '\n'); // Discards leftover newline from buffer
+std::getline(std::cin, address); // Now correctly waits for user input!
 ```
 
 ---
 
+## ❓ Self-Assessment Checkpoint #1 — Stream Buffer Traps
+
+What method resolves leftover newline characters in the stream buffer when switching from `std::cin >>` to `std::getline()`?
+
+<details>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+
+> [!TIP]
+> **Answer:** `std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');` (or `std::cin.ignore()`).
+>
+> **Explanation:**
+> `std::cin.ignore()` clears non-extracted newline characters sitting in the input buffer, allowing the subsequent `std::getline()` to wait cleanly for new keyboard keystrokes.
+
+</details>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Token Extraction:** `std::cin >>` stops reading at spaces.
+2. **Line Extraction:** `std::getline(std::cin, str)` reads full lines including spaces.
+3. **Buffer Management:** Always call `std::cin.ignore()` after `std::cin >>` before calling `std::getline()`.
+
+---
+
+<div align="center">
+
 ### 🧭 Navigation & Progression
+
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L07 — Working with Strings**](L07_Strings.md) | [**Basic Syntax**](../) | [**L09 — Binary & Memory Layout**](L09_BinaryNumbers.md) |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L07 — Strings & Text**](L07_Strings.md) | [**🏠 Basic Syntax**](../README.md) | [**L09 — Binary & Bit Layouts ➡️**](L09_BinaryNumbers.md) |
+
+</div>
+
+---
+*MiniLux0 — Learning C++ Section 02*
