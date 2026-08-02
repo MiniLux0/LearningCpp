@@ -1,4 +1,4 @@
-# L32 — Problemas Clásicos Recursivos: Matemáticos, Cadenas y Árboles de Llamadas
+# L32 — Problemas Clásicos Recursivos: Factorial, Fibonacci, Palíndromos y las Torres de Hanói
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **7.2** *The factorial function* (p. 318), **7.3** *The Fibonacci function* (p. 325), **7.4** *Checking palindromes* (p. 332) y **8.1** *The Towers of Hanoi* (p. 350).
@@ -16,74 +16,60 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Implementar funciones recursivas matemáticas clásicas: Factorial, Fibonacci y Potencia.
-- [ ] Analizar el **Árbol de Llamadas (*Call Tree*)** y entender el problema de la redundancia en Fibonacci.
-- [ ] Procesar cadenas de texto C-strings de forma recursiva.
-- [ ] Identificar múltiples casos base cuando el problema lo requiera.
+- [ ] Implementar la función **Factorial ($n!$)** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
+- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($O(2^N)$) y transformarlo en una función **lineal $O(N)$** mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
+- [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices ($O(N)$) (Sección 7.4).
+- [ ] Dominar la solución por **Divide y Vencerás** del dilema de **Las Torres de Hanói** (Sección 8.1).
 
 ---
 
-## 1. Problema 1: Factorial ($n!$)
+## 1. La Función Factorial ($n!$ — Sección 7.2)
 
-El factorial de un número entero no negativo $n$ se define matemáticamente como:
-$$n! = n \times (n-1) \times (n-2) \times \dots \times 1$$
-
-Con las definiciones límite:
-- $0! = 1$ (Caso Base)
-- $n! = n \times (n-1)!$ (Definición Recursiva para $n > 0$)
+El factorial de un número entero no negativo $n$ ($n!$) se define matemáticamente como:
+$$n! = \begin{cases} 1 & \text{si } n = 0 \text{ (Caso Base)} \\ n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)} \end{cases}$$
 
 ### Implementación en C++
 
 ```cpp
-#include <iostream>
-using namespace std;
-
 long long factorial(int n) {
-    // 1. Caso Base
-    if (n <= 1) {
+    if (n <= 1) { // Caso Base (0! = 1, 1! = 1)
         return 1;
     }
-    // 2. Paso Recursivo
-    return n * factorial(n - 1);
+    return n * factorial(n - 1); // Paso Recursivo
 }
 ```
 
-#### Traza de Ejecución para `factorial(4)`:
+#### Traza de Marcos en la Pila para `factorial(4)`:
 ```text
-factorial(4) = 4 * factorial(3)
-  factorial(3) = 3 * factorial(2)
-    factorial(2) = 2 * factorial(1)
-      factorial(1) = 1 (Caso Base)
-    factorial(2) = 2 * 1 = 2
-  factorial(3) = 3 * 2 = 6
-factorial(4) = 4 * 6 = 24
+[Frame 4: n=4] -> Espera resultado de factorial(3) -> Retorna 4 * 6 = 24
+  [Frame 3: n=3] -> Espera resultado de factorial(2) -> Retorna 3 * 2 = 6
+    [Frame 2: n=2] -> Espera resultado de factorial(1) -> Retorna 2 * 1 = 2
+      [Frame 1: n=1] -> Caso Base alcanzado! -> Retorna 1
 ```
+
+> [!NOTE]
+> **Profundidad de Pila y Complejidad Espacial:**
+> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de **$O(N)$ espacio**.
 
 ---
 
-## 2. Problema 2: Serie de Fibonacci ($F_n$)
+## 2. La Función de Fibonacci y la Secuencia Aditiva ($F_n$ — Sección 7.3)
 
-La sucesión de Fibonacci se define por la regla donde cada elemento es la suma de los dos anteriores:
-- $F_0 = 0$ (Caso Base 1)
-- $F_1 = 1$ (Caso Base 2)
-- $F_n = F_{n-1} + F_{n-2}$ para $n \ge 2$ (Paso Recursivo)
+La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
+$$F_n = \begin{cases} 0 & \text{si } n = 0 \\ 1 & \text{si } n = 1 \\ F_{n-1} + F_{n-2} & \text{si } n \ge 2 \end{cases}$$
 
-### Implementación en C++
+### Implementación Directa (Naive — $O(2^N)$)
 
 ```cpp
-long long fibonacci(int n) {
-    // Casos Base Múltiples
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-
-    // Paso Recursivo Múltiple
-    return fibonacci(n - 1) + fibonacci(n - 2);
+long long fibonacciNaive(int n) {
+    if (n == 0) return 0; // Caso Base 1
+    if (n == 1) return 1; // Caso Base 2
+    return fibonacciNaive(n - 1) + fibonacciNaive(n - 2); // Paso Recursivo Doble
 }
 ```
 
-### ⚠️ El Árbol de Llamadas y la Ineficiencia de Fibonacci Recursivo
-
-A diferencia del factorial (que hace $N$ llamadas en una sola línea), Fibonacci genera un **árbol binario de llamadas**:
+#### ⚠️ El Árbol Binario de Llamadas y la Redundancia
+Al calcular `fibonacciNaive(4)`, la función genera llamadas duplicadas:
 
 ```mermaid
 graph TD
@@ -100,100 +86,146 @@ graph TD
     style F2_B fill:#ff9999,stroke:#333,stroke-width:2px
 ```
 
-> [!WARNING]
-> **Problema de Rendimiento (Llamadas Duplicadas):**
-> Observa cómo `fib(2)` se calcula **dos veces desde cero** (nodos en rojo). Para valores grandes de $n$, la cantidad de llamadas crece de forma **exponencial** ($O(2^n)$). Un valor como `fibonacci(50)` tomaría minutos en ejecutarse sin optimizaciones (programación dinámica / memoización).
+> [!CAUTION]
+> **Explosión Exponencial:**
+> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa **$O(2^N)$**, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
+
+### 🌟 La Optimización de Eric Roberts: Secuencia Aditiva ($O(N)$)
+
+Eric Roberts propone en la Sección 7.3 generalizar la recursión a una **Secuencia Aditiva** que mantiene el estado acumulado de los dos términos en parámetros de la función (Recursión de Cola / *Tail-Recursion*):
+
+```cpp
+// Función auxiliar que mantiene los dos términos actuales (a y b)
+long long secuenciaAditiva(int n, long long a, long long b) {
+    if (n == 0) return a; // Caso Base 1
+    if (n == 1) return b; // Caso Base 2
+    return secuenciaAditiva(n - 1, b, a + b); // Avanza linealmente reduciendo n
+}
+
+// Wrapper público limpio
+long long fibonacciLineal(int n) {
+    return secuenciaAditiva(n, 0, 1);
+}
+```
+
+> [!TIP]
+> **Comparación de Rendimiento:**
+> - `fibonacciNaive(40)`: Tarda varias millones de llamadas ($O(2^{40})$).
+> - `fibonacciLineal(40)`: Realiza exactamente **40 llamadas** ($O(N)$), devolviendo `102,334,155` de manera instantánea.
 
 ---
 
-## 3. Problema 3: Potencia ($a^b$)
+## 3. Verificación de Palíndromos (`isPalindrome` — Sección 7.4)
 
-Calcula $a^b$ ($a$ elevado a la potencia $b$):
-- Caso Base: $a^0 = 1$
-- Paso Recursivo: $a^b = a \times a^{b-1}$
+Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda (ej. *"reconocer"*, *"anilina"*).
+
+### Reducción Recursiva:
+1. **Casos Base:** Una cadena de longitud $0$ o $1$ es siempre un palíndromo (`length <= 1`).
+2. **Paso Recursivo:** Si el primer y el último carácter coinciden (`str[low] == str[high]`), el problema se reduce a verificar el sub-string interno.
+
+### Implementación Eficiente con Índices de Frontera ($O(N)$ Tiempo, $O(N)$ Pila)
+
+Para evitar la asignación innecesaria de memoria con `substr()` ($O(N^2)$), se utilizan dos punteros de índice `low` y `high`:
 
 ```cpp
-double potencia(double base, int exp) {
-    if (exp == 0) return 1.0; // Caso Base
-    if (exp < 0) return 1.0 / potencia(base, -exp); // Manejo de exponentes negativos
-    
-    return base * potencia(base, exp - 1); // Paso Recursivo
+#include <string>
+using namespace std;
+
+bool esPalindromoHelper(const string& str, int low, int high) {
+    if (low >= high) return true; // Caso Base: 0 o 1 carácter restante
+    if (str[low] != str[high]) return false; // Descarte temprano
+    return esPalindromoHelper(str, low + 1, high - 1); // Reduce los límites
+}
+
+bool esPalindromo(const string& str) {
+    return esPalindromoHelper(str, 0, str.length() - 1);
 }
 ```
 
 ---
 
-## 4. Problema 4: Impresión e Inversión Recursiva de C-Strings
+## 4. Las Torres de Hanói (Sección 8.1)
 
-Podemos recorrer una C-string carácter a carácter usando aritmética de punteros o sub-índices de forma recursiva.
+> **La Leyenda de Benares:**  
+> En el gran templo de Benares, bajo la cúpula que marca el centro del mundo, los sacerdotes de Brahma mueven 64 discos de oro puro entre tres agujas de diamante. Cuando completen el traslado respetando las leyes divinas, el templo caerá en polvo y el mundo desaparecerá.
+
+### Las Reglas del Juego:
+1. Solo se puede mover **un disco a la vez**.
+2. Un disco más grande **nunca puede colocarse sobre uno más pequeño**.
+3. Se deben usar tres torres: `Origen`, `Destino` y `Auxiliar`.
+
+```mermaid
+graph LR
+    subgraph Origen [Torre A]
+        D1[Disco 1]
+        D2[Disco 2]
+        D3[Disco 3]
+    end
+    subgraph Auxiliar [Torre B]
+        Empty1[Vacía]
+    end
+    subgraph Destino [Torre C]
+        Empty2[Vacía]
+    end
+```
+
+### La Estrategia Divide y Vencerás (3 Pasos):
+
+Para mover $N$ discos de `Origen` a `Destino` usando `Auxiliar`:
+1. **Mover $N-1$ discos** de `Origen` a `Auxiliar` (usando `Destino` como apoyo).
+2. **Mover el disco $N$ (el más grande)** directamente de `Origen` a `Destino`.
+3. **Mover $N-1$ discos** de `Auxiliar` a `Destino` (usando `Origen` como apoyo).
+
+### Implementación en C++
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Imprime una C-string en orden inverso usando la pila de llamadas
-void imprimirReverso(const char s[]) {
-    // Caso Base: llegamos al caracter nulo '\0'
-    if (s[0] == '\0') {
+void torresDeHanoi(int n, char origen, char destino, char auxiliar, int& totalMovimientos) {
+    if (n == 1) { // Caso Base: Transferencia directa de 1 disco
+        totalMovimientos++;
+        cout << "  [Mov " << totalMovimientos << "] Mover disco 1 de " << origen << " a " << destino << endl;
         return;
     }
 
-    // Paso Recursivo: avanzamos al siguiente caracter (s + 1)
-    imprimirReverso(s + 1);
+    // 1. Mover n-1 discos de origen a auxiliar
+    torresDeHanoi(n - 1, origen, auxiliar, destino, totalMovimientos);
 
-    // Al regresar del desapilamiento, imprimimos el caracter actual
-    cout << s[0];
-}
+    // 2. Mover el disco n de origen a destino
+    totalMovimientos++;
+    cout << "  [Mov " << totalMovimientos << "] Mover disco " << n << " de " << origen << " a " << destino << endl;
 
-int main() {
-    char texto[] = "Hola";
-    cout << "Original: " << texto << endl;
-    cout << "Reverso: ";
-    imprimirReverso(texto); // Salida: aloH
-    cout << endl;
-    return 0;
+    // 3. Mover n-1 discos de auxiliar a destino
+    torresDeHanoi(n - 1, auxiliar, destino, origen, totalMovimientos);
 }
 ```
 
-> [!TIP]
-> **Traza de la Pila para `"Hola"`:**
-> 1. `imprimirReverso("Hola")` $\to$ llama a `imprimirReverso("ola")`
-> 2. `imprimirReverso("ola")` $\to$ llama a `imprimirReverso("la")`
-> 3. `imprimirReverso("la")` $\to$ llama a `imprimirReverso("a")`
-> 4. `imprimirReverso("a")` $\to$ llama a `imprimirReverso("")`
-> 5. `imprimirReverso("")` ve `'\0'` y hace `return` (Caso Base).
-> 6. **Desapilamiento en reversa:** Imprime `'a'`, luego `'l'`, luego `'o'`, luego `'H'`.
+### Análisis Matemático del Número de Movimientos
+
+El número de movimientos $M(N)$ para $N$ discos satisface la ecuación de recurrencia:
+$$M(N) = 2 \times M(N-1) + 1$$
+
+Con caso base $M(1) = 1$. La solución cerrada es:
+$$M(N) = 2^N - 1$$
+
+- Para $N = 3$ discos: $2^3 - 1 = \mathbf{7 \text{ movimientos}}$.
+- Para $N = 64$ discos: $2^{64} - 1 \approx 1.84 \times 10^{19} \text{ movimientos}$ ($\approx \mathbf{584 \text{ mil millones de años}}$ a 1 mov/seg).
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — Complejidad de Llamadas
+## ❓ Pregunta de Chequeo #1 — Complejidad de Torres de Hanói
 
-Dada la función recursiva de Fibonacci:
-```cpp
-int fib(int n) {
-    if (n <= 1) return n;
-    return fib(n - 1) + fib(n - 2);
-}
-```
-**¿Cuántas llamadas a función en total se realizan al ejecutar `fib(4)`?**
+Si ejecutas `torresDeHanoi(5, 'A', 'C', 'B', mov)`, **¿cuántos movimientos totales de discos se realizarán?**
 
 <details>
-<summary>🔍 <strong>Ver Explicación y Conteo del Árbol</strong></summary>
+<summary>🔍 <strong>Ver Explicación y Fórmula</strong></summary>
 
-**Respuesta:** Se realizan **9 llamadas a función** en total.
+**Respuesta:** Se realizarán **31 movimientos**.
 
-**Desglose:**
-1. `fib(4)` (Llamada 1)
-2. `fib(3)` (Llamada 2)
-3. `fib(2)` (Llamada 3)
-4. `fib(1)` (Llamada 4 — Caso Base)
-5. `fib(0)` (Llamada 5 — Caso Base)
-6. `fib(1)` (Llamada 6 — Caso Base)
-7. `fib(2)` (Llamada 7)
-8. `fib(1)` (Llamada 8 — Caso Base)
-9. `fib(0)` (Llamada 9 — Caso Base)
-
-Esto demuestra el crecimiento exponencial de las llamadas recursivas duplicadas sin memoización.
+**Explicación:**
+Aplicando la fórmula $M(N) = 2^N - 1$:
+$$M(5) = 2^5 - 1 = 32 - 1 = 31$$
 
 </details>
 
@@ -201,9 +233,10 @@ Esto demuestra el crecimiento exponencial de las llamadas recursivas duplicadas 
 
 ## 📝 Resumen Resumido de L32
 
-1. **Definiciones Matemáticas Nativas:** Problemas como Factorial, Fibonacci y Potencia tienen una traducción directa a código recursivo.
-2. **Casos Base Múltiples:** Problemas con más de una condición inicial (como Fibonacci $n=0$ y $n=1$) requieren múltiples `if` de caso base.
-3. **Pila para Inversión:** Aprovechar el orden de desapilamiento (LIFO: *Last-In, First-Out*) permite procesar estructuras como C-strings en orden inverso de forma natural sin crear arreglos auxiliares.
+1. **Factorial:** Reducción lineal simple con complejidad espacial en pila $O(N)$.
+2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $O(2^N)$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal **$O(N)$**.
+3. **Palíndromos:** El uso de punteros/índices de frontera (`low`, `high`) evita la copia de subcadenas, optimizando memoria a $O(N)$.
+4. **Torres de Hanói:** Paradigma de Divide y Vencerás que requiere $2^N - 1$ movimientos en 3 elegantes pasos recursivos.
 
 ---
 
