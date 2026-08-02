@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Section 06: Pointers ➡️**](../../06_Pointers/) |
-
-</div>
-
----
-
 # L38 — Backtracking Recursivo: Búsqueda en Espacios de Estados y Árboles de Decisión
 
 > [!NOTE]

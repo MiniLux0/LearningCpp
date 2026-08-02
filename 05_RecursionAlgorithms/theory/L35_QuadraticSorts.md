@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L34 — Linear & Binary Search**](L34_LinearBinarySearch.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L36 — MergeSort ➡️**](L36_MergeSort.md) |
-
-</div>
-
----
-
 # L35 — Algoritmos de Ordenamiento Cuadráticos: Selección, Inserción y Burbuja
 
 > [!NOTE]

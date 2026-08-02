@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L32 — Recursive Problems**](L32_RecursiveProblems.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L34 — Linear & Binary Search ➡️**](L34_LinearBinarySearch.md) |
-
-</div>
-
----
-
 # L33 — Notación Big-O: Análisis Asintótico de Complejidad Temporal y Espacial
 
 > [!NOTE]

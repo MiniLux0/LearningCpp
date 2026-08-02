@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L35 — Quadratic Sorts**](L35_QuadraticSorts.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L37 — QuickSort ➡️**](L37_QuickSort.md) |
-
-</div>
-
----
-
 # L36 — MergeSort: Ordenamiento por Mezcla y la Estrategia Divide y Vencerás
 
 > [!NOTE]

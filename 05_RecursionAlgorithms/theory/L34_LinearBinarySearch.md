@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L33 — Big-O Notation**](L33_BigONotation.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L35 — Quadratic Sorts ➡️**](L35_QuadraticSorts.md) |
-
-</div>
-
----
-
 # L34 — Búsqueda Lineal y Binaria: Comparativa, Algoritmos Iterativos y Recursivos
 
 > [!NOTE]

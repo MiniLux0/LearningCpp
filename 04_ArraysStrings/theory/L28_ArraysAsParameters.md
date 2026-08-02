@@ -1,13 +1,3 @@
-<div align="center">
-
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L27 — Array Basics**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
-
-</div>
-
----
-
 # L28 — Arrays as Parameters: Pass by Address and `const`
 
 > **Core concept:** When you pass an array to a function, the elements are not copied — only the **start address** is copied. The function accesses the **same memory** as `main()`. That is why you do not need `&` as with normal variables.
