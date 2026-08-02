@@ -231,7 +231,7 @@ $$M(5) = 2^5 - 1 = 32 - 1 = 31$$
 
 ---
 
-## 📝 Resumen Resumido de L32
+## 📝 Resumen de L32
 
 1. **Factorial:** Reducción lineal simple con complejidad espacial en pila $O(N)$.
 2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $O(2^N)$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal **$O(N)$**.

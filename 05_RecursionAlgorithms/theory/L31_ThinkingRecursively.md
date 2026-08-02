@@ -222,7 +222,7 @@ void contarInfinito(int n) {
 
 ---
 
-## 📝 Resumen Resumido de L31
+## 📝 Resumen de L31
 
 1. **Definición:** Resolver un problema expresándolo en términos de instancias más pequeñas de sí mismo.
 2. **Estructura de 2 partes:**

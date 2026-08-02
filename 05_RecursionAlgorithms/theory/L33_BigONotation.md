@@ -196,7 +196,7 @@ Considera un algoritmo que realiza exactamente $T(N) = 3N^3 + 500N^2 + 2000N + 7
 
 ---
 
-## 📝 Resumen Resumido de L33
+## 📝 Resumen de L33
 
 1. **Notación Big-O:** Mide la tasa de crecimiento asintótico del tiempo o espacio cuando $N \to \infty$.
 2. **Simplificación:** Se eliminan coeficientes constantes y términos de menor orden.
