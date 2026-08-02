@@ -156,10 +156,15 @@ MergeSort **NO es in-place** porque requiere arreglos auxiliares temporales dura
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L36_MergeSort.cpp`](../code/L36_MergeSort.cpp) — Código ejecutable de MergeSort
-- 📘 [`L37_QuickSort.md`](L37_QuickSort.md) — Siguiente lección: QuickSort $O(N \log N)$ In-Place
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L35 — Quadratic Sorts**](L35_QuadraticSorts.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L37 — QuickSort ➡️**](L37_QuickSort.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

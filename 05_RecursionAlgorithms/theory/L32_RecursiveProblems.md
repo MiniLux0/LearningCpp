@@ -217,10 +217,15 @@ Esto demuestra el crecimiento exponencial de las llamadas recursivas duplicadas 
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 📘 [`L31_ThinkingRecursively.md`](L31_ThinkingRecursively.md) — Lección anterior: Fundamentos de la Pila de Llamadas
-- 💻 [`L32_RecursiveProblems.cpp`](../code/L32_RecursiveProblems.cpp) — Código ejecutable con Factorial, Fibonacci y C-String inverso
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L31 — Thinking Recursively**](L31_ThinkingRecursively.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L33 — Big-O Notation ➡️**](L33_BigONotation.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

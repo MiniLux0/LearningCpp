@@ -170,11 +170,15 @@ En C++, cuando calculamos el índice medio entre `low` y `high`, muchos programa
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 📘 [`L33_BigONotation.md`](L33_BigONotation.md) — Lección anterior: Notación Big-O
-- 💻 [`L34_LinearBinarySearch.cpp`](../code/L34_LinearBinarySearch.cpp) — Código ejecutable con pruebas de rendimiento
-- 📘 [`L35_QuadraticSorts.md`](L35_QuadraticSorts.md) — Siguiente lección: Algoritmos de Ordenamiento Cuadráticos
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L33 — Big-O Notation**](L33_BigONotation.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L35 — Quadratic Sorts ➡️**](L35_QuadraticSorts.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

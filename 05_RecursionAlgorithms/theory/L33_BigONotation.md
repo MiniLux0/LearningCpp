@@ -160,10 +160,15 @@ void algoritmoMisterioso(int n) {
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L33_BigONotation.cpp`](../code/L33_BigONotation.cpp) — Demostración de medición empírica y estructuras Big-O
-- 📘 [`L34_LinearBinarySearch.md`](L34_LinearBinarySearch.md) — Siguiente lección: Búsqueda Lineal vs Binaria
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L32 — Recursive Problems**](L32_RecursiveProblems.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L34 — Linear & Binary Search ➡️**](L34_LinearBinarySearch.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

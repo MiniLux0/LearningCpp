@@ -189,12 +189,12 @@ void duplicate(int arr[], int length) {
 
 ---
 
-## Related files
+<div align="center">
 
-- [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp) — Executable code with `sum()`, `duplicate()` and `int` contrast
+### 🧭 Navigation & Progression
 
-## Navigation
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L27 — Array Basics**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
 
-| ← Previous | Next → |
-|------------|--------|
-| [L27 — Array Basics](L27_ArrayBasics.md) | [L29 — Multidimensional Arrays](L29_MultidimensionalArrays.md) |
+</div>

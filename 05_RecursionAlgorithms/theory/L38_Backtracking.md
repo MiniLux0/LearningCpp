@@ -142,10 +142,15 @@ Ubicar $N$ reinas de ajedrez en un tablero de $N \times N$ de tal forma que ning
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L38_Backtracking.cpp`](../code/L38_Backtracking.cpp) — Código ejecutable de Backtracking
-- 📄 [`summary/05_RecursionAlgorithms_Notes.md`](../summary/05_RecursionAlgorithms_Notes.md) — Resumen ejecutivo completo de la Sección 05
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Section 06: Pointers ➡️**](../../06_Pointers/) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

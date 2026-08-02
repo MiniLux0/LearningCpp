@@ -133,10 +133,15 @@ void quickSort(int arr[], int low, int high) {
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L37_QuickSort.cpp`](../code/L37_QuickSort.cpp) — Código ejecutable de QuickSort
-- 📘 [`L38_Backtracking.md`](L38_Backtracking.md) — Siguiente lección: Backtracking Recursivo
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L36 — MergeSort**](L36_MergeSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L38 — Backtracking ➡️**](L38_Backtracking.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

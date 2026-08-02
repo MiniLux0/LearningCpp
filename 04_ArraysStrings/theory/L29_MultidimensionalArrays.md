@@ -235,12 +235,12 @@ void transpose(int m[3][3]) {
 
 ---
 
-## Related files
+<div align="center">
 
-- [`L29_MultidimensionalArrays.cpp`](../code/L29_MultidimensionalArrays.cpp) — Demonstration of 2D, 3D matrices, functions and arrays of strings
+### 🧭 Navigation & Progression
 
-## Navigation
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L28 — Arrays as Parameters**](L28_ArraysAsParameters.md) | [**🏠 Arrays & Strings**](../README.md) | [**L30 — C-Strings ➡️**](L30_CStrings.md) |
 
-| ← Previous | Next → |
-|------------|--------|
-| [L28 — Arrays as Parameters](L28_ArraysAsParameters.md) | [L30 — C-Strings](L30_CStrings.md) |
+</div>

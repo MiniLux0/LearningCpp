@@ -174,11 +174,12 @@ int main() {
 
 ---
 
-## Related files
-
-- [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp) — Executable code with array declaration, initialization, and traversal
+<div align="center">
 
 ### 🧭 Navigation & Progression
-| ⬅️ Previous Module | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:---------------:|:--------------:|
-| [**L26 — Headers & Prototypes**](../../03_Subroutines/theory/L26_HeadersAndPrototypes.md) | [**Arrays & Strings**](../) | [**L28 — Arrays as Parameters**](L28_ArraysAsParameters.md) |
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L26 — Headers & Prototypes**](../../03_Subroutines/theory/L26_HeadersAndPrototypes.md) | [**🏠 Arrays & Strings**](../README.md) | [**L28 — Arrays as Parameters ➡️**](L28_ArraysAsParameters.md) |
+
+</div>

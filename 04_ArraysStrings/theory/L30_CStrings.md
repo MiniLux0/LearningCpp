@@ -317,13 +317,12 @@ void reverse(char s[]) {
 
 ---
 
-## Related Files
+<div align="center">
 
-- [`L30_CStrings.cpp`](../code/L30_CStrings.cpp) — Complete executable code
-- [`04_ArraysStrings_Notes.md`](../summary/04_ArraysStrings_Notes.md) — Executive summary of the module
+### 🧭 Navigation & Progression
 
-## Navigation
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L29 — Multidimensional Arrays**](L29_MultidimensionalArrays.md) | [**🏠 Arrays & Strings**](../README.md) | [**L31 — Thinking Recursively ➡️**](../../05_RecursionAlgorithms/theory/L31_ThinkingRecursively.md) |
 
-| ← Previous | 🏠 Section Home |
-|------------|-----------------|
-| [L29 — Multidimensional Arrays](L29_MultidimensionalArrays.md) | [Arrays & Strings](../) |
+</div>

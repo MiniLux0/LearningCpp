@@ -189,10 +189,15 @@ void contarInfinito(int n) {
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L31_ThinkingRecursively.cpp`](../code/L31_ThinkingRecursively.cpp) — Código ejecutable con trazas de la pila
-- 📘 [`L32_RecursiveProblems.md`](L32_RecursiveProblems.md) — Siguiente lección: Problemas Clásicos Recursivos
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L30 — C-Strings**](../../04_ArraysStrings/theory/L30_CStrings.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L32 — Recursive Problems ➡️**](L32_RecursiveProblems.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*

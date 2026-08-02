@@ -148,10 +148,15 @@ void bubbleSort(int arr[], int n) {
 
 ---
 
-## Archivos Relacionados
+<div align="center">
 
-- 💻 [`L35_QuadraticSorts.cpp`](../code/L35_QuadraticSorts.cpp) — Código ejecutable con Selection, Insertion y Bubble Sort
-- 📘 [`L36_MergeSort.md`](L36_MergeSort.md) — Siguiente lección: MergeSort $O(N \log N)$
+### 🧭 Navigation & Progression
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L34 — Linear & Binary Search**](L34_LinearBinarySearch.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L36 — MergeSort ➡️**](L36_MergeSort.md) |
+
+</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*
