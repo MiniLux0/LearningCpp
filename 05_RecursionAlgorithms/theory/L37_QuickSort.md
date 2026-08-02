@@ -1,14 +1,14 @@
 # L37 — QuickSort: Ordenamiento Rápido, Estrategias de Pivote y Particionado In-Place
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.3 (*QuickSort*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.5** *The Quicksort algorithm* (p. 452).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 10.3, pp. 465–470)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.5 (pp. 452–458)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Hoare Partition & Pivot Strategies](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L37_QuickSort.cpp`](../code/L37_QuickSort.cpp)
 

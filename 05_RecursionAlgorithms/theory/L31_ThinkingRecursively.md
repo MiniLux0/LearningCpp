@@ -1,14 +1,17 @@
-# L31 — Pensar Recursivamente: Caso Base, Paso Recursivo y la Pila de Llamadas (*Call Stack*)
+# L31 — Pensar Recursivamente: Caso Base, Paso Recursivo, Recursión Mutua e Inducción
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y la **Lectura 05** de MIT 6.096 ([`Lecture05_Pointers.pdf`](../../files/mit6096/lectures/Lecture05_Pointers.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 10.6 (*Mathematical Induction*, p. 458)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y la **Lectura 05** de MIT 6.096 ([`Lecture05_Pointers.pdf`](../../files/mit6096/lectures/Lecture05_Pointers.pdf)).
+> 
+> *“And often enough, our faith beforehand in a certain result is the only thing that makes the result come true.”*  
+> — **William James**, *The Will to Believe*, 1897 (Citado por Eric Roberts al inicio del Ch. 7)
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 7, pp. 285–320)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 10.6 (p. 458)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 05: Stack Allocation & Memory](../../files/mit6096/lectures/Lecture05_Pointers.pdf)
 - 💻 **Laboratorio de Código:** [`L31_ThinkingRecursively.cpp`](../code/L31_ThinkingRecursively.cpp)
 
@@ -16,74 +19,79 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender qué es la recursividad y cómo se compara con el enfoque iterativo (`for`/`while`).
-- [ ] Dominar la **Estructura Fundamental de 2 Partes**: Caso Base (*Base Case*) y Paso Recursivo (*Recursive Step*).
-- [ ] Entender la **Pila de Llamadas (*Call Stack*)** y los Registros de Activación (*Stack Frames*).
-- [ ] Prevenir el desbordamiento de pila (**Stack Overflow**).
-- [ ] Aplicar la **Fe Inductiva (*Recursive Leap of Faith*)** para diseñar soluciones recursivas limpias.
+- [ ] Comprender la esencia de la **recursividad** y cómo se diferencia de la solución iterativa (`for`/`while`).
+- [ ] Dominar la **Estructura de 2 Partes**: **Caso Base** (*Base Case*) y **Paso Recursivo** (*Recursive Step*).
+- [ ] Visualizar el **Marco de Activación (*Stack Frame*)** en la **Pila de Llamadas (*Call Stack*)**.
+- [ ] Aplicar la **Fe Inductiva Recursiva (*Recursive Leap of Faith*)** y el método de 3 pasos de Eric Roberts.
+- [ ] Implementar **Recursión Mutua (*Mutual Recursion*)** resolviendo dependencias de prototipos en C++.
+- [ ] Conectar la estructura de la recursividad con la **Inducción Matemática** (Sección 10.6).
 
 ---
 
-## 1. ¿Qué es realmente la Recursividad?
+## 1. ¿Qué es realmente la Recursividad? (Sección 7.1)
 
-En matemática y computación, la recursividad no es un "truco especial de C++", sino una técnica para resolver un problema **expresándolo en términos de instancias más pequeñas de sí mismo**.
+En ciencias de la computación, la **recursividad** es la técnica de resolver un problema dividiéndolo en instancias más pequeñas y autosimilares de sí mismo.
 
 > [!TIP]
-> **La Analogía de la Fila del Cine:**
-> Imagina que estás en un cine a oscuras y quieres saber en qué número de fila estás sentado:
-> - **Enfoque Iterativo:** Te levantas, caminas hasta la primera fila ($1$) y cuentas fila por fila hacia atrás hasta llegar a tu asiento.
-> - **Enfoque Recursivo:** Le preguntas a la persona **directamente delante de ti**: *"¿En qué fila estás tú?"*.
->   - Esa persona le pregunta a la persona delante de ella.
->   - La pregunta avanza hasta llegar a la persona de la **Fila 1**.
->   - La persona de la Fila 1 responde: *"¡Estoy en la fila 1!"* (**Caso Base**).
->   - La persona detrás responde: *"Entonces yo estoy en la $1 + 1 = 2$"*.
->   - La respuesta regresa hasta ti: tu fila es $\text{fila delante} + 1$.
+> **Analogía 1: La Delegación del Fondo de Recaudación ($1,000,000 — Eric Roberts, Sec. 7.1)**
+> Imagina una organización caritativa que necesita recaudar **$1,000,000**:
+> - **Enfoque Iterativo:** Un solo gerente llama a 1,000,000 de personas para solicitar $1 a cada una.
+> - **Enfoque Recursivo (Delegación):**
+>   1. El Director General asigna a **10 coordinadores regionales** la tarea de recaudar **$100,000** cada uno.
+>   2. Cada coordinador regional asigna a **10 capitanes locales** la tarea de recaudar **$10,000** cada uno.
+>   3. Cada capitán asigna a **10 voluntarios** la tarea de recaudar **$1,000** cada uno.
+>   4. Cada voluntario pide a **10 amigos** $100 cada uno (**Caso Base: solicitud directa**).
+>   5. El dinero recolectado fluye hacia arriba sumándose recursivamente hasta completar el $1,000,000.
+
+> [!TIP]
+> **Analogía 2: La Fila del Cine**
+> - Para saber en qué fila estás en un cine a oscuras: le preguntas a la persona **directamente delante de ti**: *“¿En qué fila estás?”*.
+> - La pregunta viaja hacia adelante hasta la **Fila 1** (Caso Base: contesta *“¡Estoy en la fila 1!”*).
+> - La respuesta regresa desapilándose: tu fila es $\text{fila delante} + 1$.
 
 ```mermaid
 graph TD
-    A["Tú: Fila ?"] -->|Pregunta| B["Fila 3: Fila ?"]
-    B -->|Pregunta| C["Fila 2: Fila ?"]
+    A["Tú: ¿Fila?"] -->|Pregunta| B["Fila 3: ¿Fila?"]
+    B -->|Pregunta| C["Fila 2: ¿Fila?"]
     C -->|Pregunta| D["Fila 1: ¡Fila 1! (Caso Base)"]
     D -->|Retorna 1| C
     C -->|Retorna 1 + 1 = 2| B
     B -->|Retorna 2 + 1 = 3| A
-    A -->|Resultado: 3 + 1 = 4| E["Fila 4"]
+    A -->|Resultado final: 3 + 1 = 4| E["Fila 4"]
 ```
 
 ---
 
 ## 2. La Estructura Obligatoria de Toda Función Recursiva
 
-Toda función recursiva correcta consta de **dos partes esenciales**:
+Toda función recursiva correcta consta de **dos elementos indispensables**:
 
 ```cpp
 void funcionRecursiva(int n) {
-    // 1. CASO BASE (Base Case) — Condición de parada directa sin llamada a sí misma
+    // 1. CASO BASE (Base Case) — Condición de parada trivial sin llamadas recursivas
     if (n == 0) {
-        // Resolver problema trivialmente
         return;
     }
 
-    // 2. PASO RECURSIVO (Recursive Step) — Llamada a sí misma con un problema MÁS PEQUEÑO
+    // 2. PASO RECURSIVO (Recursive Step) — Llamada a sí misma avanzando hacia el caso base
     funcionRecursiva(n - 1);
 }
 ```
 
 > [!WARNING]
-> **Las 2 Reglas de Oro de la Recursividad:**
-> 1. Si no hay **Caso Base**, la función se llamará infinitamente hasta agotar la memoria RAM (**Stack Overflow**).
-> 2. En el **Paso Recursivo**, los parámetros **deben avanzar hacia el caso base** (por ejemplo, reducir $n \to n - 1$).
+> **Las 2 Reglas de Oro de la Recursividad (Eric Roberts):**
+> 1. **Existencia del Caso Base:** Debe existir al menos una condición trivial que detenga la recursión.
+> 2. **Garantía de Progreso:** Cada llamada en el paso recursivo debe simplificar el problema y acercar los parámetros al caso base.
 
 ---
 
 ## 3. Funcionamiento Interno en Memoria: La Pila de Llamadas (*Call Stack*)
 
-Cada vez que se invoca una función en C++, el sistema operativo reserva un bloque de memoria en la pila llamado **Marco de Activación (*Stack Frame*)** que almacena:
-- Parámetros recibidos.
-- Variables locales.
-- Dirección de retorno (a dónde volver cuando la función termine).
+Cada llamada a función crea un **Marco de Activación (*Stack Frame*)** en la memoria RAM con:
+- Parámetros formales y variables locales.
+- Dirección de retorno (*Return Address*).
 
-### Ejemplo Práctico: Conteo Regresivo Recursivo
+### Ejemplo: Conteo Regresivo Recursivo (`cuentaRegresiva(3)`)
 
 ```cpp
 #include <iostream>
@@ -94,18 +102,13 @@ void cuentaRegresiva(int n) {
         cout << "¡Despegue!" << endl;
         return;
     }
-
-    cout << n << " ... " << endl;
+    cout << "Entrando: " << n << endl;
     cuentaRegresiva(n - 1); // Paso Recursivo
-}
-
-int main() {
-    cuentaRegresiva(3);
-    return 0;
+    cout << "Saliendo: " << n << endl;
 }
 ```
 
-#### Diagrama de Secuencia de la Pila de Memoria:
+#### Diagrama de Secuencia y Desapilado:
 
 ```mermaid
 sequenceDiagram
@@ -116,27 +119,78 @@ sequenceDiagram
     participant F1 as cuentaRegresiva(1)
     participant F0 as cuentaRegresiva(0)
 
-    Main->>F3: Invocación inicial n=3
-    F3->>F2: Llamada recursiva n=2
-    F2->>F1: Llamada recursiva n=1
-    F1->>F0: Llamada recursiva n=0
+    Main->>F3: n = 3
+    F3->>F2: n = 2
+    F2->>F1: n = 1
+    F1->>F0: n = 0
     Note over F0: Caso Base (n == 0)<br/>Imprime "¡Despegue!"
     F0-->>F1: Retorno (Stack Pop)
     F1-->>F2: Retorno (Stack Pop)
     F2-->>F3: Retorno (Stack Pop)
-    F3-->>Main: Finalización de ejecución
+    F3-->>Main: Fin de ejecución
 ```
 
 ---
 
-## 4. Comparación: Recursividad vs. Iteración
+## 4. El Salto de Fe Recursivo (*The Recursive Leap of Faith* — Sección 7.7)
+
+El mayor obstáculo mental al aprender recursividad es intentar seguir el flujo de ejecución completo en la cabeza expandiendo mentalmente cada sub-llamada.
+
+> [!IMPORTANT]
+> **El Método de 3 Pasos de Eric Roberts para Diseñar Algoritmos Recursivos:**
+> 1. **Identificar los Casos Simples (Casos Base):** Resolver directamente las instancias triviales del problema.
+> 2. **Buscar la Descomposición Recursiva:** Determinar cómo resolver el problema de tamaño $N$ combinando una operación con la solución del problema de tamaño $N-1$ (o subproblemas más pequeños).
+> 3. **Aplicar el Salto de Fe (*Leap of Faith*):** **Asume con confianza** que la llamada recursiva para $N-1$ devuelve la respuesta correcta. No traces su ejecución interna; concéntrate únicamente en cómo usar ese resultado para construir la solución de $N$.
+
+---
+
+## 5. Recursión Mutua / Cruzada (*Mutual Recursion* — Sección 7.6)
+
+La **Recursión Mutua** ocurre cuando dos o más funciones se invocan recíprocamente en una cadena circular de llamadas.
+
+### Ejemplo Clásico: Determinación de Paridad (`esPar` y `esImpar`)
+
+En C++, para implementar recursión mutua es **obligatorio incluir prototipos de función** antes de sus definiciones, ya que la primera función necesita conocer la existencia y firma de la segunda antes de que esté definida.
+
+```cpp
+// 1. PROTOTIPO OBLIGATORIO para resolver la dependencia circular en C++
+bool esImpar(int n);
+
+// 2. Definición de esPar (invoca a esImpar)
+bool esPar(int n) {
+    if (n == 0) return true; // Caso Base
+    return esImpar(n - 1);   // Paso Recursivo Mutuo
+}
+
+// 3. Definición de esImpar (invoca a esPar)
+bool esImpar(int n) {
+    if (n == 0) return false; // Caso Base
+    return esPar(n - 1);       // Paso Recursivo Mutuo
+}
+```
+
+---
+
+## 6. Inducción Matemática y Recursividad (Sección 10.6)
+
+Existe un isomorfismo estructural perfecto entre la **Inducción Matemática** y la **Recursividad**:
+
+| Inducción Matemática | Programación Recursiva |
+| :--- | :--- |
+| **Base Inductiva ($P(0)$ o $P(1)$)** | **Caso Base** (`if (n == 0) return ...;`) |
+| **Hipótesis Inductiva (Asumir cierta $P(k)$)** | **Salto de Fe Recursivo** (Asumir que `f(k)` funciona) |
+| **Paso Inductivo ($P(k) \Rightarrow P(k+1)$)** | **Paso Recursivo** (`return n + f(n - 1);`) |
+
+---
+
+## 7. Comparación: Recursividad vs. Iteración
 
 | Criterio | Iteración (`for` / `while`) | Recursividad |
 | :--- | :--- | :--- |
 | **Mecanismo de control** | Bucles y contadores explícitos. | Llamadas a funciones sobre la pila RAM. |
 | **Uso de memoria** | $O(1)$ constante (solo variables de contador). | $O(N)$ proporcional a la profundidad de llamadas. |
-| **Riesgo de error** | Bucle infinito (no rompe la memoria RAM). | **Stack Overflow** (Cuelga o invalida el programa). |
-| **Legibilidad** | Ideal para problemas lineales simples. | Elegante para problemas autosimilares (árboles, grafos, fractales, divide y vencerás). |
+| **Riesgo de error** | Bucle infinito (no agota la memoria). | **Stack Overflow** (Cuelga el programa). |
+| **Aplicación ideal** | Procesamiento de arreglos y contadores simples. | Estructuras de datos jerárquicas (árboles, grafos, fractales, divide y vencerás). |
 
 ---
 
@@ -161,8 +215,8 @@ void contarInfinito(int n) {
 > **Diagnóstico:** Provoca un **Stack Overflow (Desbordamiento de Pila)**.
 >
 > **Explicación:**
-> En el paso recursivo se pasa `n` sin modificar (`contarInfinito(n)`), en lugar de modificarlo hacia la condición de parada (como `n + 1`).
-> Dado que `n` siempre vale `1`, nunca alcanzará la condición del caso base (`n == 100`). La pila de llamadas acumulará marcos de memoria infinitamente hasta agotar el espacio asignado en la memoria RAM del proceso (usualmente 1 MB a 8 MB), resultando en un *Segmentation Fault* o crash.
+> En el paso recursivo se pasa `n` sin modificar (`contarInfinito(n)`), violando la Segunda Regla de Oro (avanzar hacia el caso base).
+> Dado que `n` siempre vale `1`, nunca alcanzará el caso base (`n == 100`). La pila de llamadas acumulará marcos de memoria infinitamente hasta agotar el espacio asignado en la memoria RAM del proceso (usualmente 1 MB a 8 MB), resultando en un *Segmentation Fault* o crash.
 
 </details>
 
@@ -170,12 +224,20 @@ void contarInfinito(int n) {
 
 ## 📝 Resumen Resumido de L31
 
-1. **Definición:** La recursividad resuelve un problema expresándolo en términos de instancias más pequeñas de sí mismo.
+1. **Definición:** Resolver un problema expresándolo en términos de instancias más pequeñas de sí mismo.
 2. **Estructura de 2 partes:**
-   - **Caso Base:** Resuelve el caso más simple e interrumpe las llamadas recursivas.
-   - **Paso Recursivo:** Reduce el problema y llama a la misma función con argumentos más pequeños.
-3. **Pila de Memoria (Call Stack):** Cada llamada recursiva consume memoria reservando un *Stack Frame*.
-4. **Fe Inductiva (*Leap of Faith*):** Al diseñar algoritmos recursivos, asume que la llamada con $(n-1)$ funciona correctamente y enfócate en cómo usar ese resultado para resolver el caso $n$.
+   - **Caso Base:** Interrumpe la recursión resolviendo el problema trivialmente.
+   - **Paso Recursivo:** Reduce el problema y llama a la función avanzando hacia el caso base.
+3. **Salto de Fe Recursivo:** Diseña asumiendo que la llamada $(N-1)$ funciona correctamente.
+4. **Recursión Mutua:** Funciones que se invocan circularmente (`isEven` / `isOdd`), requiriendo prototipos `.h` o declaraciones previas en C++.
+5. **Inducción:** La recursividad es la implementación en software del principio de Inducción Matemática (Sección 10.6).
+
+---
+
+## 🧹 Limpieza de Archivos Temporales
+
+> [!NOTE]
+> Los archivos de extracción de texto temporal `ch7_extracted.txt` y `ch10_6_extracted.txt` fueron eliminados tras la verificación del texto oficial del PDF.
 
 ---
 

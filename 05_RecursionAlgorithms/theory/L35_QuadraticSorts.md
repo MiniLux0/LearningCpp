@@ -1,14 +1,14 @@
 # L35 — Algoritmos de Ordenamiento Cuadráticos: Selección, Inserción y Burbuja
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.3 (*Sorting Algorithms*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.1** *The sorting problem* (p. 430) y **10.2** *Computational complexity* (p. 435).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 10.3, pp. 451–460)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.1 (p. 430) & Ch 10.2 (p. 435)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Sorting Efficiency & In-Place Algorithms](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L35_QuadraticSorts.cpp`](../code/L35_QuadraticSorts.cpp)
 

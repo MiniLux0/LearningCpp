@@ -1,14 +1,14 @@
 # L38 — Backtracking Recursivo: Búsqueda en Espacios de Estados y Árboles de Decisión
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 9 (*Recursive Backtracking*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** y **Capítulo 9 (*Backtracking Algorithms*, pp. 389–428)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **8.2** *Subset-sum* (p. 361), **8.3** *Permutations* (p. 364), **8.4** *Graphical recursion* (p. 368), **9.1** *Maze backtracking* (p. 390), **9.2** *Games* (p. 400) y **9.3** *The minimax algorithm* (p. 409).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 9, pp. 361–410)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 8 (pp. 349–388) & Ch 9 (pp. 389–428)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — State Space Search & Backtracking](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L38_Backtracking.cpp`](../code/L38_Backtracking.cpp)
 

@@ -1,14 +1,14 @@
 # L36 — MergeSort: Ordenamiento por Mezcla y la Estrategia Divide y Vencerás
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.3 (*MergeSort*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 10.3, pp. 461–470)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.3 (p. 443) & Ch 10.4 (p. 449)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Divide and Conquer Paradigms](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L36_MergeSort.cpp`](../code/L36_MergeSort.cpp)
 

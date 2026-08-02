@@ -27,6 +27,20 @@ int sumaRecursiva(int n) {
     return n + sumaRecursiva(n - 1); // Paso Recursivo
 }
 
+// Prototipos necesarios para la Recursión Mutua (Sección 7.6 del libro)
+bool esImpar(int n);
+
+// Ejemplo 3: Recursión Mutua (isEven / isOdd)
+bool esPar(int n) {
+    if (n == 0) return true; // Caso Base
+    return esImpar(n - 1);   // Paso Recursivo llamando a esImpar
+}
+
+bool esImpar(int n) {
+    if (n == 0) return false; // Caso Base
+    return esPar(n - 1);      // Paso Recursivo llamando a esPar
+}
+
 int main() {
     cout << "=== L31: Pensar Recursivamente ===" << endl;
 
@@ -38,6 +52,11 @@ int main() {
     cout << "\n--- 2. Suma Acumulativa Recursiva ---" << endl;
     int n = 5;
     cout << "Suma de 1 a " << n << " (esperado 15): " << sumaRecursiva(n) << endl;
+
+    // 3. Demostración de Recursión Mutua
+    cout << "\n--- 3. Recursión Mutua (esPar / esImpar) ---" << endl;
+    cout << "¿Es par 4?: " << (esPar(4) ? "Sí" : "No") << endl;
+    cout << "¿Es impar 7?: " << (esImpar(7) ? "Sí" : "No") << endl;
 
     return 0;
 }

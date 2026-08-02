@@ -1,14 +1,14 @@
 # L32 — Problemas Clásicos Recursivos: Matemáticos, Cadenas y Árboles de Llamadas
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Procedures*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **7.2** *The factorial function* (p. 318), **7.3** *The Fibonacci function* (p. 325), **7.4** *Checking palindromes* (p. 332) y **8.1** *The Towers of Hanoi* (p. 350).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 8, pp. 321–360)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 8.1 (pp. 349–360)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Recursive Problem Solving](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L32_RecursiveProblems.cpp`](../code/L32_RecursiveProblems.cpp)
 

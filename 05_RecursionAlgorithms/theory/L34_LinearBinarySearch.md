@@ -1,14 +1,14 @@
 # L34 — Búsqueda Lineal y Binaria: Comparativa, Algoritmos Iterativos y Recursivos
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.2 (*Searching*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **7.5** *The binary search algorithm* (p. 335) y **10.2** *Computational complexity* (p. 435).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 10.2, pp. 440–450)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 7.5 (p. 335) & Ch 10.2 (p. 435)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Searching & Algorithm Complexity](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L34_LinearBinarySearch.cpp`](../code/L34_LinearBinarySearch.cpp)
 

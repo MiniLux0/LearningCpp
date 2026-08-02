@@ -1,14 +1,14 @@
 # L33 — Notación Big-O: Análisis Asintótico de Complejidad Temporal y Espacial
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.2** *Computational complexity* (p. 435) y **10.4** *Standard complexity classes* (p. 449).
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook (Ch 10, pp. 433–470)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.2 & 10.4 (pp. 429–478)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Asymptotic Algorithmic Analysis](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L33_BigONotation.cpp`](../code/L33_BigONotation.cpp)
 
