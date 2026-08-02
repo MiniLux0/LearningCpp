@@ -1,38 +1,155 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 // ============================================================================
 // L38 — BACKTRACKING RECURSIVO: CHOOSE, EXPLORE, UNCHOOSE
+// Capítulo 8 (p. 349) & Capítulo 9 (p. 389) — Eric Roberts
 // ============================================================================
 
-// Ejercicio: Generar todos los subconjuntos posibles de un vector (Power Set)
+// ── SECCIÓN 1: SUBCONJUNTOS (Power Set) ────────────────────────────────────
+// El patrón clásico: ELEGIR → EXPLORAR → DESHACER (Choose-Explore-Unchoose)
 void generarSubconjuntos(const vector<char>& elementos, int index, vector<char>& actual) {
-    // 1. Caso Base: Se ha tomado una decisión para todos los elementos
+    // CASO BASE: se tomó decisión sobre todos los elementos
     if (index == (int)elementos.size()) {
         cout << "{ ";
         for (char c : actual) cout << c << " ";
-        cout << "}\n";
+        cout << "}" << endl;
         return;
     }
 
-    // Opcion 1: NO incluir elementos[index]
+    // OPCIÓN A: NO incluir elementos[index] → explorar sin modificar
     generarSubconjuntos(elementos, index + 1, actual);
 
-    // Opcion 2: INCLUIR elementos[index]
-    actual.push_back(elementos[index]);                // 1. CHOOSE
-    generarSubconjuntos(elementos, index + 1, actual);  // 2. EXPLORE
-    actual.pop_back();                                 // 3. UNCHOOSE (Backtrack)
+    // OPCIÓN B: INCLUIR elementos[index]
+    actual.push_back(elementos[index]);          // 1. ELEGIR (Choose)
+    generarSubconjuntos(elementos, index + 1, actual); // 2. EXPLORAR (Explore)
+    actual.pop_back();                           // 3. DESHACER (Unchoose / Backtrack)
 }
 
+// ── SECCIÓN 2: LABERINTO (Sección 9.1) ─────────────────────────────────────
+// El laberinto se representa como una cuadrícula de chars:
+//   '#' = pared, ' ' = pasillo abierto, 'S' = inicio, 'E' = salida
+// La función solveMaze retorna true si encontró un camino hasta 'E'.
+
+const int FILAS = 5;
+const int COLS  = 9;
+
+char laberinto[FILAS][COLS] = {
+    {'#','#','#','#','#','#','#','#','#'},
+    {'#',' ',' ',' ','#',' ',' ','E','#'},
+    {'#','S','#',' ','#',' ','#','#','#'},
+    {'#',' ','#',' ',' ',' ',' ',' ','#'},
+    {'#','#','#','#','#','#','#','#','#'}
+};
+
+void imprimirLaberinto() {
+    for (int r = 0; r < FILAS; r++) {
+        for (int c = 0; c < COLS; c++) cout << laberinto[r][c];
+        cout << endl;
+    }
+}
+
+// Caso Base 1: ¿Llegamos a la salida 'E'?
+// Caso Base 2: ¿La celda está bloqueada o ya visitada ('.')? → false
+// Paso Recursivo: marcar, intentar las 4 direcciones, desmarcar (backtrack)
+bool solveMaze(int r, int c) {
+    // Caso Base 1: celda es la salida
+    if (laberinto[r][c] == 'E') return true;
+
+    // Caso Base 2: pared, fuera de bounds, o ya visitada
+    if (r < 0 || r >= FILAS || c < 0 || c >= COLS) return false;
+    if (laberinto[r][c] == '#' || laberinto[r][c] == '.') return false;
+
+    laberinto[r][c] = '.';  // 1. ELEGIR — marcar como visitado
+
+    // 2. EXPLORAR las 4 direcciones (Norte, Sur, Este, Oeste)
+    if (solveMaze(r - 1, c)) return true; // Norte
+    if (solveMaze(r + 1, c)) return true; // Sur
+    if (solveMaze(r, c + 1)) return true; // Este
+    if (solveMaze(r, c - 1)) return true; // Oeste
+
+    laberinto[r][c] = ' ';  // 3. DESHACER — backtrack (desmarcar)
+    return false;
+}
+
+// ── SECCIÓN 3: JUEGO NIM (Sección 9.2) ─────────────────────────────────────
+// Nim: montón de monedas. Cada turno se pueden tomar 1, 2 o 3 monedas.
+// El jugador que toma la ÚLTIMA moneda PIERDE.
+// isBadPosition y findGoodMove son mutuamente recursivas (Sec. 9.2).
+
+const int MIN_MOVE = 1;
+const int MAX_MOVE = 3;
+
+// Declaración adelantada para mutua recursión
+bool isBadPosition(int nCoins);
+
+// findGoodMove: busca un movimiento que deje al oponente en posición mala
+// Retorna el número de monedas a tomar, o -1 si no existe buen movimiento.
+int findGoodMove(int nCoins) {
+    for (int take = MIN_MOVE; take <= MAX_MOVE && take < nCoins; take++) {
+        if (isBadPosition(nCoins - take)) return take;
+    }
+    return -1; // Sin buen movimiento → posición mala
+}
+
+// isBadPosition: una posición es mala si no existe ningún buen movimiento
+bool isBadPosition(int nCoins) {
+    if (nCoins == 1) return true;          // Caso Base: solo 1 moneda = mala
+    return findGoodMove(nCoins) == -1;     // Sin buen movimiento = mala
+}
+
+void demostrarNim(int nCoins) {
+    cout << "Monedas iniciales: " << nCoins << endl;
+    int turno = 1;
+    while (nCoins > 1) {
+        int movimiento = findGoodMove(nCoins);
+        if (movimiento == -1) movimiento = 1; // Sin buen movimiento: tomar 1
+
+        cout << "  Turno " << turno << ": Computadora toma " << movimiento
+             << " moneda(s). Quedan " << nCoins - movimiento << "." << endl;
+        nCoins -= movimiento;
+        turno++;
+    }
+    cout << "  => Solo queda 1 moneda. El HUMANO debe tomarla. Computadora GANA." << endl;
+}
+
+// ── MAIN ────────────────────────────────────────────────────────────────────
 int main() {
-    cout << "=== L38: Backtracking Recursivo (Subconjuntos) ===" << endl;
+    cout << "=== L38: Backtracking Recursivo — Roberts Cap. 8 & 9 ===" << endl;
 
+    // ── Demo 1: Power Set con Choose-Explore-Unchoose ────────────────────
+    cout << "\n--- 1. Todos los subconjuntos de {A, B, C} (Power Set) ---" << endl;
     vector<char> letras = {'A', 'B', 'C'};
-    vector<char> conjuntoActual;
+    vector<char> actual;
+    generarSubconjuntos(letras, 0, actual);
+    cout << "Total: 2^3 = 8 subconjuntos" << endl;
 
-    cout << "Todos los subconjuntos posibles de {'A', 'B', 'C'}:" << endl;
-    generarSubconjuntos(letras, 0, conjuntoActual);
+    // ── Demo 2: Laberinto recursivo (Sección 9.1) ────────────────────────
+    cout << "\n--- 2. Resolver Laberinto (Seccion 9.1 - Theseus) ---" << endl;
+    cout << "Laberinto inicial:" << endl;
+    imprimirLaberinto();
+
+    if (solveMaze(2, 1)) { // Coordenadas de 'S'
+        cout << "\nSolucion encontrada (camino marcado con '.'):" << endl;
+        imprimirLaberinto();
+    } else {
+        cout << "\nNo existe solucion." << endl;
+    }
+
+    // ── Demo 3: Juego Nim — Backtracking sobre juegos (Sección 9.2) ─────
+    cout << "\n--- 3. Juego Nim con " << 13 << " monedas (Seccion 9.2) ---" << endl;
+    cout << "Reglas: tomar 1, 2 o 3 monedas por turno. Quien tome la ultima, PIERDE." << endl;
+    demostrarNim(13);
+
+    // ── Análisis: posiciones buenas y malas en Nim ───────────────────────
+    cout << "\n--- 4. Analisis de posiciones en Nim (1 a 10 monedas) ---" << endl;
+    for (int n = 1; n <= 10; n++) {
+        cout << "  " << n << " monedas: "
+             << (isBadPosition(n) ? "MALA (quien mueve pierde)" : "BUENA (quien mueve gana)")
+             << endl;
+    }
 
     return 0;
 }

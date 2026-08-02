@@ -1,134 +1,237 @@
-# L38 — Backtracking Recursivo: Búsqueda en Espacios de Estados y Árboles de Decisión
+# L38 — Backtracking Recursivo: Choose, Explore, Unchoose
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** y **Capítulo 9 (*Backtracking Algorithms*, pp. 389–428)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **8.2** *Subset-sum* (p. 361), **8.3** *Permutations* (p. 364), **8.4** *Graphical recursion* (p. 368), **9.1** *Maze backtracking* (p. 390), **9.2** *Games* (p. 400) y **9.3** *The minimax algorithm* (p. 409).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** y **Capítulo 9 (*Backtracking Algorithms*, pp. 389–428)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **9.1** *Recursive backtracking in a maze* (p. 390) y **9.2** *Backtracking and games* (p. 400) y la estrategia *Choose-Explore-Unchoose* del Capítulo 8.
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 8 (pp. 349–388) & Ch 9 (pp. 389–428)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - ⚡ [Stanford CS106X — State Space Search & Backtracking](../../files/cs106x/README.md)
+  - 🌲 [Stanford CS106B Textbook — Ch 8 (p. 349) & Ch 9 (p. 389)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
 - 💻 **Laboratorio de Código:** [`L38_Backtracking.cpp`](../code/L38_Backtracking.cpp)
 
 ---
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender qué es el **Backtracking Recursivo** y cómo explora un **Árbol de Decisión (*Decision Tree*)**.
-- [ ] Dominar el patrón de diseño clásico de 3 pasos: **Elegir, Explorar, Deshacer (*Choose, Explore, Unchoose*)**.
-- [ ] Aplicar la **poda (*Pruning*)** para descartar ramas inválidas del árbol antes de explorarlas por completo.
-- [ ] Resolver problemas clásicos: Subconjuntos, Permutaciones y las N-Reinas.
+- [ ] Comprender qué es un **algoritmo de backtracking** y cuándo se aplica.
+- [ ] Dominar el patrón universal: **Choose → Explore → Unchoose** (Cap. 8).
+- [ ] Implementar la **resolución recursiva de laberintos** con marcado y desmarcado (Sección 9.1).
+- [ ] Analizar el **Juego Nim** como ejemplo de backtracking sobre juegos con `findGoodMove` / `isBadPosition` mutuamente recursivos (Sección 9.2).
+- [ ] Entender la diferencia entre **backtracking** (deshacer elecciones) y la recursión simple.
 
 ---
 
-## 1. El Paradigma del Backtracking
+## 1. ¿Qué es el Backtracking? (Capítulo 9, p. 390)
 
-El Backtracking es una técnica de búsqueda exhaustiva sistemática. Intenta construir una solución paso a paso. Si en cualquier punto descubre que las decisiones actuales **no pueden conducir a una solución válida**, el algoritmo realiza un **retrocero (*backtrack*)**: revierte la última decisión tomada y prueba una opción alternativa.
+> *"For many real-world problems, the solution process consists of working your way through a sequence of decision points in which each choice leads you further along some path. If you reach a dead end, you have to backtrack to a previous decision point and try a different path."*
+> — Eric Roberts, Cap. 9 (p. 390)
 
-```mermaid
-graph TD
-    A["Estado Inicial: Laberinto/Tablero"] --> B1["Opción A: Mover Norte"]
-    A --> B2["Opción B: Mover Este"]
-    B1 --> C1["Camino Bloqueado ❌<br/>(BACKTRACK: Deshacer paso)"]
-    C1 --> A
-    B2 --> D1["Opción B.1: Mover Sur"]
-    D1 --> E1["¡Meta Encontrada! ✅"]
-```
-
----
-
-## 2. El Patrón Universal de 3 Pasos: *Choose, Explore, Unchoose*
-
-Toda función de backtracking recursivo sigue esta estructura fundamental:
-
-```cpp
-void resolverBacktracking(Estado& estado) {
-    // 1. Caso Base: ¿Alcanzamos una solución válida o completa?
-    if (esSolucionCompleta(estado)) {
-        procesarSolucion(estado);
-        return;
-    }
-
-    // 2. Iterar sobre todas las elecciones posibles en el nivel actual
-    for (const auto& opcion : listaDeOpciones) {
-        if (esValida(opcion, estado)) { // PODA (Pruning)
-            
-            // PASO 1: ELEGIR (Make a choice)
-            hacerEleccion(opcion, estado);
-
-            // PASO 2: EXPLORAR (Recursive step)
-            resolverBacktracking(estado);
-
-            // PASO 3: DESHACER (Unchoose / Backtrack)
-            deshacerEleccion(opcion, estado);
-        }
-    }
-}
-```
-
----
-
-## 3. Ejemplo Clásico 1: Generación de Subconjuntos (*Subsets*)
-
-Dado un conjunto como `{"A", "B", "C"}`, generar todos los $2^N$ subconjuntos posibles:
-
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
-void generarSubconjuntos(const vector<char>& v, int index, vector<char>& actual) {
-    // Caso Base: Hemos tomado una decisión para cada elemento
-    if (index == (int)v.size()) {
-        cout << "{ ";
-        for (char c : actual) cout << c << " ";
-        cout << "}\n";
-        return;
-    }
-
-    // Decisión 1: NO incluir v[index]
-    generarSubconjuntos(v, index + 1, actual);
-
-    // Decisión 2: INCLUIR v[index]
-    actual.push_back(v[index]);               // ELEGIR
-    generarSubconjuntos(v, index + 1, actual); // EXPLORAR
-    actual.pop_back();                        // DESHACER (Backtrack)
-}
-```
-
----
-
-## 4. Ejemplo Clásico 2: El Problema de las N-Reinas (*N-Queens*)
-
-Ubicar $N$ reinas de ajedrez en un tablero de $N \times N$ de tal forma que ninguna reina ataque a otra (mismo renglón, columna o diagonal).
+El backtracking es una estrategia para explorar un espacio de decisiones donde:
+1. **Tomas una decisión** (ej. girar a la derecha en un laberinto).
+2. **Exploras** el camino resultante recursivamente.
+3. **Si llegas a un callejón sin salida**, deshaces la decisión (*backtrack*) y pruebas la siguiente opción.
 
 > [!TIP]
-> **Poda (*Pruning*):** La función de validación `esSeguro(tablero, fila, col)` comprueba que la nueva reina no esté amenazada por reinas previamente colocadas. Si la posición es insegura, la rama entera se descarta de inmediato sin continuar explorándola.
+> **Insight Fundamental (Roberts, p. 390):**  
+> Un problema de backtracking tiene solución **si y solo si** al menos uno de los subproblemas que resultan de cada posible elección inicial tiene solución. Esto lo hace naturalmente recursivo.
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — ¿Por qué es obligatorio el paso "Unchoose"?
+## 2. El Patrón Universal: Choose → Explore → Unchoose (Cap. 8)
 
-**En la plantilla de Backtracking, ¿qué ocurriría si olvidamos ejecutar el paso de deshacer la elección (`unchoose` / `actual.pop_back()`) al regresar de la llamada recursiva?**
+Todos los algoritmos de backtracking siguen la misma plantilla de 3 pasos:
+
+```
+for cada opción posible:
+    1. ELEGIR   (Choose)   → aplicar la opción, modificar el estado
+    2. EXPLORAR (Explore)  → llamada recursiva con el nuevo estado
+    3. DESHACER (Unchoose) → revertir la modificación (backtrack)
+```
+
+### Ejemplo: Generar el Power Set de `{A, B, C}`
+
+Para cada elemento decidimos: ¿lo incluimos o no?
+
+```cpp
+void generarSubconjuntos(const vector<char>& elems, int idx, vector<char>& actual) {
+    if (idx == (int)elems.size()) {
+        // Caso Base: imprimir el subconjunto actual
+        for (char c : actual) cout << c << " ";
+        return;
+    }
+
+    // Opción A: NO incluir elems[idx]
+    generarSubconjuntos(elems, idx + 1, actual);
+
+    // Opción B: SÍ incluir elems[idx]
+    actual.push_back(elems[idx]);           // 1. ELEGIR
+    generarSubconjuntos(elems, idx + 1, actual); // 2. EXPLORAR
+    actual.pop_back();                      // 3. DESHACER
+}
+```
+
+**Árbol de decisión** para `{A, B, C}`:
+
+```
+                    []
+          ┌──────────┴──────────┐
+         []                    [A]
+       ┌──┴──┐              ┌───┴───┐
+      []    [B]           [A]     [A,B]
+     ┌┴┐   ┌┴──┐        ┌──┴──┐   ┌──┴──┐
+    {} {C} {B} {B,C}  {A}  {A,C} {A,B} {A,B,C}
+```
+
+Total: $2^3 = 8$ subconjuntos — el Power Set completo.
+
+---
+
+## 3. Backtracking en Laberintos (Sección 9.1 — El Laberinto de Teseo)
+
+> *"Once upon a time... Minos demanded tribute from Athens in the form of young men and women whom he sacrificed to the Minotaur."*
+> *"Theseus entered the labyrinth with a sword and a ball of string."*
+> — Eric Roberts, Sec. 9.1 (p. 390)
+
+### Los Dos Casos Base (Roberts, p. 393)
+
+```
+CASO BASE 1: La celda actual está FUERA del laberinto → solución encontrada (true)
+CASO BASE 2: La celda actual es una PARED o ya fue VISITADA → callejón sin salida (false)
+```
+
+### Implementación Recursiva
+
+```cpp
+bool solveMaze(int r, int c) {
+    // Caso Base 1: llegamos a la salida
+    if (laberinto[r][c] == 'E') return true;
+
+    // Caso Base 2: posición inválida o ya visitada
+    if (fuera_de_bounds || es_pared || ya_visitada) return false;
+
+    laberinto[r][c] = '.';   // 1. ELEGIR — marcar como visitado
+
+    // 2. EXPLORAR las 4 direcciones
+    if (solveMaze(r-1, c)) return true;  // Norte
+    if (solveMaze(r+1, c)) return true;  // Sur
+    if (solveMaze(r, c+1)) return true;  // Este
+    if (solveMaze(r, c-1)) return true;  // Oeste
+
+    laberinto[r][c] = ' ';  // 3. DESHACER — backtrack (desmarcar)
+    return false;
+}
+```
+
+### Traza del Laberinto (Demo 2)
+
+```
+Inicial:           Solución (camino con '.'):
+#########          #########
+#   #  E#          #...#..E#
+#S# # ###    →     #.#.#.###
+# #     #          # #...  #
+#########          #########
+```
+
+> [!IMPORTANT]
+> **La Clave del Desmarcado (Roberts, p. 393):**  
+> El paso `laberinto[r][c] = ' '` al final es esencial. Sin él, la función marcaría caminos explorados fallidos como "visitados" y bloquearía el retroceso. El backtracking **deshace** el marcado cuando un camino no lleva a la salida.
+
+---
+
+## 4. Backtracking en Juegos: El Juego Nim (Sección 9.2)
+
+> *"A backtracking problem has a solution if and only if at least one of the smaller backtracking problems that result from making each possible initial choice has a solution."*
+> — Eric Roberts, Sec. 9.2 (p. 390)
+
+### Reglas del Nim (Roberts, Sec. 9.2, p. 401)
+
+- Montón inicial de **13 monedas**.
+- Cada turno, un jugador toma **1, 2 o 3** monedas.
+- El jugador que toma la **última moneda PIERDE**.
+
+### Estrategia Óptima: Mutua Recursión
+
+Roberts describe una estrategia elegante usando dos funciones **mutuamente recursivas**:
+
+```cpp
+// Una posición es BUENA si existe al menos un movimiento que deja al rival en posición MALA
+int findGoodMove(int nCoins) {
+    for (int take = 1; take <= 3 && take < nCoins; take++) {
+        if (isBadPosition(nCoins - take)) return take; // Encontrado!
+    }
+    return -1; // No existe buen movimiento
+}
+
+// Una posición es MALA si no existe ningún buen movimiento
+bool isBadPosition(int nCoins) {
+    if (nCoins == 1) return true;        // Caso Base: 1 moneda = perder
+    return findGoodMove(nCoins) == -1;   // Sin buen movimiento = mala
+}
+```
+
+### Análisis de Posiciones (patrón cada 4)
+
+| Monedas | Tipo | Razonamiento |
+| :---: | :---: | :--- |
+| **1** | ❌ Mala | Obligado a tomar la última → pierdes |
+| 2, 3, 4 | ✅ Buena | Puedes dejar 1 al rival |
+| **5** | ❌ Mala | Cualquier movimiento deja 2–4 al rival (buenas para él) |
+| 6, 7, 8 | ✅ Buena | Puedes dejar 5 al rival |
+| **9** | ❌ Mala | Análoga a 5 |
+| **13** | ✅ Buena | La computadora toma 1 → rival con 12 (buena para la compu) |
+
+**Patrón:** las posiciones malas son $1, 5, 9, 13, \ldots$ — números de la forma $4k+1$.
+
+---
+
+## 5. Comparativa: Backtracking vs Recursión Simple
+
+| Característica | Recursión Simple | Backtracking |
+| :--- | :--- | :--- |
+| **Propósito** | Resolver un subproblema único | Explorar *múltiples* caminos posibles |
+| **Estado** | No modifica estado compartido | Modifica y **revierte** estado |
+| **Clave** | Reducción del problema | **Choose → Explore → Unchoose** |
+| **Ejemplo** | Factorial, Fibonacci | Laberinto, N-Reinas, Sudoku |
+| **Peor caso** | $O(2^N)$ sin poda | $O(2^N)$ pero con poda se reduce mucho |
+
+---
+
+## ❓ Pregunta de Chequeo #1 — Nim con 9 Monedas
+
+Desde 9 monedas, el humano juega primero y toma 2. ¿La computadora puede garantizar ganar desde las 7 monedas restantes?
 
 <details>
-<summary>🔍 <strong>Ver Explicación</strong></summary>
+<summary>🔍 <strong>Ver Respuesta</strong></summary>
 
-> [!CAUTION]
-> **Diagnóstico:** Las decisiones tomadas en una rama del árbol de búsqueda se "contaminarán" y filtrarán a las ramas vecinas independientes, arruinando el estado del tablero/conjunto para las opciones siguientes y produciendo soluciones incorrectas o corruptas.
+**Sí.** 7 monedas es una posición **buena** para quien mueve. La computadora debe tomar 2 monedas (dejando 5 al humano, posición **mala**). Desde 5, el humano queda atrapado en el mismo ciclo. Finalmente la computadora dejará 1 al humano → computadora gana.
 
 </details>
 
 ---
 
-## 📝 Resumen Resumido de L38
+## ❓ Pregunta de Chequeo #2 — Backtracking en el Laberinto
 
-1. Backtracking explora exhaustivamente árboles de decisión.
-2. El patrón universal es **Choose $\to$ Explore $\to$ Unchoose**.
-3. La **Poda (*Pruning*)** evita explorar ramas inválidas, reduciendo dramáticamente el tiempo de búsqueda.
+¿Qué pasaría si elimináramos el paso `laberinto[r][c] = ' '` (el DESHACER) de `solveMaze`?
+
+<details>
+<summary>🔍 <strong>Ver Respuesta</strong></summary>
+
+Sin el paso de desmarcar, las celdas exploradas en caminos fallidos quedarían marcadas como `.`. Esto bloquearía el explorar de caminos alternativos válidos que pasan por esas celdas, y el algoritmo podría reportar "sin solución" aunque exista una. El **DESHACER es crítico** para que el backtracking funcione correctamente.
+
+</details>
+
+---
+
+## 📝 Resumen de L38
+
+1. **Backtracking:** Estrategia recursiva que explora todas las opciones posibles, deshaciendo elecciones incorrectas al encontrar callejones sin salida.
+2. **Patrón universal:** `Choose → Explore → Unchoose` — toda implementación de backtracking sigue esta plantilla de 3 pasos.
+3. **Laberinto (Sec. 9.1):** Los dos casos base son `salida encontrada` y `celda bloqueada/visitada`. El marcado/desmarcado (`.`/` `) implementa el backtracking.
+4. **Nim (Sec. 9.2):** `findGoodMove` e `isBadPosition` son mutuamente recursivas; las posiciones malas tienen la forma $4k+1$.
+5. **Aplicaciones:** Laberintos, N-Reinas, Sudoku, generación de permutaciones/subconjuntos, juegos de estrategia.
 
 ---
 
@@ -136,9 +239,9 @@ Ubicar $N$ reinas de ajedrez en un tablero de $N \times N$ de tal forma que ning
 
 ### 🧭 Navigation & Progression
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Section 06: Pointers ➡️**](../../06_Pointers/) |
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Sección Siguiente |
+|:------------------:|:--------------:|:--------------------:|
+| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Sección 06 ➡️**](../../06_STL/README.md) |
 
 </div>
 
