@@ -24,20 +24,20 @@
 
 ## 📊 Modules Map & Progress
 
-| # | Module Folder | Lessons | Academic Source | Key Core Topics | 📘 Theory | 💻 Code Lab | Status |
-|---|---------------|---------|-----------------|-----------------|:---------:|:----------:|:------:|
-| **01** | [**`01_GettingStarted`**](01_GettingStarted/README.md) | L01 – L05 | MIT L1 / CS106L L1 | Anatomy, GCC compilation, formatting, `cin` & `cout` | 📘 [`theory/`](01_GettingStarted/theory/) | 💻 [`code/`](01_GettingStarted/code/) | ✅ |
-| **02** | [**`02_BasicSyntax`**](02_BasicSyntax/README.md) | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | ✅ |
-| **03** | [**`03_Subroutines`**](03_Subroutines/README.md) | L23 – L26 | MIT L3 / CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), header files | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
-| **04** | [**`04_ArraysStrings`**](04_ArraysStrings/README.md) | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | ✅ |
-| **05** | [**`05_RecursionAlgorithms`**](05_RecursionAlgorithms/README.md) | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 📘 `theory/` | 💻 [`code/`](05_RecursionAlgorithms/code/) | ⬜ |
-| **06** | [**`06_Pointers`**](06_Pointers/) | L39 – L46 | MIT L5 / CS106L L3,11 | Pointers, arithmetic, references, Const-Correctness | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **07** | [**`07_Classes`**](07_Classes/) | L47 – L52 | MIT L6 / CS106L L2,10 | Structs vs Classes, encapsulation, Operator Overloading | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **08** | [**`08_OOP`**](08_OOP/) | L53 – L58 | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, `virtual`, destructors | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **09** | [**`09_MemoryManagement`**](09_MemoryManagement/) | L59 – L63 | MIT L8 / CS106L L13-15 | Stack vs Heap, `new`/`delete`, RAII, Rule of 0/3/5, Move | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **10** | [**`10_DataStructures`**](10_DataStructures/) | L64 – L68 | CS106B / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **11** | [**`11_FileIO`**](11_FileIO/) | L69 – L72 | MIT L10 / CS106L L4 | Stream states, Text (`.txt`) and Binary (`.bin`) Files | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **12** | [**`12_AdvancedCPP`**](12_AdvancedCPP/) | L73 – L75 | MIT L9-10 / CS106L L5-9 | Templates, STL Containers, Lambdas, Huffman & WikiRacer | 📘 `theory/` | 💻 `code/` | ⬜ |
+| # | Module Name | Lessons | Academic Source | Key Core Topics | Module Hub | Status |
+|---|-------------|---------|-----------------|-----------------|:----------:|:------:|
+| **01** | **Getting Started** | L01 – L05 | MIT L1 / CS106L L1 | Anatomy, GCC compilation, formatting, `cin` & `cout` | 🚀 [`01_GettingStarted/`](01_GettingStarted/README.md) | ✅ |
+| **02** | **Basic Syntax** | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 🚀 [`02_BasicSyntax/`](02_BasicSyntax/README.md) | ✅ |
+| **03** | **Subroutines** | L23 – L26 | MIT L3 / CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), header files | 🚀 [`03_Subroutines/`](03_Subroutines/README.md) | ✅ |
+| **04** | **Arrays & Strings** | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 🚀 [`04_ArraysStrings/`](04_ArraysStrings/README.md) | ✅ |
+| **05** | **Recursion & Algorithms** | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 🚀 [`05_RecursionAlgorithms/`](05_RecursionAlgorithms/README.md) | ⬜ |
+| **06** | **Pointers** | L39 – L46 | MIT L5 / CS106L L3,11 | Pointers, arithmetic, references, Const-Correctness | 🚀 [`06_Pointers/`](06_Pointers/) | ⬜ |
+| **07** | **Classes** | L47 – L52 | MIT L6 / CS106L L2,10 | Structs vs Classes, encapsulation, Operator Overloading | 🚀 [`07_Classes/`](07_Classes/) | ⬜ |
+| **08** | **OOP & Polymorphism** | L53 – L58 | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, `virtual`, destructors | 🚀 [`08_OOP/`](08_OOP/) | ⬜ |
+| **09** | **Memory Management** | L59 – L63 | MIT L8 / CS106L L13-15 | Stack vs Heap, `new`/`delete`, RAII, Rule of 0/3/5, Move | 🚀 [`09_MemoryManagement/`](09_MemoryManagement/) | ⬜ |
+| **10** | **Data Structures** | L64 – L68 | CS106B / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps | 🚀 [`10_DataStructures/`](10_DataStructures/) | ⬜ |
+| **11** | **File I/O & Streams** | L69 – L72 | MIT L10 / CS106L L4 | Stream states, Text (`.txt`) and Binary (`.bin`) Files | 🚀 [`11_FileIO/`](11_FileIO/) | ⬜ |
+| **12** | **Advanced C++ & STL** | L73 – L75 | MIT L9-10 / CS106L L5-9 | Templates, STL Containers, Lambdas, Huffman & WikiRacer | 🚀 [`12_AdvancedCPP/`](12_AdvancedCPP/) | ⬜ |
 
 ---
 
