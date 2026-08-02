@@ -65,7 +65,7 @@ It covers contiguous memory representation of 1D/2D arrays, decay to pointers wh
 
 ### L29 — Multidimensional Arrays
 - 2D arrays are stored in contiguous memory in **Row-Major Order** (row by row).
-- Offset formula: $\text{flat\_index} = i \times \text{COLS} + j$.
+- Offset formula: $\text{flat index} = i \times \text{COLS} + j$.
 - When declaring function parameters with multidimensional arrays, it is **mandatory** to specify the secondary dimensions (columns), for example: `void function(int mat[][10], int rows)`.
 
 ### L30 — C-Strings

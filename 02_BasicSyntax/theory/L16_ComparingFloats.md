@@ -36,7 +36,7 @@ NOT Equal! (sum = 0.30000000000000004)
 
 Instead of checking if two floating-point numbers are *exactly* equal (`a == b`), we check if the **absolute difference** between them is smaller than a tiny threshold called **epsilon** ($\epsilon = 10^{-9}$):
 
-$$\text{are\_equal}(a, b) = |a - b| < \epsilon$$
+$$\text{are equal}(a, b) = |a - b| < \epsilon$$
 
 ```cpp
 #include <iostream>
