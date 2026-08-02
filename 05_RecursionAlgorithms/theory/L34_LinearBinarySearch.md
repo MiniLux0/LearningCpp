@@ -1,16 +1,15 @@
 # L34 — Búsqueda Lineal y Binaria: Comparativa, Algoritmos Iterativos y Recursivos
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.2 (*Searching*)** del libro de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y las **Semanas 02 y 03** del curso de la UNI ([`semana02_ordenamiento_busqueda_I.pdf`](../../files/cc112A-main/clase/semana02_ordenamiento_busqueda_I.pdf) / [`semana03_ordenamiento_busqueda_II.pdf`](../../files/cc112A-main/clase/semana03_ordenamiento_busqueda_II.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10.2 (*Searching*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 📚 [Stanford CS106B Textbook (Ch 10.2, pp. 440–450)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🎓 [UNI CC112 — Semana 02: Búsqueda Lineal](../../files/cc112A-main/clase/semana02_ordenamiento_busqueda_I.pdf)
-  - 🎓 [UNI CC112 — Semana 03: Búsqueda Binaria](../../files/cc112A-main/clase/semana03_ordenamiento_busqueda_II.pdf)
+  - 🌲 [Stanford CS106B Textbook (Ch 10.2, pp. 440–450)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - ⚡ [Stanford CS106X — Searching & Algorithm Complexity](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L34_LinearBinarySearch.cpp`](../code/L34_LinearBinarySearch.cpp)
 
 ---

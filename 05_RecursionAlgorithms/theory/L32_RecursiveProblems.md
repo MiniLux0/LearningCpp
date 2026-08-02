@@ -1,15 +1,15 @@
 # L32 — Problemas Clásicos Recursivos: Matemáticos, Cadenas y Árboles de Llamadas
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Procedures*)** del libro de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y la **Semana 01** del curso de la UNI ([`semana01_recursividad_iteracion.pdf`](../../files/cc112A-main/clase/semana01_recursividad_iteracion.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Procedures*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 📚 [Stanford CS106B Textbook (Ch 8, pp. 321–360)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🎓 [UNI CC112 — Semana 01: Problemas Recursivos Clásicos](../../files/cc112A-main/clase/semana01_recursividad_iteracion.pdf)
+  - 🌲 [Stanford CS106B Textbook (Ch 8, pp. 321–360)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - ⚡ [Stanford CS106X — Recursive Problem Solving](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L32_RecursiveProblems.cpp`](../code/L32_RecursiveProblems.cpp)
 
 ---

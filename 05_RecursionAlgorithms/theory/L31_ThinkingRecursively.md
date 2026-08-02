@@ -1,15 +1,15 @@
 # L31 — Pensar Recursivamente: Caso Base, Paso Recursivo y la Pila de Llamadas (*Call Stack*)
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*)** del texto oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y la **Semana 01** del curso de la UNI ([`semana01_recursividad_iteracion.pdf`](../../files/cc112A-main/clase/semana01_recursividad_iteracion.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y la **Lectura 05** de MIT 6.096 ([`Lecture05_Pointers.pdf`](../../files/mit6096/lectures/Lecture05_Pointers.pdf)).
 
 ---
 
-## 🧭 Navegación Rápidas
+## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 📚 [Stanford CS106B Textbook (Ch 7, pp. 285–320)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🎓 [UNI CC112 — Semana 01: Recursividad e Iteración](../../files/cc112A-main/clase/semana01_recursividad_iteracion.pdf)
+  - 🌲 [Stanford CS106B Textbook (Ch 7, pp. 285–320)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 05: Stack Allocation & Memory](../../files/mit6096/lectures/Lecture05_Pointers.pdf)
 - 💻 **Laboratorio de Código:** [`L31_ThinkingRecursively.cpp`](../code/L31_ThinkingRecursively.cpp)
 
 ---

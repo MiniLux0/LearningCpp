@@ -1,15 +1,15 @@
 # L33 — Notación Big-O: Análisis Asintótico de Complejidad Temporal y Espacial
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*)** del libro de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y la **Semana 03** del curso de la UNI ([`semana03_ordenamiento_busqueda_II.pdf`](../../files/cc112A-main/clase/semana03_ordenamiento_busqueda_II.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*)** del libro oficial de Stanford CS106B ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) y **Stanford CS106X Handouts**.
 
 ---
 
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 📚 [Stanford CS106B Textbook (Ch 10, pp. 433–470)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🎓 [UNI CC112 — Semana 03: Eficiencia de Algoritmos y Notación O Grande](../../files/cc112A-main/clase/semana03_ordenamiento_busqueda_II.pdf)
+  - 🌲 [Stanford CS106B Textbook (Ch 10, pp. 433–470)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - ⚡ [Stanford CS106X — Asymptotic Algorithmic Analysis](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L33_BigONotation.cpp`](../code/L33_BigONotation.cpp)
 
 ---
