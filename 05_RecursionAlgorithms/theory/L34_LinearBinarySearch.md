@@ -1,4 +1,4 @@
-# L34 — Búsqueda Lineal y Binaria: Comparativa, Algoritmos Iterativos y Recursivos
+# L34 — Búsqueda Lineal y Binaria: Algoritmos, Complejidad e Implementación
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **7.5** *The binary search algorithm* (p. 335) y **10.2** *Computational complexity* (p. 435).
@@ -16,137 +16,138 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender el funcionamiento de la **Búsqueda Lineal ($O(N)$)** en arreglos no ordenados.
-- [ ] Dominar la **Búsqueda Binaria ($O(\log N)$)** en arreglos previa y estrictamente **ordenados**.
-- [ ] Demostrar matemáticamente por qué la búsqueda binaria realiza como máximo $\log_2(N)$ comparaciones.
-- [ ] Implementar versiones tanto **iterativas** como **recursivas** de ambos algoritmos.
+- [ ] Entender el funcionamiento y limitaciones de la **Búsqueda Lineal ($O(N)$)** en arreglos desordenados (Sección 10.2).
+- [ ] Dominar la **Búsqueda Binaria ($O(\log N)$)** en arreglos previamente **ordenados** (Sección 7.5).
+- [ ] Implementar versiones **iterativas** y **recursivas** de la Búsqueda Binaria.
+- [ ] Prevenir el error clásico de desbordamiento entero en el cálculo del punto medio: `mid = low + (high - low) / 2`.
+- [ ] Analizar por qué $\log_2(1,000,000) \approx 20$ comparaciones frente a $1,000,000$ comparaciones lineales.
 
 ---
 
-## 1. Búsqueda Lineal (*Linear Search*)
+## 1. Búsqueda Lineal (*Linear Search* — Sección 10.2)
 
-La búsqueda lineal recorre un arreglo elemento por elemento desde el índice `0` hasta `n - 1` comparando cada valor con la clave buscada (*target*).
+La **Búsqueda Lineal** o secuencial examina cada elemento del arreglo uno por uno desde el índice `0` hasta encontrar el elemento buscado o agotar la secuencia.
 
-> [!TIP]
-> **Propiedad Clave:** No requiere que el arreglo esté ordenado.
-
-### Implementación C++ (Iterativa y Recursiva)
+- **Requisito:** Ninguno. Funciona en arreglos tanto **desordenados** como ordenados.
+- **Complejidad Temporal:**
+  - **Mejor Caso:** $O(1)$ (el elemento está en la primera posición `arr[0]`).
+  - **Peor Caso:** $O(N)$ (el elemento está al final o no existe en el arreglo).
+  - **Caso Promedio:** $O(N)$ ($\approx N/2$ comparaciones).
 
 ```cpp
-// Versión Iterativa - O(N)
 int busquedaLineal(const int arr[], int size, int target) {
     for (int i = 0; i < size; i++) {
-        if (arr[i] == target) return i; // Encontrado (devuelve el índice)
+        if (arr[i] == target) return i; // Encontrado
     }
     return -1; // No encontrado
 }
-
-// Versión Recursiva - O(N)
-int busquedaLinealRecursiva(const int arr[], int size, int target, int index = 0) {
-    if (index >= size) return -1;             // Caso Base 1: Llegó al final sin éxito
-    if (arr[index] == target) return index;   // Caso Base 2: Elemento encontrado
-    
-    return busquedaLinealRecursiva(arr, size, target, index + 1); // Paso Recursivo
-}
 ```
 
 ---
 
-## 2. Búsqueda Binaria (*Binary Search*)
+## 2. Búsqueda Binaria (*Binary Search* — Sección 7.5)
 
-La búsqueda binaria utiliza el enfoque de **Divide y Vencerás**. En lugar de revisar elemento por elemento, inspecciona el valor central (`mid`) del rango ordenado:
-1. Si `arr[mid] == target`, lo hemos encontrado.
-2. Si `arr[mid] > target`, descartamos la mitad derecha (buscamos en `[low, mid - 1]`).
-3. Si `arr[mid] < target`, descartamos la mitad izquierda (buscamos en `[mid + 1, high]`).
+> [!TIP]
+> **La Analogía del Diccionario (Eric Roberts, Sec. 7.5):**  
+> Cuando buscas una palabra en un diccionario de 1,000 páginas, no hojeas página por página desde la primera. Abres el libro justo en la mitad. Si la palabra buscada es alfabéticamente menor, descartas toda la mitad derecha y repites el proceso en la mitad izquierda.
 
-> [!IMPORTANT]
-> **REQUISITO INDISPENSABLE:** El arreglo **DEBE ESTAR ORDENADO** previamente. Si el arreglo está desordenado, la búsqueda binaria producirá resultados totalmente incorrectos.
+### Prerrequisito Fundamental:
+La Búsqueda Binaria **REQUIERE obligatoriamente que el arreglo esté estrictamente ORDENADO**.
 
 ```mermaid
 graph TD
-    A["Arreglo Ordenado: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91] (Buscar: 23)"]
-    A --> B["Paso 1: mid = 16 (Índice 4)<br/>23 > 16 -> Descartar mitad izquierda [2..16]"]
-    B --> C["Paso 2: Rango [23, 38, 56, 72, 91]<br/>mid = 56 (Índice 7)<br/>23 < 56 -> Descartar mitad derecha [56..91]"]
-    C --> D["Paso 3: Rango [23, 38]<br/>mid = 23 (Índice 5)<br/>¡Hallado en índice 5!"]
+    Subgraph Array ["Arreglo Ordenado: [5, 12, 19, 27, 33, 45, 58, 64, 72, 89, 93]"]
+    end
+    Step1["Comparar Target=45 con Mid=45 (Índice 5)"] -->|¡Coincidencia!| Found["Retornar Índice 5"]
 ```
 
----
-
-## 3. Demostración de la Complejidad Logarítmica $O(\log_2 N)$
-
-En cada paso de la búsqueda binaria, el espacio de búsqueda se reduce a la mitad ($\frac{N}{2}$):
-
-$$\text{Elementos restantes tras } k \text{ pasos} = \frac{N}{2^k}$$
-
-El algoritmo termina cuando el espacio de búsqueda se reduce a $1$ elemento:
-
-$$\frac{N}{2^k} = 1 \implies N = 2^k \implies k = \log_2(N)$$
-
-### Comparación de Eficiencia con Datos Reales:
-
-| Tamaño del Arreglo ($N$) | Búsqueda Lineal $O(N)$ (Peor Caso) | Búsqueda Binaria $O(\log_2 N)$ (Peor Caso) |
-| :---: | :---: | :---: |
-| **10** | 10 comparaciones | 4 comparaciones |
-| **1,000** | 1,000 comparaciones | **10 comparaciones** |
-| **1,000,000** | 1,000,000 comparaciones | **20 comparaciones** |
-| **8,000,000,000** (Población mundial) | 8,000,000,000 comparaciones | **¡Solo 33 comparaciones!** 🚀 |
+### Estrategia Divide y Vencerás:
+1. Calcular el punto medio `mid`.
+2. Si `arr[mid] == target`, se ha encontrado el elemento.
+3. Si `target < arr[mid]`, buscar recursivamente en la mitad izquierda (`low` a `mid - 1`).
+4. Si `target > arr[mid]`, buscar recursivamente en la mitad derecha (`mid + 1` a `high`).
 
 ---
 
-## 4. Implementación en C++ de Búsqueda Binaria
+## 3. Implementación Recursiva e Iterativa en C++
 
-### Versión Iterativa:
+### 🛠️ Implementación Recursiva (Sección 7.5)
+
 ```cpp
-int busquedaBinaria(const int arr[], int size, int target) {
+int busquedaBinariaRecursiva(const int arr[], int low, int high, int target) {
+    // 1. CASO BASE 1: Rango exhausto sin encontrar el elemento
+    if (low > high) return -1;
+
+    // Prevención de overflow entero
+    int mid = low + (high - low) / 2;
+
+    // 2. CASO BASE 2: Elemento encontrado
+    if (arr[mid] == target) return mid;
+
+    // 3. PASO RECURSIVO: Reducir búsqueda a la mitad correspondiente
+    if (arr[mid] > target)
+        return busquedaBinariaRecursiva(arr, low, mid - 1, target);
+    else
+        return busquedaBinariaRecursiva(arr, mid + 1, high, target);
+}
+```
+
+### 🛠️ Implementación Iterativa ($O(1)$ Espacio)
+
+```cpp
+int busquedaBinariaIterativa(const int arr[], int size, int target) {
     int low = 0;
     int high = size - 1;
 
     while (low <= high) {
-        // Prevenir overflow entero en (low + high) / 2
-        int mid = low + (high - low) / 2;
+        int mid = low + (high - low) / 2; // Seguro contra overflow
 
         if (arr[mid] == target) return mid;
-        if (arr[mid] < target) low = mid + 1;  // Buscar a la derecha
-        else high = mid - 1;                 // Buscar a la izquierda
+        if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
     }
     return -1; // No encontrado
 }
 ```
 
-### Versión Recursiva:
-```cpp
-int busquedaBinariaRecursiva(const int arr[], int low, int high, int target) {
-    if (low > high) return -1; // Caso Base 1: Rango exhausto sin éxito
+---
 
-    int mid = low + (high - low) / 2;
+## ⚠️ Detalle Crítico de Ingeniería: Prevención de Integer Overflow
 
-    if (arr[mid] == target) return mid; // Caso Base 2: Encontrado
-
-    if (arr[mid] > target)
-        return busquedaBinariaRecursiva(arr, low, mid - 1, target); // Mitad izquierda
-    else
-        return busquedaBinariaRecursiva(arr, mid + 1, high, target); // Mitad derecha
-}
-```
+> [!CAUTION]
+> **El Bug de Josh Bloch (2006):**  
+> La fórmula tradicional `int mid = (low + high) / 2;` contiene un error sutil. En arreglos masivos donde `low + high > 2,147,483,647` (límite de 32-bit signed `int`), la suma sufre un **Overflow Entero** produciendo un número negativo y causando un *Segmentation Fault*.
+>
+> **La Solución Segura:**
+> $$\text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2}$$
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — El Error Típico de Cálculo del Punto Medio
+## 📊 Comparativa de Escalamiento Asintótico
 
-En C++, cuando calculamos el índice medio entre `low` y `high`, muchos programadores escriben:
-`int mid = (low + high) / 2;`
+| Tamaño del Arreglo ($N$) | Búsqueda Lineal $O(N)$ (Peor Caso) | Búsqueda Binaria $O(\log_2 N)$ (Peor Caso) |
+| :---: | :---: | :---: |
+| **10** | $10$ comparaciones | $4$ comparaciones |
+| **100** | $100$ comparaciones | $7$ comparaciones |
+| **1,000** | $1,000$ comparaciones | $10$ comparaciones |
+| **1,000,000** | $1,000,000$ comparaciones | **$\mathbf{20}$ comparaciones** |
+| **1,000,000,000** | $1,000,000,000$ comparaciones | **$\mathbf{30}$ comparaciones** |
 
-**¿Por qué `int mid = low + (high - low) / 2;` es una solución más segura en C++ profesional?**
+---
+
+## ❓ Pregunta de Chequeo #1 — Máximo Número de Comparaciones
+
+Para un arreglo ordenado de **$8,000,000$ elementos**, ¿cuál es el número máximo de comparaciones que realizará la Búsqueda Binaria para encontrar un elemento o determinar que no existe?
 
 <details>
-<summary>🔍 <strong>Ver Explicación de Prevención de Overflow</strong></summary>
+<summary>🔍 <strong>Ver Explicación y Cálculo Logarítmico</strong></summary>
 
-> [!CAUTION]
-> **Diagnóstico:** Previene el **Integer Overflow** (Desbordamiento de entero de 32 bits).
->
-> **Explicación:**
-> Si `low` y `high` son valores enteros muy grandes (por ejemplo, cercanos a $2 \times 10^9$, próximo al límite superior de un `int` firmado de 32 bits `INT_MAX = 2,147,483,647`), la suma `(low + high)` sobrepasará el rango representable, resultando en un valor negativo por overflow.
-> La expresión alternativa `low + (high - low) / 2` es matemáticamente equivalente pero evita la suma directa de valores gigantes, garantizando la seguridad en sistemas de producción.
+**Respuesta:** Realizará como máximo **23 comparaciones**.
+
+**Cálculo:**
+$$\lceil \log_2(8,000,000) \rceil = \lceil 22.93 \rceil = 23$$
+
+Esto demuestra el poder del crecimiento logarítmico frente a los $8,000,000$ de pasos que requeriría la búsqueda lineal.
 
 </details>
 
@@ -154,9 +155,10 @@ En C++, cuando calculamos el índice medio entre `low` y `high`, muchos programa
 
 ## 📝 Resumen Resumido de L34
 
-1. **Búsqueda Lineal ($O(N)$):** Funciona en cualquier arreglo (ordenado o desordenado), pero es lenta para grandes volúmenes de datos.
-2. **Búsqueda Binaria ($O(\log N)$):** Divide el rango de búsqueda a la mitad en cada paso; extremadamente rápida pero **exige un arreglo previamente ordenado**.
-3. **Cálculo seguro del punto medio:** `int mid = low + (high - low) / 2`.
+1. **Búsqueda Lineal:** $O(N)$ en el peor caso. Funciona sobre datos desordenados.
+2. **Búsqueda Binaria:** $O(\log N)$ en el peor caso. **Exige datos estrictamente ordenados**.
+3. **Punto Medio Seguro:** Usar siempre `mid = low + (high - low) / 2` para evitar desbordamiento de 32 bits.
+4. **Paradigma:** Divide y Vencerás reduce el problema a la mitad en cada paso logarítmico.
 
 ---
 
