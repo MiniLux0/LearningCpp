@@ -1,7 +1,7 @@
-# L36 — MergeSort: Ordenamiento por Mezcla y la Estrategia Divide y Vencerás
+# L36 — MergeSort: Ordenamiento por Mezcla $O(N \log N)$
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
 
 ---
 
@@ -9,140 +9,213 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 10.3 (p. 443) & Ch 10.4 (p. 449)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - ⚡ [Stanford CS106X — Divide and Conquer Paradigms](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L36_MergeSort.cpp`](../code/L36_MergeSort.cpp)
 
 ---
 
 ## Objetivos de Aprendizaje
 
-- [ ] Dominar el paradigma de **Divide y Vencerás (*Divide and Conquer*)**.
-- [ ] Entender la función auxiliar de combinación **`merge()`** para unir dos subarreglos ordenados.
-- [ ] Demostrar por qué MergeSort garantiza una complejidad temporal de **$O(N \log N)$** en todos los casos.
-- [ ] Analizar el costo de memoria de la **complejidad espacial $O(N)$**.
+- [ ] Entender por qué los algoritmos cuadráticos $O(N^2)$ son insuficientes para entradas grandes (Sección 10.3).
+- [ ] Dominar la estrategia **Divide y Vencerás** aplicada al ordenamiento.
+- [ ] Implementar el algoritmo **MergeSort** con sus dos funciones clave: `sort` y `merge`.
+- [ ] Derivar matemáticamente la complejidad $O(N \log N)$ a partir del árbol de recursión.
+- [ ] Interpretar la tabla comparativa $N^2$ vs $N \log N$ de la Figura 10-5 del texto (p. 447–448).
 
 ---
 
-## 1. El Paradigma Divide y Vencerás
+## 1. La Necesidad de un Mejor Algoritmo (Sección 10.3)
 
-MergeSort divide el problema de ordenar un arreglo de tamaño $N$ en 3 pasos fundamentales:
-1. **Dividir:** Divide el arreglo por la mitad en dos subarreglos de tamaño aproximadamente $\frac{N}{2}$.
-2. **Vencer (Recursión):** Ordena recursivamente cada mitad llamando a `mergeSort` en cada una.
-3. **Combinar (Mezclar):** Une (*merge*) los dos subarreglos ordenados en un único arreglo final totalmente ordenado.
+Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\frac{N(N-1)}{2}$ comparaciones. Para $N = 100,000$ eso son **5,000,000,000 operaciones** — inaceptable en la práctica.
 
-```mermaid
-graph TD
-    A["[38, 27, 43, 3, 9, 82, 10] (Dividir)"] --> B1["[38, 27, 43, 3]"]
-    A --> B2["[9, 82, 10]"]
-    B1 --> C1["[38, 27]"]
-    B1 --> C2["[43, 3]"]
-    B2 --> C3["[9, 82]"]
-    B2 --> C4["[10]"]
-    
-    C1 -->|Ordenar & Mezclar| D1["[27, 38]"]
-    C2 -->|Ordenar & Mezclar| D2["[3, 43]"]
-    C3 -->|Ordenar & Mezclar| D3["[9, 82]"]
-    C4 -->|Ordenar & Mezclar| D4["[10]"]
+> *"To develop a better sorting algorithm, you need to adopt a qualitatively different approach."*
+> — Eric Roberts, Sec. 10.3
 
-    D1 & D2 -->|Mezclar| E1["[3, 27, 38, 43]"]
-    D3 & D4 -->|Mezclar| E2["[9, 10, 82]"]
+### La Idea Clave: Explotar la Relación Inversa
 
-    E1 & E2 -->|Mezcla Final| F["[3, 9, 10, 27, 38, 43, 82] (Ordenado)"]
+> [!TIP]
+> **La Propiedad Clave de los Algoritmos Cuadráticos (Eric Roberts, Sec. 10.3):**  
+> Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ($\times 4$).  
+> Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ($\div 4$).  
+>
+> Esto sugiere que dividir el arreglo en mitades y resolver recursivamente puede reducir el tiempo total de forma drástica.
+
+---
+
+## 2. Estrategia Divide y Vencerás: MergeSort
+
+El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) fue descrito en la Sección 10.3 por Eric Roberts usando la siguiente estrategia de 5 pasos:
+
+```
+1. CASO BASE:   Si el vector tiene 0 o 1 elementos → ya está ordenado. Retornar.
+2. DIVIDIR:     Partir el vector vec en dos mitades iguales v1 y v2.
+3. CONQUISTAR:  Ordenar v1 recursivamente con mergeSort(v1).
+4. CONQUISTAR:  Ordenar v2 recursivamente con mergeSort(v2).
+5. COMBINAR:    Mezclar v1 y v2 ordenados de vuelta en vec con merge(vec, v1, v2).
 ```
 
 ---
 
-## 2. La Función Clave: `merge()`
+## 3. El Paso de Mezcla (`merge`) — El Corazón del Algoritmo
 
-La función `merge(arr, left, mid, right)` combina dos subarreglos adyacentes previamente ordenados:
-- Subarreglo izquierdo: `arr[left ... mid]`
-- Subarreglo derecho: `arr[mid+1 ... right]`
+La operación de **mezcla** reconstruye un vector ordenado combinando dos sub-vectores *ya ordenados*. Su lógica se basa en una observación clave: el primer elemento del vector final **siempre** es el menor de los primeros elementos de `v1` y `v2`.
 
-### Implementación C++:
+### Visualización del Paso Merge
+
+Partiendo de estas dos mitades ya ordenadas:
+
+```
+v1: [25, 30, 40, 70]
+v2: [19, 35, 55, 80]
+```
+
+El proceso de mezcla compara cabezas y elige siempre el menor:
+
+| Paso | v1 (p1) | v2 (p2) | Elegido | Resultado acumulado |
+| :---: | :---: | :---: | :---: | :--- |
+| 1 | **25** | **19** | 19 (de v2) | `[19]` |
+| 2 | **25** | **35** | 25 (de v1) | `[19, 25]` |
+| 3 | **30** | **35** | 30 (de v1) | `[19, 25, 30]` |
+| 4 | **40** | **35** | 35 (de v2) | `[19, 25, 30, 35]` |
+| 5 | **40** | **55** | 40 (de v1) | `[19, 25, 30, 35, 40]` |
+| 6 | **70** | **55** | 55 (de v2) | `[19, 25, 30, 35, 40, 55]` |
+| 7 | **70** | **80** | 70 (de v1) | `[19, 25, 30, 35, 40, 55, 70]` |
+| 8 | *(vacío)* | **80** | 80 (de v2) | `[19, 25, 30, 35, 40, 55, 70, 80]` ✅ |
+
+---
+
+## 4. Implementación en C++ (estilo Eric Roberts)
 
 ```cpp
 #include <vector>
+using namespace std;
 
-void merge(int arr[], int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+// ── MEZCLA de dos vectores ya ordenados ──────────────────────────────────
+void merge(vector<int>& dest, const vector<int>& v1, const vector<int>& v2) {
+    int p1 = 0, p2 = 0;
+    dest.clear();
 
-    // Crear arreglos temporales auxiliares
-    std::vector<int> L(n1), R(n2);
-
-    for (int i = 0; i < n1; i++) L[i] = arr[left + i];
-    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j];
-
-    int i = 0, j = 0, k = left;
-
-    // Mezclar intercalando el elemento menor
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
+    while (p1 < (int)v1.size() && p2 < (int)v2.size()) {
+        if (v1[p1] <= v2[p2]) dest.push_back(v1[p1++]);
+        else                   dest.push_back(v2[p2++]);
     }
-
-    // Copiar elementos restantes de L[]
-    while (i < n1) { arr[k] = L[i]; i++; k++; }
-    // Copiar elementos restantes de R[]
-    while (j < n2) { arr[k] = R[j]; j++; k++; }
+    // Copiar el resto del vector no agotado
+    while (p1 < (int)v1.size()) dest.push_back(v1[p1++]);
+    while (p2 < (int)v2.size()) dest.push_back(v2[p2++]);
 }
 
-void mergeSort(int arr[], int left, int right) {
-    if (left >= right) return; // Caso Base: 1 solo elemento
+// ── MERGESORT recursivo ───────────────────────────────────────────────────
+void mergeSort(vector<int>& vec) {
+    if (vec.size() <= 1) return; // Caso Base
 
-    int mid = left + (right - left) / 2;
+    int mid = vec.size() / 2;
+    vector<int> v1(vec.begin(), vec.begin() + mid);
+    vector<int> v2(vec.begin() + mid, vec.end());
 
-    mergeSort(arr, left, mid);      // Ordenar mitad izquierda
-    mergeSort(arr, mid + 1, right);  // Ordenar mitad derecha
-    merge(arr, left, mid, right);    // Combinar ambas mitades
+    mergeSort(v1);              // Conquista izquierda
+    mergeSort(v2);              // Conquista derecha
+    merge(vec, v1, v2);         // Combinar
 }
 ```
 
 ---
 
-## 3. Análisis de Complejidad
+## 5. Árbol de Recursión y Derivación de $O(N \log N)$
 
-### Complejidad Temporal: $O(N \log N)$
-- **Nivel de la estructura en árbol:** El arreglo se divide a la mitad hasta llegar a subarreglos de 1 elemento, lo que toma $\log_2(N)$ niveles de profundidad.
-- **Trabajo por nivel:** En cada nivel, el proceso `merge()` revisa y combina todos los $N$ elementos en tiempo lineal $O(N)$.
-- **Total:** $\text{Niveles} \times \text{Trabajo por nivel} = \log_2(N) \times O(N) = \mathbf{O(N \log N)}$.
+### Árbol para $N = 8$
 
-> [!IMPORTANT]
-> **Consistencia de rendimiento:** A diferencia de QuickSort, MergeSort garantiza $O(N \log N)$ incluso en el peor caso de datos desordenados o invertidos.
+```
+Nivel 0:  [56, 25, 37, 58, 19, 30, 40, 70]      ← 8 elementos,  1 llamada
+Nivel 1:  [56, 25, 37, 58] | [19, 30, 40, 70]   ← 4 elementos,  2 llamadas
+Nivel 2:  [56,25]|[37,58]  | [19,30]|[40,70]    ← 2 elementos,  4 llamadas
+Nivel 3:  [56]|[25] |[37]|[58] | [19]|[30]|[40]|[70]  ← 1 elem, 8 llamadas (Base)
+```
 
-### Complejidad Espacial: $O(N)$
-MergeSort **NO es in-place** porque requiere arreglos auxiliares temporales durante el paso de combinación `merge()`.
+### ¿Cuántos Niveles Hay?
+
+Cada nivel divide $N$ por 2. El número de niveles $k$ es aquel tal que $2^k = N$:
+
+$$k = \log_2 N$$
+
+### Trabajo en Cada Nivel
+
+En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectores de un nivel cuesta exactamente **$N$ operaciones** en total (cada elemento se mueve exactamente una vez por nivel).
+
+### Total de Trabajo
+
+$$\text{Niveles} \times \text{Trabajo por nivel} = \log_2 N \times N = \mathbf{O(N \log N)}$$
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — MergeSort vs Ordenamiento Cuadrático
+## 6. Comparativa $N^2$ vs $N \log N$ (Figura 10-5, p. 447)
 
-**Para un arreglo de $N = 1,000,000$ elementos, ¿cuál es la diferencia aproximada en operaciones entre BubbleSort ($O(N^2)$) y MergeSort ($O(N \log N)$)?**
+| $N$ | Selection Sort $O(N^2)$ | MergeSort $O(N \log N)$ | Factor de Mejora |
+| :---: | :---: | :---: | :---: |
+| 10 | 100 | ~33 | $\times 3$ |
+| 100 | 10,000 | ~664 | $\times 15$ |
+| 1,000 | 1,000,000 | ~9,965 | $\times 100$ |
+| 10,000 | 100,000,000 | ~132,877 | $\times 753$ |
+| 100,000 | **10,000,000,000** | ~1,660,964 | **$\times 6,021$** |
+
+> *"For large vectors, merge sort clearly represents a significant improvement."*
+> — Eric Roberts, Sec. 10.3
+
+---
+
+## 7. Clases de Complejidad Estándar (Sección 10.4)
+
+MergeSort introdujo la importancia de la clase $O(N \log N)$. El texto de Sección 10.4 presenta la jerarquía completa:
+
+| Clase | Nombre | Ejemplo |
+| :---: | :--- | :--- |
+| $O(1)$ | Constante | Acceso a un índice de arreglo |
+| $O(\log N)$ | Logarítmica | Búsqueda Binaria |
+| $O(N)$ | Lineal | Búsqueda Lineal |
+| $O(N \log N)$ | **Lineal-logarítmica** | **MergeSort** |
+| $O(N^2)$ | Cuadrática | Selection Sort |
+| $O(2^N)$ | Exponencial | Backtracking sin poda |
+
+> [!IMPORTANT]
+> **Tractable vs Intractable (Sec. 10.4):**  
+> Los problemas solubles en tiempo **polinomial** ($O(N^k)$) se consideran **tractables** (computacionalmente viables).  
+> Los que solo tienen soluciones **exponenciales** ($O(2^N)$) son **intratables** — por ejemplo, el Subset-Sum Problem (Cap. 8) y el Travelling Salesman Problem.
+
+---
+
+## ❓ Pregunta de Chequeo #1 — Árbol de Recursión
+
+Para un vector de $N = 16$ elementos, ¿cuántos **niveles** tendrá el árbol de recursión de MergeSort y cuántas llamadas habrá en el último nivel antes de los casos base?
 
 <details>
-<summary>🔍 <strong>Ver Explicación</strong></summary>
+<summary>🔍 <strong>Ver Solución</strong></summary>
 
-> [!TIP]
-> - **BubbleSort ($O(N^2)$):** $(1,000,000)^2 = 1,000,000,000,000$ ($10^{12}$ operacaciones $\to$ tomaría minutos/horas).
-> - **MergeSort ($O(N \log N)$):** $1,000,000 \times \log_2(1,000,000) \approx 1,000,000 \times 20 = 20,000,000$ ($2 \times 10^7$ operaciones $\to$ toma milisegundos).
->
-> MergeSort es aproximadamente **50,000 veces más rápido** para un millón de datos.
+**Niveles:** $\log_2(16) = 4$ niveles de recursión (sin contar el nivel base).
+
+**Llamadas en el último nivel antes de los casos base:** $2^4 = 16$ llamadas, cada una con un sub-vector de **2 elementos** que se mezclan en vectores de **1 elemento**.
 
 </details>
 
 ---
 
-## 📝 Resumen Resumido de L36
+## ❓ Pregunta de Chequeo #2 — Estabilidad
 
-1. MergeSort se basa en **Divide y Vencerás**.
-2. Garantiza un tiempo de ejecución constante de **$O(N \log N)$** en todos los casos.
-3. Es un algoritmo **Estable**, pero consume **$O(N)$ memoria extra**.
+¿Es MergeSort un algoritmo **estable**?
+
+<details>
+<summary>🔍 <strong>Ver Respuesta</strong></summary>
+
+**Sí, MergeSort es estable.** En el paso de mezcla, cuando `v1[p1] <= v2[p2]`, elegimos el de `v1` (izquierda) primero. Esto preserva el orden relativo de elementos con claves iguales que estaban originalmente en la mitad izquierda antes que los de la derecha.
+
+</details>
+
+---
+
+## 📝 Resumen de L36
+
+1. **MergeSort** aplica la estrategia **Divide y Vencerás** recursivamente para alcanzar $O(N \log N)$.
+2. El paso `merge` combina dos sub-vectores **ya ordenados** en $O(N)$ comparaciones.
+3. El **árbol de recursión** tiene $\log_2 N$ niveles, con $N$ trabajo total por nivel → $O(N \log N)$.
+4. Para $N = 100,000$: Selection Sort tardó **>2.5 minutos**; MergeSort **<0.5 segundos** (Eric Roberts, Sec. 10.3).
+5. MergeSort es **estable** y **no in-place** — requiere $O(N)$ memoria auxiliar para los sub-vectores.
 
 ---
 
