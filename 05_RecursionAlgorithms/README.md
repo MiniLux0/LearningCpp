@@ -12,7 +12,7 @@
 ### 🧭 Module Navigation Hub
 
 [![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-TEMARIO-F16822?style=for-the-badge)](../TEMARIO.md)
+[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
 [![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
 [![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 
@@ -45,19 +45,11 @@ This module introduces algorithmic thinking and recursive problem solving: manag
 
 ---
 
-## 🛠️ How to Compile & Run
+## 🛠️ Build & Compilation Guides
 
-```bash
-# Navigate to the code directory
-cd 05_RecursionAlgorithms/code
-
-# Compile all lessons using Makefile
-make
-
-# Run executables (Windows PowerShell / CMD)
-.\L31_ThinkingRecursively.exe
-.\L36_MergeSort.exe
-```
+Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
+- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
 ---
 
