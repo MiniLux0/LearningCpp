@@ -1,11 +1,12 @@
 <div align="center">
 
-# 🚀 Section 01: Getting Started — C++ Fundamentals
+# 🚀 Section 01: Getting Started — C++ Fundamentals for Beginners
 
 > **Lessons**: L01 – L05  
-> 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 01) / Stanford CS106L (Lectures 01 & 02)  
+> 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 01) / Stanford CS106L (Lecture 01)  
 > 📖 **Theory Directory**: 📂 [**`01_GettingStarted/theory/`**](theory/)  
-> 🎯 **Primary Focus**: Program anatomy, compilation pipeline, namespaces, formatting, user input (`std::cin`), and initial interactive applications.
+> 📝 **Executive Summary**: 📝 [**`summary/01_GettingStarted_Notes.md`**](summary/01_GettingStarted_Notes.md)  
+> 🎯 **Primary Focus**: Program structure, GCC compilation, namespaces, formatting, comments, `std::cin` & `std::cout` I/O streams.
 
 ---
 
@@ -18,7 +19,7 @@
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
-| 🏠 [**Root Index**](../README.md) | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
+| **Start of Course** | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
 
 </div>
 
@@ -26,7 +27,7 @@
 
 ## 📌 Module Overview
 
-This module covers the first steps of C++ programming. It introduces the GCC compilation model, preprocessor directives (`#include`), entry point mechanics (`int main()`), output formatting (`std::cout`, `\n`, `std::endl`), scope management via namespaces (`std::`), and interactive console input (`std::cin`).
+This module introduces the basic syntax and structure of a C++ program: `#include` directives, `main()` entry point, output streams (`std::cout`), namespaces (`std::`), code comments, output formatting, and interactive input reading (`std::cin`).
 
 ---
 
@@ -34,11 +35,25 @@ This module covers the first steps of C++ programming. It introduces the GCC com
 
 | # | Lesson Name | 📘 Theory Note | 💻 Code Lab | Key Technical Concepts | Status |
 |---|-------------|----------------|-------------|------------------------|:------:|
-| **L01** | **Hello World** | 📘 [`theory/L01_HelloWorld.md`](theory/L01_HelloWorld.md) | 💻 [`code/L01_HelloWorld.cpp`](code/L01_HelloWorld.cpp) | Entry point `main()`, `#include <iostream>`, `std::cout`, return status `0`. | ✅ |
-| **L02** | **Namespaces** | 📘 [`theory/L02_NamespacesAndStd.md`](theory/L02_NamespacesAndStd.md) | 💻 [`code/L02_NamespacesAndStd.cpp`](code/L02_NamespacesAndStd.cpp) | Scope resolution `::`, `using namespace std;` vs explicit `std::`, naming collisions. | ✅ |
-| **L03** | **Comments & Formatting** | 📘 [`theory/L03_CommentsAndFormatting.md`](theory/L03_CommentsAndFormatting.md) | 💻 [`code/L03_CommentsAndFormatting.cpp`](code/L03_CommentsAndFormatting.cpp) | Comments (`//`, `/* */`), escape sequences (`\n`, `\t`), `std::endl` vs `\n`. | ✅ |
-| **L04** | **Interactive User Input** | 📘 [`theory/L04_UserInputCin.md`](theory/L04_UserInputCin.md) | 💻 [`code/L04_UserInputCin.cpp`](code/L04_UserInputCin.cpp) | `std::cin` stream input, variable binding, interactive CLI prompts. | ✅ |
-| **L05** | **Profile Generator App** | 📘 [`theory/L05_InteractiveProfileApp.md`](theory/L05_InteractiveProfileApp.md) | 💻 [`code/L05_InteractiveProfileApp.cpp`](code/L05_InteractiveProfileApp.cpp) | Mini-project combining user inputs, formatted cards, and interactive variables. | ✅ |
+| **L01** | **Hello World** | 📘 [`theory/L01_HelloWorld.md`](theory/L01_HelloWorld.md) | 💻 [`code/L01_HelloWorld.cpp`](code/L01_HelloWorld.cpp) | Entry point `main()`, `#include <iostream>`, `cout`, `return 0`. | ✅ |
+| **L02** | **Namespaces** | 📘 [`theory/L02_NamespacesAndStd.md`](theory/L02_NamespacesAndStd.md) | 💻 [`code/L02_NamespacesAndStd.cpp`](code/L02_NamespacesAndStd.cpp) | Scope resolution `std::`, `using namespace std`, avoiding collisions. | ✅ |
+| **L03** | **Comments & Formatting** | 📘 [`theory/L03_CommentsAndFormatting.md`](theory/L03_CommentsAndFormatting.md) | 💻 [`code/L03_CommentsAndFormatting.cpp`](code/L03_CommentsAndFormatting.cpp) | Line `//` and block `/* */` comments, `\n` vs `endl`, escape sequences. | ✅ |
+| **L04** | **User Input** | 📘 [`theory/L04_UserInputCin.md`](theory/L04_UserInputCin.md) | 💻 [`code/L04_UserInputCin.cpp`](code/L04_UserInputCin.cpp) | Input stream `std::cin`, extraction operator `>>`, interactive prompts. | ✅ |
+| **L05** | **Profile App** | 📘 [`theory/L05_InteractiveProfileApp.md`](theory/L05_InteractiveProfileApp.md) | 💻 [`code/L05_InteractiveProfileApp.cpp`](code/L05_InteractiveProfileApp.cpp) | Mini-project combining I/O, formatting, and standard namespaces. | ✅ |
+
+---
+
+## 🎯 Practical Exercises (E01 – E05)
+
+> 📖 **Exercise Guide**: 📂 [**`exercise/README.md`**](exercise/README.md)
+
+| # | Exercise Name | Topic | 💻 Solution File | Status |
+|---|---------------|-------|------------------|:------:|
+| **E01** | **Hello World** | Program structure & `cout` | 💻 [`exercise/E01_HelloWorld.cpp`](exercise/E01_HelloWorld.cpp) | ✅ |
+| **E02** | **Escape Sequences** | Text formatting & `\n` | 💻 [`exercise/E02_EscapeSequences.cpp`](exercise/E02_EscapeSequences.cpp) | ✅ |
+| **E03** | **Namespaces** | `using namespace std;` vs `std::` | 💻 [`exercise/E03_Namespaces.cpp`](exercise/E03_Namespaces.cpp) | ✅ |
+| **E04** | **Interactive Greeting** | Input reading with `cin` | 💻 [`exercise/E04_InteractiveGreeting.cpp`](exercise/E04_InteractiveGreeting.cpp) | ✅ |
+| **E05** | **Formatted Receipt** | Formatting & input/output integration | 💻 [`exercise/E05_FormattedReceipt.cpp`](exercise/E05_FormattedReceipt.cpp) | ✅ |
 
 ---
 
@@ -46,24 +61,16 @@ This module covers the first steps of C++ programming. It introduces the GCC com
 
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
-| **L01–L03** | 📄 [`MIT 6.096 Lecture 01`](../files/mit6096/lectures/Lecture01_Introduction.pdf) | C++ compilation pipeline (Source $\rightarrow$ Preprocessor $\rightarrow$ Compiler $\rightarrow$ Linker $\rightarrow$ Binary), `main()` return codes, namespaces, escape sequences. |
-| **L04–L05** | 📄 [`Stanford CS106L Lecture 01-02`](../files/cs106l/lectures/WLecture1_intro.pdf) | Interactive stream I/O (`std::cin`), stream extraction operator (`>>`), type safety, handling console buffers. |
+| **L01–L03** | 📄 [`MIT 6.096 Lecture 01`](../files/mit6096/lectures/Lecture01_Introduction.pdf) | C++ compilation pipeline, anatomy of `main()`, streams, namespaces. |
+| **L04–L05** | 📄 [`CS106L Lecture 01`](../files/cs106l/lectures/WL1_IntroAndStreams.pdf) | Standard stream abstractions, `cin` extraction, console formatting. |
 
 ---
 
-## 🛠️ How to Compile & Run
+## 🛠️ Build & Compilation Guides
 
-```bash
-# Navigate to the code directory
-cd 01_GettingStarted/code
-
-# Compile all lessons using Makefile
-make
-
-# Run executables (Windows PowerShell / CMD)
-.\L01_HelloWorld.exe
-.\L05_InteractiveProfileApp.exe
-```
+Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
+- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
 ---
 
@@ -73,7 +80,7 @@ make
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
-| 🏠 [**Root Index**](../README.md) | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
+| **Start of Course** | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
 
 </div>
 

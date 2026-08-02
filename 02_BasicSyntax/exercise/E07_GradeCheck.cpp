@@ -1,12 +1,12 @@
 /*
  * E07 — Grade Check
  * -----------------
- * Pide la nota de un estudiante (0-100).
- * Imprime "Aprobado" si es >= 60, "Reprobado" si es < 60.
+ * Asks for a student's grade (0-100).
+ * Prints "Approved" if it is >= 60, "Disapproved" if it is < 60.
  *
- * Ejemplo:
+ * Example:
  *   Input:  75
- *   Output: Aprobado
+ *   Output: Approved
  */
 
 #include <iostream>
@@ -17,13 +17,13 @@ int main()
 
     double dValue;
 
-    cout << "Enter your note: ";
+    cout << "Enter your grade: ";
     cin >> dValue;
 
     if(dValue >= 60){
         cout << "Approved";
     } else{
-        cout<< "Dissproved";
+        cout<< "Disapproved";
     }
 
     return 0;

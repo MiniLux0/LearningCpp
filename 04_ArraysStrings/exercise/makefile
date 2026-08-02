@@ -1,10 +1,10 @@
 # ============================================================
-# COMPILER
+# COMPILADOR
 # ============================================================
 CXX = g++
 
 # ============================================================
-# COMPILATION FLAGS
+# FLAGS DE COMPILACION
 # ============================================================
 BASE_FLAGS      = -std=c++17 -Wall -Wextra -Wshadow -Wpedantic -g
 SANFLAGS        = -fsanitize=address,undefined
@@ -12,13 +12,13 @@ CXXFLAGS_NORMAL = $(BASE_FLAGS)
 CXXFLAGS_ASAN   = $(BASE_FLAGS) $(SANFLAGS)
 
 # ============================================================
-# DIRECTORIES
+# DIRECTORIOS
 # ============================================================
 BUILD_NORMAL = build
 BUILD_ASAN   = buildasan
 
 # ============================================================
-# SOURCE FILES AND TARGETS
+# ARCHIVOS FUENTE Y TARGETS
 # ============================================================
 SOURCES        = $(wildcard *.cpp)
 TARGETS_NORMAL = $(patsubst %.cpp, $(BUILD_NORMAL)/%, $(SOURCES))
@@ -31,7 +31,7 @@ DEPS = $(patsubst %.cpp, $(BUILD_NORMAL)/%.d, $(SOURCES))
 -include $(DEPS)
 
 # ============================================================
-# MAIN RULES
+# REGLAS PRINCIPALES
 # ============================================================
 .DEFAULT_GOAL := all
 MAKEFLAGS += --no-builtin-rules
@@ -41,7 +41,7 @@ all: $(TARGETS_NORMAL)
 asan: $(TARGETS_ASAN)
 
 # ============================================================
-# COMPILATION
+# COMPILACION
 # ============================================================
 $(BUILD_NORMAL)/%: %.cpp | $(BUILD_NORMAL)
 	$(CXX) $(CXXFLAGS_NORMAL) -MMD -MP $< -o $@
@@ -53,32 +53,32 @@ $(BUILD_NORMAL) $(BUILD_ASAN):
 	mkdir -p $@
 
 # ============================================================
-# EXECUTE
+# EJECUTAR
 # ============================================================
 run-%: $(BUILD_NORMAL)/%
-	@echo ">>> Executing $*"
+	@echo ">>> Ejecutando $*"
 	./$(BUILD_NORMAL)/$*
 
 run-asan-%: $(BUILD_ASAN)/%
-	@echo ">>> Executing $* (ASan)"
+	@echo ">>> Ejecutando $* (ASan)"
 	./$(BUILD_ASAN)/$*
 
 # ============================================================
-# CLEAN UP
+# LIMPIEZA
 # ============================================================
 clean:
 	rm -rf $(BUILD_NORMAL) $(BUILD_ASAN)
 
 # ============================================================
-# HELP
+# AYUDA
 # ============================================================
 help:
-	@echo "Usage:"
-	@echo "  make                    → compile all"
-	@echo "  make asan               → compile all with ASan"
-	@echo "  make run-<name>         → compile and execute"
-	@echo "  make run-asan-<name>    → compile and execute with ASan"
-	@echo "  make clean              → clean build files"
+	@echo "Uso:"
+	@echo "  make                    → compilar todo"
+	@echo "  make asan               → compilar todo con ASan"
+	@echo "  make run-<nombre>       → compilar y ejecutar"
+	@echo "  make run-asan-<nombre>  → ídem con ASan"
+	@echo "  make clean              → limpiar builds"
 
 # ============================================================
 # PHONY

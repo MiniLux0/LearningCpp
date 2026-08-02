@@ -5,6 +5,7 @@
 > **Lessons**: L27 – L30  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 04) / Stanford CS106L (Lectures 04 & 05) / Stanford CS106B (Assignment 1)  
 > 📖 **Theory Directory**: 📂 [**`04_ArraysStrings/theory/`**](theory/)  
+> 📝 **Executive Summary**: 📝 [**`summary/04_ArraysStrings_Notes.md`**](summary/04_ArraysStrings_Notes.md)  
 > 🎯 **Primary Focus**: Fixed-size 1D/2D arrays, array decay to pointer, passing arrays to functions, null-terminated C-strings (`char[]`), `<cstring>` functions, and `std::string` stream processing.
 
 ---
@@ -41,6 +42,27 @@ This module explores sequential memory layouts in C++: contiguous fixed 1D array
 
 ---
 
+## 🎯 Practical Exercises (E01 – E12)
+
+> 📖 **Exercise Guide**: 📂 [**`exercise/README.md`**](exercise/README.md)
+
+| # | Exercise Name | Topic | 💻 Solution File | Status |
+|---|---------------|-------|------------------|:------:|
+| **E01** | **Maximum** | Array Basics | 💻 [`exercise/E01_Maximo.cpp`](exercise/E01_Maximo.cpp) | ✅ |
+| **E02** | **Average** | Array Basics | 💻 [`exercise/E02_Promedio.cpp`](exercise/E02_Promedio.cpp) | ✅ |
+| **E03** | **Reverse Array** | Array Basics | 💻 [`exercise/E03_InvertirArreglo.cpp`](exercise/E03_InvertirArreglo.cpp) | ✅ |
+| **E04** | **Increment All** | Arrays as Parameters | 💻 [`exercise/E04_IncrementarTodo.cpp`](exercise/E04_IncrementarTodo.cpp) | ✅ |
+| **E05** | **Linear Search** | Arrays as Parameters | 💻 [`exercise/E05_BusquedaLineal.cpp`](exercise/E05_BusquedaLineal.cpp) | ✅ |
+| **E06** | **Matrix Sum** | Multidimensional Arrays | 💻 [`exercise/E06_SumaMatriz.cpp`](exercise/E06_SumaMatriz.cpp) | ✅ |
+| **E07** | **Transpose Matrix** | Multidimensional Arrays | 💻 [`exercise/E07_TransponerMatriz.cpp`](exercise/E07_TransponerMatriz.cpp) | ✅ |
+| **E08** | **My Strlen** | C-Strings | 💻 [`exercise/E08_MiStrlen.cpp`](exercise/E08_MiStrlen.cpp) | ✅ |
+| **E09** | **My Safe Strcpy** | C-Strings | 💻 [`exercise/E09_MiStrcpySeguro.cpp`](exercise/E09_MiStrcpySeguro.cpp) | ✅ |
+| **E10** | **Count Vowels** | C-Strings & `<cctype>` | 💻 [`exercise/E10_ContarVocales.cpp`](exercise/E10_ContarVocales.cpp) | ✅ |
+| **E11** | **Reverse String** | C-Strings & `strlen` | 💻 [`exercise/E11_InvertirString.cpp`](exercise/E11_InvertirString.cpp) | ✅ |
+| **E12** | **To Uppercase** | C-Strings & `toupper` | 💻 [`exercise/E12_AMayusculas.cpp`](exercise/E12_AMayusculas.cpp) | ✅ |
+
+---
+
 ## 📚 Academic Source & PDF Alignment
 
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
@@ -49,21 +71,11 @@ This module explores sequential memory layouts in C++: contiguous fixed 1D array
 | **L29** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106B Assignment 1`](../files/cs106b/assignments/Assignment%201/) | Multi-dimensional arrays, Row-Major Order memory storage, 2D matrix traversal, Grid simulation logic. |
 | **L30** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106L Lecture 04`](../files/cs106l/lectures/WL4_Streams.pdf) | Null terminator `'\0'`, C-string manipulation functions (`strlen`, `strcpy`, `strcmp`), `std::string` stream conversions. |
 
----
+## 🛠️ Build & Compilation Guides
 
-## 🛠️ How to Compile & Run
-
-```bash
-# Navigate to the code directory
-cd 04_ArraysStrings/code
-
-# Compile all lessons using Makefile
-make
-
-# Run executables (Windows PowerShell / CMD)
-.\L27_ArrayBasics.exe
-.\L30_CStrings.exe
-```
+Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
+- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
 ---
 

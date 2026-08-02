@@ -1,10 +1,10 @@
 /*
  * E04 — Float vs Double Precision
  * -------------------------------
- * Declara float y double con 1.0/3.0.
- * Impriminalos con setprecision(20) para ver la diferencia.
+ * Declare float and double with 1.0/3.0.
+ * Print them with setprecision(20) to see the difference.
  *
- * Pregunta: ¿Cual tiene mas digitos significativos?
+ * Question: Which has more significant digits?
  * 
  * Answer : double has more significant digits than float
  */

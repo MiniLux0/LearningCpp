@@ -1,12 +1,12 @@
 /*
  * E09 — Compare Numbers
  * ---------------------
- * Pide dos numeros enteros.
- * Imprime cual es mayor, o si son iguales.
+ * Asks for two integer numbers.
+ * Prints which one is greater, or if they are equal.
  *
- * Ejemplo:
+ * Example:
  *   Input:  10, 20
- *   Output: 20 es mayor
+ *   Output: 20 is greater
  */
 
 #include <iostream>
@@ -28,7 +28,7 @@ int main() {
     } else if(value1 < value2){
         cout << value1 << " is less than " << value2;
     } else{
-        cout << value1 << " equal to " << value2;
+        cout << value1 << " is equal to " << value2;
     }
 
 

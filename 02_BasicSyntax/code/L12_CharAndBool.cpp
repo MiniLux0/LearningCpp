@@ -7,9 +7,9 @@ int main() {
     char numberChar = '7'; // character '7' (ASCII 55), not integer 7
     char letter2;
 
-    cout << "ASCII (A) value : " << (int)letter << "\n";
-    cout << "NumberChar: " << numberChar << " (ASCII: " << (int)numberChar << ")\n";
-    cout << "Number (65) to ASCII : " << (char)65 << "\n";
+    cout << "ASCII value of (A): " << (int)letter << "\n";
+    cout << "Number character: " << numberChar << " (ASCII: " << (int)numberChar << ")\n";
+    cout << "Number (65) to ASCII character: " << (char)65 << "\n";
     cout << "Sizeof(char): " << sizeof(char) << " bytes\n\n";
 
     // Bool

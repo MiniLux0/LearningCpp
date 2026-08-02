@@ -1,14 +1,14 @@
 /*
  * E06 — Char ASCII
  * ----------------
- * Pide un caracter al usuario.
- * Imprime su valor ASCII usando (int).
- * Imprime el siguiente caracter sumando 1.
+ * Asks the user for a character.
+ * Prints its ASCII value using (int).
+ * Prints the next character by adding 1.
  *
- * Ejemplo:
+ * Example:
  *   Input:  A
  *   ASCII:  65
- *   Siguiente: B
+ *   Next:   B
  */
 
 #include <iostream>
@@ -17,7 +17,7 @@ using namespace std;
 int main()
 {
     char cValue;
-    cout << "Enter a caracter: ";
+    cout << "Enter a character: ";
     cin >> cValue;
 
     cout << "ASCII Value: " << (int)cValue <<"\n";

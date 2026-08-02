@@ -1,10 +1,10 @@
 /*
  * L16 — Comparing Floats
  * ----------------------
- * Comparar floats con == es peligroso por errores de precision.
- * Solucion: usar un epsilon (tolerancia).
+ * Comparing floats using == is dangerous due to precision errors.
+ * Solution: use an epsilon (tolerance).
  *
- * Ejecuta este programa y observa los resultados.
+ * Run this program and observe the results.
  */
 
 #include <iostream>
@@ -14,7 +14,7 @@ using namespace std;
 
 int main() {
 
-    // Ejemplo 1: El problema
+    // Example 1: The problem
     float a = 0.1 + 0.2;
     float b = 0.3;
 
@@ -24,7 +24,7 @@ int main() {
     cout << "b (0.3)       = " << b << "\n";
     cout << "a == b? " << (a == b ? "true" : "false") << "\n\n";
 
-    // Ejemplo 1b: Otros valores donde float falla
+    // Example 1b: Other values where float fails
     float c = 1.1f + 1.2f;
     float d = 2.3f;
 
@@ -35,7 +35,7 @@ int main() {
     cout << "c == d? " << (c == d ? "true" : "false") << "\n";
     cout << "c - d = " << (c - d) << "\n\n";
 
-    // Ejemplo 2: La solucion con epsilon
+    // Example 2: The solution with epsilon
     float epsilon = 0.000001;
 
     cout << "=== The Solution ===\n";
@@ -43,7 +43,7 @@ int main() {
     cout << "|a - b| = " << abs(a - b) << "\n";
     cout << "|a - b| < epsilon? " << (abs(a - b) < epsilon ? "true" : "false") << "\n\n";
 
-    // Ejemplo 3: Comparando con double
+    // Example 3: Comparing with double
     double x = 0.1 + 0.2;
     double y = 0.3;
 

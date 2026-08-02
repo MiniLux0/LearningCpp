@@ -3,26 +3,24 @@ using namespace std;
 
 int main() {
 
-    int edadLyon;
-    int edadElephant = 15;
+    int lionAge;
+    int elephantAge = 15;
     string pwd;
 
-    cout << "Put la age of the Lyon: ";
-    cin >> edadLyon;
+    cout << "Enter the lion's age: ";
+    cin >> lionAge;
 
-    if (edadLyon < 18) {
-        cout << "Lyon is Younger" << "\n";
+    if (lionAge < 18) {
+        cout << "The lion is younger\n";
     }
 
-    if (edadLyon >= 18) {
-        cout << "Lyon is Old" << "\n";
+    if (lionAge >= 18) {
+        cout << "The lion is older\n";
     }
 
-    if (edadElephant <= 18) {
-        cout << "Elephant is younger"<< "\n";
+    if (elephantAge <= 18) {
+        cout << "The elephant is younger\n";
     }
-
-
 
     return 0;
 }

@@ -1,35 +1,35 @@
-# L27: Array Basics — Declaración, Inicialización y Acceso por Índice
+# L27: Array Basics — Declaration, Initialization, and Index Access
 
-## 1. La idea central: memoria contigua
+## 1. The core idea: contiguous memory
 
-Una variable normal (`int x;`) reserva **un espacio** para **un valor**.
+A normal variable (`int x;`) reserves **one space** for **one value**.
 
-Un **arreglo** (`int arr[4];`) reserva **un bloque contiguo** de memoria para **varios valores del mismo tipo**, todos seguidos uno tras otro.
+An **array** (`int arr[4];`) reserves **a contiguous block** of memory for **multiple values of the same type**, all placed one after another.
 
 ```
-memoria:  [casa 2000] [casa 2001] [casa 2002] [casa 2003]  ← 4 bytes = 1 int
-          [casa 2004] [casa 2005] [casa 2006] [casa 2007]  ← 2º int
-          [casa 2008] [casa 2009] [casa 2010] [casa 2011]  ← 3º int
-          [casa 2012] [casa 2013] [casa 2014] [casa 2015]  ← 4º int
-          ↑ dirección de inicio (arr[0])
+memory:  [house 2000] [house 2001] [house 2002] [house 2003]  ← 4 bytes = 1 int
+         [house 2004] [house 2005] [house 2006] [house 2007]  ← 2nd int
+         [house 2008] [house 2009] [house 2010] [house 2011]  ← 3rd int
+         [house 2012] [house 2013] [house 2014] [house 2015]  ← 4th int
+         ↑ start address (arr[0])
 ```
 
-**El índice no "busca" — calcula una dirección:**
+**The index does not "search" — it calculates an address:**
 ```
-dirección_de_arr[i] = dirección_inicio + i × sizeof(tipo)
+arr_address[i] = start_address + i × sizeof(type)
 ```
 
-- `arr[0]` → offset 0 → dirección_inicio
-- `arr[1]` → offset 1 × 4 = 4 bytes → dirección_inicio + 4
-- `arr[2]` → offset 2 × 4 = 8 bytes → dirección_inicio + 8
+- `arr[0]` → offset 0 → start_address
+- `arr[1]` → offset 1 × 4 = 4 bytes → start_address + 4
+- `arr[2]` → offset 2 × 4 = 8 bytes → start_address + 8
 
-Por eso el primer índice es **0**: no te mueves, ya estás en el inicio.
+That is why the first index is **0**: you don't move, you are already at the beginning.
 
 ---
 
-## 2. Tres formas de inicializar
+## 2. Three ways to initialize
 
-### Forma 1: Declarar y asignar después
+### Way 1: Declare and assign later
 ```cpp
 int arr[4];
 arr[0] = 6;
@@ -38,135 +38,135 @@ arr[2] = 9;
 arr[3] = 6;
 ```
 
-### Forma 2: Inicializar en la declaración (tamaño explícito)
+### Way 2: Initialize in the declaration (explicit size)
 ```cpp
 int arr[4] = {6, 0, 9, 6};
 ```
 
-### Forma 3: Tamaño inferido por el compilador
+### Way 3: Size inferred by the compiler
 ```cpp
-int arr[] = {6, 0, 9, 6, 2, 0, 1, 1};  // tamaño = 8
+int arr[] = {6, 0, 9, 6, 2, 0, 1, 1};  // size = 8
 ```
-El compilador **cuenta los elementos** y fija la dimensión. Ventaja: no hay riesgo de que el tamaño y la lista de valores se desincronicen.
+The compiler **counts the elements** and sets the dimension. Advantage: there is no risk of the size and the value list getting out of sync.
 
 ---
 
-## 3. Inicialización parcial → el resto son ceros
+## 3. Partial initialization → the rest are zeros
 
 ```cpp
 int arr[5] = {1, 2};  // arr = {1, 2, 0, 0, 0}
-int ceros[10] = {0};  // todos ceros
+int zeros[10] = {0};  // all zeros
 ```
 
-Regla: **los elementos no especificados se inicializan a 0** (value-initialization).
+Rule: **unspecified elements are initialized to 0** (value-initialization).
 
 ---
 
-## 4. Acceso por índice
+## 4. Index access
 
 ```cpp
-int datos[5] = {10, 20, 30, 40, 50};
+int data[5] = {10, 20, 30, 40, 50};
 
-cout << datos[0];   // 10
-cout << datos[4];   // 50
+cout << data[0];   // 10
+cout << data[4];   // 50
 
 int i = 2;
-cout << datos[i];        // 30  (variable como índice)
-cout << datos[i + 1];    // 40  (expresión como índice)
+cout << data[i];        // 30  (variable as index)
+cout << data[i + 1];    // 40  (expression as index)
 ```
 
-**Rango válido:** `0` a `n-1` (donde `n` = dimensión).
-- `datos[5]` → **comportamiento indefinido** (lee/escribe fuera del bloque)
-- No hay error de compilación ni de ejecución garantizado — corrompe memoria silenciosamente.
+**Valid range:** `0` to `n-1` (where `n` = dimension).
+- `data[5]` → **undefined behavior** (reads/writes outside the block)
+- There is no guaranteed compilation or execution error — it corrupts memory silently.
 
 ---
 
-## 5. Tamaño del arreglo en tiempo de ejecución
+## 5. Array size at runtime
 
 ```cpp
 int arr[5] = {10, 20, 30, 40, 50};
 int n = sizeof(arr) / sizeof(arr[0]);  // 5 (C++98 compatible)
 
-// C++17: std::size (requiere <iterator>)
+// C++17: std::size (requires <iterator>)
 #include <iterator>
-int n17 = std::size(arr);  // 5 — más claro, funciona con cualquier contenedor
+int n17 = std::size(arr);  // 5 — clearer, works with any container
 ```
 
-> **Ojo:** `sizeof(arr) / sizeof(arr[0])` solo funciona en el **scope donde se declaró** el arreglo. Si pasas el arreglo a una función, "decae" a puntero y `sizeof` devuelve el tamaño del puntero (8 bytes en 64 bits), no del arreglo. `std::size` tiene la misma limitación.
+> **Watch out:** `sizeof(arr) / sizeof(arr[0])` only works in the **scope where the array was declared**. If you pass the array to a function, it "decays" to a pointer and `sizeof` returns the size of the pointer (8 bytes on 64 bits), not the array. `std::size` has the same limitation.
 
 ---
 
-## 6. Recorrido típico
+## 6. Typical traversal
 
 ```cpp
-// for clásico con índice
+// classic for with index
 for (int i = 0; i < n; i++) {
     cout << arr[i] << ' ';
 }
 
-// range-based for (C++11) — solo lectura o modificación por referencia
+// range-based for (C++11) — read-only or modification by reference
 for (int x : arr) {
     cout << x << ' ';
 }
 
 for (int &x : arr) {
-    x *= 2;  // modifica el original
+    x *= 2;  // modifies the original
 }
 
-// C++17: structured bindings no aplican a arrays nativos directamente
-// pero std::array sí los soporta
+// C++17: structured bindings do not apply to native arrays directly
+// but std::array does support them
 ```
 
 ---
 
-## 7. Pregunta de chequeo
+## 7. Checkpoint question
 
-> **Si escribes `int datos[5];` sin inicializar y luego haces `cout << datos[2];` — ¿qué imprime?**
+> **If you write `int data[5];` without initializing and then do `cout << data[2];` — what does it print?**
 
-**Respuesta:** **Basura (valor indeterminado)**.
-- La declaración reserva el bloque contiguo, pero **no lo limpia**.
-- Esos bytes contienen lo que hubiera antes en esa memoria.
-- No es 0, no es error — es "lo que sea que haya ahí".
+**Answer:** **Garbage (indeterminate value)**.
+- The declaration reserves the contiguous block, but **does not clean it**.
+- Those bytes contain whatever was in that memory before.
+- It is not 0, it is not an error — it is "whatever happens to be there".
 
 ---
 
-## 8. Ejercicio propuesto
+## 8. Proposed exercise
 
-> **Escribe un programa que:**
+> **Write a program that:**
 >
-> - Declare un arreglo de enteros de tamaño 6 (usa una constante o variable para el tamaño, no lo repitas como número mágico en el loop — aquí es donde vigilo tu patrón de "números fijos")
-> - Le pida al usuario los 6 valores uno por uno con `cin`
-> - Los imprima todos de nuevo, separados por espacio
+> - Declares an integer array of size 6 (use a constant or variable for the size, don't repeat it as a magic number in the loop — this is where I watch for your "fixed numbers" pattern)
+> - Asks the user for the 6 values one by one with `cin`
+> - Prints them all again, separated by space
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    const int TAM = 6;           // constante para el tamaño — sin hardcodear 6 en el loop
-    int valores[TAM];
+    const int SIZE = 6;           // constant for the size — without hardcoding 6 in the loop
+    int values[SIZE];
 
-    for (int i = 0; i < TAM; i++) {
-        cout << "valor[" << i << "]: ";
-        cin >> valores[i];
+    for (int i = 0; i < SIZE; i++) {
+        cout << "value[" << i << "]: ";
+        cin >> values[i];
     }
 
-    cout << "\nValores leidos: ";
-    for (int i = 0; i < TAM; i++) {
-        cout << valores[i] << ' ';
+    cout << "\nRead values: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << values[i] << ' ';
     }
     cout << endl;
     return 0;
 }
 ```
 
-> **Nota C++17:** En código moderno, para tamaño decidido en ejecución se prefiere `std::vector<int>` (header `<vector>`), que gestiona memoria automáticamente y conoce su tamaño con `.size()`. Los arreglos nativos de tamaño fijo son para cuando la dimensión se conoce en compilación.
+> **C++17 Note:** In modern code, for sizes decided at runtime, `std::vector<int>` (header `<vector>`) is preferred. It manages memory automatically and knows its size with `.size()`. Native fixed-size arrays are for when the dimension is known at compile time.
 
 ---
 
-## Archivos relacionados
+## Related files
 
-- [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp) — Código ejecutable con declaración, inicialización y recorrido de arreglos
+- [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp) — Executable code with array declaration, initialization, and traversal
 
 ### 🧭 Navigation & Progression
 | ⬅️ Previous Module | 🏠 Section Home | ➡️ Next Lesson |

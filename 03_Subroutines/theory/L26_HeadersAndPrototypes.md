@@ -2,13 +2,13 @@
 
 In C++, the compiler reads your code strictly from **top to bottom**.
 
-If you call a function in `main()` before it has been defined above `main()`, the compiler will throw an error: `error: 'myFunction' was not declared in this scope`.
+If you attempt to call a function in `main()` before it has been defined above `main()`, the compiler will throw an error: `error: 'myFunction' was not declared in this scope`.
 
 ---
 
 ## 📜 1. Function Prototypes (Forward Declarations)
 
-A **function prototype** tells the compiler: *"Hey, a function with this name and signature exists! Its full implementation will be provided later."*
+A **function prototype** tells the compiler: *"A function with this name and signature exists! Its full implementation will be provided later."*
 
 ```cpp
 #include <iostream>
@@ -18,7 +18,7 @@ using namespace std;
 int add(int a, int b);
 
 int main() {
-    // 2. Calling the function (Compiler knows it exists!)
+    // 2. Calling the function (The compiler knows it exists!)
     cout << "5 + 3 = " << add(5, 3) << "\n";
     return 0;
 }
@@ -31,11 +31,11 @@ int add(int a, int b) {
 
 ---
 
-## 📁 2. Header Files (`.h`) vs Source Files (`.cpp`)
+## 📁 2. Header Files (`.h`) vs. Source Files (`.cpp`)
 
 In professional C++ software development:
-- **Header Files (`.h`)**: Store function prototypes, constants, and class declarations (the "menu" / interface).
-- **Source Files (`.cpp`)**: Store full function implementations (the "kitchen" / logic).
+- **Header Files (`.h`)**: Store function prototypes, constants, and class declarations (the "menu" or interface).
+- **Source Files (`.cpp`)**: Store full function implementations (the "kitchen" or logic).
 
 ---
 

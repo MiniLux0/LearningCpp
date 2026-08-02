@@ -1,14 +1,14 @@
 /*
  * E05 — Integer Division Trap
  * ---------------------------
- * Demuestra la trampa de division entera.
+ * Demonstrate the integer division trap.
  *
- * Declara:
+ * Declare:
  *   int a = 1 / 3;
  *   double b = 1 / 3;
  *   double c = 1.0 / 3;
  *
- * Imprime cada variable y explica por que dan resultados diferentes.
+ * Print each variable and explain why they give different results.
  */
 
 #include <iostream>

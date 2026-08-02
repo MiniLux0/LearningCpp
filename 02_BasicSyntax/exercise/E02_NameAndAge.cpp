@@ -1,12 +1,12 @@
 /*
  * E02 — Name and Age
  * ------------------
- * Pide al usuario su nombre (string) y su edad (int).
- * Imprime: "Hola [nombre], tienes [edad] anios."
+ * Ask the user for their name (string) and age (int).
+ * Print: "Hello [name], you are [age] years old."
  *
- * Ejemplo:
+ * Example:
  *   Input:  Carlos, 20
- *   Output: Hola Carlos, tienes 20 anios.
+ *   Output: Hello Carlos, you are 20 years old.
  */
 
 #include <iostream>

@@ -5,7 +5,7 @@ using namespace std;
 // L25 — FUNCTION PARAMETERS: PASS BY VALUE vs PASS BY REFERENCE
 // ============================================================================
 
-// 1. PASS BY VALUE (copia)
+// 1. PASS BY VALUE (copy)
 void incrementByValue(int a) {
     a = a + 1;
     cout << "a in incrementByValue: " << a << endl;

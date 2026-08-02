@@ -24,8 +24,8 @@ int main() {
     int p = 4, q = 2;
     double x = 5.5, y = 7.5;
 
-    intercambiar(p, q);   // resuelve a la versión int
-    intercambiar(x, y);   // resuelve a la versión double
+    intercambiar(p, q);   // resolves to the int version
+    intercambiar(x, y);   // resolves to the double version
 
     cout << "p=" << p << " q=" << q;
     cout << "x=" << x << " y=" << y;

@@ -48,7 +48,7 @@
 
 ---
 
-### 🔹 Section 02 — Basic Syntax (L06–L22) · MIT L2 / CS106L L2–L3 🔄
+### 🔹 Section 02 — Basic Syntax (L06–L22) · MIT L2 / CS106L L2–L3 ✅
 - **L06–L12**: Variables, primitive types (`int`, `double`, `float`, `char`, `bool`), `sizeof`, binary representation, overflow, numeric casting.
 - **L13–L17**: Conditionals (`if`, `else`, `else if`), relational and logical operators, safe float comparison with epsilon.
 - **L18–L22**: Loops (`while`, `do-while`, `for`), nested loops, `break`, `continue`, `switch-case`, Uniform Initialization `{}` (CS106L).
@@ -63,7 +63,7 @@
 
 ---
 
-### 🔹 Section 04 — Arrays and Strings (L27–L30) · MIT L4 / CS106L L4 🔄
+### 🔹 Section 04 — Arrays and Strings (L27–L30) · MIT L4 / CS106L L4 ✅
 - **L27**: Array Basics (Contiguous memory, initialization, `for` loop traversal).
 - **L28**: Arrays as Function Parameters (Decay to pointer, passing dimensions).
 - **L29**: Multidimensional Arrays (2D matrix, row/column traversal, nested initialization).

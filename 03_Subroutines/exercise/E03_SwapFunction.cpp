@@ -14,9 +14,9 @@ int main() {
 
     estadisticasArreglo(matrix, tam, nmayor, nmenor, npromedio);
 
-    cout << "Numero Mayor: " << nmayor  <<  endl;
-    cout << "Numero Menor: " << nmenor  <<  endl;
-    cout << "Numero Promedio: " << npromedio  <<  endl;
+    cout << "Highest Number: " << nmayor  <<  endl;
+    cout << "Lowest Number: " << nmenor  <<  endl;
+    cout << "Average Number: " << npromedio  <<  endl;
     return 0;
 }
 

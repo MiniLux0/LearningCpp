@@ -1,15 +1,15 @@
 /*
  * E08 — Age Classifier
  * --------------------
- * Pide la edad de una persona y clasificala:
- *   0-12:   "Nino"
- *   13-17:  "Adolescente"
- *   18-64:  "Adulto"
- *   65+:    "Adulto mayor"
+ * Asks for a person's age and classifies it:
+ *   0-12:   "Child"
+ *   13-17:  "Adolescent"
+ *   18-64:  "Adult"
+ *   65+:    "Older Adult"
  *
- * Ejemplo:
+ * Example:
  *   Input:  25
- *   Output: Adulto
+ *   Output: Adult
  */
 
 #include <iostream>
@@ -26,9 +26,9 @@ int main() {
     } else if ( 18<=age  && age <= 64){
         cout << "Adult";
     } else if (13<= age && age <=17){
-        cout << "adolescent";
+        cout << "Adolescent";
     }else{
-        cout << "Kid";
+        cout << "Child";
     }
     
 

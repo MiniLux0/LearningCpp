@@ -18,10 +18,10 @@ int main()
     cout << "dValue1 (1.0/3.0): " << dValue1 << "\n";
 
     cout << "\n--- Precision ---\n";
-    cout << "float (6 decimales):  " << setprecision(6) << fValue4 << "\n";
-    cout << "double (6 decimales): " << setprecision(6) << dValue1 << "\n";
-    cout << "float (20 decimales): " << setprecision(20) << fValue4 << "\n";
-    cout << "double (20 decimales):" << setprecision(20) << dValue1 << "\n";
+    cout << "float (6 decimals):  " << setprecision(6) << fValue4 << "\n";
+    cout << "double (6 decimals): " << setprecision(6) << dValue1 << "\n";
+    cout << "float (20 decimals): " << setprecision(20) << fValue4 << "\n";
+    cout << "double (20 decimals):" << setprecision(20) << dValue1 << "\n";
 
 
     cout << "\n--- Scientific Notation ---\n";

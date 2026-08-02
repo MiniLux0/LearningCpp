@@ -10,7 +10,7 @@ int main() {
 
     while (n >= 0) {
         cout << n << " ";
-        n--;  // 🔥 importante: actualizar la variable
+        n--;  // 🔥 important: update the variable
     }
 
     cout << "\nDone!\n";

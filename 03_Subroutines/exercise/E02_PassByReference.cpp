@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// prototipo (declaración)
+// prototype (declaration)
 void division(int numerador, int divisor, int &cociente, int &residuo);
 
 int main() {

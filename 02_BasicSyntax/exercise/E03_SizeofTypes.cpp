@@ -1,10 +1,10 @@
 /*
  * E03 — Sizeof Types
  * ------------------
- * Usa sizeof para mostrar el tamano en bytes de:
+ * Use sizeof to display the size in bytes of:
  * int, short, long, long long, float, double, char, bool.
  *
- * Salida esperada (puede variar segun plataforma):
+ * Expected output (may vary depending on platform):
  *   sizeof(int):        4 bytes
  *   sizeof(short):      2 bytes
  *   sizeof(long):       4 bytes

@@ -1,6 +1,6 @@
 # Lesson 23 — Introduction to Functions (Subroutines)
 
-Imagine you are building a house. Instead of manufacturing every brick, pipe, and window from scratch every single time, you use pre-built components that do specific jobs.
+Imagine you are building a house. Instead of manufacturing every brick, pipe, and window from scratch every single time, you use pre-built components designed for specific jobs.
 
 In programming, **functions** (also called subroutines) are reusable blocks of code designed to perform a specific task.
 
@@ -8,9 +8,9 @@ In programming, **functions** (also called subroutines) are reusable blocks of c
 
 ## 🛠️ 1. Why Do We Need Functions?
 
-Without functions, if you need to calculate a tax 10 times in your code, you would have to copy and paste the same 5 lines of math 10 times.
-- If the tax formula changes, you have to update it in 10 different places!
-- Functions follow the **DRY Principle** (*Don't Repeat Yourself*).
+Without functions, if you need to calculate a tax 10 times within your code, you would have to copy and paste the same five lines of mathematical logic 10 times.
+- If the tax formula changes, you must update it in 10 different locations!
+- Functions adhere to the **DRY Principle** (*Don't Repeat Yourself*).
 
 ---
 
@@ -38,9 +38,9 @@ int main() {
 ```
 
 ### Breakdown:
-- **`void`**: Return type indicating this function performs an action but does **not** return a value.
-- **`showWelcomeBanner()`**: Function name followed by parentheses `()`.
-- **`showWelcomeBanner();`**: Function call executing the body.
+- **`void`**: The return type indicating that this function performs an action but does **not** return a value.
+- **`showWelcomeBanner()`**: The function name, followed by parentheses `()`.
+- **`showWelcomeBanner();`**: The function call that executes its body.
 
 ### Expected Output:
 ```text

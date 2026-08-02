@@ -7,23 +7,23 @@ int main() {
 
     do {
         cout << "\nMENU\n";
-        cout << "1. Saludar\n";
-        cout << "2. Decir tu nombre\n";
-        cout << "3. Salir\n";
-        cout << "Elige una opcion: ";
+        cout << "1. Greet\n";
+        cout << "2. Say your name\n";
+        cout << "3. Exit\n";
+        cout << "Choose an option: ";
         cin >> opcion;
 
         if (opcion == 1) {
-            cout << "Hola!\n";
+            cout << "Hello!\n";
         } else if (opcion == 2) {
-            cout << "Tu nombre es ??? (aun no implementado)\n";
+            cout << "Your name is ??? (not yet implemented)\n";
         } else if (opcion == 3) {
-            cout << "Saliendo...\n";
+            cout << "Exiting...\n";
         } else {
-            cout << "Opcion invalida\n";
+            cout << "Invalid option\n";
         }
 
-    } while (opcion != 3); // 🔥 se repite hasta que elija salir
+    } while (opcion != 3); // 🔥 repeats until exit is chosen
 
     return 0;
 }

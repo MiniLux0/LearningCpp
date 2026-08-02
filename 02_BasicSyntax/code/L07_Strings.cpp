@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 
     string name = "Minilux";
-    string greeting = "Hola " + name;
+    string greeting = "Hello " + name;
 
     string text1 = "Mini";
     string text2 = "Lux";

@@ -1,112 +1,120 @@
-# L29 — Arreglos Multidimensionales: Matrices, Layout en Memoria y Funciones
+# L29 — Multidimensional Arrays: Matrices, Memory Layout and Functions
 
-> **Concepto central:** C++ no tiene matrices "reales" en hardware. Un arreglo 2D `int m[3][4]` es una **abstracción sintáctica** guardada como un bloque **1D contiguo en memoria** siguiendo el orden de filas (Row-Major Order).
-
----
-
-## Objetivos de aprendizaje
-
-- [ ] Comprender cómo se representan las matrices 2D y 3D en la memoria RAM (Row-Major Order)
-- [ ] Dominar la sintaxis de declaración, inicialización explícita, parcial y a cero
-- [ ] Aplicar la regla de dimensiones obligatorias en parámetros de funciones (`int m[][COLS]`)
-- [ ] Calcular dinámicamente filas y columnas usando `sizeof`
-- [ ] Manipular arreglos 2D de caracteres (arreglos de strings C-style)
+> **Core concept:** C++ does not have "real" matrices in hardware. A 2D array `int m[3][4]` is a **syntactic abstraction** stored as a **1D contiguous block in memory** following Row-Major Order.
 
 ---
 
-## 1. La idea central: Row-Major Order (Fila Mayor)
+## Learning Objectives
 
-Una matriz 2D de `3 filas x 4 columnas` (`int m[3][4]`) en C++ no es una grilla física. En memoria RAM, las filas se colocan **consecutivamente una después de otra**:
+- [ ] Understand how 2D and 3D matrices are represented in RAM memory (Row-Major Order)
+- [ ] Master the syntax of declaration, explicit, partial and zero initialization
+- [ ] Apply the rule of mandatory dimensions in function parameters (`int m[][COLS]`)
+- [ ] Dynamically calculate rows and columns using `sizeof`
+- [ ] Manipulate 2D arrays of characters (arrays of C-style strings)
+
+---
+
+## 1. The core idea: Row-Major Order
+
+A 2D matrix of `3 rows x 4 columns` (`int m[3][4]`) in C++ is not a physical grid. In RAM memory, the rows are placed **consecutively one after another**:
 
 ```
-Conceptualmente (Grilla 3x4):
+Conceptually (3x4 Grid):
+
         Col 0   Col 1   Col 2   Col 3
-Fila 0 [  1  ] [  2  ] [  3  ] [  4  ]
-Fila 1 [  5  ] [  6  ] [  7  ] [  8  ]
-Fila 2 [  9  ] [ 10  ] [ 11  ] [ 12  ]
+Row 0  [  1  ] [  2  ] [  3  ] [  4  ]
+Row 1  [  5  ] [  6  ] [  7  ] [  8  ]
+Row 2  [  9  ] [ 10  ] [ 11  ] [ 12  ]
 
-En Memoria RAM (Bloque contiguo de 12 ints = 48 bytes):
-+---+---+---+---+---+---+---+---+---+----+----+----+
-| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
-+---+---+---+---+---+---+---+---+---+----+----+----+
-  <--- Fila 0 ---> <--- Fila 1 ---> <--- Fila 2 --->
+In RAM Memory (Contiguous block of 12 ints = 48 bytes):
++----+----+----+----+----+----+----+----+----+----+----+----+
+|  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 |
++----+----+----+----+----+----+----+----+----+----+----+----+
+ <---- Row 0 ---->   <---- Row 1 ---->   <---- Row 2 ---->
 ```
 
-### Cálculo de dirección por el compilador
+### Address calculation by the compiler
 
-Para acceder a `m[i][j]`, el compilador realiza la fórmula de direccionamiento offset:
+To access `m[i][j]`, the compiler performs the offset addressing formula:
 
-$$\text{Dirección}(m[i][j]) = \text{Dirección Base} + (i \times \text{COLS} + j) \times \text{sizeof(tipo)}$$
+$$\text{Address}(m[i][j]) = \text{Base Address} + (i \times \text{COLS} + j) \times \text{sizeof(type)}$$
 
 - `m[0][0]` → $(0 \times 4 + 0) = 0$
-- `m[1][2]` → $(1 \times 4 + 2) = 6$ → posición offset 6 (elemento `7`)
-- **Conclusión:** `int m[2][4]` e `int m[8]` ocupan exactamente los mismos bytes en memoria.
+- `m[1][2]` → $(1 \times 4 + 2) = 6$ → offset position 6 (element `7`)
+- **Conclusion:** `int m[2][4]` and `int m[8]` occupy exactly the same bytes in memory.
 
 ---
 
-## 2. Declaración e Inicialización
+## 2. Declaration and Initialization
 
-### A. Asignación directa por índices
+### A. Direct assignment by indices
 ```cpp
 int m[2][3];
 m[0][0] = 1; m[0][1] = 2; m[0][2] = 3;
 m[1][0] = 4; m[1][1] = 5; m[1][2] = 6;
 ```
 
-### B. Inicialización con llaves anidadas (Recomendado por claridad)
+### B. Initialization with nested braces (Recommended for clarity)
 ```cpp
 int m[3][4] = {
-    {1, 2, 3, 4},   // Fila 0
-    {5, 6, 7, 8},   // Fila 1
-    {9, 10, 11, 12} // Fila 2
+    {1, 2, 3, 4},   // Row 0
+    {5, 6, 7, 8},   // Row 1
+    {9, 10, 11, 12} // Row 2
 };
 ```
 
-### C. Inicialización aplanada (Aprovecha row-major order)
+### C. Flattened initialization (Takes advantage of row-major order)
 ```cpp
 int m[2][4] = {6, 0, 9, 6, 2, 0, 1, 1};
-// Fila 0: 6, 0, 9, 6
-// Fila 1: 2, 0, 1, 1
+// Row 0: 6, 0, 9, 6
+// Row 1: 2, 0, 1, 1
 ```
 
-### D. Inicialización parcial (Ceros implícitos)
-Si no especificas todos los elementos, los faltantes se rellenan automáticamente con `0`:
+### D. Partial initialization (Implicit zeros)
+If you do not specify all the elements, the missing ones are automatically filled with `0`:
 ```cpp
-int parcial[2][3] = {{1, 2}, {3}};
-// Resulta en:
+int partial[2][3] = {{1, 2}, {3}};
+// Results in:
 // {1, 2, 0}
 // {3, 0, 0}
 
-int ceros[3][4] = {0}; // Rellena los 12 elementos con 0
+int zeros[3][4] = {0}; // Fills all 12 elements with 0 (also equivalent to = {})
 ```
+
+### E. Precaution: Uninitialized variables (Garbage values vs. Zeros)
+
+> ⚠️ **Attention!** Declaring `int matrix[2][2];` inside a function (like `main()`) **does NOT guarantee that its elements are `0`**.
+>
+> - **Inside a function (Local):** `int m[2][2];` contains **garbage values** from RAM memory. You must use `= {}` or `= {0}` to initialize it to zeros.
+> - **Outside functions (Global) or with `static`:** C++ guarantees automatic zero initialization (*zero-initialization*).
 
 ---
 
-## 3. Regla de Dimensiones: ¿Por qué la segunda dimensión es OBLIGATORIA?
+## 3. Rule of Dimensions: Why is the second dimension MANDATORY?
 
-Al declarar e inicializar en un solo paso, la **primera dimensión (filas)** se puede omitir y el compilador la deduce:
+When declaring and initializing in a single step, the **first dimension (rows)** can be omitted and the compiler deduces it:
 
 ```cpp
-int m[][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}}; // Correcto: deduce 2 filas
+int m[][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}}; // Correct: deduces 2 rows
 ```
 
-Sin embargo, las **dimensiones secundarias (columnas) NUNCA se pueden omitir**:
+However, the **secondary dimensions (columns) can NEVER be omitted**:
 ```cpp
-// int m[2][] = {{1, 2}, {3, 4}}; // ❌ ERROR DE COMPILACIÓN
+// int m[2][] = {{1, 2}, {3, 4}}; // ❌ COMPILATION ERROR
 ```
 
-> **¿Por qué?** Para calcular `m[i][j]`, la fórmula requiere conocer $\text{COLS}$ ($i \times \text{COLS} + j$). Sin el número de columnas, el compilador no sabe cuántos elementos saltar para avanzar a la siguiente fila.
+> **Why?** To calculate `m[i][j]`, the formula requires knowing $\text{COLS}$ ($i \times \text{COLS} + j$). Without the number of columns, the compiler does not know how many elements to skip to advance to the next row.
 
 ---
 
-## 4. Pasar Matrices Multidimensionales a Funciones
+## 4. Passing Multidimensional Arrays to Functions
 
-Debido al decaimiento a puntero, al pasar una matriz a una función, la **primera dimensión es opcional**, pero **todas las demás dimensiones deben ser fijadas**:
+Due to pointer decay, when passing a matrix to a function, the **first dimension is optional**, but **all other dimensions must be fixed**:
 
 ```cpp
-// Definición de la función (COLS = 4 obligatorio)
-void imprimir2D(const int m[][4], int filas) {
-    for (int i = 0; i < filas; i++) {
+// Function definition (COLS = 4 mandatory)
+void print2D(const int m[][4], int rows) {
+    for (int i = 0; i < rows; i++) {
         for (int j = 0; j < 4; j++) {
             cout << m[i][j] << " ";
         }
@@ -114,43 +122,43 @@ void imprimir2D(const int m[][4], int filas) {
     }
 }
 
-// Llamada en main:
-int matriz[3][4] = {...};
-imprimir2D(matriz, 3);
+// Call in main:
+int matrix[3][4] = {...};
+print2D(matrix, 3);
 ```
 
 ---
 
-## 5. Cálculo de Filas y Columnas con `sizeof`
+## 5. Calculation of Rows and Columns with `sizeof`
 
-Cuando la matriz se encuentra en el mismo scope de su declaración:
+When the matrix is in the same scope as its declaration:
 
 ```cpp
-int matriz[3][4];
+int matrix[3][4];
 
-int totalBytes = sizeof(matriz);        // 3 * 4 * 4 = 48 bytes
-int bytesFila  = sizeof(matriz[0]);     // 4 * 4 = 16 bytes
-int bytesElem  = sizeof(matriz[0][0]);  // 4 bytes
+int totalBytes = sizeof(matrix);        // 3 * 4 * 4 = 48 bytes
+int rowBytes   = sizeof(matrix[0]);     // 4 * 4 = 16 bytes
+int elemBytes  = sizeof(matrix[0][0]);  // 4 bytes
 
-int filas = sizeof(matriz) / sizeof(matriz[0]);       // 48 / 16 = 3
-int cols  = sizeof(matriz[0]) / sizeof(matriz[0][0]); // 16 / 4  = 4
+int rows = sizeof(matrix) / sizeof(matrix[0]);       // 48 / 16 = 3
+int cols = sizeof(matrix[0]) / sizeof(matrix[0][0]); // 16 / 4  = 4
 ```
 
 ---
 
-## 6. Arreglos Tridimensionales (3D)
+## 6. Three-Dimensional Arrays (3D)
 
-Un arreglo 3D se puede visualizar como un volumen (capas $\times$ filas $\times$ columnas):
+A 3D array can be visualized as a volume (layers $\times$ rows $\times$ columns):
 
 ```cpp
-int cubo[2][3][4] = {0}; // 2 matrices de 3x4 (total 24 enteros)
-cubo[1][2][3] = 99;      // Capa 1, Fila 2, Columna 3
+int cube[2][3][4] = {0}; // 2 matrices of 3x4 (total 24 integers)
+cube[1][2][3] = 99;      // Layer 1, Row 2, Column 3
 
-// Recorrido anidado triple:
+// Triple nested traversal:
 for (int c = 0; c < 2; c++) {
-    for (int f = 0; f < 3; f++) {
+    for (int r = 0; r < 3; r++) {
         for (int col = 0; col < 4; col++) {
-            // procesar cubo[c][f][col]
+            // process cube[c][r][col]
         }
     }
 }
@@ -158,52 +166,58 @@ for (int c = 0; c < 2; c++) {
 
 ---
 
-## 7. Arreglos de C-Strings (Matriz 2D de `char`)
+## 7. Arrays of C-Strings (2D `char` Matrix)
 
-Una matriz `char nombres[FILAS][LONGITUD]` se comporta como una lista de cadenas de texto C-style:
+A matrix `char names[ROWS][LENGTH]` behaves as a list of C-style text strings:
 
 ```cpp
-char nombres[3][20] = {"Ana", "Carlos", "Beatriz"};
+char names[3][20] = {"Ana", "Carlos", "Beatriz"};
 
-// nombres[0] es una C-string "Ana\0"
-// nombres[1] es "Carlos\0"
-// nombres[2] es "Beatriz\0"
+// names[0] is a C-string "Ana\0"
+// names[1] is "Carlos\0"
+// names[2] is "Beatriz\0"
 
 for (int i = 0; i < 3; i++) {
-    cout << "Persona " << i + 1 << ": " << nombres[i] << endl;
+    cout << "Person " << i + 1 << ": " << names[i] << endl;
 }
 ```
 
 ---
 
-## 8. Preguntas de Chequeo
+## 8. Checkpoint Questions
 
 <details>
-<summary><strong>1. ¿Por qué <code>int arr[2][4]</code> y <code>int arr[8]</code> son idénticos en memoria RAM?</strong></summary>
+<summary><strong>1. Why are <code>int arr[2][4]</code> and <code>int arr[8]</code> identical in RAM memory?</strong></summary>
 
-Porque ambos reservan 8 enteros consecutivos en memoria (32 bytes). La notación 2D `[2][4]` es solo una abstracción que usa la fórmula `i * 4 + j` para acceder a los índices.
+Because both reserve 8 consecutive integers in memory (32 bytes). The 2D notation `[2][4]` is just an abstraction that uses the formula `i * 4 + j` to access the indices.
 </details>
 
 <details>
-<summary><strong>2. ¿Por qué la firma <code>void f(int m[][])</code> causa error de compilación?</strong></summary>
+<summary><strong>2. Why does the signature <code>void f(int m[][])</code> cause a compilation error?</strong></summary>
 
-Porque sin especificar el número de columnas (`COLS`), la función no puede calcular el salto entre filas `i * COLS + j`. La primera dimensión se puede omitir, pero las columnas deben ser fijas.
+Because without specifying the number of columns (`COLS`), the function cannot calculate the jump between rows `i * COLS + j`. The first dimension can be omitted, but the columns must be fixed.
+</details>
+
+<details>
+<summary><strong>3. If I declare <code>int m[2][2];</code> inside <code>main()</code>, are all its elements 0?</strong></summary>
+
+No. Being a local variable without an explicit initializer, its elements will contain **garbage values** from RAM memory. To force them all to zero you must write `int m[2][2] = {};`.
 </details>
 
 ---
 
-## 9. Ejercicio Propuesto
+## 9. Proposed Exercise
 
-> **Transpuesta de una matriz cuadrada in-place (3x3):**
-> Escribe una función `void transpuesto(int m[3][3])` que intercambie `m[i][j]` con `m[j][i]` para todo $i < j$.
+> **Transpose of a square matrix in-place (3x3):**
+> Write a function `void transpose(int m[3][3])` that swaps `m[i][j]` with `m[j][i]` for all $i < j$.
 
 ```cpp
-void transpuesto(int m[3][3]) {
+void transpose(int m[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = i + 1; j < 3; j++) {
-            int aux = m[i][j];
+            int temp = m[i][j];
             m[i][j] = m[j][i];
-            m[j][i] = aux;
+            m[j][i] = temp;
         }
     }
 }
@@ -211,12 +225,12 @@ void transpuesto(int m[3][3]) {
 
 ---
 
-## Archivos relacionados
+## Related files
 
-- [`L29_MultidimensionalArrays.cpp`](../code/L29_MultidimensionalArrays.cpp) — Demostración de matrices 2D, 3D, funciones y arreglos de strings
+- [`L29_MultidimensionalArrays.cpp`](../code/L29_MultidimensionalArrays.cpp) — Demonstration of 2D, 3D matrices, functions and arrays of strings
 
-## Navegación
+## Navigation
 
-| ← Anterior | Siguiente → |
-|------------|-------------|
+| ← Previous | Next → |
+|------------|--------|
 | [L28 — Arrays as Parameters](L28_ArraysAsParameters.md) | [L30 — C-Strings](L30_CStrings.md) |

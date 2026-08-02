@@ -1,8 +1,8 @@
-# Lesson 25 — Function Parameters: Pass by Value vs Pass by Reference
+# Lesson 25 — Function Parameters: Pass by Value vs. Pass by Reference
 
-This is one of the most important lessons in your C++ journey!
+This is one of the most critical lessons in your C++ journey!
 
-When you pass a variable into a function, does the function work on a **copy** of the variable, or on the **original variable** itself?
+When you pass a variable into a function, does the function operate on a **copy** of the variable, or on the **original variable** itself?
 
 ---
 
@@ -11,7 +11,7 @@ When you pass a variable into a function, does the function work on a **copy** o
 By default in C++, parameters are **passed by value**. This means C++ creates an independent **copy** of the argument inside the function.
 
 - Any changes made inside the function affect **ONLY the copy**.
-- The original variable outside in `main()` remains completely untouched!
+- The original variable outside the function (e.g., in `main()`) remains completely untouched!
 
 ```cpp
 void incrementByValue(int x) {
@@ -29,9 +29,9 @@ int main() {
 
 ## 🔗 2. Pass by Reference (Using `&`)
 
-If you want a function to **modify the original variable**, you pass it **by reference** using the ampersand `&`.
+If you want a function to **modify the original variable**, you must pass it **by reference** using the ampersand `&`.
 
-The `&` tells C++: *"Don't make a copy! Use the original variable directly as an alias."*
+The `&` instructs C++: *"Do not create a copy! Use the original variable directly as an alias."*
 
 ```cpp
 #include <iostream>
@@ -70,7 +70,7 @@ After reallyChange: num = 100 (Changed!)
 
 ## 🔄 3. Classic Example: The `swap` Function
 
-Swapping two variables is **impossible** with pass-by-value because you'd only swap copies!
+Swapping two variables is **impossible** with pass-by-value because you would only be swapping the copies!
 
 ```cpp
 void swapNumbers(int &a, int &b) {

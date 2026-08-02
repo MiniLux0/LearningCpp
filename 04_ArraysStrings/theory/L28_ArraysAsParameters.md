@@ -1,70 +1,70 @@
-# L28 — Arrays como Parámetros: Paso por Dirección y `const`
+# L28 — Arrays as Parameters: Pass by Address and `const`
 
-> **Concepto central:** Cuando pasas un arreglo a una función, no se copian los elementos — se copia solo la **dirección de inicio**. La función accede a la **misma memoria** que `main()`. Por eso no necesitas `&` como con variables normales.
+> **Core concept:** When you pass an array to a function, the elements are not copied — only the **start address** is copied. The function accesses the **same memory** as `main()`. That is why you do not need `&` as with normal variables.
 
-## Objetivos de aprendizaje
+## Learning Objectives
 
-- [ ] Entender por qué los arreglos se pasan "por dirección" automáticamente
-- [ ] Contrastar con el paso por valor de un `int` normal (Lección 3)
-- [ ] Usar `const` para proteger un arreglo de escritura accidental
-- [ ] Leer el `for` compacto con `i++` en el índice (post-incremento)
-- [ ] Escribir una función que modifique un arreglo in-place (sin `const`)
+- [ ] Understand why arrays are passed "by address" automatically
+- [ ] Contrast with pass by value of a normal `int` (Lesson 3)
+- [ ] Use `const` to protect an array from accidental writing
+- [ ] Read the compact `for` loop with `i++` in the index (post-increment)
+- [ ] Write a function that modifies an array in-place (without `const`)
 
 ---
 
-## 1. El nombre del arreglo es la dirección de inicio
+## 1. The array name is the start address
 
-Cuando declaras `int arr[] = {1, 2, 3, 4, 5, 6, 7};`, el nombre `arr` no es "los 7 valores" — es la **dirección** de la primera casa en memoria:
+When you declare `int arr[] = {1, 2, 3, 4, 5, 6, 7};`, the name `arr` is not "the 7 values" — it is the **address** of the first house in memory:
 
 ```
-arr → dirección de inicio (ej. casa 2000)
+arr → start address (e.g. house 2000)
        [1] [2] [3] [4] [5] [6] [7]
         ↑
-   arr apunta aquí
+   arr points here
 ```
 
-Cuando llamas a `sum(arr, 7)`:
-- **No** se copian los 7 elementos uno por uno
-- Se copia **solo esa dirección** — un solo número (4 u 8 bytes)
-- La función recibe esa dirección y "camina" por las **mismas casas** que `main()`
+When you call `sum(arr, 7)`:
+- The 7 elements are **not** copied one by one
+- **Only that address** is copied — a single number (4 or 8 bytes)
+- The function receives that address and "walks" through the **same houses** as `main()`
 
 ---
 
-## 2. Contraste con `int` normal (sin `&`)
+## 2. Contrast with normal `int` (without `&`)
 
-Esto es lo que hace especial a los arreglos frente a lo que vimos en L29 (Pass by Value):
+This is what makes arrays special compared to what we saw in L29 (Pass by Value):
 
 ```cpp
-// Variable normal — se COPIA el valor
-void intentarModificar(int x) {
-    x = 999;  // solo modifica la copia local
+// Normal variable — the value is COPIED
+void attemptToModify(int x) {
+    x = 999;  // only modifies the local copy
 }
 
 int main() {
-    int miVariable = 42;
-    intentarModificar(miVariable);
-    // miVariable sigue siendo 42 — se copió el valor
-    // Son dos casas de memoria distintas
+    int myVariable = 42;
+    attemptToModify(myVariable);
+    // myVariable is still 42 — the value was copied
+    // They are two different memory houses
 }
 ```
 
-| Qué se pasa | ¿Qué se copia? | ¿Modifica el original? |
-|-------------|-----------------|------------------------|
-| `int x` (sin `&`) | El **valor** completo | ❌ No — son dos casas distintas |
-| `int arr[]` | Solo la **dirección** | ✅ Sí — misma casa de memoria |
-| `int &x` (con `&`) | **Alias** (referencia) | ✅ Sí — como vimos en L29 |
+| What is passed | What is copied? | Does it modify the original? |
+|----------------|-----------------|------------------------------|
+| `int x` (without `&`) | The full **value** | ❌ No — they are two distinct houses |
+| `int arr[]` | Only the **address** | ✅ Yes — same memory house |
+| `int &x` (with `&`) | **Alias** (reference) | ✅ Yes — as we saw in L29 |
 
-> **Importante:** Con arreglos no hay copia de contenido, solo copia de la **dirección**. Por eso se comporta "como si" fuera paso por referencia, sin necesitar `&`.
+> **Important:** With arrays there is no copy of content, only copy of the **address**. That is why it behaves "as if" it were pass by reference, without needing `&`.
 
 ---
 
-## 3. `const` — "solo lee, no modifiques"
+## 3. `const` — "read only, do not modify"
 
-Como el arreglo se pasa por dirección, **sin `const` la función podría modificar tu arreglo original** sin que te des cuenta. `const` es una salvaguarda:
+Since the array is passed by address, **without `const` the function could modify your original array** without you noticing. `const` is a safeguard:
 
 ```cpp
 int sum(const int array[], const int length) {
-    // array[0] = 999;  ← ❌ ERROR de compilación: array es const
+    // array[0] = 999;  ← ❌ Compilation ERROR: array is const
     long sum = 0;
     for (int i = 0; i < length; i++) {
         sum += array[i];
@@ -73,56 +73,56 @@ int sum(const int array[], const int length) {
 }
 ```
 
-- ✅ `const int array[]` = promesa al compilador: **"esta función solo puede leer, no escribir"**
-- ❌ Si intentas romper la promesa → **error de compilación** — te protege
-- Sin `const`, hacer `array[0] = 999;` dentro de `sum()` **sí modificaría** `arr` en `main()`
+- ✅ `const int array[]` = promise to the compiler: **"this function can only read, not write"**
+- ❌ If you try to break the promise → **compilation error** — it protects you
+- Without `const`, doing `array[0] = 999;` inside `sum()` **would** modify `arr` in `main()`
 
 ---
 
-## 4. El `for` compacto con `i++` en el índice
+## 4. The compact `for` with `i++` in the index
 
-En la lectura, `sum` usa un estilo compacto que comprime todo en una línea:
+In the reading, `sum` uses a compact style that compresses everything into one line:
 
 ```cpp
 for(int i = 0; i < length; sum += array[i++]);
 ```
 
-Desglose:
+Breakdown:
 ```
-for (inicialización;  condición;      actualización)          cuerpo;
-     int i = 0;       i < length;     sum += array[i++]      ;  ← VACÍO
+for (initialization;  condition;      update)                 body;
+     int i = 0;       i < length;     sum += array[i++]      ;  ← EMPTY
 ```
 
-**El cuerpo del loop es el `;` vacío.** Todo el trabajo ocurre en la "actualización".
+**The body of the loop is the empty `;`.** All the work happens in the "update".
 
-### `i++` (post-incremento) dentro de `array[i++]`
+### `i++` (post-increment) inside `array[i++]`
 
-Hace **dos cosas** en un paso:
-1. **Usa** el valor actual de `i` para leer → `array[i]`
-2. **Después**, incrementa `i` en 1
+It does **two things** in one step:
+1. **Uses** the current value of `i` to read → `array[i]`
+2. **Afterwards**, increments `i` by 1
 
-Equivale a:
+It is equivalent to:
 ```cpp
-sum += array[i];  // usa i tal como está
-i++;              // luego incrementa i
+sum += array[i];  // uses i as it is
+i++;              // then increments i
 ```
 
-### Recorrido paso a paso con `{1, 2, 3, 4, 5, 6, 7}`
+### Step-by-step traversal with `{1, 2, 3, 4, 5, 6, 7}`
 
-| Vuelta | `i` al entrar | `array[i]` | `sum` después | `i` al salir |
-|--------|---------------|------------|---------------|--------------|
-| 1      | 0             | 1          | 0 + 1 = 1     | 1            |
-| 2      | 1             | 2          | 1 + 2 = 3     | 2            |
-| 3      | 2             | 3          | 3 + 3 = 6     | 3            |
-| 4      | 3             | 4          | 6 + 4 = 10    | 4            |
-| 5      | 4             | 5          | 10 + 5 = 15   | 5            |
-| 6      | 5             | 6          | 15 + 6 = 21   | 6            |
-| 7      | 6             | 7          | 21 + 7 = 28   | 7            |
-| —      | 7             | —          | — (sale)      | —            |
+| Turn | `i` on entry | `array[i]` | `sum` after | `i` on exit |
+|------|--------------|------------|-------------|-------------|
+| 1    | 0            | 1          | 0 + 1 = 1   | 1           |
+| 2    | 1            | 2          | 1 + 2 = 3   | 2           |
+| 3    | 2            | 3          | 3 + 3 = 6   | 3           |
+| 4    | 3            | 4          | 6 + 4 = 10  | 4           |
+| 5    | 4            | 5          | 10 + 5 = 15 | 5           |
+| 6    | 5            | 6          | 15 + 6 = 21 | 6           |
+| 7    | 6            | 7          | 21 + 7 = 28 | 7           |
+| —    | 7            | —          | — (exits)   | —           |
 
-`i` llega a 7 (`length`) → condición falsa → loop termina → `return 28`.
+`i` reaches 7 (`length`) → false condition → loop ends → `return 28`.
 
-> **Nota:** El estilo compacto es válido pero difícil de leer. En código legible se escribe así:
+> **Note:** The compact style is valid but hard to read. In readable code it is written like this:
 > ```cpp
 > for (int i = 0; i < length; i++) {
 >     sum += array[i];
@@ -131,60 +131,60 @@ i++;              // luego incrementa i
 
 ---
 
-## 5. Pregunta de chequeo
+## 5. Checkpoint question
 
 <details>
-<summary><strong>Si quitas el <code>const</code> de <code>array[]</code> en <code>sum</code>, y dentro haces <code>array[0] = 999;</code>, ¿qué pasa con <code>arr</code> en <code>main()</code>?</strong></summary>
+<summary><strong>If you remove the <code>const</code> from <code>array[]</code> in <code>sum</code>, and inside you do <code>array[0] = 999;</code>, what happens to <code>arr</code> in <code>main()</code>?</strong></summary>
 
-El primer elemento de `arr` en `main()` **queda modificado a 999**. La función está escribiendo directamente en la misma memoria que `main()` usa, porque el arreglo se pasó por dirección — no es una copia.
+The first element of `arr` in `main()` **is modified to 999**. The function is writing directly to the same memory that `main()` uses, because the array was passed by address — it is not a copy.
 
 </details>
 
 <details>
-<summary><strong>¿Y por qué es distinto a un <code>int</code> pasado sin <code>&</code>?</strong></summary>
+<summary><strong>And why is it different from an <code>int</code> passed without <code>&</code>?</strong></summary>
 
-Con `void func(int x) { x = 999; }` se **copia el valor** a `x` — son dos casas distintas. Modificar `x` no toca la variable original. Con arreglos no hay copia de contenido, solo copia de la **dirección** — por eso se modifica el original sin necesitar `&`.
+With `void func(int x) { x = 999; }` the **value is copied** to `x` — they are two distinct houses. Modifying `x` does not touch the original variable. With arrays there is no copy of content, only copy of the **address** — that is why the original is modified without needing `&`.
 
 </details>
 
 ---
 
-## 6. Ejercicio: `duplicar` — modificación in-place
+## 6. Exercise: `duplicate` — in-place modification
 
-> Escribe `void duplicar(int arr[], int length)` que multiplique por 2 cada elemento, modificando el original (**sin** `const`). Luego en `main()`, muestra el arreglo antes y después para comprobar que sí cambió.
+> Write `void duplicate(int arr[], int length)` that multiplies each element by 2, modifying the original (**without** `const`). Then in `main()`, show the array before and after to verify that it did change.
 
 ```cpp
-void duplicar(int arr[], int length) {
+void duplicate(int arr[], int length) {
     for (int i = 0; i < length; i++) {
         arr[i] *= 2;
     }
 }
 ```
 
-- **Sin `const`** porque la función necesita **escribir** en el arreglo
-- El cambio se refleja en `main()` porque se pasó la dirección, no una copia
+- **Without `const`** because the function needs to **write** to the array
+- The change is reflected in `main()` because the address was passed, not a copy
 
 ---
 
-## Resumen clave L28
+## Key Summary L28
 
-| Concepto | Detalle |
-|----------|---------|
-| Nombre del arreglo | Es la **dirección de inicio** del bloque en memoria |
-| Al pasar a función | Se copia solo la **dirección**, no los elementos |
-| Sin `const` | La función **puede modificar** el arreglo original |
-| Con `const` | La función **solo puede leer** — el compilador prohíbe escritura |
-| `i++` post-incremento | Primero **usa** `i`, **después** incrementa |
-| Contraste con `int` | `int` normal se **copia** (valor) — arreglo se pasa por **dirección** |
+| Concept | Detail |
+|---------|--------|
+| Array name | It is the **start address** of the block in memory |
+| When passed to function | Only the **address** is copied, not the elements |
+| Without `const` | The function **can modify** the original array |
+| With `const` | The function **can only read** — the compiler forbids writing |
+| `i++` post-increment | First **uses** `i`, **then** increments |
+| Contrast with `int` | Normal `int` is **copied** (value) — array is passed by **address** |
 
 ---
 
-## Archivos relacionados
+## Related files
 
-- [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp) — Código ejecutable con `sum()`, `duplicar()` y contraste `int`
+- [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp) — Executable code with `sum()`, `duplicate()` and `int` contrast
 
-## Navegación
+## Navigation
 
-| ← Anterior | Siguiente → |
-|------------|-------------|
+| ← Previous | Next → |
+|------------|--------|
 | [L27 — Array Basics](L27_ArrayBasics.md) | [L29 — Multidimensional Arrays](L29_MultidimensionalArrays.md) |

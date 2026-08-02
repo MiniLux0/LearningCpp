@@ -3,25 +3,25 @@ using namespace std;
 
 int main() {
 
-    int edadLyon;
-    int edadElephant;
+    int lionAge;
+    int elephantAge;
 
-    cout << "Put la age of the Lyon: ";
-    cin >> edadLyon;
+    cout << "Enter the lion's age: ";
+    cin >> lionAge;
 
-    if (edadLyon < 18) {
-        cout << "\"Lyon is Younger\"\n";
+    if (lionAge < 18) {
+        cout << "\"The lion is younger\"\n";
     } else {
-        cout << "\"Lyon is Old\"\n";
+        cout << "\"The lion is older\"\n";
     }
 
-    cout << "Put la age of the Elephant: ";
-    cin >> edadElephant;
+    cout << "Enter the elephant's age: ";
+    cin >> elephantAge;
 
-    if (edadElephant <= 18) {
-        cout << "\"Elephant is younger\"\n";
-    } else{
-        cout << "\"Elephant is Old\"\n";
+    if (elephantAge <= 18) {
+        cout << "\"The elephant is younger\"\n";
+    } else {
+        cout << "\"The elephant is older\"\n";
     }
 
     return 0;

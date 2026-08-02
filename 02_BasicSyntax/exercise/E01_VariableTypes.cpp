@@ -1,10 +1,10 @@
 /*
  * E01 — Variable Types
  * --------------------
- * Declara una variable de cada tipo: int, double, char, bool.
- * Asignale un valor e imprimela con cout.
+ * Declare a variable of each type: int, double, char, bool.
+ * Assign it a value and print it with cout.
  *
- * Salida esperada:
+ * Expected output:
  *   int: 42
  *   double: 3.14
  *   char: A

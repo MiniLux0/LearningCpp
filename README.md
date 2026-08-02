@@ -27,9 +27,9 @@
 | # | Module Folder | Lessons | Academic Source | Key Core Topics | 📘 Theory | 💻 Code Lab | Status |
 |---|---------------|---------|-----------------|-----------------|:---------:|:----------:|:------:|
 | **01** | [**`01_GettingStarted`**](01_GettingStarted/README.md) | L01 – L05 | MIT L1 / CS106L L1 | Anatomy, GCC compilation, formatting, `cin` & `cout` | 📘 [`theory/`](01_GettingStarted/theory/) | 💻 [`code/`](01_GettingStarted/code/) | ✅ |
-| **02** | [**`02_BasicSyntax`**](02_BasicSyntax/README.md) | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | 🔄 |
+| **02** | [**`02_BasicSyntax`**](02_BasicSyntax/README.md) | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | ✅ |
 | **03** | [**`03_Subroutines`**](03_Subroutines/README.md) | L23 – L26 | MIT L3 / CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), header files | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
-| **04** | [**`04_ArraysStrings`**](04_ArraysStrings/README.md) | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | 🔄 |
+| **04** | [**`04_ArraysStrings`**](04_ArraysStrings/README.md) | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | ✅ |
 | **05** | [**`05_RecursionAlgorithms`**](05_RecursionAlgorithms/README.md) | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 📘 `theory/` | 💻 [`code/`](05_RecursionAlgorithms/code/) | ⬜ |
 | **06** | [**`06_Pointers`**](06_Pointers/) | L39 – L46 | MIT L5 / CS106L L3,11 | Pointers, arithmetic, references, Const-Correctness | 📘 `theory/` | 💻 `code/` | ⬜ |
 | **07** | [**`07_Classes`**](07_Classes/) | L47 – L52 | MIT L6 / CS106L L2,10 | Structs vs Classes, encapsulation, Operator Overloading | 📘 `theory/` | 💻 `code/` | ⬜ |

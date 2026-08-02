@@ -44,22 +44,22 @@ void mostrar(double x) {
 int main() {
     cout << "=== L24: Return Values ===" << endl;
 
-    cout << "\n1. Tipo retorno coincide:" << endl;
+    cout << "\n1. Return type matches:" << endl;
     cout << "foo_int() = " << foo_int() << endl;
     cout << "foo_cstr() = " << foo_cstr() << endl;
 
-    cout << "\n2. void (sin retorno):" << endl;
+    cout << "\n2. void (no return):" << endl;
     printNumber(4);
 
     cout << "\n3. Early return:" << endl;
     printNumberIfEven(3);
     printNumberIfEven(4);
 
-    cout << "\n4. Overloading por tipo:" << endl;
+    cout << "\n4. Overloading by type:" << endl;
     printOnNewLine(42);
-    printOnNewLine("Hola C++");
+    printOnNewLine("Hello C++");
 
-    cout << "\n5. Overloading por cantidad:" << endl;
+    cout << "\n5. Overloading by quantity:" << endl;
     printOnNewLine(10);
     printOnNewLine(10, 20);
 

@@ -1,12 +1,12 @@
 /*
  * E10 — Simple Calculator
  * -----------------------
- * Pide dos numeros (double) y un operador (+, -, *, /).
- * Realiza la operacion e imprime el resultado.
- * Si el operador no es valido, imprime un error.
- * Si es division por cero, imprime un error.
+ * Asks for two numbers (double) and an operator (+, -, *, /).
+ * Performs the operation and prints the result.
+ * If the operator is not valid, prints an error.
+ * If there is a division by zero, prints an error.
  *
- * Ejemplo:
+ * Example:
  *   Input:  10, 3, +
  *   Output: 10 + 3 = 13.00
  */

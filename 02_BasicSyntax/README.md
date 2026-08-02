@@ -5,6 +5,7 @@
 > **Lessons**: L06 – L22  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 02) / Stanford CS106L (Lectures 02 & 03)  
 > 📖 **Theory Directory**: 📂 [**`02_BasicSyntax/theory/`**](theory/)  
+> 📝 **Executive Summary**: 📝 [**`summary/02_BasicSyntax_Notes.md`**](summary/02_BasicSyntax_Notes.md)  
 > 🎯 **Primary Focus**: Primitive data types, memory representations, floating-point comparison, Uniform Initialization `{}`, conditional branching, and loop control structures.
 
 ---
@@ -43,14 +44,33 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | **L12** | **Char and Bool** | 📘 [`theory/L12_CharAndBool.md`](theory/L12_CharAndBool.md) | 💻 [`code/L12_CharAndBool.cpp`](code/L12_CharAndBool.cpp) | ASCII character encoding, `bool` truth values, `std::boolalpha`. | ✅ |
 | **L13** | **If Statements** | 📘 [`theory/L13_If.md`](theory/L13_If.md) | 💻 [`code/L13_If.cpp`](code/L13_If.cpp) | Basic conditional evaluation, boolean expressions. | ✅ |
 | **L14** | **If-Else** | 📘 [`theory/L14_IfElse.md`](theory/L14_IfElse.md) | 💻 [`code/L14_IfElse.cpp`](code/L14_IfElse.cpp) | Binary decision branching, alternative execution paths. | ✅ |
-| **L15** | **If-Else-If** | 📘 [`theory/L15_IfElseIfElse.md`](theory/L15_IfElseIfElse.md) | 💻 [`code/L15_IfElseIfElse.cpp`](code/L15_IfElseIfElse.cpp) | Multi-way conditional chains, default fallthrough. | ✅ |
-| **L16** | **Comparing Floats** | 📘 [`theory/L16_ComparingFloats.md`](theory/L16_ComparingFloats.md) | 💻 [`code/L16_ComparingFloats.cpp`](code/L16_ComparingFloats.cpp) | Floating-point rounding errors, safe comparison using epsilon $\epsilon$. | ✅ |
-| **L17** | **Complex Conditions** | 📘 [`theory/L17_Conditions.md`](theory/L17_Conditions.md) | 💻 [`code/L17_Conditions.cpp`](code/L17_Conditions.cpp) | Logical AND `&&`, OR `||`, NOT `!`, short-circuit evaluation. | ✅ |
-| **L18** | **While Loops** | 📘 [`theory/L18_WhileLoops.md`](theory/L18_WhileLoops.md) | 💻 [`code/L18_WhileLoops.cpp`](code/L18_WhileLoops.cpp) | Pre-test condition loops, loop counters. | ✅ |
-| **L19** | **Do-While Loops** | 📘 [`theory/L19_DoWhileLoops.md`](theory/L19_DoWhileLoops.md) | 💻 [`code/L19_DoWhileLoops.cpp`](code/L19_DoWhileLoops.cpp) | Post-test loops guaranteed to run at least once. | ✅ |
-| **L20** | **For Loops** | 📘 [`theory/L20_ForLoops.md`](theory/L20_ForLoops.md) | 💻 [`code/L20_ForLoops.cpp`](code/L20_ForLoops.cpp) | Init, condition, increment counter-controlled loop anatomy. | ✅ |
-| **L21** | **Break & Continue** | 📘 [`theory/L21_BreakAndContinue.md`](theory/L21_BreakAndContinue.md) | 💻 [`code/L21_BreakAndContinue.cpp`](code/L21_BreakAndContinue.cpp) | Early loop exit (`break`) and iteration skipping (`continue`). | ✅ |
-| **L22** | **Switch Statements** | 📘 [`theory/L22_Switch.md`](theory/L22_Switch.md) | 💻 [`code/L22_Switch.cpp`](code/L22_Switch.cpp) | Constant jump-table evaluation, `case` labels, `default`. | ✅ |
+| **L15** | **If-Else-If** | 📘 [`theory/L15_IfElseIfElse.md`](theory/L15_IfElseIfElse.md) | 💻 [`code/L15_IfElseIfElse.cpp`](code/L15_IfElseIfElse.cpp) | Multi-way decision trees, mutually exclusive checks. | ✅ |
+| **L16** | **Comparing Floats** | 📘 [`theory/L16_ComparingFloats.md`](theory/L16_ComparingFloats.md) | 💻 [`code/L16_ComparingFloats.cpp`](code/L16_ComparingFloats.cpp) | Floating-point rounding errors, epsilon $\epsilon$ thresholding. | ✅ |
+| **L17** | **Conditions** | 📘 [`theory/L17_Conditions.md`](theory/L17_Conditions.md) | 💻 [`code/L17_Conditions.cpp`](code/L17_Conditions.cpp) | Complex expressions, logical AND `&&`, OR `\|\|`, NOT `!`. | ✅ |
+| **L18** | **While Loops** | 📘 [`theory/L18_WhileLoops.md`](theory/L18_WhileLoops.md) | 💻 [`code/L18_WhileLoops.cpp`](code/L18_WhileLoops.cpp) | Pre-test iterative execution, loop counters. | ✅ |
+| **L19** | **Do-While Loops** | 📘 [`theory/L19_DoWhileLoops.md`](theory/L19_DoWhileLoops.md) | 💻 [`code/L19_DoWhileLoops.cpp`](code/L19_DoWhileLoops.cpp) | Post-test iterative execution, input validation loop. | ✅ |
+| **L20** | **For Loops** | 📘 [`theory/L20_ForLoops.md`](theory/L20_ForLoops.md) | 💻 [`code/L20_ForLoops.cpp`](code/L20_ForLoops.cpp) | Counter-controlled iterations, initialization, condition, step. | ✅ |
+| **L21** | **Break & Continue**| 📘 [`theory/L21_BreakAndContinue.md`](theory/L21_BreakAndContinue.md) | 💻 [`code/L21_BreakAndContinue.cpp`](code/L21_BreakAndContinue.cpp) | Loop control flow alteration, early termination, skipping steps. | ✅ |
+| **L22** | **Switch Case** | 📘 [`theory/L22_Switch.md`](theory/L22_Switch.md) | 💻 [`code/L22_Switch.cpp`](code/L22_Switch.cpp) | Discrete integral branching, `case`, `break`, `default`. | ✅ |
+
+---
+
+## 🎯 Practical Exercises (E01 – E10)
+
+> 📖 **Exercise Guide**: 📂 [**`exercise/README.md`**](exercise/README.md)
+
+| # | Exercise Name | Topic | 💻 Solution File | Status |
+|---|---------------|-------|------------------|:------:|
+| **E01** | **Variable Types** | Declarations & types | 💻 [`exercise/E01_VariableTypes.cpp`](exercise/E01_VariableTypes.cpp) | ✅ |
+| **E02** | **Name and Age** | Data I/O & string combination | 💻 [`exercise/E02_NameAndAge.cpp`](exercise/E02_NameAndAge.cpp) | ✅ |
+| **E03** | **Sizeof Types** | Memory size inspection | 💻 [`exercise/E03_SizeofTypes.cpp`](exercise/E03_SizeofTypes.cpp) | ✅ |
+| **E04** | **Float Precision** | Floating-point $\epsilon$ comparison | 💻 [`exercise/E04_FloatPrecision.cpp`](exercise/E04_FloatPrecision.cpp) | ✅ |
+| **E05** | **Integer Division** | Integer truncation vs `double` | 💻 [`exercise/E05_IntegerDivision.cpp`](exercise/E05_IntegerDivision.cpp) | ✅ |
+| **E06** | **Char ASCII** | Character encoding & casting | 💻 [`exercise/E06_CharASCII.cpp`](exercise/E06_CharASCII.cpp) | ✅ |
+| **E07** | **Grade Check** | Simple conditional branching | 💻 [`exercise/E07_GradeCheck.cpp`](exercise/E07_GradeCheck.cpp) | ✅ |
+| **E08** | **Age Classifier** | Nested `if-else if` trees | 💻 [`exercise/E08_AgeClassifier.cpp`](exercise/E08_AgeClassifier.cpp) | ✅ |
+| **E09** | **Compare Numbers** | Relational & logical operators | 💻 [`exercise/E09_CompareNumbers.cpp`](exercise/E09_CompareNumbers.cpp) | ✅ |
+| **E10** | **Simple Calculator**| Multi-way `switch` & loop control | 💻 [`exercise/E10_SimpleCalculator.cpp`](exercise/E10_SimpleCalculator.cpp) | ✅ |
 
 ---
 
@@ -58,26 +78,16 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
-| **L06–L12** | 📄 [`MIT 6.096 Lecture 01-02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/WL2-Structures.pdf) | Primitive data types, integer bit widths, 2's complement binary layout, float IEEE 754 precision, Uniform Initialization `{}`. |
-| **L13–L17** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) | Relational operators, logical short-circuit evaluation (`&&`, `||`), safe floating-point comparison with epsilon. |
-| **L18–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) | Pre-test vs post-test loops, `for` loop variable scope, `break`, `continue`, `switch-case` dispatch. |
+| **L06–L12** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_VariablesAndControlFlow.pdf) | Primitive types, binary representations, `sizeof()`, integer overflow, IEEE floating-point. |
+| **L13–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_VariablesAndControlFlow.pdf) \| [`CS106L Lecture 02`](../files/cs106l/lectures/WL2_ControlFlow.pdf) | Conditionals, logical operators, float comparison, loop control structures (`while`, `for`, `switch`). |
 
 ---
 
-## 🛠️ How to Compile & Run
+## 🛠️ Build & Compilation Guides
 
-```bash
-# Navigate to the code directory
-cd 02_BasicSyntax/code
-
-# Compile all lessons using Makefile
-make
-
-# Run executables (Windows PowerShell / CMD)
-.\L06_Variables.exe
-.\L16_ComparingFloats.exe
-.\L22_Switch.exe
-```
+Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
+- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
 ---
 

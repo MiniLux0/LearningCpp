@@ -6,29 +6,29 @@ using namespace std;
 // ============================================================================
 
 // ---------------------------------------------------------------------------
-// PROBLEMA: El compilador lee de arriba hacia abajo
-// Necesita saber la SIGNATURE (retorno + parámetros) ANTES de llamar
+// PROBLEM: The compiler reads from top to bottom
+// It needs to know the SIGNATURE (return type + parameters) BEFORE calling
 // ---------------------------------------------------------------------------
 
-// SOLUCIÓN: Function Prototype (declaración adelantada)
-// Solo la firma, sin cuerpo - "promesa" de que existe la función
-int bar();  // prototype: "existe bar(), toma 0 args, devuelve int"
+// SOLUTION: Function Prototype (forward declaration)
+// Only the signature, no body - a "promise" that the function exists
+int bar();  // prototype: "bar() exists, takes 0 args, returns int"
 
 int foo() {
-    return bar() * 2;  // OK: compilador ya conoce signature de bar
+    return bar() * 2;  // OK: compiler already knows bar's signature
 }
 
-// Implementación real (puede ir después, o en otro .cpp)
+// Actual implementation (can go after, or in another .cpp file)
 int bar() {
     return 3;
 }
 
 // ---------------------------------------------------------------------------
-// MUTUAL RECURSION: foo llama a bar, bar llama a foo
-// Sin prototypes, NO HAY ORDEN que funcione
+// MUTUAL RECURSION: foo calls bar, bar calls foo
+// Without prototypes, NO ORDER works
 // ---------------------------------------------------------------------------
 
-// Prototypes ANTES de usar
+// Prototypes BEFORE use
 int mutuoFoo(int n);
 int mutuoBar(int n);
 
@@ -43,20 +43,20 @@ int mutuoBar(int n) {
 }
 
 // ---------------------------------------------------------------------------
-// HEADER PATTERN: .h (interface) + .cpp (implementación)
-// En la práctica real:
-//   mylib.h  -> prototypes (declaraciones)
-//   mylib.cpp -> definiciones (cuerpos)
-//   main.cpp -> #include "mylib.h" y usa las funciones
+// HEADER PATTERN: .h (interface) + .cpp (implementation)
+// In real practice:
+//   mylib.h  -> prototypes (declarations)
+//   mylib.cpp -> definitions (bodies)
+//   main.cpp -> #include "mylib.h" and uses the functions
 // ---------------------------------------------------------------------------
 
-// Simulamos el .h aquí (prototypes)
+// We simulate the .h here (prototypes)
 int square(int x);
 int cube(int x);
 
-// Simulamos el .cpp aquí (implementaciones)
-// Nombres de parámetros en prototype NO importan (solo tipos)
-int square(int z) {   // prototype decía (int x), aquí (int z) - OK
+// We simulate the .cpp here (implementations)
+// Parameter names in prototype DO NOT matter (only types)
+int square(int z) {   // prototype said (int x), here (int z) - OK
     return z * z;
 }
 
@@ -65,22 +65,22 @@ int cube(int x) {
 }
 
 // ---------------------------------------------------------------------------
-// PREGUNTA DE CHEQUEO:
-// ¿Por qué librerías compiladas (.dll/.so) se distribuyen solo con .h?
-// Respuesta: El .h contiene TODO lo que el compilador necesita para
-// generar código que LLAME a la función:
-//   - nombre
-//   - tipo de retorno
-//   - tipos de parámetros
-// El .cpp (implementación) ya está compilado dentro del .dll/.so.
-// El usuario NO necesita ver el código fuente, solo la INTERFAZ.
+// CHECK QUESTION:
+// Why are compiled libraries (.dll/.so) distributed only with .h?
+// Answer: The .h contains EVERYTHING the compiler needs to
+// generate code that CALLS the function:
+//   - name
+//   - return type
+//   - parameter types
+// The .cpp (implementation) is already compiled inside the .dll/.so.
+// The user DOES NOT need to see the source code, just the INTERFACE.
 // ---------------------------------------------------------------------------
 
 int main() {
     cout << "=== L26: Headers and Prototypes ===\n\n";
 
-    cout << "1. Prototype basico:\n";
-    cout << "   foo() = " << foo() << "  (llama a bar() declarado despues via prototype)\n\n";
+    cout << "1. Basic prototype:\n";
+    cout << "   foo() = " << foo() << "  (calls bar() declared after via prototype)\n\n";
 
     cout << "2. Mutual recursion (foo <-> bar):\n";
     cout << "   mutuoFoo(3) = " << mutuoFoo(3) << "\n";
@@ -88,46 +88,46 @@ int main() {
 
     cout << "3. Header pattern (square/cube):\n";
     cout << "   square(5) = " << square(5) << "\n";
-    cout << "   cube(3) = " << cube(3) << "  (cube llama a square)\n\n";
+    cout << "   cube(3) = " << cube(3) << "  (cube calls square)\n\n";
 
-    cout << "4. Nombres de parametros en prototype NO importan:\n";
+    cout << "4. Parameter names in prototype DO NOT matter:\n";
     cout << "   prototype: int square(int z);\n";
-    cout << "   implementacion: int square(int x) { return x * x; }\n";
-    cout << "   -> Compila perfecto, solo importa: int square(int)\n\n";
+    cout << "   implementation: int square(int x) { return x * x; }\n";
+    cout << "   -> Compiles perfectly, only matters: int square(int)\n\n";
 
-    cout << "=== RESUMEN CLAVE ===\n";
-    cout << "Prototype = firma (retorno + tipos params) SIN cuerpo\n";
-    cout << "Permite llamar funciones antes de definirlas\n";
-    cout << "Resuelve recursion mutua\n";
-    cout << ".h = prototypes (interface), .cpp = implementacion\n";
-    cout << "Librerias compiladas: distribuyen .h + .dll/.so, NO .cpp\n";
-    cout << "El .h tiene todo lo que el COMPILADOR necesita para generar llamadas\n";
+    cout << "=== KEY SUMMARY ===\n";
+    cout << "Prototype = signature (return + param types) WITHOUT body\n";
+    cout << "Allows calling functions before defining them\n";
+    cout << "Resolves mutual recursion\n";
+    cout << ".h = prototypes (interface), .cpp = implementation\n";
+    cout << "Compiled libraries: distribute .h + .dll/.so, NOT .cpp\n";
+    cout << "The .h has everything the COMPILER needs to generate calls\n";
 
     return 0;
 }
 
 /*
-RESUMEN CLAVE L26:
+KEY SUMMARY L26:
 ------------------
-PROBLEMA:
-  - Compilador C++ lee de arriba a abajo, una pasada
-  - Para llamar f(), necesita saber: retorno + tipos params
-  - Si definicion de f() esta despues (u otro archivo) -> ERROR
+PROBLEM:
+  - C++ compiler reads from top to bottom, one pass
+  - To call f(), it needs to know: return type + param types
+  - If f() definition is after (or in another file) -> ERROR
 
-SOLUCION: Function Prototype
-  int f(int x);  // firma + punto y coma, SIN { cuerpo }
+SOLUTION: Function Prototype
+  int f(int x);  // signature + semicolon, WITHOUT { body }
 
 PROTOTYPE:
-  - Solo importa: tipo retorno + tipos params (orden)
-  - Nombres de params NO importan (pueden cambiar)
-  - Es una "promesa" al compilador
+  - Only matters: return type + param types (order)
+  - Param names DO NOT matter (can change)
+  - It is a "promise" to the compiler
 
 HEADER PATTERN:
-  // miLib.h
+  // myLib.h
   int square(int);
   int cube(int);
 
-  // miLib.cpp
+  // myLib.cpp
   #include "miLib.h"
   int square(int x) { return x * x; }
   int cube(int x) { return x * square(x); }
@@ -136,9 +136,9 @@ HEADER PATTERN:
   #include "miLib.h"
   int main() { cout << cube(3); }
 
-POR QUE .h + .dll/.so SIN .cpp:
-  - .h = interface (que necesita el COMPILADOR para verificar llamadas)
-  - .dll/.so = implementacion ya compilada (maquina)
-  - Usuario compila su codigo contra .h, linkea contra .dll/.so
-  - No necesita ver COMO se implementa, solo QUE firma tiene
+WHY .h + .dll/.so WITHOUT .cpp:
+  - .h = interface (what the COMPILER needs to verify calls)
+  - .dll/.so = already compiled implementation (machine code)
+  - User compiles their code against .h, links against .dll/.so
+  - Doesn't need to see HOW it is implemented, only WHAT signature it has
 */
