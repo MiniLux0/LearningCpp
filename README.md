@@ -30,7 +30,7 @@
 | **02** | **Basic Syntax** | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 🚀 [`02_BasicSyntax/`](02_BasicSyntax/README.md) | ✅ |
 | **03** | **Subroutines** | L23 – L26 | MIT L3 / CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), header files | 🚀 [`03_Subroutines/`](03_Subroutines/README.md) | ✅ |
 | **04** | **Arrays & Strings** | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 🚀 [`04_ArraysStrings/`](04_ArraysStrings/README.md) | ✅ |
-| **05** | **Recursion & Algorithms** | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 🚀 [`05_RecursionAlgorithms/`](05_RecursionAlgorithms/README.md) | ⬜ |
+| **05** | **Recursion & Algorithms** | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 🚀 [`05_RecursionAlgorithms/`](05_RecursionAlgorithms/README.md) | ✅ |
 | **06** | **Pointers** | L39 – L46 | MIT L5 / CS106L L3,11 | Pointers, arithmetic, references, Const-Correctness | 🚀 [`06_Pointers/`](06_Pointers/) | ⬜ |
 | **07** | **Classes** | L47 – L52 | MIT L6 / CS106L L2,10 | Structs vs Classes, encapsulation, Operator Overloading | 🚀 [`07_Classes/`](07_Classes/) | ⬜ |
 | **08** | **OOP & Polymorphism** | L53 – L58 | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, `virtual`, destructors | 🚀 [`08_OOP/`](08_OOP/) | ⬜ |
