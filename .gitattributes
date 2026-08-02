@@ -1,0 +1,5 @@
+# Exclude academic PDFs, third-party frameworks, and docs from GitHub Linguist language bar statistics
+files/** linguist-documentation
+docs/** linguist-documentation
+*.pdf linguist-documentation
+*.png linguist-documentation
