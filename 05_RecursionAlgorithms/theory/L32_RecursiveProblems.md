@@ -1,3 +1,13 @@
+<div align="center">
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L31: Thinking Recursively**](L31_ThinkingRecursively.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L33: Big-O Notation ➡️**](L33_BigONotation.md) |
+
+</div>
+
+---
+
 # L32 — Problemas Clásicos Recursivos: Matemáticos, Cadenas y Árboles de Llamadas
 
 > [!NOTE]

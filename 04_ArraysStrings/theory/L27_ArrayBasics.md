@@ -1,3 +1,13 @@
+<div align="center">
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L26: Headers & Prototypes**](../../03_Subroutines/theory/L26_HeadersAndPrototypes.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L28: Arrays as Parameters ➡️**](L28_ArraysAsParameters.md) |
+
+</div>
+
+---
+
 # L27: Array Basics — Declaration, Initialization, and Index Access
 
 ## 1. The core idea: contiguous memory

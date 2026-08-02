@@ -1,3 +1,13 @@
+<div align="center">
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L29: Multidimensional Arrays**](L29_MultidimensionalArrays.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L31: Thinking Recursively ➡️**](../../05_RecursionAlgorithms/theory/L31_ThinkingRecursively.md) |
+
+</div>
+
+---
+
 # L30 — C-Strings: Character Arrays, Null Terminator and Standard Libraries (`<cstring>`, `<cctype>`, `<cstdlib>`, `<cstdio>`)
 
 > **Core concept:** A C-string is not a special native data type, but a **contiguous array of `char`** whose end is marked by the special character **null `'\0'` (ASCII 0)**. Understanding the difference between the **array dimension** and the **string length** is the key to mastering memory and avoiding buffer overflows.

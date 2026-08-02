@@ -1,3 +1,13 @@
+<div align="center">
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L28: Arrays as Parameters**](L28_ArraysAsParameters.md) | [**Section 04: Arrays & Strings**](../README.md) | [**L30: C-Strings ➡️**](L30_CStrings.md) |
+
+</div>
+
+---
+
 # L29 — Multidimensional Arrays: Matrices, Memory Layout and Functions
 
 > **Core concept:** C++ does not have "real" matrices in hardware. A 2D array `int m[3][4]` is a **syntactic abstraction** stored as a **1D contiguous block in memory** following Row-Major Order.

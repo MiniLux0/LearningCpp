@@ -1,3 +1,13 @@
+<div align="center">
+
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
+|:------------------:|:--------------:|:--------------:|
+| [**⬅️ L30: C-Strings**](../../04_ArraysStrings/theory/L30_CStrings.md) | [**Section 05: Recursion & Algorithms**](../README.md) | [**L32: Recursive Problems ➡️**](L32_RecursiveProblems.md) |
+
+</div>
+
+---
+
 # L31 — Pensar Recursivamente: Caso Base, Paso Recursivo y la Pila de Llamadas (*Call Stack*)
 
 > [!NOTE]
