@@ -78,8 +78,8 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
-| **L06–L12** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_VariablesAndControlFlow.pdf) | Primitive types, binary representations, `sizeof()`, integer overflow, IEEE floating-point. |
-| **L13–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_VariablesAndControlFlow.pdf) \| [`CS106L Lecture 02`](../files/cs106l/lectures/WL2_ControlFlow.pdf) | Conditionals, logical operators, float comparison, loop control structures (`while`, `for`, `switch`). |
+| **L06–L12** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) | Primitive types, binary representations, `sizeof()`, integer overflow, IEEE floating-point. |
+| **L13–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) \| [`CS106L Lecture 02`](../files/cs106l/lectures/WL2-Structures.pdf) | Conditionals, logical operators, float comparison, loop control structures (`while`, `for`, `switch`). |
 
 ---
 

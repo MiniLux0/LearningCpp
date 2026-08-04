@@ -61,7 +61,7 @@ This module covers code modularization in C++: function declarations and signatu
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
 | **L23–L25** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) | Subroutine stack frames, return types, pass-by-value vs pass-by-reference, function overloading. |
-| **L26** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/WL3_InitializationAndReferences.pdf) | Function prototypes, header file separation (`.h` / `.cpp`), `#ifndef` include guards, reference semantics. |
+| **L26** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/WLecture_3_Init_and_Ref.pdf) | Function prototypes, header file separation (`.h` / `.cpp`), `#ifndef` include guards, reference semantics. |
 
 ---
 

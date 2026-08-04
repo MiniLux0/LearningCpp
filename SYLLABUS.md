@@ -38,13 +38,13 @@
 | **03** | [`03_Subroutines`](03_Subroutines/) | MIT L3 / CS106L L3 | Functions, pass-by-value/reference (`&`, `const &`), `.h` headers | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
 | **04** | [`04_ArraysStrings`](04_ArraysStrings/) | MIT L4 / CS106L L4 | Static 1D/2D arrays, C-strings (`<cstring>`), Streams & `std::string` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | ✅ |
 | **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | Stanford CS106B/X | Recursion vs. Iteration, Backtracking, Big-O Notation, Search & Sorting | 📘 [`theory/`](05_RecursionAlgorithms/theory/) | 💻 [`code/`](05_RecursionAlgorithms/code/) | ✅ |
-| **06** | [`06_Pointers`](06_Pointers/) | MIT L5 / CS106L L3,11 | Pointers, pointer arithmetic, references, Const-Correctness, callbacks | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **07** | [`07_Classes`](07_Classes/) | MIT L6 / CS106L L2,10,12 | Structs vs Classes, encapsulation, constructors, Operator Overloading | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **08** | [`08_OOP`](08_OOP/) | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, virtual functions, abstract classes | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **09** | [`09_MemoryManagement`](09_MemoryManagement/) | MIT L8 / CS106L L13-15 | Stack vs Heap, RAII, Rule of 0/3/5, Move Semantics (`std::move`), Smart Pointers | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **10** | [`10_DataStructures`](10_DataStructures/) | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Priority Queues | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **11** | [`11_FileIO`](11_FileIO/) | MIT L10 / CS106L L4 | Stream States (`stringstream`, `ifstream`), Text & Binary File I/O | 📘 `theory/` | 💻 `code/` | ⬜ |
-| **12** | [`12_AdvancedCPP`](12_AdvancedCPP/) | MIT L9-10 / CS106L L5-9 | Templates, STL Containers & Iterators, Lambdas, Exceptions, Huffman Compression | 📘 `theory/` | 💻 `code/` | ⬜ |
+| **06** | [`06_Pointers`](06_Pointers/) | MIT L5 / CS106L L3,11 | Pointers, pointer arithmetic, references, Const-Correctness, callbacks | 📘 [`theory/`](06_Pointers/theory/) | 💻 [`code/`](06_Pointers/code/) | ⬜ |
+| **07** | [`07_Classes`](07_Classes/) | MIT L6 / CS106L L2,10,12 | Structs vs Classes, encapsulation, constructors, Operator Overloading | 📘 [`theory/`](07_Classes/theory/) | 💻 [`code/`](07_Classes/code/) | ⬜ |
+| **08** | [`08_OOP`](08_OOP/) | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, virtual functions, abstract classes | 📘 [`theory/`](08_OOP/theory/) | 💻 [`code/`](08_OOP/code/) | ⬜ |
+| **09** | [`09_MemoryManagement`](09_MemoryManagement/) | MIT L8 / CS106L L13-15 | Stack vs Heap, RAII, Rule of 0/3/5, Move Semantics (`std::move`), Smart Pointers | 📘 [`theory/`](09_MemoryManagement/theory/) | 💻 [`code/`](09_MemoryManagement/code/) | ⬜ |
+| **10** | [`10_DataStructures`](10_DataStructures/) | Stanford / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps, Priority Queues | 📘 [`theory/`](10_DataStructures/theory/) | 💻 [`code/`](10_DataStructures/code/) | ⬜ |
+| **11** | [`11_FileIO`](11_FileIO/) | MIT L10 / CS106L L4 | Stream States (`stringstream`, `ifstream`), Text & Binary File I/O | 📘 [`theory/`](11_FileIO/theory/) | 💻 [`code/`](11_FileIO/code/) | ⬜ |
+| **12** | [`12_AdvancedCPP`](12_AdvancedCPP/) | MIT L9-10 / CS106L L5-9 | Templates, STL Containers & Iterators, Lambdas, Exceptions, Huffman Compression | 📘 [`theory/`](12_AdvancedCPP/theory/) | 💻 [`code/`](12_AdvancedCPP/code/) | ⬜ |
 
 ---
 
@@ -84,7 +84,7 @@
 
 ---
 
-### 🔹 Section 05 — Recursion & Algorithms (L31–L38) · Stanford CS106B / CS106X ⬜
+### 🔹 Section 05 — Recursion & Algorithms (L31–L38) · Stanford CS106B / CS106X ✅
 - **L31**: Thinking Recursively (Base case, recursive step, call stack).
 - **L32**: Classic Recursive Problems (Factorial, Fibonacci, Power, String reversal).
 - **L33**: Algorithmic Complexity & Big-O Notation (Time and space complexity: $O(1), O(\log n), O(n), O(n^2)$).

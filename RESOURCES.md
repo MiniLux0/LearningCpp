@@ -65,6 +65,8 @@ Top-tier academic resources utilized to build this learning plan for C++, Modern
 - **Instructors**: Jerry Cain & Garrick Fernandez.
 - **Why this course?**: For an accelerated pace, high-performance coding challenges, memory optimization, and real-world projects.
 
+> ⚠️ **Note:** CS106X materials are **online-only** — no PDFs or ZIP files have been downloaded locally. The tables below are reference catalogs linking to Stanford's website. Unlike CS106B and CS106L, there are no local files in `files/cs106x/`.
+
 #### 📋 CS106X Handouts Catalog ([View Handouts](https://web.stanford.edu/class/cs106x/handouts.html))
 | # | Handout | Topic / Module Alignment |
 |---|---------|---------------------------|

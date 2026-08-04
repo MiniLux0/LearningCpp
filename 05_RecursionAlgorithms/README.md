@@ -46,6 +46,30 @@ This module introduces algorithmic thinking and recursive problem solving: manag
 
 ---
 
+## 🎯 Practical Exercises (E01–E08)
+
+Hands-on exercises in [`exercise/`](exercise/) that consolidate the module's core topics. Each file is self-contained and buildable with the included `makefile`.
+
+| File | Lesson(s) | Topic | Key Concept | Big-O |
+|------|-----------|-------|-------------|:-----:|
+| **[`E01_Factorial.cpp`](exercise/E01_Factorial.cpp)** | L31-L32 | Factorial | Base case, call stack unwind, negative guard | `O(n)` |
+| **[`E02_Fibonacci.cpp`](exercise/E02_Fibonacci.cpp)** | L31-L32 | Fibonacci | Naive vs memoized recursion, redundant calls | `O(2^n)` / `O(n)` |
+| **[`E03_BinarySearch.cpp`](exercise/E03_BinarySearch.cpp)** | L34 | Binary Search | Recursive divide & conquer, overflow-safe midpoint | `O(log n)` |
+| **[`E04_MergeSort.cpp`](exercise/E04_MergeSort.cpp)** | L36 | MergeSort | Divide & conquer, auxiliary merge, stable sort | `O(n log n)` |
+| **[`E05_QuickSort.cpp`](exercise/E05_QuickSort.cpp)** | L37 | QuickSort | Lomuto partition, pivot placement, worst case | avg `O(n log n)` |
+| **[`E06_PowerFunction.cpp`](exercise/E06_PowerFunction.cpp)** | L31-L32 | Power Function | Naive vs fast exponentiation (`base^(n/2)^2`) | `O(exp)` / `O(log exp)` |
+| **[`E07_StringReversal.cpp`](exercise/E07_StringReversal.cpp)** | L31-L32 | String Reversal | Recursive no-loop reversal, in-place with indices | `O(n)` |
+| **[`E08_Backtracking.cpp`](exercise/E08_Backtracking.cpp)** | L38 | Backtracking Subsets | Choose/Explore/Unchoose pattern, 2^N subsets | `O(2^n · n)` |
+
+```bash
+cd 05_RecursionAlgorithms/exercise
+make                        # compile all exercises
+.\build\E01_Factorial.exe   # run individual exercise
+make run-E08_Backtracking   # compile + run in one step
+```
+
+---
+
 ## 🛠️ Build & Compilation Guides
 
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:

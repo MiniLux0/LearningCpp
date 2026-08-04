@@ -26,7 +26,6 @@ Here is an explicit breakdown of the compiler flags enforced in this build syste
 | `-Wshadow` | Shadowing Warning | Warns whenever a local variable name shadows/hides a variable from an outer scope, preventing subtle scope bugs. |
 | `-Wpedantic` | ISO Compliance | Rejects non-standard compiler extensions and enforces strict compliance with the ISO C++ standard for maximum portability. |
 | `-g` | Debug Symbols | Emits DWARF debugging symbols into the executable, allowing step-by-step debugging with GDB, LLDB, or VSCode. |
-| `-O2` | Optimization Level 2 | Enables a high level of safe performance optimizations (loop unrolling, inline functions) without sacrificing code correctness. |
 | `-MMD -MP` | Dependency Tracking | Instructs GCC to output `.d` files containing header file dependencies so `make` re-compiles only changed files. |
 | `-fsanitize=address` | AddressSanitizer (ASan) | Instruments memory operations to detect **Memory Leaks**, **Use-After-Free**, and **Out-of-Bounds Buffer Access** at runtime. |
 | `-fsanitize=undefined` | UndefinedBehaviorSanitizer (UBSan) | Detects runtime **Undefined Behavior** (e.g., signed integer overflow, null pointer dereferences, divide-by-zero). |
