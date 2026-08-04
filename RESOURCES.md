@@ -1,8 +1,21 @@
 # Resources & Academic Stack
 
+<div align="center">
+
+[![🏠 Root README](https://img.shields.io/badge/🏠_Back_to-Root_README-00599C?style=for-the-badge)](README.md)
+[![📜 Full Syllabus](https://img.shields.io/badge/📜_Full-Syllabus-F16822?style=for-the-badge)](SYLLABUS.md)
+[![📂 Docs & Build Guides](https://img.shields.io/badge/📂_Docs-Build_Guides-555555?style=for-the-badge)](docs/README.md)
+
+</div>
+
+> **📚 This is a reference catalog**, not required reading to follow the course.
+> Come here when you need to find a specific MIT/Stanford lecture PDF, problem set, or assignment starter code.
+> For the lesson roadmap, see [`SYLLABUS.md`](SYLLABUS.md). For the course entry point, see [`README.md`](README.md).
+
 Top-tier academic resources utilized to build this learning plan for C++, Modern C++ Standards, Algorithms, and Data Structures.
 
 ---
+
 
 ## 🏛️ Academic Courses & Sources
 

@@ -2,93 +2,111 @@
 
 # 🚀 Learning C++ & Computer Science
 
-*A structured learning journey in C++, Modern C++ Standards, Algorithms, and Data Structures — unifying the curricula of **MIT 6.096**, **Stanford CS106B**, **Stanford CS106X**, and **Stanford CS106L**.*
+**A structured, 75-lesson journey through C++ — from Hello World to Advanced STL.**  
+Unifying the curricula of *MIT 6.096*, *Stanford CS106B*, *Stanford CS106X*, and *Stanford CS106L*.
 
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![Compiler](https://img.shields.io/badge/GCC-15.2.0-F16822?style=for-the-badge&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
 [![Platform](https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/brechtsanders/winlibs_mingw)
-[![Progress](https://img.shields.io/badge/Progress-L30%20%2F%2075-yellow?style=for-the-badge)](#-modules-map--progress)
+[![Progress](https://img.shields.io/badge/Progress-Modules_01–05_✓-4caf50?style=for-the-badge)](#-modules-map--progress)
 
 </div>
 
 ---
 
-> ### ⚡ Quick Start & Repository Navigation
-> 
-> * 📜 **Complete 75-Lesson Syllabus**: [**`SYLLABUS.md`**](SYLLABUS.md) — Step-by-step lesson breakdown (L01 to L75).
-> * 🌐 **Academic Guide & PDF Catalog**: [**`files/Master_Academic_Guide.md`**](files/Master_Academic_Guide.md) — MIT & Stanford lecture slides, assignments, and textbooks.
-> * 📖 **Theory Notes**: Located inside each module's `theory/` directory (e.g., [`01_GettingStarted/theory/`](01_GettingStarted/theory/)).
-> * 💻 **Executable Code Labs**: Located inside each module's `code/` directory with automated `makefile` compilation.
+## 🚦 New Here? Start Here
+
+| 👋 If you are… | 📍 Go to | Why |
+|:---|:---|:---|
+| Seeing this repo for the **first time** | 📜 [`SYLLABUS.md`](SYLLABUS.md) | Full 75-lesson roadmap — understand the learning path first |
+| Ready to **write your first line of C++** | 🚀 [`01_GettingStarted/`](01_GettingStarted/README.md) | Lesson 1 — Hello World, GCC compilation, `cout` |
+| Need to **compile and run** a lesson | ⚙️ [`docs/COMPILATION_GUIDE.md`](docs/COMPILATION_GUIDE.md) | Step-by-step GCC & Makefile tutorial for beginners |
+| Looking for **theory notes** for a specific lesson | 📖 `XX_ModuleName/theory/LXX_*.md` | Every module has a `theory/` folder with detailed notes |
+| Looking for **MIT / Stanford lecture PDFs** | 🌐 [`files/Master_Academic_Guide.md`](files/Master_Academic_Guide.md) | Academic materials archive: lectures, assignments, textbooks |
+
+> **`RESOURCES.md`** is a reference catalog for academic sources — useful as a bookmark, but **not required reading** to follow the course.
+
+---
+
+## 📖 About This Repository
+
+This is a personal C++ mastery project built around four top-tier university curricula, merged into a single coherent path:
+
+| Course | Institution | What it covers |
+|--------|-------------|----------------|
+| **MIT 6.096** | MIT OpenCourseWare | C++ syntax, compilation pipeline, pointers, classes, OOP, dynamic memory |
+| **CS106B** | Stanford | Recursion, Big-O, ADTs, sorting algorithms, linked lists, BST trees |
+| **CS106X** | Stanford (Honors) | Accelerated pace, backtracking, Huffman compression, graph algorithms |
+| **CS106L** | Stanford | Modern C++ (C++11/17): iterators, lambdas, RAII, move semantics, smart pointers |
+
+Every module follows the same internal structure:
+
+```
+XX_ModuleName/
+├── README.md          ← Module hub: lesson table, exercises, build instructions
+├── theory/            ← Detailed markdown notes — one file per lesson (LXX_*.md)
+├── code/              ← Runnable .cpp programs + automated Makefile
+├── exercise/          ← Practice problems with solutions + Makefile
+└── summary/           ← Concise revision notes for quick review
+```
 
 ---
 
 ## 📊 Modules Map & Progress
 
-| # | Module Name | Lessons | Academic Source | Key Core Topics | Module Hub | Status |
-|---|-------------|---------|-----------------|-----------------|:----------:|:------:|
-| **01** | **Getting Started** | L01 – L05 | MIT L1 / CS106L L1 | Anatomy, GCC compilation, formatting, `cin` & `cout` | 🚀 [`01_GettingStarted/`](01_GettingStarted/README.md) | ✅ |
-| **02** | **Basic Syntax** | L06 – L22 | MIT L2 / CS106L L2–3 | Types, Uniform Init `{}`, IEEE float $\epsilon$, loops | 🚀 [`02_BasicSyntax/`](02_BasicSyntax/README.md) | ✅ |
-| **03** | **Subroutines** | L23 – L26 | MIT L3 / CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), header files | 🚀 [`03_Subroutines/`](03_Subroutines/README.md) | ✅ |
-| **04** | **Arrays & Strings** | L27 – L30 | MIT L4 / CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `stringstream` | 🚀 [`04_ArraysStrings/`](04_ArraysStrings/README.md) | ✅ |
-| **05** | **Recursion & Algorithms** | L31 – L38 | CS106B / CS106X | Recursion, Big-O, MergeSort, QuickSort, Backtracking | 🚀 [`05_RecursionAlgorithms/`](05_RecursionAlgorithms/README.md) | ✅ |
-| **06** | **Pointers** | L39 – L46 | MIT L5 / CS106L L3,11 | Pointers, arithmetic, references, Const-Correctness | 🚀 [`06_Pointers/`](06_Pointers/) | ⬜ |
-| **07** | **Classes** | L47 – L52 | MIT L6 / CS106L L2,10 | Structs vs Classes, encapsulation, Operator Overloading | 🚀 [`07_Classes/`](07_Classes/) | ⬜ |
-| **08** | **OOP & Polymorphism** | L53 – L58 | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, `virtual`, destructors | 🚀 [`08_OOP/`](08_OOP/) | ⬜ |
-| **09** | **Memory Management** | L59 – L63 | MIT L8 / CS106L L13-15 | Stack vs Heap, `new`/`delete`, RAII, Rule of 0/3/5, Move | 🚀 [`09_MemoryManagement/`](09_MemoryManagement/) | ⬜ |
-| **10** | **Data Structures** | L64 – L68 | CS106B / CS106L | Linked Lists, BST Trees, Custom Iterators, HashMaps | 🚀 [`10_DataStructures/`](10_DataStructures/) | ⬜ |
-| **11** | **File I/O & Streams** | L69 – L72 | MIT L10 / CS106L L4 | Stream states, Text (`.txt`) and Binary (`.bin`) Files | 🚀 [`11_FileIO/`](11_FileIO/) | ⬜ |
-| **12** | **Advanced C++ & STL** | L73 – L75 | MIT L9-10 / CS106L L5-9 | Templates, STL Containers, Lambdas, Huffman & WikiRacer | 🚀 [`12_AdvancedCPP/`](12_AdvancedCPP/) | ⬜ |
-
----
-
-## 📁 Repository Organization
-
-```
-LearningCpp/
-├── 01_GettingStarted/          # L01–L05  (README.md, theory/, code/, exercise/)
-├── 02_BasicSyntax/             # L06–L22  (README.md, theory/, code/, exercise/)
-├── 03_Subroutines/              # L23–L26  (README.md, theory/, code/, exercise/)
-├── 04_ArraysStrings/            # L27–L30  (README.md, theory/, code/, exercise/)
-├── 05_RecursionAlgorithms/      # L31–L38  (README.md, theory/, code/, exercise/)
-├── 06_Pointers/ ... 12_AdvancedCPP/
-│
-├── files/                       # Academic materials, lecture PDFs & course guides
-│   ├── Master_Academic_Guide.md # 🌐 Complete course comparison & academic guide
-│   ├── mit6096/                 # MIT 6.096 original materials (lectures, assignments)
-│   ├── cs106b/                  # Stanford CS106B textbook, assignments & libraries
-│   ├── cs106x/                  # Stanford CS106X handouts & capstone projects
-│   └── cs106l/                  # Stanford CS106L modern C++ lecture PDFs & projects
-│
-├── SYLLABUS.md                   # Full 75-lesson syllabus map
-├── RESOURCES.md                 # Academic handout catalog
-└── makefile                     # Root build script
-```
+| # | Module | Lessons | Academic Source | Key Topics | Status |
+|:-:|--------|:-------:|-----------------|------------|:------:|
+| **01** | [**Getting Started**](01_GettingStarted/README.md) | L01–L05 | MIT L1 · CS106L L1 | Program anatomy, GCC pipeline, `cout` / `cin`, namespaces | ✅ |
+| **02** | [**Basic Syntax**](02_BasicSyntax/README.md) | L06–L22 | MIT L2 · CS106L L2–3 | Primitive types, uniform init `{}`, IEEE float epsilon, loops | ✅ |
+| **03** | [**Subroutines**](03_Subroutines/README.md) | L23–L26 | MIT L3 · CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), `.h` header files | ✅ |
+| **04** | [**Arrays & Strings**](04_ArraysStrings/README.md) | L27–L30 | MIT L4 · CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `std::string`, `stringstream` | ✅ |
+| **05** | [**Recursion & Algorithms**](05_RecursionAlgorithms/README.md) | L31–L38 | CS106B · CS106X | Recursion, Big-O, MergeSort, QuickSort, backtracking | ✅ |
+| **06** | [**Pointers**](06_Pointers/) | L39–L46 | MIT L5 · CS106L L3, L11 | Pointers, arithmetic, references, const-correctness, callbacks | ⬜ |
+| **07** | [**Classes**](07_Classes/) | L47–L52 | MIT L6 · CS106L L2, L10 | Structs vs classes, encapsulation, operator overloading | ⬜ |
+| **08** | [**OOP & Polymorphism**](08_OOP/) | L53–L58 | MIT L7 · CS106L L10 | Inheritance, `virtual` functions, dynamic dispatch, abstract classes | ⬜ |
+| **09** | [**Memory Management**](09_MemoryManagement/) | L59–L63 | MIT L8 · CS106L L13–15 | Stack vs heap, `new`/`delete`, RAII, Rule of 0/3/5, move semantics | ⬜ |
+| **10** | [**Data Structures**](10_DataStructures/) | L64–L68 | CS106B · CS106L | Linked lists, BST, custom iterators, hash maps, priority queues | ⬜ |
+| **11** | [**File I/O & Streams**](11_FileIO/) | L69–L72 | MIT L10 · CS106L L4 | Stream states, `ifstream` / `ofstream`, text & binary file I/O | ⬜ |
+| **12** | [**Advanced C++ & STL**](12_AdvancedCPP/) | L73–L75 | MIT L9–10 · CS106L L5–9 | Templates, STL containers, lambdas, Huffman, WikiRacer | ⬜ |
 
 ---
 
 ## 🛠️ How to Build & Run Code
 
-Each module contains an independent `makefile` in its `code/` subdirectory:
+Every `code/` and `exercise/` subdirectory contains an automated `Makefile`. No long `g++` commands needed.
 
 ```bash
-# 1. Navigate to the desired module's code directory
+# Navigate to any module's code directory
 cd 01_GettingStarted/code
 
-# 2. Compile all lessons in the module
+# Compile all lessons → output goes to build/
 make
 
-# 3. Run the compiled executable
-.\L01_HelloWorld.exe
+# Compile + run a specific lesson immediately
+make run-L01_HelloWorld
+
+# Compile with memory sanitizers (detects leaks & undefined behavior)
+make asan
+
+# Delete all compiled output
+make clean
 ```
+
+> **New to compilation?** → ⚙️ [`docs/COMPILATION_GUIDE.md`](docs/COMPILATION_GUIDE.md) — beginner-friendly GCC walkthrough.  
+> **Want to understand the flags?** → 🛠️ [`docs/MAKEFILE_GUIDE.md`](docs/MAKEFILE_GUIDE.md) — deep-dive on `-Wall`, `-Wextra`, `-fsanitize`, and more.
 
 ---
 
-## 📚 Essential Links & Resources
+## 📚 Reference Links
 
-- 🌐 [**Master Academic Guide**](files/Master_Academic_Guide.md): Detailed comparison matrix between MIT 6.096, Stanford CS106B, CS106X, and CS106L.
-- 📄 [**Academic Materials Archive (`files/`)**](files/README.md): Hub for local PDF slides, problem sets, and starter code.
-- ⚙️ [**Compilation Guide**](docs/COMPILATION_GUIDE.md): Beginner step-by-step tutorial on manual GCC compilation.
-- 🛠️ [**Makefile Guide**](docs/MAKEFILE_GUIDE.md): Technical guide to compiler flags (`-Wall -Wextra -std=c++17`) and sanitizer usage.
+| | Resource | Description |
+|--|----------|-------------|
+| 🌐 | [**Master Academic Guide**](files/Master_Academic_Guide.md) | Full curricula comparison & PDF index for all 4 courses |
+| 📄 | [**Academic Materials (`files/`)**](files/) | Local lecture slides, problem sets, assignments & starter code |
+| ⚙️ | [**Compilation Guide**](docs/COMPILATION_GUIDE.md) | Beginner step-by-step GCC & Makefile tutorial |
+| 🛠️ | [**Makefile Guide**](docs/MAKEFILE_GUIDE.md) | Compiler flags, sanitizers & build system deep-dive |
+| 📖 | [cppreference.com](https://cppreference.com/) | Official C++ language & standard library reference |
+| 📘 | [LearnCpp.com](https://www.learncpp.com/) | Comprehensive free C++ tutorial |
 
 ---
 

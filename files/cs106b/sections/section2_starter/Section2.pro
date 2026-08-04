@@ -1,12 +1,12 @@
 ###############################################################################
 # Project file for CS106B/X student program
 #
-# @version Fall Quarter 2021 for Qt 6
+# @version Fall Quarter 2023 for Qt 6
 # @author Julie Zelenski
 #   build client program using installed static library
 ###############################################################################
 
-SPL_VERSION = 2021.1
+SPL_VERSION = 2023.1
 SPL_URL = https://web.stanford.edu/dept/cs_edu/qt
 
 TEMPLATE    =   app
@@ -48,6 +48,9 @@ INCLUDEPATH     +=  $$PWD "$${SPL_DIR}/include"
 ###############################################################################
 #       Configure project with custom settings                                #
 ###############################################################################
+
+# changes to headers require recompilation
+DEPENDPATH += $$PWD
 
 # remove spaces from target executable for better Windows compatibility
 TARGET      =   $$replace(TARGET, " ", _)
@@ -99,7 +102,7 @@ CONFIG          +=  c++11
 # WARN_ON has -Wall -Wextra, add/remove a few specific warnings
 QMAKE_CXXFLAGS_WARN_ON      +=  -Werror=return-type
 QMAKE_CXXFLAGS_WARN_ON      +=  -Werror=uninitialized
-QMAKE_CXXFLAGS_WARN_ON      +=  -Wunused-parameter
+QMAKE_CXXFLAGS_WARN_ON      +=  -Wno-unused-parameter
 QMAKE_CXXFLAGS_WARN_ON      +=  -Wmissing-field-initializers
 QMAKE_CXXFLAGS_WARN_ON      +=  -Wno-old-style-cast
 QMAKE_CXXFLAGS_WARN_ON      +=  -Wno-sign-compare

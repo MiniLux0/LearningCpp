@@ -1,14 +1,11 @@
 #include <iostream>
 #include "console.h"
-#include "testing/SimpleTest.h"
+#include "SimpleTest.h"
 
 using namespace std;
 
 
-int main() 
-{
-    char c = 'k';
-    cout << to_string(c) + "ang";
+int main_() {
     if (runSimpleTests(SELECTED_TESTS)) {
         return 0;
     }

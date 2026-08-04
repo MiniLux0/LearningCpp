@@ -1,52 +1,69 @@
-# 🏛️ Academic Course Archive & Curricula Index (`files/`)
+<div align="center">
 
-> **Entry Hub for Academic Materials & Course Syllabi**
+# 📂 Academic Materials — `files/`
 
----
+*Lecture PDFs, assignments, and code examples from the four courses this repository is built on.*
 
-## 📑 Specialized Course Syllabi & PDF Content Analysis
+[![🏠 Root README](https://img.shields.io/badge/🏠_Back_to-Root_README-00599C?style=for-the-badge)](../README.md)
+[![📜 Syllabus](https://img.shields.io/badge/📜_Full-Syllabus-F16822?style=for-the-badge)](../SYLLABUS.md)
 
-Each of the four integrated computer science curricula has its own canonical `README.md` syllabus, created directly from the extraction and analysis of its PDF lectures, problem sets, textbooks, and projects:
-
-- 🏛️ [**MIT 6.096 Syllabus & PDF Analysis**](mit6096/README.md)
-  - *Focus*: Low-level syntax, GCC compilation, raw pointers, manual heap allocation (`new`/`delete`), OOP, and basic templates.
-- 🌲 [**Stanford CS106B Syllabus & PDF Analysis**](cs106b/README.md)
-  - *Focus*: Standard track — Abstract Data Types (ADTs), Recursion, Exhaustive Backtracking, Big-O Notation, Trees, Huffman Compression, and Graph Theory.
-- ⚡ [**Stanford CS106X Syllabus & PDF Analysis**](cs106x/README.md)
-  - *Focus*: Honors/Accelerated track — 34 Official Handouts, 7 Capstone Assignments (Life, ADTs, Boggle, Recursion & ADTs, 4-Way PQueue, Huffman, Stanford 123).
-- ⚙️ [**Stanford CS106L Syllabus & PDF Analysis**](cs106l/README.md)
-  - *Focus*: Modern C++ Standards (C++11/17/20), Uniform Initialization, Custom Iterators, Lambdas, Move Semantics (`std::move`), RAII, and Smart Pointers.
-- 🌐 [**Master Academic Guide & Course Comparison**](Master_Academic_Guide.md)
-  - *Focus*: Complete matrix comparison, course levels, learning roadmap, and repository module alignment.
+</div>
 
 ---
 
-## 📂 Clean & Non-Redundant Directory Layout
+## 🚦 What's in Here and When to Use It
+
+> **You don't need to read anything in this folder to follow the course.**  
+> This is a reference archive. Come here when you want to read the original lecture PDFs or tackle a course assignment.
+
+| Folder | What's inside | When to open it |
+|--------|--------------|-----------------|
+| [`mit6096/`](mit6096/) | 10 lecture PDFs, 4 assignments + solutions, 1 final project | Following Modules 01–04, 06–09, 11–12 |
+| [`cs106b/`](cs106b/) | Textbook (Eric Roberts), assignments 0–9, section starters, lecture code | Following Module 05 (Recursion & Algorithms) and Module 10 (Data Structures) |
+| [`cs106x/`](cs106x/) | Honors-track handout catalog (reference only — no local files) | Optional advanced challenge after Module 05 |
+| [`cs106l/`](cs106l/) | 17 modern C++ lecture PDFs, 3 projects (HashMap, WikiRacer, linked-list) | Following Modules 06–12 for modern C++ perspective |
+
+---
+
+## 📋 Which Course Covers What?
+
+| Course | Level | Core Topics |
+|--------|-------|-------------|
+| **MIT 6.096** | Beginner → Intermediate | Syntax, GCC compilation, pointers, classes, OOP, dynamic memory |
+| **Stanford CS106B** | Intermediate | Recursion, Big-O, sorting, linked lists, BST trees, graphs |
+| **Stanford CS106X** | Honors (Accelerated) | Same as CS106B but faster + harder capstone projects |
+| **Stanford CS106L** | Advanced | Modern C++11/17: iterators, lambdas, RAII, move semantics, smart pointers |
+
+---
+
+## 📁 Folder Structure
 
 ```
 files/
-├── Master_Academic_Guide.md     # 🌐 Master guide & course comparison matrix
-├── README.md                    # Entry hub
+├── README.md                    ← You are here
 ├── mit6096/
-│   ├── README.md                # 🏛️ MIT 6.096 Syllabus (Rendered automatically by GitHub)
-│   ├── lectures/                # 10 Lecture PDFs
-│   ├── assignments/             # Problem sets 1–4
-│   ├── solutions/               # Official solutions 1–4
-│   └── project/                 # Final Project spec
+│   ├── README.md                ← MIT course guide & lecture index
+│   ├── lectures/                ← 10 lecture PDFs (L01–L10)
+│   ├── assignments/             ← 4 problem sets (PDF)
+│   ├── solutions/               ← Official solutions (PDF)
+│   └── project/                 ← Final project spec (PDF)
 ├── cs106b/
-│   ├── README.md                # 🌲 Stanford CS106B (Standard) Syllabus
-│   ├── assignments/             # Unzipped assignments 0–9
-│   ├── sections/                # Discussion section starters 1–8
-│   ├── lectures/                # Code lectures & sorting slides
-│   ├── libraries/               # Stanford C++ Libraries (2021.1 & 2023.1)
-│   └── textbook/                # Eric Roberts textbook PDF
+│   ├── README.md                ← CS106B course guide
+│   ├── textbook/                ← Eric Roberts textbook (PDF, ~149 MB)
+│   ├── assignments/             ← Assignments 0–9 (starter code)
+│   ├── sections/                ← Section starters 1–8 (practice code)
+│   ├── lectures/                ← Lecture code examples (named by topic)
+│   └── libraries/               ← Stanford C++ Libraries (use 2023.1)
 ├── cs106x/
-│   └── README.md                # ⚡ Stanford CS106X (Honors) Syllabus
+│   └── README.md                ← CS106X handout catalog (reference only)
 └── cs106l/
-    ├── README.md                # ⚙️ Stanford CS106L Syllabus
-    ├── assignments/             # Modern C++ Projects (HashMap, WikiRacer, linked-list)
-    └── lectures/                # 17 Lecture PDFs (Modern C++)
+    ├── README.md                ← CS106L course guide & lecture index
+    ├── lectures/                ← 17 modern C++ lecture PDFs
+    └── assignments/             ← 3 projects: HashMap, WikiRacer, linked-list
 ```
 
 ---
-*MiniLux0 — Academic Files Hub*
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

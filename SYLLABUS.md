@@ -1,9 +1,22 @@
 # Master Syllabus — Learning C++ (MIT 6.096 + Stanford CS106B / CS106X / CS106L)
 
+<div align="center">
+
+[![🏠 Root README](https://img.shields.io/badge/🏠_Back_to-Root_README-00599C?style=for-the-badge)](README.md)
+[![📚 Resources Catalog](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](RESOURCES.md)
+[![📂 Docs & Build Guides](https://img.shields.io/badge/📂_Docs-Build_Guides-555555?style=for-the-badge)](docs/README.md)
+
+</div>
+
+> **🗺️ This is your course roadmap.** Read it to understand the full learning path (L01–L75) and which lesson comes next.
+> Follow the modules **in numerical order** — each section builds directly on the previous one.
+> You do **not** need to read `RESOURCES.md` to follow this syllabus.
+
 > **Unified Study Plan for Modern C++, Algorithms, Data Structures, and Software Engineering**
 > Designed to master C++ from scratch to advanced level, combining technical syntax rigor, modern standards (C++11/17/20), algorithm analysis, and software design principles.
 
 ---
+
 
 ## 🏛️ Academic Sources Quadtrilogy
 

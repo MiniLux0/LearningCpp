@@ -1,12 +1,12 @@
 ###############################################################################
 # Project file for CS106B/X student program
 #
-# @version Fall Quarter 2021 for Qt 6
+# @version Fall Quarter 2023 for Qt 6
 # @author Julie Zelenski
 #   build client program using installed static library
 ###############################################################################
 
-SPL_VERSION = 2021.1
+SPL_VERSION = 2023.1
 SPL_URL = https://web.stanford.edu/dept/cs_edu/qt
 
 TEMPLATE    =   app
@@ -49,6 +49,9 @@ INCLUDEPATH     +=  $$PWD "$${SPL_DIR}/include"
 #       Configure project with custom settings                                #
 ###############################################################################
 
+# changes to headers require recompilation
+DEPENDPATH += $$PWD
+
 # remove spaces from target executable for better Windows compatibility
 TARGET      =   $$replace(TARGET, " ", _)
 
@@ -69,8 +72,7 @@ DEFINES     +=  main=qMain qMain=studentMain
 # Qt looks for first 'SOURCES *=' line and lists user-added .cpp/h files there.
 # Afterward we glob-add files to SOURCES ourselves. Operator *= will unique
 # entries, so no worries about duplicates
-SOURCES         *=  "" \
-    hasDoubleChar.cpp
+SOURCES         *=  ""
 HEADERS         *=  ""
 
 # Gather any .cpp or .h files within the project folder (student/starter code).
