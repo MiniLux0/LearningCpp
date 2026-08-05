@@ -41,15 +41,15 @@ int main() {
     int choice;
 
     do {
-        std::cout << "\n=== MAIN MENU ===\n";
-        std::cout << "1. Play Game\n";
-        std::cout << "2. Settings\n";
-        std::cout << "3. Exit\n";
-        std::cout << "Select option (1-3): ";
-        std::cin >> choice;
+        cout << "\n=== MAIN MENU ===\n";
+        cout << "1. Play Game\n";
+        cout << "2. Settings\n";
+        cout << "3. Exit\n";
+        cout << "Select option (1-3): ";
+        cin >> choice;
     } while (choice != 3);
 
-    std::cout << "Goodbye!\n";
+    cout << "Goodbye!\n";
     return 0;
 }
 ```

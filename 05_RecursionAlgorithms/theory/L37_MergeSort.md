@@ -1,4 +1,4 @@
-# L36 — MergeSort: Ordenamiento por Mezcla $O(N \log N)$
+# L37 — MergeSort: Ordenamiento por Mezcla $O(N \log N)$
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
@@ -9,7 +9,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 10.3 (p. 443) & Ch 10.4 (p. 449)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L36_MergeSort.cpp`](../code/L36_MergeSort.cpp)
+- 💻 **Laboratorio de Código:** [`L37_MergeSort.cpp`](../code/L37_MergeSort.cpp)
 
 ---
 
@@ -28,12 +28,12 @@
 Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\frac{N(N-1)}{2}$ comparaciones. Para $N = 100,000$ eso son **5,000,000,000 operaciones** — inaceptable en la práctica.
 
 > *"To develop a better sorting algorithm, you need to adopt a qualitatively different approach."*
-> — Eric Roberts, Sec. 10.3
+> — CS106B, Sec. 10.3
 
 ### La Idea Clave: Explotar la Relación Inversa
 
 > [!TIP]
-> **La Propiedad Clave de los Algoritmos Cuadráticos (Eric Roberts, Sec. 10.3):**  
+> **La Propiedad Clave de los Algoritmos Cuadráticos (Sec. 10.3):**  
 > Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ($\times 4$).  
 > Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ($\div 4$).  
 >
@@ -43,7 +43,7 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\fra
 
 ## 2. Estrategia Divide y Vencerás: MergeSort
 
-El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) fue descrito en la Sección 10.3 por Eric Roberts usando la siguiente estrategia de 5 pasos:
+El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) descrito en la Sección 10.3 usando la siguiente estrategia de 5 pasos:
 
 ```mermaid
 graph TD
@@ -86,7 +86,7 @@ El proceso de mezcla compara cabezas y elige siempre el menor:
 
 ---
 
-## 4. Implementación en C++ (estilo Eric Roberts)
+## 4. Implementación en C++
 
 ```cpp
 #include <vector>
@@ -164,7 +164,9 @@ graph TD
 
 Cada nivel divide $N$ por 2. El número de niveles $k$ es aquel tal que $2^k = N$:
 
-$$k = \log_2 N$$
+$$
+k = \log_2 N
+$$
 
 ### Trabajo en Cada Nivel
 
@@ -172,7 +174,9 @@ En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectore
 
 ### Total de Trabajo
 
-$$\text{Niveles} \times \text{Trabajo por nivel} = \log_2 N \times N = \mathbf{O(N \log N)}$$
+$$
+\text{Niveles} \times \text{Trabajo por nivel} = \log_2 N \times N = O(N \log N)
+$$
 
 ---
 
@@ -187,7 +191,7 @@ $$\text{Niveles} \times \text{Trabajo por nivel} = \log_2 N \times N = \mathbf{O
 | 100,000 | **10,000,000,000** | ~1,660,964 | **$\times 6,021$** |
 
 > *"For large vectors, merge sort clearly represents a significant improvement."*
-> — Eric Roberts, Sec. 10.3
+> — CS106B, Sec. 10.3
 
 ---
 
@@ -255,18 +259,18 @@ Para un vector de $N = 16$ elementos, ¿cuántos **niveles** tendrá el árbol d
 1. **MergeSort** aplica la estrategia **Divide y Vencerás** recursivamente para alcanzar $O(N \log N)$.
 2. El paso `merge` combina dos sub-vectores **ya ordenados** en $O(N)$ comparaciones.
 3. El **árbol de recursión** tiene $\log_2 N$ niveles, con $N$ trabajo total por nivel → $O(N \log N)$.
-4. Para $N = 100,000$: Selection Sort tardó **>2.5 minutos**; MergeSort **<0.5 segundos** (Eric Roberts, Sec. 10.3).
+4. Para $N = 100,000$: Selection Sort tardó **>2.5 minutos**; MergeSort **<0.5 segundos** (Sec. 10.3).
 5. MergeSort es **estable** y **no in-place** — requiere $O(N)$ memoria auxiliar para los sub-vectores.
 
 ---
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L35 — Quadratic Sorts**](L35_QuadraticSorts.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L37 — QuickSort ➡️**](L37_QuickSort.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L35 — Ordenamientos Cuadráticos**](L36_QuadraticSorts.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L38 — QuickSort ➡️**](L38_QuickSort.md) |
 
 </div>
 

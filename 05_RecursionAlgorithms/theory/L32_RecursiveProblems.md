@@ -17,16 +17,21 @@
 ## Objetivos de Aprendizaje
 
 - [ ] Implementar la función **Factorial ($n!$)** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
-- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($O(2^N)$) y transformarlo en una función **lineal $O(N)$** mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
-- [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices ($O(N)$) (Sección 7.4).
+- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($O(2^N)$) y transformarlo en una función lineal $O(N)$ mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
+- [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices a complejidad $O(N)$ (Sección 7.4).
 - [ ] Dominar la solución por **Divide y Vencerás** del dilema de **Las Torres de Hanói** (Sección 8.1).
 
 ---
 
 ## 1. La Función Factorial ($n!$ — Sección 7.2)
 
-El factorial de un número entero no negativo $n$ ($n!$) se define matemáticamente como:
-$$n! = \begin{cases} 1 & \text{si } n = 0 \text{ (Caso Base)} \\ n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)} \end{cases}$$
+El factorial de un número entero no negativo $n$, denotado como $n!$, se define matemáticamente como:
+$$
+n! = \begin{cases} 
+1 & \text{si } n = 0 \text{ (Caso Base)} \\ 
+n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)} 
+\end{cases}
+$$
 
 ### Implementación en C++
 
@@ -49,14 +54,20 @@ long long factorial(int n) {
 
 > [!NOTE]
 > **Profundidad de Pila y Complejidad Espacial:**
-> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de **$O(N)$ espacio**.
+> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de espacio $O(N)$.
 
 ---
 
 ## 2. La Función de Fibonacci y la Secuencia Aditiva ($F_n$ — Sección 7.3)
 
 La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
-$$F_n = \begin{cases} 0 & \text{si } n = 0 \\ 1 & \text{si } n = 1 \\ F_{n-1} + F_{n-2} & \text{si } n \ge 2 \end{cases}$$
+$$
+F_n = \begin{cases} 
+0 & \text{si } n = 0 \\ 
+1 & \text{si } n = 1 \\ 
+F_{n-1} + F_{n-2} & \text{si } n \ge 2 
+\end{cases}
+$$
 
 ### Implementación Directa (Naive — $O(2^N)$)
 
@@ -88,11 +99,11 @@ graph TD
 
 > [!CAUTION]
 > **Explosión Exponencial:**
-> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa **$O(2^N)$**, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
+> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $O(2^N)$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
 
-### 🌟 La Optimización de Eric Roberts: Secuencia Aditiva ($O(N)$)
+### 🌟 La Optimización: Secuencia Aditiva ($O(N)$)
 
-Eric Roberts propone en la Sección 7.3 generalizar la recursión a una **Secuencia Aditiva** que mantiene el estado acumulado de los dos términos en parámetros de la función (Recursión de Cola / *Tail-Recursion*):
+La Sección 7.3 propone generalizar la recursión a una **Secuencia Aditiva** que mantiene el estado acumulado de los dos términos en parámetros de la función (Recursión de Cola / *Tail-Recursion*):
 
 ```cpp
 // Función auxiliar que mantiene los dos términos actuales (a y b)
@@ -115,7 +126,7 @@ long long fibonacciLineal(int n) {
 
 ---
 
-## 3. Verificación de Palíndromos (`isPalindrome` — Sección 7.4)
+## 3. Verificación de Palíndromos (`esPalindromo` — Sección 7.4)
 
 Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda (ej. *"reconocer"*, *"anilina"*).
 
@@ -154,19 +165,53 @@ bool esPalindromo(const string& str) {
 2. Un disco más grande **nunca puede colocarse sobre uno más pequeño**.
 3. Se deben usar tres torres: `Origen`, `Destino` y `Auxiliar`.
 
+### Estado Inicial (3 Discos)
+
 ```mermaid
-graph LR
-    subgraph Origen [Torre A]
-        D1[Disco 1]
-        D2[Disco 2]
-        D3[Disco 3]
+graph TB
+    subgraph TorreA [Torre A — Origen]
+        D3A[████████████ Disco 3 ████████████]
+        D2A[██████ Disco 2 ██████]
+        D1A[██ Disco 1 ██]
     end
-    subgraph Auxiliar [Torre B]
-        Empty1[Vacía]
+    subgraph TorreB [Torre B — Auxiliar]
+        EmptyB[(Vacía)]
     end
-    subgraph Destino [Torre C]
-        Empty2[Vacía]
+    subgraph TorreC [Torre C — Destino]
+        EmptyC[(Vacía)]
     end
+
+    D3A --> D2A --> D1A
+```
+
+### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
+
+```mermaid
+graph TD
+    H3["Hanoi(3, A→C, B)"]
+    H3 --> H2a["Hanoi(2, A→B, C)"]
+    H3 --> Move3["Mover D3: A → C"]
+    H3 --> H2b["Hanoi(2, B→C, A)"]
+
+    H2a --> H1a["Hanoi(1, A→C, B)"]
+    H2a --> Move2a["Mover D2: A → B"]
+    H2a --> H1b["Hanoi(1, C→B, A)"]
+
+    H2b --> H1c["Hanoi(1, B→A, C)"]
+    H2b --> Move2b["Mover D2: B → C"]
+    H2b --> H1d["Hanoi(1, A→C, B)"]
+
+    H1a --> M1a["Mover D1: A → C"]
+    H1b --> M1b["Mover D1: C → B"]
+    H1c --> M1c["Mover D1: B → A"]
+    H1d --> M1d["Mover D1: A → C"]
+
+    style H3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style H2a fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style H2b fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Move3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Move2a fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Move2b fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
 ### La Estrategia Divide y Vencerás (3 Pasos):
@@ -204,13 +249,17 @@ void torresDeHanoi(int n, char origen, char destino, char auxiliar, int& totalMo
 ### Análisis Matemático del Número de Movimientos
 
 El número de movimientos $M(N)$ para $N$ discos satisface la ecuación de recurrencia:
-$$M(N) = 2 \times M(N-1) + 1$$
+$$
+M(N) = 2 \times M(N-1) + 1
+$$
 
 Con caso base $M(1) = 1$. La solución cerrada es:
-$$M(N) = 2^N - 1$$
+$$
+M(N) = 2^N - 1
+$$
 
-- Para $N = 3$ discos: $2^3 - 1 = \mathbf{7 \text{ movimientos}}$.
-- Para $N = 64$ discos: $2^{64} - 1 \approx 1.84 \times 10^{19} \text{ movimientos}$ ($\approx \mathbf{584 \text{ mil millones de años}}$ a 1 mov/seg).
+- Para $N = 3$ discos: $2^3 - 1 =$ **7 movimientos**.
+- Para $N = 64$ discos: $2^{64} - 1 \approx 1.84 \times 10^{19}$ movimientos ($\approx$ **584 mil millones de años** a 1 mov/seg).
 
 ---
 
@@ -225,7 +274,9 @@ Si ejecutas `torresDeHanoi(5, 'A', 'C', 'B', mov)`, **¿cuántos movimientos tot
 
 **Explicación:**
 Aplicando la fórmula $M(N) = 2^N - 1$:
-$$M(5) = 2^5 - 1 = 32 - 1 = 31$$
+$$
+M(5) = 2^5 - 1 = 32 - 1 = 31
+$$
 
 </details>
 
@@ -234,7 +285,7 @@ $$M(5) = 2^5 - 1 = 32 - 1 = 31$$
 ## 📝 Resumen de L32
 
 1. **Factorial:** Reducción lineal simple con complejidad espacial en pila $O(N)$.
-2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $O(2^N)$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal **$O(N)$**.
+2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $O(2^N)$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal $O(N)$.
 3. **Palíndromos:** El uso de punteros/índices de frontera (`low`, `high`) evita la copia de subcadenas, optimizando memoria a $O(N)$.
 4. **Torres de Hanói:** Paradigma de Divide y Vencerás que requiere $2^N - 1$ movimientos en 3 elegantes pasos recursivos.
 
@@ -242,11 +293,11 @@ $$M(5) = 2^5 - 1 = 32 - 1 = 31$$
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L31 — Thinking Recursively**](L31_ThinkingRecursively.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L33 — Big-O Notation ➡️**](L33_BigONotation.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L31 — Pensar Recursivamente**](L31_ThinkingRecursively.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L33 — Memoización y DP ➡️**](L33_Memoization.md) |
 
 </div>
 

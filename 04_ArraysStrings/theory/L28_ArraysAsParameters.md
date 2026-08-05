@@ -1,99 +1,168 @@
-# Lesson 28 — Arrays as Parameters: Array Decay, Pass-by-Address & `const`
+# L28 — Arrays as Parameters: Pointer Decay (*Array Decay*) & `const` Parameters
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 11** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 04** ([`Lecture04_Arrays.pdf`](../../files/mit6096/lectures/Lecture04_Arrays.pdf)).
+> **Academic Grounding:** This lesson synthesizes concepts from **Chapter 11 (Section 11.3: *Passing arrays as parameters*, pp. 501–506)** of the official Stanford CS106B textbook (*Programming Abstractions in C++* by Eric Roberts) and **Lecture 04** of MIT 6.096 ([`Lecture04_ArraysAndStrings.pdf`](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
-- 📄 **Base Academic Lectures:**
-  - 🌲 [Stanford CS106B — Chapter 11: Array Parameters & Pointer Decay](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🏛️ [MIT 6.096 — Lecture 04: Passing Arrays to Functions](../../files/mit6096/lectures/Lecture04_Arrays.pdf)
+- 📄 **Base Academic Readings:**
+  - 🌲 [Stanford CS106B Textbook — Ch 11.3: Passing Arrays as Parameters (pp. 501–506)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 04: Fixed-Size Array Allocation](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)
 - 💻 **Code Lab:** [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp)
 
 ---
 
 ## Learning Objectives
 
-- [ ] Understand **Array Decay**: How arrays decay into pointers to their first element when passed to functions.
-- [ ] Understand why array size must be passed explicitly as a separate parameter (`int size`).
-- [ ] Protect array contents from accidental modification using `const int arr[]`.
+- [ ] Understand **Pointer Decay (*Array Decay*)** when passing native arrays to functions.
+- [ ] Explain why signatures `void func(int arr[])` and `void func(int* arr)` are completely identical to the compiler.
+- [ ] Justify the **mandatory requirement** to pass array length as a separate integer parameter.
+- [ ] Apply `const` qualifier to protect arrays against accidental modifications (*Read-Only Parameters*).
+- [ ] Modify arrays *in-place* inside subroutines leveraging implicit pass-by-address semantics.
 
 ---
 
-## 1. Array Pointer Decay Mechanics
+## 1. Pointer Decay (*Array Decay*)
 
-When an array is passed as a function argument, it is **NEVER copied**. Instead, the array name "decays" into a pointer holding the RAM memory address of its first element (`&arr[0]`):
+When a native array is passed as an argument to a function in C++, **the array is not copied**. Instead, the variable automatically decays into a raw pointer holding the memory address of the first element (`&arr[0]`):
 
 ```mermaid
-graph LR
-    Caller["main() Array: int scores[4] (RAM: 0x5000)"] -->|Passes Address 0x5000| Func["printArray(const int arr[], int size)"]
-    Func -->|Accesses Same Memory| Direct["RAM Memory 0x5000"]
+graph TD
+    Sub["main() scope:<br/>int data[5] = {10, 20, 30, 40, 50}"] -->|Pointer Decay| Call["print(data, 5)"]
+    Call -->|Copies memory address only| Func["print(int* arr, int size)<br/>arr = 0x7FFF00"]
 ```
+
+> [!NOTE]
+> **💡 PEDAGOGICAL NOTE ON POINTERS (`int*`):**  
+> In C++, passing an array transmits the starting memory address of its first element (technically called pointer decay `int*`). Do not worry if `int*` syntax looks new: pointers as a formal topic will be mastered in **Section 06 (`06_Pointers`)**. For now, simply understand that the function receives a direct alias to the original array's first RAM memory cell in `main()`.
+
+> [!IMPORTANT]
+> **Function Signature Equivalence:**  
+> The following three function declarations are 100% identical to the C++ compiler:
+> ```cpp
+> void process(int arr[], int size);
+> void process(int arr[100], int size); // Value 100 is completely ignored by compiler
+> void process(int* arr, int size);
+> ```
+
+---
+
+## 2. Loss of `sizeof` Operator in Functions
+
+Within its original declaration scope, `sizeof(arr)` calculates the total size in bytes. However, inside a function where decay occurred, `sizeof(arr)` returns only the pointer size (4 or 8 bytes depending on 32-bit or 64-bit architecture):
 
 ```cpp
 #include <iostream>
+using namespace std;
 
-// arr decays to a pointer (const int* arr)
-void printArray(const int arr[], int size) {
+void demonstrateDecay(int arr[]) {
+    // ❌ ERROR: sizeof(arr) evaluates pointer size (8 bytes), NOT array size!
+    // int count = sizeof(arr) / sizeof(arr[0]); 
+}
+```
+
+> [!WARNING]
+> **The Separate Dimension Rule:**  
+> Because a receiving function receives only a raw memory address, **it is strictly mandatory to pass the element count (`int size`) as an independent parameter**.
+
+---
+
+## 3. In-Place Modification vs. `const` Protection
+
+### 1. In-Place Modification (Read / Write)
+Any element changes performed inside the function alter the original array memory in `main()` directly:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void doubleValues(int arr[], int size) {
     for (int i = 0; i < size; i++) {
-        std::cout << arr[i] << " ";
+        arr[i] *= 2; // Modifies original RAM memory
     }
-    std::cout << "\n";
+}
+```
+
+### 2. `const` Protection (Read-Only)
+To prevent an inspection function from accidentally modifying data, prefix the `const` qualifier:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void printArray(const int arr[], int size) {
+    // arr[0] = 99; // ❌ COMPILE ERROR: Array is read-only
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+```
+
+---
+
+## ❓ Checkpoint Questions & Active Retrieval
+
+### Question #1 — `sizeof` & Pointer Decay Diagnostic
+Analyze the execution of the following snippet on a 64-bit system (`sizeof(int*) == 8` bytes, `sizeof(int) == 4` bytes):
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void compute(int data[]) {
+    cout << sizeof(data) << endl;
 }
 
 int main() {
-    int data[3]{10, 20, 30};
-    printArray(data, 3); // Passes memory address of data[0]
-    return 0;
+    int arr[10]{1, 2, 3};
+    cout << sizeof(arr) << endl;
+    compute(arr);
 }
 ```
 
-> [!IMPORTANT]
-> **Why `sizeof(arr)` Fails inside Functions:**
-> Inside `main()`, `sizeof(data)` returns $3 \times 4 = 12$ bytes. But inside `printArray()`, `sizeof(arr)` returns $8$ bytes (the size of a memory pointer on a 64-bit system!). This is why array size **MUST ALWAYS** be passed as a separate parameter.
-
----
-
-## 2. Preventing Mutation with `const`
-
-Because functions access original array elements in memory directly, omitting `const` allows the function to mutate `main()`'s array:
-
-```cpp
-void zeroOut(int arr[], int size) { // Modifies caller array!
-    for (int i = 0; i < size; i++) arr[i] = 0;
-}
-
-void readOnly(const int arr[], int size) { // Read-only safety!
-    // arr[0] = 5; // COMPILER ERROR! Forbidden write.
-}
-```
-
----
-
-## ❓ Self-Assessment Checkpoint #1 — Pointer Decay
-
-Why does passing a 1,000,000-element array to a function in C++ execute instantaneously with zero memory overhead?
+**What outputs are printed in `main` and inside `compute`?**
 
 <details>
 <summary>🔍 <strong>View Explanation & Answer</strong></summary>
 
 > [!NOTE]
-> **Answer:** Array decay passes only an 8-byte memory address pointer.
+> **Answer:**  
+> Output 1 (`main`): `40`  
+> Output 2 (`compute`): `8`
 >
-> **Explanation:**
-> C++ passes arrays by pointer address rather than copying element data. Passing a 1-element array vs. a 1,000,000-element array copies exactly 8 bytes of address data to the function's stack frame in $O(1)$ time.
+> **Explanation:**  
+> In `main()`, `arr` is an array of 10 integers, yielding $10 \times 4 \text{ bytes} = 40$ bytes.  
+> When calling `compute(arr)`, the array decays into an `int*` pointer. Thus `sizeof(data)` prints the 64-bit pointer size, which is 8 bytes.
 
 </details>
 
 ---
 
-## 📝 Summary & Key Takeaways
+### Question #2 — `const` Parameter Safety
+Given signature `void searchElem(const int arr[], int size, int target);`, what happens if a programmer writes `arr[0] = 0;` inside `searchElem`?
 
-1. **Array Decay:** Arrays passed to functions decay into a pointer to element 0.
-2. **Explicit Size:** Always pass array size explicitly (`int size`).
-3. **Const Guard:** Use `const int arr[]` to protect read-only array parameters.
+<details>
+<summary>🔍 <strong>View Explanation</strong></summary>
+
+> [!NOTE]
+> **Answer:** An immediate compilation error is generated.
+>
+> **Explanation:**  
+> Declaring the parameter as `const int arr[]` marks the memory block pointed to by `arr` as read-only. Attempting to modify any index causes a build failure during compilation, protecting original client data.
+
+</details>
+
+---
+
+## 📝 L28 Summary
+
+1. **Pointer Decay:** Passing an array transmits only the memory address of its first element.
+2. **O(1) Efficiency:** No element copying occurs; argument passing takes constant $O(1)$ time regardless of whether the array holds 10 or 1,000,000 elements.
+3. **Mandatory `size` Parameter:** Any function receiving a static native array must explicitly receive its length.
+4. **Const-Correctness:** Use `const int arr[]` in read-only functions to guarantee immutability.
 
 ---
 
@@ -103,7 +172,7 @@ Why does passing a 1,000,000-element array to a function in C++ execute instanta
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L27 — Array Basics**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
+| [**⬅️ L27 — 1D Static Arrays**](L27_ArrayBasics.md) | [**🏠 Arrays & Strings**](../README.md) | [**L29 — Multidimensional Arrays ➡️**](L29_MultidimensionalArrays.md) |
 
 </div>
 

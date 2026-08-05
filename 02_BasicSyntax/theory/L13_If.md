@@ -42,7 +42,7 @@ int main() {
     int score = 85;
 
     if (score >= 70) {
-        std::cout << "Congratulations! You passed the assessment.\n";
+        cout << "Congratulations! You passed the assessment.\n";
     }
 
     return 0;

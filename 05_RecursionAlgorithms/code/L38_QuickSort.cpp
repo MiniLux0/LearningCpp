@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <utility>  // std::swap
-#include <cstdlib>  // std::rand
+#include <utility>  // swap
+#include <cstdlib>  // rand
 using namespace std;
 
 // ============================================================================

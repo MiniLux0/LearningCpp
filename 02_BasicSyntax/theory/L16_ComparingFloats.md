@@ -18,7 +18,7 @@
 
 - [ ] Understand why direct equality operators (`a == b`) fail for floating-point calculations.
 - [ ] Implement **Epsilon ($\epsilon$) Tolerance Threshold Comparisons**.
-- [ ] Utilize `<cmath>` functions (`std::abs()`) to perform safe floating-point equality checks.
+- [ ] Utilize `<cmath>` functions (`abs()`) to perform safe floating-point equality checks.
 
 ---
 
@@ -31,9 +31,9 @@ double a = 0.1 + 0.2; // Evaluates to 0.30000000000000004
 double b = 0.3;
 
 if (a == b) {
-    std::cout << "Equal!\n";
+    cout << "Equal!\n";
 } else {
-    std::cout << "NOT Equal!\n"; // Execution falls here!
+    cout << "NOT Equal!\n"; // Execution falls here!
 }
 ```
 
@@ -43,14 +43,16 @@ if (a == b) {
 
 Instead of checking exact binary equality (`a == b`), verify whether the absolute difference between `a` and `b` is smaller than a tiny tolerance value **Epsilon ($\epsilon$)**:
 
-$$\text{are equal}(a, b) = |a - b| < \epsilon$$
+$$
+\text{are equal}(a, b) = |a - b| < \epsilon
+$$
 
 ```cpp
 #include <iostream>
-#include <cmath> // Required for std::abs()
+#include <cmath> // Required for abs()
 
 bool nearlyEqual(double a, double b, double epsilon = 1e-9) {
-    return std::abs(a - b) < epsilon;
+    return abs(a - b) < epsilon;
 }
 
 int main() {
@@ -58,7 +60,7 @@ int main() {
     double b = 0.3;
 
     if (nearlyEqual(a, b)) {
-        std::cout << "Safely verified as equal within epsilon tolerance!\n";
+        cout << "Safely verified as equal within epsilon tolerance!\n";
     }
 
     return 0;
@@ -73,7 +75,7 @@ int main() {
 
 ## ❓ Self-Assessment Checkpoint #1 — Epsilon Selection
 
-Why is `std::abs()` required in `std::abs(a - b) < epsilon`?
+Why is `abs()` required in `abs(a - b) < epsilon`?
 
 <details>
 <summary>🔍 <strong>View Explanation & Answer</strong></summary>
@@ -82,7 +84,7 @@ Why is `std::abs()` required in `std::abs(a - b) < epsilon`?
 > **Answer:** To handle cases where $a < b$.
 >
 > **Explanation:**
-> If $a = 0.299999$ and $b = 0.3$, then $a - b = -0.000001$. Without `std::abs()`, $-0.000001 < 1e-9$ would evaluate to `true` even if $a$ were $-1000.0$! Taking the absolute value guarantees checking distance regardless of which number is larger.
+> If $a = 0.299999$ and $b = 0.3$, then $a - b = -0.000001$. Without `abs()`, $-0.000001 < 1e-9$ would evaluate to `true` even if $a$ were $-1000.0$! Taking the absolute value guarantees checking distance regardless of which number is larger.
 
 </details>
 
@@ -91,7 +93,7 @@ Why is `std::abs()` required in `std::abs(a - b) < epsilon`?
 ## 📝 Summary & Key Takeaways
 
 1. **Rule:** NEVER compare floating-point numbers directly with `==` or `!=`.
-2. **Tolerance:** Use `std::abs(a - b) < epsilon` with `#include <cmath>`.
+2. **Tolerance:** Use `abs(a - b) < epsilon` with `#include <cmath>`.
 3. **Epsilon:** `1e-9` provides a robust default tolerance for `double`.
 
 ---

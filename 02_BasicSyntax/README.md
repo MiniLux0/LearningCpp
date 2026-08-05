@@ -30,12 +30,12 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | # | Lesson Name | 📘 Theory Note | 💻 Code Lab | Key Technical Concepts | Status |
 |---|-------------|----------------|-------------|------------------------|:------:|
 | **L06** | **Variables** | 📘 [`theory/L06_Variables.md`](theory/L06_Variables.md) | 💻 [`code/L06_Variables.cpp`](code/L06_Variables.cpp) | Variable declaration, assignment, Lvalues, initial values. | ✅ |
-| **L07** | **Strings Intro** | 📘 [`theory/L07_Strings.md`](theory/L07_Strings.md) | 💻 [`code/L07_Strings.cpp`](code/L07_Strings.cpp) | Basic `std::string` concatenation and output. | ✅ |
+| **L07** | **Strings Intro** | 📘 [`theory/L07_Strings.md`](theory/L07_Strings.md) | 💻 [`code/L07_Strings.cpp`](code/L07_Strings.cpp) | Basic `string` concatenation and output. | ✅ |
 | **L08** | **User Input** | 📘 [`theory/L08_UserInput.md`](theory/L08_UserInput.md) | 💻 [`code/L08_UserInput.cpp`](code/L08_UserInput.cpp) | Reading typed inputs, prompt string chaining. | ✅ |
 | **L09** | **Binary Numbers** | 📘 [`theory/L09_BinaryNumbers.md`](theory/L09_BinaryNumbers.md) | 💻 [`code/L09_BinaryNumbers.cpp`](code/L09_BinaryNumbers.cpp) | Bit representations, 2's complement, binary layout. | ✅ |
 | **L10** | **Integer Types** | 📘 [`theory/L10_IntegerTypes.md`](theory/L10_IntegerTypes.md) | 💻 [`code/L10_IntegerTypes.cpp`](code/L10_IntegerTypes.cpp) | `short`, `int`, `long`, `long long`, `unsigned`, `sizeof()`, overflow. | ✅ |
 | **L11** | **Floating-Point** | 📘 [`theory/L11_FloatingPointTypes.md`](theory/L11_FloatingPointTypes.md) | 💻 [`code/L11_FloatingPointTypes.cpp`](code/L11_FloatingPointTypes.cpp) | `float`, `double`, scientific notation, IEEE 754 precision limit. | ✅ |
-| **L12** | **Char and Bool** | 📘 [`theory/L12_CharAndBool.md`](theory/L12_CharAndBool.md) | 💻 [`code/L12_CharAndBool.cpp`](code/L12_CharAndBool.cpp) | ASCII character encoding, `bool` truth values, `std::boolalpha`. | ✅ |
+| **L12** | **Char and Bool** | 📘 [`theory/L12_CharAndBool.md`](theory/L12_CharAndBool.md) | 💻 [`code/L12_CharAndBool.cpp`](code/L12_CharAndBool.cpp) | ASCII character encoding, `bool` truth values, `boolalpha`. | ✅ |
 | **L13** | **If Statements** | 📘 [`theory/L13_If.md`](theory/L13_If.md) | 💻 [`code/L13_If.cpp`](code/L13_If.cpp) | Basic conditional evaluation, boolean expressions. | ✅ |
 | **L14** | **If-Else** | 📘 [`theory/L14_IfElse.md`](theory/L14_IfElse.md) | 💻 [`code/L14_IfElse.cpp`](code/L14_IfElse.cpp) | Binary decision branching, alternative execution paths. | ✅ |
 | **L15** | **If-Else-If** | 📘 [`theory/L15_IfElseIfElse.md`](theory/L15_IfElseIfElse.md) | 💻 [`code/L15_IfElseIfElse.cpp`](code/L15_IfElseIfElse.cpp) | Multi-way decision trees, mutually exclusive checks. | ✅ |

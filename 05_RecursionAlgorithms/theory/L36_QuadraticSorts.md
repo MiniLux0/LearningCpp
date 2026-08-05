@@ -1,10 +1,10 @@
-# L35 — Algoritmos de Ordenamiento Cuadráticos: Selección, Inserción y Burbuja
+# L36 — Algoritmos de Ordenamiento Cuadráticos: Selección, Inserción y Burbuja
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.1** *The sorting problem* (p. 430) y **10.2** *Computational complexity* (p. 435).
 >
 > *"The selection sort algorithm is clearly not up to the task, because the running time increases in proportion to the square of the input size."*
-> — Eric Roberts, Sec. 10.3
+> — CS106B, Sec. 10.3
 
 ---
 
@@ -12,7 +12,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 10.1 (p. 430) & Ch 10.2 (p. 435)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L35_QuadraticSorts.cpp`](../code/L35_QuadraticSorts.cpp)
+- 💻 **Laboratorio de Código:** [`L36_QuadraticSorts.cpp`](../code/L36_QuadraticSorts.cpp)
 
 ---
 
@@ -59,7 +59,7 @@ graph TD
 ### Implementación en C++
 
 ```cpp
-#include <utility> // std::swap
+#include <utility> // swap
 
 void selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
@@ -67,7 +67,7 @@ void selectionSort(int arr[], int n) {
         for (int j = i + 1; j < n; j++) {
             if (arr[j] < arr[minIdx]) minIdx = j; // Actualizar índice del mínimo
         }
-        if (minIdx != i) std::swap(arr[i], arr[minIdx]); // Colocar mínimo en su lugar
+        if (minIdx != i) swap(arr[i], arr[minIdx]); // Colocar mínimo en su lugar
     }
 }
 ```
@@ -84,7 +84,7 @@ void selectionSort(int arr[], int n) {
 ## 3. Insertion Sort — Ordenamiento por Inserción (Sección 10.1)
 
 > [!TIP]
-> **La Analogía de las Cartas (Eric Roberts, Sec. 10.1):**
+> **La Analogía de las Cartas (Sec. 10.1):**
 > Es como ordenar las cartas en tu mano. Tomas una carta nueva del mazo y la insertas en su posición correcta, desplazando hacia la derecha las cartas mayores.
 
 ### Mecánica del Algoritmo
@@ -140,7 +140,7 @@ void bubbleSort(int arr[], int n) {
         bool swapped = false;
         for (int j = 0; j < n - 1 - i; j++) {
             if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
                 swapped = true;
             }
         }
@@ -216,11 +216,11 @@ Tienes el arreglo de pares `[(3,A), (1,B), (3,C), (2,D)]` ordenado por el primer
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L34 — Linear & Binary Search**](L34_LinearBinarySearch.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L36 — MergeSort ➡️**](L36_MergeSort.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L35 — Búsqueda Lineal y Binaria**](L35_LinearBinarySearch.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L37 — MergeSort ➡️**](L37_MergeSort.md) |
 
 </div>
 

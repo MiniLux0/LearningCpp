@@ -1,69 +1,69 @@
 <div align="center">
 
-# 🚀 Section 03: Subroutines — Functions, Pass-by-Reference & Header Files
+# 🚀 Sección 03: Subrutinas — Funciones, Paso por Referencia y Cabeceras
 
-> **Lessons**: L23 – L26  
-> 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 03) / Stanford CS106L (Lectures 03 & 04)  
-> 📝 **Executive Summary**: 📝 [**`summary/03_Subroutines_Notes.md`**](summary/03_Subroutines_Notes.md)  
-> 🎯 **Primary Focus**: Subroutines, return types, pass-by-value vs pass-by-reference (`&`, `const &`), function overloading, header prototypes (`.h`), and variable scope/lifetime.
+> **Lecciones**: L23 – L26  
+> 🏛️ **Fuente Académica Base**: MIT 6.096 (Lectura 03) / Stanford CS106L (Lecturas 03 y 04) / Stanford CS106B (Capítulo 2)  
+> 📝 **Resumen Ejecutivo**: 📝 [**`summary/03_Subroutines_Notes.md`**](summary/03_Subroutines_Notes.md)  
+> 🎯 **Enfoque Principal**: Subrutinas, tipos de retorno, paso por valor vs paso por referencia (`&`, `const &`), sobrecarga de funciones, prototipos de cabecera (`.h`) y ámbito/vida de variables.
 
 ---
 
-### 🧭 Module Navigation Hub
+### 🧭 Navegación del Módulo
 
-| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
-|:------------------:|:------------------:|:--------------:|
-| [**⬅️ Section 02: Basic Syntax**](../02_BasicSyntax/README.md) | **Section 03: Subroutines** | [**Section 04: Arrays & Strings ➡️**](../04_ArraysStrings/README.md) |
+| ⬅️ Módulo Anterior | 📂 Ubicación Actual | ➡️ Siguiente Módulo |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ Sección 02: Sintaxis Básica**](../02_BasicSyntax/README.md) | **Sección 03: Subrutinas** | [**Sección 04: Arreglos y Cadenas ➡️**](../04_ArraysStrings/README.md) |
 
 </div>
 
 ---
 
-## 📌 Module Overview
+## 📌 Visión General del Módulo
 
-This module covers code modularization in C++: function declarations and signatures, return types, value vs reference passing (`&`, `const &`), function overloading, separate compilation using header files (`.h` / `.cpp`), and scope/lifetime management.
-
----
-
-## 📋 Lessons, Theory & Code Inventory
-
-| # | Lesson Name | 📘 Theory Note | 💻 Code Lab | Key Technical Concepts | Status |
-|---|-------------|----------------|-------------|------------------------|:------:|
-| **L23** | **Functions Anatomy** | 📘 [`theory/L23_Functions.md`](theory/L23_Functions.md) | 💻 [`code/L23_Functions.cpp`](code/L23_Functions.cpp) | Function declaration, parameters, return type, `void`. | ✅ |
-| **L24** | **Return Values** | 📘 [`theory/L24_ReturnValues.md`](theory/L24_ReturnValues.md) | 💻 [`code/L24_ReturnValues.cpp`](code/L24_ReturnValues.cpp) | `return` statement, return values, function overloading rules. | ✅ |
-| **L25** | **Parameters & References** | 📘 [`theory/L25_FunctionParameters.md`](theory/L25_FunctionParameters.md) | 💻 [`code/L25_FunctionParameters.cpp`](code/L25_FunctionParameters.cpp) | Pass-by-value vs pass-by-reference (`&`), `const &` efficiency. | ✅ |
-| **L26** | **Headers & Prototypes** | 📘 [`theory/L26_HeadersAndPrototypes.md`](theory/L26_HeadersAndPrototypes.md) | 💻 [`code/L26_HeadersAndPrototypes.cpp`](code/L26_HeadersAndPrototypes.cpp) | Function prototypes, `.h` and `.cpp` separation, include guards. | ✅ |
+Este módulo abarca la modularización de código en C++: declaraciones y firmas de funciones, tipos de retorno, paso por valor vs referencia (`&`, `const &`), sobrecarga de funciones, compilación separada mediante archivos de cabecera (`.h` / `.cpp`) y gestión de ámbito de variables.
 
 ---
 
-## 🎯 Practical Exercises (E01 – E05)
+## 📋 Inventario de Lecciones, Teoría y Código
 
-> 📖 **Exercise Guide**: 📂 [**`exercise/README.md`**](exercise/README.md)
-
-| # | Exercise Name | Topic | 💻 Solution File | Status |
-|---|---------------|-------|------------------|:------:|
-| **E01** | **Function Basics** | Function declarations & returns | 💻 [`exercise/E01_FunctionBasics.cpp`](exercise/E01_FunctionBasics.cpp) | ✅ |
-| **E02** | **Pass by Reference** | Direct parameter mutation via `&` | 💻 [`exercise/E02_PassByReference.cpp`](exercise/E02_PassByReference.cpp) | ✅ |
-| **E03** | **Swap Function** | In-place variable swapping with references | 💻 [`exercise/E03_SwapFunction.cpp`](exercise/E03_SwapFunction.cpp) | ✅ |
-| **E04** | **Overloading** | Function overloading by parameter types | 💻 [`exercise/E04_Overloading.cpp`](exercise/E04_Overloading.cpp) | ✅ |
-| **E05** | **Header Prototypes** | Prototypes & separate compilation | 💻 [`exercise/E05_HeaderPrototypes.cpp`](exercise/E05_HeaderPrototypes.cpp) | ✅ |
+| # | Nombre de Lección | 📘 Nota Teórica | 💻 Laboratorio de Código | Conceptos Técnicos Clave | Estatus |
+|---|-------------------|-----------------|--------------------------|--------------------------|:-------:|
+| **L23** | **Fundamentos de Funciones** | 📘 [`theory/L23_Functions.md`](theory/L23_Functions.md) | 💻 [`code/L23_Functions.cpp`](code/L23_Functions.cpp) | Declaración de funciones, parámetros, tipo de retorno, `void`, principio DRY. | ✅ |
+| **L24** | **Valores de Retorno** | 📘 [`theory/L24_ReturnValues.md`](theory/L24_ReturnValues.md) | 💻 [`code/L24_ReturnValues.cpp`](code/L24_ReturnValues.cpp) | Sentencia `return`, flujo de datos, sobrecarga de funciones. | ✅ |
+| **L25** | **Parámetros y Referencias** | 📘 [`theory/L25_FunctionParameters.md`](theory/L25_FunctionParameters.md) | 💻 [`code/L25_FunctionParameters.cpp`](code/L25_FunctionParameters.cpp) | Paso por valor vs referencia (`&`), optimización con `const &`. | ✅ |
+| **L26** | **Cabeceras y Prototipos** | 📘 [`theory/L26_HeadersAndPrototypes.md`](theory/L26_HeadersAndPrototypes.md) | 💻 [`code/L26_HeadersAndPrototypes.cpp`](code/L26_HeadersAndPrototypes.cpp) | Prototipos de función, separación `.h` / `.cpp`, guardas de inclusión `#pragma once`. | ✅ |
 
 ---
 
-## 📚 Academic Source & PDF Alignment
+## 🎯 Ejercicios Prácticos (E01 – E05)
 
-| Lessons | Academic PDF Source | Key Theoretical Topics Covered |
-|---------|---------------------|--------------------------------|
-| **L23–L25** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) | Subroutine stack frames, return types, pass-by-value vs pass-by-reference, function overloading. |
-| **L26** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/WLecture_3_Init_and_Ref.pdf) | Function prototypes, header file separation (`.h` / `.cpp`), `#ifndef` include guards, reference semantics. |
+> 📖 **Guía de Ejercicios**: 📂 [**`exercise/README.md`**](exercise/README.md)
+
+| # | Nombre del Ejercicio | Tema | 💻 Archivo de Solución | Estatus |
+|---|----------------------|------|------------------------|:-------:|
+| **E01** | **Fundamentos de Funciones** | Declaración y retorno de funciones | 💻 [`exercise/E01_FunctionBasics.cpp`](exercise/E01_FunctionBasics.cpp) | ✅ |
+| **E02** | **Paso por Referencia** | Mutación directa con `&` | 💻 [`exercise/E02_PassByReference.cpp`](exercise/E02_PassByReference.cpp) | ✅ |
+| **E03** | **Función Swap** | Intercambio *in-place* con referencias | 💻 [`exercise/E03_SwapFunction.cpp`](exercise/E03_SwapFunction.cpp) | ✅ |
+| **E04** | **Sobrecarga de Funciones** | Sobrecarga por tipo de parámetro | 💻 [`exercise/E04_Overloading.cpp`](exercise/E04_Overloading.cpp) | ✅ |
+| **E05** | **Prototipos de Cabecera** | Prototipos y compilación separada | 💻 [`exercise/E05_HeaderPrototypes.cpp`](exercise/E05_HeaderPrototypes.cpp) | ✅ |
 
 ---
 
-## 🛠️ Build & Compilation Guides
+## 📚 Alineación con Fuentes Académicas
 
-Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
-- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
-- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
+| Lecciones | Fuente Académica PDF | Temas Teóricos Clave |
+|-----------|----------------------|----------------------|
+| **L23–L25** | 📄 [`MIT 6.096 Lectura 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) | Marcos en la pila de subrutinas, tipos de retorno, paso por valor vs referencia, sobrecarga. |
+| **L26** | 📄 [`MIT 6.096 Lectura 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lectura 03`](../files/cs106l/lectures/WLecture_3_Init_and_Ref.pdf) | Prototipos de función, separación `.h` / `.cpp`, guardas de inclusión `#pragma once`. |
+
+---
+
+## 🛠️ Guías de Compilación
+
+Subdirectorios `code/` y `exercise/` incluyen archivos `makefile`:
+- ⚙️ **Tutorial de Compilación**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Referencia de Makefile**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
 ---
 *MiniLux0 — Learning C++ Section 03*

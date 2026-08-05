@@ -65,9 +65,9 @@ int main() {
     // Guard Clause: 'divisor != 0' evaluates to false.
     // 'number / divisor' is SHORT-CIRCUITED and NEVER executed!
     if (divisor != 0 && (number / divisor > 5)) {
-        std::cout << "Valid division!\n";
+        cout << "Valid division!\n";
     } else {
-        std::cout << "Division by zero prevented safely!\n";
+        cout << "Division by zero prevented safely!\n";
     }
 
     return 0;

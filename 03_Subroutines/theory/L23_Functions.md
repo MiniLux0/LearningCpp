@@ -1,94 +1,112 @@
-# Lesson 23 — Subroutines & Function Fundamentals
+# L23 — Fundamentos de Subrutinas y Funciones
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 03** ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) and **Stanford CS106B Textbook Chapter 2** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos de la **Lectura 03** de MIT 6.096 ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) y el **Capítulo 2 (*Procedural Abstraction*, pp. 55–90)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts).
 
 ---
 
-## 🧭 Quick Navigation
+## 🧭 Navegación Rápida
 
-- 📄 **Base Academic Lectures:**
+- 📄 **Lecturas Académicas Base:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Definitions & Call Stack Frames](../../files/mit6096/lectures/Lecture03_Functions.pdf)
   - 🌲 [Stanford CS106B — Chapter 2: Procedural Abstraction](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L23_Functions.cpp`](../code/L23_Functions.cpp)
+- 💻 **Laboratorio de Código:** [`L23_Functions.cpp`](../code/L23_Functions.cpp)
 
 ---
 
-## Learning Objectives
+## Objetivos de Aprendizaje
 
-- [ ] Understand procedural abstraction and DRY (Don't Repeat Yourself) engineering principles.
-- [ ] Define functions with return types, unique identifiers, and parameter lists.
-- [ ] Understand `void` functions (subroutines without return values).
-- [ ] Trace function call execution and memory stack frame push/pop operations.
+- [ ] Comprender la abstracción procedural y el principio de ingeniería **DRY (*Don't Repeat Yourself*)**.
+- [ ] Declarar y definir funciones especificando tipo de retorno, identificador y lista de parámetros.
+- [ ] Comprender el funcionamiento de funciones de tipo `void` (subrutinas sin retorno de valor).
+- [ ] Rastrear la ejecución de subrutinas y el apilado/desapilado de marcos en la pila de llamadas (*Call Stack*).
 
 ---
 
-## 1. What is a Function?
+## 1. ¿Qué es una Función o Subrutina?
 
-A **function** (or subroutine) is a reusable block of code that performs a specific task. Functions allow breaking complex monolithic code into modular, maintainable units.
+Una **función** es un bloque de código reutilizable diseñado para realizar una tarea específica. Las funciones permiten descomponer programas complejos y monolíticos en módulos independientes y fáciles de mantener.
 
 ```mermaid
 graph LR
-    Caller["main() Call Site"] -->|Pass Arguments| Func["Function Body: greetUser()"]
-    Func -->|Execute Statements| Ops["Console Output / Calculations"]
-    Ops -->|Return Execution| Caller
+    Caller["main() Llamada"] -->|Pasa Argumentos| Func["Cuerpo de la Función: mostrarBienvenida()"]
+    Func -->|Ejecuta Instrucciones| Ops["Salida en Consola / Cálculos"]
+    Ops -->|Retorna Control| Caller
 ```
 
 ```cpp
 #include <iostream>
+using namespace std;
 
-// Function definition
-void showWelcomeBanner() {
-    std::cout << "====================================\n";
-    std::cout << "    C++ SUBROUTINES MODULE L23      \n";
-    std::cout << "====================================\n";
+// Definición de función void (sin valor de retorno)
+void mostrarBienvenida() {
+    cout << "====================================\n";
+    cout << "    MODULO DE SUBRUTINAS C++ L23    \n";
+    cout << "====================================\n";
 }
 
 int main() {
-    showWelcomeBanner(); // Function call 1
-    showWelcomeBanner(); // Function call 2
+    mostrarBienvenida(); // Invocación 1
+    mostrarBienvenida(); // Invocación 2
     return 0;
 }
 ```
 
 > [!TIP]
-> **The DRY Principle:**
-> **DRY** stands for *"Don't Repeat Yourself"*. If you copy-paste the same 5 lines of code in multiple places, encapsulate them inside a function instead!
+> **El Principio DRY (*Don't Repeat Yourself*):**
+> Si te encuentras duplicando las mismas 5 líneas de código en múltiples lugares, encapsúlalas dentro de una función con un nombre descriptivo.
 
 ---
 
-## ❓ Self-Assessment Checkpoint #1 — Void Return Type
+## 2. Anatomía de una Declaración de Función
 
-What does `void` mean when placed as the return type of a function definition (`void printHeader()`)?
+Toda función consta de tres partes principales:
+
+```cpp
+//  TipoRetorno  NombreFunción ( Parámetros )
+        void       imprimirSuma  ( int a, int b ) {
+            cout << "Suma: " << (a + b) << endl;
+        }
+```
+
+- **Tipo de Retorno:** Indica qué tipo de dato devuelve la función (`int`, `double`, `string`, `void`).
+- **Nombre:** Identificador descriptivo en notación *camelCase*.
+- **Parámetros:** Variables locales de entrada encerradas entre paréntesis `()`.
+
+---
+
+## ❓ Pregunta de Chequeo #1 — El Tipo de Retorno `void`
+
+¿Qué significa que una función esté declarada con el tipo de retorno `void` (ejemplo: `void imprimirEncabezado()`)?
 
 <details>
-<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+<summary>🔍 <strong>Ver Explicación y Respuesta</strong></summary>
 
 > [!NOTE]
-> **Answer:** It indicates that the function returns NO value to the caller.
+> **Respuesta:** Indica que la función NO devuelve ningún valor de datos al invocador.
 >
-> **Explanation:**
-> `void` tells the compiler that the subroutine performs side effects (such as printing output to the screen or modifying global state) without returning any computed data value back to `main()`.
+> **Explicación:**  
+> `void` le comunica al compilador que la subrutina ejecuta acciones o efectos secundarios (como imprimir en pantalla con `cout` o modificar memoria), pero no calcula ningún valor para asignarlo a variables en `main()`.
 
 </details>
 
 ---
 
-## 📝 Summary & Key Takeaways
+## 📝 Resumen de L23
 
-1. **Functions:** Modularize code into reusable, named subroutines.
-2. **`void`:** Indicates that a function returns no value to its caller.
-3. **Reusability:** Prevents duplicate code and simplifies testing.
+1. **Modularidad:** Las funciones dividen el código en subrutinas nombradas y reutilizables.
+2. **`void`:** Indica que la función no retorna datos al invocador.
+3. **Reutilización:** Evita código duplicado y facilita la depuración.
 
 ---
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ Section 02 Capstone**](../../02_BasicSyntax/theory/L22_Switch.md) | [**🏠 Subroutines**](../README.md) | [**L24 — Return Values ➡️**](L24_ReturnValues.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ Sección 02 Capstone**](../../02_BasicSyntax/theory/L22_Switch.md) | [**🏠 Subrutines**](../README.md) | [**L24 — Valores de Retorno ➡️**](L24_ReturnValues.md) |
 
 </div>
 

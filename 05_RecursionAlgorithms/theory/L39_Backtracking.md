@@ -1,4 +1,4 @@
-# L38 — Backtracking Recursivo: Choose, Explore, Unchoose
+# L39 — Backtracking Recursivo: Choose, Explore, Unchoose
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Strategies*, pp. 349–388)** y **Capítulo 9 (*Backtracking Algorithms*, pp. 389–428)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **9.1** *Recursive backtracking in a maze* (p. 390) y **9.2** *Backtracking and games* (p. 400) y la estrategia *Choose-Explore-Unchoose* del Capítulo 8.
@@ -9,7 +9,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 8 (p. 349) & Ch 9 (p. 389)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L38_Backtracking.cpp`](../code/L38_Backtracking.cpp)
+- 💻 **Laboratorio de Código:** [`L39_Backtracking.cpp`](../code/L39_Backtracking.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 ## 1. ¿Qué es el Backtracking? (Capítulo 9, p. 390)
 
 > *"For many real-world problems, the solution process consists of working your way through a sequence of decision points in which each choice leads you further along some path. If you reach a dead end, you have to backtrack to a previous decision point and try a different path."*
-> — Eric Roberts, Cap. 9 (p. 390)
+> — CS106B, Cap. 9 (p. 390)
 
 El backtracking es una estrategia para explorar un espacio de decisiones donde:
 1. **Tomas una decisión** (ej. girar a la derecha en un laberinto).
@@ -34,7 +34,7 @@ El backtracking es una estrategia para explorar un espacio de decisiones donde:
 3. **Si llegas a un callejón sin salida**, deshaces la decisión (*backtrack*) y pruebas la siguiente opción.
 
 > [!TIP]
-> **Insight Fundamental (Roberts, p. 390):**  
+> **Insight Fundamental (p. 390):**  
 > Un problema de backtracking tiene solución **si y solo si** al menos uno de los subproblemas que resultan de cada posible elección inicial tiene solución. Esto lo hace naturalmente recursivo.
 
 ---
@@ -112,9 +112,9 @@ Total: $2^3 = 8$ subconjuntos — el Power Set completo.
 
 > *"Once upon a time... Minos demanded tribute from Athens in the form of young men and women whom he sacrificed to the Minotaur."*
 > *"Theseus entered the labyrinth with a sword and a ball of string."*
-> — Eric Roberts, Sec. 9.1 (p. 390)
+> — CS106B, Sec. 9.1 (p. 390)
 
-### Los Dos Casos Base (Roberts, p. 393)
+### Los Dos Casos Base (p. 393)
 
 ```
 CASO BASE 1: La celda actual está FUERA del laberinto → solución encontrada (true)
@@ -184,7 +184,7 @@ Inicial:           Solución (camino con '.'):
 ```
 
 > [!IMPORTANT]
-> **La Clave del Desmarcado (Roberts, p. 393):**  
+> **La Clave del Desmarcado (p. 393):**  
 > El paso `laberinto[r][c] = ' '` al final es esencial. Sin él, la función marcaría caminos explorados fallidos como "visitados" y bloquearía el retroceso. El backtracking **deshace** el marcado cuando un camino no lleva a la salida.
 
 ---
@@ -192,9 +192,9 @@ Inicial:           Solución (camino con '.'):
 ## 4. Backtracking en Juegos: El Juego Nim (Sección 9.2)
 
 > *"A backtracking problem has a solution if and only if at least one of the smaller backtracking problems that result from making each possible initial choice has a solution."*
-> — Eric Roberts, Sec. 9.2 (p. 390)
+> — CS106B, Sec. 9.2 (p. 390)
 
-### Reglas del Nim (Roberts, Sec. 9.2, p. 401)
+### Reglas del Nim (Sec. 9.2, p. 401)
 
 - Montón inicial de **13 monedas**.
 - Cada turno, un jugador toma **1, 2 o 3** monedas.
@@ -202,7 +202,7 @@ Inicial:           Solución (camino con '.'):
 
 ### Estrategia Óptima: Mutua Recursión
 
-Roberts describe una estrategia elegante usando dos funciones **mutuamente recursivas**:
+Existe una estrategia elegante usando dos funciones **mutuamente recursivas**:
 
 ```mermaid
 graph LR
@@ -302,11 +302,11 @@ Sin el paso de desmarcar, las celdas exploradas en caminos fallidos quedarían m
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Sección Siguiente |
-|:------------------:|:--------------:|:--------------------:|
-| [**⬅️ L37 — QuickSort**](L37_QuickSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**Sección 06 ➡️**](../../06_STL/README.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Sección |
+|:------------------:|:-------------------:|:--------------------:|
+| [**⬅️ L38 — QuickSort**](L38_QuickSort.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**Sección 06: Punteros ➡️**](../../06_Pointers/README.md) |
 
 </div>
 

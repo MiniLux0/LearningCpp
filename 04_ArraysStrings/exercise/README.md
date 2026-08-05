@@ -1,97 +1,79 @@
-# 04_ArraysStrings — Exercises (L27-L30)
+# 🎯 Section 04: Practical Exercises & Solutions — Arrays & Strings
 
-Integrative review of Array Basics, Arrays as Parameters, Multidimensional Arrays, and CStrings.
-Progression: each exercise builds on the previous one. Solve it, share your attempt, and we will review it before moving on.
-
-Error patterns to watch for in all exercises:
-- Do not hardcode sizes — always receive them as a parameter.
-- Check the direction of your comparisons (`>` vs `<=`, etc.) before assuming they are correct.
-- In C-strings: distinguish between array dimension vs actual content length (the `'\0'` dictates this).
+> **Module**: Section 04 (`04_ArraysStrings`)  
+> 🎯 **Focus**: Practice on 1D/2D arrays, pointer decay, C-strings (`<cstring>`), character inspection (`<cctype>`), and `string`.
 
 ---
 
-## L27 — Array Basics
+## 🧭 Exercise Inventory (E01 – E12)
 
-### Exercise 1 — Maximum
-```cpp
-int maximo(const int arr[], int size);
-```
-Returns the maximum value of the array. What initial value do you set for "maximum so far" to make it safe regardless of the array's content?
-
-### Exercise 2 — Average
-```cpp
-double promedio(const int arr[], int size);
-```
-Calculates the average of the elements. Beware of integer division — at what point in the calculation do you need to force a `double` type?
-
-### Exercise 3 — In-place Reversal
-```cpp
-void invertir(int arr[], int size);
-```
-Reverses the order of the array elements, modifying it directly (without creating a new array). Hint: think of two indices advancing from the ends towards the center — what is the stopping condition so they don't "cross over" or fall short?
+| # | Exercise Name | Evaluated Concept | 💻 Code File | Status |
+|---|---------------|-------------------|--------------|:------:|
+| **E01** | **Maximum of an Array** | 1D array traversal & comparison | 💻 [`E01_Maximum.cpp`](E01_Maximum.cpp) | ✅ |
+| **E02** | **Average Calculation** | 1D array accumulation & floating-point casting | 💻 [`E02_Average.cpp`](E02_Average.cpp) | ✅ |
+| **E03** | **In-Place Array Reversal** | Frontier pointers (`low`/`high`) & element swap | 💻 [`E03_ReverseArray.cpp`](E03_ReverseArray.cpp) | ✅ |
+| **E04** | **Increment All** | Array parameter modification in-place | 💻 [`E04_IncrementAll.cpp`](E04_IncrementAll.cpp) | ✅ |
+| **E05** | **Linear Search** | Searching algorithm & index return | 💻 [`E05_LinearSearch.cpp`](E05_LinearSearch.cpp) | ✅ |
+| **E06** | **2D Matrix Sum** | Row-Major nested loop matrix accumulation | 💻 [`E06_MatrixSum.cpp`](E06_MatrixSum.cpp) | ✅ |
+| **E07** | **Transpose Square Matrix** | In-place `mat[i][j]` element swapping | 💻 [`E07_TransposeMatrix.cpp`](E07_TransposeMatrix.cpp) | ✅ |
+| **E08** | **Reimplementing `strlen`** | Manual character count until `'\0'` sentinel | 💻 [`E08_CustomStrlen.cpp`](E08_CustomStrlen.cpp) | ✅ |
+| **E09** | **Safe `miStrcpy` Copy** | Buffer overflow prevention in C-strings | 💻 [`E09_SafeStrcpy.cpp`](E09_SafeStrcpy.cpp) | ✅ |
+| **E10** | **Count Vowels** | Character classification with `<cctype>` | 💻 [`E10_CountVowels.cpp`](E10_CountVowels.cpp) | ✅ |
+| **E11** | **In-Place C-String Reversal** | Modifying C-style character arrays | 💻 [`E11_ReverseString.cpp`](E11_ReverseString.cpp) | ✅ |
+| **E12** | **Convert to Uppercase** | Case transformation using `toupper()` | 💻 [`E12_ToUppercase.cpp`](E12_ToUppercase.cpp) | ✅ |
 
 ---
 
-## L28 — Arrays as Parameters (Pass by Reference)
+## 💡 Implementation Details per Exercise
 
-### Exercise 4 — Increment All
-```cpp
-void incrementarTodo(int arr[], int size, int delta);
-```
-Adds `delta` to each element of the array. After calling this function in `main`, is the original array modified? Explain why, in terms of how arrays are passed to functions in C++.
+### E01 — Maximum of an Array (`E01_Maximum.cpp`)
+- **Signature:** `int maximo(const int arr[], int size);`
+- **Technique:** Takes `arr[0]` as the initial reference value and iterates through the remaining elements.
 
-### Exercise 5 — Linear Search
-```cpp
-int buscar(const int arr[], int size, int objetivo);
-```
-Returns the index of the first occurrence of `objetivo` (target), or `-1` if it is not found. Double-check your `for` loop condition: are you iterating up to `size - 1` or are you off by one?
+### E02 — Average Calculation (`E02_Average.cpp`)
+- **Signature:** `double promedio(const int arr[], int size);`
+- **Technique:** Accumulates integer sum and performs explicit casting `static_cast<double>(sum) / size` to avoid integer division.
+
+### E03 — In-Place Array Reversal (`E03_ReverseArray.cpp`)
+- **Signature:** `void invertir(int arr[], int size);`
+- **Technique:** Uses two frontier indices (`low = 0`, `high = size - 1`) and performs `swap(arr[low], arr[high])` until `low >= high`.
+
+### E04 — Increment All (`E04_IncrementAll.cpp`)
+- **Signature:** `void incrementarTodo(int arr[], int size, int delta);`
+- **Technique:** Leverages array pointer decay to modify the original array memory in-place.
+
+### E05 — Linear Search (`E05_LinearSearch.cpp`)
+- **Signature:** `int buscar(const int arr[], int size, int target);`
+- **Technique:** Returns the index of the first matching occurrence or `-1` if not found.
+
+### E06 — 2D Matrix Sum (`E06_MatrixSum.cpp`)
+- **Signature:** `int sumaMatriz(const int mat[][10], int rows, int cols);`
+- **Technique:** Traverses in Row-Major order (outer loop `i` for rows, inner loop `j` for columns).
+
+### E07 — Transpose Matrix (`E07_TransposeMatrix.cpp`)
+- **Signature:** `void transponer(int mat[][10], int n);`
+- **Technique:** Swaps `mat[i][j]` with `mat[j][i]` iterating only over the upper triangle (`j > i`).
+
+### E08 — Reimplementing `strlen` (`E08_CustomStrlen.cpp`)
+- **Signature:** `int miStrlen(const char s[]);`
+- **Technique:** Counts characters in a `char[]` array until reaching the null sentinel `'\0'`.
+
+### E09 — Safe `miStrcpy` Copy (`E09_SafeStrcpy.cpp`)
+- **Signature:** `bool miStrcpy(char dest[], int destSize, const char src[]);`
+- **Technique:** Checks if `strlen(src) + 1 <= destSize` before copying to prevent Buffer Overflows.
+
+### E10 — Count Vowels (`E10_CountVowels.cpp`)
+- **Signature:** `int contarVocales(const char s[]);`
+- **Technique:** Uses `tolower()` from `<cctype>` to count both uppercase and lowercase vowels uniformly.
+
+### E11 — In-Place C-String Reversal (`E11_ReverseString.cpp`)
+- **Signature:** `void invertirString(char s[]);`
+- **Technique:** Measures length with `strlen` and reverses characters in-place while keeping the final `'\0'` in its position.
+
+### E12 — Convert to Uppercase (`E12_ToUppercase.cpp`)
+- **Signature:** `void aMayusculas(char s[]);`
+- **Technique:** Traverses the array and applies `s[i] = static_cast<char>(toupper(static_cast<unsigned char>(s[i])))`.
 
 ---
 
-## L29 — Multidimensional Arrays
-
-### Exercise 6 — Matrix Sum
-```cpp
-int sumaMatriz(const int mat[][10], int filas, int columnasReales);
-```
-Sums all the elements of a matrix with up to 10 columns, but where only the first `columnasReales` (actual columns) of each row have valid data. Why can you only leave the first dimension unspecified when declaring the parameter in C++, but not the second?
-
-### Exercise 7 — Transpose Square Matrix
-```cpp
-void transponer(int mat[][10], int n);
-```
-Transposes an `n x n` square matrix in-place (without an auxiliary matrix). Hint: if you swap `mat[i][j]` with `mat[j][i]` for all `i,j`, you will undo your own work. What range of `(i,j)` avoids that?
-
----
-
-## L30 — CStrings
-
-### Exercise 8 — `miStrlen`
-```cpp
-int miStrlen(const char s[]);
-```
-Implement your own version of `strlen` from scratch (without using `<cstring>`). What is your loop condition?
-
-### Exercise 9 — Safe `miStrcpy`
-```cpp
-bool miStrcpy(char dest[], int destSize, const char src[]);
-```
-Copies `src` to `dest` only if it fits (using `destSize` to verify before writing), and returns `true`/`false` depending on whether the copy was possible. This is exactly what `strcpy` from `<cstring>` *does not* do — how many bytes minimum need to fit, counting the terminator?
-
-### Exercise 10 — Count Vowels
-```cpp
-int contarVocales(const char s[]);
-```
-Counts how many vowels (uppercase or lowercase) the string has, using `<cctype>` functions instead of manually comparing `s[i] == 'a' || s[i] == 'A' || ...`.
-
-### Exercise 11 — In-place C-string Reversal
-```cpp
-void invertirString(char s[]);
-```
-Same as Exercise 3, but for a C-string. Key difference: how do you get the "size" here, if it is not passed as a parameter?
-
-### Exercise 12 — Uppercase without `std::string`
-```cpp
-void aMayusculas(char s[]);
-```
-Converts the string to uppercase in-place using `<cctype>`. Quick reminder: `toupper` returns the result, it doesn't modify its argument — how do you apply that here?
+*MiniLux0 — Learning C++ Section 04 Exercises*

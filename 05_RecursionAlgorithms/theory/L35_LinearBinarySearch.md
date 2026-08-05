@@ -1,10 +1,10 @@
-# L34 — Búsqueda Lineal y Binaria: Algoritmos, Complejidad e Implementación
+# L35 — Búsqueda Lineal y Binaria: Algoritmos, Complejidad e Implementación
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **7.5** *The binary search algorithm* (p. 335) y **10.2** *Computational complexity* (p. 435).
 >
 > *"When you look for a word in a dictionary, you don't start at the first page."*
-> — Eric Roberts, Sec. 7.5
+> — CS106B, Sec. 7.5
 
 ---
 
@@ -12,7 +12,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 7.5 (p. 335) & Ch 10.2 (p. 435)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L34_LinearBinarySearch.cpp`](../code/L34_LinearBinarySearch.cpp)
+- 💻 **Laboratorio de Código:** [`L35_LinearBinarySearch.cpp`](../code/L35_LinearBinarySearch.cpp)
 
 ---
 
@@ -69,7 +69,7 @@ sequenceDiagram
 ## 2. Búsqueda Binaria (*Binary Search* — Sección 7.5)
 
 > [!TIP]
-> **La Analogía del Diccionario (Eric Roberts, Sec. 7.5):**
+> **La Analogía del Diccionario (Sec. 7.5):**
 > Cuando buscas una palabra en un diccionario de 1,000 páginas, no hojeas página por página desde la primera. Abres el libro justo en la mitad. Si la palabra buscada es alfabéticamente menor, descartas toda la mitad derecha y repites el proceso en la mitad izquierda.
 
 > [!IMPORTANT]
@@ -160,7 +160,9 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 > La fórmula tradicional `int mid = (low + high) / 2;` tiene un error sutil. En arreglos masivos donde `low + high > 2,147,483,647` (límite de `int` de 32-bit signed), la suma sufre un **Overflow Entero** produciendo un número negativo y causando un crash o resultado incorrecto.
 >
 > **La fórmula segura siempre:**
-> $$\text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2}$$
+> $$
+> \text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2}
+> $$
 > Dado que `high - low` nunca supera el rango del arreglo, la suma parcial nunca desborda.
 
 ---
@@ -196,7 +198,9 @@ Para un arreglo ordenado de **$8{,}000{,}000$ elementos**, ¿cuál es el número
 **Respuesta:** Máximo **23 comparaciones**.
 
 **Cálculo:**
-$$\lceil \log_2(8{,}000{,}000) \rceil = \lceil 22.93 \rceil = 23$$
+$$
+\lceil \log_2(8{,}000{,}000) \rceil = \lceil 22.93 \rceil = 23
+$$
 
 Esto contrasta con los $8{,}000{,}000$ de pasos que requeriría la búsqueda lineal en el peor caso.
 
@@ -229,11 +233,11 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L33 — Big-O Notation**](L33_BigONotation.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L35 — Quadratic Sorts ➡️**](L35_QuadraticSorts.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L34 — Notación Big-O**](L34_BigONotation.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L35 — Ordenamientos Cuadráticos ➡️**](L36_QuadraticSorts.md) |
 
 </div>
 

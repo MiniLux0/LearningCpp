@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Differentiate single-precision (`float`) vs. double-precision (`double`) types under the IEEE 754 standard.
-- [ ] Control output stream formatting with `<iomanip>` (`std::fixed`, `std::setprecision()`).
+- [ ] Control output stream formatting with `<iomanip>` (`fixed`, `setprecision()`).
 - [ ] Understand why floating-point numbers incur binary representation rounding errors ($0.1 + 0.2 \neq 0.3$).
 
 ---
@@ -26,7 +26,9 @@
 
 Real numbers with fractional decimals are represented using floating-point scientific notation under the IEEE 754 binary standard:
 
-$$\text{Value} = (-1)^{\text{sign}} \times \text{mantissa} \times 2^{\text{exponent}}$$
+$$
+\text{Value} = (-1)^{\text{sign}} \times \text{mantissa} \times 2^{\text{exponent}}
+$$
 
 | Data Type | Memory Size | Mantissa Bits | Decimal Precision | Standard Usage |
 | :--- | :---: | :---: | :---: | :--- |
@@ -42,7 +44,7 @@ double dVal = 3.141592653589793; // Default floating literal is double
 
 ## 2. Formatting Output Precision (`<iomanip>`)
 
-By default, `std::cout` truncates floating-point output to 6 significant digits. Use `std::fixed` and `std::setprecision(N)` from `<iomanip>` for precise control:
+By default, `cout` truncates floating-point output to 6 significant digits. Use `fixed` and `setprecision(N)` from `<iomanip>` for precise control:
 
 ```cpp
 #include <iostream>
@@ -51,9 +53,9 @@ By default, `std::cout` truncates floating-point output to 6 significant digits.
 int main() {
     double pi = 3.141592653589793;
 
-    std::cout << "Default std::cout : " << pi << "\n";
-    std::cout << "Fixed 2 Decimals  : " << std::fixed << std::setprecision(2) << pi << "\n";
-    std::cout << "Fixed 10 Decimals : " << std::fixed << std::setprecision(10) << pi << "\n";
+    cout << "Default cout : " << pi << "\n";
+    cout << "Fixed 2 Decimals  : " << fixed << setprecision(2) << pi << "\n";
+    cout << "Fixed 10 Decimals : " << fixed << setprecision(10) << pi << "\n";
 
     return 0;
 }
@@ -89,7 +91,7 @@ What is the type of the literal `3.14` versus `3.14f` in C++?
 ## 📝 Summary & Key Takeaways
 
 1. **Default Type:** Always use `double` for general floating-point math.
-2. **Formatting:** Use `#include <iomanip>` with `std::fixed` and `std::setprecision()`.
+2. **Formatting:** Use `#include <iomanip>` with `fixed` and `setprecision()`.
 3. **Imprecision:** Binary floating-point cannot store fractions like $1/10$ with 100% exactness.
 
 ---

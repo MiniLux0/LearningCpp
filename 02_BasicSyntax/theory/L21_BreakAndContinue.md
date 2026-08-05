@@ -37,18 +37,18 @@ graph TD
 #include <iostream>
 
 int main() {
-    std::cout << "--- Demo: continue (Skipping 3) ---\n";
+    cout << "--- Demo: continue (Skipping 3) ---\n";
     for (int i = 1; i <= 5; i++) {
         if (i == 3) continue; // Skips printing 3
-        std::cout << i << " ";
+        cout << i << " ";
     }
 
-    std::cout << "\n\n--- Demo: break (Aborting at 3) ---\n";
+    cout << "\n\n--- Demo: break (Aborting at 3) ---\n";
     for (int i = 1; i <= 5; i++) {
         if (i == 3) break; // Terminates loop completely
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << "\n";
+    cout << "\n";
     return 0;
 }
 ```
@@ -65,7 +65,7 @@ What is printed by:
 ```cpp
 for (int i = 1; i <= 4; i++) {
     if (i % 2 == 0) continue;
-    std::cout << i << " ";
+    cout << i << " ";
 }
 ```
 
@@ -76,7 +76,7 @@ for (int i = 1; i <= 4; i++) {
 > **Output:** `1 3 `.
 >
 > **Explanation:**
-> When `i = 2` and `i = 4`, `i % 2 == 0` is `true`. `continue` fires, skipping `std::cout` and advancing directly to the step increment `i++`. Only odd values `1` and `3` are printed.
+> When `i = 2` and `i = 4`, `i % 2 == 0` is `true`. `continue` fires, skipping `cout` and advancing directly to the step increment `i++`. Only odd values `1` and `3` are printed.
 
 </details>
 

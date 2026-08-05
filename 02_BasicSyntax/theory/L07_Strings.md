@@ -1,4 +1,4 @@
-# Lesson 07 — Working with Text Strings (`std::string`)
+# Lesson 07 — Working with Text Strings (`string`)
 
 > [!NOTE]
 > **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 05** ([`WL5_Containers.pdf`](../../files/cs106l/lectures/WL5_Containers.pdf)) and **Stanford CS106B Textbook Chapter 3** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
@@ -16,20 +16,20 @@
 
 ## Learning Objectives
 
-- [ ] Understand `std::string` as a dynamic C++ Standard Library container class (`#include <string>`).
-- [ ] Differentiate between single characters (`char` in `' '`) and string objects (`std::string` in `" "`).
+- [ ] Understand `string` as a dynamic C++ Standard Library container class (`#include <string>`).
+- [ ] Differentiate between single characters (`char` in `' '`) and string objects (`string` in `" "`).
 - [ ] Perform string concatenation using `operator+`.
 - [ ] Query string length (`.length()` / `.size()`) and index characters using `operator[]`.
 
 ---
 
-## 1. What is `std::string`?
+## 1. What is `string`?
 
-A `std::string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `std::string` manages its own memory automatically on the heap as text grows or shrinks.
+A `string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `string` manages its own memory automatically on the heap as text grows or shrinks.
 
 ```mermaid
 graph LR
-    Str["std::string name = 'Ada';"] -->|Internal Memory Layout| Arr["['A'] ['d'] ['a'] ['\0']"]
+    Str["string name = 'Ada';"] -->|Internal Memory Layout| Arr["['A'] ['d'] ['a'] ['\0']"]
     Arr --> Method1[".length() -> 3"]
     Arr --> Method2["operator[0] -> 'A'"]
 ```
@@ -43,19 +43,19 @@ graph LR
 #include <string>
 
 int main() {
-    std::string firstName = "Ada";
-    std::string lastName = "Lovelace";
+    string firstName = "Ada";
+    string lastName = "Lovelace";
 
     // 1. Concatenation (+)
-    std::string fullName = firstName + " " + lastName;
-    std::cout << "Full Name: " << fullName << "\n";
+    string fullName = firstName + " " + lastName;
+    cout << "Full Name: " << fullName << "\n";
 
     // 2. Length Inspection (.length() / .size())
-    std::cout << "Total Characters: " << fullName.length() << "\n";
+    cout << "Total Characters: " << fullName.length() << "\n";
 
     // 3. Zero-indexed Character Access ([])
-    std::cout << "First Character : " << fullName[0] << "\n"; // 'A'
-    std::cout << "Last Character  : " << fullName[fullName.length() - 1] << "\n"; // 'e'
+    cout << "First Character : " << fullName[0] << "\n"; // 'A'
+    cout << "Last Character  : " << fullName[fullName.length() - 1] << "\n"; // 'e'
 
     return 0;
 }
@@ -86,7 +86,7 @@ What is the difference between `'A'` and `"A"` in C++?
 
 ## 📝 Summary & Key Takeaways
 
-1. **Header:** Include `<string>` to use `std::string`.
+1. **Header:** Include `<string>` to use `string`.
 2. **Operators:** Use `+` for concatenation and `[]` for character indexing.
 3. **Methods:** `.length()` and `.size()` both return the character count in $O(1)$ time.
 

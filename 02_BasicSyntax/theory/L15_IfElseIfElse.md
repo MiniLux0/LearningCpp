@@ -44,13 +44,13 @@ int main() {
     int score = 85;
 
     if (score >= 90) {
-        std::cout << "Grade: A\n";
+        cout << "Grade: A\n";
     } else if (score >= 80) {
-        std::cout << "Grade: B\n";
+        cout << "Grade: B\n";
     } else if (score >= 70) {
-        std::cout << "Grade: C\n";
+        cout << "Grade: C\n";
     } else {
-        std::cout << "Grade: F\n";
+        cout << "Grade: F\n";
     }
 
     return 0;
@@ -67,8 +67,8 @@ int main() {
 
 What prints if `score = 95` and the conditions are ordered as follows?
 ```cpp
-if (score >= 70) { std::cout << "C"; }
-else if (score >= 90) { std::cout << "A"; }
+if (score >= 70) { cout << "C"; }
+else if (score >= 90) { cout << "A"; }
 ```
 
 <details>

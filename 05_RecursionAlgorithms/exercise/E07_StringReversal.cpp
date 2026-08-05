@@ -1,42 +1,42 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
-// Exercise 7 — String Reversal (recursive, no loops)
-// Big-O: Time O(n), Space O(n) — n recursive frames + n new strings built.
-// Base case: empty string or single character is its own reverse.
-// Recursive case: reverse(s) = reverse(s[1..end]) + s[0]
+// ============================================================================
+// EJERCICIO 7 — INVERSIÓN RECURSIVA DE CADENAS
+// Complejidad objetivo: Tiempo O(n), Espacio O(n) en pila.
+// ============================================================================
 
-string reverseString(const string& s) {
-    if (s.length() <= 1) return s;                     // base case
-    return reverseString(s.substr(1)) + s[0];          // recursive case
+string invertirCadena(const string& s) {
+    if (s.length() <= 1) return s; // Caso base
+    return invertirCadena(s.substr(1)) + s[0]; // Paso recursivo
 }
 
-// Bonus: in-place version using index parameters (avoids string copies)
-void reverseInPlace(string& s, int left, int right) {
-    if (left >= right) return;                         // base case
-    swap(s[left], s[right]);
-    reverseInPlace(s, left + 1, right - 1);
+// ── SISTEMA DE VERIFICACIÓN ROBUSTO ─────────────────────────────────────────
+void verificar(bool condicion, const string& mensaje) {
+    if (!condicion) {
+        cerr << "  [❌ FALLÓ] " << mensaje << endl;
+        exit(1);
+    }
+}
+
+void ejecutarPruebas() {
+    cout << "Ejecutando pruebas automáticas de Inversión de Cadenas..." << endl;
+
+    verificar(invertirCadena("hola") == "aloh", "'hola' -> 'aloh'");
+    verificar(invertirCadena("recursividad") == "dadivisrucer", "'recursividad' no coincide");
+    cout << "  [PASO] Test 1: Inversión de palabras estándar OK" << endl;
+
+    verificar(invertirCadena("") == "", "Cadena vacía");
+    verificar(invertirCadena("A") == "A", "Cadena de 1 char");
+    cout << "  [PASO] Test 2: Casos base de 0 y 1 carácter OK" << endl;
+
+    cout << "\n¡TODOS LOS TESTS PASARON EXITOSAMENTE! (100% Correcto)" << endl;
 }
 
 int main() {
-    cout << "--- String Reversal (Recursive) ---" << endl;
-
-    cout << "\n[reverseString — returns new string]" << endl;
-    cout << "\"hello\"   → \"" << reverseString("hello")   << "\"" << endl;
-    cout << "\"abcde\"   → \"" << reverseString("abcde")   << "\"" << endl;
-    cout << "\"a\"       → \"" << reverseString("a")       << "\"" << endl;
-    cout << "\"\"        → \"" << reverseString("")        << "\"" << endl;
-    cout << "\"racecar\" → \"" << reverseString("racecar") << "\"" << endl;
-
-    cout << "\n[reverseInPlace — modifies original]" << endl;
-    string s1 = "recursion";
-    reverseInPlace(s1, 0, static_cast<int>(s1.length()) - 1);
-    cout << "\"recursion\" reversed in-place → \"" << s1 << "\"" << endl;
-
-    string s2 = "ab";
-    reverseInPlace(s2, 0, static_cast<int>(s2.length()) - 1);
-    cout << "\"ab\" reversed in-place        → \"" << s2 << "\"" << endl;
-
+    cout << "=== E07: Inversión Recursiva de Cadenas ===" << endl << endl;
+    ejecutarPruebas();
     return 0;
 }

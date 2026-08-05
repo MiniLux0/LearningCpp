@@ -1,101 +1,36 @@
-# 05_RecursionAlgorithms — Exercises (L31-L38)
+# 🎯 Sección 05: Ejercicios Prácticos y Soluciones — Recursión y Algoritmos
 
-Integrative practice covering recursion fundamentals, Big-O complexity analysis, binary search, divide-and-conquer sorting, and recursive backtracking.
-Progression: each exercise builds on the previous one. Solve it, share your attempt, and we will review it before moving on.
-
-Error patterns to watch for in all exercises:
-- Always define a base case — recursion without a base case causes infinite stack growth and a crash.
-- Ensure recursive calls move toward the base case (smaller input, narrower range, reduced state).
-- In sorting: distinguish between dividing the problem and merging/combining the results.
-- In backtracking: remember to undo your choice before exploring the next branch (rollback).
+> **Módulo**: Sección 05 (`05_RecursionAlgorithms`)  
+> 🎯 **Enfoque**: Práctica de recursión matemática, memoización (DP Top-Down), análisis Big-O, búsqueda binaria, algoritmos de ordenamiento divide y vencerás (MergeSort, QuickSort) y Backtracking recursivo.
 
 ---
 
-## L31-L32 — Thinking Recursively & Recursive Problems
+## 🧭 Inventario de Ejercicios con Pruebas Automáticas (`assert`)
 
-### Exercise 1 — Factorial
-```cpp
-long long factorial(int n);
-```
-Compute `n!` recursively. What is the base case? What happens if `n == 0`? Verify your function does not recurse infinitely for negative inputs.
+Todos los archivos de ejercicio cuentan con un **Banco de Pruebas Automáticas (*Test Suite*)** con `assert`. Al compilar y ejecutar cada ejercicio, obtendrás retroalimentación instantánea de validez (`[PASO] Test OK`):
 
-### Exercise 2 — Fibonacci
-```cpp
-long long fibonacci(int n);
-```
-Return the nth Fibonacci number (0-indexed: `fib(0)=0`, `fib(1)=1`). After it works, observe how many redundant calls are made for `fib(10)` — this is the motivation for memoization.
-
----
-
-## L33 — Big-O Notation
-
-*(No standalone coding exercise — complexity analysis is embedded in exercises E03–E08. For each solution you write, annotate its Big-O time and space complexity in a comment.)*
+| # | Nombre del Ejercicio | Concepto Evaluado | 💻 Archivo de Código | Estado |
+|---|----------------------|-------------------|----------------------|:------:|
+| **E01** | **Factorial Recursivo** | Casos base y pila de llamadas | 💻 [`E01_Factorial.cpp`](E01_Factorial.cpp) | ✅ |
+| **E02** | **Fibonacci Memoizado** | Recursión simple vs. memoización ($O(N)$) | 💻 [`E02_Fibonacci.cpp`](E02_Fibonacci.cpp) | ✅ |
+| **E03** | **Búsqueda Binaria Recursiva** | Divide y vencerás en arreglos ordenados $O(\log N)$ | 💻 [`E03_BinarySearch.cpp`](E03_BinarySearch.cpp) | ✅ |
+| **E04** | **MergeSort** | Ordenamiento estable $O(N \log N)$ y mezcla | 💻 [`E04_MergeSort.cpp`](E04_MergeSort.cpp) | ✅ |
+| **E05** | **QuickSort** | Particionado Lomuto y posicionamiento de pivote | 💻 [`E05_QuickSort.cpp`](E05_QuickSort.cpp) | ✅ |
+| **E06** | **Función Potencia** | Exponenciación binaria rápida $O(\log N)$ | 💻 [`E06_PowerFunction.cpp`](E06_PowerFunction.cpp) | ✅ |
+| **E07** | **Inversión de Cadena** | Procesamiento recursivo de texto sin ciclos | 💻 [`E07_StringReversal.cpp`](E07_StringReversal.cpp) | ✅ |
+| **E08** | **Generación de Subconjuntos** | Backtracking con patrón *Elegir / Explorar / Deshacer* | 💻 [`E08_Backtracking.cpp`](E08_Backtracking.cpp) | ✅ |
 
 ---
 
-## L34 — Linear & Binary Search
+## 🛠️ Instrucciones de Compilación y Ejecución de Pruebas
 
-### Exercise 3 — Binary Search
-```cpp
-int binarySearch(const int arr[], int size, int target);
-```
-Returns the index of `target` in the sorted array, or `-1` if not found. Implement it **recursively** using `low` and `high` bounds. What is the Big-O time complexity vs linear search?
-
----
-
-## L35-L36 — MergeSort
-
-### Exercise 4 — MergeSort
-```cpp
-void mergeSort(int arr[], int low, int high);
-void merge(int arr[], int low, int mid, int high);
-```
-Implement the classic divide-and-conquer merge sort. The `merge` helper must combine two already-sorted halves into a sorted result. What is the space complexity and why does MergeSort need auxiliary memory?
-
----
-
-## L37 — QuickSort
-
-### Exercise 5 — QuickSort
-```cpp
-void quickSort(int arr[], int low, int high);
-int partition(int arr[], int low, int high);
-```
-Use the last element as the pivot. `partition` must rearrange the array so elements less than pivot come before it and greater elements after. What is the worst-case scenario and when does it occur?
-
----
-
-## L31-L32 — Advanced Recursive Problems
-
-### Exercise 6 — Power Function
-```cpp
-double power(double base, int exp);
-```
-Compute `base^exp` recursively. First implement the naïve O(exp) version, then optimize to O(log exp) using the fact that `base^exp = base^(exp/2) * base^(exp/2)` when `exp` is even.
-
-### Exercise 7 — String Reversal
-```cpp
-string reverseString(const string& s);
-```
-Return a reversed copy of the string using recursion — no loops allowed. What is the base case? What is the recursive case in terms of the first character and the rest of the string?
-
----
-
-## L38 — Backtracking
-
-### Exercise 8 — Backtracking: Subsets
-```cpp
-void generateSubsets(const vector<int>& nums, int idx,
-                     vector<int>& current, vector<vector<int>>& result);
-```
-Generate all subsets of `nums` using recursive backtracking. At each index, make two choices: include `nums[idx]` or skip it. Undo your choice before the next branch. How many subsets does a set of N elements produce?
-
----
-
-## 🛠️ How to Build and Run Exercises
-
-```bash
+```powershell
 cd 05_RecursionAlgorithms/exercise
 make
 .\build\E01_Factorial.exe
+.\build\E02_Fibonacci.exe
 ```
+
+---
+
+*MiniLux0 — Learning C++ Section 05 Exercises*

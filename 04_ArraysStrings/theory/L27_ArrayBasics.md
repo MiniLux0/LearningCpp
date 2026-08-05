@@ -1,96 +1,145 @@
-# Lesson 27 — Array Basics: Declaration, Contiguous Memory & Indexing
+# L27 — 1D Static Arrays: RAM Memory Layout, Indexing & Boundaries
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 11** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 04** ([`Lecture04_Arrays.pdf`](../../files/mit6096/lectures/Lecture04_Arrays.pdf)).
+> **Academic Grounding:** This lesson synthesizes concepts from **Chapter 11 (Sections 11.1–11.2: *The basic structure of an array*, pp. 493–501)** of the official Stanford CS106B textbook (*Programming Abstractions in C++* by Eric Roberts) and **Lecture 04** of MIT 6.096 ([`Lecture04_ArraysAndStrings.pdf`](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
-- 📄 **Base Academic Lectures:**
-  - 🌲 [Stanford CS106B — Chapter 11: Arrays & Memory Allocation](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-  - 🏛️ [MIT 6.096 — Lecture 04: Fixed-Size Array Allocation](../../files/mit6096/lectures/Lecture04_Arrays.pdf)
+- 📄 **Base Academic Readings:**
+  - 🌲 [Stanford CS106B Textbook — Ch 11.1–11.2: Static Arrays & Memory Allocation (pp. 493–501)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🏛️ [MIT 6.096 — Lecture 04: Fixed-Size Array Allocation](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)
 - 💻 **Code Lab:** [`L27_ArrayBasics.cpp`](../code/L27_ArrayBasics.cpp)
 
 ---
 
 ## Learning Objectives
 
-- [ ] Understand static arrays as fixed-size, contiguous blocks of RAM memory.
-- [ ] Calculate memory offset formulas: $\text{address} = \text{base} + i \times \text{sizeof(type)}$.
-- [ ] Declare and initialize native C++ fixed-size arrays (`int arr[5]`).
-- [ ] Recognize and prevent Out-of-Bounds array indexing and memory corruption.
+- [ ] Understand the structure of a static array as a contiguous, fixed-size block in RAM memory.
+- [ ] Apply the mathematical memory address formula: $\text{Address}(i) = \text{BaseAddress} + i \times \text{sizeof}(\text{type})$.
+- [ ] Declare and initialize static arrays using modern C++ uniform `{}` syntax.
+- [ ] Diagnose and prevent Out-of-Bounds memory access and adjacent memory corruption.
+- [ ] Calculate array length in its declaration scope via `sizeof(arr) / sizeof(arr[0])`.
 
 ---
 
 ## 1. Contiguous RAM Memory Layout
 
-An **array** is a collection of elements of the same data type stored in **contiguous (adjacent) RAM memory locations**:
+An **array** in C++ is an ordered collection of elements of the same type stored in **contiguous (consecutive)** RAM memory locations.
 
 ```mermaid
 graph LR
-    Base["Base Address: 0x1000<br/>arr[0] = 10"] --- E1["Address: 0x1004<br/>arr[1] = 20"]
-    E1 --- E2["Address: 0x1008<br/>arr[2] = 30"]
-    E2 --- E3["Address: 0x100C<br/>arr[3] = 40"]
+    Base["Base: 0x1000<br/>arr[0] = 10"] --- E1["0x1004<br/>arr[1] = 20"]
+    E1 --- E2["0x1008<br/>arr[2] = 30"]
+    E2 --- E3["0x100C<br/>arr[3] = 40"]
 ```
 
-$$\text{Element Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))$$
+### Exact Memory Address Calculation
+
+The memory address of the $i$-th element is calculated directly via arithmetic:
+
+$$\text{Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))$$
 
 > [!TIP]
-> **Why Indexing Starts at 0:**
-> The index $i$ represents a **memory byte offset multiplier**. Index `0` means zero offset from the array's base memory address.
+> **Why do indices start at 0?**
+> The index $i$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ($0 \times \text{sizeof}(\text{type}) = 0$), pointing directly to the start of the data structure.
 
 ---
 
-## 2. Declaration & Initialization
+## 2. Declaration & Initialization in C++
 
 ```cpp
 #include <iostream>
+using namespace std;
 
 int main() {
-    // 1. Explicit Size & Uniform Brace Initialization
-    int scores[4]{10, 20, 30, 40};
+    // 1. Explicit size declaration & uniform initialization {}
+    int grades[4]{10, 20, 30, 40};
 
-    // 2. Zero-Initialization
-    int zeros[5]{}; // All 5 elements set to 0
+    // 2. Zero initialization (all elements set to 0)
+    int zeroes[5]{}; // {0, 0, 0, 0, 0}
 
-    // 3. Array Traversal
+    // 3. Partial initialization (remaining elements filled with 0)
+    int partial[5]{10, 20}; // {10, 20, 0, 0, 0}
+
+    // 4. Size automatically inferred by compiler
+    double prices[]{19.99, 5.50, 42.0}; // Size = 3
+
+    // 5. Array traversal
     for (int i = 0; i < 4; i++) {
-        std::cout << "Element [" << i << "] = " << scores[i] << "\n";
+        cout << "Element [" << i << "] = " << grades[i] << endl;
     }
 
     return 0;
 }
 ```
 
-> [!CAUTION]
-> **Out-of-Bounds Memory Access:**
-> C++ does NOT perform bounds checking on native arrays. Accessing `scores[10]` on a 4-element array accesses unreserved RAM memory, corrupting neighboring variables or causing a Segmentation Fault crash!
+> [!WARNING]
+> **Memory Garbage from Uninitialized Local Arrays:**
+> Local arrays declared without initialization (`int data[10];`) contain indeterminate values (*garbage values*) previously residing in the RAM memory cells allocated by the OS.
 
 ---
 
-## ❓ Self-Assessment Checkpoint #1 — Memory Bounds Calculation
+## 3. Out-of-Bounds Access
 
-If an `int` array `arr[5]` starts at memory address `0x2000`, what is the RAM memory address of `arr[3]` assuming `sizeof(int) == 4` bytes?
+C++ prioritizes execution performance and **does not perform automatic bounds checking** on native arrays.
+
+```cpp
+int values[5]{1, 2, 3, 4, 5};
+values[10] = 99; // ❌ DANGER: Writes to unreserved memory
+```
+
+> [!CAUTION]
+> **Risks of Out-of-Bounds Access:**
+> 1. **Neighboring Variable Overwrite:** Unintentionally modifies values of other variables on the Stack.
+> 2. **Undefined Behavior (UB):** Produces unpredictable results across different compilers.
+> 3. **Segmentation Fault:** If the requested address belongs to OS-protected memory, the process is immediately aborted.
+
+---
+
+## ❓ Checkpoint Questions & Active Retrieval
+
+### Question #1 — Address Offset Calculation
+An array `int table[8]` of type integer (`sizeof(int) == 4` bytes) starts at memory address `0x7FFF00`. What is the exact memory address of element `table[5]`?
 
 <details>
 <summary>🔍 <strong>View Explanation & Calculation</strong></summary>
 
 > [!NOTE]
-> **Calculation:** `0x2000` $+ (3 \times 4) =$ `0x2000` $+ 12$ bytes $=$ `0x200C`.
+> **Calculation:**  
+> $$\text{Address} = \text{0x7FFF00} + (5 \times 4 \text{ bytes}) = \text{0x7FFF00} + 20 \text{ bytes (0x14 in hex)}$$  
+> $$\text{Final Address} = \text{0x7FFF14}$$
 >
-> **Explanation:**
-> The CPU multiplies index `3` by `4` bytes (`sizeof(int)`), offsetting 12 bytes past the base address `0x2000` to arrive directly at `0x200C`.
+> **Explanation:**  
+> The processor multiplies index `5` by element size `4` bytes, yielding a 20-byte decimal offset (equivalent to `0x14` in base 16) added to the base address.
 
 </details>
 
 ---
 
-## 📝 Summary & Key Takeaways
+### Question #2 — Partial Initialization vs. Garbage Memory
+Given declaration `int data[5]{10, 20};`, what value is stored in `data[3]` and why does it differ from `int garbage[5];`?
 
-1. **Contiguous Storage:** Array elements are placed back-to-back in RAM.
-2. **Fixed Size:** Native array size must be known at compile time and cannot be resized.
-3. **Safety:** Always ensure indices remain within $[0, N-1]$.
+<details>
+<summary>🔍 <strong>View Explanation</strong></summary>
+
+> [!NOTE]
+> **Answer:** `data[3]` is `0`.  
+>
+> **Explanation:**  
+> Providing a partial brace initialization list `{10, 20}` guarantees by C++ standard rules that all remaining unspecified elements are implicitly initialized to zero (`0`). In contrast, `int garbage[5];` lacks braces `{}` or initial values, leaving its 5 cells with uninitialized RAM garbage values.
+
+</details>
+
+---
+
+## 📝 L27 Summary
+
+1. **Contiguous Structure:** Elements are placed consecutively without interruption in RAM memory.
+2. **Fixed Static Size:** Native array size must be known at compile time and cannot be resized during runtime.
+3. **O(1) Access:** Accessing any element `arr[i]` requires a single arithmetic operation in $O(1)$ time.
+4. **Safety:** The programmer bears sole responsibility for ensuring indices stay within valid range $[0, N-1]$.
 
 ---
 

@@ -43,9 +43,9 @@ int main() {
     int itemCost = 50;
 
     if (balance >= itemCost) {
-        std::cout << "Transaction Approved! Item purchased.\n";
+        cout << "Transaction Approved! Item purchased.\n";
     } else {
-        std::cout << "Transaction Declined! Insufficient funds.\n";
+        cout << "Transaction Declined! Insufficient funds.\n";
     }
 
     return 0;

@@ -42,7 +42,7 @@ int main() {
     int counter = 1; // 1. Initialization
 
     while (counter <= 5) { // 2. Condition Check
-        std::cout << "Count: " << counter << "\n";
+        cout << "Count: " << counter << "\n";
         counter++; // 3. State Update (Crucial!)
     }
 

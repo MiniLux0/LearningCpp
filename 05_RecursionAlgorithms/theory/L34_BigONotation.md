@@ -1,4 +1,4 @@
-# L33 — Notación Big-O: Análisis Asintótico y Clases de Complejidad
+# L34 — Notación Big-O: Análisis Asintótico y Clases de Complejidad
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y **Stanford CS106X Handouts**, cubriendo **10.2** *Computational complexity* (p. 435) y **10.4** *Standard complexity classes* (p. 449).
@@ -10,7 +10,7 @@
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 10.2 & 10.4 (pp. 429–478)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Asymptotic Algorithmic Analysis](../../files/cs106x/README.md)
-- 💻 **Laboratorio de Código:** [`L33_BigONotation.cpp`](../code/L33_BigONotation.cpp)
+- 💻 **Laboratorio de Código:** [`L34_BigONotation.cpp`](../code/L34_BigONotation.cpp)
 
 ---
 
@@ -28,9 +28,11 @@
 La velocidad de ejecución de un programa depende del reloj de la CPU, el compilador y la RAM. Sin embargo, en ciencias de la computación necesitamos una métrica pura para comparar algoritmos **independientemente del hardware**: la **Notación Big-O ($O$)**.
 
 > [!TIP]
-> **Definición Formal de Big-O (Eric Roberts, Sec. 10.2):**  
+> **Definición Formal de Big-O (Sec. 10.2):**  
 > Decimos que un algoritmo tiene un tiempo de ejecución $O(g(N))$ si existen constantes positivas $C$ y $N_0$ tales que para todo $N \ge N_0$:
-> $$T(N) \le C \times g(N)$$
+> $$
+> T(N) \le C \times g(N)
+> $$
 
 ### Las 2 Reglas de Simplificación Asintótica:
 1. **Descartar las constantes multiplicativas:** $O(5 \cdot N) \longrightarrow O(N)$.
@@ -40,9 +42,11 @@ La velocidad de ejecución de un programa depende del reloj de la CPU, el compil
 
 ## 2. Jerarquía de Clases de Complejidad Estándar (Sección 10.4)
 
-Eric Roberts clasifica las familias de rendimiento algorítmico en una jerarquía de crecimiento de menor a mayor costo:
+Se clasifican las familias de rendimiento algorítmico en una jerarquía de crecimiento de menor a mayor costo:
 
-$$O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)$$
+$$
+O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)
+$$
 
 ```mermaid
 graph LR
@@ -68,7 +72,7 @@ graph LR
 
 ### ⚡ 1. Complejidad Constante — $O(1)$
 El tiempo de ejecución es fijo y no depende del tamaño de la entrada $N$.
-- **Ejemplos:** Acceso directo por índice a un arreglo `arr[i]`, inserción al final de `std::vector` (`push_back`), operaciones aritméticas.
+- **Ejemplos:** Acceso directo por índice a un arreglo `arr[i]`, inserción al final de `vector` (`push_back`), operaciones aritméticas.
 
 ```cpp
 int obtenerPrimerElemento(const vector<int>& v) {
@@ -115,7 +119,7 @@ int calcularSuma(const vector<int>& v) {
 
 ### ⚡ 4. Complejidad Linealítmica — $O(N \log N)$
 Aparece típicamente en algoritmos de Divide y Vencerás que dividen el problema en subproblemas logarítmicos y luego procesan los $N$ elementos para combinarlos.
-- **Ejemplos:** MergeSort, QuickSort (caso promedio), HeapSort, `std::sort`.
+- **Ejemplos:** MergeSort, QuickSort (caso promedio), HeapSort, `sort`.
 
 ```cpp
 long long simularTrabajoLinearithmic(int n) {
@@ -171,8 +175,8 @@ int ramificacionesExponenciales(int n) {
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **10** | $1$ | $3.3$ | $10$ | $33$ | $100$ | $1,024$ |
 | **100** | $1$ | $6.6$ | $100$ | $664$ | $10,000$ | $1.26 \times 10^{30}$ |
-| **1,000** | $1$ | $9.9$ | $1,000$ | $9,965$ | $1,000,000$ | Impossible |
-| **1,000,000** | $1$ | $19.9$ | $1,000,000$ | $19,931,568$ | $10^{12}$ | Impossible |
+| **1,000** | $1$ | $9.9$ | $1,000$ | $9,965$ | $1,000,000$ | Imposible |
+| **1,000,000** | $1$ | $19.9$ | $1,000,000$ | $19,931,568$ | $10^{12}$ | Imposible |
 
 ---
 
@@ -207,11 +211,11 @@ Considera un algoritmo que realiza exactamente $T(N) = 3N^3 + 500N^2 + 2000N + 7
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L32 — Recursive Problems**](L32_RecursiveProblems.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L34 — Linear & Binary Search ➡️**](L34_LinearBinarySearch.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L33 — Memoización y DP**](L33_Memoization.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L35 — Búsqueda Lineal y Binaria ➡️**](L35_LinearBinarySearch.md) |
 
 </div>
 

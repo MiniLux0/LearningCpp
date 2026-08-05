@@ -1,74 +1,77 @@
-# 📝 Section 03: Subroutines — Study Summary and Notes
+# 📝 Sección 03: Subrutinas y Funciones — Resumen de Estudio y Notas
 
-Study notes and executive summary for **Section 03: Subroutines and Functions**.
-Covers function anatomy in C++, return types, pass-by-value vs pass-by-reference (`&`, `const &`), function overloading, separation into prototypes and header files (`.h` / `.cpp`), and variable scope/lifetime.
-
----
-
-## 🧭 Table of Contents
-
-1. [Lessons and Theory](#-lessons-and-theory)
-2. [Practical Exercises (E01 – E05)](#-practical-exercises-e01--e05)
-3. [Summary by Lesson](#-summary-by-lesson)
-   - [L23 — Functions Anatomy](#l23--functions-anatomy)
-   - [L24 — Return Values & Overloading](#l24--return-values--overloading)
-   - [L25 — Function Parameters & References](#l25--function-parameters--references)
-   - [L26 — Headers & Prototypes](#l26--headers--prototypes)
-4. [Best Practices and Key Patterns](#-best-practices-and-key-patterns)
+Resumen ejecutivo y notas de estudio de la **Sección 03: Subrutinas y Funciones** del curso de C++ (MIT 6.096 Lectura 03 / Stanford CS106L Lectura 01 y 03 / Stanford CS106B Capítulo 2).
+Cubre la anatomía de funciones en C++, tipos de retorno, paso por valor vs paso por referencia (`&`, `const &`), sobrecarga de funciones, separación en prototipos y archivos de cabecera (`.h` / `.cpp`) y gestión de ámbito de variables.
 
 ---
 
-## 📘 Lessons and Theory
+## 🧭 Tabla de Contenidos
 
-| Lesson | Title | Theory Note | Code Lab |
+1. [Lecciones y Teoría](#-lecciones-y-teoría)
+2. [Ejercicios Prácticos (E01 – E05)](#-ejercicios-prácticos-e01--e05)
+3. [Resumen por Lección](#-resumen-por-lección)
+   - [L23 — Fundamentos de Funciones](#l23--fundamentos-de-funciones)
+   - [L24 — Valores de Retorno](#l24--valores-de-retorno)
+   - [L25 — Parámetros y Referencias](#l25--parámetros-y-referencias)
+   - [L26 — Cabeceras y Prototipos](#l26--cabeceras-y-prototipos)
+4. [Buenas Prácticas y Patrones Clave](#-buenas-prácticas-y-patrones-clave)
+
+---
+
+## 📘 Lecciones y Teoría
+
+| Lección | Título | Nota Teórica | Laboratorio de Código |
 | :--- | :--- | :--- | :--- |
-| **L23** | Functions Anatomy | 📘 [`L23_Functions.md`](../theory/L23_Functions.md) | 💻 [`L23_Functions.cpp`](../code/L23_Functions.cpp) |
-| **L24** | Return Values | 📘 [`L24_ReturnValues.md`](../theory/L24_ReturnValues.md) | 💻 [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp) |
-| **L25** | Function Parameters | 📘 [`L25_FunctionParameters.md`](../theory/L25_FunctionParameters.md) | 💻 [`L25_FunctionParameters.cpp`](../code/L25_FunctionParameters.cpp) |
-| **L26** | Headers & Prototypes | 📘 [`L26_HeadersAndPrototypes.md`](../theory/L26_HeadersAndPrototypes.md) | 💻 [`L26_HeadersAndPrototypes.cpp`](../code/L26_HeadersAndPrototypes.cpp) |
+| **L23** | Fundamentos de Funciones | 📘 [`L23_Functions.md`](../theory/L23_Functions.md) | 💻 [`L23_Functions.cpp`](../code/L23_Functions.cpp) |
+| **L24** | Valores de Retorno | 📘 [`L24_ReturnValues.md`](../theory/L24_ReturnValues.md) | 💻 [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp) |
+| **L25** | Parámetros y Referencias | 📘 [`L25_FunctionParameters.md`](../theory/L25_FunctionParameters.md) | 💻 [`L25_FunctionParameters.cpp`](../code/L25_FunctionParameters.cpp) |
+| **L26** | Cabeceras y Prototipos | 📘 [`L26_HeadersAndPrototypes.md`](../theory/L26_HeadersAndPrototypes.md) | 💻 [`L26_HeadersAndPrototypes.cpp`](../code/L26_HeadersAndPrototypes.cpp) |
 
 ---
 
-## 🎯 Practical Exercises (E01 – E05)
+## 🎯 Ejercicios Prácticos (E01 – E05)
 
-| # | Exercise | Topic | Code File | Status |
+| # | Ejercicio | Tema | Archivo de Código | Estatus |
 | :---: | :--- | :--- | :--- | :---: |
-| **E01** | Function Basics | Declaration, calls, and return | 💻 [`E01_FunctionBasics.cpp`](../exercise/E01_FunctionBasics.cpp) | ✅ |
-| **E02** | Pass by Reference | Direct modification using `&` | 💻 [`E02_PassByReference.cpp`](../exercise/E02_PassByReference.cpp) | ✅ |
-| **E03** | Swap Function | Variable swapping with references | 💻 [`E03_SwapFunction.cpp`](../exercise/E03_SwapFunction.cpp) | ✅ |
-| **E04** | Overloading | Function overloading by parameter type | 💻 [`E04_Overloading.cpp`](../exercise/E04_Overloading.cpp) | ✅ |
-| **E05** | Header Prototypes | Prototypes and separate compilation | 💻 [`E05_HeaderPrototypes.cpp`](../exercise/E05_HeaderPrototypes.cpp) | ✅ |
+| **E01** | Fundamentos de Funciones | Declaración, llamadas y retorno | 💻 [`E01_FunctionBasics.cpp`](../exercise/E01_FunctionBasics.cpp) | ✅ |
+| **E02** | Paso por Referencia | Modificación directa usando `&` | 💻 [`E02_PassByReference.cpp`](../exercise/E02_PassByReference.cpp) | ✅ |
+| **E03** | Función Swap | Intercambio de variables con referencias | 💻 [`E03_SwapFunction.cpp`](../exercise/E03_SwapFunction.cpp) | ✅ |
+| **E04** | Sobrecarga de Funciones | Sobrecarga por tipo de parámetro | 💻 [`E04_Overloading.cpp`](../exercise/E04_Overloading.cpp) | ✅ |
+| **E05** | Prototipos de Cabecera | Prototipos y compilación separada | 💻 [`E05_HeaderPrototypes.cpp`](../exercise/E05_HeaderPrototypes.cpp) | ✅ |
 
 ---
 
-## 💡 Summary by Lesson
+## 💡 Resumen por Lección
 
-### L23 — Functions Anatomy
-- A function is a reusable block of code.
-- Basic signature: `returnType functionName(parameterList)`.
-- If the function does not return any value, the return type is specified as `void`.
+### L23 — Fundamentos de Funciones
+- Una función es un bloque de código reutilizable.
+- Firma básica: `tipoRetorno nombreFuncion(listaParametros)`.
+- Si la función no devuelve ningún valor, el tipo de retorno se declara como `void`.
+- Aplica el principio **DRY (*Don't Repeat Yourself*)**.
 
-### L24 — Return Values & Overloading
-- The `return` statement sends a value back to the caller and terminates the function's execution.
-- **Function Overloading:** C++ allows defining multiple functions with the same name as long as their signatures differ by the number or type of their parameters (the return type alone is not enough).
+### L24 — Valores de Retorno
+- La sentencia `return` devuelve un valor a la función invocadora e interrumpe la ejecución inmediatamente.
+- **Sobrecarga de Funciones:** C++ permite definir múltiples funciones con el mismo nombre siempre que sus firmas difieran en la cantidad o tipo de parámetros.
 
-### L25 — Function Parameters & References
-- **Pass-by-value:** Copies the argument's value. Changes made inside the function do not affect the original variable.
-- **Pass-by-reference (`&`):** Passes an alias to the original variable. Allows the function to directly modify the caller's variable.
-- **Constant reference (`const &`):** Avoids copying heavy data while keeping the original variable immutable (ideal for large structures and efficient reading).
+### L25 — Parámetros y Referencias
+- **Paso por Valor:** Copia el valor del argumento. Los cambios dentro de la función no afectan la variable original.
+- **Paso por Referencia (`&`):** Pasa un alias a la celda de memoria original. Permite mutar la variable del invocador directamente.
+- **Referencia Constante (`const &`):** Evita el costo de duplicar memoria pesada (ej. `const string&`) manteniendo la variable inmutable.
 
-### L26 — Headers & Prototypes
-- **Prototypes (Declarations):** Allow the compiler to know a function's signature before it is called, resolving order dependencies.
-- **`.h` / `.cpp` Separation:** Declarations go in header files (`.h`), while the implementation resides in `.cpp` files. Include guards (`#ifndef`, `#define`, `#endif` or `#pragma once`) are used to prevent duplicate inclusions.
-
----
-
-## 🛡️ Best Practices and Key Patterns
-
-1. **Single Responsibility Principle:** Design short functions that perform a single, well-defined task.
-2. **`const &` for efficient reading:** Use constant references `const T&` to pass objects or non-primitive types without copying costs.
-3. **Include guards:** Always include `#ifndef MY_HEADER_H` in `.h` files to prevent symbol redefinition errors.
+### L26 — Cabeceras y Prototipos
+- **Prototipos (*Forward Declarations*):** Informan al compilador la firma de una función antes de su uso, resolviendo dependencias de orden.
+- **Separación `.h` / `.cpp`:** Las declaraciones van en archivos de cabecera (`.h`), mientras la implementación reside en archivos `.cpp`.
+- **Guardas de Inclusión:** Uso de `#pragma once` o `#ifndef` para prevenir errores de doble inclusión en el enlazador.
 
 ---
 
-*Last updated: Section 03 completed 100%*
+## 🛡️ Buenas Prácticas y Patrones Clave
+
+1. **Principio de Responsabilidad Única:** Diseñar funciones cortas que realicen una sola tarea bien definida.
+2. **`using namespace std;` en archivos de código:** Simplifica la escritura de `cout`, `cin`, `endl`, `string`, `vector`.
+3. **`const &` para lectura eficiente:** Usar referencias constantes `const T&` para pasar objetos sin costo de copia.
+4. **Guardas de cabecera:** Incluir siempre `#pragma once` en archivos `.h`.
+
+---
+
+*Sección 03 completada al 100%*

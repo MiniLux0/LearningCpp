@@ -1,75 +1,65 @@
 #include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <string>
 using namespace std;
 
-// Exercise 4 — MergeSort
-// Big-O: Time O(n log n) all cases, Space O(n) auxiliary array.
-// Key insight: divide until single elements (always sorted),
-// then merge pairs back together maintaining sorted order.
+// ============================================================================
+// EJERCICIO 4 — MERGESORT (ORDENAMIENTO POR MEZCLA)
+// Complejidad objetivo: Tiempo O(n log n), Espacio O(n) auxiliar.
+// ============================================================================
 
-// Merge two sorted halves arr[low..mid] and arr[mid+1..high]
-void merge(int arr[], int low, int mid, int high) {
-    int leftSize  = mid - low + 1;
-    int rightSize = high - mid;
-
-    // Auxiliary arrays (temporary copies)
-    int* left  = new int[leftSize];
-    int* right = new int[rightSize];
-
-    for (int i = 0; i < leftSize;  i++) left[i]  = arr[low + i];
-    for (int j = 0; j < rightSize; j++) right[j] = arr[mid + 1 + j];
-
-    int i = 0, j = 0, k = low;
-    while (i < leftSize && j < rightSize) {
-        if (left[i] <= right[j]) arr[k++] = left[i++];
-        else                     arr[k++] = right[j++];
+void merge(vector<int>& dest, const vector<int>& v1, const vector<int>& v2) {
+    size_t p1 = 0, p2 = 0;
+    dest.clear();
+    while (p1 < v1.size() && p2 < v2.size()) {
+        if (v1[p1] <= v2[p2]) dest.push_back(v1[p1++]);
+        else                  dest.push_back(v2[p2++]);
     }
-    while (i < leftSize)  arr[k++] = left[i++];   // leftover left elements
-    while (j < rightSize) arr[k++] = right[j++];  // leftover right elements
-
-    delete[] left;
-    delete[] right;
+    while (p1 < v1.size()) dest.push_back(v1[p1++]);
+    while (p2 < v2.size()) dest.push_back(v2[p2++]);
 }
 
-// Divide & Conquer — recursively split, then merge
-void mergeSort(int arr[], int low, int high) {
-    if (low >= high) return;            // base case: single element or empty
+void mergeSort(vector<int>& vec) {
+    if (vec.size() <= 1) return;
 
-    int mid = low + (high - low) / 2;
-    mergeSort(arr, low, mid);           // sort left half
-    mergeSort(arr, mid + 1, high);      // sort right half
-    merge(arr, low, mid, high);         // combine sorted halves
+    size_t mid = vec.size() / 2;
+    vector<int> v1(vec.begin(), vec.begin() + mid);
+    vector<int> v2(vec.begin() + mid, vec.end());
+
+    mergeSort(v1);
+    mergeSort(v2);
+    merge(vec, v1, v2);
 }
 
-void printArray(const int arr[], int n, const char* label) {
-    cout << label << ": ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
-    cout << endl;
+// ── SISTEMA DE VERIFICACIÓN ROBUSTO ─────────────────────────────────────────
+void verificar(bool condicion, const string& mensaje) {
+    if (!condicion) {
+        cerr << "  [❌ FALLÓ] " << mensaje << endl;
+        exit(1);
+    }
+}
+
+void ejecutarPruebas() {
+    cout << "Ejecutando pruebas automáticas de MergeSort..." << endl;
+
+    vector<int> datos = {38, 27, 43, 3, 9, 82, 10};
+    vector<int> esperado = {3, 9, 10, 27, 38, 43, 82};
+
+    mergeSort(datos);
+    verificar(datos == esperado, "Arreglo desordenado no coincide");
+    cout << "  [PASO] Test 1: Ordenamiento de vector estándar OK" << endl;
+
+    vector<int> vacio = {};
+    mergeSort(vacio);
+    verificar(vacio.empty(), "Vector vacío debió permanecer vacío");
+    cout << "  [PASO] Test 2: Caso borde vector vacío OK" << endl;
+
+    cout << "\n¡TODOS LOS TESTS PASARON EXITOSAMENTE! (100% Correcto)" << endl;
 }
 
 int main() {
-    cout << "--- MergeSort ---" << endl;
-
-    int arr1[] = {38, 27, 43, 3, 9, 82, 10};
-    int n1 = sizeof(arr1) / sizeof(arr1[0]);
-    printArray(arr1, n1, "Before");
-    mergeSort(arr1, 0, n1 - 1);
-    printArray(arr1, n1, "After ");
-
-    cout << endl;
-
-    int arr2[] = {5, 1};
-    int n2 = sizeof(arr2) / sizeof(arr2[0]);
-    printArray(arr2, n2, "Before");
-    mergeSort(arr2, 0, n2 - 1);
-    printArray(arr2, n2, "After ");
-
-    cout << endl;
-
-    int arr3[] = {42};                  // single element — already sorted
-    int n3 = sizeof(arr3) / sizeof(arr3[0]);
-    printArray(arr3, n3, "Before");
-    mergeSort(arr3, 0, n3 - 1);
-    printArray(arr3, n3, "After ");
-
+    cout << "=== E04: MergeSort O(N log N) ===" << endl << endl;
+    ejecutarPruebas();
     return 0;
 }

@@ -19,7 +19,7 @@
 - [ ] Understand `char` as an 8-bit integer type storing ASCII numerical encodings ($0 \dots 127$).
 - [ ] Perform character arithmetic (e.g., `'a' - 'A'` case shifting).
 - [ ] Understand `bool` logical states (`true` / `false`) stored as 1 byte in RAM.
-- [ ] Format boolean stream output using `std::boolalpha`.
+- [ ] Format boolean stream output using `boolalpha`.
 
 ---
 
@@ -42,12 +42,12 @@ graph LR
 
 int main() {
     char ch = 'A';
-    std::cout << "Character Value : " << ch << "\n";
-    std::cout << "ASCII Numerical : " << static_cast<int>(ch) << "\n"; // Outputs 65
+    cout << "Character Value : " << ch << "\n";
+    cout << "ASCII Numerical : " << static_cast<int>(ch) << "\n"; // Outputs 65
 
     // ASCII Arithmetic
     char nextChar = ch + 1; // 65 + 1 = 66 -> 'B'
-    std::cout << "Next Character  : " << nextChar << "\n";
+    cout << "Next Character  : " << nextChar << "\n";
     return 0;
 }
 ```
@@ -66,7 +66,7 @@ int main() {
 
 A `bool` represents a binary truth state (`true` or `false`). In memory, `bool` reserves **1 byte** (8 bits).
 
-By default, `std::cout` prints `bool` values as numeric integers (`1` for `true`, `0` for `false`). To output literal text `"true"` or `"false"`, use `std::boolalpha`:
+By default, `cout` prints `bool` values as numeric integers (`1` for `true`, `0` for `false`). To output literal text `"true"` or `"false"`, use `boolalpha`:
 
 ```cpp
 #include <iostream>
@@ -75,8 +75,8 @@ int main() {
     bool isPassed = true;
     bool isFailed = false;
 
-    std::cout << "Numeric Default : " << isPassed << ", " << isFailed << "\n"; // Outputs: 1, 0
-    std::cout << "With boolalpha   : " << std::boolalpha << isPassed << ", " << isFailed << "\n"; // Outputs: true, false
+    cout << "Numeric Default : " << isPassed << ", " << isFailed << "\n"; // Outputs: 1, 0
+    cout << "With boolalpha   : " << boolalpha << isPassed << ", " << isFailed << "\n"; // Outputs: true, false
     return 0;
 }
 ```
@@ -104,7 +104,7 @@ How do you convert a numeric character `'7'` into its integer value `7` in C++?
 
 1. **`char`:** 1-byte integer type storing ASCII numerical encodings.
 2. **ASCII Math:** Perform arithmetic directly on characters (`'A' + 1 == 'B'`).
-3. **`bool`:** Stores `true`/`false`; use `std::boolalpha` to display boolean text.
+3. **`bool`:** Stores `true`/`false`; use `boolalpha` to display boolean text.
 
 ---
 

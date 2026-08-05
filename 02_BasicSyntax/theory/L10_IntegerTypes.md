@@ -38,7 +38,7 @@
 > #include <iostream>
 > #include <climits>
 > 
-> std::cout << "Max int: " << INT_MAX << "\n"; // 2147483647
+> cout << "Max int: " << INT_MAX << "\n"; // 2147483647
 > ```
 
 ---

@@ -1,89 +1,107 @@
-# Lesson 24 — Return Values & Data Flow
+# L24 — Valores de Retorno y Flujo de Datos
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 03** ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) and **Stanford CS106B Textbook Chapter 2** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
+> **Fundamentación Académica:** Esta lección sintetiza los conceptos de la **Lectura 03** de MIT 6.096 ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) y el **Capítulo 2 (*Functional Composition*)** del libro de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts).
 
 ---
 
-## 🧭 Quick Navigation
+## 🧭 Navegación Rápida
 
-- 📄 **Base Academic Lectures:**
+- 📄 **Lecturas Académicas Base:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Return Values & Type Matching](../../files/mit6096/lectures/Lecture03_Functions.pdf)
   - 🌲 [Stanford CS106B — Chapter 2: Functional Composition](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp)
+- 💻 **Laboratorio de Código:** [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp)
 
 ---
 
-## Learning Objectives
+## Objetivos de Aprendizaje
 
-- [ ] Declare non-void return types (`int`, `double`, `std::string`, `bool`).
-- [ ] Return computed data to callers using the `return` statement.
-- [ ] Understand early function exit via conditional `return`.
+- [ ] Declarar tipos de retorno no nulos (`int`, `double`, `string`, `bool`).
+- [ ] Retornar datos calculados hacia la función invocadora utilizando la palabra clave `return`.
+- [ ] Implementar la salida temprana de funciones (*Early Return*) ante condiciones condicionales.
+- [ ] Diagnosticar errores de comportamiento indefinido por falta de la sentencia `return`.
 
 ---
 
-## 1. Returning Computed Data to Callers
+## 1. Retorno de Datos con la Sentencia `return`
 
-A function can compute a value and pass it back to the caller using the `return` keyword:
+Una función puede calcular un valor y transmitirlo de vuelta a la función invocadora mediante la sentencia `return`:
 
 ```mermaid
 graph LR
-    Caller["int result = square(4);"] -->|Call| Func["square(int n)"]
-    Func -->|Calculate 4 * 4 = 16| Ret["return 16;"]
-    Ret -->|Pass Data Back| Caller
+    Caller["int res = alCuadrado(4);"] -->|Llamada| Func["alCuadrado(int n)"]
+    Func -->|Calcula 4 * 4 = 16| Ret["return 16;"]
+    Ret -->|Devuelve 16| Caller
 ```
 
 ```cpp
 #include <iostream>
+using namespace std;
 
-// Returns an integer calculated value
-int square(int number) {
-    return number * number;
+// Retorna un entero calculado
+int alCuadrado(int numero) {
+    return numero * numero;
 }
 
 int main() {
     int val = 5;
-    int result = square(val); // result receives 25
-    std::cout << "Square of " << val << " is " << result << "\n";
+    int resultado = alCuadrado(val); // resultado recibe 25
+    cout << "El cuadrado de " << val << " es " << resultado << endl;
     return 0;
 }
 ```
 
 > [!IMPORTANT]
-> **Early Return Execution:**
-> When the `return` statement executes, the function terminates **immediately**. Any statements located below the `return` line inside that function block are completely ignored.
+> **Finalización Inmediata:**  
+> Cuando se ejecuta la sentencia `return`, la función finaliza de manera **inmediata**. Cualquier instrucción ubicada debajo de `return` dentro del cuerpo de esa función será completamente ignorada.
 
 ---
 
-## ❓ Self-Assessment Checkpoint #1 — Missing Return Warning
+## 2. Salida Temprana (*Early Return*)
 
-What happens if a non-void function (`int calculate()`) reaches the closing brace `}` without executing a `return` statement?
+```cpp
+#include <iostream>
+using namespace std;
+
+int obtenerMaximo(int a, int b) {
+    if (a > b) {
+        return a; // Sale inmediatamente si a es mayor
+    }
+    return b; // De lo contrario retorna b
+}
+```
+
+---
+
+## ❓ Pregunta de Chequeo #1 — Omisión de `return`
+
+¿Qué ocurre si una función declarada con un tipo de retorno no nulo (ejemplo: `int calcular()`) llega a la llave de cierre `}` sin ejecutar ninguna instrucción `return`?
 
 <details>
-<summary>🔍 <strong>View Explanation & Answer</strong></summary>
+<summary>🔍 <strong>Ver Explicación y Diagnóstico</strong></summary>
 
 > [!CAUTION]
-> **Undefined Behavior (UB):**
-> Failing to return a value from a non-void function results in Undefined Behavior in C++. The caller will receive garbage register data from RAM. Modern compilers will issue a warning (`warning: control reaches end of non-void function`).
+> **Comportamiento Indefinido (UB):**  
+> En C++, no retornar un valor desde una función no-`void` causa Comportamiento Indefinido (*Undefined Behavior*). El invocador recibirá basura presente en los registros del sistema. Los compiladores modernos emitirán una advertencia (`warning: control reaches end of non-void function`).
 
 </details>
 
 ---
 
-## 📝 Summary & Key Takeaways
+## 📝 Resumen de L24
 
-1. **Return Type:** Must match the type of value specified in the `return` expression.
-2. **Immediate Termination:** `return` exits the function immediately.
+1. **Coincidencia de Tipos:** El tipo expresado en `return` debe coincidir con el tipo especificado en la firma de la función.
+2. **Terminación Inmediata:** `return` interrumpe la función al instante.
 
 ---
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L23 — Subroutines & Functions**](L23_Functions.md) | [**🏠 Subroutines**](../README.md) | [**L25 — Function Parameters & Pass by Reference ➡️**](L25_FunctionParameters.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L23 — Fundamentos de Funciones**](L23_Functions.md) | [**🏠 Subrutines**](../README.md) | [**L25 — Parámetros y Referencias ➡️**](L25_FunctionParameters.md) |
 
 </div>
 

@@ -4,7 +4,7 @@
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 7 (*Introduction to Recursion*, pp. 315–348)** y **Capítulo 10.6 (*Mathematical Induction*, p. 458)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y la **Lectura 05** de MIT 6.096 ([`Lecture05_Pointers.pdf`](../../files/mit6096/lectures/Lecture05_Pointers.pdf)).
 > 
 > *“And often enough, our faith beforehand in a certain result is the only thing that makes the result come true.”*  
-> — **William James**, *The Will to Believe*, 1897 (Citado por Eric Roberts al inicio del Ch. 7)
+> — **William James**, *The Will to Believe*, 1897
 
 ---
 
@@ -22,7 +22,7 @@
 - [ ] Comprender la esencia de la **recursividad** y cómo se diferencia de la solución iterativa (`for`/`while`).
 - [ ] Dominar la **Estructura de 2 Partes**: **Caso Base** (*Base Case*) y **Paso Recursivo** (*Recursive Step*).
 - [ ] Visualizar el **Marco de Activación (*Stack Frame*)** en la **Pila de Llamadas (*Call Stack*)**.
-- [ ] Aplicar la **Fe Inductiva Recursiva (*Recursive Leap of Faith*)** y el método de 3 pasos de Eric Roberts.
+- [ ] Aplicar la **Fe Inductiva Recursiva (*Recursive Leap of Faith*)** y el método de 3 pasos para diseño recursivo.
 - [ ] Implementar **Recursión Mutua (*Mutual Recursion*)** resolviendo dependencias de prototipos en C++.
 - [ ] Conectar la estructura de la recursividad con la **Inducción Matemática** (Sección 10.6).
 
@@ -33,7 +33,7 @@
 En ciencias de la computación, la **recursividad** es la técnica de resolver un problema dividiéndolo en instancias más pequeñas y autosimilares de sí mismo.
 
 > [!TIP]
-> **Analogía 1: La Delegación del Fondo de Recaudación ($1,000,000 — Eric Roberts, Sec. 7.1)**
+> **Analogía 1: La Delegación del Fondo de Recaudación ($1,000,000 — Sec. 7.1)**
 > Imagina una organización caritativa que necesita recaudar **$1,000,000**:
 > - **Enfoque Iterativo:** Un solo gerente llama a 1,000,000 de personas para solicitar $1 a cada una.
 > - **Enfoque Recursivo (Delegación):**
@@ -79,7 +79,7 @@ void funcionRecursiva(int n) {
 ```
 
 > [!WARNING]
-> **Las 2 Reglas de Oro de la Recursividad (Eric Roberts):**
+> **Las 2 Reglas de Oro de la Recursividad:**
 > 1. **Existencia del Caso Base:** Debe existir al menos una condición trivial que detenga la recursión.
 > 2. **Garantía de Progreso:** Cada llamada en el paso recursivo debe simplificar el problema y acercar los parámetros al caso base.
 
@@ -137,7 +137,7 @@ sequenceDiagram
 El mayor obstáculo mental al aprender recursividad es intentar seguir el flujo de ejecución completo en la cabeza expandiendo mentalmente cada sub-llamada.
 
 > [!IMPORTANT]
-> **El Método de 3 Pasos de Eric Roberts para Diseñar Algoritmos Recursivos:**
+> **El Método de 3 Pasos para Diseñar Algoritmos Recursivos:**
 > 1. **Identificar los Casos Simples (Casos Base):** Resolver directamente las instancias triviales del problema.
 > 2. **Buscar la Descomposición Recursiva:** Determinar cómo resolver el problema de tamaño $N$ combinando una operación con la solución del problema de tamaño $N-1$ (o subproblemas más pequeños).
 > 3. **Aplicar el Salto de Fe (*Leap of Faith*):** **Asume con confianza** que la llamada recursiva para $N-1$ devuelve la respuesta correcta. No traces su ejecución interna; concéntrate únicamente en cómo usar ese resultado para construir la solución de $N$.
@@ -229,25 +229,18 @@ void contarInfinito(int n) {
    - **Caso Base:** Interrumpe la recursión resolviendo el problema trivialmente.
    - **Paso Recursivo:** Reduce el problema y llama a la función avanzando hacia el caso base.
 3. **Salto de Fe Recursivo:** Diseña asumiendo que la llamada $(N-1)$ funciona correctamente.
-4. **Recursión Mutua:** Funciones que se invocan circularmente (`isEven` / `isOdd`), requiriendo prototipos `.h` o declaraciones previas en C++.
+4. **Recursión Mutua:** Funciones que se invocan circularmente (`esPar` / `esImpar`), requiriendo prototipos o declaraciones previas en C++.
 5. **Inducción:** La recursividad es la implementación en software del principio de Inducción Matemática (Sección 10.6).
-
----
-
-## 🧹 Limpieza de Archivos Temporales
-
-> [!NOTE]
-> Los archivos de extracción de texto temporal `ch7_extracted.txt` y `ch10_6_extracted.txt` fueron eliminados tras la verificación del texto oficial del PDF.
 
 ---
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L30 — C-Strings**](../../04_ArraysStrings/theory/L30_CStrings.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L32 — Recursive Problems ➡️**](L32_RecursiveProblems.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L30D — Aplicaciones de Cadenas**](../../04_ArraysStrings/theory/L30D_StringApplications.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L32 — Problemas Recursivos ➡️**](L32_RecursiveProblems.md) |
 
 </div>
 

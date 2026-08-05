@@ -42,12 +42,12 @@ int main() {
     int day = 3;
 
     switch (day) {
-        case 1: std::cout << "Monday\n"; break;
-        case 2: std::cout << "Tuesday\n"; break;
-        case 3: std::cout << "Wednesday\n"; break;
-        case 4: std::cout << "Thursday\n"; break;
-        case 5: std::cout << "Friday\n"; break;
-        default: std::cout << "Weekend\n"; break;
+        case 1: cout << "Monday\n"; break;
+        case 2: cout << "Tuesday\n"; break;
+        case 3: cout << "Wednesday\n"; break;
+        case 4: cout << "Thursday\n"; break;
+        case 5: cout << "Friday\n"; break;
+        default: cout << "Weekend\n"; break;
     }
 
     return 0;
@@ -63,16 +63,16 @@ int main() {
 ## ❓ Self-Assessment Checkpoint #1 — Allowed Types
 
 Which of the following types CANNOT be used in a C++ `switch` statement?
-`int`, `char`, `std::string`, `double`
+`int`, `char`, `string`, `double`
 
 <details>
 <summary>🔍 <strong>View Explanation & Answer</strong></summary>
 
 > [!WARNING]
-> **Answer:** `std::string` and `double` are forbidden.
+> **Answer:** `string` and `double` are forbidden.
 >
 > **Explanation:**
-> C++ `switch` statements require **integral or enumeration types** (`int`, `char`, `short`, `long`, `enum`) whose value can be evaluated at compile time to build an assembly jump table. Floating-point numbers (`double`) and dynamic objects (`std::string`) cannot be used inside `switch (x)`.
+> C++ `switch` statements require **integral or enumeration types** (`int`, `char`, `short`, `long`, `enum`) whose value can be evaluated at compile time to build an assembly jump table. Floating-point numbers (`double`) and dynamic objects (`string`) cannot be used inside `switch (x)`.
 
 </details>
 

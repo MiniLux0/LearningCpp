@@ -59,9 +59,9 @@ XX_ModuleName/
 | **01** | [**Getting Started**](01_GettingStarted/README.md) | L01–L05 | MIT L1 · CS106L L1 | Program anatomy, GCC pipeline, `cout` / `cin`, namespaces | ✅ |
 | **02** | [**Basic Syntax**](02_BasicSyntax/README.md) | L06–L22 | MIT L2 · CS106L L2–3 | Primitive types, uniform init `{}`, IEEE float epsilon, loops | ✅ |
 | **03** | [**Subroutines**](03_Subroutines/README.md) | L23–L26 | MIT L3 · CS106L L3–4 | Functions, pass-by-ref (`&`, `const &`), `.h` header files | ✅ |
-| **04** | [**Arrays & Strings**](04_ArraysStrings/README.md) | L27–L30 | MIT L4 · CS106L L4–5 | 1D/2D arrays, array decay, C-strings, `std::string`, `stringstream` | ✅ |
-| **05** | [**Recursion & Algorithms**](05_RecursionAlgorithms/README.md) | L31–L38 | CS106B · CS106X | Recursion, Big-O, MergeSort, QuickSort, backtracking | ✅ |
-| **06** | [**Pointers**](06_Pointers/) | L39–L46 | MIT L5 · CS106L L3, L11 | Pointers, arithmetic, references, const-correctness, callbacks | ⬜ |
+| **04** | [**Arrays & Strings**](04_ArraysStrings/README.md) | L27–L30D | CS106B Ch 3,11 · MIT L4 | 1D/2D arrays, array decay, C-strings, `std::string`, `<cctype>`, string algorithms | ✅ |
+| **05** | [**Recursion & Algorithms**](05_RecursionAlgorithms/README.md) | L31–L39 | CS106B · CS106X | Recursion, Memoization (DP), Big-O, MergeSort, QuickSort, Backtracking | ✅ |
+| **06** | [**Pointers**](06_Pointers/) | L40–L47 | MIT L5 · CS106L L3, L11 | Pointers, arithmetic, references, const-correctness, callbacks | ⬜ |
 | **07** | [**Classes**](07_Classes/) | L47–L52 | MIT L6 · CS106L L2, L10 | Structs vs classes, encapsulation, operator overloading | ⬜ |
 | **08** | [**OOP & Polymorphism**](08_OOP/) | L53–L58 | MIT L7 · CS106L L10 | Inheritance, `virtual` functions, dynamic dispatch, abstract classes | ⬜ |
 | **09** | [**Memory Management**](09_MemoryManagement/) | L59–L63 | MIT L8 · CS106L L13–15 | Stack vs heap, `new`/`delete`, RAII, Rule of 0/3/5, move semantics | ⬜ |
@@ -100,7 +100,7 @@ make clean
 ## 📚 Reference Links
 
 | | Resource | Description |
-|--|----------|-------------|
+||----------|-------------|
 | 🌐 | [**Master Academic Guide**](files/Master_Academic_Guide.md) | Full curricula comparison & PDF index for all 4 courses |
 | 📄 | [**Academic Materials (`files/`)**](files/) | Local lecture slides, problem sets, assignments & starter code |
 | ⚙️ | [**Compilation Guide**](docs/COMPILATION_GUIDE.md) | Beginner step-by-step GCC & Makefile tutorial |

@@ -41,7 +41,7 @@ graph LR
 int main() {
     // for (Init; Condition; Step)
     for (int i = 0; i < 5; i++) {
-        std::cout << "Iteration i = " << i << "\n";
+        cout << "Iteration i = " << i << "\n";
     }
     return 0;
 }

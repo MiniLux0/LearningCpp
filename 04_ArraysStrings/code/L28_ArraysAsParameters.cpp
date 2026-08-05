@@ -1,79 +1,53 @@
 #include <iostream>
+
 using namespace std;
 
 // ============================================================================
-// L28 — ARRAYS AS PARAMETERS: PASS BY ADDRESS AND CONST
-// ============================================================================
-// Key concept: The name of the array IS its starting address in memory.
-// When passing an array to a function:
-// 1. The elements are not copied — only the address is copied (pass by address).
-// 2. The function accesses the SAME memory as main().
-// 3. Use `const` if the function should ONLY READ the array (write protection).
-// 4. Omit `const` if the function should MODIFY the array in-place.
+// L28 — ARRAYS AS PARAMETERS: POINTER DECAY & CONST-CORRECTNESS
+// Stanford CS106B Chapter 11 / MIT 6.096 Lecture 04
 // ============================================================================
 
-// 1. sum() — const int array[] protects the array against accidental modifications
-long long sum(const int array[], int length) {
-    long long sumaTotal = 0;
-    for (int i = 0; i < length; i++) {
-        sumaTotal += array[i];
+// Read-Only Traversal (const int arr[])
+void printArray(const int arr[], int size) {
+    cout << "Array contents: [ ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
-    return sumaTotal;
+    cout << "]" << endl;
 }
 
-// 2. duplicar() — WITHOUT const because it needs to write to the original array
-void duplicar(int arr[], int length) {
-    for (int i = 0; i < length; i++) {
-        arr[i] *= 2; // Modifies the original memory in main()
+// In-Place Modification (int arr[])
+void doubleValues(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] *= 2; // Modifies original memory
     }
 }
 
-// 3. intentarModificar() — Demonstrates the contrast with a normal `int` (passed by value)
-void intentarModificar(int x) {
-    x = 999; // Only modifies the local copy of x
-    cout << "  [Inside intentarModificar] x = " << x << endl;
+// Demonstration of sizeof inside receiving function (pointer decay)
+void inspectDecay(int* arr) {
+    cout << "Inside inspectDecay(int* arr):" << endl;
+    cout << "  - sizeof(arr) = " << sizeof(arr) << " bytes (Pointer size)" << endl;
 }
 
 int main() {
-    cout << "=== L28: Arrays as Parameters ===" << endl;
+    cout << "=== ARRAYS AS PARAMETERS & POINTER DECAY ===" << endl << endl;
 
-    // --- 1. Function sum() with const (Read-only) ---
-    cout << "\n--- 1. Pass by Address + const (sum) ---" << endl;
-    int arr[] = {1, 2, 3, 4, 5, 6, 7};
-    const int tam = 7;
+    int numbers[5]{10, 20, 30, 40, 50};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
 
-    cout << "Original array: ";
-    for (int i = 0; i < tam; i++) cout << arr[i] << " ";
-    cout << endl;
+    cout << "In main():" << endl;
+    cout << "  - sizeof(numbers) = " << sizeof(numbers) << " bytes (Total array size)" << endl << endl;
 
-    long long resultadoSuma = sum(arr, tam);
-    cout << "Total sum: " << resultadoSuma << endl;
-    cout << "After sum(), arr[0] = " << arr[0] << " (Protected by const)" << endl;
+    inspectDecay(numbers);
 
-    // --- 2. Function duplicar() without const (In-Place Modification) ---
-    cout << "\n--- 2. Pass by Address WITHOUT const (duplicar) ---" << endl;
-    int datos[] = {10, 20, 30, 40, 50};
-    const int tamDatos = 5;
+    cout << "\n--- Initial Array ---" << endl;
+    printArray(numbers, size);
 
-    cout << "Before duplicar:  ";
-    for (int i = 0; i < tamDatos; i++) cout << datos[i] << " ";
-    cout << endl;
+    cout << "\n--- Doubling values in-place ---" << endl;
+    doubleValues(numbers, size);
 
-    duplicar(datos, tamDatos);
-
-    cout << "After duplicar: ";
-    for (int i = 0; i < tamDatos; i++) cout << datos[i] << " ";
-    cout << endl;
-    cout << "(The changes ARE reflected in main because they share the same memory address)" << endl;
-
-    // --- 3. Contrast: normal int (Pass by Value) ---
-    cout << "\n--- 3. Contrast: normal int (Pass by Value) ---" << endl;
-    int miVariable = 42;
-    cout << "Before: miVariable = " << miVariable << endl;
-
-    intentarModificar(miVariable);
-
-    cout << "After: miVariable = " << miVariable << " (Did NOT change because normal int is passed by copy)" << endl;
+    cout << "\n--- Array after modification ---" << endl;
+    printArray(numbers, size);
 
     return 0;
 }

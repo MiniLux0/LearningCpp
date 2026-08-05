@@ -17,7 +17,6 @@
 
 ---
 
-
 ## 🏛️ Academic Sources Quadtrilogy
 
 | Source | Primary Focus | Syllabus & Materials |
@@ -36,8 +35,8 @@
 | **01** | [`01_GettingStarted`](01_GettingStarted/) | MIT L1 / CS106L L1 | First program, compilation pipeline, tokens, `cout`/`cin` | 📘 [`theory/`](01_GettingStarted/theory/) | 💻 [`code/`](01_GettingStarted/code/) | ✅ |
 | **02** | [`02_BasicSyntax`](02_BasicSyntax/) | MIT L2 / CS106L L2-3 | Primitive types, Uniform Initialization `{}` , conditionals, loops | 📘 [`theory/`](02_BasicSyntax/theory/) | 💻 [`code/`](02_BasicSyntax/code/) | ✅ |
 | **03** | [`03_Subroutines`](03_Subroutines/) | MIT L3 / CS106L L3 | Functions, pass-by-value/reference (`&`, `const &`), `.h` headers | 📘 [`theory/`](03_Subroutines/theory/) | 💻 [`code/`](03_Subroutines/code/) | ✅ |
-| **04** | [`04_ArraysStrings`](04_ArraysStrings/) | MIT L4 / CS106L L4 | Static 1D/2D arrays, C-strings (`<cstring>`), Streams & `std::string` | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | ✅ |
-| **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | Stanford CS106B/X | Recursion vs. Iteration, Backtracking, Big-O Notation, Search & Sorting | 📘 [`theory/`](05_RecursionAlgorithms/theory/) | 💻 [`code/`](05_RecursionAlgorithms/code/) | ✅ |
+| **04** | [`04_ArraysStrings`](04_ArraysStrings/) | CS106B Ch 3,11 / MIT L4 | Static 1D/2D arrays, C-strings (`char[]`), `std::string`, `<cctype>`, string algorithms | 📘 [`theory/`](04_ArraysStrings/theory/) | 💻 [`code/`](04_ArraysStrings/code/) | ✅ |
+| **05** | [`05_RecursionAlgorithms`](05_RecursionAlgorithms/) | Stanford CS106B/X | Recursion, Memoization (DP), Big-O Notation, Search & Sorting, Backtracking | 📘 [`theory/`](05_RecursionAlgorithms/theory/) | 💻 [`code/`](05_RecursionAlgorithms/code/) | ✅ |
 | **06** | [`06_Pointers`](06_Pointers/) | MIT L5 / CS106L L3,11 | Pointers, pointer arithmetic, references, Const-Correctness, callbacks | 📘 [`theory/`](06_Pointers/theory/) | 💻 [`code/`](06_Pointers/code/) | ⬜ |
 | **07** | [`07_Classes`](07_Classes/) | MIT L6 / CS106L L2,10,12 | Structs vs Classes, encapsulation, constructors, Operator Overloading | 📘 [`theory/`](07_Classes/theory/) | 💻 [`code/`](07_Classes/code/) | ⬜ |
 | **08** | [`08_OOP`](08_OOP/) | MIT L7 / CS106L L10 | Inheritance, dynamic dispatch, virtual functions, abstract classes | 📘 [`theory/`](08_OOP/theory/) | 💻 [`code/`](08_OOP/code/) | ⬜ |
@@ -53,10 +52,10 @@
 ---
 
 ### 🔹 Section 01 — Getting Started: C++ Fundamentals for Beginners (L01–L05) · MIT L1 / CS106L L1 ✅
-- **L01**: Hello World & C++ Program Anatomy (`#include <iostream>`, `int main()`, `std::cout`, and `return 0`).
+- **L01**: Hello World & C++ Program Anatomy (`#include <iostream>`, `int main()`, `cout`, and `return 0`).
 - **L02**: Namespaces & `using namespace std;` (Understanding the `std::` scope, naming collisions, and best practices).
-- **L03**: Comments, Newlines & Code Formatting (Single-line `//` and multi-line `/* */` comments, `\n` vs `std::endl`, tab `\t`, quotes `\"`).
-- **L04**: Interactive User Input (`std::cin` for reading user keyboard input, combining `cin` and `cout`).
+- **L03**: Comments, Newlines & Code Formatting (Single-line `//` and multi-line `/* */` comments, `\n` vs `endl`, tab `\t`, quotes `\"`).
+- **L04**: Interactive User Input (`cin` for reading user keyboard input, combining `cin` and `cout`).
 - **L05**: Mini-Project: Interactive Profile Generator (A complete beginner project combining user input, formatting, and namespaces).
 
 ---
@@ -70,94 +69,97 @@
 
 ### 🔹 Section 03 — Subroutines (L23–L26) · MIT L3 / CS106L L3 ✅
 - **L23**: Anatomy of Functions (Return types, parameters, `void`, `return`).
-- **L24**: Pass by Value vs Pass by Reference (`&`, `const &`), signatures and function overloading.
-- **L25**: Headers and Prototypes (`.h` / `.cpp` separation, preprocessor directives `#ifndef`).
-- **L26**: Function Scope & Lifetime (Local, global, and static variables).
+- **L24**: Return Values & Data Flow (Non-void return types, `return` statement, early return).
+- **L25**: Parameters & References (Pass by value vs pass by reference `&`, `const &` efficiency).
+- **L26**: Headers & Prototypes (Function prototypes, `.h` / `.cpp` separation, `#pragma once` include guards).
 
 ---
 
-### 🔹 Section 04 — Arrays and Strings (L27–L30) · MIT L4 / CS106L L4 ✅
-- **L27**: Array Basics (Contiguous memory, initialization, `for` loop traversal).
-- **L28**: Arrays as Function Parameters (Decay to pointer, passing dimensions).
-- **L29**: Multidimensional Arrays (2D matrix, row/column traversal, nested initialization).
-- **L30**: C-Strings vs `std::string` (`char[]` terminated with `'\0'`, `<cstring>` functions, `<cctype>`, stream string manipulation).
+### 🔹 Section 04 — Arrays and Strings (L27–L30D) · CS106B Ch 3 & 11 / MIT L4 ✅
+- **L27**: Array Basics (Contiguous memory, initialization, `for` loop traversal, bounds checking).
+- **L28**: Arrays as Function Parameters (Pointer decay `int*`, passing size, read-only `const int arr[]`).
+- **L29**: Multidimensional Arrays (2D matrix, Row-Major Order storage, flat index formula $(i \times C) + j$).
+- **L30A**: Traditional C-Strings (`char[]` terminated with `'\0'`, `<cstring>` functions).
+- **L30B**: Modern `std::string` (`<string>` initialization forms, methods `substr`, `find`, `replace`, `.at(i)` vs `[]`, `const string&`).
+- **L30C**: `<cctype>` Character Inspection & Transformation (`isalpha`, `isdigit`, `isspace`, `tolower`, `toupper`, `static_cast<unsigned char>`).
+- **L30D**: String Processing & Applications (Palindrome complexity $O(N)$ vs $O(N^2)$, Pig Latin, Caesar Cipher, Stanford `strlib.h`).
 
 ---
 
-### 🔹 Section 05 — Recursion & Algorithms (L31–L38) · Stanford CS106B / CS106X ✅
-- **L31**: Thinking Recursively (Base case, recursive step, call stack).
-- **L32**: Classic Recursive Problems (Factorial, Fibonacci, Power, String reversal).
-- **L33**: Algorithmic Complexity & Big-O Notation (Time and space complexity: $O(1), O(\log n), O(n), O(n^2)$).
-- **L34**: Linear & Binary Search (Linear search on unsorted arrays vs binary search on sorted arrays).
-- **L35**: Quadratic Sorting Algorithms (Bubble Sort, Selection Sort, Insertion Sort — analysis & implementation).
-- **L36**: Divide & Conquer Sorting (Merge Sort — recursion & subarray merging).
-- **L37**: Fast Sorting (Quick Sort — pivot selection, `partition` step, Quickselect).
-- **L38**: Recursive Backtracking & Memoization (Mazes, N-Queens, Boggle, subsets).
+### 🔹 Section 05 — Recursion & Algorithms (L31–L39) · Stanford CS106B / CS106X ✅
+- **L31**: Thinking Recursively (Base case, recursive step, call stack, mutual recursion, induction).
+- **L32**: Classic Recursive Problems (Factorial, Fibonacci, Towers of Hanoi).
+- **L33**: Memoization & Top-Down Dynamic Programming (Eliminating $O(2^N)$ redundancy, lookup caching with `vector` and `unordered_map`, Grid Traveler).
+- **L34**: Algorithmic Complexity & Big-O Notation (Time and space complexity: $O(1), O(\log N), O(N), O(N \log N), O(N^2)$).
+- **L35**: Linear & Binary Search (Linear search on unsorted arrays vs binary search on sorted arrays, safe midpoint calculation).
+- **L36**: Quadratic Sorting Algorithms (Bubble Sort, Selection Sort, Insertion Sort — analysis & stability).
+- **L37**: Divide & Conquer Sorting (Merge Sort — $O(N \log N)$ recursion & subarray merging).
+- **L38**: Fast Sorting (Quick Sort — pivot selection, Hoare & Lomuto partitioning, randomized pivots).
+- **L39**: Recursive Backtracking (Choose-Explore-Unchoose pattern, Mazes, Nim Game, subset generation).
 
 ---
 
-### 🔹 Section 06 — Pointers & Advanced Memory (L39–L46) · MIT L5 / CS106L L3, L11 ⬜
-- **L39**: Pointer Fundamentals (Address-of operator `&`, dereference operator `*`, primitive pointers).
-- **L40**: Pointer Arithmetic (Type-dependent step size, `ptr++`, offset notation `*(arr + i)` vs `arr[i]`).
-- **L41**: Pointers & Arrays (Equivalence between array name and constant pointer).
-- **L42**: References vs Pointers (Key differences: alias vs address, reassignment, nullability).
-- **L43**: Const-Correctness (`const int* p`, `int* const p`, `const int* const p`, CS106L Const Rules).
-- **L44**: Double Pointers (`int**`) & Dynamic 2D Arrays (Dynamic matrices on the heap).
-- **L45**: Function Pointers & Callbacks (`int (*funcPtr)(int, int)`, generic pointers `void*`).
-- **L46**: Dangerous Pointers (Null pointers `nullptr`, dangling pointers, uninitialized pointers, use-after-free).
+### 🔹 Section 06 — Pointers & Advanced Memory (L40–L47) · MIT L5 / CS106L L3, L11 ⬜
+- **L40**: Pointer Fundamentals (Address-of operator `&`, dereference operator `*`, primitive pointers).
+- **L41**: Pointer Arithmetic (Type-dependent step size, `ptr++`, offset notation `*(arr + i)` vs `arr[i]`).
+- **L42**: Pointers & Arrays (Equivalence between array name and constant pointer).
+- **L43**: References vs Pointers (Key differences: alias vs address, reassignment, nullability).
+- **L44**: Const-Correctness (`const int* p`, `int* const p`, `const int* const p`, CS106L Const Rules).
+- **L45**: Double Pointers (`int**`) & Dynamic 2D Arrays (Dynamic matrices on the heap).
+- **L46**: Function Pointers & Callbacks (`int (*funcPtr)(int, int)`, generic pointers `void*`).
+- **L47**: Dangerous Pointers (Null pointers `nullptr`, dangling pointers, uninitialized pointers, use-after-free).
 
 ---
 
-### 🔹 Section 07 — Classes & Encapsulation (L47–L52) · MIT L6 / CS106L L2, L10, L12 ⬜
-- **L47**: Structs in C/C++ (C `struct` vs C++ `struct`, struct arrays, dot operator access).
-- **L48**: Introduction to Classes (`class` vs `struct`, access modifiers `public`, `private`, `protected`).
-- **L49**: Constructors & Destructors (Default, parameterized, overloading, destructor `~Class()`).
-- **L50**: Encapsulation & Invariants (Getters and Setters, internal state protection).
-- **L51**: Member Initializer Lists (`Class() : member(val) {}`, initializing `const` members and references).
-- **L52**: Const Methods & Operator Overloading (`const` methods, `operator+`, `operator<<`, `operator==`, `operator[]`).
+### 🔹 Section 07 — Classes & Encapsulation (L48–L53) · MIT L6 / CS106L L2, L10, L12 ⬜
+- **L48**: Structs in C/C++ (C `struct` vs C++ `struct`, struct arrays, dot operator access).
+- **L49**: Introduction to Classes (`class` vs `struct`, access modifiers `public`, `private`, `protected`).
+- **L50**: Constructors & Destructors (Default, parameterized, overloading, destructor `~Class()`).
+- **L51**: Encapsulation & Invariants (Getters and Setters, internal state protection).
+- **L52**: Member Initializer Lists (`Class() : member(val) {}`, initializing `const` members and references).
+- **L53**: Const Methods & Operator Overloading (`const` methods, `operator+`, `operator<<`, `operator==`, `operator[]`).
 
 ---
 
-### 🔹 Section 08 — Object-Oriented Programming (L53–L58) · MIT L7 / CS106L L10 ⬜
-- **L53**: Inheritance Concepts (Base class vs derived class, syntax `class Derived : public Base`).
-- **L54**: Constructor/Destructor Chains in Inheritance (Invocation order in inheritance hierarchies).
-- **L55**: Method Overriding & Redefinition (Redefining base methods in derived classes).
-- **L56**: Polymorphism & Virtual Functions (Dynamic dispatch, `virtual` keyword, virtual table `vtable`).
-- **L57**: Abstract Classes & Pure Virtual Functions (`= 0` functions, interface classes).
-- **L58**: Virtual Destructors (Why destructors MUST be `virtual` in polymorphic hierarchies).
+### 🔹 Section 08 — Object-Oriented Programming (L54–L59) · MIT L7 / CS106L L10 ⬜
+- **L54**: Inheritance Concepts (Base class vs derived class, syntax `class Derived : public Base`).
+- **L55**: Constructor/Destructor Chains in Inheritance (Invocation order in inheritance hierarchies).
+- **L56**: Method Overriding & Redefinition (Redefining base methods in derived classes).
+- **L57**: Polymorphism & Virtual Functions (Dynamic dispatch, `virtual` keyword, virtual table `vtable`).
+- **L58**: Abstract Classes & Pure Virtual Functions (`= 0` functions, interface classes).
+- **L59**: Virtual Destructors (Why destructors MUST be `virtual` in polymorphic hierarchies).
 
 ---
 
-### 🔹 Section 09 — Dynamic Memory & Modern Resource Management (L59–L63) · MIT L8 / CS106L L13–L15 ⬜
-- **L59**: Stack vs Heap Allocation (Lifetime and performance tradeoffs).
-- **L60**: Dynamic Operators (`new`, `delete`, `new[]`, `delete[]`, double-free prevention).
-- **L61**: Special Member Functions & The Rule of 0 / 3 / 5 (Copy Constructor, Copy Assignment, Move Constructor, Move Assignment).
-- **L62**: Move Semantics & Rvalue References (`std::move`, `T&&`, efficient resource transfers).
-- **L63**: RAII & Smart Pointers (Resource Acquisition Is Initialization, `std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`).
+### 🔹 Section 09 — Dynamic Memory & Modern Resource Management (L60–L64) · MIT L8 / CS106L L13–L15 ⬜
+- **L60**: Stack vs Heap Allocation (Lifetime and performance tradeoffs).
+- **L61**: Dynamic Operators (`new`, `delete`, `new[]`, `delete[]`, double-free prevention).
+- **L62**: Special Member Functions & The Rule of 0 / 3 / 5 (Copy Constructor, Copy Assignment, Move Constructor, Move Assignment).
+- **L63**: Move Semantics & Rvalue References (`std::move`, `T&&`, efficient resource transfers).
+- **L64**: RAII & Smart Pointers (Resource Acquisition Is Initialization, `std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`).
 
 ---
 
-### 🔹 Section 10 — Data Structures (L64–L68) · Stanford CS106B / CS106X / CS106L ⬜
-- **L64**: Linked Lists I — Nodes & Dynamic Allocation (`Node` definition with `struct`, heap allocation).
-- **L65**: Linked Lists II & Custom Iterators (Insertion/deletion, creating custom iterators with `begin()` and `end()`).
-- **L66**: Doubly Linked Lists & Template Linked Lists (Doubly linked lists, templated container nodes).
-- **L67**: Binary Search Trees (BST) & Traversals (Search property $L < N < R$, recursive traversals).
-- **L68**: Hash Tables & HashMap Implementation (Bucket hashing, collision resolution, CS106L HashMap project).
+### 🔹 Section 10 — Data Structures (L65–L69) · Stanford CS106B / CS106X / CS106L ⬜
+- **L65**: Linked Lists I — Nodes & Dynamic Allocation (`Node` definition with `struct`, heap allocation).
+- **L66**: Linked Lists II & Custom Iterators (Insertion/deletion, creating custom iterators with `begin()` and `end()`).
+- **L67**: Doubly Linked Lists & Template Linked Lists (Doubly linked lists, templated container nodes).
+- **L68**: Binary Search Trees (BST) & Traversals (Search property $L < N < R$, recursive traversals).
+- **L69**: Hash Tables & HashMap Implementation (Bucket hashing, collision resolution, CS106L HashMap project).
 
 ---
 
-### 🔹 Section 11 — File I/O & Streams (L69–L72) · MIT L10 / CS106L L4 ⬜
-- **L69**: Stream Abstractions & Stringstreams (`std::stringstream`, parsing strings, `std::ifstream`, `std::ofstream`).
-- **L70**: Stream State & Formatting (File check `is_open()`, state flags `fail()`, `eof()`, `getline()`).
-- **L71**: Binary File I/O (`ios::binary` mode, `.write()` and `.read()` methods, saving/loading `struct` records directly).
-- **L72**: Random File Access (File position pointers `seekg` (get), `seekp` (put), `tellg`, `tellp`, record offset edits).
+### 🔹 Section 11 — File I/O & Streams (L70–L73) · MIT L10 / CS106L L4 ⬜
+- **L70**: Stream Abstractions & Stringstreams (`std::stringstream`, parsing strings, `std::ifstream`, `std::ofstream`).
+- **L71**: Stream State & Formatting (File check `is_open()`, state flags `fail()`, `eof()`, `getline()`).
+- **L72**: Binary File I/O (`ios::binary` mode, `.write()` and `.read()` methods, saving/loading `struct` records directly).
+- **L73**: Random File Access (File position pointers `seekg` (get), `seekp` (put), `tellg`, `tellp`, record offset edits).
 
 ---
 
-### 🔹 Section 12 — Advanced C++ & Standard Template Library (L73–L75) · MIT L9–10 / CS106L L5–L9 / Stanford X ⬜
-- **L73**: Function & Class Templates (`template <typename T>`, generic containers and algorithms).
-- **L74**: STL Containers, Iterators & Lambdas (`std::vector`, `std::map`, `std::set`, STL algorithms, lambda functions `[&]`).
-- **L75**: Advanced Projects & Compression (Huffman compression, WikiRacer project, exceptions `try`/`catch`, `static_cast`).
+### 🔹 Section 12 — Advanced C++ & Standard Template Library (L74–L75) · MIT L9–10 / CS106L L5–L9 / Stanford X ⬜
+- **L74**: Function & Class Templates (`template <typename T>`, generic containers and algorithms).
+- **L75**: STL Containers, Iterators & Lambdas (`std::vector`, `std::map`, `std::set`, STL algorithms, lambda functions `[&]`).
 
 ---
 

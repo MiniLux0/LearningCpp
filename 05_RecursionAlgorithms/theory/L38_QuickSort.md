@@ -1,4 +1,4 @@
-# L37 — QuickSort: Ordenamiento Rápido $O(N \log N)$ In-Place
+# L38 — QuickSort: Ordenamiento Rápido $O(N \log N)$ In-Place
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.5** *The Quicksort algorithm* (p. 452).
@@ -9,7 +9,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 10.5 (p. 452)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L37_QuickSort.cpp`](../code/L37_QuickSort.cpp)
+- 💻 **Laboratorio de Código:** [`L38_QuickSort.cpp`](../code/L38_QuickSort.cpp)
 
 ---
 
@@ -17,7 +17,7 @@
 
 - [ ] Comprender la motivación de QuickSort como alternativa **in-place** a MergeSort (Sección 10.5).
 - [ ] Dominar el concepto de **pivote** y la operación de **partición** (Sección 10.5).
-- [ ] Implementar el **esquema de partición de Hoare** descrito por Eric Roberts.
+- [ ] Implementar el **esquema de partición de Hoare** (Sección 10.5).
 - [ ] Analizar el **caso promedio $O(N \log N)$** y el **peor caso $O(N^2)$** de QuickSort.
 - [ ] Entender la estrategia de **pivote aleatorio** como mitigación del peor caso.
 
@@ -26,7 +26,7 @@
 ## 1. Motivación: QuickSort vs MergeSort (Sección 10.5)
 
 > *"Even though the merge sort algorithm performs well in theory and has a worst-case complexity of O(N log N), it is not used much in practice. Instead, most sorting programs in use today are based on an algorithm called Quicksort."*
-> — Eric Roberts, Sec. 10.5 (p. 452)
+> — CS106B, Sec. 10.5 (p. 452)
 
 Tanto MergeSort como QuickSort emplean **Divide y Vencerás**, pero con una diferencia fundamental:
 
@@ -42,7 +42,7 @@ Tanto MergeSort como QuickSort emplean **Divide y Vencerás**, pero con una dife
 
 ## 2. La Estrategia de QuickSort (Sección 10.5)
 
-El algoritmo de 3 pasos que describe Roberts en la Sección 10.5:
+El algoritmo de 3 pasos de la Sección 10.5:
 
 ```mermaid
 graph TD
@@ -71,7 +71,7 @@ graph TD
 La parte más importante y sutil de QuickSort. Tony Hoare's original partitioning algorithm:
 
 > *"The tricky part about partition is to rearrange the elements without using any extra storage, which is typically done by swapping pairs of elements."*
-> — Eric Roberts, Sec. 10.5 (p. 454)
+> — CS106B, Sec. 10.5 (p. 454)
 
 ### Mecánica del Esquema de Hoare
 
@@ -104,6 +104,9 @@ sequenceDiagram
 ### Implementación C++ del Esquema de Hoare
 
 ```cpp
+#include <utility> // swap
+using namespace std;
+
 int particionHoare(int arr[], int low, int high) {
     int pivot = arr[low]; // Pivote = primer elemento
     int lh = low + 1;
@@ -136,15 +139,19 @@ void quickSort(int arr[], int low, int high) {
 
 Si el pivote es siempre la **mediana** del sub-arreglo, cada partición divide en dos mitades iguales → árbol de recursión de $\log_2 N$ niveles con $O(N)$ trabajo cada uno:
 
-$$T(N) = O(N \log N)$$
+$$
+T(N) = O(N \log N)
+$$
 
 ### Peor Caso: $O(N^2)$ — El Arreglo Ya Ordenado
 
 > [!WARNING]
-> **La Paradoja del Peor Caso (Eric Roberts, Sec. 10.5 p. 458):**
+> **La Paradoja del Peor Caso (Sec. 10.5, p. 458):**
 > Si el pivote siempre es el **elemento más pequeño** del subarreglo (ej. primer elemento de un arreglo ya ordenado), una partición de $N$ elementos produce subarreglos de tamaños **0** y **N-1**, degenerando a:
 >
-> $$T(N) = N + (N-1) + (N-2) + \dots + 1 = \frac{N(N-1)}{2} = O(N^2)$$
+> $$
+> T(N) = N + (N-1) + (N-2) + \dots + 1 = \frac{N(N-1)}{2} = O(N^2)
+> $$
 >
 > En el código del laboratorio esto se puede ver en la Demo 2: para $N=8$ ya ordenado, se requieren **35 comparaciones** vs **17** en el caso aleatorio.
 
@@ -176,10 +183,10 @@ graph TD
 
 ## 5. Mitigación: Pivote Aleatorio (Sección 10.5)
 
-Roberts describe dos estrategias para evitar el peor caso:
+La Sección 10.5 describe dos estrategias para evitar el peor caso:
 
 > *"One simple approach is to have the Quicksort implementation choose the pivot element at random. Although it is still possible that the random process will choose a poor pivot value, it is unlikely that it would make the same mistake repeatedly at each level."*
-> — Eric Roberts, Sec. 10.5 (p. 458)
+> — CS106B, Sec. 10.5 (p. 458)
 
 ```cpp
 // Antes de particionar: elegir un índice aleatorio y moverlo al inicio/final
@@ -194,7 +201,7 @@ La otra estrategia mencionada es **Median-of-Three**: elegir la mediana entre el
 ## 6. Comparativa de Rendimiento QuickSort vs MergeSort
 
 > *"This implementation of Quicksort tends to run several times faster than the implementation of merge sort."*
-> — Eric Roberts, Figura 10-10 (p. 457)
+> — CS106B, Figura 10-10 (p. 457)
 
 | $N$ | MergeSort $O(N \log N)$ | QuickSort (Caso Promedio) | QuickSort (Peor Caso $O(N^2)$) |
 | :---: | :---: | :---: | :---: |
@@ -239,7 +246,7 @@ Después de ejecutar la partición de Hoare sobre `[56, 25, 37, 58, 19, 30, 40, 
 ## 📝 Resumen de L37
 
 1. **QuickSort** elige un **pivote** y reorganiza el arreglo **in-place** para que todo lo menor quede a la izquierda y todo lo mayor a la derecha.
-2. El **esquema de Hoare** (Roberts, Sec. 10.5) usa dos punteros `lh` y `rh` que avanzan hacia el centro intercambiando elementos fuera de lugar.
+2. El **esquema de Hoare** (Sec. 10.5) usa dos punteros `lh` y `rh` que avanzan hacia el centro intercambiando elementos fuera de lugar.
 3. **Caso promedio:** $O(N \log N)$ cuando el pivote es cercano a la mediana.
 4. **Peor caso:** $O(N^2)$ cuando el arreglo ya está ordenado y se usa el primer elemento como pivote.
 5. **Pivote Aleatorio** o **Median-of-Three** son estrategias para mitigar el peor caso.
@@ -249,11 +256,11 @@ Después de ejecutar la partición de Hoare sobre `[56, 25, 37, 58, 19, 30, 40, 
 
 <div align="center">
 
-### 🧭 Navigation & Progression
+### 🧭 Navegación y Progresión
 
-| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
-|:------------------:|:--------------:|:--------------:|
-| [**⬅️ L36 — MergeSort**](L36_MergeSort.md) | [**🏠 Recursion & Algorithms**](../README.md) | [**L38 — Backtracking ➡️**](L38_Backtracking.md) |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+|:------------------:|:-------------------:|:------------------:|
+| [**⬅️ L37 — MergeSort**](L37_MergeSort.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L39 — Backtracking ➡️**](L39_Backtracking.md) |
 
 </div>
 

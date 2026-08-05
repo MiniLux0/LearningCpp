@@ -1,49 +1,54 @@
 #include <iostream>
+#include <cstdlib>
+#include <string>
 using namespace std;
 
-// Exercise 3 — Binary Search (recursive)
-// Precondition: arr[] must be sorted in ascending order.
-// Big-O: Time O(log n), Space O(log n) due to recursive call stack.
-// Compare: linear search is O(n) time, O(1) space.
+// ============================================================================
+// EJERCICIO 3 — BÚSQUEDA BINARIA RECURSIVA
+// Objetivo: Búsqueda binaria recursiva en arreglos ordenados.
+// Complejidad objetivo: Tiempo O(log n), Espacio O(log n) en pila.
+// ============================================================================
 
-int binarySearch(const int arr[], int low, int high, int target) {
-    if (low > high) return -1;          // base case: not found
+int busquedaBinaria(const int arr[], int low, int high, int target) {
+    if (low > high) return -1; // Caso base: no encontrado
 
-    int mid = low + (high - low) / 2;  // avoids integer overflow vs (low+high)/2
+    int mid = low + (high - low) / 2; // Midpoint seguro
 
-    if (arr[mid] == target) return mid; // base case: found
-    if (arr[mid] < target)
-        return binarySearch(arr, mid + 1, high, target);   // search right half
+    if (arr[mid] == target) return mid;
+    if (arr[mid] > target)
+        return busquedaBinaria(arr, low, mid - 1, target);
     else
-        return binarySearch(arr, low, mid - 1, target);    // search left half
+        return busquedaBinaria(arr, mid + 1, high, target);
 }
 
-// Wrapper — hides low/high from caller
-int search(const int arr[], int size, int target) {
-    return binarySearch(arr, 0, size - 1, target);
+// ── SISTEMA DE VERIFICACIÓN ROBUSTO ─────────────────────────────────────────
+void verificar(bool condicion, const string& mensaje) {
+    if (!condicion) {
+        cerr << "  [❌ FALLÓ] " << mensaje << endl;
+        exit(1);
+    }
 }
 
-void printResult(int idx, int target) {
-    if (idx == -1)
-        cout << target << " → NOT FOUND" << endl;
-    else
-        cout << target << " → found at index " << idx << endl;
+void ejecutarPruebas() {
+    cout << "Ejecutando pruebas automáticas de Búsqueda Binaria..." << endl;
+    int datos[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+    int n = sizeof(datos) / sizeof(datos[0]);
+
+    // Test 1: Búsqueda de elementos existentes
+    verificar(busquedaBinaria(datos, 0, n - 1, 23) == 5, "23 debe estar en índice 5");
+    verificar(busquedaBinaria(datos, 0, n - 1, 2) == 0, "2 debe estar en índice 0");
+    verificar(busquedaBinaria(datos, 0, n - 1, 91) == n - 1, "91 debe estar al final");
+    cout << "  [PASO] Test 1: Búsqueda de elementos presentes OK" << endl;
+
+    // Test 2: Búsqueda de elemento no existente
+    verificar(busquedaBinaria(datos, 0, n - 1, 50) == -1, "50 no debe existir (-1)");
+    cout << "  [PASO] Test 2: Elementos ausentes retornan -1 OK" << endl;
+
+    cout << "\n¡TODOS LOS TESTS PASARON EXITOSAMENTE! (100% Correcto)" << endl;
 }
 
 int main() {
-    int arr[] = {2, 5, 8, 12, 16, 23, 38, 45, 56, 72};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    cout << "--- Binary Search ---" << endl;
-    cout << "Array: ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
-    cout << endl << endl;
-
-    printResult(search(arr, n, 23),  23);   // present — middle
-    printResult(search(arr, n, 2),    2);   // present — first
-    printResult(search(arr, n, 72),  72);   // present — last
-    printResult(search(arr, n, 99),  99);   // absent
-    printResult(search(arr, n, 1),    1);   // absent — below min
-
+    cout << "=== E03: Búsqueda Binaria Recursiva ===" << endl << endl;
+    ejecutarPruebas();
     return 0;
 }

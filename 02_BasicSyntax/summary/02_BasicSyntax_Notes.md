@@ -65,7 +65,7 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 - **Integer types:** `short` (2 bytes), `int` (4 bytes), `long long` (8 bytes). They can be `signed` or `unsigned` (positive only).
 - **Overflow:** Occurs when a calculation exceeds the maximum value the type can store. In `signed` integers, it produces undefined behavior.
 - **Floating-point:** `float` (4 bytes, ~7 digits of precision) and `double` (8 bytes, ~15 digits). 
-- **Safe float comparison:** Never compare `a == b` directly in floating-point due to IEEE 754 binary rounding errors. Use `std::abs(a - b) < 1e-9`.
+- **Safe float comparison:** Never compare `a == b` directly in floating-point due to IEEE 754 binary rounding errors. Use `abs(a - b) < 1e-9`.
 - **`char` and `bool`:** `char` stores an ASCII character (1 byte). `bool` stores true (`true`) or false (`false`).
 
 ### L13 – L17: Conditional Flow Control
