@@ -5,7 +5,7 @@
 > **Lessons**: L31 – L38  
 > 🏛️ **Academic Base Source**: Stanford CS106B (Lectures 07–11) / MIT 6.096 (Lecture 05)  
 > 📖 **Theory Directory**: 📂 [**`05_RecursionAlgorithms/theory/`**](theory/)  
-> 📑 **Executive Summary & Study Notes**: 📄 [**`05_RecursionAlgorithms_Notes.md`**](summary/05_RecursionAlgorithms_Notes.md)  
+> 📝 **Executive Summary**: 📝 [**`summary/05_RecursionAlgorithms_Notes.md`**](summary/05_RecursionAlgorithms_Notes.md)  
 > 🎯 **Primary Focus**: Mathematical induction, call stack memory, base cases vs recursive steps, Big-O complexity Analysis, linear/binary search, quadratic sorts (Selection, Insertion), $O(N \log N)$ Divide & Conquer (MergeSort, QuickSort), and Recursive Backtracking.
 
 ---
@@ -46,27 +46,20 @@ This module introduces algorithmic thinking and recursive problem solving: manag
 
 ---
 
-## 🎯 Practical Exercises (E01–E08)
+## 🎯 Practical Exercises (E01 – E08)
 
-Hands-on exercises in [`exercise/`](exercise/) that consolidate the module's core topics. Each file is self-contained and buildable with the included `makefile`.
+> 📖 **Exercise Guide**: 📂 [**`exercise/README.md`**](exercise/README.md)
 
-| File | Lesson(s) | Topic | Key Concept | Big-O |
-|------|-----------|-------|-------------|:-----:|
-| **[`E01_Factorial.cpp`](exercise/E01_Factorial.cpp)** | L31-L32 | Factorial | Base case, call stack unwind, negative guard | `O(n)` |
-| **[`E02_Fibonacci.cpp`](exercise/E02_Fibonacci.cpp)** | L31-L32 | Fibonacci | Naive vs memoized recursion, redundant calls | `O(2^n)` / `O(n)` |
-| **[`E03_BinarySearch.cpp`](exercise/E03_BinarySearch.cpp)** | L34 | Binary Search | Recursive divide & conquer, overflow-safe midpoint | `O(log n)` |
-| **[`E04_MergeSort.cpp`](exercise/E04_MergeSort.cpp)** | L36 | MergeSort | Divide & conquer, auxiliary merge, stable sort | `O(n log n)` |
-| **[`E05_QuickSort.cpp`](exercise/E05_QuickSort.cpp)** | L37 | QuickSort | Lomuto partition, pivot placement, worst case | avg `O(n log n)` |
-| **[`E06_PowerFunction.cpp`](exercise/E06_PowerFunction.cpp)** | L31-L32 | Power Function | Naive vs fast exponentiation (`base^(n/2)^2`) | `O(exp)` / `O(log exp)` |
-| **[`E07_StringReversal.cpp`](exercise/E07_StringReversal.cpp)** | L31-L32 | String Reversal | Recursive no-loop reversal, in-place with indices | `O(n)` |
-| **[`E08_Backtracking.cpp`](exercise/E08_Backtracking.cpp)** | L38 | Backtracking Subsets | Choose/Explore/Unchoose pattern, 2^N subsets | `O(2^n · n)` |
-
-```bash
-cd 05_RecursionAlgorithms/exercise
-make                        # compile all exercises
-.\build\E01_Factorial.exe   # run individual exercise
-make run-E08_Backtracking   # compile + run in one step
-```
+| # | Exercise Name | Topic | 💻 Solution File | Status |
+|---|---------------|-------|------------------|:------:|
+| **E01** | **Factorial** | Recursion — base case & call stack | 💻 [`exercise/E01_Factorial.cpp`](exercise/E01_Factorial.cpp) | ✅ |
+| **E02** | **Fibonacci** | Naive vs memoized recursion | 💻 [`exercise/E02_Fibonacci.cpp`](exercise/E02_Fibonacci.cpp) | ✅ |
+| **E03** | **Binary Search** | Recursive divide & conquer search | 💻 [`exercise/E03_BinarySearch.cpp`](exercise/E03_BinarySearch.cpp) | ✅ |
+| **E04** | **MergeSort** | Divide & conquer O(n log n) sort | 💻 [`exercise/E04_MergeSort.cpp`](exercise/E04_MergeSort.cpp) | ✅ |
+| **E05** | **QuickSort** | Lomuto partition & pivot placement | 💻 [`exercise/E05_QuickSort.cpp`](exercise/E05_QuickSort.cpp) | ✅ |
+| **E06** | **Power Function** | Naive vs fast exponentiation | 💻 [`exercise/E06_PowerFunction.cpp`](exercise/E06_PowerFunction.cpp) | ✅ |
+| **E07** | **String Reversal** | Recursive reversal without loops | 💻 [`exercise/E07_StringReversal.cpp`](exercise/E07_StringReversal.cpp) | ✅ |
+| **E08** | **Backtracking Subsets** | Choose / Explore / Unchoose pattern | 💻 [`exercise/E08_Backtracking.cpp`](exercise/E08_Backtracking.cpp) | ✅ |
 
 ---
 

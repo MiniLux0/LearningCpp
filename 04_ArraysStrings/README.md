@@ -71,6 +71,8 @@ This module explores sequential memory layouts in C++: contiguous fixed 1D array
 | **L29** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106B Assignment 1`](../files/cs106b/assignments/Assignment%201/) | Multi-dimensional arrays, Row-Major Order memory storage, 2D matrix traversal, Grid simulation logic. |
 | **L30** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106L Lecture 04`](../files/cs106l/lectures/WL4_Streams.pdf) | Null terminator `'\0'`, C-string manipulation functions (`strlen`, `strcpy`, `strcmp`), `std::string` stream conversions. |
 
+---
+
 ## 🛠️ Build & Compilation Guides
 
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
