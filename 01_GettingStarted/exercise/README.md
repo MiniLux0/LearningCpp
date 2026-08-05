@@ -23,3 +23,8 @@ cd 01_GettingStarted/exercise
 make
 .\build\E05_FormattedReceipt.exe
 ```
+
+> [!TIP]
+> **Need help compiling?**
+> If you don't know how to compile or run C++ exercises, check the step-by-step instructions in 📂 [**`docs/README.md`**](../../docs/README.md).
+

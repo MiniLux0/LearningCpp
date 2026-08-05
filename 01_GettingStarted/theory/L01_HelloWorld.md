@@ -54,6 +54,10 @@ graph LR
 3. **Assembly:** Converts assembly text into machine code object files (`.o` or `.obj`).
 4. **Linking:** Combines object files with C++ Standard Library binaries to create the final `.exe` file.
 
+> [!TIP]
+> **Don't know how to compile?**
+> If you are unsure how to compile and run your first C++ program from the command line, check the central build documentation at 📂 [**`docs/README.md`**](../../docs/README.md).
+
 ---
 
 ## 3. Dissecting the "Hello World" Anatomy
