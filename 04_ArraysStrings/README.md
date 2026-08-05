@@ -4,18 +4,12 @@
 
 > **Lessons**: L27 – L30  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 04) / Stanford CS106L (Lectures 04 & 05) / Stanford CS106B (Assignment 1)  
-> 📖 **Theory Directory**: 📂 [**`04_ArraysStrings/theory/`**](theory/)  
 > 📝 **Executive Summary**: 📝 [**`summary/04_ArraysStrings_Notes.md`**](summary/04_ArraysStrings_Notes.md)  
 > 🎯 **Primary Focus**: Fixed-size 1D/2D arrays, array decay to pointer, passing arrays to functions, null-terminated C-strings (`char[]`), `<cstring>` functions, and `std::string` stream processing.
 
 ---
 
 ### 🧭 Module Navigation Hub
-
-[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
-[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
-[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
@@ -78,18 +72,6 @@ This module explores sequential memory layouts in C++: contiguous fixed 1D array
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
 - ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
-
----
-
-<div align="center">
-
-### 🧭 Module Navigation Hub
-
-| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
-|:------------------:|:------------------:|:--------------:|
-| [**⬅️ Section 03: Subroutines**](../03_Subroutines/README.md) | **Section 04: Arrays & Strings** | [**Section 05: Recursion & Algorithms ➡️**](../05_RecursionAlgorithms/README.md) |
-
-</div>
 
 ---
 *MiniLux0 — Learning C++ Section 04*

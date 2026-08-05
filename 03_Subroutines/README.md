@@ -4,18 +4,12 @@
 
 > **Lessons**: L23 – L26  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 03) / Stanford CS106L (Lectures 03 & 04)  
-> 📖 **Theory Directory**: 📂 [**`03_Subroutines/theory/`**](theory/)  
 > 📝 **Executive Summary**: 📝 [**`summary/03_Subroutines_Notes.md`**](summary/03_Subroutines_Notes.md)  
 > 🎯 **Primary Focus**: Subroutines, return types, pass-by-value vs pass-by-reference (`&`, `const &`), function overloading, header prototypes (`.h`), and variable scope/lifetime.
 
 ---
 
 ### 🧭 Module Navigation Hub
-
-[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
-[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
-[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
@@ -70,18 +64,6 @@ This module covers code modularization in C++: function declarations and signatu
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
 - ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
-
----
-
-<div align="center">
-
-### 🧭 Module Navigation Hub
-
-| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
-|:------------------:|:------------------:|:--------------:|
-| [**⬅️ Section 02: Basic Syntax**](../02_BasicSyntax/README.md) | **Section 03: Subroutines** | [**Section 04: Arrays & Strings ➡️**](../04_ArraysStrings/README.md) |
-
-</div>
 
 ---
 *MiniLux0 — Learning C++ Section 03*

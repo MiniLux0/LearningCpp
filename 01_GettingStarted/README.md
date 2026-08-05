@@ -4,18 +4,12 @@
 
 > **Lessons**: L01 – L05  
 > 🏛️ **Academic Base Source**: MIT 6.096 (Lecture 01) / Stanford CS106L (Lecture 01)  
-> 📖 **Theory Directory**: 📂 [**`01_GettingStarted/theory/`**](theory/)  
 > 📝 **Executive Summary**: 📝 [**`summary/01_GettingStarted_Notes.md`**](summary/01_GettingStarted_Notes.md)  
 > 🎯 **Primary Focus**: Program structure, GCC compilation, namespaces, formatting, comments, `std::cin` & `std::cout` I/O streams.
 
 ---
 
 ### 🧭 Module Navigation Hub
-
-[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
-[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
-[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
@@ -71,18 +65,6 @@ This module introduces the basic syntax and structure of a C++ program: `#includ
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
 - ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
-
----
-
-<div align="center">
-
-### 🧭 Module Navigation Hub
-
-| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
-|:------------------:|:------------------:|:--------------:|
-| **Start of Course** | **Section 01: Getting Started** | [**Section 02: Basic Syntax ➡️**](../02_BasicSyntax/README.md) |
-
-</div>
 
 ---
 *MiniLux0 — Learning C++ Section 01*

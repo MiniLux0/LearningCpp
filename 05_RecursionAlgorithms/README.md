@@ -4,18 +4,12 @@
 
 > **Lessons**: L31 – L38  
 > 🏛️ **Academic Base Source**: Stanford CS106B (Lectures 07–11) / MIT 6.096 (Lecture 05)  
-> 📖 **Theory Directory**: 📂 [**`05_RecursionAlgorithms/theory/`**](theory/)  
 > 📝 **Executive Summary**: 📝 [**`summary/05_RecursionAlgorithms_Notes.md`**](summary/05_RecursionAlgorithms_Notes.md)  
 > 🎯 **Primary Focus**: Mathematical induction, call stack memory, base cases vs recursive steps, Big-O complexity Analysis, linear/binary search, quadratic sorts (Selection, Insertion), $O(N \log N)$ Divide & Conquer (MergeSort, QuickSort), and Recursive Backtracking.
 
 ---
 
 ### 🧭 Module Navigation Hub
-
-[![Root README](https://img.shields.io/badge/🏠_Root-README-00599C?style=for-the-badge)](../README.md)
-[![Master Syllabus](https://img.shields.io/badge/📜_Master-SYLLABUS-F16822?style=for-the-badge)](../SYLLABUS.md)
-[![Academic Guide](https://img.shields.io/badge/🌐_Academic-Guide-007ACC?style=for-the-badge)](../files/Master_Academic_Guide.md)
-[![Resources](https://img.shields.io/badge/📚_Resources-Catalog-2ea44f?style=for-the-badge)](../RESOURCES.md)
 
 | ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
 |:------------------:|:------------------:|:--------------:|
@@ -68,18 +62,6 @@ This module introduces algorithmic thinking and recursive problem solving: manag
 Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts:
 - ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
-
----
-
-<div align="center">
-
-### 🧭 Module Navigation Hub
-
-| ⬅️ Previous Module | 📂 Current Location | ➡️ Next Module |
-|:------------------:|:------------------:|:--------------:|
-| [**⬅️ Section 04: Arrays & Strings**](../04_ArraysStrings/README.md) | **Section 05: Recursion & Algorithms** | [**Section 06: Pointers & Memory ➡️**](../06_Pointers/) |
-
-</div>
 
 ---
 *MiniLux0 — Learning C++ Section 05*
