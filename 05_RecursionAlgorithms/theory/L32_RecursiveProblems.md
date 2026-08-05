@@ -27,10 +27,12 @@
 
 El factorial de un número entero no negativo $n$, denotado como $n!$, se define matemáticamente como:
 $$
-n! = \begin{cases} 
-1 & \text{si } n = 0 \text{ (Caso Base)} \\ 
-n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)} 
-\end{cases}
+n! = \left\{
+\begin{array}{ll}
+1 & \text{si } n = 0 \text{ (Caso Base)} \\
+n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)}
+\end{array}
+\right.
 $$
 
 ### Implementación en C++
@@ -62,11 +64,13 @@ long long factorial(int n) {
 
 La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
 $$
-F_n = \begin{cases} 
-0 & \text{si } n = 0 \\ 
-1 & \text{si } n = 1 \\ 
-F_{n-1} + F_{n-2} & \text{si } n \ge 2 
-\end{cases}
+F_n = \left\{
+\begin{array}{ll}
+0 & \text{si } n = 0 \\
+1 & \text{si } n = 1 \\
+F_{n-1} + F_{n-2} & \text{si } n \ge 2
+\end{array}
+\right.
 $$
 
 ### Implementación Directa (Naive — $O(2^N)$)
