@@ -49,18 +49,18 @@ Quick reference: which files to open for each module.
 
 | Module | MIT 6.096 | CS106B | CS106L |
 |--------|-----------|--------|--------|
-| **01 Getting Started** | `Lecture01_Introduction.pdf` | — | `Welcome to C++!.pdf` |
-| **02 Basic Syntax** | `Lecture02_FlowOfControl.pdf` | Ch 1–2 | `WL2-Structures.pdf` · `WLecture_3_Init_and_Ref.pdf` |
-| **03 Subroutines** | `Lecture03_Functions.pdf` | Ch 2 | `WLecture_3_Init_and_Ref.pdf` |
+| **01 Getting Started** | `Lecture01_Introduction.pdf` | — | `Lecture01_WelcomeToCpp.pdf` |
+| **02 Basic Syntax** | `Lecture02_FlowOfControl.pdf` | Ch 1–2 | `Lecture03_Structures.pdf` · `Lecture04_InitAndRef.pdf` |
+| **03 Subroutines** | `Lecture03_Functions.pdf` | Ch 2 | `Lecture04_InitAndRef.pdf` |
 | **04 Arrays & Strings** | `Lecture04_ArraysAndStrings.pdf` | Ch 3–5 · Assignment 1 | — |
 | **05 Recursion & Algorithms** | — | Ch 7–10 · Assignments 2–3 | — |
-| **06 Pointers** | `Lecture05_Pointers.pdf` | Ch 11 | `WL11_Const.pdf` |
-| **07 Classes** | `Lecture06_Classes.pdf` | Ch 6 | `WL12_Operators.pdf` |
+| **06 Pointers** | `Lecture05_Pointers.pdf` | Ch 11 | `Lecture12_Const.pdf` |
+| **07 Classes** | `Lecture06_Classes.pdf` | Ch 6 | `Lecture13_Operators.pdf` |
 | **08 OOP** | `Lecture07_OOP.pdf` | — | — |
-| **09 Memory Management** | `Lecture08_MemoryManagement.pdf` | Ch 12 | `WL13_SMF.pdf` · `WL14-Move.pdf` · `WL15_RAII.pdf` |
-| **10 Data Structures** | — | Ch 13–18 · Assignments 4–6 | `WL6_Iterators.pdf` · `HashMap/` |
-| **11 File I/O** | `Lecture10_AdvancedTopicsII.pdf` | Ch 4 | `WL4_Streams.pdf` |
-| **12 Advanced C++** | `Lecture09_AdvancedTopicsI.pdf` | Assignment 5 (Huffman) | `WL5–9` · `WikiRacer/` |
+| **09 Memory Management** | `Lecture08_MemoryManagement.pdf` | Ch 12 | `Lecture14_SMF.pdf` · `Lecture15_Move.pdf` · `Lecture16_RAII.pdf` |
+| **10 Data Structures** | — | Ch 13–18 · Assignments 4–6 | `Lecture07_Iterators.pdf` · `HashMap/` |
+| **11 File I/O** | `Lecture10_AdvancedTopicsII.pdf` | Ch 4 | `Lecture05_Streams.pdf` |
+| **12 Advanced C++** | `Lecture09_AdvancedTopicsI.pdf` | Assignment 5 (Huffman) | `Lecture06_Containers.pdf` to `Lecture10_STLSummary.pdf` · `WikiRacer/` |
 
 ---
 

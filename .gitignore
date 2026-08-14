@@ -25,6 +25,7 @@ build/
 buildasan/
 output/
 trash/
+scratch/
 *.exe
 *.out
 *.o

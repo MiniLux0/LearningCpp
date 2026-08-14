@@ -56,7 +56,7 @@ long long factorial(int n) {
 
 > [!NOTE]
 > **Profundidad de Pila y Complejidad Espacial:**
-> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de espacio $O(N)$.
+> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de espacio $`O(N)`$.
 
 ---
 
@@ -103,7 +103,7 @@ graph TD
 
 > [!CAUTION]
 > **Explosión Exponencial:**
-> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $O(2^N)$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
+> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $`O(2^N)`$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
 
 ### 🌟 La Optimización: Secuencia Aditiva ($O(N)$)
 
@@ -125,8 +125,8 @@ long long fibonacciLineal(int n) {
 
 > [!TIP]
 > **Comparación de Rendimiento:**
-> - `fibonacciNaive(40)`: Tarda varias millones de llamadas ($O(2^{40})$).
-> - `fibonacciLineal(40)`: Realiza exactamente **40 llamadas** ($O(N)$), devolviendo `102,334,155` de manera instantánea.
+> - `fibonacciNaive(40)`: Tarda varias millones de llamadas $`O(2^{40})`$.
+> - `fibonacciLineal(40)`: Realiza exactamente **40 llamadas** $`O(N)`$, devolviendo `102,334,155` de manera instantánea.
 
 ---
 

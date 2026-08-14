@@ -45,23 +45,23 @@ CS106L teaches you **modern C++** — the way professional engineers actually wr
 
 | # | PDF | Topics | Module |
 |:-:|-----|--------|--------|
-| L01 | [`Welcome to C++!.pdf`](lectures/Welcome%20to%20C++!.pdf) | Why modern C++? Evolution from C++98 to C++20 | [`01_GettingStarted`](../../01_GettingStarted/) |
-| L02 | [`WLecture1_intro.pdf`](lectures/WLecture1_intro.pdf) | Compilation pipeline, static types, header files | [`01_GettingStarted`](../../01_GettingStarted/) |
-| L03 | [`WL2-Structures.pdf`](lectures/WL2-Structures.pdf) | Structs, `std::pair`, structured bindings (C++17) | [`02_BasicSyntax`](../../02_BasicSyntax/) |
-| L04 | [`WLecture_3_Init_and_Ref.pdf`](lectures/WLecture_3_Init_and_Ref.pdf) | Uniform init `{}`, narrowing prevention, references | [`02_BasicSyntax`](../../02_BasicSyntax/) |
-| L05 | [`WL4_Streams.pdf`](lectures/WL4_Streams.pdf) | Streams, file I/O, state flags, `getline` | [`11_FileIO`](../../11_FileIO/) |
-| L06 | [`WL5_Containers.pdf`](lectures/WL5_Containers.pdf) | `vector`, `map`, `set`, `unordered_map` — trade-offs | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
-| L07 | [`WL6_Iterators.pdf`](lectures/WL6_Iterators.pdf) | Iterators, `begin()`/`end()`, range-based `for` | [`10_DataStructures`](../../10_DataStructures/) |
-| L08 | [`WL7_Templates.pdf`](lectures/WL7_Templates.pdf) | Function & class templates, type deduction | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
-| L09 | [`WL8_Functions.pdf`](lectures/WL8_Functions.pdf) | Lambdas, functors, `std::find_if`, `std::transform` | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
-| L10 | [`WL9-STL-Summary.pdf`](lectures/WL9-STL-Summary.pdf) | Full STL summary & best practices | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
-| L11 | [`WL10_Temp_classes.pdf`](lectures/WL10_Temp_classes.pdf) | Template classes, `.tpp` pattern | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
-| L12 | [`WL11_Const.pdf`](lectures/WL11_Const.pdf) | Const-correctness, `const` methods, `cbegin()` | [`06_Pointers`](../../06_Pointers/) |
-| L13 | [`WL12_Operators.pdf`](lectures/WL12_Operators.pdf) | Operator overloading: `+`, `<<`, `==`, `[]` | [`07_Classes`](../../07_Classes/) |
-| L14 | [`WL13_SMF.pdf`](lectures/WL13_SMF.pdf) | Copy constructor, copy assignment, Rule of 0/3 | [`09_MemoryManagement`](../../09_MemoryManagement/) |
-| L15 | [`WL14-Move.pdf`](lectures/WL14-Move.pdf) | `std::move`, rvalue references `T&&`, Rule of 5 | [`09_MemoryManagement`](../../09_MemoryManagement/) |
-| L16 | [`WL15_RAII.pdf`](lectures/WL15_RAII.pdf) | RAII, `unique_ptr`, `shared_ptr`, `weak_ptr` | [`09_MemoryManagement`](../../09_MemoryManagement/) |
-| L17 | [`WL16-Wrapup.pdf`](lectures/WL16-Wrapup.pdf) | C++17/20 preview: `optional`, `variant`, Concepts | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L01 | [`Lecture01_WelcomeToCpp.pdf`](lectures/Lecture01_WelcomeToCpp.pdf) | Why modern C++? Evolution from C++98 to C++20 | [`01_GettingStarted`](../../01_GettingStarted/) |
+| L02 | [`Lecture02_Intro.pdf`](lectures/Lecture02_Intro.pdf) | Compilation pipeline, static types, header files | [`01_GettingStarted`](../../01_GettingStarted/) |
+| L03 | [`Lecture03_Structures.pdf`](lectures/Lecture03_Structures.pdf) | Structs, `std::pair`, structured bindings (C++17) | [`02_BasicSyntax`](../../02_BasicSyntax/) |
+| L04 | [`Lecture04_InitAndRef.pdf`](lectures/Lecture04_InitAndRef.pdf) | Uniform init `{}`, narrowing prevention, references | [`02_BasicSyntax`](../../02_BasicSyntax/) |
+| L05 | [`Lecture05_Streams.pdf`](lectures/Lecture05_Streams.pdf) | Streams, file I/O, state flags, `getline` | [`11_FileIO`](../../11_FileIO/) |
+| L06 | [`Lecture06_Containers.pdf`](lectures/Lecture06_Containers.pdf) | `vector`, `map`, `set`, `unordered_map` — trade-offs | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L07 | [`Lecture07_Iterators.pdf`](lectures/Lecture07_Iterators.pdf) | Iterators, `begin()`/`end()`, range-based `for` | [`10_DataStructures`](../../10_DataStructures/) |
+| L08 | [`Lecture08_Templates.pdf`](lectures/Lecture08_Templates.pdf) | Function & class templates, type deduction | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L09 | [`Lecture09_Functions.pdf`](lectures/Lecture09_Functions.pdf) | Lambdas, functors, `std::find_if`, `std::transform` | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L10 | [`Lecture10_STLSummary.pdf`](lectures/Lecture10_STLSummary.pdf) | Full STL summary & best practices | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L11 | [`Lecture11_TempClasses.pdf`](lectures/Lecture11_TempClasses.pdf) | Template classes, `.tpp` pattern | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
+| L12 | [`Lecture12_Const.pdf`](lectures/Lecture12_Const.pdf) | Const-correctness, `const` methods, `cbegin()` | [`06_Pointers`](../../06_Pointers/) |
+| L13 | [`Lecture13_Operators.pdf`](lectures/Lecture13_Operators.pdf) | Operator overloading: `+`, `<<`, `==`, `[]` | [`07_Classes`](../../07_Classes/) |
+| L14 | [`Lecture14_SMF.pdf`](lectures/Lecture14_SMF.pdf) | Copy constructor, copy assignment, Rule of 0/3 | [`09_MemoryManagement`](../../09_MemoryManagement/) |
+| L15 | [`Lecture15_Move.pdf`](lectures/Lecture15_Move.pdf) | `std::move`, rvalue references `T&&`, Rule of 5 | [`09_MemoryManagement`](../../09_MemoryManagement/) |
+| L16 | [`Lecture16_RAII.pdf`](lectures/Lecture16_RAII.pdf) | RAII, `unique_ptr`, `shared_ptr`, `weak_ptr` | [`09_MemoryManagement`](../../09_MemoryManagement/) |
+| L17 | [`Lecture17_Wrapup.pdf`](lectures/Lecture17_Wrapup.pdf) | C++17/20 preview: `optional`, `variant`, Concepts | [`12_AdvancedCPP`](../../12_AdvancedCPP/) |
 
 ---
 
@@ -71,7 +71,7 @@ CS106L teaches you **modern C++** — the way professional engineers actually wr
 
 | Project | What you build | Key skills |
 |---------|----------------|------------|
-| [`linked-list-starter/`](assignments/linked-list-starter/) | A linked list with custom iterators for range-based `for` | Iterators, Special Member Functions |
+| [`LinkedList/`](assignments/LinkedList/) | A linked list with custom iterators for range-based `for` | Iterators, Special Member Functions |
 | [`HashMap/`](assignments/HashMap/) | A generic `HashMap<K, V>` container from scratch | Templates, operator overloading, const-correctness |
 | [`WikiRacer/`](assignments/WikiRacer/) | Shortest path finder between Wikipedia articles | Priority queues, streams, `unordered_set`, BFS |
 

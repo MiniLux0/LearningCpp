@@ -57,13 +57,13 @@ CS106B teaches you how to **solve complex problems** using the right data struct
 
 | # | Folder | What you build |
 |:-:|--------|----------------|
-| 0 | [`starter-assign0/`](assignments/starter-assign0/) | Setup & `NameHash` — just to get your environment running |
-| 1 | [`Assignment 1/`](assignments/Assignment%201/) | String filters, Thue-Morse sequence, pixel canvas, sandpile simulation |
-| 2 | [`Assignment 2/`](assignments/Assignment%202/) | Flood terrain simulation, language detection using frequency maps |
-| 3 | [`Assignment 3/`](assignments/Assignment%203/) | Recursive maze solver, subset generator, Boggle word-search game |
-| 4 | [`Assignment 4/`](assignments/Assignment%204/) | Priority queues and building linked lists from scratch |
-| 5 | [`Assignment 5/`](assignments/Assignment%205/) | BST traversal + Huffman file compression |
-| 6 | [`Assignment 6/`](assignments/Assignment%206/) | Graph algorithms: BFS, Dijkstra, Kruskal's minimum spanning tree |
+| 0 | [`Assignment00/`](assignments/Assignment00/) | Setup & `NameHash` — just to get your environment running |
+| 1 | [`Assignment01/`](assignments/Assignment01/) | String filters, Thue-Morse sequence, pixel canvas, sandpile simulation |
+| 2 | [`Assignment02/`](assignments/Assignment02/) | Flood terrain simulation, language detection using frequency maps |
+| 3 | [`Assignment03/`](assignments/Assignment03/) | Recursive maze solver, subset generator, Boggle word-search game |
+| 4 | [`Assignment04/`](assignments/Assignment04/) | Priority queues and building linked lists from scratch |
+| 5 | [`Assignment05/`](assignments/Assignment05/) | BST traversal + Huffman file compression |
+| 6 | [`Assignment06/`](assignments/Assignment06/) | Graph algorithms: BFS, Dijkstra, Kruskal's minimum spanning tree |
 | 7–9 | [`assignments/`](assignments/) | Advanced capstone projects |
 
 > **Which assignment to do with each module?** See the Module Alignment table in [`files/Master_Academic_Guide.md`](../Master_Academic_Guide.md) is removed — see [`files/README.md`](../README.md) for a quick map.
