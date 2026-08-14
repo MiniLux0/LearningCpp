@@ -100,7 +100,7 @@ make clean
 ## 📚 Reference Links
 
 | | Resource | Description |
-||----------|-------------|
+|---|----------|-------------|
 | 🌐 | [**Master Academic Guide**](files/Master_Academic_Guide.md) | Full curricula comparison & PDF index for all 4 courses |
 | 📄 | [**Academic Materials (`files/`)**](files/) | Local lecture slides, problem sets, assignments & starter code |
 | ⚙️ | [**Compilation Guide**](docs/COMPILATION_GUIDE.md) | Beginner step-by-step GCC & Makefile tutorial |
