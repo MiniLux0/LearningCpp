@@ -89,3 +89,9 @@ Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts
 
 ---
 *MiniLux0 — Learning C++ Section 02*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

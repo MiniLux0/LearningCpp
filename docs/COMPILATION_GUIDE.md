@@ -64,3 +64,9 @@ cd 01_GettingStarted/code
 ## 💡 Quick Tips for Beginners
 - If you see compiler **errors**, read the line number indicated by `g++` (e.g., `L01_HelloWorld.cpp:8:5: error: expected ';'`).
 - Always make sure your files are saved before compiling!
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

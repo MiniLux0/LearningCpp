@@ -155,3 +155,8 @@ Given declaration `int data[5]{10, 20};`, what value is stored in `data[3]` and 
 
 ---
 *MiniLux0 — Learning C++ Section 04*
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

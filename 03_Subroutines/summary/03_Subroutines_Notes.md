@@ -75,3 +75,9 @@ Cubre la anatomía de funciones en C++, tipos de retorno, paso por valor vs paso
 ---
 
 *Sección 03 completada al 100%*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

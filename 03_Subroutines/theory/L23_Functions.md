@@ -112,3 +112,8 @@ Toda función consta de tres partes principales:
 
 ---
 *MiniLux0 — Learning C++ Section 03*
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

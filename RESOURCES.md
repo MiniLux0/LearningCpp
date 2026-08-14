@@ -158,3 +158,9 @@ Top-tier academic resources utilized to build this learning plan for C++, Modern
 ---
 
 *MiniLux0*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>
