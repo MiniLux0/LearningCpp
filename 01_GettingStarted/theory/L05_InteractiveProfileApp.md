@@ -132,3 +132,9 @@ What happens if you enter a full name with a space (e.g., `"Ada Lovelace"`) at t
 
 ---
 *MiniLux0 â€” Learning C++ Section 01 Capstone*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

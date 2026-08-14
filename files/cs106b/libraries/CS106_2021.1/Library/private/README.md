@@ -16,3 +16,9 @@ Student writes a main() function that appears to them to be the entry point for 
 __Static variables (initialization, constructors)__
 - No guarantees about order of execution code is run for static initializers. See private/static.h for macros that provide declaration/access to static variable to ensure initializer run exactly once on first use of variable.
 
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

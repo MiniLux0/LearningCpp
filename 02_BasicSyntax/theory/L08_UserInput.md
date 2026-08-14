@@ -122,3 +122,9 @@ What method resolves leftover newline characters in the stream buffer when switc
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

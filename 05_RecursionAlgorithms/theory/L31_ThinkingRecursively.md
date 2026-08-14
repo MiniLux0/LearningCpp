@@ -246,3 +246,8 @@ void contarInfinito(int n) {
 
 ---
 *MiniLux0 â€” Learning C++ Section 05*
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

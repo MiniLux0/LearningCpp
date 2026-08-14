@@ -23,3 +23,9 @@ cd 03_Subroutines/exercise
 make
 .\build\E03_SwapFunction.exe
 ```
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

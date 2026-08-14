@@ -89,3 +89,9 @@ How do you write a `for` loop header that counts down from `10` to `1` inclusive
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

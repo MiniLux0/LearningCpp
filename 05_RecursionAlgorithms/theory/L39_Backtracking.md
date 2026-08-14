@@ -312,3 +312,8 @@ Sin el paso de desmarcar, las celdas exploradas en caminos fallidos quedarían m
 
 ---
 *MiniLux0 — Learning C++ Section 05*
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> � 2026</sub>
+</div>

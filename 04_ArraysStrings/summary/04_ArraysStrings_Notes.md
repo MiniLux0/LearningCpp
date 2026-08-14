@@ -109,3 +109,9 @@ It covers contiguous memory representation of 1D/2D arrays, array decay to point
 ---
 
 *Section 04 completed at 100% â€” CS106B Chapter 3 alignment complete*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

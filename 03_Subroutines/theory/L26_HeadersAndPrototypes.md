@@ -103,3 +103,8 @@ int sumar(int a, int b);
 
 ---
 *MiniLux0 â€” Learning C++ Section 03 Capstone*
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

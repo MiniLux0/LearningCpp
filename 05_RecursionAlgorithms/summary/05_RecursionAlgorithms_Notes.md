@@ -86,3 +86,9 @@ La Sección 05 realiza la transición desde la sintaxis básica de C++ hacia el 
 ---
 
 *MiniLux0 — Resumen Ejecutivo de la Sección 05*
+
+---
+
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> � 2026</sub>
+</div>
