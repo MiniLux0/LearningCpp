@@ -133,8 +133,6 @@ Given `char dest[5];`, what danger occurs when executing `strcpy(dest, "Toolbox"
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 04*
 
 ---
 

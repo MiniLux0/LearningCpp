@@ -70,8 +70,6 @@ Both `code/` and `exercise/` subdirectories contain automated `makefile` scripts
 > **New to C++ compilation?**
 > If you don't know how to compile or run C++ code from your terminal, refer to the documentation hub in 📂 [**`docs/README.md`**](../docs/README.md).
 
----
-*MiniLux0 — Learning C++ Section 01*
 
 ---
 

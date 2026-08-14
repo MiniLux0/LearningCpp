@@ -140,8 +140,6 @@ What occurs when executing `toupper('5')` or `toupper('!')`?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 04*
 
 ---
 

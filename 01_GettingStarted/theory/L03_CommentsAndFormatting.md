@@ -126,8 +126,6 @@ std::cout << "C:\\Program Files\\App\n\"C++\"\tRules!\n";
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 01*
 
 ---
 

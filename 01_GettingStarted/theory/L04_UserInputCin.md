@@ -119,8 +119,6 @@ And the user types `"Alice Cooper"` on a single line and presses Enter:
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 01*
 
 ---
 

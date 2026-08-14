@@ -64,8 +64,6 @@ Tanto la carpeta `code/` como `exercise/` disponen de scripts automatizados de c
 - ⚙️ **Manual de Compilación**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Referencia de Makefile**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
----
-*MiniLux0 — Learning C++ Section 05*
 
 ---
 

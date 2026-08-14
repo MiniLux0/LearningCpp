@@ -33,7 +33,6 @@ make
 
 ---
 
-*MiniLux0 — Learning C++ Section 05 Exercises*
 
 ---
 

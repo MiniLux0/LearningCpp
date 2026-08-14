@@ -108,8 +108,6 @@ Why is `abs()` required in `abs(a - b) < epsilon`?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

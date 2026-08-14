@@ -95,8 +95,6 @@ How many times does a `do-while` loop execute if the continuation condition is `
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

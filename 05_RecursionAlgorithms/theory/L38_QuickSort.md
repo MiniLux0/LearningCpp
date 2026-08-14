@@ -265,8 +265,6 @@ Después de ejecutar la partición de Hoare sobre `[56, 25, 37, 58, 19, 30, 40, 
 </div>
 
 ---
-*MiniLux0 — Learning C++ Section 05*
----
 
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

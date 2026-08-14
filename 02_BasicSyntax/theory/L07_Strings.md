@@ -102,8 +102,6 @@ What is the difference between `'A'` and `"A"` in C++?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

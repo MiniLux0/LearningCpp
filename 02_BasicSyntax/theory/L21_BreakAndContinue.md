@@ -100,8 +100,6 @@ for (int i = 1; i <= 4; i++) {
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

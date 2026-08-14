@@ -101,8 +101,6 @@ What is the decimal result of computing `1 << 4` in C++?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

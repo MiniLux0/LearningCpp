@@ -106,8 +106,6 @@ What is the type of the literal `3.14` versus `3.14f` in C++?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

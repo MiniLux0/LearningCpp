@@ -151,8 +151,6 @@ Why does the C++ compiler reject signature `void print(int mat[][], int r, int c
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 04*
 
 ---
 

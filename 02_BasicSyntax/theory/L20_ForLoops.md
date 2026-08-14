@@ -87,8 +87,6 @@ How do you write a `for` loop header that counts down from `10` to `1` inclusive
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

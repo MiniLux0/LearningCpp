@@ -122,8 +122,6 @@ What happens if you omit the semicolon `;` at the end of `std::cout << "Hello, W
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 01*
 
 ---
 

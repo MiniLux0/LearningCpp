@@ -76,7 +76,6 @@
 
 ---
 
-*MiniLux0 — Learning C++ Section 04 Exercises*
 
 ---
 

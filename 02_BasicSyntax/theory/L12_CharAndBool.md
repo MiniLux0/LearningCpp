@@ -118,8 +118,6 @@ How do you convert a numeric character `'7'` into its integer value `7` in C++?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

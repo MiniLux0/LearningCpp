@@ -176,8 +176,6 @@ Given signature `void searchElem(const int arr[], int size, int target);`, what 
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 04*
 
 ---
 

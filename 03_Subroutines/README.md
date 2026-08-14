@@ -65,8 +65,6 @@ Subdirectorios `code/` y `exercise/` incluyen archivos `makefile`:
 - ⚙️ **Tutorial de Compilación**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Referencia de Makefile**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
----
-*MiniLux0 — Learning C++ Section 03*
 
 ---
 

@@ -291,8 +291,6 @@ Given string `string msg = "Hello World";`, what is the content of `msg` after e
 </div>
 
 ---
-*MiniLux0 — Learning C++ Section 04*
----
 
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

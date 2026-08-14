@@ -102,8 +102,6 @@ else if (score >= 90) { cout << "A"; }
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

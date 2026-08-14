@@ -78,8 +78,6 @@ Subdirectories `code/` and `exercise/` include automated `makefile`s:
 - ⚙️ **Compilation Guide**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
----
-*MiniLux0 — Learning C++ Section 04*
 
 ---
 

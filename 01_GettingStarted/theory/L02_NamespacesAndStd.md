@@ -118,8 +118,6 @@ Why is writing `using namespace std;` inside a header file (`.h` or `.hpp`) cons
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 01*
 
 ---
 

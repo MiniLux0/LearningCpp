@@ -96,8 +96,6 @@ Which of the following types CANNOT be used in a C++ `switch` statement?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02 Capstone*
 
 ---
 

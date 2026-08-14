@@ -229,8 +229,6 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 05*
 
 ---
 

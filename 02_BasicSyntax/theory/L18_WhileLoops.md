@@ -90,8 +90,6 @@ How many times does the body of `while (x < 0)` execute if `x = 10` initially?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

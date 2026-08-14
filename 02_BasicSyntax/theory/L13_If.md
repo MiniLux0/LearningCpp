@@ -106,8 +106,6 @@ What happens if you write `if (age = 18)` when `age` was previously `10`?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

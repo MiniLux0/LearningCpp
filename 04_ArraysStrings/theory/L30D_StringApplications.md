@@ -261,8 +261,6 @@ Why is formula `(shift % 26 + 26) % 26` applied at the start of `caesarCipher`?
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 04 Capstone*
 
 ---
 

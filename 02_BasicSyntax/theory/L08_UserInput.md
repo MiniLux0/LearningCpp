@@ -120,8 +120,6 @@ What method resolves leftover newline characters in the stream buffer when switc
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 

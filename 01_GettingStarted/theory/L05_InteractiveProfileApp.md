@@ -130,8 +130,6 @@ What happens if you enter a full name with a space (e.g., `"Ada Lovelace"`) at t
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 01 Capstone*
 
 ---
 

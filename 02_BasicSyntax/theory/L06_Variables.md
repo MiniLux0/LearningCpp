@@ -114,8 +114,6 @@ int temperature{72.8};
 
 </div>
 
----
-*MiniLux0 — Learning C++ Section 02*
 
 ---
 
