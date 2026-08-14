@@ -21,7 +21,7 @@
 | [`mit6096/`](mit6096/) | 10 lecture PDFs, 4 assignments + solutions, 1 final project | Following Modules 01–04, 06–09, 11–12 |
 | [`cs106b/`](cs106b/) | Textbook (Eric Roberts), assignments 0–9, section starters, lecture code | Following Module 05 (Recursion & Algorithms) and Module 10 (Data Structures) |
 | [`cs106x/`](cs106x/) | Honors-track handout catalog (reference only — no local files) | Optional advanced challenge after Module 05 |
-| [`cs106l/`](cs106l/) | 17 modern C++ lecture PDFs, 3 projects (HashMap, WikiRacer, linked-list) | Following Modules 06–12 for modern C++ perspective |
+| [`cs106l/`](cs106l/) | 17 modern C++ lecture PDFs, 3 projects (HashMap, WikiRacer, LinkedList) | Following Modules 06–12 for modern C++ perspective |
 
 ---
 
@@ -59,7 +59,7 @@ files/
 └── cs106l/
     ├── README.md                ← CS106L course guide & lecture index
     ├── lectures/                ← 17 modern C++ lecture PDFs
-    └── assignments/             ← 3 projects: HashMap, WikiRacer, linked-list
+    └── assignments/             ← 3 projects: HashMap, WikiRacer, LinkedList
 ```
 
 ---
