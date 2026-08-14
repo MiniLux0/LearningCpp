@@ -91,9 +91,3 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 ---
 
 *Last update: Section 02 100% completed*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

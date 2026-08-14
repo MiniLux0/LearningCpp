@@ -97,9 +97,3 @@ How many times does a `do-while` loop execute if the continuation condition is `
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

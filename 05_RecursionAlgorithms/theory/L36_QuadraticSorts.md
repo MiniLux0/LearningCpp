@@ -226,8 +226,3 @@ Tienes el arreglo de pares `[(3,A), (1,B), (3,C), (2,D)]` ordenado por el primer
 
 ---
 *MiniLux0 â€” Learning C++ Section 05*
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

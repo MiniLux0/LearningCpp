@@ -113,9 +113,3 @@ If `short count = 32767;` and you execute `count++;`, what value will `count` co
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

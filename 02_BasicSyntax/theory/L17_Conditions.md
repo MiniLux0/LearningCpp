@@ -112,9 +112,3 @@ What happens if you swap the operands to `if ((100 / divisor > 5) && divisor != 
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

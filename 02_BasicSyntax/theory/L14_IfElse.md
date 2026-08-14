@@ -94,9 +94,3 @@ Can a variable declared inside an `if` block be accessed inside the `else` block
 
 ---
 *MiniLux0 â€” Learning C++ Section 02*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

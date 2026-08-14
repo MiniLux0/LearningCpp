@@ -79,9 +79,3 @@ Covers the internal structure of a C++ program, preprocessor `#include` directiv
 ---
 
 *Last update: Section 01 completed at 100%*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

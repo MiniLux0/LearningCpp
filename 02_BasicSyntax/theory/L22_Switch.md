@@ -98,9 +98,3 @@ Which of the following types CANNOT be used in a C++ `switch` statement?
 
 ---
 *MiniLux0 â€” Learning C++ Section 02 Capstone*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

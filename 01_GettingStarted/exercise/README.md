@@ -28,9 +28,3 @@ make
 > **Need help compiling?**
 > If you don't know how to compile or run C++ exercises, check the step-by-step instructions in ðŸ“‚ [**`docs/README.md`**](../../docs/README.md).
 
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

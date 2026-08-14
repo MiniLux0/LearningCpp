@@ -119,9 +119,3 @@ make
 ---
 
 *MiniLux0 â€” C++ Build System Guide*
-
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
-</div>

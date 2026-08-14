@@ -243,8 +243,3 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 ---
 *MiniLux0 — Learning C++ Section 05*
----
-
-<div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> � 2026</sub>
-</div>
