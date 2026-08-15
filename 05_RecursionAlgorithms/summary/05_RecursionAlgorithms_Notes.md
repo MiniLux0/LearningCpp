@@ -75,13 +75,13 @@ La Sección 05 realiza la transición desde la sintaxis básica de C++ hacia el 
 |---|---|:---:|:---:|---|
 | **L31** | Pensamiento Recursivo | $O(N)$ | $O(N)$ Pila | Stanford CS106B Ch 7 / MIT 6.096 L5 |
 | **L32** | Problemas Recursivos Clásicos | $O(N)$ a $O(2^N)$ | $O(N)$ Pila | Stanford CS106B Ch 7-8 / CS106X |
-| **L33**| Memoización & Top-Down DP | $O(N)$ | $O(N)$ Caché+Pila | Stanford CS106B Ch 8.4 / CS106X |
-| **L33** | Notación Big-O | $O(1) \dots O(2^N)$ | $O(1) \dots O(N)$ | Stanford CS106B Ch 10 / CS106X |
-| **L34** | Búsqueda Lineal y Binaria | $O(\log N)$ | $O(1)$ | Stanford CS106B Ch 10.2 |
-| **L35** | Ordenamientos Cuadráticos | $O(N^2)$ | $O(1)$ In-Place | Stanford CS106B Ch 10.3 |
-| **L36** | MergeSort | $O(N \log N)$ | $O(N)$ | Stanford CS106B Ch 10.3 / CS106X |
-| **L37** | QuickSort | $O(N \log N)$ prom | $O(\log N)$ In-Place | Stanford CS106B Ch 10.3 / CS106X |
-| **L38** | Backtracking Recursivo | $O(b^d)$ Árbol Decisión | $O(d)$ Pila | Stanford CS106B Ch 9 / CS106X |
+| **L33** | Memoización & Top-Down DP | $O(N)$ | $O(N)$ Caché+Pila | Stanford CS106B Ch 8.4 / CS106X |
+| **L34** | Notación Big-O | $O(1) \dots O(2^N)$ | $O(1) \dots O(N)$ | Stanford CS106B Ch 10 / CS106X |
+| **L35** | Búsqueda Lineal y Binaria | $O(\log N)$ | $O(1)$ | Stanford CS106B Ch 10.2 |
+| **L36** | Ordenamientos Cuadráticos | $O(N^2)$ | $O(1)$ In-Place | Stanford CS106B Ch 10.3 |
+| **L37** | MergeSort | $O(N \log N)$ | $O(N)$ | Stanford CS106B Ch 10.3 / CS106X |
+| **L38** | QuickSort | $O(N \log N)$ prom | $O(\log N)$ In-Place | Stanford CS106B Ch 10.3 / CS106X |
+| **L39** | Backtracking Recursivo | $O(b^d)$ Árbol Decisión | $O(d)$ Pila | Stanford CS106B Ch 9 / CS106X |
 
 ---
 
