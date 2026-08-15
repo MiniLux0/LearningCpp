@@ -161,7 +161,7 @@ bool esPalindromo(const string& str) {
 ### Estado Inicial (3 Discos)
 
 <div align="center">
-  <img src="assets/hanoi_animated.svg" alt="Torres de Hanói Animadas">
+  <img src="assets/hanoi_manim.gif" alt="Torres de Hanói Animadas con Manim">
 </div>
 
 ### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
