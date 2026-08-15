@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Understand why direct equality operators (`a == b`) fail for floating-point calculations.
-- [ ] Implement **Epsilon ($\epsilon$) Tolerance Threshold Comparisons**.
+- [ ] Implement **Epsilon ( $\epsilon$ ) Tolerance Threshold Comparisons**.
 - [ ] Utilize `<cmath>` functions (`abs()`) to perform safe floating-point equality checks.
 
 ---
@@ -39,9 +39,9 @@ if (a == b) {
 
 ---
 
-## 2. The Solution: Absolute Tolerance ($\text{Epsilon } \epsilon$)
+## 2. The Solution: Absolute Tolerance (`\text{Epsilon } \epsilon`)
 
-Instead of checking exact binary equality (`a == b`), verify whether the absolute difference between `a` and `b` is smaller than a tiny tolerance value **Epsilon ($\epsilon$)**:
+Instead of checking exact binary equality (`a == b`), verify whether the absolute difference between `a` and `b` is smaller than a tiny tolerance value **Epsilon ( $\epsilon$ )**:
 
 ```math
 \text{are equal}(a, b) = |a - b| < \epsilon
@@ -68,8 +68,8 @@ int main() {
 ```
 
 > [!TIP]
-> **Choosing Epsilon ($\epsilon$):**
-> For general 64-bit `double` calculations, an absolute epsilon threshold of `1e-9` ($0.000000001$) or `1e-7` for `float` is standard in financial, physics, and game engines.
+> **Choosing Epsilon ( $\epsilon$ ):**
+> For general 64-bit `double` calculations, an absolute epsilon threshold of `1e-9` ( $0.000000001$ ) or `1e-7` for `float` is standard in financial, physics, and game engines.
 
 ---
 

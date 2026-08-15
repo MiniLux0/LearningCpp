@@ -113,7 +113,7 @@ Given matrix `int grid[4][5]` (4 rows, 5 columns). If representing this matrix i
 ```
 >
 > **Explanation:**  
-> The first 2 rows (indices 0 and 1) occupy $2 \times 5 = 10$ elements. Adding 3 column offsets in row 2 ($j = 3$), the element sits at index `13` in the flattened array.
+> The first 2 rows (indices 0 and 1) occupy $2 \times 5 = 10$ elements. Adding 3 column offsets in row 2 ( $j = 3$ ), the element sits at index `13` in the flattened array.
 
 </details>
 

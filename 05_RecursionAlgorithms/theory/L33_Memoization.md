@@ -90,7 +90,7 @@ long long resolverMemo(int n, vector<long long>& memo) {
 
 ---
 
-## 3. Demostración en Código: Fibonacci Memoizado $O(N)$
+## 3. Demostración en Código: Fibonacci Memoizado `O(N)`
 
 ```cpp
 #include <iostream>

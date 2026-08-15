@@ -1,7 +1,7 @@
 # 📝 Section 02: Basic Syntax — Study Summary and Notes
 
 Study notes and executive summary for **Section 02: Basic C++ Syntax**.
-Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), binary representation and 2's complement, overflow, type casting, safe floating-point comparison with epsilon ($\epsilon$), conditionals (`if`, `else`, `switch`), and loop control structures (`while`, `do-while`, `for`, `break`, `continue`).
+Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), binary representation and 2's complement, overflow, type casting, safe floating-point comparison with epsilon ( $\epsilon$ ), conditionals (`if`, `else`, `switch`), and loop control structures (`while`, `do-while`, `for`, `break`, `continue`).
 
 ---
 
@@ -85,7 +85,7 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 ## 🛡️ Best Practices and Key Patterns
 
 1. **Uniform Initialization (C++11):** Use brace syntax `int x{0};` to prevent narrowing conversions.
-2. **Safe floating-point comparison:** Use an epsilon value ($\epsilon$) when evaluating decimal numbers.
+2. **Safe floating-point comparison:** Use an epsilon value ( $\epsilon$ ) when evaluating decimal numbers.
 3. **Floating-point division:** Ensure at least one operand is a `double` when dividing numbers to avoid integer truncation (`5.0 / 2` $\rightarrow$ `2.5`).
 
 ---

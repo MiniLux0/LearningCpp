@@ -1,4 +1,4 @@
-# L38 — QuickSort: Ordenamiento Rápido $O(N \log N)$ In-Place
+# L38 — QuickSort: Ordenamiento Rápido `O(N \log N)` In-Place
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.5** *The Quicksort algorithm* (p. 452).
@@ -135,7 +135,7 @@ void quickSort(int arr[], int low, int high) {
 
 ## 4. Análisis de Complejidad (Sección 10.5)
 
-### Caso Promedio: $O(N \log N)$
+### Caso Promedio: `O(N \log N)`
 
 Si el pivote es siempre la **mediana** del sub-arreglo, cada partición divide en dos mitades iguales → árbol de recursión de $\log_2 N$ niveles con $O(N)$ trabajo cada uno:
 
@@ -143,7 +143,7 @@ Si el pivote es siempre la **mediana** del sub-arreglo, cada partición divide e
 T(N) = O(N \log N)
 ```
 
-### Peor Caso: $O(N^2)$ — El Arreglo Ya Ordenado
+### Peor Caso: `O(N^2)` — El Arreglo Ya Ordenado
 
 > [!WARNING]
 > **La Paradoja del Peor Caso (Sec. 10.5, p. 458):**

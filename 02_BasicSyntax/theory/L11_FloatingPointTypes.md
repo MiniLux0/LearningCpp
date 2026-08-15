@@ -18,7 +18,7 @@
 
 - [ ] Differentiate single-precision (`float`) vs. double-precision (`double`) types under the IEEE 754 standard.
 - [ ] Control output stream formatting with `<iomanip>` (`fixed`, `setprecision()`).
-- [ ] Understand why floating-point numbers incur binary representation rounding errors ($0.1 + 0.2 \neq 0.3$).
+- [ ] Understand why floating-point numbers incur binary representation rounding errors ( $0.1 + 0.2 \neq 0.3$ ).
 
 ---
 
@@ -63,7 +63,7 @@ int main() {
 
 > [!WARNING]
 > **Binary Rounding Representation Errors:**
-> Numbers like $0.1$ ($1/10$) cannot be represented exactly in binary powers of 2. In binary floating-point representation, $0.1$ is an infinitely repeating fraction:
+> Numbers like $0.1$ ( $1/10$ ) cannot be represented exactly in binary powers of 2. In binary floating-point representation, $0.1$ is an infinitely repeating fraction:
 > ```text
 > 0.1 (decimal) = 0.00011001100110011... (binary)
 > ```

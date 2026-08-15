@@ -25,7 +25,7 @@
 
 ## 1. Integer Data Types & Memory Bounds
 
-| Data Type | Standard Memory | Minimum Value ($2^{k-1}$) | Maximum Value ($2^{k-1}-1$) | Typical Application |
+| Data Type | Standard Memory | Minimum Value ( $2^{k-1}$ ) | Maximum Value ( $2^{k-1}-1$ ) | Typical Application |
 | :--- | :---: | :---: | :---: | :--- |
 | **`short`** | 2 Bytes (16 bits) | $-32,768$ | $+32,767$ | Memory-constrained embedded sensors. |
 | **`int`** | 4 Bytes (32 bits) | $-2,147,483,648$ | $+2,147,483,647$ | Default choice for general loop counters and quantities. |

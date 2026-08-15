@@ -18,8 +18,8 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Entender el funcionamiento y limitaciones de la **Búsqueda Lineal ($O(N)$)** en arreglos desordenados (Sección 10.2).
-- [ ] Dominar la **Búsqueda Binaria ($O(\log N)$)** en arreglos previamente **ordenados** (Sección 7.5).
+- [ ] Entender el funcionamiento y limitaciones de la **Búsqueda Lineal ( $O(N)$ )** en arreglos desordenados (Sección 10.2).
+- [ ] Dominar la **Búsqueda Binaria ( $O(\log N)$ )** en arreglos previamente **ordenados** (Sección 7.5).
 - [ ] Implementar versiones **iterativas** y **recursivas** de la Búsqueda Binaria.
 - [ ] Prevenir el error clásico de desbordamiento entero en el cálculo del punto medio: `mid = low + (high - low) / 2`.
 - [ ] Analizar por qué $\log_2(1{,}000{,}000) \approx 20$ comparaciones frente a $1{,}000{,}000$ comparaciones lineales.
@@ -133,7 +133,7 @@ int busquedaBinariaRecursiva(const int arr[], int low, int high, int target) {
 }
 ```
 
-### 🛠️ Implementación Iterativa ($O(1)$ espacio en pila)
+### 🛠️ Implementación Iterativa (`O(1)` espacio en pila)
 
 ```cpp
 int busquedaBinariaIterativa(const int arr[], int size, int target) {
@@ -169,7 +169,7 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 
 ## 6. Comparativa de Escalamiento Asintótico
 
-| Tamaño del Arreglo ($N$) | Búsqueda Lineal $O(N)$ | Búsqueda Binaria $O(\log_2 N)$ |
+| Tamaño del Arreglo ( $N$ ) | Búsqueda Lineal $O(N)$ | Búsqueda Binaria $O(\log_2 N)$ |
 | :---: | :---: | :---: |
 | **10** | 10 comparaciones | 4 comparaciones |
 | **100** | 100 comparaciones | 7 comparaciones |

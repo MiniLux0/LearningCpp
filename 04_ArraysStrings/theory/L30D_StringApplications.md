@@ -26,7 +26,7 @@
 
 A **palindrome** is a string that reads identically forwards and backwards (examples: `"racecar"`, `"radar"`, `"madam"`).
 
-### ❌ 1.1 Inefficient `substr()` Approach ($O(N^2)$ Time & Memory)
+### ❌ 1.1 Inefficient `substr()` Approach (`O(N^2)` Time & Memory)
 
 ```cpp
 #include <iostream>
@@ -47,7 +47,7 @@ bool isPalindromeBad(string str) {
 ```math
 \text{Total Operations} = (N - 2) + (N - 4) + \dots + 2 = \sum_{k=1}^{N/2} 2k = O(N^2)
 ```
-### ✅ 1.2 Efficient Frontier Index Approach ($O(N)$ Time, $O(1)$ Extra Space)
+### ✅ 1.2 Efficient Frontier Index Approach (`O(N)` Time, `O(1)` Extra Space)
 
 Instead of creating substrings in RAM memory, pass original string by constant reference (`const string&`) and shift two numerical frontier index markers (`low` and `high`):
 
@@ -133,7 +133,7 @@ string wordToPigLatin(const string& word) {
 
 ---
 
-## 3. Caesar Cipher ($k$-Shift)
+## 3. Caesar Cipher (`k`-Shift)
 
 Shifts each alphabetic character $k$ positions within the 26-letter alphabet:
 ```math

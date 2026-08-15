@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Understand C-style strings (*C-Strings*) as native `char[]` character arrays terminated with **`'\0'` null sentinel (ASCII 0)**.
-- [ ] Differentiate between **physical array capacity** and **useful text length** ($\text{Capacity} \ge \text{strlen} + 1$).
+- [ ] Differentiate between **physical array capacity** and **useful text length** ( $\text{Capacity} \ge \text{strlen} + 1$ ).
 - [ ] Master core functions from `#include <cstring>` (`strlen`, `strcpy`, `strcat`, `strcmp`, `strchr`).
 - [ ] Prevent Buffer Overflow vulnerabilities and un-delimited memory reads.
 
@@ -76,7 +76,7 @@ int main() {
 | `strlen(str)` | Calculates character count before `'\0'`. | $O(N)$ | Requires `str` to contain `'\0'`. |
 | `strcpy(dest, src)` | Copies characters from `src` to `dest`. | $O(N)$ | Risk of Buffer Overflow if `dest` is too small. |
 | `strcat(dest, src)` | Appends `src` to end of `dest`. | $O(N)$ | Overwrites original `'\0'` of `dest`. |
-| `strcmp(s1, s2)` | Compares lexicographical order ($<0$, $0$, $>0$). | $O(N)$ | Case-sensitive comparison. |
+| `strcmp(s1, s2)` | Compares lexicographical order ( $<0$, $0$, $>0$ ). | $O(N)$ | Case-sensitive comparison. |
 | `strchr(str, ch)` | Finds first occurrence of character `ch`. | $O(N)$ | Returns `char*` pointer to char or `nullptr`. |
 
 ---

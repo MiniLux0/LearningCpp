@@ -32,7 +32,7 @@ Este módulo introduce el pensamiento algorítmico y la resolución recursiva de
 | **L31** | **Pensamiento Recursivo** | 📘 [`L31_ThinkingRecursively.md`](theory/L31_ThinkingRecursively.md) | 💻 [`code/L31_ThinkingRecursively.cpp`](code/L31_ThinkingRecursively.cpp) | Casos base, marcos de pila, inducción matemática, desapilado. | ✅ |
 | **L32** | **Problemas Recursivos** | 📘 [`L32_RecursiveProblems.md`](theory/L32_RecursiveProblems.md) | 💻 [`code/L32_RecursiveProblems.cpp`](code/L32_RecursiveProblems.cpp) | Factoriales, serie de Fibonacci, inversión de cadenas, profundidad de llamada. | ✅ |
 | **L33** | **Memoización y DP** | 📘 [`L33_Memoization.md`](theory/L33_Memoization.md) | 💻 [`code/L33_Memoization.cpp`](code/L33_Memoization.cpp) | Programación Dinámica Top-Down, eliminación de cálculo redundante $O(2^N) \to O(N)$. | ✅ |
-| **L34** | **Notación Big-O** | 📘 [`L34_BigONotation.md`](theory/L34_BigONotation.md) | 💻 [`code/L34_BigONotation.cpp`](code/L34_BigONotation.cpp) | Análisis asintótico ($O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$). | ✅ |
+| **L34** | **Notación Big-O** | 📘 [`L34_BigONotation.md`](theory/L34_BigONotation.md) | 💻 [`code/L34_BigONotation.cpp`](code/L34_BigONotation.cpp) | Análisis asintótico ( $O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$ ). | ✅ |
 | **L35** | **Búsqueda Lineal y Binaria** | 📘 [`L35_LinearBinarySearch.md`](theory/L35_LinearBinarySearch.md) | 💻 [`code/L35_LinearBinarySearch.cpp`](code/L35_LinearBinarySearch.cpp) | Búsqueda secuencial $O(N)$ vs. búsqueda binaria por divide y vencerás $O(\log N)$. | ✅ |
 | **L36** | **Ordenamientos Cuadráticos** | 📘 [`L36_QuadraticSorts.md`](theory/L36_QuadraticSorts.md) | 💻 [`code/L36_QuadraticSorts.cpp`](code/L36_QuadraticSorts.cpp) | Ordenamiento por Selección, Inserción y Burbuja a complejidad $O(N^2)$. | ✅ |
 | **L37** | **MergeSort** | 📘 [`L37_MergeSort.md`](theory/L37_MergeSort.md) | 💻 [`code/L37_MergeSort.cpp`](code/L37_MergeSort.cpp) | Ordenamiento Divide & Vencerás $O(N \log N)$, lógica de mezcla de subarreglos. | ✅ |
@@ -48,7 +48,7 @@ Este módulo introduce el pensamiento algorítmico y la resolución recursiva de
 | # | Nombre del Ejercicio | Concepto Evaluado | 💻 Archivo de Solución | Estado |
 |---|----------------------|-------------------|------------------------|:------:|
 | **E01** | **Factorial** | Recursión — caso base y pila de llamadas | 💻 [`exercise/E01_Factorial.cpp`](exercise/E01_Factorial.cpp) | ✅ |
-| **E02** | **Fibonacci Memoizado** | Recursión simple vs. memoizada ($O(N)$) | 💻 [`exercise/E02_Fibonacci.cpp`](exercise/E02_Fibonacci.cpp) | ✅ |
+| **E02** | **Fibonacci Memoizado** | Recursión simple vs. memoizada ( $O(N)$ ) | 💻 [`exercise/E02_Fibonacci.cpp`](exercise/E02_Fibonacci.cpp) | ✅ |
 | **E03** | **Búsqueda Binaria** | Búsqueda recursiva por divide y vencerás | 💻 [`exercise/E03_BinarySearch.cpp`](exercise/E03_BinarySearch.cpp) | ✅ |
 | **E04** | **MergeSort** | Ordenamiento divide y vencerás $O(N \log N)$ | 💻 [`exercise/E04_MergeSort.cpp`](exercise/E04_MergeSort.cpp) | ✅ |
 | **E05** | **QuickSort** | Particionado Lomuto y posicionamiento de pivote | 💻 [`exercise/E05_QuickSort.cpp`](exercise/E05_QuickSort.cpp) | ✅ |

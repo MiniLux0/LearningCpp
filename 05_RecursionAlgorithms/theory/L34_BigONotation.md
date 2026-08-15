@@ -17,7 +17,7 @@
 ## Objetivos de Aprendizaje
 
 - [ ] Entender qué es el **Análisis Asintótico** y por qué la notación Big-O mide el crecimiento del tiempo en función de $N \to \infty$ (Sección 10.2).
-- [ ] Aplicar la definición matemática formal de **Big-O ($O(g(N))$)** ($T(N) \le C \cdot g(N)$).
+- [ ] Aplicar la definición matemática formal de **Big-O ( $O(g(N))$ )** ( $T(N) \le C \cdot g(N)$ ).
 - [ ] Dominar las **Reglas de Simplificación Asintótica**: eliminar constantes multiplicativas y términos no dominantes.
 - [ ] Clasificar la **Jerarquía de Clases de Complejidad Estándar** (Sección 10.4): $O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$, $O(N^2)$, $O(2^N)$, $O(N!)$.
 
@@ -25,7 +25,7 @@
 
 ## 1. Fundamentos del Análisis Asintótico (Sección 10.2)
 
-La velocidad de ejecución de un programa depende del reloj de la CPU, el compilador y la RAM. Sin embargo, en ciencias de la computación necesitamos una métrica pura para comparar algoritmos **independientemente del hardware**: la **Notación Big-O ($O$)**.
+La velocidad de ejecución de un programa depende del reloj de la CPU, el compilador y la RAM. Sin embargo, en ciencias de la computación necesitamos una métrica pura para comparar algoritmos **independientemente del hardware**: la **Notación Big-O ( $O$ )**.
 
 > [!TIP]
 > **Definición Formal de Big-O (Sec. 10.2):**  
@@ -70,7 +70,7 @@ graph LR
 
 ## 3. Desglose Detallado por Clase de Complejidad
 
-### ⚡ 1. Complejidad Constante — $O(1)$
+### ⚡ 1. Complejidad Constante — `O(1)`
 El tiempo de ejecución es fijo y no depende del tamaño de la entrada $N$.
 - **Ejemplos:** Acceso directo por índice a un arreglo `arr[i]`, inserción al final de `vector` (`push_back`), operaciones aritméticas.
 
@@ -83,7 +83,7 @@ int obtenerPrimerElemento(const vector<int>& v) {
 
 ---
 
-### 🔍 2. Complejidad Logarítmica — $O(\log N)$
+### 🔍 2. Complejidad Logarítmica — `O(\log N)`
 Divide el espacio del problema a la mitad en cada paso. Extremadamente eficiente.
 - **Ejemplos:** Búsqueda Binaria (*Binary Search*), operaciones en árboles AVL/BST balanceados.
 - **Impacto Real:** Para $N = 1,000,000$, $\log_2(1,000,000) \approx 20$ comparaciones.
@@ -101,7 +101,7 @@ int contarPasosLogaritmicos(int n) {
 
 ---
 
-### 📏 3. Complejidad Lineal — $O(N)$
+### 📏 3. Complejidad Lineal — `O(N)`
 El tiempo de ejecución crece en proporción directa al número de elementos $N$.
 - **Ejemplos:** Búsqueda Lineal (*Linear Search*), recorrido de arreglos, conteo de elementos.
 
@@ -117,7 +117,7 @@ int calcularSuma(const vector<int>& v) {
 
 ---
 
-### ⚡ 4. Complejidad Linealítmica — $O(N \log N)$
+### ⚡ 4. Complejidad Linealítmica — `O(N \log N)`
 Aparece típicamente en algoritmos de Divide y Vencerás que dividen el problema en subproblemas logarítmicos y luego procesan los $N$ elementos para combinarlos.
 - **Ejemplos:** MergeSort, QuickSort (caso promedio), HeapSort, `sort`.
 
@@ -137,7 +137,7 @@ long long simularTrabajoLinearithmic(int n) {
 
 ---
 
-### 🐢 5. Complejidad Cuadrática — $O(N^2)$
+### 🐢 5. Complejidad Cuadrática — `O(N^2)`
 Aparece cuando se emplean bucles anidados donde cada elemento se compara con todos los demás.
 - **Ejemplos:** Selection Sort, Insertion Sort, Bubble Sort, búsqueda de pares duplicados ingenuamente.
 
@@ -156,7 +156,7 @@ int contarParesIguales(const vector<int>& v) {
 
 ---
 
-### 💣 6. Complejidad Exponencial — $O(2^N)$
+### 💣 6. Complejidad Exponencial — `O(2^N)`
 El tiempo de ejecución se duplica con cada nuevo elemento añadido a la entrada. Se vuelve inmanejable rápidamente para $N > 40$.
 - **Ejemplos:** Naive Fibonacci, resolución del problema del Subconjunto (*Subset-Sum* por fuerza bruta), traslado de Torres de Hanói.
 
@@ -169,7 +169,7 @@ int ramificacionesExponenciales(int n) {
 
 ---
 
-## 📊 Tabla Comparativa de Escalamiento ($N \to \text{Operaciones}$)
+## 📊 Tabla Comparativa de Escalamiento (`N \to \text{Operaciones}`)
 
 | $N$ | $O(1)$ | $O(\log_2 N)$ | $O(N)$ | $O(N \log_2 N)$ | $O(N^2)$ | $O(2^N)$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |

@@ -177,9 +177,9 @@ Existe un isomorfismo estructural perfecto entre la **Inducción Matemática** y
 
 | Inducción Matemática | Programación Recursiva |
 | :--- | :--- |
-| **Base Inductiva ($P(0)$ o $P(1)$)** | **Caso Base** (`if (n == 0) return ...;`) |
+| **Base Inductiva ( $P(0)$ o $P(1)$ )** | **Caso Base** (`if (n == 0) return ...;`) |
 | **Hipótesis Inductiva (Asumir cierta $P(k)$)** | **Salto de Fe Recursivo** (Asumir que `f(k)` funciona) |
-| **Paso Inductivo ($P(k) \Rightarrow P(k+1)$)** | **Paso Recursivo** (`return n + f(n - 1);`) |
+| **Paso Inductivo ( $P(k) \Rightarrow P(k+1)$ )** | **Paso Recursivo** (`return n + f(n - 1);`) |
 
 ---
 

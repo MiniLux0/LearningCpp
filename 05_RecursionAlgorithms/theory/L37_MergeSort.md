@@ -1,4 +1,4 @@
-# L37 — MergeSort: Ordenamiento por Mezcla $O(N \log N)$
+# L37 — MergeSort: Ordenamiento por Mezcla `O(N \log N)`
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
@@ -34,8 +34,8 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\fra
 
 > [!TIP]
 > **La Propiedad Clave de los Algoritmos Cuadráticos (Sec. 10.3):**  
-> Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ($\times 4$).  
-> Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ($\div 4$).  
+> Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ( $\times 4$ ).  
+> Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ( $\div 4$ ).  
 >
 > Esto sugiere que dividir el arreglo en mitades y resolver recursivamente puede reducir el tiempo total de forma drástica.
 
@@ -122,9 +122,9 @@ void mergeSort(vector<int>& vec) {
 
 ---
 
-## 5. Árbol de Recursión y Derivación de $O(N \log N)$
+## 5. Árbol de Recursión y Derivación de `O(N \log N)`
 
-### Árbol para $N = 8$
+### Árbol para `N = 8`
 
 ```mermaid
 graph TD
@@ -180,7 +180,7 @@ En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectore
 
 ---
 
-## 6. Comparativa $N^2$ vs $N \log N$ (Figura 10-5, p. 447)
+## 6. Comparativa `N^2` vs `N \log N` (Figura 10-5, p. 447)
 
 | $N$ | Selection Sort $O(N^2)$ | MergeSort $O(N \log N)$ | Factor de Mejora |
 | :---: | :---: | :---: | :---: |
@@ -221,8 +221,8 @@ graph LR
 
 > [!IMPORTANT]
 > **Tractable vs Intractable (Sec. 10.4):**  
-> Los problemas solubles en tiempo **polinomial** ($O(N^k)$) se consideran **tractables** (computacionalmente viables).  
-> Los que solo tienen soluciones **exponenciales** ($O(2^N)$) son **intratables** — por ejemplo, el Subset-Sum Problem (Cap. 8) y el Travelling Salesman Problem.
+> Los problemas solubles en tiempo **polinomial** ( $O(N^k)$ ) se consideran **tractables** (computacionalmente viables).  
+> Los que solo tienen soluciones **exponenciales** ( $O(2^N)$ ) son **intratables** — por ejemplo, el Subset-Sum Problem (Cap. 8) y el Travelling Salesman Problem.
 
 ---
 

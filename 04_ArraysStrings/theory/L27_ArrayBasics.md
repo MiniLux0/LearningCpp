@@ -43,7 +43,7 @@ The memory address of the $i$-th element is calculated directly via arithmetic:
 ```
 > [!TIP]
 > **Why do indices start at 0?**
-> The index $i$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ($0 \times \text{sizeof}(\text{type}) = 0$), pointing directly to the start of the data structure.
+> The index $i$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ( $0 \times \text{sizeof}(\text{type}) = 0$ ), pointing directly to the start of the data structure.
 
 ---
 

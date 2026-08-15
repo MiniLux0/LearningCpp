@@ -16,14 +16,14 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Implementar la función **Factorial ($n!$)** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
-- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($O(2^N)$) y transformarlo en una función lineal $O(N)$ mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
+- [ ] Implementar la función **Factorial ( $n!$ )** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
+- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ( $O(2^N)$ ) y transformarlo en una función lineal $O(N)$ mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
 - [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices a complejidad $O(N)$ (Sección 7.4).
 - [ ] Dominar la solución por **Divide y Vencerás** del dilema de **Las Torres de Hanói** (Sección 8.1).
 
 ---
 
-## 1. La Función Factorial ($n!$ — Sección 7.2)
+## 1. La Función Factorial (`n!` — Sección 7.2)
 
 El factorial de un número entero no negativo $n$, denotado como $n!$, se define matemáticamente como:
 ```math
@@ -60,9 +60,9 @@ long long factorial(int n) {
 
 ---
 
-## 2. La Función de Fibonacci y la Secuencia Aditiva ($F_n$ — Sección 7.3)
+## 2. La Función de Fibonacci y la Secuencia Aditiva (`F_n` — Sección 7.3)
 
-La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
+La sucesión de Fibonacci ( $0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$ ) se define por:
 ```math
 F_n = \left\{
 \begin{array}{ll}
@@ -73,7 +73,7 @@ F_{n-1} + F_{n-2} & \text{si } n \ge 2
 \right.
 ```
 
-### Implementación Directa (Naive — $O(2^N)$)
+### Implementación Directa (Naive — `O(2^N)`)
 
 ```cpp
 long long fibonacciNaive(int n) {
@@ -105,7 +105,7 @@ graph TD
 > **Explosión Exponencial:**
 > `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $O(2^N)$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
 
-### 🌟 La Optimización: Secuencia Aditiva ($O(N)$)
+### 🌟 La Optimización: Secuencia Aditiva (`O(N)`)
 
 La Sección 7.3 propone generalizar la recursión a una **Secuencia Aditiva** que mantiene el estado acumulado de los dos términos en parámetros de la función (Recursión de Cola / *Tail-Recursion*):
 
@@ -138,9 +138,9 @@ Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha qu
 1. **Casos Base:** Una cadena de longitud $0$ o $1$ es siempre un palíndromo (`length <= 1`).
 2. **Paso Recursivo:** Si el primer y el último carácter coinciden (`str[low] == str[high]`), el problema se reduce a verificar el sub-string interno.
 
-### Implementación Eficiente con Índices de Frontera ($O(N)$ Tiempo, $O(N)$ Pila)
+### Implementación Eficiente con Índices de Frontera (`O(N)` Tiempo, `O(N)` Pila)
 
-Para evitar la asignación innecesaria de memoria con `substr()` ($O(N^2)$), se utilizan dos punteros de índice `low` y `high`:
+Para evitar la asignación innecesaria de memoria con `substr()` ( $O(N^2)$ ), se utilizan dos punteros de índice `low` y `high`:
 
 ```cpp
 #include <string>

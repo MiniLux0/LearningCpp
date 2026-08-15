@@ -62,11 +62,11 @@ int main() {
 
 | Function | Evaluated Condition / Operation | True Examples / Result |
 | :--- | :--- | :--- |
-| `isalpha(ch)` | Checks if `ch` is an alphabetic letter ($A-Z, a-z$). | `'a'`, `'Z'` |
-| `isdigit(ch)` | Checks if `ch` is a numeric digit ($0-9$). | `'0'`, `'9'` |
+| `isalpha(ch)` | Checks if `ch` is an alphabetic letter ( $A-Z, a-z$ ). | `'a'`, `'Z'` |
+| `isdigit(ch)` | Checks if `ch` is a numeric digit ( $0-9$ ). | `'0'`, `'9'` |
 | `isalnum(ch)` | Checks if `ch` is alphanumeric (`isalpha` or `isdigit`). | `'a'`, `'5'` |
-| `islower(ch)` | Checks if `ch` is a lowercase letter ($a-z$). | `'e'`, `'z'` |
-| `isupper(ch)` | Checks if `ch` is an uppercase letter ($A-Z$). | `'A'`, `'M'` |
+| `islower(ch)` | Checks if `ch` is a lowercase letter ( $a-z$ ). | `'e'`, `'z'` |
+| `isupper(ch)` | Checks if `ch` is an uppercase letter ( $A-Z$ ). | `'A'`, `'M'` |
 | `isspace(ch)` | Checks if `ch` is a whitespace character (`' '`, `'\t'`, `'\n'`). | `' '`, `'\n'` |
 | `ispunct(ch)` | Checks if `ch` is a punctuation mark (`!`, `,`, `.`). | `'!'`, `'.'` |
 | `tolower(ch)` | Converts `ch` to its lowercase equivalent. | `tolower('A')` $\rightarrow$ `'a'` |

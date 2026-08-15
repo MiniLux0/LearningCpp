@@ -18,7 +18,7 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender la familia de algoritmos de **ordenamiento de complejidad cuadrática ($O(N^2)$)** (Sección 10.1).
+- [ ] Comprender la familia de algoritmos de **ordenamiento de complejidad cuadrática ( $O(N^2)$ )** (Sección 10.1).
 - [ ] Dominar **Selection Sort** y su propiedad de mínimos intercambios.
 - [ ] Dominar **Insertion Sort** y su rendimiento óptimo $O(N)$ en datos casi ordenados.
 - [ ] Comprender **Bubble Sort** y su optimización de parada temprana.
@@ -28,7 +28,7 @@
 
 ## 1. El Problema del Ordenamiento (Sección 10.1)
 
-El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ($O(\log N)$).
+El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ( $O(\log N)$ ).
 
 ```mermaid
 graph LR
@@ -75,7 +75,7 @@ void selectionSort(int arr[], int n) {
 > [!NOTE]
 > **Análisis de Complejidad de Selection Sort:**
 > - **Comparaciones:** $\frac{N(N-1)}{2} = O(N^2)$ en **todos los casos** (mejor, promedio y peor).
-> - **Intercambios:** Como máximo **$N-1$ intercambios** ($O(N)$) — ventaja cuando escribir en memoria es costoso.
+> - **Intercambios:** Como máximo **$N-1$ intercambios** ( $O(N)$ ) — ventaja cuando escribir en memoria es costoso.
 > - **Estabilidad:** ❌ **Inestable** — los intercambios a larga distancia pueden alterar el orden relativo de duplicados.
 > - **Espacio:** $O(1)$ — in-place.
 
@@ -124,7 +124,7 @@ void insertionSort(int arr[], int n) {
 > - **Peor Caso (arreglo invertido):** $O(N^2)$ — máximos desplazamientos.
 > - **Mejor Caso (arreglo ya ordenado):** $\mathbf{O(N)}$ lineal — solo 1 comparación por elemento, 0 desplazamientos.
 > - **Estabilidad:** ✅ **Estable** — preserva el orden relativo de claves iguales.
-> - **Uso ideal:** Arreglos pequeños ($N < 20$) o datos casi ordenados.
+> - **Uso ideal:** Arreglos pequeños ( $N < 20$ ) o datos casi ordenados.
 
 ---
 

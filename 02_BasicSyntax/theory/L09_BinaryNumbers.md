@@ -16,8 +16,8 @@
 
 ## Learning Objectives
 
-- [ ] Understand the binary base-2 positional numeral system ($2^0, 2^1, 2^2, 2^3 \dots$).
-- [ ] Understand bit vs. byte memory units ($1\text{ byte} = 8\text{ bits}$).
+- [ ] Understand the binary base-2 positional numeral system ( $2^0, 2^1, 2^2, 2^3 \dots$ ).
+- [ ] Understand bit vs. byte memory units ( $1\text{ byte} = 8\text{ bits}$ ).
 - [ ] Master bitwise operators in C++ (`&`, `|`, `^`, `~`, `<<`, `>>`).
 - [ ] Calculate bitmasking operations used in low-level graphics and hardware programming.
 
@@ -27,8 +27,8 @@
 
 At the physical hardware layer, computer RAM consists of microscopic transistor capacitors that store electrical charges representing binary states: **HIGH (`1`)** or **LOW (`0`)**.
 
-- **Bit (Binary Digit):** The fundamental unit of data ($0$ or $1$).
-- **Byte:** A contiguous collection of 8 bits ($2^8 = 256$ distinct combinations, $0 \dots 255$).
+- **Bit (Binary Digit):** The fundamental unit of data ( $0$ or $1$ ).
+- **Byte:** A contiguous collection of 8 bits ( $2^8 = 256$ distinct combinations, $0 \dots 255$ ).
 
 ### Positional Binary Evaluation:
 To evaluate binary `00001011` to decimal:
@@ -55,7 +55,7 @@ graph TD
     A ^ B --> XOR["a ^ b = 9 (1001)"]
 ```
 
-| Operator | Operation | Description | Example ($a=12\text{ [1100]}$, $b=5\text{ [0101]}$) | Result |
+| Operator | Operation | Description | Example ( $a=12\text{ [1100]}$, $b=5\text{ [0101]}$ ) | Result |
 | :---: | :--- | :--- | :--- | :---: |
 | **`&`** | Bitwise AND | Bit is 1 if BOTH corresponding bits are 1. | `1100 & 0101` $\rightarrow$ `0100` | `4` |
 | **`\|`** | Bitwise OR | Bit is 1 if AT LEAST ONE bit is 1. | `1100 \| 0101` $\rightarrow$ `1101` | `13` |

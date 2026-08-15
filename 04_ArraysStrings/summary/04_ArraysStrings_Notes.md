@@ -103,8 +103,8 @@ It covers contiguous memory representation of 1D/2D arrays, array decay to point
 1. **Implicit initialization:** Always initialize arrays to avoid reading garbage from RAM (`int arr[10] = {};`).
 2. **Use of `const`:** Protect arrays and strings in function signatures when read-only (`const int arr[]`, `const string& str`).
 3. **Passing dimensions:** Explicitly pass array dimensions along with raw C arrays.
-4. **Respect the `'\0'`:** Ensure space for the null character when declaring C-strings ($\text{capacity} \ge \text{strlen} + 1$).
-5. **Frontier Pointers ($O(N)$):** Use two indices (`low` and `high`) for string reversal and palindrome verification to avoid $O(N^2)$ substring copies.
+4. **Respect the `'\0'`:** Ensure space for the null character when declaring C-strings ( $\text{capacity} \ge \text{strlen} + 1$ ).
+5. **Frontier Pointers ( $O(N)$ ):** Use two indices (`low` and `high`) for string reversal and palindrome verification to avoid $O(N^2)$ substring copies.
 
 ---
 

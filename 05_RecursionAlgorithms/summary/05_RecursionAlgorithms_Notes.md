@@ -19,7 +19,7 @@ La Sección 05 realiza la transición desde la sintaxis básica de C++ hacia el 
 - Una función recursiva es un subprograma que se llama a sí mismo para resolver una instancia más pequeña del mismo problema.
 - **Estructura Obligatoria de 2 Partes**:
   1. **Caso Base**: Condición de parada resuelta de forma trivial sin llamadas recursivas adicionales.
-  2. **Paso Recursivo**: Reduce la escala del problema ($n \to n-1$) y vuelve a invocar a la función.
+  2. **Paso Recursivo**: Reduce la escala del problema ( $n \to n-1$ ) y vuelve a invocar a la función.
 - **Pila de Llamadas y Marcos de Pila**: Cada llamada recursiva reserva un registro de activación en RAM que almacena parámetros locales y la dirección de retorno.
 - **Desbordamiento de Pila (*Stack Overflow*)**: Ocurre cuando se omite el caso base o no se avanza hacia él.
 
@@ -39,19 +39,19 @@ La Sección 05 realiza la transición desde la sintaxis básica de C++ hacia el 
 ### L34 — Notación Big-O y Análisis Asintótico
 - Mide cómo escalan el tiempo de ejecución o la memoria asignada a medida que el tamaño de entrada $N \to \infty$.
 - **Reglas Asintóticas**:
-  1. Ignorar constantes multiplicativas ($O(5N) \to O(N)$).
-  2. Conservar únicamente el término dominante ($O(N^2 + 100N) \to O(N^2)$).
+  1. Ignorar constantes multiplicativas ( $O(5N) \to O(N)$ ).
+  2. Conservar únicamente el término dominante ( $O(N^2 + 100N) \to O(N^2)$ ).
 - **Jerarquía de Eficiencia**: $O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N)$.
 
 ### L35 — Búsqueda Lineal y Binaria
-- **Búsqueda Lineal ($O(N)$)**: Inspeziona elementos secuencialmente. Funciona en arreglos no ordenados.
-- **Búsqueda Binaria ($O(\log N)$)**: Utiliza Divide y Vencerás sobre **arreglos ordenados** inspeccionando el elemento central.
+- **Búsqueda Lineal ( $O(N)$ )**: Inspeziona elementos secuencialmente. Funciona en arreglos no ordenados.
+- **Búsqueda Binaria ( $O(\log N)$ )**: Utiliza Divide y Vencerás sobre **arreglos ordenados** inspeccionando el elemento central.
 - **Punto Medio Seguro**: `int mid = low + (high - low) / 2` evita desbordamientos de enteros de 32 bits.
 
 ### L36 — Algoritmos de Ordenamiento Cuadráticos
-- **Selection Sort ($O(N^2)$)**: Intercambios mínimos $O(N)$, inestable.
-- **Insertion Sort ($O(N^2)$)**: $O(N)$ para datos casi ordenados, estable.
-- **Bubble Sort ($O(N^2)$)**: Intercambia parejas adyacentes desordenadas.
+- **Selection Sort ( $O(N^2)$ )**: Intercambios mínimos $O(N)$, inestable.
+- **Insertion Sort ( $O(N^2)$ )**: $O(N)$ para datos casi ordenados, estable.
+- **Bubble Sort ( $O(N^2)$ )**: Intercambia parejas adyacentes desordenadas.
 
 ### L37 — MergeSort
 - **Divide y Vencerás**: Divide el arreglo en dos mitades, las ordena recursivamente y las mezcla.

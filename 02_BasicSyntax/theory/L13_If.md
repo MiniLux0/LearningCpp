@@ -53,7 +53,7 @@ int main() {
 
 ## 2. Relational Comparison Operators
 
-| Operator | Comparison Name | Evaluation Example ($x = 20$) | Boolean Result |
+| Operator | Comparison Name | Evaluation Example ( $x = 20$ ) | Boolean Result |
 | :---: | :--- | :--- | :---: |
 | **`>`** | Greater Than | `x > 18` | `true` |
 | **`<`** | Less Than | `x < 18` | `false` |
