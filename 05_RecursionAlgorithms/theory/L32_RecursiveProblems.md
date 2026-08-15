@@ -86,7 +86,9 @@ long long fibonacciNaive(int n) {
 #### ⚠️ El Árbol Binario de Llamadas y la Redundancia
 Al calcular `fibonacciNaive(4)`, la función genera llamadas duplicadas:
 
-![Fibonacci Recursion Tree: Exponential O(2^N) Growth](assets/fib_tree.svg)
+<div align="center">
+  <img src="assets/fib_tree.svg" alt="Fibonacci Recursion Tree">
+</div>
 
 > [!CAUTION]
 > **Explosión Exponencial:**
@@ -158,11 +160,15 @@ bool esPalindromo(const string& str) {
 
 ### Estado Inicial (3 Discos)
 
-![Torres de Hanói: secuencia completa de 7 movimientos en cuadrícula para 3 discos](assets/hanoi_steps_3.svg)
+<div align="center">
+  <img src="assets/hanoi_animated.svg" alt="Torres de Hanói Animadas">
+</div>
 
 ### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
 
-![Árbol de Recursión de las Torres de Hanói para N=3, mostrando 7 llamadas de movimiento y 7 llamadas recursivas](assets/hanoi_tree_3.svg)
+<div align="center">
+  <img src="assets/hanoi_tree_3.svg" alt="Árbol de Recursión de las Torres de Hanói para N=3">
+</div>
 
 ### La Estrategia Divide y Vencerás (3 Pasos):
 
