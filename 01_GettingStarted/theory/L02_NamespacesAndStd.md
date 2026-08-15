@@ -37,16 +37,7 @@ A **namespace** is a named declarative region that groups related functions, cla
 >
 > Namespaces allow both functions to coexist seamlessly without causing compiler symbol collisions!
 
-```mermaid
-graph TD
-    Root["Global Scope"] --> NS1["namespace Graphics"]
-    Root --> NS2["namespace Printer"]
-    Root --> NS3["namespace std"]
-    
-    NS1 --> F1["Graphics::print()"]
-    NS2 --> F2["Printer::print()"]
-    NS3 --> F3["std::cout, std::cin, std::string"]
-```
+![Logic Flow Diagram](assets/L02_namespaces.svg)
 
 ---
 

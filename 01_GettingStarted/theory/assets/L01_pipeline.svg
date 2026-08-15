@@ -1,0 +1,40 @@
+<svg width="900" height="160" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#ffffff" />
+<style>
+  .title { font-family: sans-serif; font-size: 16px; font-weight: bold; fill: #343a40; }
+  .text { font-family: sans-serif; font-size: 13px; fill: #212529; }
+  .mono { font-family: monospace; font-size: 12px; fill: #e63946; font-weight: bold; }
+  .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 2; }
+  .box-blue { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+  .box-green { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+</style>
+<defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#e63946"/>
+    </marker>
+</defs>
+<text class="title" x="30" y="30">C++ Compilation Pipeline</text>
+    <rect x="30" y="60" width="140" height="60" rx="6" class="box"/>
+    <text x="100.0" y="85" class="text" font-weight="bold" text-anchor="middle">Source Code</text>
+    <text x="100.0" y="105" class="mono" text-anchor="middle">HelloWorld.cpp</text>
+    
+    <rect x="200" y="60" width="140" height="60" rx="6" class="box-blue"/>
+    <text x="270.0" y="85" class="text" font-weight="bold" text-anchor="middle">Expanded Source</text>
+    <text x="270.0" y="105" class="mono" text-anchor="middle">#include expanded</text>
+    <line x1="170" y1="90" x2="200" y2="90" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><text x="185.0" y="80.0" class="text" font-size="11" text-anchor="middle" fill="#6c757d">1. Preprocessor</text>
+    <rect x="370" y="60" width="140" height="60" rx="6" class="box-blue"/>
+    <text x="440.0" y="85" class="text" font-weight="bold" text-anchor="middle">Assembly Code</text>
+    <text x="440.0" y="105" class="mono" text-anchor="middle">L01.s</text>
+    <line x1="340" y1="90" x2="370" y2="90" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><text x="355.0" y="80.0" class="text" font-size="11" text-anchor="middle" fill="#6c757d">2. Compiler</text>
+    <rect x="540" y="60" width="140" height="60" rx="6" class="box-blue"/>
+    <text x="610.0" y="85" class="text" font-weight="bold" text-anchor="middle">Object File</text>
+    <text x="610.0" y="105" class="mono" text-anchor="middle">L01.o / .obj</text>
+    <line x1="510" y1="90" x2="540" y2="90" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><text x="525.0" y="80.0" class="text" font-size="11" text-anchor="middle" fill="#6c757d">3. Assembler</text>
+    <rect x="710" y="60" width="140" height="60" rx="6" class="box-green"/>
+    <text x="780.0" y="85" class="text" font-weight="bold" text-anchor="middle">Executable Binary</text>
+    <text x="780.0" y="105" class="mono" text-anchor="middle">L01.exe</text>
+    <line x1="680" y1="90" x2="710" y2="90" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><text x="695.0" y="80.0" class="text" font-size="11" text-anchor="middle" fill="#6c757d">4. Linker</text>
+</svg>

@@ -65,12 +65,7 @@ Escape sequences begin with a backslash `\` and allow inserting non-printable or
 
 Both `\n` and `std::endl` move the console output cursor to the next line, but they behave differently under the hood:
 
-```mermaid
-graph TD
-    A["std::cout << 'Text\n'"] -->|Fast| B["Writes 'Text' and newline to I/O Buffer in RAM"]
-    C["std::cout << 'Text' << std::endl"] -->|Slower| D["Writes 'Text' and newline to I/O Buffer"]
-    D -->|Forced Flush| E["Flushes RAM I/O Buffer immediately to OS Console"]
-```
+![Logic Flow Diagram](assets/L03_flush.svg)
 
 - **`\n` (Recommended Default):** Appends a newline character to the output stream buffer in RAM. The OS flushes the buffer automatically when full or at program termination.
 - **`std::endl`:** Appends a newline **AND forces an immediate hardware flush** of the stream buffer to screen.

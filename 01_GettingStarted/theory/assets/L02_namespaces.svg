@@ -1,0 +1,36 @@
+<svg width="600" height="250" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#ffffff" />
+<style>
+  .title { font-family: sans-serif; font-size: 16px; font-weight: bold; fill: #343a40; }
+  .text { font-family: sans-serif; font-size: 13px; fill: #212529; }
+  .mono { font-family: monospace; font-size: 12px; fill: #e63946; font-weight: bold; }
+  .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 2; }
+  .box-blue { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+  .box-green { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+</style>
+<defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#e63946"/>
+    </marker>
+</defs>
+<text class="title" x="30" y="30">Namespaces & Scope Hierarchy</text>
+    <rect x="230" y="50" width="140" height="40" rx="6" class="box-blue"/>
+    <text x="300.0" y="75" class="text" font-weight="bold" text-anchor="middle">Global Scope</text>
+    <text x="300.0" y="95" class="mono" text-anchor="middle">::</text>
+    
+    <rect x="50" y="150" width="140" height="40" rx="6" class="box"/>
+    <text x="120.0" y="175" class="text" font-weight="bold" text-anchor="middle">namespace Graphics</text>
+    <text x="120.0" y="195" class="mono" text-anchor="middle">Graphics::</text>
+    
+    <rect x="230" y="150" width="140" height="40" rx="6" class="box"/>
+    <text x="300.0" y="175" class="text" font-weight="bold" text-anchor="middle">namespace Printer</text>
+    <text x="300.0" y="195" class="mono" text-anchor="middle">Printer::</text>
+    
+    <rect x="410" y="150" width="140" height="40" rx="6" class="box-green"/>
+    <text x="480.0" y="175" class="text" font-weight="bold" text-anchor="middle">namespace std</text>
+    <text x="480.0" y="195" class="mono" text-anchor="middle">std::</text>
+    <line x1="300" y1="90" x2="120" y2="150" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><line x1="300" y1="90" x2="300" y2="150" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><line x1="300" y1="90" x2="480" y2="150" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/><text class="mono" x="120" y="215" text-anchor="middle">print()</text><text class="mono" x="300" y="215" text-anchor="middle">print()</text><text class="mono" x="480" y="215" text-anchor="middle">cout, cin, string</text>
+</svg>

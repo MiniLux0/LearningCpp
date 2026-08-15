@@ -41,13 +41,7 @@ C++ is a high-performance, compiled, statically-typed programming language creat
 
 Unlike interpreted languages (like Python or JavaScript), C++ source code cannot be executed directly by the CPU. It must be translated into native machine code binary (`0`s and `1`s) through a 4-step pipeline:
 
-```mermaid
-graph LR
-    A["Source Code<br/>(L01_HelloWorld.cpp)"] -->|1. Preprocessor| B["Expanded Source<br/>(#include expanded)"]
-    B -->|2. Compiler| C["Assembly Code<br/>(L01.s)"]
-    C -->|3. Assembler| D["Object File<br/>(L01.o / .obj)"]
-    D -->|4. Linker| E["Executable Binary<br/>(L01.exe)"]
-```
+![Logic Flow Diagram](assets/L01_pipeline.svg)
 
 1. **Preprocessing (`#include`):** Copies standard headers and resolves macro directives before compilation.
 2. **Compilation:** Translates high-level C++ statements into architecture-specific assembly instructions.
