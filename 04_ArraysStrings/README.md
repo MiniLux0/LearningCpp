@@ -72,11 +72,15 @@ This module covers sequential data structures in contiguous memory: from 1D and 
 
 ---
 
-## 🛠️ Build & Execution Guides
+## 🛠️ Build & Compilation Guides
 
 Subdirectories `code/` and `exercise/` include automated `makefile`s:
-- ⚙️ **Compilation Guide**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
-- 🛠️ **Makefile Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
+- ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
+- 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
+
+> [!TIP]
+> **New to C++ compilation?**
+> If you don't know how to compile or run C++ code from your terminal, refer to the documentation hub in 📂 [**`docs/README.md`**](../docs/README.md).
 
 
 ---

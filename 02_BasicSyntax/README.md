@@ -44,7 +44,7 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | **L18** | **While Loops** | 📘 [`theory/L18_WhileLoops.md`](theory/L18_WhileLoops.md) | 💻 [`code/L18_WhileLoops.cpp`](code/L18_WhileLoops.cpp) | Pre-test iterative execution, loop counters. | ✅ |
 | **L19** | **Do-While Loops** | 📘 [`theory/L19_DoWhileLoops.md`](theory/L19_DoWhileLoops.md) | 💻 [`code/L19_DoWhileLoops.cpp`](code/L19_DoWhileLoops.cpp) | Post-test iterative execution, input validation loop. | ✅ |
 | **L20** | **For Loops** | 📘 [`theory/L20_ForLoops.md`](theory/L20_ForLoops.md) | 💻 [`code/L20_ForLoops.cpp`](code/L20_ForLoops.cpp) | Counter-controlled iterations, initialization, condition, step. | ✅ |
-| **L21** | **Break & Continue**| 📘 [`theory/L21_BreakAndContinue.md`](theory/L21_BreakAndContinue.md) | 💻 [`code/L21_BreakAndContinue.cpp`](code/L21_BreakAndContinue.cpp) | Loop control flow alteration, early termination, skipping steps. | ✅ |
+| **L21** | **Break & Continue** | 📘 [`theory/L21_BreakAndContinue.md`](theory/L21_BreakAndContinue.md) | 💻 [`code/L21_BreakAndContinue.cpp`](code/L21_BreakAndContinue.cpp) | Loop control flow alteration, early termination, skipping steps. | ✅ |
 | **L22** | **Switch Case** | 📘 [`theory/L22_Switch.md`](theory/L22_Switch.md) | 💻 [`code/L22_Switch.cpp`](code/L22_Switch.cpp) | Discrete integral branching, `case`, `break`, `default`. | ✅ |
 
 ---
@@ -64,7 +64,7 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | **E07** | **Grade Check** | Simple conditional branching | 💻 [`exercise/E07_GradeCheck.cpp`](exercise/E07_GradeCheck.cpp) | ✅ |
 | **E08** | **Age Classifier** | Nested `if-else if` trees | 💻 [`exercise/E08_AgeClassifier.cpp`](exercise/E08_AgeClassifier.cpp) | ✅ |
 | **E09** | **Compare Numbers** | Relational & logical operators | 💻 [`exercise/E09_CompareNumbers.cpp`](exercise/E09_CompareNumbers.cpp) | ✅ |
-| **E10** | **Simple Calculator**| Multi-way `switch` & loop control | 💻 [`exercise/E10_SimpleCalculator.cpp`](exercise/E10_SimpleCalculator.cpp) | ✅ |
+| **E10** | **Simple Calculator** | Multi-way `switch` & loop control | 💻 [`exercise/E10_SimpleCalculator.cpp`](exercise/E10_SimpleCalculator.cpp) | ✅ |
 
 ---
 
