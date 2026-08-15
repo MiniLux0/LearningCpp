@@ -46,7 +46,7 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\fra
 El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) descrito en la Sección 10.3 usando la siguiente estrategia de 5 pasos:
 
 <div align="center">
-  <img src="assets/merge_sort.gif" alt="Animation">
+  <img src="assets/l37_merge_sort.gif" alt="Animation">
 </div>
 
 ---
