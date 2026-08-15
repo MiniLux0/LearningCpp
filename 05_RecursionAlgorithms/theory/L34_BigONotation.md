@@ -52,7 +52,9 @@ Se clasifican las familias de rendimiento algorítmico en una jerarquía de crec
 O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)
 ```
 
-<img src="assets/l34_big_o_classes.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l34_big_o_classes.gif" alt="Animation">
+</div>
 
 ---
 

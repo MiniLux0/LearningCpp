@@ -44,7 +44,9 @@ Tanto MergeSort como QuickSort emplean **Divide y Vencerás**, pero con una dife
 
 El algoritmo de 3 pasos de la Sección 10.5:
 
-<img src="assets/l38_flow.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l38_flow.gif" alt="Animation">
+</div>
 
 ---
 
@@ -59,7 +61,9 @@ La parte más importante y sutil de QuickSort. Tony Hoare's original partitionin
 
 Asumimos que el pivote es `arr[low]` (primer elemento). Se usan dos punteros `lh` (left-hand) y `rh` (right-hand):
 
-<img src="assets/l38_partition.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l38_partition.gif" alt="Animation">
+</div>
 
 ### Implementación C++ del Esquema de Hoare
 
@@ -115,7 +119,9 @@ T(N) = O(N \log N)
 >
 > En el código del laboratorio esto se puede ver en la Demo 2: para $N=8$ ya ordenado, se requieren **35 comparaciones** vs **17** en el caso aleatorio.
 
-<img src="assets/l38_trees.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l38_trees.gif" alt="Animation">
+</div>
 
 ---
 

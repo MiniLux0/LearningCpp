@@ -30,7 +30,9 @@
 
 El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ( $O(\log N)$ ).
 
-<img src="assets/l36_sort_intro.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l36_sort_intro.gif" alt="Animation">
+</div>
 
 ---
 
@@ -148,7 +150,9 @@ void bubbleSort(int arr[], int n) {
 | **Insertion Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 | **Bubble Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 
-<img src="assets/l36_best_case_comp.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l36_best_case_comp.gif" alt="Animation">
+</div>
 
 ---
 

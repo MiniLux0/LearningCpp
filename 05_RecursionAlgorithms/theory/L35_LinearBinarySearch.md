@@ -47,7 +47,9 @@ int busquedaLineal(const int arr[], int size, int target) {
 
 ### Visualización de la Búsqueda Lineal
 
-<img src="assets/l35_linear_search.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l35_linear_search.gif" alt="Animation">
+</div>
 
 ---
 
@@ -76,7 +78,9 @@ Los 4 pasos del algoritmo:
 
 ## 3. Los Dos Casos Base de la Búsqueda Binaria Recursiva
 
-<img src="assets/l35_binary_search_flow.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l35_binary_search_flow.gif" alt="Animation">
+</div>
 
 ---
 
@@ -147,7 +151,9 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 | **1,000,000** | 1,000,000 comparaciones | **20 comparaciones** |
 | **1,000,000,000** | 1,000,000,000 comparaciones | **30 comparaciones** |
 
-<img src="assets/l35_binary_search_growth.gif" alt="Animation">
+<div align="center">
+  <img src="assets/l35_binary_search_growth.gif" alt="Animation">
+</div>
 
 ---
 
