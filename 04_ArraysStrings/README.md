@@ -78,10 +78,6 @@ Subdirectories `code/` and `exercise/` include automated `makefile`s:
 - ⚙️ **Compilation Tutorial**: [`docs/COMPILATION_GUIDE.md`](../docs/COMPILATION_GUIDE.md)
 - 🛠️ **Makefile & Sanitizer Reference**: [`docs/MAKEFILE_GUIDE.md`](../docs/MAKEFILE_GUIDE.md)
 
-> [!TIP]
-> **New to C++ compilation?**
-> If you don't know how to compile or run C++ code from your terminal, refer to the documentation hub in 📂 [**`docs/README.md`**](../docs/README.md).
-
 
 ---
 
