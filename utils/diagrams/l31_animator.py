@@ -1,79 +1,115 @@
 import os
 
-def gen_factorial_animation(path):
-    svg = '''<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-<rect width="600" height="400" fill="#ffffff" rx="10"/>
-<style>
+class CallStackAnimator:
+    def __init__(self, n=3):
+        self.n = n
+        self.box_h = 65
+        self.spacing = 15
+        self.width = 600
+        self.height = (n + 2) * (self.box_h + self.spacing) + 80
+        
+    def render(self, path):
+        # States: 
+        # 1. n calls down to 0 (n+1 steps)
+        # 2. 0 returns up to n (n+1 steps)
+        # Total steps = 2n + 2
+        
+        total_steps = 2 * self.n + 2
+        step_dur = 2.0 # seconds per step
+        total_time = total_steps * step_dur
+        
+        svg = f'<svg width="{self.width}" height="{self.height}" xmlns="http://www.w3.org/2000/svg">\n'
+        svg += f'<rect width="{self.width}" height="{self.height}" fill="#ffffff" rx="10"/>\n'
+        svg += '''<style>
     text { font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
-    .frame { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 2; rx: 8; transition: all 0.3s; }
-    .frame-hl { fill: #e1f5fe; stroke: #0288d1; stroke-width: 3; }
-    .frame-done { fill: #d4edda; stroke: #28a745; stroke-width: 3; }
-    
+    .frame { stroke-width: 2; rx: 8; }
     .call-text { font-size: 16px; font-weight: bold; fill: #343a40; }
-    .ret-text { font-size: 14px; fill: #d32f2f; font-weight: bold; opacity: 0; }
-    
-    /* Animation Keyframes for Stack (Total 16 seconds) */
-    
-    /* Box Opacities (appear sequentially, then disappear sequentially) */
-    @keyframes appear-3 { 0%, 5% {opacity:0;} 10%, 100% {opacity:1;} }
-    @keyframes appear-2 { 0%, 15% {opacity:0;} 20%, 90% {opacity:1;} 95%, 100% {opacity:0;} }
-    @keyframes appear-1 { 0%, 25% {opacity:0;} 30%, 80% {opacity:1;} 85%, 100% {opacity:0;} }
-    @keyframes appear-0 { 0%, 35% {opacity:0;} 40%, 70% {opacity:1;} 75%, 100% {opacity:0;} }
-    
-    /* Return Text Opacities */
-    @keyframes ret-0 { 0%, 45% {opacity:0;} 50%, 70% {opacity:1;} 75%, 100% {opacity:0;} }
-    @keyframes ret-1 { 0%, 55% {opacity:0;} 60%, 80% {opacity:1;} 85%, 100% {opacity:0;} }
-    @keyframes ret-2 { 0%, 65% {opacity:0;} 70%, 90% {opacity:1;} 95%, 100% {opacity:0;} }
-    @keyframes ret-3 { 0%, 75% {opacity:0;} 80%, 100% {opacity:1;} }
-    
-    /* Box Coloring (turning green when returning) */
-    @keyframes color-0 { 0%, 45% { fill: #e1f5fe; stroke: #0288d1; } 50%, 100% { fill: #d4edda; stroke: #28a745; } }
-    @keyframes color-1 { 0%, 55% { fill: #e1f5fe; stroke: #0288d1; } 60%, 100% { fill: #d4edda; stroke: #28a745; } }
-    @keyframes color-2 { 0%, 65% { fill: #e1f5fe; stroke: #0288d1; } 70%, 100% { fill: #d4edda; stroke: #28a745; } }
-    @keyframes color-3 { 0%, 75% { fill: #e1f5fe; stroke: #0288d1; } 80%, 100% { fill: #d4edda; stroke: #28a745; } }
-
-    #g3 { animation: appear-3 16s infinite; }
-    #g3 rect { animation: color-3 16s infinite; }
-    #g3 .ret-text { animation: ret-3 16s infinite; }
-    
-    #g2 { animation: appear-2 16s infinite; }
-    #g2 rect { animation: color-2 16s infinite; }
-    #g2 .ret-text { animation: ret-2 16s infinite; }
-    
-    #g1 { animation: appear-1 16s infinite; }
-    #g1 rect { animation: color-1 16s infinite; }
-    #g1 .ret-text { animation: ret-1 16s infinite; }
-    
-    #g0 { animation: appear-0 16s infinite; }
-    #g0 rect { animation: color-0 16s infinite; }
-    #g0 .ret-text { animation: ret-0 16s infinite; }
-
-</style>
-
-<text x="300" y="40" font-size="22" font-weight="bold" text-anchor="middle" fill="#212529">Call Stack Animado: factorial(3)</text>
+    .sub-text { font-size: 14px; fill: #495057; }
+    .ret-text { font-size: 16px; fill: #d32f2f; font-weight: bold; }
 '''
-    
-    # Boxes stack from bottom (y=320) to top (y=80)
-    stack = [
-        ("g3", 320, "factorial(3)", "return 3 * 2 = 6"),
-        ("g2", 240, "factorial(2)", "return 2 * 1 = 2"),
-        ("g1", 160, "factorial(1)", "return 1 * 1 = 1"),
-        ("g0", 80,  "factorial(0)  [BASE CASE]", "return 1")
-    ]
-    
-    for gid, y, call, ret in stack:
-        svg += f'''
-<g id="{gid}">
-    <rect x="150" y="{y}" width="300" height="60" class="frame" />
-    <text x="300" y="{y + 25}" class="call-text" text-anchor="middle">{call}</text>
-    <text x="300" y="{y + 45}" class="ret-text" text-anchor="middle">{ret}</text>
+
+        # Generate CSS Keyframes dynamically
+        # Box 'i' appears at step (self.n - i). Disappears at step (self.n + i + 1).
+        # Colors: normal until it returns. Returns at step (self.n + i + 1).
+        
+        for i in range(self.n, -1, -1):
+            idx = self.n - i # 0-indexed from top of stack sequence
+            appear_step = idx
+            return_step = total_steps - 1 - idx
+            
+            # Opacity Keyframe
+            appear_pct = (appear_step / total_steps) * 100
+            disappear_pct = ((return_step + 1) / total_steps) * 100
+            
+            svg += f'''
+    @keyframes appear-{i} {{
+        0%, {max(0, appear_pct - 1):.1f}% {{ opacity: 0; }}
+        {appear_pct:.1f}%, {disappear_pct - 1:.1f}% {{ opacity: 1; }}
+        {disappear_pct:.1f}%, 100% {{ opacity: 0; }}
+    }}
+    .g-{i} {{ animation: appear-{i} {total_time}s infinite; opacity: 0; }}
+'''
+            # Color Keyframe
+            # Normal fill #f8f9fa, stroke #dee2e6. 
+            # When returning (return_step), turns green #d4edda, stroke #28a745
+            ret_pct = (return_step / total_steps) * 100
+            svg += f'''
+    @keyframes color-{i} {{
+        0%, {max(0, ret_pct - 1):.1f}% {{ fill: #f8f9fa; stroke: #dee2e6; }}
+        {ret_pct:.1f}%, 100% {{ fill: #d4edda; stroke: #28a745; }}
+    }}
+    .rect-{i} {{ animation: color-{i} {total_time}s infinite; fill: #f8f9fa; stroke: #dee2e6; }}
+'''
+            # Math Text vs Return Text opacity
+            # Math text shows until return_step.
+            # Return text shows AT return_step.
+            svg += f'''
+    @keyframes text-math-{i} {{
+        0%, {max(0, ret_pct - 1):.1f}% {{ opacity: 1; }}
+        {ret_pct:.1f}%, 100% {{ opacity: 0; }}
+    }}
+    .math-{i} {{ animation: text-math-{i} {total_time}s infinite; opacity: 1; }}
+
+    @keyframes text-ret-{i} {{
+        0%, {max(0, ret_pct - 1):.1f}% {{ opacity: 0; }}
+        {ret_pct:.1f}%, 100% {{ opacity: 1; }}
+    }}
+    .ret-{i} {{ animation: text-ret-{i} {total_time}s infinite; opacity: 0; }}
+'''
+        svg += '</style>\n'
+        svg += f'<text x="{self.width/2}" y="40" font-size="22" font-weight="bold" text-anchor="middle" fill="#212529">Call Stack Animado: factorial({self.n})</text>\n'
+        
+        # Calculate factorials for exact return values
+        import math
+        
+        base_y = self.height - 80
+        
+        for i in range(self.n, -1, -1):
+            y = base_y - (self.n - i) * (self.box_h + self.spacing)
+            
+            call_str = f"factorial({i})"
+            if i == 0:
+                math_str = "BASE CASE"
+                ret_str = "return 1"
+            else:
+                math_str = f"{i} × factorial({i-1})"
+                ret_str = f"return {i} × {math.factorial(i-1)} = {math.factorial(i)}"
+                
+            svg += f'''
+<g class="g-{i}">
+    <rect x="{self.width/2 - 150}" y="{y}" width="300" height="{self.box_h}" class="frame rect-{i}" />
+    <text x="{self.width/2}" y="{y + 25}" class="call-text" text-anchor="middle">{call_str}</text>
+    <text x="{self.width/2}" y="{y + 45}" class="sub-text math-{i}" text-anchor="middle">{math_str}</text>
+    <text x="{self.width/2}" y="{y + 45}" class="ret-text ret-{i}" text-anchor="middle">{ret_str}</text>
 </g>
 '''
-    
-    svg += '</svg>'
-    with open(path, "w", encoding="utf-8") as f: f.write(svg)
+        
+        svg += '</svg>'
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(svg)
 
 def gen_basecase_flow(path):
+    # Using animateMotion for the dot
     svg = '''<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
 <rect width="600" height="400" fill="#ffffff" rx="10"/>
 <style>
@@ -85,24 +121,9 @@ def gen_basecase_flow(path):
     
     .label { font-size: 14px; font-weight: bold; fill: #343a40; }
     .arrow { stroke: #adb5bd; stroke-width: 2; fill: none; }
-    
-    /* Animated glowing dot tracing the path */
-    @keyframes trace {
-        0%, 10%   { transform: translate(300px, 60px); opacity: 1; } /* At Call */
-        15%, 25%  { transform: translate(300px, 140px); opacity: 1; } /* At Cond */
-        30%, 40%  { transform: translate(300px, 260px); opacity: 1; } /* At Rec */
-        45%, 55%  { transform: translate(300px, 140px); opacity: 1; } /* Back to Cond */
-        60%, 70%  { transform: translate(100px, 140px); opacity: 1; } /* To Base */
-        75%, 100% { transform: translate(100px, 140px); opacity: 0; }
-    }
-    
-    #dot {
-        fill: #0288d1;
-        animation: trace 6s infinite;
-    }
 </style>
 
-<text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Arquitectura General de la Recursividad</text>
+<text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Flujo de Ejecución de Función Recursiva</text>
 
 <!-- Flowchart -->
 <!-- Call Function -->
@@ -131,8 +152,16 @@ def gen_basecase_flow(path):
 <rect x="20" y="155" width="160" height="50" class="base"/>
 <text x="100" y="185" class="label" fill="#388e3c" text-anchor="middle">Retornar y Detener</text>
 
-<!-- The animated dot -->
-<circle id="dot" r="6" cx="0" cy="0" />
+<!-- The animated dot tracing the path exactly! -->
+<!-- Continuous Path: Call -> Cond -> Rec -> Loop -> Cond -> Base -->
+<circle r="6" fill="#0288d1">
+    <animateMotion 
+        dur="6s" 
+        repeatCount="indefinite"
+        path="M 300,110 L 300,140 L 300,220 L 300,260 L 380,285 L 440,285 L 440,180 L 380,180 L 300,180 L 220,180 L 180,180"
+        calcMode="linear"
+    />
+</circle>
 
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -146,6 +175,8 @@ def gen_basecase_flow(path):
 if __name__ == "__main__":
     out_dir = "05_RecursionAlgorithms/theory/assets"
     os.makedirs(out_dir, exist_ok=True)
-    gen_factorial_animation(os.path.join(out_dir, "L31_FactorialFlow.svg"))
+    
+    CallStackAnimator(n=3).render(os.path.join(out_dir, "L31_FactorialFlow.svg"))
     gen_basecase_flow(os.path.join(out_dir, "L31_BaseCaseFlow.svg"))
-    print("L31 Animated SVGs generated successfully!")
+    
+    print("L31 Updated Animated SVGs generated successfully!")

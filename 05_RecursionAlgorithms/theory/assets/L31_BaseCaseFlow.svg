@@ -9,24 +9,9 @@
     
     .label { font-size: 14px; font-weight: bold; fill: #343a40; }
     .arrow { stroke: #adb5bd; stroke-width: 2; fill: none; }
-    
-    /* Animated glowing dot tracing the path */
-    @keyframes trace {
-        0%, 10%   { transform: translate(300px, 60px); opacity: 1; } /* At Call */
-        15%, 25%  { transform: translate(300px, 140px); opacity: 1; } /* At Cond */
-        30%, 40%  { transform: translate(300px, 260px); opacity: 1; } /* At Rec */
-        45%, 55%  { transform: translate(300px, 140px); opacity: 1; } /* Back to Cond */
-        60%, 70%  { transform: translate(100px, 140px); opacity: 1; } /* To Base */
-        75%, 100% { transform: translate(100px, 140px); opacity: 0; }
-    }
-    
-    #dot {
-        fill: #0288d1;
-        animation: trace 6s infinite;
-    }
 </style>
 
-<text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Arquitectura General de la Recursividad</text>
+<text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Flujo de Ejecución de Función Recursiva</text>
 
 <!-- Flowchart -->
 <!-- Call Function -->
@@ -55,8 +40,16 @@
 <rect x="20" y="155" width="160" height="50" class="base"/>
 <text x="100" y="185" class="label" fill="#388e3c" text-anchor="middle">Retornar y Detener</text>
 
-<!-- The animated dot -->
-<circle id="dot" r="6" cx="0" cy="0" />
+<!-- The animated dot tracing the path exactly! -->
+<!-- Continuous Path: Call -> Cond -> Rec -> Loop -> Cond -> Base -->
+<circle r="6" fill="#0288d1">
+    <animateMotion 
+        dur="6s" 
+        repeatCount="indefinite"
+        path="M 300,110 L 300,140 L 300,220 L 300,260 L 380,285 L 440,285 L 440,180 L 380,180 L 300,180 L 220,180 L 180,180"
+        calcMode="linear"
+    />
+</circle>
 
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
