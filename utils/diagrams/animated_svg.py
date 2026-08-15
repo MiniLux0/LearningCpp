@@ -1,4 +1,7 @@
-<svg width="700" height="250" xmlns="http://www.w3.org/2000/svg">
+import os
+
+def gen_animated_binary_search(path):
+    svg = '''<svg width="700" height="250" xmlns="http://www.w3.org/2000/svg">
 <rect width="700" height="250" fill="#ffffff"/>
 <style>
     text { font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
@@ -52,28 +55,22 @@
 <text x="350" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Binary Search Animado: Buscando el valor 25</text>
 
 <g transform="translate(70, 100)">
-    <rect id="box0" class="fade-l box" x="0" y="0" width="60" height="60" rx="8" />
-    <text x="30" y="36" class="box-text" text-anchor="middle">2</text>
-    <text x="30" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[0]</text>
-    <rect id="box1" class="fade-l box" x="80" y="0" width="60" height="60" rx="8" />
-    <text x="110" y="36" class="box-text" text-anchor="middle">7</text>
-    <text x="110" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[1]</text>
-    <rect id="box2" class="fade-l box" x="160" y="0" width="60" height="60" rx="8" />
-    <text x="190" y="36" class="box-text" text-anchor="middle">12</text>
-    <text x="190" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[2]</text>
-    <rect id="box3" class="fade-l box" x="240" y="0" width="60" height="60" rx="8" />
-    <text x="270" y="36" class="box-text" text-anchor="middle">19</text>
-    <text x="270" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[3]</text>
-    <rect id="box4" class="box" x="320" y="0" width="60" height="60" rx="8" />
-    <text x="350" y="36" class="box-text" text-anchor="middle">25</text>
-    <text x="350" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[4]</text>
-    <rect id="box5" class="fade-r box" x="400" y="0" width="60" height="60" rx="8" />
-    <text x="430" y="36" class="box-text" text-anchor="middle">30</text>
-    <text x="430" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[5]</text>
-    <rect id="box6" class="fade-r box" x="480" y="0" width="60" height="60" rx="8" />
-    <text x="510" y="36" class="box-text" text-anchor="middle">42</text>
-    <text x="510" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[6]</text>
+'''
+    arr = [2, 7, 12, 19, 25, 30, 42]
+    # Draw boxes
+    for i, val in enumerate(arr):
+        cls = ""
+        if i <= 3: cls = "fade-l box"
+        elif i >= 5: cls = "fade-r box"
+        else: cls = "box"
+        
+        svg += f'    <rect id="box{i}" class="{cls}" x="{i*80}" y="0" width="60" height="60" rx="8" />\n'
+        svg += f'    <text x="{i*80 + 30}" y="36" class="box-text" text-anchor="middle">{val}</text>\n'
+        svg += f'    <text x="{i*80 + 30}" y="75" font-size="12" fill="#adb5bd" text-anchor="middle">[{i}]</text>\n'
 
+    # Draw pointers
+    # Low starts at 0 (x=30)
+    svg += '''
     <!-- LOW -->
     <g id="low-group">
         <line x1="30" y1="130" x2="30" y2="85" class="ptr-line" stroke="#0288d1"/>
@@ -92,4 +89,13 @@
         <text x="270" y="-55" class="ptr" fill="#f57c00" text-anchor="middle">mid</text>
     </g>
 </g>
-</svg>
+</svg>'''
+    
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(svg)
+
+if __name__ == "__main__":
+    out_dir = "05_RecursionAlgorithms/theory/assets"
+    os.makedirs(out_dir, exist_ok=True)
+    gen_animated_binary_search(os.path.join(out_dir, "binary_search.svg"))
+    print("Animated Binary Search SVG generated!")
