@@ -51,7 +51,7 @@ bool isPalindromeBad(string str) {
 
 Instead of creating substrings in RAM memory, pass original string by constant reference (`const string&`) and shift two numerical frontier index markers (`low` and `high`):
 
-<video autoplay loop muted playsinline src="assets/l30d_two_pointers.mp4"></video>
+![Animation](assets/l30d_two_pointers.gif)
 
 ```cpp
 #include <iostream>

@@ -45,7 +45,7 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\fra
 
 El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) descrito en la Sección 10.3 usando la siguiente estrategia de 5 pasos:
 
-<video autoplay loop muted playsinline src="assets/merge_sort.mp4"></video>
+![Animation](assets/merge_sort.gif)
 
 ---
 
@@ -139,7 +139,7 @@ int main() {
 
 ### Árbol para `N = 8`
 
-<video autoplay loop muted playsinline src="assets/l37_merge_tree.mp4"></video>
+![Animation](assets/l37_merge_tree.gif)
 
 ### ¿Cuántos Niveles Hay?
 
@@ -189,7 +189,7 @@ MergeSort introdujo la importancia de la clase $O(N \log N)$. El texto de Secci�
 | $O(N^2)$ | Cuadrática | Selection Sort (L36) |
 | $O(2^N)$ | Exponencial | Backtracking sin poda (L39) |
 
-<video autoplay loop muted playsinline src="assets/l37_complexity.mp4"></video>
+![Animation](assets/l37_complexity.gif)
 
 > [!IMPORTANT]
 > **Tractable vs Intractable (Sec. 10.4):**

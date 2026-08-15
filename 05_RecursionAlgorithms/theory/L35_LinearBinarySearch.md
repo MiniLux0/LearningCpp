@@ -47,7 +47,7 @@ int busquedaLineal(const int arr[], int size, int target) {
 
 ### Visualización de la Búsqueda Lineal
 
-<video autoplay loop muted playsinline src="assets/l35_linear_search.mp4"></video>
+![Animation](assets/l35_linear_search.gif)
 
 ---
 
@@ -63,7 +63,7 @@ int busquedaLineal(const int arr[], int size, int target) {
 ### Estrategia Divide y Vencerás
 
 <div align="center">
-  <video autoplay loop muted playsinline src="assets/l35_binary_search.mp4"></video>
+  ![Animation](assets/l35_binary_search.gif)
 </div>
 
 Los 4 pasos del algoritmo:
@@ -76,7 +76,7 @@ Los 4 pasos del algoritmo:
 
 ## 3. Los Dos Casos Base de la Búsqueda Binaria Recursiva
 
-<video autoplay loop muted playsinline src="assets/l35_binary_search_flow.mp4"></video>
+![Animation](assets/l35_binary_search_flow.gif)
 
 ---
 
@@ -147,7 +147,7 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 | **1,000,000** | 1,000,000 comparaciones | **20 comparaciones** |
 | **1,000,000,000** | 1,000,000,000 comparaciones | **30 comparaciones** |
 
-<video autoplay loop muted playsinline src="assets/l35_binary_search_growth.mp4"></video>
+![Animation](assets/l35_binary_search_growth.gif)
 
 ---
 

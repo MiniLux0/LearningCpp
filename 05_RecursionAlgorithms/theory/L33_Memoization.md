@@ -31,7 +31,7 @@
 En **L32** implementamos `fibonacciNaive`. Funciona, pero es desesperadamente lento para valores grandes. Observa el árbol de llamadas para `fib(4)`:
 
 <div align="center">
-  <video autoplay loop muted playsinline src="assets/fib_memo_tree.mp4"></video>
+  ![Animation](assets/fib_memo_tree.gif)
 </div>
 
 ¿Lo ves? `fib(2)` se calcula **dos veces**. `fib(1)` se calcula **tres veces**. Cada vez, la función **repite exactamente el mismo trabajo** desde cero, sin recordar que ya lo hizo.
@@ -56,7 +56,7 @@ Esto se llama **Subproblemas Superpuestos (*Overlapping Subproblems*)**. La cons
 La **Memoización** consiste en darle a la función un **arreglo auxiliar (`memo[]`)** que actúa como cuaderno. Antes de calcular algo, la función consulta el cuaderno. Si ya está anotado, retorna inmediatamente.
 
 <div align="center">
-  <video autoplay loop muted playsinline src="assets/l33_overlapping.mp4"></video>
+  ![Animation](assets/l33_overlapping.gif)
 </div>
 
 Los 4 pasos son siempre los mismos, en ese orden exacto:
@@ -151,7 +151,7 @@ Ahora aplicamos el mismo patrón a un problema bidimensional para demostrar que 
 Dos caminos distintos pueden terminar en la **misma celda** por rutas diferentes. Desde esa celda, el sub-problema es idéntico, pero sin memoización se calcularía dos veces:
 
 <div align="center">
-  <video autoplay loop muted playsinline src="assets/l33_memo_pattern.mp4"></video>
+  ![Animation](assets/l33_memo_pattern.gif)
 </div>
 
 ### Implementación con Arreglo 2D como Cuaderno

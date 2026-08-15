@@ -90,7 +90,7 @@ int main() {
 
 **Árbol de decisión** para `{A, B, C}`:
 
-<video autoplay loop muted playsinline src="assets/l39_subset_tree.mp4"></video>
+![Animation](assets/l39_subset_tree.gif)
 
 Total: $2^3 = 8$ subconjuntos — el Power Set completo.
 
@@ -132,7 +132,7 @@ bool solveMaze(int r, int c) {
 }
 ```
 
-<video autoplay loop muted playsinline src="assets/l39_maze_flow.mp4"></video>
+![Animation](assets/l39_maze_flow.gif)
 
 ### Traza del Laberinto (Demo 2)
 
@@ -166,7 +166,7 @@ Inicial:           Solución (camino con '.'):
 
 Existe una estrategia elegante usando dos funciones **mutuamente recursivas**:
 
-<video autoplay loop muted playsinline src="assets/l39_nim_flow.mp4"></video>
+![Animation](assets/l39_nim_flow.gif)
 
 ```cpp
 // Una posición es BUENA si existe al menos un movimiento que deja al rival en posición MALA
