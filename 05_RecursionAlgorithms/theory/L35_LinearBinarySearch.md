@@ -47,22 +47,7 @@ int busquedaLineal(const int arr[], int size, int target) {
 
 ### Visualización de la Búsqueda Lineal
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant A as arr[0]=42
-    participant B as arr[1]=12
-    participant C as arr[2]=88
-    participant D as arr[3]=7
-    participant E as arr[4]=19
-
-    Note over A,E: Buscando target = 19
-    A->>A: 42 == 19? No
-    B->>B: 12 == 19? No
-    C->>C: 88 == 19? No
-    D->>D: 7 == 19? No
-    E->>E: 19 == 19? ✅ Retornar índice 4
-```
+![Logic Flow Diagram](assets/flow_L35_LinearBinarySearch_1.svg)
 
 ---
 
@@ -89,17 +74,7 @@ Los 4 pasos del algoritmo:
 
 ## 3. Los Dos Casos Base de la Búsqueda Binaria Recursiva
 
-```mermaid
-graph TD
-    CALL["recursiveBinarySearch(arr, low, high, target)"]
-    CALL --> CHECK1{"low greater than high?"}
-    CHECK1 -->|Yes| BASE1["-1: Not found (Base Case 1)"]
-    CHECK1 -->|No| MID["mid = low + (high-low) / 2"]
-    MID --> CHECK2{"arr[mid] == target?"}
-    CHECK2 -->|Yes| BASE2["Return mid (Base Case 2)"]
-    CHECK2 -->|"arr-mid mayor que target"| RECURSE_L["Call: arr, low, mid-1, target"]
-    CHECK2 -->|"arr-mid menor que target"| RECURSE_R["Call: arr, mid+1, high, target"]
-```
+![Logic Flow Diagram](assets/flow_L35_LinearBinarySearch_2.svg)
 
 ---
 
@@ -170,14 +145,7 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 | **1,000,000** | 1,000,000 comparaciones | **20 comparaciones** |
 | **1,000,000,000** | 1,000,000,000 comparaciones | **30 comparaciones** |
 
-```mermaid
-graph LR
-    N10["N=10: Lineal=10, Binaria=4"]
-    N100["N=100: Lineal=100, Binaria=7"]
-    N1k["N=1000: Lineal=1000, Binaria=10"]
-    N1M["N=1,000,000: Lineal=1M, Binaria=20"]
-    N10 --> N100 --> N1k --> N1M
-```
+![Logic Flow Diagram](assets/flow_L35_LinearBinarySearch_3.svg)
 
 ---
 

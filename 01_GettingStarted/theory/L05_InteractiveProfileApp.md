@@ -30,15 +30,7 @@ The **Interactive Profile Generator** acts as a comprehensive capstone for Secti
 2. **Interactive Prompts:** Sequentially prompts the user for name, academic interest, and a lucky integer.
 3. **Formatted Card Output:** Displays an aligned user profile summary block.
 
-```mermaid
-graph TD
-    Start["Program Launch"] --> Banner["Print ASCII Banner Header"]
-    Banner --> Input1["Prompt & Extract Name (std::string)"]
-    Input1 --> Input2["Prompt & Extract Subject (std::string)"]
-    Input2 --> Input3["Prompt & Extract Lucky Number (int)"]
-    Input3 --> Summary["Format & Render Aligned Profile Card"]
-    Summary --> Exit["Return 0 (Success)"]
-```
+![Logic Flow Diagram](assets/flow_L05_InteractiveProfileApp_1.svg)
 
 ---
 

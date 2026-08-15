@@ -47,13 +47,7 @@ To evaluate binary `00001011` to decimal:
 
 C++ provides native operators to manipulate individual bits within integer variables:
 
-```mermaid
-graph TD
-    A["a = 12 (1100)"] --- B["b = 5 (0101)"]
-    A & B --> AND["a & b = 4 (0100)"]
-    A | B --> OR["a | b = 13 (1101)"]
-    A ^ B --> XOR["a ^ b = 9 (1001)"]
-```
+![Logic Flow Diagram](assets/flow_L09_BinaryNumbers_1.svg)
 
 | Operator | Operation | Description | Example ( $a=12\text{ [1100]}$, $b=5\text{ [0101]}$ ) | Result |
 | :---: | :--- | :--- | :--- | :---: |

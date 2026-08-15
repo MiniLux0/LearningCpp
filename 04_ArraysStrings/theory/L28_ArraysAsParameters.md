@@ -28,11 +28,7 @@
 
 When a native array is passed as an argument to a function in C++, **the array is not copied**. Instead, the variable automatically decays into a raw pointer holding the memory address of the first element (`&arr[0]`):
 
-```mermaid
-graph TD
-    Sub["main() scope:<br/>int data[5] = {10, 20, 30, 40, 50}"] -->|Pointer Decay| Call["print(data, 5)"]
-    Call -->|Copies memory address only| Func["print(int* arr, int size)<br/>arr = 0x7FFF00"]
-```
+![Logic Flow Diagram](assets/flow_L28_ArraysAsParameters_1.svg)
 
 > [!NOTE]
 > **💡 PEDAGOGICAL NOTE ON POINTERS (`int*`):**  

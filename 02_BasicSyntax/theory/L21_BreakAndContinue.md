@@ -24,14 +24,7 @@
 
 ## 1. `break` vs. `continue` Mechanics
 
-```mermaid
-graph TD
-    SubGraph1["loop body"] --> CheckBreak{"if (condition) break;"}
-    CheckBreak -- Fired --> Exit["Exit loop immediately"]
-    
-    SubGraph2["loop body"] --> CheckCont{"if (condition) continue;"}
-    CheckCont -- Fired --> NextPass["Skip remaining lines & jump to next step pass"]
-```
+![Logic Flow Diagram](assets/flow_L21_BreakAndContinue_1.svg)
 
 ```cpp
 #include <iostream>

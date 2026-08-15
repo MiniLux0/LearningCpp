@@ -27,12 +27,7 @@
 
 While `std::cout` pushes data **OUT** to the screen, `std::cin` pulls data **IN** from the user's keyboard.
 
-```mermaid
-graph LR
-    User["[User Keyboard]"] -->|Keystrokes| Stream["std::cin Stream Buffer"]
-    Stream -->|Extraction Operator >>| Var["C++ Variable in RAM"]
-    Var -->|Insertion Operator <<| Screen["std::cout Console Screen"]
-```
+![Logic Flow Diagram](assets/flow_L04_UserInputCin_1.svg)
 
 - **Insertion (`std::cout << data`):** Points left $\leftarrow$, pushing data toward output.
 - **Extraction (`std::cin >> variable`):** Points right $\rightarrow$, extracting tokens from the input buffer into variables.
