@@ -49,7 +49,9 @@ En ciencias de la computación, la **recursividad** es la técnica de resolver u
 > - La pregunta viaja hacia adelante hasta la **Fila 1** (Caso Base: contesta *“¡Estoy en la fila 1!”*).
 > - La respuesta regresa desapilándose: tu fila es $\text{fila delante} + 1$.
 
-![Factorial Recursion Flow](assets/L31_FactorialFlow.svg)
+<div align="center">
+  <img src="assets/L31_FactorialFlow.svg" alt="Factorial Recursion Flow">
+</div>
 
 ---
 
@@ -101,7 +103,9 @@ void cuentaRegresiva(int n) {
 
 #### Diagrama de Secuencia y Desapilado:
 
-![Base Case Flow](assets/L31_BaseCaseFlow.svg)
+<div align="center">
+  <img src="assets/L31_BaseCaseFlow.svg" alt="Base Case Flow">
+</div>
 
 ---
 
