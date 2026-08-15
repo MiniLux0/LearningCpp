@@ -29,9 +29,9 @@ Una **función** es un bloque de código reutilizable diseñado para realizar un
 
 ```mermaid
 graph LR
-    Caller["main() Llamada"] -->|Pasa Argumentos| Func["Cuerpo de la Función: mostrarBienvenida()"]
-    Func -->|Ejecuta Instrucciones| Ops["Salida en Consola / Cálculos"]
-    Ops -->|Retorna Control| Caller
+    Caller["main() Call"] -->|Pass Arguments| Func["Function Body: showWelcome()"]
+    Func -->|Execute Instructions| Ops["Console Output / Calculations"]
+    Ops -->|Return Control| Caller
 ```
 
 ```cpp

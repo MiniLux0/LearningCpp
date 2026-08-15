@@ -27,12 +27,7 @@
 
 In legacy C and C++, a character string is a native `char[]` array whose useful content must be terminated with the **null sentinel `'\0'` (ASCII 0)**.
 
-```mermaid
-graph LR
-    Str["char msg[] = 'Hello!';"] --> Memory["['H'] ['e'] ['l'] ['l'] ['o'] ['!'] ['\0']"]
-    Memory --> Size["Physically Allocated Capacity: 7 bytes"]
-    Memory --> Len["Useful Length (strlen): 6 characters"]
-```
+![C-String Memory Layout with Null Terminator](assets/cstring_null.svg)
 
 > [!CAUTION]
 > **The Null Sentinel Rule (+1 Byte):**  

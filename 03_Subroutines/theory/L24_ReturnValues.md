@@ -29,9 +29,9 @@ Una función puede calcular un valor y transmitirlo de vuelta a la función invo
 
 ```mermaid
 graph LR
-    Caller["int res = alCuadrado(4);"] -->|Llamada| Func["alCuadrado(int n)"]
-    Func -->|Calcula 4 * 4 = 16| Ret["return 16;"]
-    Ret -->|Devuelve 16| Caller
+    Caller["int res = alCuadrado(4);"] -->|Function Call| Func["square(int n)"]
+    Func -->|Calculates 4 * 4 = 16| Ret["return 16;"]
+    Ret -->|Returns 16| Caller
 ```
 
 ```cpp

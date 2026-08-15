@@ -48,10 +48,7 @@ int main() {
 
 Al añadir el ampersand `&` al tipo del parámetro (`int& x`), el parámetro se convierte en un **alias de referencia** que apunta directamente a la misma celda de memoria RAM que la variable del invocador:
 
-```mermaid
-graph LR
-    SubGraph["Variable de main(): int num = 10 (RAM: 0x7ffd)"] <===> Ref["Parámetro: int& x (Alias RAM: 0x7ffd)"]
-```
+![Pass by Reference RAM Memory Mapping](assets/pass_by_ref.svg)
 
 ```cpp
 #include <iostream>

@@ -30,15 +30,7 @@ Although we conceptually visualize a 2D matrix as a grid with rows and columns, 
 
 In C and C++, matrices are stored in **Row-Major Order** (row 0 complete is placed first, followed consecutively by row 1 complete, and so on):
 
-```mermaid
-graph LR
-    subgraph Row 0
-        F0C0["mat[0][0]"] --- F0C1["mat[0][1]"] --- F0C2["mat[0][2]"]
-    end
-    subgraph Row 1
-        F0C2 --- F1C0["mat[1][0]"] --- F1C1["mat[1][1]"] --- F1C2["mat[1][2]"]
-    end
-```
+![2D Array Row-Major Memory Layout](assets/array_2d.svg)
 
 ### 2D-to-1D Index Flattening Formula
 
