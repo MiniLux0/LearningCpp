@@ -22,8 +22,8 @@ Cubre la anatomía de funciones en C++, tipos de retorno, paso por valor vs paso
 
 | Lección | Título | Nota Teórica | Laboratorio de Código |
 | :--- | :--- | :--- | :--- |
-| **L23** | Fundamentos de Funciones | 📘 [`L23_Functions.md`](../theory/L23_Functions.md) | 💻 [`L23_Functions.cpp`](../code/L23_Functions.cpp) |
-| **L24** | Valores de Retorno | 📘 [`L24_ReturnValues.md`](../theory/L24_ReturnValues.md) | 💻 [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp) |
+| **L23** | Fundamentos de Funciones | 📘 [`l23_functions.md`](../theory/l23_functions.md) | 💻 [`l23_functions.cpp`](../code/l23_functions.cpp) |
+| **L24** | Valores de Retorno | 📘 [`l24_return_values.md`](../theory/l24_return_values.md) | 💻 [`l24_return_values.cpp`](../code/l24_return_values.cpp) |
 | **L25** | Parámetros y Referencias | 📘 [`L25_FunctionParameters.md`](../theory/L25_FunctionParameters.md) | 💻 [`L25_FunctionParameters.cpp`](../code/L25_FunctionParameters.cpp) |
 | **L26** | Cabeceras y Prototipos | 📘 [`L26_HeadersAndPrototypes.md`](../theory/L26_HeadersAndPrototypes.md) | 💻 [`L26_HeadersAndPrototypes.cpp`](../code/L26_HeadersAndPrototypes.cpp) |
 

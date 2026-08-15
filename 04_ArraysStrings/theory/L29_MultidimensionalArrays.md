@@ -30,7 +30,7 @@ Although we conceptually visualize a 2D matrix as a grid with rows and columns, 
 
 In C and C++, matrices are stored in **Row-Major Order** (row 0 complete is placed first, followed consecutively by row 1 complete, and so on):
 
-![2D Array Row-Major Memory Layout](assets/array_2d.svg)
+![array_2d](assets/array_2d.svg)
 
 ### 2D-to-1D Index Flattening Formula
 

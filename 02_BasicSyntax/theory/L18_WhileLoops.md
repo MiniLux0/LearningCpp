@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Iterative Statements & while Loops](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Repetition Statements](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L18_WhileLoops.cpp`](../code/L18_WhileLoops.cpp)
+- 💻 **Code Lab:** [`l18_while_loops.cpp`](../code/l18_while_loops.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 A `while` loop repeatedly executes a block of code **as long as its boolean condition remains `true`**:
 
-![Flowchart](assets/L18_WhileLoops.svg)
+![l18_while_loops](assets/l18_while_loops.svg)
 
 ```cpp
 #include <iostream>
@@ -79,7 +79,7 @@ How many times does the body of `while (x < 0)` execute if `x = 10` initially?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L17 — Complex Conditions**](L17_Conditions.md) | [**🏠 Basic Syntax**](../README.md) | [**L19 — Post-Test do-while Loops ➡️**](L19_DoWhileLoops.md) |
+| [**⬅️ L17 — Complex Conditions**](l17_conditions.md) | [**🏠 Basic Syntax**](../README.md) | [**L19 — Post-Test do-while Loops ➡️**](l19_do_while_loops.md) |
 
 </div>
 

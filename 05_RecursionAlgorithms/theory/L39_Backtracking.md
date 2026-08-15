@@ -52,29 +52,45 @@ for cada opción posible:
 
 ### Ejemplo: Generar el Power Set de `{A, B, C}`
 
-Para cada elemento decidimos: ¿lo incluimos o no?
+Para cada elemento decidimos: ¿lo incluimos o no? Usamos un arreglo `actual[]` con un contador `actualSize` que hace lo mismo que push/pop: agrega y quita el último elemento.
 
 ```cpp
-void generarSubconjuntos(const vector<char>& elems, int idx, vector<char>& actual) {
-    if (idx == (int)elems.size()) {
+#include <iostream>
+using namespace std;
+
+const int MAX_ELEMS = 26;
+char actual[MAX_ELEMS]; // Arreglo que representa el subconjunto en construcción
+int  actualSize = 0;    // Cuántos elementos hay actualmente en 'actual'
+
+void generarSubconjuntos(const char elems[], int n, int idx) {
+    if (idx == n) {
         // Caso Base: imprimir el subconjunto actual
-        for (char c : actual) cout << c << " ";
+        cout << "{ ";
+        for (int i = 0; i < actualSize; i++) cout << actual[i] << " ";
+        cout << "}" << endl;
         return;
     }
 
-    // Opción A: NO incluir elems[idx]
-    generarSubconjuntos(elems, idx + 1, actual);
+    // Opción A: NO incluir elems[idx] → explorar sin cambiar actual[]
+    generarSubconjuntos(elems, n, idx + 1);
 
     // Opción B: SÍ incluir elems[idx]
-    actual.push_back(elems[idx]);           // 1. ELEGIR
-    generarSubconjuntos(elems, idx + 1, actual); // 2. EXPLORAR
-    actual.pop_back();                      // 3. DESHACER
+    actual[actualSize] = elems[idx]; // 1. ELEGIR  — agregar al final
+    actualSize++;
+    generarSubconjuntos(elems, n, idx + 1); // 2. EXPLORAR
+    actualSize--;                            // 3. DESHACER — quitar del final
+}
+
+int main() {
+    char elems[] = {'A', 'B', 'C'};
+    generarSubconjuntos(elems, 3, 0);
+    return 0;
 }
 ```
 
 **Árbol de decisión** para `{A, B, C}`:
 
-![Subset Backtracking Tree](assets/L39_SubsetTree.svg)
+<video autoplay loop muted playsinline src="assets/l39_subset_tree.mp4"></video>
 
 Total: $2^3 = 8$ subconjuntos — el Power Set completo.
 
@@ -116,7 +132,7 @@ bool solveMaze(int r, int c) {
 }
 ```
 
-![Maze Backtracking Flow](assets/L39_MazeFlow.svg)
+<video autoplay loop muted playsinline src="assets/l39_maze_flow.mp4"></video>
 
 ### Traza del Laberinto (Demo 2)
 
@@ -150,7 +166,7 @@ Inicial:           Solución (camino con '.'):
 
 Existe una estrategia elegante usando dos funciones **mutuamente recursivas**:
 
-![Nim Game Logic Flow](assets/L39_NimFlow.svg)
+<video autoplay loop muted playsinline src="assets/l39_nim_flow.mp4"></video>
 
 ```cpp
 // Una posición es BUENA si existe al menos un movimiento que deja al rival en posición MALA
@@ -221,7 +237,7 @@ Sin el paso de desmarcar, las celdas exploradas en caminos fallidos quedarían m
 
 ---
 
-## 📝 Resumen de L38
+## 📝 Resumen de L39
 
 1. **Backtracking:** Estrategia recursiva que explora todas las opciones posibles, deshaciendo elecciones incorrectas al encontrar callejones sin salida.
 2. **Patrón universal:** `Choose → Explore → Unchoose` — toda implementación de backtracking sigue esta plantilla de 3 pasos.

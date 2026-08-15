@@ -10,7 +10,7 @@
 - 📄 **Lecturas Académicas Base:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Definitions & Call Stack Frames](../../files/mit6096/lectures/Lecture03_Functions.pdf)
   - 🌲 [Stanford CS106B — Chapter 2: Procedural Abstraction](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L23_Functions.cpp`](../code/L23_Functions.cpp)
+- 💻 **Laboratorio de Código:** [`l23_functions.cpp`](../code/l23_functions.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 Una **función** es un bloque de código reutilizable diseñado para realizar una tarea específica. Las funciones permiten descomponer programas complejos y monolíticos en módulos independientes y fáciles de mantener.
 
-![Function Call Flow](assets/L23_Functions.svg)
+![l23_functions](assets/l23_functions.svg)
 
 ```cpp
 #include <iostream>
@@ -101,7 +101,7 @@ Toda función consta de tres partes principales:
 
 | ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ Sección 02 Capstone**](../../02_BasicSyntax/theory/L22_Switch.md) | [**🏠 Subrutines**](../README.md) | [**L24 — Valores de Retorno ➡️**](L24_ReturnValues.md) |
+| [**⬅️ Sección 02 Capstone**](../../02_BasicSyntax/theory/l22_switch.md) | [**🏠 Subrutines**](../README.md) | [**L24 — Valores de Retorno ➡️**](l24_return_values.md) |
 
 </div>
 

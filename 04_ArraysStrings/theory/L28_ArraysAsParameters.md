@@ -28,7 +28,7 @@
 
 When a native array is passed as an argument to a function in C++, **the array is not copied**. Instead, the variable automatically decays into a raw pointer holding the memory address of the first element (`&arr[0]`):
 
-![Array Decay to Pointer](assets/L28_ArrayDecay.svg)
+<video autoplay loop muted playsinline src="assets/l28_array_decay.mp4"></video>
 
 > [!NOTE]
 > **💡 PEDAGOGICAL NOTE ON POINTERS (`int*`):**  

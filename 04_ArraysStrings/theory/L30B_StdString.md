@@ -85,7 +85,7 @@ int main() {
 
 ## 3. Method Reference Table & Code Examples
 
-![std::string Core Methods](assets/L30B_StdString.svg)
+![L30B_StdString](assets/L30B_StdString.svg)
 
 ### 📋 `#include <string>` Method Reference
 

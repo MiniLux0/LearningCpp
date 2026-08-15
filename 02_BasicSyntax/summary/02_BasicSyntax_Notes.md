@@ -21,23 +21,23 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 
 | Lesson | Title | Theory Note | Code Lab |
 | :--- | :--- | :--- | :--- |
-| **L06** | Variables | 📘 [`L06_Variables.md`](../theory/L06_Variables.md) | 💻 [`L06_Variables.cpp`](../code/L06_Variables.cpp) |
-| **L07** | Strings Intro | 📘 [`L07_Strings.md`](../theory/L07_Strings.md) | 💻 [`L07_Strings.cpp`](../code/L07_Strings.cpp) |
-| **L08** | User Input | 📘 [`L08_UserInput.md`](../theory/L08_UserInput.md) | 💻 [`L08_UserInput.cpp`](../code/L08_UserInput.cpp) |
-| **L09** | Binary Numbers | 📘 [`L09_BinaryNumbers.md`](../theory/L09_BinaryNumbers.md) | 💻 [`L09_BinaryNumbers.cpp`](../code/L09_BinaryNumbers.cpp) |
-| **L10** | Integer Types | 📘 [`L10_IntegerTypes.md`](../theory/L10_IntegerTypes.md) | 💻 [`L10_IntegerTypes.cpp`](../code/L10_IntegerTypes.cpp) |
+| **L06** | Variables | 📘 [`l06_variables.md`](../theory/l06_variables.md) | 💻 [`l06_variables.cpp`](../code/l06_variables.cpp) |
+| **L07** | Strings Intro | 📘 [`l07_strings.md`](../theory/l07_strings.md) | 💻 [`l07_strings.cpp`](../code/l07_strings.cpp) |
+| **L08** | User Input | 📘 [`l08_user_input.md`](../theory/l08_user_input.md) | 💻 [`l08_user_input.cpp`](../code/l08_user_input.cpp) |
+| **L09** | Binary Numbers | 📘 [`l09_binary_numbers.md`](../theory/l09_binary_numbers.md) | 💻 [`l09_binary_numbers.cpp`](../code/l09_binary_numbers.cpp) |
+| **L10** | Integer Types | 📘 [`l10_integer_types.md`](../theory/l10_integer_types.md) | 💻 [`l10_integer_types.cpp`](../code/l10_integer_types.cpp) |
 | **L11** | Floating-Point | 📘 [`L11_FloatingPointTypes.md`](../theory/L11_FloatingPointTypes.md) | 💻 [`L11_FloatingPointTypes.cpp`](../code/L11_FloatingPointTypes.cpp) |
-| **L12** | Char & Bool | 📘 [`L12_CharAndBool.md`](../theory/L12_CharAndBool.md) | 💻 [`L12_CharAndBool.cpp`](../code/L12_CharAndBool.cpp) |
-| **L13** | If Statements | 📘 [`L13_If.md`](../theory/L13_If.md) | 💻 [`L13_If.cpp`](../code/L13_If.cpp) |
-| **L14** | If-Else | 📘 [`L14_IfElse.md`](../theory/L14_IfElse.md) | 💻 [`L14_IfElse.cpp`](../code/L14_IfElse.cpp) |
-| **L15** | If-Else-If | 📘 [`L15_IfElseIfElse.md`](../theory/L15_IfElseIfElse.md) | 💻 [`L15_IfElseIfElse.cpp`](../code/L15_IfElseIfElse.cpp) |
+| **L12** | Char & Bool | 📘 [`l12_char_and_bool.md`](../theory/l12_char_and_bool.md) | 💻 [`l12_char_and_bool.cpp`](../code/l12_char_and_bool.cpp) |
+| **L13** | If Statements | 📘 [`l13_if.md`](../theory/l13_if.md) | 💻 [`l13_if.cpp`](../code/l13_if.cpp) |
+| **L14** | If-Else | 📘 [`l14_if_else.md`](../theory/l14_if_else.md) | 💻 [`l14_if_else.cpp`](../code/l14_if_else.cpp) |
+| **L15** | If-Else-If | 📘 [`l15_if_else_if_else.md`](../theory/l15_if_else_if_else.md) | 💻 [`l15_if_else_if_else.cpp`](../code/l15_if_else_if_else.cpp) |
 | **L16** | Comparing Floats | 📘 [`L16_ComparingFloats.md`](../theory/L16_ComparingFloats.md) | 💻 [`L16_ComparingFloats.cpp`](../code/L16_ComparingFloats.cpp) |
-| **L17** | Conditions | 📘 [`L17_Conditions.md`](../theory/L17_Conditions.md) | 💻 [`L17_Conditions.cpp`](../code/L17_Conditions.cpp) |
-| **L18** | While Loops | 📘 [`L18_WhileLoops.md`](../theory/L18_WhileLoops.md) | 💻 [`L18_WhileLoops.cpp`](../code/L18_WhileLoops.cpp) |
-| **L19** | Do-While Loops | 📘 [`L19_DoWhileLoops.md`](../theory/L19_DoWhileLoops.md) | 💻 [`L19_DoWhileLoops.cpp`](../code/L19_DoWhileLoops.cpp) |
-| **L20** | For Loops | 📘 [`L20_ForLoops.md`](../theory/L20_ForLoops.md) | 💻 [`L20_ForLoops.cpp`](../code/L20_ForLoops.cpp) |
-| **L21** | Break & Continue | 📘 [`L21_BreakAndContinue.md`](../theory/L21_BreakAndContinue.md) | 💻 [`L21_BreakAndContinue.cpp`](../code/L21_BreakAndContinue.cpp) |
-| **L22** | Switch Case | 📘 [`L22_Switch.md`](../theory/L22_Switch.md) | 💻 [`L22_Switch.cpp`](../code/L22_Switch.cpp) |
+| **L17** | Conditions | 📘 [`l17_conditions.md`](../theory/l17_conditions.md) | 💻 [`l17_conditions.cpp`](../code/l17_conditions.cpp) |
+| **L18** | While Loops | 📘 [`l18_while_loops.md`](../theory/l18_while_loops.md) | 💻 [`l18_while_loops.cpp`](../code/l18_while_loops.cpp) |
+| **L19** | Do-While Loops | 📘 [`l19_do_while_loops.md`](../theory/l19_do_while_loops.md) | 💻 [`l19_do_while_loops.cpp`](../code/l19_do_while_loops.cpp) |
+| **L20** | For Loops | 📘 [`l20_for_loops.md`](../theory/l20_for_loops.md) | 💻 [`l20_for_loops.cpp`](../code/l20_for_loops.cpp) |
+| **L21** | Break & Continue | 📘 [`l21_break_and_continue.md`](../theory/l21_break_and_continue.md) | 💻 [`l21_break_and_continue.cpp`](../code/l21_break_and_continue.cpp) |
+| **L22** | Switch Case | 📘 [`l22_switch.md`](../theory/l22_switch.md) | 💻 [`l22_switch.cpp`](../code/l22_switch.cpp) |
 
 ---
 

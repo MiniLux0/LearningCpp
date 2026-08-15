@@ -104,7 +104,7 @@ Why is `abs()` required in `abs(a - b) < epsilon`?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L15 — Multi-Branch if-else-if**](L15_IfElseIfElse.md) | [**🏠 Basic Syntax**](../README.md) | [**L17 — Conditions & Logical Operators ➡️**](L17_Conditions.md) |
+| [**⬅️ L15 — Multi-Branch if-else-if**](l15_if_else_if_else.md) | [**🏠 Basic Syntax**](../README.md) | [**L17 — Conditions & Logical Operators ➡️**](l17_conditions.md) |
 
 </div>
 

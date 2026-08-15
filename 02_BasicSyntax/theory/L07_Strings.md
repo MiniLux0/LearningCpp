@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - ⚙️ [Stanford CS106L — Lecture 05: STL String Containers](../../files/cs106l/lectures/WL5_Containers.pdf)
   - 🌲 [Stanford CS106B — Chapter 3: Strings & Characters](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L07_Strings.cpp`](../code/L07_Strings.cpp)
+- 💻 **Code Lab:** [`l07_strings.cpp`](../code/l07_strings.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 A `string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `string` manages its own memory automatically on the heap as text grows or shrinks.
 
-![String Memory Layout](assets/L07_Strings.svg)
+![l07_strings](assets/l07_strings.svg)
 
 ---
 
@@ -93,7 +93,7 @@ What is the difference between `'A'` and `"A"` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L06 — Variables & Types**](L06_Variables.md) | [**🏠 Basic Syntax**](../README.md) | [**L08 — Advanced User Input ➡️**](L08_UserInput.md) |
+| [**⬅️ L06 — Variables & Types**](l06_variables.md) | [**🏠 Basic Syntax**](../README.md) | [**L08 — Advanced User Input ➡️**](l08_user_input.md) |
 
 </div>
 

@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Logical Operators & Short-Circuiting](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Boolean Logic & Guarding Expressions](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L17_Conditions.cpp`](../code/L17_Conditions.cpp)
+- 💻 **Code Lab:** [`l17_conditions.cpp`](../code/l17_conditions.cpp)
 
 ---
 
@@ -38,7 +38,7 @@ Complex conditions combine simple boolean expressions using logical operators:
 
 In C++, boolean expressions evaluate strictly from **left to right**. Evaluation stops immediately as soon as the overall result is guaranteed:
 
-![Short-Circuit Logic](assets/L17_Conditions.svg)
+![l17_conditions](assets/l17_conditions.svg)
 
 ---
 
@@ -97,7 +97,7 @@ What happens if you swap the operands to `if ((100 / divisor > 5) && divisor != 
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L16 — Safe Float Comparisons**](L16_ComparingFloats.md) | [**🏠 Basic Syntax**](../README.md) | [**L18 — Iteration: while Loops ➡️**](L18_WhileLoops.md) |
+| [**⬅️ L16 — Safe Float Comparisons**](L16_ComparingFloats.md) | [**🏠 Basic Syntax**](../README.md) | [**L18 — Iteration: while Loops ➡️**](l18_while_loops.md) |
 
 </div>
 

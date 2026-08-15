@@ -10,7 +10,7 @@
 - 📄 **Lecturas Académicas Base:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Return Values & Type Matching](../../files/mit6096/lectures/Lecture03_Functions.pdf)
   - 🌲 [Stanford CS106B — Chapter 2: Functional Composition](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp)
+- 💻 **Laboratorio de Código:** [`l24_return_values.cpp`](../code/l24_return_values.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 Una función puede calcular un valor y transmitirlo de vuelta a la función invocadora mediante la sentencia `return`:
 
-![Return Value Flow](assets/L24_ReturnValues.svg)
+![l24_return_values](assets/l24_return_values.svg)
 
 ```cpp
 #include <iostream>
@@ -96,7 +96,7 @@ int obtenerMaximo(int a, int b) {
 
 | ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ L23 — Fundamentos de Funciones**](L23_Functions.md) | [**🏠 Subrutines**](../README.md) | [**L25 — Parámetros y Referencias ➡️**](L25_FunctionParameters.md) |
+| [**⬅️ L23 — Fundamentos de Funciones**](l23_functions.md) | [**🏠 Subrutines**](../README.md) | [**L25 — Parámetros y Referencias ➡️**](L25_FunctionParameters.md) |
 
 </div>
 

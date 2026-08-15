@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Switch Statements & Jump Table Optimization](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Integral Choice Branching](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L22_Switch.cpp`](../code/L22_Switch.cpp)
+- 💻 **Code Lab:** [`l22_switch.cpp`](../code/l22_switch.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ($O(1)$ Jump Table dispatch):
 
-![Flowchart](assets/L22_Switch.svg)
+![l22_switch](assets/l22_switch.svg)
 
 ```cpp
 #include <iostream>
@@ -86,7 +86,7 @@ Which of the following types CANNOT be used in a C++ `switch` statement?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L21 — Loop Interruptions**](L21_BreakAndContinue.md) | [**🏠 Basic Syntax**](../README.md) | [**Section 03: Subroutines ➡️**](../../03_Subroutines/README.md) |
+| [**⬅️ L21 — Loop Interruptions**](l21_break_and_continue.md) | [**🏠 Basic Syntax**](../README.md) | [**Section 03: Subroutines ➡️**](../../03_Subroutines/README.md) |
 
 </div>
 

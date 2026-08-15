@@ -26,7 +26,7 @@
 
 Unlike `#include <string>` (which manages full string objects) or `#include <cstring>` (which manages `char[]` arrays), **`#include <cctype>` is designed exclusively to inspect and transform individual characters (`char`)**.
 
-![cctype Library Functions](assets/L30C_CCtype.svg)
+![L30C_CCtype](assets/L30C_CCtype.svg)
 
 ---
 

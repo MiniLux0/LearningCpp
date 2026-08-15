@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Integer Types & Fixed Width Allocation](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
   - 🌲 [Stanford CS106B — Appendix A: Representation of Integers & Limits](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L10_IntegerTypes.cpp`](../code/L10_IntegerTypes.cpp)
+- 💻 **Code Lab:** [`l10_integer_types.cpp`](../code/l10_integer_types.cpp)
 
 ---
 
@@ -49,7 +49,7 @@ By default, integers are **signed** (the most significant bit MSB acts as a nega
 
 When a variable is declared `unsigned`, the sign bit is re-purposed as a magnitude bit, **doubling the positive maximum range**:
 
-![Integer Types Memory Sizes](assets/L10_IntegerTypes.svg)
+![l10_integer_types](assets/l10_integer_types.svg)
 
 ```cpp
 unsigned int score = 4000000000U; // Valid! Fits within 4.2 billion unsigned limit
@@ -103,7 +103,7 @@ If `short count = 32767;` and you execute `count++;`, what value will `count` co
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L09 — Binary & Bit Layouts**](L09_BinaryNumbers.md) | [**🏠 Basic Syntax**](../README.md) | [**L11 — Floating-Point Types ➡️**](L11_FloatingPointTypes.md) |
+| [**⬅️ L09 — Binary & Bit Layouts**](l09_binary_numbers.md) | [**🏠 Basic Syntax**](../README.md) | [**L11 — Floating-Point Types ➡️**](L11_FloatingPointTypes.md) |
 
 </div>
 

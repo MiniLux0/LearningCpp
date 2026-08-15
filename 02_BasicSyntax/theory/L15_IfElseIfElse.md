@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Multi-Way Conditional Chains](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Cascading Conditions](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L15_IfElseIfElse.cpp`](../code/L15_IfElseIfElse.cpp)
+- 💻 **Code Lab:** [`l15_if_else_if_else.cpp`](../code/l15_if_else_if_else.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 When a scenario requires evaluating multiple distinct conditions sequentially, C++ chains `else if` statements:
 
-![Flowchart](assets/L15_IfElseIfElse.svg)
+![l15_if_else_if_else](assets/l15_if_else_if_else.svg)
 
 ```cpp
 #include <iostream>
@@ -89,7 +89,7 @@ else if (score >= 90) { cout << "A"; }
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L14 — Dual-Branch if-else**](L14_IfElse.md) | [**🏠 Basic Syntax**](../README.md) | [**L16 — Safe Float Comparisons ➡️**](L16_ComparingFloats.md) |
+| [**⬅️ L14 — Dual-Branch if-else**](l14_if_else.md) | [**🏠 Basic Syntax**](../README.md) | [**L16 — Safe Float Comparisons ➡️**](L16_ComparingFloats.md) |
 
 </div>
 

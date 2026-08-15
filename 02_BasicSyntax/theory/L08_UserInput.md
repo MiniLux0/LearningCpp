@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - ⚙️ [Stanford CS106L — Lecture 04: Advanced Stream Reading & Line Buffers](../../files/cs106l/lectures/WL4_Streams.pdf)
   - 🏛️ [MIT 6.096 — Lecture 01: Line-Oriented Input Processing](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
-- 💻 **Code Lab:** [`L08_UserInput.cpp`](../code/L08_UserInput.cpp)
+- 💻 **Code Lab:** [`l08_user_input.cpp`](../code/l08_user_input.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 The stream extraction operator `cin >>` reads formatted tokens until it encounters the first **whitespace character** (space, tab, newline).
 
-![std::cin Input Buffer](assets/L08_UserInput.svg)
+![l08_user_input](assets/l08_user_input.svg)
 
 If the user enters `"Albert Einstein"`, `cin >> name` extracts `"Albert"` and leaves `" Einstein\n"` inside the RAM stream buffer, contaminating subsequent reads.
 
@@ -112,7 +112,7 @@ What method resolves leftover newline characters in the stream buffer when switc
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L07 — Strings & Text**](L07_Strings.md) | [**🏠 Basic Syntax**](../README.md) | [**L09 — Binary & Bit Layouts ➡️**](L09_BinaryNumbers.md) |
+| [**⬅️ L07 — Strings & Text**](l07_strings.md) | [**🏠 Basic Syntax**](../README.md) | [**L09 — Binary & Bit Layouts ➡️**](l09_binary_numbers.md) |
 
 </div>
 

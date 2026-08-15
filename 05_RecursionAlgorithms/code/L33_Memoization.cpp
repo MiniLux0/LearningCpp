@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <string>
 #include <chrono>
 
@@ -22,37 +20,43 @@ long long fibonacciNaive(int n) {
     return fibonacciNaive(n - 1) + fibonacciNaive(n - 2);
 }
 
-// 2. Fibonacci Memoizado con vector — O(N) Lineal
-long long fibVectorHelper(int n, vector<long long>& memo) {
+// 2. Fibonacci Memoizado con arreglo estático — O(N) Lineal
+long long fibArrayHelper(int n, long long memo[]) {
     llamadasMemo++;
     if (memo[n] != -1) return memo[n]; // Consulta caché en O(1)
     if (n == 0) return (memo[0] = 0);
     if (n == 1) return (memo[1] = 1);
 
-    memo[n] = fibVectorHelper(n - 1, memo) + fibVectorHelper(n - 2, memo);
+    memo[n] = fibArrayHelper(n - 1, memo) + fibArrayHelper(n - 2, memo);
     return memo[n];
 }
 
 long long fibonacciMemo(int n) {
-    if (n < 0) return -1;
-    vector<long long> memo(n + 1, -1);
-    return fibVectorHelper(n, memo);
+    if (n < 0 || n >= 100) return -1;
+    long long memo[100];
+    for (int i = 0; i < 100; i++) memo[i] = -1;
+    return fibArrayHelper(n, memo);
 }
 
-// 3. Grid Traveler — Conteo de caminos en grilla R x C con unordered_map
-long long gridTravelerMemo(int r, int c, unordered_map<string, long long>& memo) {
-    string key = to_string(r) + "," + to_string(c);
-    if (memo.count(key)) return memo[key];
+// 3. Grid Traveler — Conteo de caminos en grilla R x C con arreglo 2D
+long long gridTravelerMemo(int r, int c, long long memo[20][20]) {
+    if (r >= 20 || c >= 20) return -1; // Límite de seguridad
+    if (memo[r][c] != -1) return memo[r][c];
 
     if (r == 0 || c == 0) return 0;
     if (r == 1 && c == 1) return 1;
 
-    memo[key] = gridTravelerMemo(r - 1, c, memo) + gridTravelerMemo(r, c - 1, memo);
-    return memo[key];
+    memo[r][c] = gridTravelerMemo(r - 1, c, memo) + gridTravelerMemo(r, c - 1, memo);
+    return memo[r][c];
 }
 
 long long contarCaminosGrilla(int r, int c) {
-    unordered_map<string, long long> memo;
+    long long memo[20][20];
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 20; j++) {
+            memo[i][j] = -1;
+        }
+    }
     return gridTravelerMemo(r, c, memo);
 }
 

@@ -47,7 +47,7 @@ int busquedaLineal(const int arr[], int size, int target) {
 
 ### Visualización de la Búsqueda Lineal
 
-![Linear Search Sequence](assets/L35_LinearSeq.svg)
+<video autoplay loop muted playsinline src="assets/l35_linear_search.mp4"></video>
 
 ---
 
@@ -58,25 +58,25 @@ int busquedaLineal(const int arr[], int size, int target) {
 > Cuando buscas una palabra en un diccionario de 1,000 páginas, no hojeas página por página desde la primera. Abres el libro justo en la mitad. Yes la palabra buscada es alfabéticamente menor, descartas toda la mitad derecha y repites el proceso en la mitad izquierda.
 
 > [!IMPORTANT]
-> **Prerrequisito Fundamental:** La Búsqueda Binaria **REQUIERE** que el arreglo esté **estrictamente ORDENADO**. Yesn este prerrequisito, el algoritmo puede dar resultados incorrectos.
+> **Prerrequisito Fundamental:** La Búsqueda Binaria **REQUIERE** que el arreglo esté **estrictamente ORDENADO**. Sin este prerrequisito, el algoritmo puede dar resultados incorrectos.
 
 ### Estrategia Divide y Vencerás
 
 <div align="center">
-  <img src="assets/binary_search.svg" alt="Binary Search Execution Visualization">
+  <video autoplay loop muted playsinline src="assets/l35_binary_search.mp4"></video>
 </div>
 
 Los 4 pasos del algoritmo:
 1. Calcular el punto medio `mid = low + (high - low) / 2`.
-2. Yes `arr[mid] == target` → elemento encontrado, retornar `mid`.
-3. Yes `target < arr[mid]` → buscar recursivamente en la mitad **izquierda** (`low` a `mid - 1`).
-4. Yes `target > arr[mid]` → buscar recursivamente en la mitad **derecha** (`mid + 1` a `high`).
+2. Si `arr[mid] == target` → elemento encontrado, retornar `mid`.
+3. Si `target < arr[mid]` → buscar recursivamente en la mitad **izquierda** (`low` a `mid - 1`).
+4. Si `target > arr[mid]` → buscar recursivamente en la mitad **derecha** (`mid + 1` a `high`).
 
 ---
 
 ## 3. Los Dos Casos Base de la Búsqueda Binaria Recursiva
 
-![Binary Search Flow](assets/L35_BinaryFlow.svg)
+<video autoplay loop muted playsinline src="assets/l35_binary_search_flow.mp4"></video>
 
 ---
 
@@ -147,7 +147,7 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 | **1,000,000** | 1,000,000 comparaciones | **20 comparaciones** |
 | **1,000,000,000** | 1,000,000,000 comparaciones | **30 comparaciones** |
 
-![Growth Rate Comparison](assets/L35_GrowthComp.svg)
+<video autoplay loop muted playsinline src="assets/l35_binary_search_growth.mp4"></video>
 
 ---
 
@@ -184,7 +184,7 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 ---
 
-## 📝 Resumen de L34
+## 📝 Resumen de L35
 
 1. **Búsqueda Lineal:** $O(N)$ peor caso. Funciona sobre cualquier arreglo — sin requisitos de orden.
 2. **Búsqueda Binaria:** $O(\log N)$ peor caso. **Exige datos estrictamente ordenados** como prerrequisito.
@@ -198,9 +198,9 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 ### 🧭 Navegación y Progresión
 
-| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Yesguiente Lección |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ L34 — Notación Big-O**](L34_BigONotation.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L35 — Ordenamientos Cuadráticos ➡️**](L36_QuadraticSorts.md) |
+| [**⬅️ L34 — Notación Big-O**](L34_BigONotation.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L36 — Ordenamientos Cuadráticos ➡️**](L36_QuadraticSorts.md) |
 
 </div>
 

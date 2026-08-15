@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Count-Controlled Loop Structures](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: The for Loop Header](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L20_ForLoops.cpp`](../code/L20_ForLoops.cpp)
+- 💻 **Code Lab:** [`l20_for_loops.cpp`](../code/l20_for_loops.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 When the exact number of iterations is known beforehand, the `for` loop combines all three loop control elements into a single header statement:
 
-![Flowchart](assets/L20_ForLoops.svg)
+![l20_for_loops](assets/l20_for_loops.svg)
 
 ```cpp
 #include <iostream>
@@ -76,7 +76,7 @@ How do you write a `for` loop header that counts down from `10` to `1` inclusive
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L19 — Post-Test do-while Loops**](L19_DoWhileLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L21 — Loop Interruptions: break & continue ➡️**](L21_BreakAndContinue.md) |
+| [**⬅️ L19 — Post-Test do-while Loops**](l19_do_while_loops.md) | [**🏠 Basic Syntax**](../README.md) | [**L21 — Loop Interruptions: break & continue ➡️**](l21_break_and_continue.md) |
 
 </div>
 

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <utility>  // swap
 #include <cstdlib>  // rand
 using namespace std;

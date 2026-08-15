@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Character Encodings & Boolean Logic](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
   - 🌲 [Stanford CS106B — Chapter 3: ASCII Codes & Character Functions](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L12_CharAndBool.cpp`](../code/L12_CharAndBool.cpp)
+- 💻 **Code Lab:** [`l12_char_and_bool.cpp`](../code/l12_char_and_bool.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 In C++, a `char` stores a single character enclosed in **single quotes** (`'A'`). Under the hood, a `char` is simply a 1-byte (8-bit) integer storing an **ASCII code**:
 
-![Char & Bool Memory](assets/L12_CharAndBool.svg)
+![l12_char_and_bool](assets/l12_char_and_bool.svg)
 
 - `'A'` $\rightarrow$ ASCII `65`
 - `'a'` $\rightarrow$ ASCII `97`
@@ -110,7 +110,7 @@ How do you convert a numeric character `'7'` into its integer value `7` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L11 — Floating-Point Types**](L11_FloatingPointTypes.md) | [**🏠 Basic Syntax**](../README.md) | [**L13 — Control Flow: if Statements ➡️**](L13_If.md) |
+| [**⬅️ L11 — Floating-Point Types**](L11_FloatingPointTypes.md) | [**🏠 Basic Syntax**](../README.md) | [**L13 — Control Flow: if Statements ➡️**](l13_if.md) |
 
 </div>
 

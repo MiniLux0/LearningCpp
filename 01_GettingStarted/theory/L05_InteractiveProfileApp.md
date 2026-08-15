@@ -30,7 +30,7 @@ The **Interactive Profile Generator** acts as a comprehensive capstone for Secti
 2. **Interactive Prompts:** Sequentially prompts the user for name, academic interest, and a lucky integer.
 3. **Formatted Card Output:** Displays an aligned user profile summary block.
 
-![Logic Flow Diagram](assets/L05_profile.svg)
+![l05_profile](assets/l05_profile.svg)
 
 ---
 

@@ -87,7 +87,7 @@ long long fibonacciNaive(int n) {
 Al calcular `fibonacciNaive(4)`, la función genera llamadas duplicadas:
 
 <div align="center">
-  <img src="assets/fib_tree.svg" alt="Fibonacci Recursion Tree">
+  <video autoplay loop muted playsinline src="assets/fib_tree.mp4"></video>
 </div>
 
 > [!CAUTION]
@@ -161,13 +161,13 @@ bool esPalindromo(const string& str) {
 ### Estado Inicial (3 Discos)
 
 <div align="center">
-  <img src="assets/hanoi_manim.gif" alt="Torres de Hanói Animadas con Manim">
+  <video autoplay loop muted playsinline src="assets/hanoi_manim.mp4"></video>
 </div>
 
 ### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
 
 <div align="center">
-  <img src="assets/hanoi_tree_3.svg" alt="Árbol de Recursión de las Torres de Hanói para N=3">
+  <video autoplay loop muted playsinline src="assets/hanoi_tree_2.mp4"></video>
 </div>
 
 ### La Estrategia Divide y Vencerás (3 Pasos):

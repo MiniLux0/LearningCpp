@@ -30,7 +30,7 @@
 
 El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ( $O(\log N)$ ).
 
-![Sorting Goal](assets/L36_SortIntro.svg)
+<video autoplay loop muted playsinline src="assets/l36_sort_intro.mp4"></video>
 
 ---
 
@@ -41,7 +41,7 @@ El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado
 En cada iteración $i$, busca el **elemento mínimo** del subarreglo no ordenado $[i \dots N-1]$ y lo intercambia con la posición $i$.
 
 <div align="center">
-  <img src="assets/selection_sort.svg" alt="Selection Sort Steps">
+  <video autoplay loop muted playsinline src="assets/l36_selection_sort.mp4"></video>
 </div>
 
 ### Implementación en C++
@@ -80,7 +80,7 @@ void selectionSort(int arr[], int n) {
 Mantiene una **sub-lista izquierda ordenada**. Para cada nuevo elemento `key`, desplaza los elementos mayores a la derecha e inserta `key` en el espacio libre.
 
 <div align="center">
-  <img src="assets/insertion_sort.svg" alt="Insertion Sort Steps">
+  <video autoplay loop muted playsinline src="assets/l36_insertion_sort.mp4"></video>
 </div>
 
 ### Implementación en C++
@@ -115,7 +115,7 @@ void insertionSort(int arr[], int n) {
 Recorre el arreglo comparando pares adyacentes e intercambiándolos si están desordenados. Los elementos grandes "flotan" hacia el final como burbujas.
 
 <div align="center">
-  <img src="assets/bubble_sort.svg" alt="Bubble Sort Steps">
+  <video autoplay loop muted playsinline src="assets/l36_bubble_sort.mp4"></video>
 </div>
 
 ### Implementación Optimizada con Parada Temprana
@@ -148,7 +148,7 @@ void bubbleSort(int arr[], int n) {
 | **Insertion Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 | **Bubble Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 
-![Best Case Comparison](assets/L36_BestCaseComp.svg)
+<video autoplay loop muted playsinline src="assets/l36_best_case_comp.mp4"></video>
 
 ---
 

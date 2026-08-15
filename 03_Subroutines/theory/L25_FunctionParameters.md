@@ -48,7 +48,7 @@ int main() {
 
 Al añadir el ampersand `&` al tipo del parámetro (`int& x`), el parámetro se convierte en un **alias de referencia** que apunta directamente a la misma celda de memoria RAM que la variable del invocador:
 
-![Pass by Reference RAM Memory Mapping](assets/pass_by_ref.svg)
+![pass_by_ref](assets/pass_by_ref.svg)
 
 ```cpp
 #include <iostream>
@@ -116,7 +116,7 @@ void imprimirCadenaGrande(const string& texto) {
 
 | ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ L24 — Valores de Retorno**](L24_ReturnValues.md) | [**🏠 Subrutines**](../README.md) | [**L26 — Cabeceras y Prototipos ➡️**](L26_HeadersAndPrototypes.md) |
+| [**⬅️ L24 — Valores de Retorno**](l24_return_values.md) | [**🏠 Subrutines**](../README.md) | [**L26 — Cabeceras y Prototipos ➡️**](L26_HeadersAndPrototypes.md) |
 
 </div>
 

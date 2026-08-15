@@ -102,7 +102,7 @@ What is the type of the literal `3.14` versus `3.14f` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L10 — Integer Types & Limits**](L10_IntegerTypes.md) | [**🏠 Basic Syntax**](../README.md) | [**L12 — Char & Bool Types ➡️**](L12_CharAndBool.md) |
+| [**⬅️ L10 — Integer Types & Limits**](l10_integer_types.md) | [**🏠 Basic Syntax**](../README.md) | [**L12 — Char & Bool Types ➡️**](l12_char_and_bool.md) |
 
 </div>
 

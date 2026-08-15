@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Primitive Data Types & Allocation](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - ⚙️ [Stanford CS106L — Lecture 02: Uniform Brace Initialization `{}`](../../files/cs106l/lectures/WL2-Structures.pdf)
-- 💻 **Code Lab:** [`L06_Variables.cpp`](../code/L06_Variables.cpp)
+- 💻 **Code Lab:** [`l06_variables.cpp`](../code/l06_variables.cpp)
 
 ---
 
@@ -27,7 +27,7 @@
 
 In C++, a **variable** is a named, typed memory location reserved in RAM.
 
-![Flowchart](assets/L06_Variables.svg)
+![l06_variables](assets/l06_variables.svg)
 
 > [!TIP]
 > **The Type Contract:**
@@ -107,7 +107,7 @@ int temperature{72.8};
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ Section 01 Capstone**](../../01_GettingStarted/theory/L05_InteractiveProfileApp.md) | [**🏠 Basic Syntax**](../README.md) | [**L07 — Strings & Text ➡️**](L07_Strings.md) |
+| [**⬅️ Section 01 Capstone**](../../01_GettingStarted/theory/L05_InteractiveProfileApp.md) | [**🏠 Basic Syntax**](../README.md) | [**L07 — Strings & Text ➡️**](l07_strings.md) |
 
 </div>
 

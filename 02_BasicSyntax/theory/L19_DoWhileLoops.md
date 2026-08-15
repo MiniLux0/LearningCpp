@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Post-Test Iteration Loops](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Interactive Menu Loops](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L19_DoWhileLoops.cpp`](../code/L19_DoWhileLoops.cpp)
+- 💻 **Code Lab:** [`l19_do_while_loops.cpp`](../code/l19_do_while_loops.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 Unlike pre-test `while` loops, a `do-while` loop executes its body block **first** and checks the continuation condition **at the bottom**:
 
-![Do-While Flow](assets/L19_DoWhileLoops.svg)
+![l19_do_while_loops](assets/l19_do_while_loops.svg)
 
 ```cpp
 #include <iostream>
@@ -85,7 +85,7 @@ How many times does a `do-while` loop execute if the continuation condition is `
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L18 — Pre-Test while Loops**](L18_WhileLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L20 — Count-Controlled for Loops ➡️**](L20_ForLoops.md) |
+| [**⬅️ L18 — Pre-Test while Loops**](l18_while_loops.md) | [**🏠 Basic Syntax**](../README.md) | [**L20 — Count-Controlled for Loops ➡️**](l20_for_loops.md) |
 
 </div>
 

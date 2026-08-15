@@ -27,7 +27,7 @@
 
 In legacy C and C++, a character string is a native `char[]` array whose useful content must be terminated with the **null sentinel `'\0'` (ASCII 0)**.
 
-![C-String Memory Layout with Null Terminator](assets/cstring_null.svg)
+![cstring_null](assets/cstring_null.svg)
 
 > [!CAUTION]
 > **The Null Sentinel Rule (+1 Byte):**  

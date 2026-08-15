@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -10,22 +9,22 @@ using namespace std;
 
 // ── SECCIÓN 1: SUBCONJUNTOS (Power Set) ────────────────────────────────────
 // El patrón clásico: ELEGIR → EXPLORAR → DESHACER (Choose-Explore-Unchoose)
-void generarSubconjuntos(const vector<char>& elementos, int index, vector<char>& actual) {
+void generarSubconjuntos(const char elementos[], int totalElementos, int index, char actual[], int actualSize) {
     // CASO BASE: se tomó decisión sobre todos los elementos
-    if (index == (int)elementos.size()) {
+    if (index == totalElementos) {
         cout << "{ ";
-        for (char c : actual) cout << c << " ";
+        for (int i = 0; i < actualSize; i++) cout << actual[i] << " ";
         cout << "}" << endl;
         return;
     }
 
     // OPCIÓN A: NO incluir elementos[index] → explorar sin modificar
-    generarSubconjuntos(elementos, index + 1, actual);
+    generarSubconjuntos(elementos, totalElementos, index + 1, actual, actualSize);
 
     // OPCIÓN B: INCLUIR elementos[index]
-    actual.push_back(elementos[index]);          // 1. ELEGIR (Choose)
-    generarSubconjuntos(elementos, index + 1, actual); // 2. EXPLORAR (Explore)
-    actual.pop_back();                           // 3. DESHACER (Unchoose / Backtrack)
+    actual[actualSize] = elementos[index];          // 1. ELEGIR (Choose)
+    generarSubconjuntos(elementos, totalElementos, index + 1, actual, actualSize + 1); // 2. EXPLORAR (Explore)
+    // 3. DESHACER (Unchoose / Backtrack) ocurre implícitamente al no incrementar actualSize en esta rama
 }
 
 // ── SECCIÓN 2: LABERINTO (Sección 9.1) ─────────────────────────────────────
@@ -121,9 +120,10 @@ int main() {
 
     // ── Demo 1: Power Set con Choose-Explore-Unchoose ────────────────────
     cout << "\n--- 1. Todos los subconjuntos de {A, B, C} (Power Set) ---" << endl;
-    vector<char> letras = {'A', 'B', 'C'};
-    vector<char> actual;
-    generarSubconjuntos(letras, 0, actual);
+    const int total = 3;
+    char letras[total] = {'A', 'B', 'C'};
+    char actual[total];
+    generarSubconjuntos(letras, total, 0, actual, 0);
     cout << "Total: 2^3 = 8 subconjuntos" << endl;
 
     // ── Demo 2: Laberinto recursivo (Sección 9.1) ────────────────────────

@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Dual-Branch Control Flow](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: The if-else Structure](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L14_IfElse.cpp`](../code/L14_IfElse.cpp)
+- 💻 **Code Lab:** [`l14_if_else.cpp`](../code/l14_if_else.cpp)
 
 ---
 
@@ -26,7 +26,7 @@
 
 When a program needs to guarantee that **exactly one of two alternative paths** executes, use `if-else`:
 
-![Flowchart](assets/L14_IfElse.svg)
+![l14_if_else](assets/l14_if_else.svg)
 
 ```cpp
 #include <iostream>
@@ -81,7 +81,7 @@ Can a variable declared inside an `if` block be accessed inside the `else` block
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L13 — Control Flow: if**](L13_If.md) | [**🏠 Basic Syntax**](../README.md) | [**L15 — Multi-Branch if-else-if ➡️**](L15_IfElseIfElse.md) |
+| [**⬅️ L13 — Control Flow: if**](l13_if.md) | [**🏠 Basic Syntax**](../README.md) | [**L15 — Multi-Branch if-else-if ➡️**](l15_if_else_if_else.md) |
 
 </div>
 

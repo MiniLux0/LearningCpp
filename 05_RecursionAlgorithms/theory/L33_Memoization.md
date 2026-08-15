@@ -1,13 +1,13 @@
-# L33 — Memoización y Programación Dinámica Top-Down: Eliminando la Redundancia Exponencial
+# L33 — Memoización y Programación Dinámica Top-Down
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 8 (*Recursive Strategies*, Sección 8.4: *Memoization*, pp. 365–370)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts) y conferencias avanzadas de **Stanford CS106X / CS106L**.
+> **Fundamentación Académica:** Esta lección cubre la **Sección 8.4 (*Memoization*, pp. 365–370)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts).
 
 ---
 
 ## 🧭 Navegación Rápida
 
-- 📄 **Lecturas Académicas Base:**
+- 📄 **Lectura Académica Base:**
   - 🌲 [Stanford CS106B Textbook — Ch 8.4: Memoization (pp. 365–370)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Laboratorio de Código:** [`L33_Memoization.cpp`](../code/L33_Memoization.cpp)
 
@@ -15,166 +15,257 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Identificar el fenómeno de **Subproblemas Superpuestos (*Overlapping Subproblems*)** en algoritmos recursivos ingenuos.
-- [ ] Aplicar la técnica de **Memoización (*Top-Down Dynamic Programming*)** guardando resultados intermedios en memoria caché (`vector` o `unordered_map`).
-- [ ] Reducir la complejidad temporal de la función Fibonacci de **exponencial $O(2^N)$ a lineal $O(N)$**.
-- [ ] Implementar memoización en problemas de exploración bidimensional (Caminos en Grilla / *Grid Traveler*).
-- [ ] Comparar las tres estrategias de solución: Recursión Simple, Memoización Top-Down y Tabulación Bottom-Up.
+- [ ] Identificar el fenómeno de **Subproblemas Superpuestos**: cuándo una función recursiva recalcula el mismo valor múltiples veces.
+- [ ] Entender qué es la **Memoización** y cómo actúa como un "cuaderno de apuntes" para la función.
+- [ ] Implementar memoización usando **arreglos estáticos** — la misma herramienta que ya conoces de la Sección 04.
+- [ ] Transformar la función `fibonacciNaive` de $O(2^N)$ a $O(N)$ aplicando el patrón de 4 pasos.
+
+> [!NOTE]
+> **Herramientas que usamos en esta lección:**
+> Solo necesitas lo que ya viste: arreglos (`int arr[]`, **Sección 04**), funciones con parámetros por referencia (`&`, **Sección 03**), y `for`/`if` (**Sección 02**). No se introduce nada nuevo del lenguaje — solo una nueva *técnica de diseño*.
 
 ---
 
-## 1. El Problema: Subproblemas Superpuestos (*Overlapping Subproblems*)
+## 1. El Problema — ¿Por qué la Recursión Simple es Lenta?
 
-En la Lección **L32** observamos que la llamada recursiva ingenua `fibonacciNaive(N)` genera un árbol de decisiones desproporcionado:
+En **L32** implementamos `fibonacciNaive`. Funciona, pero es desesperadamente lento para valores grandes. Observa el árbol de llamadas para `fib(4)`:
 
-![Memoized Fibonacci Tree: Overlapping Subproblems Pruned](assets/fib_memo_tree.svg)
+<div align="center">
+  <video autoplay loop muted playsinline src="assets/fib_memo_tree.mp4"></video>
+</div>
 
-Notice que `fib(3)` se calcula **2 veces** y `fib(2)` se calcula **3 veces**. A medida que $N$ aumenta a 50, el número de recalculaciones explota a $O(2^{50}) \approx 1.12 \times 10^{15}$ operaciones.
+¿Lo ves? `fib(2)` se calcula **dos veces**. `fib(1)` se calcula **tres veces**. Cada vez, la función **repite exactamente el mismo trabajo** desde cero, sin recordar que ya lo hizo.
+
+Esto se llama **Subproblemas Superpuestos (*Overlapping Subproblems*)**. La consecuencia matemática es brutal: el número total de llamadas crece a $O(2^N)$.
+
+| Llamada | Sin Memoización | Con Memoización |
+| :--- | :--- | :--- |
+| `fib(10)` | 177 llamadas | 10 llamadas |
+| `fib(30)` | 2,692,537 llamadas | 30 llamadas |
+| `fib(50)` | ≈ $10^{15}$ llamadas (minutos) | 50 llamadas (< 1 ms) |
 
 > [!TIP]
-> **Definición de Memoización (Eric Roberts, Sec. 8.4):**  
-> La **Memoización** (término acuñado por Donald Michie en 1968, derivado de *"memorandum"*) es una técnica de optimización que consiste en **almacenar en una tabla de memoria caché los resultados de funciones costosas**, de modo que si la función vuelve a ser invocada con los mismos argumentos, retorne inmediatamente el valor guardado en tiempo $O(1)$.
+> **Analogía del Cuaderno de Apuntes:**
+> Imagina que cada vez que alguien te pregunta *"¿Cuánto es 237 × 48?"* lo calculas de cero.
+> Una persona inteligente lo calcula **una sola vez**, lo anota en un cuaderno y la próxima vez **lee la respuesta directamente**. Eso es exactamente la **Memoización**.
 
 ---
 
-## 2. El Patrón Universal de 4 Pasos para Aplicar Memoización
+## 2. La Solución — El Patrón de 4 Pasos
 
-Para transformar cualquier función recursiva exponencial $O(2^N)$ en una versión memoizada lineal $O(N)$, se sigue esta plantilla:
+La **Memoización** consiste en darle a la función un **arreglo auxiliar (`memo[]`)** que actúa como cuaderno. Antes de calcular algo, la función consulta el cuaderno. Si ya está anotado, retorna inmediatamente.
 
-![Overlapping Subproblems](assets/L33_Overlapping.svg)
+<div align="center">
+  <video autoplay loop muted playsinline src="assets/l33_overlapping.mp4"></video>
+</div>
 
-### Plantilla Genérica en C++:
+Los 4 pasos son siempre los mismos, en ese orden exacto:
 
-```cpp
-#include <vector>
-using namespace std;
-
-// Valor centinela (-1) indica que el estado 'n' NO ha sido calculado
-long long resolverMemo(int n, vector<long long>& memo) {
-    // 1. CONSULTAR CACHÉ (O(1))
-    if (memo[n] != -1) return memo[n];
-
-    // 2. CASOS BASE
-    if (n <= 1) return (memo[n] = n);
-
-    // 3. PASO RECURSIVO Y 4. ALMACENAMIENTO
-    memo[n] = resolverMemo(n - 1, memo) + resolverMemo(n - 2, memo);
-    return memo[n];
-}
+```
+PASO 1 → ¿Ya calculé este valor antes? (consultar el cuaderno)
+PASO 2 → ¿Es un caso base trivial?
+PASO 3 → Llamada recursiva para calcularlo
+PASO 4 → Anotar el resultado en el cuaderno antes de retornar
 ```
 
 ---
 
-## 3. Demostración en Código: Fibonacci Memoizado `O(N)`
+## 3. Implementación — Fibonacci Memoizado con Array
+
+Usamos un arreglo estático como cuaderno. El valor centinela `-1` significa *"aún no calculado"*:
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <unordered_map>
 using namespace std;
 
-// ── 1. Versión con Vector (Ideal para rangos numéricos continuos [0..N]) ───────
-long long fibVectorHelper(int n, vector<long long>& memo) {
-    if (memo[n] != -1) return memo[n]; // Consulta caché en O(1)
+// MAX_N define el tamaño máximo del cuaderno de apuntes (arreglo memo)
+const int MAX_N = 100;
+
+// El arreglo 'memo' es el cuaderno: memo[n] guarda el resultado de fib(n)
+// Inicializado con -1 (centinela = "no calculado todavía")
+long long memo[MAX_N];
+
+void inicializarMemo() {
+    for (int i = 0; i < MAX_N; i++) {
+        memo[i] = -1; // -1 significa "aún no calculado"
+    }
+}
+
+long long fibMemo(int n) {
+    // ─── PASO 1: Consultar el cuaderno ───────────────────────────────────────
+    // Si memo[n] != -1, ya existe la respuesta. Retornar directamente en O(1).
+    if (memo[n] != -1) return memo[n];
+
+    // ─── PASO 2: Casos Base (igual que la versión sin memoización) ───────────
     if (n == 0) return (memo[0] = 0);
     if (n == 1) return (memo[1] = 1);
 
-    memo[n] = fibVectorHelper(n - 1, memo) + fibVectorHelper(n - 2, memo);
+    // ─── PASO 3: Llamada Recursiva (solo llega aquí si no estaba en el cuaderno)
+    long long resultado = fibMemo(n - 1) + fibMemo(n - 2);
+
+    // ─── PASO 4: Anotar el resultado en el cuaderno antes de retornar ────────
+    memo[n] = resultado;
     return memo[n];
 }
 
-long long fibonacciMemo(int n) {
-    if (n < 0) return -1;
-    vector<long long> memo(n + 1, -1); // Inicializado con centinela -1
-    return fibVectorHelper(n, memo);
-}
+int main() {
+    inicializarMemo(); // Siempre inicializar antes de usar
 
-// ── 2. Versión con Map/Hash Table (Ideal para estados dispersos) ─────────────
-long long fibMapHelper(int n, unordered_map<int, long long>& memo) {
-    if (memo.count(n)) return memo[n]; // Si ya existe en el map, retornar
-    if (n == 0) return 0;
-    if (n == 1) return 1;
+    cout << "fib(10) = " << fibMemo(10) << endl; // 55
+    cout << "fib(30) = " << fibMemo(30) << endl; // 832040
+    cout << "fib(50) = " << fibMemo(50) << endl; // 12586269025
 
-    memo[n] = fibMapHelper(n - 1, memo) + fibMapHelper(n - 2, memo);
-    return memo[n];
+    return 0;
 }
 ```
+
+> [!IMPORTANT]
+> **El Paso 1 siempre va primero**, incluso antes de los casos base. Si no revisas el cuaderno al inicio, nunca aprovecharás lo que ya calculaste.
+
+### ¿Qué pasa internamente con `fib(4)`?
+
+```text
+fibMemo(4)  → cuaderno vacío, calcula...
+  fibMemo(3)  → calcula...
+    fibMemo(2)  → calcula...
+      fibMemo(1)  → caso base → retorna 1, anota memo[1]=1
+      fibMemo(0)  → caso base → retorna 0, anota memo[0]=0
+    → retorna 1, anota memo[2]=1
+    fibMemo(1)  → PASO 1: memo[1]=1 ya existe → retorna 1 al instante ✓
+  → retorna 2, anota memo[3]=2
+  fibMemo(2)  → PASO 1: memo[2]=1 ya existe → retorna 1 al instante ✓
+→ retorna 3, anota memo[4]=3
+```
+
+La segunda llamada a `fib(2)` y `fib(1)` **no ejecuta nada** — lee directo del cuaderno.
 
 ---
 
 ## 4. Segundo Caso Práctico: Caminos en Grilla (*Grid Traveler*)
 
-Imagina un robot ubicado en la esquina superior izquierda de una grilla de $R \times C$ casillas que solo puede moverse **hacia la Derecha** o **hacia Abajo**. ¿Cuántos caminos únicos existen para llegar a la esquina inferior derecha?
+Ahora aplicamos el mismo patrón a un problema bidimensional para demostrar que la memoización es una **técnica universal**.
 
-![Memoization Pattern](assets/L33_MemoPattern.svg)
+**El problema:** Un robot está en la esquina superior izquierda `(1,1)` de una grilla de $R \times C$. Solo puede moverse **hacia la Derecha** o **hacia Abajo**. ¿Cuántos caminos únicos existen para llegar a la esquina inferior derecha `(R,C)`?
 
-### Implementación Recursiva con Memoización de Estados Bidimensionales:
+**¿Por qué aparecen subproblemas superpuestos?**
+Dos caminos distintos pueden terminar en la **misma celda** por rutas diferentes. Desde esa celda, el sub-problema es idéntico, pero sin memoización se calcularía dos veces:
+
+<div align="center">
+  <video autoplay loop muted playsinline src="assets/l33_memo_pattern.mp4"></video>
+</div>
+
+### Implementación con Arreglo 2D como Cuaderno
+
+Aquí el cuaderno necesita **dos dimensiones** (un índice por fila y otro por columna), algo que ya viste en **L29 — Arreglos Multidimensionales**:
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <string>
-#include <unordered_map>
 using namespace std;
 
-// Clave única para el map: "R,C"
-long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo) {
-    string key = to_string(r) + "," + to_string(c);
-    if (memo.count(key)) return memo[key];
+const int MAX_R = 20;
+const int MAX_C = 20;
 
-    // Casos Base: Grilla inválida (0) o destino alcanzado (1x1)
-    if (r == 0 || c == 0) return 0;
-    if (r == 1 && c == 1) return 1;
+// El cuaderno ahora es un arreglo 2D: memo[r][c] guarda la cantidad
+// de caminos únicos desde la esquina (r,c) hasta el destino final.
+long long memo2D[MAX_R][MAX_C];
 
-    // Paso Recursivo: Mover Abajo (r-1, c) + Mover Derecha (r, c-1)
-    memo[key] = contarCaminosMemo(r - 1, c, memo) + contarCaminosMemo(r, c - 1, memo);
-    return memo[key];
+void inicializarMemo2D() {
+    for (int r = 0; r < MAX_R; r++)
+        for (int c = 0; c < MAX_C; c++)
+            memo2D[r][c] = -1;
+}
+
+long long contarCaminos(int r, int c) {
+    // PASO 1: Consultar el cuaderno 2D
+    if (memo2D[r][c] != -1) return memo2D[r][c];
+
+    // PASO 2: Casos Base
+    if (r == 0 || c == 0) return (memo2D[r][c] = 0); // Grilla inválida
+    if (r == 1 && c == 1) return (memo2D[r][c] = 1); // Destino: 1 solo camino
+
+    // PASOS 3 y 4: Calcular y anotar
+    // Desde (r,c) se puede llegar moviéndose desde arriba (r-1,c) o desde la izquierda (r,c-1)
+    memo2D[r][c] = contarCaminos(r - 1, c) + contarCaminos(r, c - 1);
+    return memo2D[r][c];
+}
+
+int main() {
+    inicializarMemo2D();
+
+    cout << "Caminos en grilla 3x3: " << contarCaminos(3, 3) << endl; // 6
+    cout << "Caminos en grilla 4x4: " << contarCaminos(4, 4) << endl; // 20
+    cout << "Caminos en grilla 18x18: " << contarCaminos(18, 18) << endl; // 2333606220
+
+    return 0;
 }
 ```
 
 > [!IMPORTANT]
-> **Impacto de la Memoización en Grillas:**
-> - **Sin Memoización:** Complejidad $O(2^{R + C})$. Para una grilla de $18 \times 18$, realiza más de **$2.3 \times 10^{10}$ llamadas recursivas** (tarda minutos).
-> - **Con Memoización:** Complejidad $O(R \cdot C)$. Para $18 \times 18$, evalúa exactamente **$18 \times 18 = 324$ estados**, ejecutándose en **menos de 1 milisegundo**.
+> **El impacto es aún más dramático que en Fibonacci:**
+> - **Sin Memoización:** $O(2^{R+C})$ → para $18 \times 18$ son más de $2.3 \times 10^{10}$ llamadas (tarda minutos).
+> - **Con Memoización:** $O(R \cdot C)$ → para $18 \times 18$ son exactamente **324 estados** (menos de 1 ms).
 
 ---
 
-## 5. Tabla Comparativa de Estrategias Algorítmicas
+## 5. Comparación de Estrategias
 
-| Criterio | Recursión Simple | Memoización (*Top-Down DP*) | Tabulación (*Bottom-Up DP*) |
-| :--- | :--- | :--- | :--- |
-| **Enfoque** | Subdivisión directa desde $N \to 0$ | Recursión Top-Down + Caché de memoria | Bucles iterativos desde $0 \to N$ |
-| **Complejidad Temporal** | Exponencial $O(2^N)$ | Lineal $O(N)$ | Lineal $O(N)$ |
-| **Complejidad Espacial** | $O(N)$ en Pila de llamadas | $O(N)$ Caché + $O(N)$ Pila | $O(N)$ o $O(1)$ optimizado |
-| **Facilidad de diseño** | Trivial de escribir | Muy natural derivando de la recursión | Requiere reorganizar el orden de subproblemas |
+| Criterio | Recursión Simple | Memoización (*Top-Down*) |
+| :--- | :--- | :--- |
+| **Dirección** | Divide $N$ hasta llegar al caso base | Igual, pero reutiliza lo ya calculado |
+| **Complejidad** | $O(2^N)$ — Exponencial | $O(N)$ — Lineal |
+| **Memoria extra** | Solo la pila de llamadas | Pila + arreglo `memo[]` |
+| **Dificultad** | La misma recursión del tema anterior | Añadir el arreglo `memo` y el Paso 1 |
+
+> [!NOTE]
+> Existe una tercera estrategia llamada **Tabulación (*Bottom-Up*)** que construye la tabla `memo[]` de abajo hacia arriba con un simple `for` loop, eliminando la recursión completamente. La veremos en un módulo posterior cuando estudiemos algoritmos avanzados.
 
 ---
 
-## ❓ Preguntas de Chequeo & Autoevaluación
+## ❓ Preguntas de Chequeo
 
-### Pregunta #1 — Complejidad de Espacio
-¿Por qué `fibonacciMemo(N)` utiliza espacio $O(N)$ si no crea copias de arreglos por nivel?
+### Pregunta #1 — El error más común
+
+Analiza este código con un error intencional:
+
+```cpp
+long long fibMal(int n) {
+    if (n == 0) return (memo[0] = 0);   // A
+    if (n == 1) return (memo[1] = 1);   // B
+    memo[n] = fibMal(n-1) + fibMal(n-2); // C
+    if (memo[n] != -1) return memo[n]; // D ← ¿Problema aquí?
+    return memo[n];
+}
+```
+
+**¿Cuál es el error y dónde debería estar la línea D?**
 
 <details>
-<summary>🔍 <strong>Ver Explicación y Respuesta</strong></summary>
+<summary>🔍 <strong>Ver Explicación</strong></summary>
 
-**Respuesta:** Utiliza espacio $O(N)$ por dos razones:
-1. La tabla o `vector` de almacenamiento caché requiere $N + 1$ posiciones para guardar los valores calculados.
-2. La pila de llamadas recursivas (*Call Stack*) alcanza una profundidad máxima de $N$ marcos de memoria antes de desapilar el primer subproblema trivial.
+**El error:** La consulta al cuaderno (línea D) está **después** del cálculo recursivo (línea C). Esto hace que el cuaderno **nunca se consulte** — siempre se recalcula primero. La verificación debe ser la **primera instrucción** de la función:
+
+```cpp
+long long fibBien(int n) {
+    if (memo[n] != -1) return memo[n]; // ← PRIMERO: consultar cuaderno
+    if (n == 0) return (memo[0] = 0);
+    if (n == 1) return (memo[1] = 1);
+    memo[n] = fibBien(n-1) + fibBien(n-2);
+    return memo[n];
+}
+```
 
 </details>
 
 ---
 
-### Pregunta #2 — Elección de Estructura de Datos para Caché
-¿Cuándo es preferible usar un `vector<long long>` en lugar de un `unordered_map<int, long long>` para memoización?
+### Pregunta #2 — Tamaño del cuaderno
+
+Si llamas a `fibMemo(75)`, ¿es suficiente `const int MAX_N = 50`? ¿Qué ocurre si no lo es?
 
 <details>
 <summary>🔍 <strong>Ver Respuesta</strong></summary>
 
-**Respuesta:** Es preferible usar `vector` cuando los estados son enteros continuos en un rango conocido $[0 \dots N]$, como en Fibonacci. El acceso por índice a un `vector` es $O(1)$ directo y libre de la sobrecarga de funciones hash o colisiones que tiene `unordered_map`.
-
-`unordered_map` es preferible cuando los estados son compuestos (como pares de coordenadas `"R,C"`) o cuando el espacio de estados es muy grande y disperso.
+**No es suficiente.** El arreglo `memo[MAX_N]` solo tiene 50 posiciones (índices 0 a 49). Al intentar acceder a `memo[75]`, estarías escribiendo **fuera de los límites del arreglo** — un *undefined behavior* que puede corromper memoria o causar un *crash*. Siempre debes asegurarte de que `MAX_N > n` para cualquier valor que vayas a calcular.
 
 </details>
 
@@ -182,10 +273,12 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 
 ## 📝 Resumen de L33
 
-1. **Subproblemas Superpuestos:** La recursión simple recalcula las mismas ramas múltiples veces, causando explosión exponencial $O(2^N)$.
-2. **Memoización (Top-Down):** Consiste en guardar cada resultado en una tabla caché (`vector` o `map`) tras calcularlo por primera vez.
-3. **Reducción de Complejidad:** Transforma algoritmos exponenciales $O(2^N)$ en lineales $O(N)$ o polinomiales $O(R \cdot C)$.
-4. **Patrón de 4 Pasos:** Consultar caché $\to$ Evaluar caso base $\to$ Calcular paso recursivo $\to$ Almacenar en caché y retornar.
+1. **El Problema:** La recursión ingenua recalcula los mismos subproblemas → explosión $O(2^N)$.
+2. **La Solución:** Darle a la función un **arreglo auxiliar `memo[]`** como cuaderno de apuntes.
+3. **El Patrón de 4 Pasos** (siempre en este orden):
+   - Consultar cuaderno → Caso base → Llamada recursiva → Anotar y retornar.
+4. **Arreglos 1D y 2D** como cuadernos: la misma herramienta de Sección 04, usada de una forma nueva.
+5. **El Paso 1 siempre va primero** — de lo contrario, el cuaderno nunca se consulta.
 
 ---
 
@@ -198,7 +291,6 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 | [**⬅️ L32 — Problemas Recursivos**](L32_RecursiveProblems.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L34 — Notación Big-O ➡️**](L34_BigONotation.md) |
 
 </div>
-
 
 ---
 

@@ -2,8 +2,8 @@
 
 # 🚀 Learning C++ & Computer Science
 
-**A structured, 75-lesson journey through C++ — from Hello World to Advanced STL.**  
-Unifying the curricula of *MIT 6.096*, *Stanford CS106B*, *Stanford CS106X*, and *Stanford CS106L*.
+**A meticulously structured, 75-lesson journey through C++ — from Hello World to Advanced STL.**  
+Unifying the rigorous curricula of *MIT 6.096*, *Stanford CS106B*, *Stanford CS106X*, and *Stanford CS106L*.
 
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![Compiler](https://img.shields.io/badge/GCC-15.2.0-F16822?style=for-the-badge&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
@@ -32,23 +32,21 @@ Unifying the curricula of *MIT 6.096*, *Stanford CS106B*, *Stanford CS106X*, and
 
 This is a personal C++ mastery project built around four top-tier university curricula, merged into a single coherent path:
 
-| Course | Institution | What it covers |
+| Course | Institution | Focus Area |
 |--------|-------------|----------------|
 | **MIT 6.096** | MIT OpenCourseWare | C++ syntax, compilation pipeline, pointers, classes, OOP, dynamic memory |
 | **CS106B** | Stanford | Recursion, Big-O, ADTs, sorting algorithms, linked lists, BST trees |
 | **CS106X** | Stanford (Honors) | Accelerated pace, backtracking, Huffman compression, graph algorithms |
 | **CS106L** | Stanford | Modern C++ (C++11/17): iterators, lambdas, RAII, move semantics, smart pointers |
 
-Every module follows the same internal structure:
-
-```
-XX_ModuleName/
-├── README.md          ← Module hub: lesson table, exercises, build instructions
-├── theory/            ← Detailed markdown notes — one file per lesson (LXX_*.md)
-├── code/              ← Runnable .cpp programs + automated Makefile
-├── exercise/          ← Practice problems with solutions + Makefile
-└── summary/           ← Concise revision notes for quick review
-```
+### 🧠 Pedagogical Philosophy & Standards
+1. **Strict Progressive Disclosure:** The curriculum is strictly progressive. To force mastery of memory fundamentals, **no dynamic STL containers (`std::vector`, `std::array`) or smart pointers are used before Module 06.** Early modules rely exclusively on C-style static arrays and manual logic.
+2. **Standardized Structure:** Every module follows the exact same internal directory structure:
+   - `theory/` — Markdown notes with custom, programmatic `manim` animations and SVGs.
+   - `code/` — Runnable C++ implementations of the theory.
+   - `exercise/` — Practice problems, test cases, and solutions.
+   - `summary/` — Cheat-sheets for quick revision.
+3. **Automated Builds:** Every `code/` and `exercise/` folder features a plug-and-play `Makefile`.
 
 ---
 
@@ -76,24 +74,24 @@ XX_ModuleName/
 Every `code/` and `exercise/` subdirectory contains an automated `Makefile`. No long `g++` commands needed.
 
 ```bash
-# Navigate to any module's code directory
+# 1. Navigate to any module's code directory
 cd 01_GettingStarted/code
 
-# Compile all lessons → output goes to build/
+# 2. Compile all lessons → output goes to build/
 make
 
-# Compile + run a specific lesson immediately
+# 3. Compile + run a specific lesson immediately
 make run-L01_HelloWorld
 
-# Compile with memory sanitizers (detects leaks & undefined behavior)
+# 4. Compile with memory sanitizers (detects leaks & undefined behavior)
 make asan
 
-# Delete all compiled output
+# 5. Delete all compiled output
 make clean
 ```
 
-> **New to compilation?** → ⚙️ [`docs/COMPILATION_GUIDE.md`](docs/COMPILATION_GUIDE.md) — beginner-friendly GCC walkthrough.  
-> **Want to understand the flags?** → 🛠️ [`docs/MAKEFILE_GUIDE.md`](docs/MAKEFILE_GUIDE.md) — deep-dive on `-Wall`, `-Wextra`, `-fsanitize`, and more.
+> 💡 **New to compilation?** → ⚙️ [`docs/COMPILATION_GUIDE.md`](docs/COMPILATION_GUIDE.md) — beginner-friendly GCC walkthrough.  
+> 💡 **Want to understand the flags?** → 🛠️ [`docs/MAKEFILE_GUIDE.md`](docs/MAKEFILE_GUIDE.md) — deep-dive on `-Wall`, `-Wextra`, `-fsanitize`, and more.
 
 ---
 

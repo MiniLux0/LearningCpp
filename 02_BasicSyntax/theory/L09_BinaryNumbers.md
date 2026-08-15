@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Bitwise Memory Representation](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
   - 🌲 [Stanford CS106B — Appendix A: Representation of Data in Memory](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`L09_BinaryNumbers.cpp`](../code/L09_BinaryNumbers.cpp)
+- 💻 **Code Lab:** [`l09_binary_numbers.cpp`](../code/l09_binary_numbers.cpp)
 
 ---
 
@@ -47,7 +47,7 @@ To evaluate binary `00001011` to decimal:
 
 C++ provides native operators to manipulate individual bits within integer variables:
 
-![Flowchart](assets/L09_BinaryNumbers.svg)
+![l09_binary_numbers](assets/l09_binary_numbers.svg)
 
 | Operator | Operation | Description | Example ( $a=12\text{ [1100]}$, $b=5\text{ [0101]}$ ) | Result |
 | :---: | :--- | :--- | :--- | :---: |
@@ -91,7 +91,7 @@ What is the decimal result of computing `1 << 4` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L08 — Advanced User Input**](L08_UserInput.md) | [**🏠 Basic Syntax**](../README.md) | [**L10 — Integer Data Types ➡️**](L10_IntegerTypes.md) |
+| [**⬅️ L08 — Advanced User Input**](l08_user_input.md) | [**🏠 Basic Syntax**](../README.md) | [**L10 — Integer Data Types ➡️**](l10_integer_types.md) |
 
 </div>
 

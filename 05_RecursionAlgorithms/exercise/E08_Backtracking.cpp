@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <string>
 using namespace std;
@@ -7,53 +6,64 @@ using namespace std;
 // ============================================================================
 // EJERCICIO 8 — BACKTRACKING: GENERACIÓN DE SUBCONJUNTOS (POWER SET)
 // Complejidad objetivo: Tiempo O(2^n), Espacio O(n) en pila.
+// Usa arreglos en lugar de vector para ser congruente con L39.
 // ============================================================================
 
-void generarSubconjuntosHelper(const vector<int>& nums, size_t idx,
-                               vector<int>& actual, vector<vector<int>>& resultado) {
-    if (idx == nums.size()) {
-        resultado.push_back(actual);
+const int MAX_ELEMS = 20;
+int actual[MAX_ELEMS]; // Arreglo que representa el subconjunto en construccion
+int actualSize = 0;    // Cuantos elementos hay en 'actual'
+int countSubconjuntos = 0; // Para la verificacion automatica
+
+void generarSubconjuntos(const int nums[], int n, int idx) {
+    if (idx == n) {
+        countSubconjuntos++;
         return;
     }
 
-    // Opción 1: Excluir nums[idx]
-    generarSubconjuntosHelper(nums, idx + 1, actual, resultado);
+    // Opcion 1: NO incluir nums[idx]
+    generarSubconjuntos(nums, n, idx + 1);
 
-    // Opción 2: Incluir nums[idx] (Choose -> Explore -> Unchoose)
-    actual.push_back(nums[idx]);
-    generarSubconjuntosHelper(nums, idx + 1, actual, resultado);
-    actual.pop_back();
+    // Opcion 2: SI incluir nums[idx] (Choose -> Explore -> Unchoose)
+    actual[actualSize] = nums[idx]; // 1. ELEGIR
+    actualSize++;
+    generarSubconjuntos(nums, n, idx + 1); // 2. EXPLORAR
+    actualSize--;                          // 3. DESHACER
 }
 
-vector<vector<int>> generarSubconjuntos(const vector<int>& nums) {
-    vector<vector<int>> resultado;
-    vector<int> actual;
-    generarSubconjuntosHelper(nums, 0, actual, resultado);
-    return resultado;
-}
-
-// ── SISTEMA DE VERIFICACIÓN ROBUSTO ─────────────────────────────────────────
+// ── SISTEMA DE VERIFICACION ROBUSTO ──────────────────────────────────────────
 void verificar(bool condicion, const string& mensaje) {
     if (!condicion) {
-        cerr << "  [❌ FALLÓ] " << mensaje << endl;
+        cerr << "  [FALLO] " << mensaje << endl;
         exit(1);
     }
 }
 
 void ejecutarPruebas() {
-    cout << "Ejecutando pruebas automáticas de Backtracking (Subconjuntos)..." << endl;
+    cout << "Ejecutando pruebas automaticas de Backtracking (Subconjuntos)..." << endl;
 
-    vector<int> nums = {1, 2, 3};
-    vector<vector<int>> subconjuntos = generarSubconjuntos(nums);
+    int nums[] = {1, 2, 3};
+    int n = 3;
+    
+    countSubconjuntos = 0;
+    actualSize = 0;
+    generarSubconjuntos(nums, n, 0);
 
-    verificar(subconjuntos.size() == 8, "Para N=3 deben haber 2^3 = 8 subconjuntos");
+    verificar(countSubconjuntos == 8, "Para N=3 deben haber 2^3 = 8 subconjuntos");
     cout << "  [PASO] Test 1: Conteo de subconjuntos 2^N (2^3 = 8) OK" << endl;
+    
+    int nums2[] = {1, 2, 3, 4, 5};
+    countSubconjuntos = 0;
+    actualSize = 0;
+    generarSubconjuntos(nums2, 5, 0);
 
-    cout << "\n¡TODOS LOS TESTS PASARON EXITOSAMENTE! (100% Correcto)" << endl;
+    verificar(countSubconjuntos == 32, "Para N=5 deben haber 2^5 = 32 subconjuntos");
+    cout << "  [PASO] Test 2: Conteo de subconjuntos 2^N (2^5 = 32) OK" << endl;
+
+    cout << "\n TODOS LOS TESTS PASARON EXITOSAMENTE! (100% Correcto)" << endl;
 }
 
 int main() {
-    cout << "=== E08: Generación de Subconjuntos con Backtracking ===" << endl << endl;
+    cout << "=== E08: Generacion de Subconjuntos con Backtracking ===" << endl << endl;
     ejecutarPruebas();
     return 0;
 }

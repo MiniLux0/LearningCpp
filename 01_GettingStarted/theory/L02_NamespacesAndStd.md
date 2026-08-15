@@ -37,7 +37,7 @@ A **namespace** is a named declarative region that groups related functions, cla
 >
 > Namespaces allow both functions to coexist seamlessly without causing compiler symbol collisions!
 
-![Logic Flow Diagram](assets/L02_namespaces.svg)
+![l02_namespaces](assets/l02_namespaces.svg)
 
 ---
 
