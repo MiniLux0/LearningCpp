@@ -17,7 +17,7 @@
 
 - [ ] Identificar el fenómeno de **Subproblemas Superpuestos (*Overlapping Subproblems*)** en algoritmos recursivos ingenuos.
 - [ ] Aplicar la técnica de **Memoización (*Top-Down Dynamic Programming*)** guardando resultados intermedios en memoria caché (`vector` o `unordered_map`).
-- [ ] Reducir la complejidad temporal de la función Fibonacci de **exponencial $`O(2^N)`$ a lineal $`O(N)`$**.
+- [ ] Reducir la complejidad temporal de la función Fibonacci de **exponencial $O(2^N)$ a lineal $O(N)$**.
 - [ ] Implementar memoización en problemas de exploración bidimensional (Caminos en Grilla / *Grid Traveler*).
 - [ ] Comparar las tres estrategias de solución: Recursión Simple, Memoización Top-Down y Tabulación Bottom-Up.
 
@@ -45,17 +45,17 @@ graph TD
     style F2_C fill:#ffcc99,stroke:#333,stroke-width:2px
 ```
 
-Notice que `fib(3)` se calcula **2 veces** y `fib(2)` se calcula **3 veces**. A medida que $`N`$ aumenta a 50, el número de recalculaciones explota a $`O(2^{50}) \approx 1.12 \times 10^{15}`$ operaciones.
+Notice que `fib(3)` se calcula **2 veces** y `fib(2)` se calcula **3 veces**. A medida que $N$ aumenta a 50, el número de recalculaciones explota a $O(2^{50}) \approx 1.12 \times 10^{15}$ operaciones.
 
 > [!TIP]
 > **Definición de Memoización (Eric Roberts, Sec. 8.4):**  
-> La **Memoización** (término acuñado por Donald Michie en 1968, derivado de *"memorandum"*) es una técnica de optimización que consiste en **almacenar en una tabla de memoria caché los resultados de funciones costosas**, de modo que si la función vuelve a ser invocada con los mismos argumentos, retorne inmediatamente el valor guardado en tiempo $`O(1)`$.
+> La **Memoización** (término acuñado por Donald Michie en 1968, derivado de *"memorandum"*) es una técnica de optimización que consiste en **almacenar en una tabla de memoria caché los resultados de funciones costosas**, de modo que si la función vuelve a ser invocada con los mismos argumentos, retorne inmediatamente el valor guardado en tiempo $O(1)$.
 
 ---
 
 ## 2. El Patrón Universal de 4 Pasos para Aplicar Memoización
 
-Para transformar cualquier función recursiva exponencial $`O(2^N)`$ en una versión memoizada lineal $`O(N)`$, se sigue esta plantilla:
+Para transformar cualquier función recursiva exponencial $O(2^N)$ en una versión memoizada lineal $O(N)$, se sigue esta plantilla:
 
 ```mermaid
 graph TD
@@ -90,7 +90,7 @@ long long resolverMemo(int n, vector<long long>& memo) {
 
 ---
 
-## 3. Demostración en Código: Fibonacci Memoizado $`O(N)`$
+## 3. Demostración en Código: Fibonacci Memoizado $O(N)$
 
 ```cpp
 #include <iostream>
@@ -129,7 +129,7 @@ long long fibMapHelper(int n, unordered_map<int, long long>& memo) {
 
 ## 4. Segundo Caso Práctico: Caminos en Grilla (*Grid Traveler*)
 
-Imagina un robot ubicado en la esquina superior izquierda de una grilla de $`R \times C`$ casillas que solo puede moverse **hacia la Derecha** o **hacia Abajo**. ¿Cuántos caminos únicos existen para llegar a la esquina inferior derecha?
+Imagina un robot ubicado en la esquina superior izquierda de una grilla de $R \times C$ casillas que solo puede moverse **hacia la Derecha** o **hacia Abajo**. ¿Cuántos caminos únicos existen para llegar a la esquina inferior derecha?
 
 ```mermaid
 graph TD
@@ -164,8 +164,8 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 
 > [!IMPORTANT]
 > **Impacto de la Memoización en Grillas:**
-> - **Sin Memoización:** Complejidad $`O(2^{R + C})`$. Para una grilla de $`18 \times 18`$, realiza más de **$`2.3 \times 10^{10}`$ llamadas recursivas** (tarda minutos).
-> - **Con Memoización:** Complejidad $`O(R \cdot C)`$. Para $`18 \times 18`$, evalúa exactamente **$`18 \times 18 = 324`$ estados**, ejecutándose en **menos de 1 milisegundo**.
+> - **Sin Memoización:** Complejidad $O(2^{R + C})$. Para una grilla de $18 \times 18$, realiza más de **$2.3 \times 10^{10}$ llamadas recursivas** (tarda minutos).
+> - **Con Memoización:** Complejidad $O(R \cdot C)$. Para $18 \times 18$, evalúa exactamente **$18 \times 18 = 324$ estados**, ejecutándose en **menos de 1 milisegundo**.
 
 ---
 
@@ -173,9 +173,9 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 
 | Criterio | Recursión Simple | Memoización (*Top-Down DP*) | Tabulación (*Bottom-Up DP*) |
 | :--- | :--- | :--- | :--- |
-| **Enfoque** | Subdivisión directa desde $`N \to 0`$ | Recursión Top-Down + Caché de memoria | Bucles iterativos desde $`0 \to N`$ |
-| **Complejidad Temporal** | Exponencial $`O(2^N)`$ | Lineal $`O(N)`$ | Lineal $`O(N)`$ |
-| **Complejidad Espacial** | $`O(N)`$ en Pila de llamadas | $`O(N)`$ Caché + $`O(N)`$ Pila | $`O(N)`$ o $`O(1)`$ optimizado |
+| **Enfoque** | Subdivisión directa desde $N \to 0$ | Recursión Top-Down + Caché de memoria | Bucles iterativos desde $0 \to N$ |
+| **Complejidad Temporal** | Exponencial $O(2^N)$ | Lineal $O(N)$ | Lineal $O(N)$ |
+| **Complejidad Espacial** | $O(N)$ en Pila de llamadas | $O(N)$ Caché + $O(N)$ Pila | $O(N)$ o $O(1)$ optimizado |
 | **Facilidad de diseño** | Trivial de escribir | Muy natural derivando de la recursión | Requiere reorganizar el orden de subproblemas |
 
 ---
@@ -183,14 +183,14 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 ## ❓ Preguntas de Chequeo & Autoevaluación
 
 ### Pregunta #1 — Complejidad de Espacio
-¿Por qué `fibonacciMemo(N)` utiliza espacio $`O(N)`$ si no crea copias de arreglos por nivel?
+¿Por qué `fibonacciMemo(N)` utiliza espacio $O(N)$ si no crea copias de arreglos por nivel?
 
 <details>
 <summary>🔍 <strong>Ver Explicación y Respuesta</strong></summary>
 
-**Respuesta:** Utiliza espacio $`O(N)`$ por dos razones:
-1. La tabla o `vector` de almacenamiento caché requiere $`N + 1`$ posiciones para guardar los valores calculados.
-2. La pila de llamadas recursivas (*Call Stack*) alcanza una profundidad máxima de $`N`$ marcos de memoria antes de desapilar el primer subproblema trivial.
+**Respuesta:** Utiliza espacio $O(N)$ por dos razones:
+1. La tabla o `vector` de almacenamiento caché requiere $N + 1$ posiciones para guardar los valores calculados.
+2. La pila de llamadas recursivas (*Call Stack*) alcanza una profundidad máxima de $N$ marcos de memoria antes de desapilar el primer subproblema trivial.
 
 </details>
 
@@ -202,7 +202,7 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 <details>
 <summary>🔍 <strong>Ver Respuesta</strong></summary>
 
-**Respuesta:** Es preferible usar `vector` cuando los estados son enteros continuos en un rango conocido $`[0 \dots N]`$, como en Fibonacci. El acceso por índice a un `vector` es $`O(1)`$ directo y libre de la sobrecarga de funciones hash o colisiones que tiene `unordered_map`.
+**Respuesta:** Es preferible usar `vector` cuando los estados son enteros continuos en un rango conocido $[0 \dots N]$, como en Fibonacci. El acceso por índice a un `vector` es $O(1)$ directo y libre de la sobrecarga de funciones hash o colisiones que tiene `unordered_map`.
 
 `unordered_map` es preferible cuando los estados son compuestos (como pares de coordenadas `"R,C"`) o cuando el espacio de estados es muy grande y disperso.
 
@@ -212,10 +212,10 @@ long long contarCaminosMemo(int r, int c, unordered_map<string, long long>& memo
 
 ## 📝 Resumen de L33
 
-1. **Subproblemas Superpuestos:** La recursión simple recalcula las mismas ramas múltiples veces, causando explosión exponencial $`O(2^N)`$.
+1. **Subproblemas Superpuestos:** La recursión simple recalcula las mismas ramas múltiples veces, causando explosión exponencial $O(2^N)$.
 2. **Memoización (Top-Down):** Consiste en guardar cada resultado en una tabla caché (`vector` o `map`) tras calcularlo por primera vez.
-3. **Reducción de Complejidad:** Transforma algoritmos exponenciales $`O(2^N)`$ en lineales $`O(N)`$ o polinomiales $`O(R \cdot C)`$.
-4. **Patrón de 4 Pasos:** Consultar caché $`\to`$ Evaluar caso base $`\to`$ Calcular paso recursivo $`\to`$ Almacenar en caché y retornar.
+3. **Reducción de Complejidad:** Transforma algoritmos exponenciales $O(2^N)$ en lineales $O(N)$ o polinomiales $O(R \cdot C)$.
+4. **Patrón de 4 Pasos:** Consultar caché $\to$ Evaluar caso base $\to$ Calcular paso recursivo $\to$ Almacenar en caché y retornar.
 
 ---
 

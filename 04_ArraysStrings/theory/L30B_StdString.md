@@ -78,8 +78,8 @@ int main() {
 > [!IMPORTANT]
 > **The Constant Reference Rule (`const string&`):**  
 > 
-> - ❌ **Pass by Value (`void func(string s)`):** C++ requests additional RAM memory on the **Heap** and performs a **full copy of $`N`$ characters** ($`O(N)`$ time & space). Equivalent to printing a full physical photocopy of a 500-page document before handing it over.
-> - ✅ **Pass by Constant Reference (`void func(const string& s)`):** The `&` operator transmits **only the memory address** of the original string (8 bytes on Stack), achieving constant **$`O(1)`$ instant transfer time**. The `const` keyword protects the original string from accidental modifications. Equivalent to sharing a read-only Google Doc link.
+> - ❌ **Pass by Value (`void func(string s)`):** C++ requests additional RAM memory on the **Heap** and performs a **full copy of $N$ characters** ($O(N)$ time & space). Equivalent to printing a full physical photocopy of a 500-page document before handing it over.
+> - ✅ **Pass by Constant Reference (`void func(const string& s)`):** The `&` operator transmits **only the memory address** of the original string (8 bytes on Stack), achieving constant **$O(1)$ instant transfer time**. The `const` keyword protects the original string from accidental modifications. Equivalent to sharing a read-only Google Doc link.
 
 ---
 
@@ -96,21 +96,21 @@ graph TD
 
 | Method / Operator | Detailed Description | Complexity | Result / Return |
 | :--- | :--- | :---: | :--- |
-| `str.length()` / `str.size()` | Returns number of useful characters in string. Both are 100% identical. | $`O(1)`$ | `size_t` |
-| `str.empty()` | Checks if string is empty (`length() == 0`). Faster and cleaner than checking length vs 0. | $`O(1)`$ | `bool` |
-| `str[i]` | Accesses character at index `i` **without bounds checking**. (Fast, but `i >= length()` causes Undefined Behavior). | $`O(1)`$ | `char&` / `const char&` |
-| `str.at(i)` | Accesses character at index `i` **with bounds checking**. If out of range, throws `out_of_range` exception. | $`O(1)`$ | `char&` / `const char&` |
-| `str.front()` / `str.back()` | Accesses first (`str[0]`) and last (`str[length()-1]`) character respectively. | $`O(1)`$ | `char&` / `const char&` |
-| `str + target` | Concatenates two strings creating a **new `string` object** on the heap. Does not modify `str`. | $`O(N+M)`$ | `string` (new heap copy) |
-| `str += target` | Appends characters to the end **modifying the original variable in-place**. Reuses capacity without heap copies. | $`O(M)`$ amortized | `string&` (mutable reference) |
-| `str.substr(pos, len)` | Extracts substring starting at index `pos` with length `len`. If `len` is omitted, extracts to end. | $`O(\text{len})`$ | `string` (new heap substring) |
-| `str.find(pat, pos)` | Searches for substring `pat` starting from index `pos` forward (`pos` defaults to `0`). Case-sensitive. | $`O(N \cdot M)`$ | `size_t` index (`string::npos` if not found) |
-| `str.rfind(pat, pos)` | Searches for substring `pat` scanning backward from index `pos` (`pos` defaults to string end). | $`O(N \cdot M)`$ | `size_t` index (`string::npos` if not found) |
-| `str.insert(pos, text)` | Inserts `text` before index `pos`, shifting subsequent characters right. Modifies in-place. | $`O(N)`$ | `string&` (mutable reference) |
-| `str.erase(pos, len)` | Deletes `len` characters starting at `pos`. If `len` is omitted, deletes everything to string end. Modifies in-place. | $`O(N)`$ | `string&` (mutable reference) |
-| `str.replace(pos, n, text)`| Deletes `n` characters at `pos` and inserts `text` in that position. Modifies original in-place. | $`O(N)`$ | `string&` (mutable reference) |
-| `str.c_str()` | Returns read-only `const char*` pointer to internal null-terminated C-string. (Useful for legacy C APIs). | $`O(1)`$ | `const char*` |
-| `str.clear()` | Deletes all characters leaving string empty (`length() == 0`). Preserves heap capacity. | $`O(1)`$ | `void` |
+| `str.length()` / `str.size()` | Returns number of useful characters in string. Both are 100% identical. | $O(1)$ | `size_t` |
+| `str.empty()` | Checks if string is empty (`length() == 0`). Faster and cleaner than checking length vs 0. | $O(1)$ | `bool` |
+| `str[i]` | Accesses character at index `i` **without bounds checking**. (Fast, but `i >= length()` causes Undefined Behavior). | $O(1)$ | `char&` / `const char&` |
+| `str.at(i)` | Accesses character at index `i` **with bounds checking**. If out of range, throws `out_of_range` exception. | $O(1)$ | `char&` / `const char&` |
+| `str.front()` / `str.back()` | Accesses first (`str[0]`) and last (`str[length()-1]`) character respectively. | $O(1)$ | `char&` / `const char&` |
+| `str + target` | Concatenates two strings creating a **new `string` object** on the heap. Does not modify `str`. | $O(N+M)$ | `string` (new heap copy) |
+| `str += target` | Appends characters to the end **modifying the original variable in-place**. Reuses capacity without heap copies. | $O(M)$ amortized | `string&` (mutable reference) |
+| `str.substr(pos, len)` | Extracts substring starting at index `pos` with length `len`. If `len` is omitted, extracts to end. | $O(\text{len})$ | `string` (new heap substring) |
+| `str.find(pat, pos)` | Searches for substring `pat` starting from index `pos` forward (`pos` defaults to `0`). Case-sensitive. | $O(N \cdot M)$ | `size_t` index (`string::npos` if not found) |
+| `str.rfind(pat, pos)` | Searches for substring `pat` scanning backward from index `pos` (`pos` defaults to string end). | $O(N \cdot M)$ | `size_t` index (`string::npos` if not found) |
+| `str.insert(pos, text)` | Inserts `text` before index `pos`, shifting subsequent characters right. Modifies in-place. | $O(N)$ | `string&` (mutable reference) |
+| `str.erase(pos, len)` | Deletes `len` characters starting at `pos`. If `len` is omitted, deletes everything to string end. Modifies in-place. | $O(N)$ | `string&` (mutable reference) |
+| `str.replace(pos, n, text)`| Deletes `n` characters at `pos` and inserts `text` in that position. Modifies original in-place. | $O(N)$ | `string&` (mutable reference) |
+| `str.c_str()` | Returns read-only `const char*` pointer to internal null-terminated C-string. (Useful for legacy C APIs). | $O(1)$ | `const char*` |
+| `str.clear()` | Deletes all characters leaving string empty (`length() == 0`). Preserves heap capacity. | $O(1)$ | `void` |
 
 ---
 
@@ -227,8 +227,8 @@ Given string `string s = "CS106B Programming";`, what is the result of `s.substr
 
 > [!NOTE]
 > **Answer:**  
-> - `s.substr(2, 4)` $`\rightarrow`$ `"106B"` (starts at index 2 and takes 4 characters).  
-> - `s.find("programming")` $`\rightarrow`$ `string::npos` (special constant meaning *"not found"*).
+> - `s.substr(2, 4)` $\rightarrow$ `"106B"` (starts at index 2 and takes 4 characters).  
+> - `s.find("programming")` $\rightarrow$ `string::npos` (special constant meaning *"not found"*).
 >
 > **Explanation:**  
 > Searching with `.find()` in C++ is **strictly case-sensitive**. Searching `"programming"` with lowercase `'p'` fails because string `s` contains `"Programming"` with uppercase `'P'`. Since there is no exact match, `.find()` returns `string::npos`.
@@ -249,7 +249,7 @@ What difference occurs when executing `s[100]` versus `s.at(100)` if `s.length()
 > - `s.at(100)` safely throws an `out_of_range` exception.
 >
 > **Explanation:**  
-> `operator[]` performs direct unchecked memory access for speed. `.at()` verifies if index lies in $`[0, \text{length}-1]`$, throwing a safe exception that can be caught with `try/catch`.
+> `operator[]` performs direct unchecked memory access for speed. `.at()` verifies if index lies in $[0, \text{length}-1]$, throwing a safe exception that can be caught with `try/catch`.
 
 </details>
 
@@ -275,7 +275,7 @@ Given string `string msg = "Hello World";`, what is the content of `msg` after e
 
 1. **Initialization Forms:** Direct `=`, uniform `{}`, fill `string(n, ch)`, or substring `string(s, pos, len)`.
 2. **Automatic Management:** Dynamically allocates and resizes its memory on the heap.
-3. **Efficient Passing:** Always use `const string&` in read-only functions to avoid $`O(N)`$ heap copies.
+3. **Efficient Passing:** Always use `const string&` in read-only functions to avoid $O(N)$ heap copies.
 4. **Searching & Mutation:** Validate matches against `string::npos`. Methods like `insert`, `erase`, and `replace` modify string *in-place*.
 
 ---

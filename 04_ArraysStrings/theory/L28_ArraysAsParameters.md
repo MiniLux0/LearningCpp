@@ -134,7 +134,7 @@ int main() {
 > Output 2 (`compute`): `8`
 >
 > **Explanation:**  
-> In `main()`, `arr` is an array of 10 integers, yielding $`10 \times 4 \text{ bytes} = 40`$ bytes.  
+> In `main()`, `arr` is an array of 10 integers, yielding $10 \times 4 \text{ bytes} = 40$ bytes.  
 > When calling `compute(arr)`, the array decays into an `int*` pointer. Thus `sizeof(data)` prints the 64-bit pointer size, which is 8 bytes.
 
 </details>
@@ -160,7 +160,7 @@ Given signature `void searchElem(const int arr[], int size, int target);`, what 
 ## 📝 L28 Summary
 
 1. **Pointer Decay:** Passing an array transmits only the memory address of its first element.
-2. **O(1) Efficiency:** No element copying occurs; argument passing takes constant $`O(1)`$ time regardless of whether the array holds 10 or 1,000,000 elements.
+2. **O(1) Efficiency:** No element copying occurs; argument passing takes constant $O(1)$ time regardless of whether the array holds 10 or 1,000,000 elements.
 3. **Mandatory `size` Parameter:** Any function receiving a static native array must explicitly receive its length.
 4. **Const-Correctness:** Use `const int arr[]` in read-only functions to guarantee immutability.
 

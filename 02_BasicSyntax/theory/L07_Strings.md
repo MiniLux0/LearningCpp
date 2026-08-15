@@ -88,7 +88,7 @@ What is the difference between `'A'` and `"A"` in C++?
 
 1. **Header:** Include `<string>` to use `string`.
 2. **Operators:** Use `+` for concatenation and `[]` for character indexing.
-3. **Methods:** `.length()` and `.size()` both return the character count in $`O(1)`$ time.
+3. **Methods:** `.length()` and `.size()` both return the character count in $O(1)$ time.
 
 ---
 

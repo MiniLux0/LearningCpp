@@ -16,16 +16,16 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Implementar la función **Factorial ($`n!`$)** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
-- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($`O(2^N)`$) y transformarlo en una función lineal $`O(N)`$ mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
-- [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices a complejidad $`O(N)`$ (Sección 7.4).
+- [ ] Implementar la función **Factorial ($n!$)** y analizar el desapilamiento de marcos de memoria (Sección 7.2).
+- [ ] Analizar el árbol binario de llamadas de **Fibonacci** ($O(2^N)$) y transformarlo en una función lineal $O(N)$ mediante **Secuencia Aditiva (*Additive Sequence*)** (Sección 7.3).
+- [ ] Diseñar el algoritmo para **Verificación de Palíndromos** reduciendo límites con índices a complejidad $O(N)$ (Sección 7.4).
 - [ ] Dominar la solución por **Divide y Vencerás** del dilema de **Las Torres de Hanói** (Sección 8.1).
 
 ---
 
-## 1. La Función Factorial ($`n!`$ — Sección 7.2)
+## 1. La Función Factorial ($n!$ — Sección 7.2)
 
-El factorial de un número entero no negativo $`n`$, denotado como $`n!`$, se define matemáticamente como:
+El factorial de un número entero no negativo $n$, denotado como $n!$, se define matemáticamente como:
 ```math
 n! = \left\{
 \begin{array}{ll}
@@ -56,13 +56,13 @@ long long factorial(int n) {
 
 > [!NOTE]
 > **Profundidad de Pila y Complejidad Espacial:**
-> `factorial(n)` realiza $`N`$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de espacio $`O(N)`$.
+> `factorial(n)` realiza $N$ llamadas recursivas en cadena lineal, consumiendo una profundidad de pila de espacio $O(N)$.
 
 ---
 
-## 2. La Función de Fibonacci y la Secuencia Aditiva ($`F_n`$ — Sección 7.3)
+## 2. La Función de Fibonacci y la Secuencia Aditiva ($F_n$ — Sección 7.3)
 
-La sucesión de Fibonacci ($`0, 1, 1, 2, 3, 5, 8, 13, 21, \dots`$) se define por:
+La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
 ```math
 F_n = \left\{
 \begin{array}{ll}
@@ -73,7 +73,7 @@ F_{n-1} + F_{n-2} & \text{si } n \ge 2
 \right.
 ```
 
-### Implementación Directa (Naive — $`O(2^N)`$)
+### Implementación Directa (Naive — $O(2^N)$)
 
 ```cpp
 long long fibonacciNaive(int n) {
@@ -103,9 +103,9 @@ graph TD
 
 > [!CAUTION]
 > **Explosión Exponencial:**
-> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $`O(2^N)`$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
+> `fib(2)` se recalcula múltiples veces. El número total de llamadas crece a una tasa $O(2^N)$, haciendo que `fibonacciNaive(50)` requiera miles de millones de operaciones.
 
-### 🌟 La Optimización: Secuencia Aditiva ($`O(N)`$)
+### 🌟 La Optimización: Secuencia Aditiva ($O(N)$)
 
 La Sección 7.3 propone generalizar la recursión a una **Secuencia Aditiva** que mantiene el estado acumulado de los dos términos en parámetros de la función (Recursión de Cola / *Tail-Recursion*):
 
@@ -125,8 +125,8 @@ long long fibonacciLineal(int n) {
 
 > [!TIP]
 > **Comparación de Rendimiento:**
-> - `fibonacciNaive(40)`: Tarda varias millones de llamadas $`O(2^{40})`$.
-> - `fibonacciLineal(40)`: Realiza exactamente **40 llamadas** $`O(N)`$, devolviendo `102,334,155` de manera instantánea.
+> - `fibonacciNaive(40)`: Tarda varias millones de llamadas $O(2^{40})$.
+> - `fibonacciLineal(40)`: Realiza exactamente **40 llamadas** $O(N)$, devolviendo `102,334,155` de manera instantánea.
 
 ---
 
@@ -135,12 +135,12 @@ long long fibonacciLineal(int n) {
 Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda (ej. *"reconocer"*, *"anilina"*).
 
 ### Reducción Recursiva:
-1. **Casos Base:** Una cadena de longitud $`0`$ o $`1`$ es siempre un palíndromo (`length <= 1`).
+1. **Casos Base:** Una cadena de longitud $0$ o $1$ es siempre un palíndromo (`length <= 1`).
 2. **Paso Recursivo:** Si el primer y el último carácter coinciden (`str[low] == str[high]`), el problema se reduce a verificar el sub-string interno.
 
-### Implementación Eficiente con Índices de Frontera ($`O(N)`$ Tiempo, $`O(N)`$ Pila)
+### Implementación Eficiente con Índices de Frontera ($O(N)$ Tiempo, $O(N)$ Pila)
 
-Para evitar la asignación innecesaria de memoria con `substr()` ($`O(N^2)`$), se utilizan dos punteros de índice `low` y `high`:
+Para evitar la asignación innecesaria de memoria con `substr()` ($O(N^2)$), se utilizan dos punteros de índice `low` y `high`:
 
 ```cpp
 #include <string>
@@ -220,10 +220,10 @@ graph TD
 
 ### La Estrategia Divide y Vencerás (3 Pasos):
 
-Para mover $`N`$ discos de `Origen` a `Destino` usando `Auxiliar`:
-1. **Mover $`N-1`$ discos** de `Origen` a `Auxiliar` (usando `Destino` como apoyo).
-2. **Mover el disco $`N`$ (el más grande)** directamente de `Origen` a `Destino`.
-3. **Mover $`N-1`$ discos** de `Auxiliar` a `Destino` (usando `Origen` como apoyo).
+Para mover $N$ discos de `Origen` a `Destino` usando `Auxiliar`:
+1. **Mover $N-1$ discos** de `Origen` a `Auxiliar` (usando `Destino` como apoyo).
+2. **Mover el disco $N$ (el más grande)** directamente de `Origen` a `Destino`.
+3. **Mover $N-1$ discos** de `Auxiliar` a `Destino` (usando `Origen` como apoyo).
 
 ### Implementación en C++
 
@@ -252,18 +252,18 @@ void torresDeHanoi(int n, char origen, char destino, char auxiliar, int& totalMo
 
 ### Análisis Matemático del Número de Movimientos
 
-El número de movimientos $`M(N)`$ para $`N`$ discos satisface la ecuación de recurrencia:
+El número de movimientos $M(N)$ para $N$ discos satisface la ecuación de recurrencia:
 ```math
 M(N) = 2 \times M(N-1) + 1
 ```
 
-Con caso base $`M(1) = 1`$. La solución cerrada es:
+Con caso base $M(1) = 1$. La solución cerrada es:
 ```math
 M(N) = 2^N - 1
 ```
 
-- Para $`N = 3`$ discos: $`2^3 - 1 =`$ **7 movimientos**.
-- Para $`N = 64`$ discos: $`2^{64} - 1 \approx 1.84 \times 10^{19}`$ movimientos ($`\approx`$ **584 mil millones de años** a 1 mov/seg).
+- Para $N = 3$ discos: $2^3 - 1 =$ **7 movimientos**.
+- Para $N = 64$ discos: $2^{64} - 1 \approx 1.84 \times 10^{19}$ movimientos ($\approx$ **584 mil millones de años** a 1 mov/seg).
 
 ---
 
@@ -277,7 +277,7 @@ Si ejecutas `torresDeHanoi(5, 'A', 'C', 'B', mov)`, **¿cuántos movimientos tot
 **Respuesta:** Se realizarán **31 movimientos**.
 
 **Explicación:**
-Aplicando la fórmula $`M(N) = 2^N - 1`$:
+Aplicando la fórmula $M(N) = 2^N - 1$:
 ```math
 M(5) = 2^5 - 1 = 32 - 1 = 31
 ```
@@ -288,10 +288,10 @@ M(5) = 2^5 - 1 = 32 - 1 = 31
 
 ## 📝 Resumen de L32
 
-1. **Factorial:** Reducción lineal simple con complejidad espacial en pila $`O(N)`$.
-2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $`O(2^N)`$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal $`O(N)`$.
-3. **Palíndromos:** El uso de punteros/índices de frontera (`low`, `high`) evita la copia de subcadenas, optimizando memoria a $`O(N)`$.
-4. **Torres de Hanói:** Paradigma de Divide y Vencerás que requiere $`2^N - 1`$ movimientos en 3 elegantes pasos recursivos.
+1. **Factorial:** Reducción lineal simple con complejidad espacial en pila $O(N)$.
+2. **Fibonacci Optimizado:** La llamada ingenua genera un árbol binario $O(2^N)$. Mediante la **Secuencia Aditiva** (Sección 7.3), se optimiza a complejidad lineal $O(N)$.
+3. **Palíndromos:** El uso de punteros/índices de frontera (`low`, `high`) evita la copia de subcadenas, optimizando memoria a $O(N)$.
+4. **Torres de Hanói:** Paradigma de Divide y Vencerás que requiere $2^N - 1$ movimientos en 3 elegantes pasos recursivos.
 
 ---
 

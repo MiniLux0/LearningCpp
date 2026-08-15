@@ -16,9 +16,9 @@
 
 ## Learning Objectives
 
-- [ ] Understand 2D matrix abstraction (`ROWS` $`\times`$ `COLS`) mapped onto linear RAM memory.
+- [ ] Understand 2D matrix abstraction (`ROWS` $\times$ `COLS`) mapped onto linear RAM memory.
 - [ ] Master storage layout in **Row-Major Order**.
-- [ ] Apply the 2D-to-1D index flattening formula: $`\text{Offset} = (i \times \text{COLS}) + j`$.
+- [ ] Apply the 2D-to-1D index flattening formula: $\text{Offset} = (i \times \text{COLS}) + j$.
 - [ ] Declare multidimensional arrays in functions specifying secondary column dimensions mandatorily.
 - [ ] Implement classic matrix algorithms (Sum, Transposition, Row/Column traversals).
 
@@ -42,7 +42,7 @@ graph LR
 
 ### 2D-to-1D Index Flattening Formula
 
-To access cell at row $`i`$ and column $`j`$ in a matrix of size $`R \times C`$:
+To access cell at row $i$ and column $j$ in a matrix of size $R \times C$:
 ```math
 \text{1D Flat Index} = (i \times C) + j
 ``````math
@@ -83,7 +83,7 @@ int main() {
 
 ## 3. Matrices as Function Parameters
 
-When passing a 2D matrix to a function, the compiler must know the column dimension to evaluate the memory address formula $`(i \times C) + j`$.
+When passing a 2D matrix to a function, the compiler must know the column dimension to evaluate the memory address formula $(i \times C) + j$.
 
 > [!IMPORTANT]
 > **The Secondary Dimension Rule:**  
@@ -113,7 +113,7 @@ Given matrix `int grid[4][5]` (4 rows, 5 columns). If representing this matrix i
 ```
 >
 > **Explanation:**  
-> The first 2 rows (indices 0 and 1) occupy $`2 \times 5 = 10`$ elements. Adding 3 column offsets in row 2 ($`j = 3`$), the element sits at index `13` in the flattened array.
+> The first 2 rows (indices 0 and 1) occupy $2 \times 5 = 10$ elements. Adding 3 column offsets in row 2 ($j = 3$), the element sits at index `13` in the flattened array.
 
 </details>
 
@@ -129,7 +129,7 @@ Why does the C++ compiler reject signature `void print(int mat[][], int r, int c
 > **Answer:** Because it needs to know column count to calculate row stride in RAM memory.
 >
 > **Explanation:**  
-> In Row-Major order, jumping from row `i` to row `i+1` requires advancing $`C \times \text{sizeof(type)}`$ bytes. If column count $`C`$ is unknown at compile time, the compiler cannot generate machine code to access `mat[i][j]`.
+> In Row-Major order, jumping from row `i` to row `i+1` requires advancing $C \times \text{sizeof(type)}$ bytes. If column count $C$ is unknown at compile time, the compiler cannot generate machine code to access `mat[i][j]`.
 
 </details>
 

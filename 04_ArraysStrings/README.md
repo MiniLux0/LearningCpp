@@ -5,7 +5,7 @@
 > **Lessons**: L27 – L30D  
 > 🏛️ **Academic Base Source**: Stanford CS106B (Chapters 3 & 11) / MIT 6.096 (Lecture 04) / Stanford CS106L (Lectures 04 & 05)  
 > 📝 **Executive Summary**: 📝 [**`summary/04_ArraysStrings_Notes.md`**](summary/04_ArraysStrings_Notes.md)  
-> 🎯 **Primary Focus**: 1D/2D static arrays, RAM memory layout, Row-Major Order, array decay to pointers (`int*`), C-strings (`<cstring>`), modern dynamic strings (`<string>`), character inspection (`<cctype>`), and string algorithms ($`O(N)`$ Palindromes, Pig Latin, Caesar Cipher).
+> 🎯 **Primary Focus**: 1D/2D static arrays, RAM memory layout, Row-Major Order, array decay to pointers (`int*`), C-strings (`<cstring>`), modern dynamic strings (`<string>`), character inspection (`<cctype>`), and string algorithms ($O(N)$ Palindromes, Pig Latin, Caesar Cipher).
 
 ---
 
@@ -31,11 +31,11 @@ This module covers sequential data structures in contiguous memory: from 1D and 
 |---|--------------|----------------|-------------|------------------------|:------:|
 | **L27** | **1D Static Arrays** | 📘 [`theory/L27_ArrayBasics.md`](theory/L27_ArrayBasics.md) | 💻 [`code/L27_ArrayBasics.cpp`](code/L27_ArrayBasics.cpp) | Contiguous memory, offset formula, zero-indexing, `{}` initialization, memory boundaries. | ✅ |
 | **L28** | **Arrays as Parameters** | 📘 [`theory/L28_ArraysAsParameters.md`](theory/L28_ArraysAsParameters.md) | 💻 [`code/L28_ArraysAsParameters.cpp`](code/L28_ArraysAsParameters.cpp) | Pointer decay (`int*`), loss of `sizeof`, `size` parameter, `const` array parameters. | ✅ |
-| **L29** | **Multidimensional Arrays** | 📘 [`theory/L29_MultidimensionalArrays.md`](theory/L29_MultidimensionalArrays.md) | 💻 [`code/L29_MultidimensionalArrays.cpp`](code/L29_MultidimensionalArrays.cpp) | 2D matrices, Row-Major Order, $`(i \times C) + j`$ flat index formula, mandatory column dimension in parameters. | ✅ |
+| **L29** | **Multidimensional Arrays** | 📘 [`theory/L29_MultidimensionalArrays.md`](theory/L29_MultidimensionalArrays.md) | 💻 [`code/L29_MultidimensionalArrays.cpp`](code/L29_MultidimensionalArrays.cpp) | 2D matrices, Row-Major Order, $(i \times C) + j$ flat index formula, mandatory column dimension in parameters. | ✅ |
 | **L30A** | **`<cstring>` Library** | 📘 [`theory/L30A_CStrings.md`](theory/L30A_CStrings.md) | 💻 [`code/L30A_CStrings.cpp`](code/L30A_CStrings.cpp) | Traditional C-strings (`char[]`), null terminator `'\0'`, `strlen`, `strcpy`, `strcat`, `strcmp`, `strchr`. | ✅ |
 | **L30B** | **`<string>` Library** | 📘 [`theory/L30B_StdString.md`](theory/L30B_StdString.md) | 💻 [`code/L30B_StdString.cpp`](code/L30B_StdString.cpp) | `string` object, `length`, `substr`, `find`, `rfind`, `insert`, `erase`, `replace`, `.at(i)` vs `[]`, `const string&`. | ✅ |
 | **L30C** | **`<cctype>` Library** | 📘 [`theory/L30C_CCtype.md`](theory/L30C_CCtype.md) | 💻 [`code/L30C_CCtype.cpp`](code/L30C_CCtype.cpp) | Character inspection (`isalpha`, `isdigit`, `isalnum`, `islower`, `isupper`, `isspace`, `ispunct`, `tolower`, `toupper`). | ✅ |
-| **L30D** | **String Algorithms** | 📘 [`theory/L30D_StringApplications.md`](theory/L30D_StringApplications.md) | 💻 [`code/L30D_StringApplications.cpp`](code/L30D_StringApplications.cpp) | Palindrome complexity $`O(N)`$ vs $`O(N^2)`$, Pig Latin, Caesar Cipher, Stanford `strlib.h` abstractions. | ✅ |
+| **L30D** | **String Algorithms** | 📘 [`theory/L30D_StringApplications.md`](theory/L30D_StringApplications.md) | 💻 [`code/L30D_StringApplications.cpp`](code/L30D_StringApplications.cpp) | Palindrome complexity $O(N)$ vs $O(N^2)$, Pig Latin, Caesar Cipher, Stanford `strlib.h` abstractions. | ✅ |
 
 ---
 
@@ -68,7 +68,7 @@ This module covers sequential data structures in contiguous memory: from 1D and 
 | **L30A** | 📄 [`CS106B Textbook Ch 3.5`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) \| [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) | `<cstring>` library, C-strings, `'\0'` null sentinel, buffer overflows. |
 | **L30B** | 📄 [`CS106B Textbook Ch 3.1-3.4`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | `<string>` library, `string` object, substrings, searching, `const string&` passing. |
 | **L30C** | 📄 [`CS106B Textbook Ch 3.3`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | `<cctype>` library, predicates (`isalpha`, `isdigit`), transformations (`tolower`, `toupper`). |
-| **L30D** | 📄 [`CS106B Textbook Ch 3.6-3.7`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | Palindromes $`O(N)`$ vs $`O(N^2)`$, Pig Latin, Caesar Cipher, `strlib.h` abstractions. |
+| **L30D** | 📄 [`CS106B Textbook Ch 3.6-3.7`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | Palindromes $O(N)$ vs $O(N^2)$, Pig Latin, Caesar Cipher, `strlib.h` abstractions. |
 
 ---
 

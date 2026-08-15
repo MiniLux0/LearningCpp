@@ -72,7 +72,7 @@ CXX = g++
 BASE_FLAGS      = -std=c++17 -Wall -Wextra -Wshadow -Wpedantic -g
 SANFLAGS        = -fsanitize=address,undefined
 CXXFLAGS_NORMAL = $(BASE_FLAGS)
-CXXFLAGS_ASAN   = $`(BASE_FLAGS) `$(SANFLAGS)
+CXXFLAGS_ASAN   = $(BASE_FLAGS) $(SANFLAGS)
 
 # 3. Output Directories
 BUILD_NORMAL = build
@@ -80,25 +80,25 @@ BUILD_ASAN   = buildasan
 
 # 4. Automatic Source & Target Mapping
 SOURCES        = $(wildcard *.cpp)
-TARGETS_NORMAL = $`(patsubst %.cpp, `$(BUILD_NORMAL)/%, $(SOURCES))
-TARGETS_ASAN   = $`(patsubst %.cpp, `$(BUILD_ASAN)/%, $(SOURCES))
+TARGETS_NORMAL = $(patsubst %.cpp, $(BUILD_NORMAL)/%, $(SOURCES))
+TARGETS_ASAN   = $(patsubst %.cpp, $(BUILD_ASAN)/%, $(SOURCES))
 
 # 5. Dependency File Generation
-DEPS = $`(patsubst %.cpp, `$(BUILD_NORMAL)/%.d, $(SOURCES))
+DEPS = $(patsubst %.cpp, $(BUILD_NORMAL)/%.d, $(SOURCES))
 -include $(DEPS)
 
 # 6. Compilation Rules
-$`(BUILD_NORMAL)/%: %.cpp | `$(BUILD_NORMAL)
-	$`(CXX) `$(CXXFLAGS_NORMAL) -MMD -MP $`< -o `$@
+$(BUILD_NORMAL)/%: %.cpp | $(BUILD_NORMAL)
+	$(CXX) $(CXXFLAGS_NORMAL) -MMD -MP $< -o $@
 
 # 7. One-Touch Execution Rule
 run-%: $(BUILD_NORMAL)/%
 	@echo ">>> Executing $*"
-	./$`(BUILD_NORMAL)/`$*
+	./$(BUILD_NORMAL)/$*
 
 # 8. Clean Rule
 clean:
-	rm -rf $`(BUILD_NORMAL) `$(BUILD_ASAN)
+	rm -rf $(BUILD_NORMAL) $(BUILD_ASAN)
 
 .PHONY: all asan clean help
 ```

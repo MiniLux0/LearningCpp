@@ -18,11 +18,11 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Entender el funcionamiento y limitaciones de la **Búsqueda Lineal ($`O(N)`$)** en arreglos desordenados (Sección 10.2).
-- [ ] Dominar la **Búsqueda Binaria ($`O(\log N)`$)** en arreglos previamente **ordenados** (Sección 7.5).
+- [ ] Entender el funcionamiento y limitaciones de la **Búsqueda Lineal ($O(N)$)** en arreglos desordenados (Sección 10.2).
+- [ ] Dominar la **Búsqueda Binaria ($O(\log N)$)** en arreglos previamente **ordenados** (Sección 7.5).
 - [ ] Implementar versiones **iterativas** y **recursivas** de la Búsqueda Binaria.
 - [ ] Prevenir el error clásico de desbordamiento entero en el cálculo del punto medio: `mid = low + (high - low) / 2`.
-- [ ] Analizar por qué $`\log_2(1{,}000{,}000) \approx 20`$ comparaciones frente a $`1{,}000{,}000`$ comparaciones lineales.
+- [ ] Analizar por qué $\log_2(1{,}000{,}000) \approx 20$ comparaciones frente a $1{,}000{,}000$ comparaciones lineales.
 
 ---
 
@@ -32,9 +32,9 @@ La **Búsqueda Lineal** examina cada elemento del arreglo uno por uno desde el �
 
 - **Requisito:** Ninguno. Funciona en arreglos tanto **desordenados** como ordenados.
 - **Complejidad Temporal:**
-  - **Mejor Caso:** $`O(1)`$ — el elemento está en `arr[0]`.
-  - **Peor Caso:** $`O(N)`$ — el elemento está al final o no existe.
-  - **Caso Promedio:** $`O(N)`$ — $`\approx N/2`$ comparaciones.
+  - **Mejor Caso:** $O(1)$ — el elemento está en `arr[0]`.
+  - **Peor Caso:** $O(N)$ — el elemento está al final o no existe.
+  - **Caso Promedio:** $O(N)$ — $\approx N/2$ comparaciones.
 
 ```cpp
 int busquedaLineal(const int arr[], int size, int target) {
@@ -133,7 +133,7 @@ int busquedaBinariaRecursiva(const int arr[], int low, int high, int target) {
 }
 ```
 
-### 🛠️ Implementación Iterativa ($`O(1)`$ espacio en pila)
+### 🛠️ Implementación Iterativa ($O(1)$ espacio en pila)
 
 ```cpp
 int busquedaBinariaIterativa(const int arr[], int size, int target) {
@@ -169,7 +169,7 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 
 ## 6. Comparativa de Escalamiento Asintótico
 
-| Tamaño del Arreglo ($`N`$) | Búsqueda Lineal $`O(N)`$ | Búsqueda Binaria $`O(\log_2 N)`$ |
+| Tamaño del Arreglo ($N$) | Búsqueda Lineal $O(N)$ | Búsqueda Binaria $O(\log_2 N)$ |
 | :---: | :---: | :---: |
 | **10** | 10 comparaciones | 4 comparaciones |
 | **100** | 100 comparaciones | 7 comparaciones |
@@ -190,7 +190,7 @@ graph LR
 
 ## ❓ Pregunta de Chequeo #1 — Máximo Número de Comparaciones
 
-Para un arreglo ordenado de **$`8{,}000{,}000`$ elementos**, ¿cuál es el número máximo de comparaciones que realizará la Búsqueda Binaria?
+Para un arreglo ordenado de **$8{,}000{,}000$ elementos**, ¿cuál es el número máximo de comparaciones que realizará la Búsqueda Binaria?
 
 <details>
 <summary>🔍 <strong>Ver Explicación y Cálculo Logarítmico</strong></summary>
@@ -202,7 +202,7 @@ Para un arreglo ordenado de **$`8{,}000{,}000`$ elementos**, ¿cuál es el núme
 \lceil \log_2(8{,}000{,}000) \rceil = \lceil 22.93 \rceil = 23
 ```
 
-Esto contrasta con los $`8{,}000{,}000`$ de pasos que requeriría la búsqueda lineal en el peor caso.
+Esto contrasta con los $8{,}000{,}000$ de pasos que requeriría la búsqueda lineal en el peor caso.
 
 </details>
 
@@ -223,11 +223,11 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 ## 📝 Resumen de L34
 
-1. **Búsqueda Lineal:** $`O(N)`$ peor caso. Funciona sobre cualquier arreglo — sin requisitos de orden.
-2. **Búsqueda Binaria:** $`O(\log N)`$ peor caso. **Exige datos estrictamente ordenados** como prerrequisito.
+1. **Búsqueda Lineal:** $O(N)$ peor caso. Funciona sobre cualquier arreglo — sin requisitos de orden.
+2. **Búsqueda Binaria:** $O(\log N)$ peor caso. **Exige datos estrictamente ordenados** como prerrequisito.
 3. **Punto Medio Seguro:** Usar siempre `mid = low + (high - low) / 2` — la fórmula `(low+high)/2` puede desbordarse.
 4. **Dos Casos Base:** `low > high` (no encontrado) y `arr[mid] == target` (encontrado).
-5. **Impacto práctico:** Para $`N = 10^9`$, la diferencia es **1,000,000,000 vs 30** operaciones.
+5. **Impacto práctico:** Para $N = 10^9$, la diferencia es **1,000,000,000 vs 30** operaciones.
 
 ---
 

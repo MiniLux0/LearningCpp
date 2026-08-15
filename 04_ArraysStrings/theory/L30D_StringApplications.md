@@ -15,7 +15,7 @@
 
 ## Learning Objectives
 
-- [ ] Analyze Palindrome verification complexity: Compare inefficient $`O(N^2)`$ `substr()` approach versus efficient $`O(N)`$ two-pointer frontier index approach (`low` and `high`).
+- [ ] Analyze Palindrome verification complexity: Compare inefficient $O(N^2)$ `substr()` approach versus efficient $O(N)$ two-pointer frontier index approach (`low` and `high`).
 - [ ] Implement Pig Latin translation algorithm integrating `#include <string>` and `#include <cctype>`.
 - [ ] Build Acronym generators and substitution ciphers (Caesar Cipher).
 - [ ] Implement standard abstractions from Stanford's `strlib.h` library (`startsWith`, `endsWith`, `trim`, `split`).
@@ -26,7 +26,7 @@
 
 A **palindrome** is a string that reads identically forwards and backwards (examples: `"racecar"`, `"radar"`, `"madam"`).
 
-### ❌ 1.1 Inefficient `substr()` Approach ($`O(N^2)`$ Time & Memory)
+### ❌ 1.1 Inefficient `substr()` Approach ($O(N^2)$ Time & Memory)
 
 ```cpp
 #include <iostream>
@@ -42,12 +42,12 @@ bool isPalindromeBad(string str) {
 }
 ```
 
-- **Why is it $`O(N^2)`$?**  
-  Every recursive call invokes `str.substr(1, len - 2)`, allocating a **new `string` object on the heap** and copying $`O(N)`$ characters.
+- **Why is it $O(N^2)$?**  
+  Every recursive call invokes `str.substr(1, len - 2)`, allocating a **new `string` object on the heap** and copying $O(N)$ characters.
 ```math
 \text{Total Operations} = (N - 2) + (N - 4) + \dots + 2 = \sum_{k=1}^{N/2} 2k = O(N^2)
 ```
-### ✅ 1.2 Efficient Frontier Index Approach ($`O(N)`$ Time, $`O(1)`$ Extra Space)
+### ✅ 1.2 Efficient Frontier Index Approach ($O(N)$ Time, $O(1)$ Extra Space)
 
 Instead of creating substrings in RAM memory, pass original string by constant reference (`const string&`) and shift two numerical frontier index markers (`low` and `high`):
 
@@ -92,8 +92,8 @@ bool isPalindromeIterative(const string& str) {
 Pig Latin is a classic text transformation algorithm used in CS106B to illustrate string decomposition and rule evaluation.
 
 ### Rules:
-1. **Word starts with a Vowel** (`a, e, i, o, u`): Append suffix `"way"` to the end (example: `"apple"` $`\rightarrow`$ `"appleway"`).
-2. **Word starts with Consonants**: Find index `i` of first vowel. Divide word into consonant prefix `str.substr(0, i)` and remainder `str.substr(i)`. Result is `remainder + prefix + "ay"` (example: `"trash"` $`\rightarrow`$ `"ashtrashay"`).
+1. **Word starts with a Vowel** (`a, e, i, o, u`): Append suffix `"way"` to the end (example: `"apple"` $\rightarrow$ `"appleway"`).
+2. **Word starts with Consonants**: Find index `i` of first vowel. Divide word into consonant prefix `str.substr(0, i)` and remainder `str.substr(i)`. Result is `remainder + prefix + "ay"` (example: `"trash"` $\rightarrow$ `"ashtrashay"`).
 
 ```cpp
 #include <iostream>
@@ -133,9 +133,9 @@ string wordToPigLatin(const string& word) {
 
 ---
 
-## 3. Caesar Cipher ($`k`$-Shift)
+## 3. Caesar Cipher ($k$-Shift)
 
-Shifts each alphabetic character $`k`$ positions within the 26-letter alphabet:
+Shifts each alphabetic character $k$ positions within the 26-letter alphabet:
 ```math
 \text{Encrypt}(c, k) = 'A' + ((c - 'A' + k) \pmod{26})
 ```
@@ -207,22 +207,22 @@ What are the outputs of `wordToPigLatin("scram")` and `wordToPigLatin("art")`?
 
 > [!NOTE]
 > **Answer:**  
-> - `wordToPigLatin("scram")` $`\rightarrow`$ `"amscray"` (consonant prefix `"scr"`, remainder `"am"`).  
-> - `wordToPigLatin("art")` $`\rightarrow`$ `"artway"` (starts with vowel `'a'`).
+> - `wordToPigLatin("scram")` $\rightarrow$ `"amscray"` (consonant prefix `"scr"`, remainder `"am"`).  
+> - `wordToPigLatin("art")` $\rightarrow$ `"artway"` (starts with vowel `'a'`).
 
 </details>
 
 ---
 
 ### Question #2 — Palindrome Complexity: `substr()` vs. `low`/`high` Indices
-Why does recursive palindrome verification using `substr(1, len-2)` operate at $`O(N^2)`$ time and space, while `low` and `high` version operates at $`O(N)`$ time and $`O(1)`$ auxiliary space?
+Why does recursive palindrome verification using `substr(1, len-2)` operate at $O(N^2)$ time and space, while `low` and `high` version operates at $O(N)$ time and $O(1)$ auxiliary space?
 
 <details>
 <summary>🔍 <strong>View Explanation</strong></summary>
 
 > [!NOTE]
 > **Answer:**  
-> In the `substr()` version, every recursive call performs an $`O(N)`$ string copy reserving new heap memory. Summing $`N/2`$ calls yields an $`O(N^2)`$ series. The `low` and `high` version keeps string intact by `const string&` reference and compares only 2 characters per step.
+> In the `substr()` version, every recursive call performs an $O(N)$ string copy reserving new heap memory. Summing $N/2$ calls yields an $O(N^2)$ series. The `low` and `high` version keeps string intact by `const string&` reference and compares only 2 characters per step.
 
 </details>
 
@@ -235,7 +235,7 @@ Why is formula `(shift % 26 + 26) % 26` applied at the start of `caesarCipher`?
 <summary>🔍 <strong>View Explanation</strong></summary>
 
 > [!NOTE]
-> **Answer:** To guarantee negative shifts (like decrypting with `-3`) wrap safely into an equivalent positive shift range in $`[0, 25]`$.
+> **Answer:** To guarantee negative shifts (like decrypting with `-3`) wrap safely into an equivalent positive shift range in $[0, 25]$.
 >
 > **Explanation:**  
 > In C++, modulo operator `%` on negative integers can return negative results (e.g. `-3 % 26` is `-3`). Adding `26` and taking `% 26` again wraps `-3` into positive `23` (equivalent forward shift in a 26-letter circular alphabet).
@@ -247,8 +247,8 @@ Why is formula `(shift % 26 + 26) % 26` applied at the start of `caesarCipher`?
 ## 📝 L30D Summary
 
 1. **Library Integration:** String algorithms integrate `#include <string>` (for storage) and `#include <cctype>` (for character inspection).
-2. **Palindrome Efficiency:** Use `low` and `high` indices to avoid $`O(N^2)`$ `substr()` heap copies.
-3. **Cipher Arithmetic:** Modulo arithmetic $`\pmod{26}`$ enables continuous circular alphabet rotations.
+2. **Palindrome Efficiency:** Use `low` and `high` indices to avoid $O(N^2)$ `substr()` heap copies.
+3. **Cipher Arithmetic:** Modulo arithmetic $\pmod{26}$ enables continuous circular alphabet rotations.
 
 ---
 

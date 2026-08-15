@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Execute post-test iterative loops using `do-while`.
-- [ ] Guarantee at least **one mandatory execution** of the loop body ($`1 \dots N`$ times).
+- [ ] Guarantee at least **one mandatory execution** of the loop body ($1 \dots N$ times).
 - [ ] Implement interactive CLI menus and user input validation loops.
 
 ---

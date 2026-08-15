@@ -16,7 +16,7 @@
 
 ## Learning Objectives
 
-- [ ] Understand `char` as an 8-bit integer type storing ASCII numerical encodings ($`0 \dots 127`$).
+- [ ] Understand `char` as an 8-bit integer type storing ASCII numerical encodings ($0 \dots 127$).
 - [ ] Perform character arithmetic (e.g., `'a' - 'A'` case shifting).
 - [ ] Understand `bool` logical states (`true` / `false`) stored as 1 byte in RAM.
 - [ ] Format boolean stream output using `boolalpha`.
@@ -33,9 +33,9 @@ graph LR
     ASCII -->|RAM Memory| Binary["Binary: 01000001 (1 byte)"]
 ```
 
-- `'A'` $`\rightarrow`$ ASCII `65`
-- `'a'` $`\rightarrow`$ ASCII `97`
-- `'0'` $`\rightarrow`$ ASCII `48`
+- `'A'` $\rightarrow$ ASCII `65`
+- `'a'` $\rightarrow$ ASCII `97`
+- `'0'` $\rightarrow$ ASCII `48`
 
 ```cpp
 #include <iostream>
@@ -54,7 +54,7 @@ int main() {
 
 > [!TIP]
 > **Case Conversion Math:**
-> Because ASCII uppercase `'A'` ($`65`$) and lowercase `'a'` ($`97`$) are separated by a constant offset of $`32`$:
+> Because ASCII uppercase `'A'` ($65$) and lowercase `'a'` ($97$) are separated by a constant offset of $32$:
 > ```cpp
 > char upper = 'G';
 > char lower = upper + ('a' - 'A'); // Converts 'G' -> 'g'
@@ -94,7 +94,7 @@ How do you convert a numeric character `'7'` into its integer value `7` in C++?
 > **Code:** `int num = '7' - '0';`
 >
 > **Explanation:**
-> In the ASCII table, digits `'0'` through `'9'` are stored contiguously ($`48 \dots 57`$). Subtracting `'0'` ($`48`$) from any digit character yields its exact numeric integer value ($`55 - 48 = 7`$).
+> In the ASCII table, digits `'0'` through `'9'` are stored contiguously ($48 \dots 57$). Subtracting `'0'` ($48$) from any digit character yields its exact numeric integer value ($55 - 48 = 7$).
 
 </details>
 

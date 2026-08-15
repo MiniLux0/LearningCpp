@@ -34,8 +34,8 @@ graph LR
     Var -->|Insertion Operator <<| Screen["std::cout Console Screen"]
 ```
 
-- **Insertion (`std::cout << data`):** Points left $`\leftarrow`$, pushing data toward output.
-- **Extraction (`std::cin >> variable`):** Points right $`\rightarrow`$, extracting tokens from the input buffer into variables.
+- **Insertion (`std::cout << data`):** Points left $\leftarrow$, pushing data toward output.
+- **Extraction (`std::cin >> variable`):** Points right $\rightarrow$, extracting tokens from the input buffer into variables.
 
 ---
 

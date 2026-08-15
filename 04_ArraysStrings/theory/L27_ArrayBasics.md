@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Understand the structure of a static array as a contiguous, fixed-size block in RAM memory.
-- [ ] Apply the mathematical memory address formula: $`\text{Address}(i) = \text{BaseAddress} + i \times \text{sizeof}(\text{type})`$.
+- [ ] Apply the mathematical memory address formula: $\text{Address}(i) = \text{BaseAddress} + i \times \text{sizeof}(\text{type})$.
 - [ ] Declare and initialize static arrays using modern C++ uniform `{}` syntax.
 - [ ] Diagnose and prevent Out-of-Bounds memory access and adjacent memory corruption.
 - [ ] Calculate array length in its declaration scope via `sizeof(arr) / sizeof(arr[0])`.
@@ -37,13 +37,13 @@ graph LR
 
 ### Exact Memory Address Calculation
 
-The memory address of the $`i`$-th element is calculated directly via arithmetic:
+The memory address of the $i$-th element is calculated directly via arithmetic:
 ```math
 \text{Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))
 ```
 > [!TIP]
 > **Why do indices start at 0?**
-> The index $`i`$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ($`0 \times \text{sizeof}(\text{type}) = 0`$), pointing directly to the start of the data structure.
+> The index $i$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ($0 \times \text{sizeof}(\text{type}) = 0$), pointing directly to the start of the data structure.
 
 ---
 
@@ -142,8 +142,8 @@ Given declaration `int data[5]{10, 20};`, what value is stored in `data[3]` and 
 
 1. **Contiguous Structure:** Elements are placed consecutively without interruption in RAM memory.
 2. **Fixed Static Size:** Native array size must be known at compile time and cannot be resized during runtime.
-3. **O(1) Access:** Accessing any element `arr[i]` requires a single arithmetic operation in $`O(1)`$ time.
-4. **Safety:** The programmer bears sole responsibility for ensuring indices stay within valid range $`[0, N-1]`$.
+3. **O(1) Access:** Accessing any element `arr[i]` requires a single arithmetic operation in $O(1)$ time.
+4. **Safety:** The programmer bears sole responsibility for ensuring indices stay within valid range $[0, N-1]$.
 
 ---
 

@@ -1,4 +1,4 @@
-# L37 — MergeSort: Ordenamiento por Mezcla $`O(N \log N)`$
+# L37 — MergeSort: Ordenamiento por Mezcla $O(N \log N)$
 
 > [!NOTE]
 > **Fundamentación Académica:** Esta lección sintetiza los conceptos del **Capítulo 10 (*Algorithmic Analysis*, pp. 429–478)** del libro oficial de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts), cubriendo **10.3** *Recursion to the rescue* (p. 443) y **10.4** *Standard complexity classes* (p. 449).
@@ -15,17 +15,17 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Entender por qué los algoritmos cuadráticos $`O(N^2)`$ son insuficientes para entradas grandes (Sección 10.3).
+- [ ] Entender por qué los algoritmos cuadráticos $O(N^2)$ son insuficientes para entradas grandes (Sección 10.3).
 - [ ] Dominar la estrategia **Divide y Vencerás** aplicada al ordenamiento.
 - [ ] Implementar el algoritmo **MergeSort** con sus dos funciones clave: `sort` y `merge`.
-- [ ] Derivar matemáticamente la complejidad $`O(N \log N)`$ a partir del árbol de recursión.
-- [ ] Interpretar la tabla comparativa $`N^2`$ vs $`N \log N`$ de la Figura 10-5 del texto (p. 447–448).
+- [ ] Derivar matemáticamente la complejidad $O(N \log N)$ a partir del árbol de recursión.
+- [ ] Interpretar la tabla comparativa $N^2$ vs $N \log N$ de la Figura 10-5 del texto (p. 447–448).
 
 ---
 
 ## 1. La Necesidad de un Mejor Algoritmo (Sección 10.3)
 
-Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $`\frac{N(N-1)}{2}`$ comparaciones. Para $`N = 100,000`$ eso son **5,000,000,000 operaciones** — inaceptable en la práctica.
+Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\frac{N(N-1)}{2}$ comparaciones. Para $N = 100,000$ eso son **5,000,000,000 operaciones** — inaceptable en la práctica.
 
 > *"To develop a better sorting algorithm, you need to adopt a qualitatively different approach."*
 > — CS106B, Sec. 10.3
@@ -34,8 +34,8 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $`\fr
 
 > [!TIP]
 > **La Propiedad Clave de los Algoritmos Cuadráticos (Sec. 10.3):**  
-> Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ($`\times 4`$).  
-> Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ($`\div 4`$).  
+> Si el tamaño del problema se **duplica**, el tiempo cuadrático se **cuadruplica** ($\times 4$).  
+> Inversamente, si divides el problema a la **mitad**, el tiempo se **cuarteriza** ($\div 4$).  
 >
 > Esto sugiere que dividir el arreglo en mitades y resolver recursivamente puede reducir el tiempo total de forma drástica.
 
@@ -122,9 +122,9 @@ void mergeSort(vector<int>& vec) {
 
 ---
 
-## 5. Árbol de Recursión y Derivación de $`O(N \log N)`$
+## 5. Árbol de Recursión y Derivación de $O(N \log N)$
 
-### Árbol para $`N = 8`$
+### Árbol para $N = 8$
 
 ```mermaid
 graph TD
@@ -162,7 +162,7 @@ graph TD
 
 ### ¿Cuántos Niveles Hay?
 
-Cada nivel divide $`N`$ por 2. El número de niveles $`k`$ es aquel tal que $`2^k = N`$:
+Cada nivel divide $N$ por 2. El número de niveles $k$ es aquel tal que $2^k = N$:
 
 ```math
 k = \log_2 N
@@ -170,7 +170,7 @@ k = \log_2 N
 
 ### Trabajo en Cada Nivel
 
-En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectores de un nivel cuesta exactamente **$`N`$ operaciones** en total (cada elemento se mueve exactamente una vez por nivel).
+En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectores de un nivel cuesta exactamente **$N$ operaciones** en total (cada elemento se mueve exactamente una vez por nivel).
 
 ### Total de Trabajo
 
@@ -180,15 +180,15 @@ En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectore
 
 ---
 
-## 6. Comparativa $`N^2`$ vs $`N \log N`$ (Figura 10-5, p. 447)
+## 6. Comparativa $N^2$ vs $N \log N$ (Figura 10-5, p. 447)
 
-| $`N`$ | Selection Sort $`O(N^2)`$ | MergeSort $`O(N \log N)`$ | Factor de Mejora |
+| $N$ | Selection Sort $O(N^2)$ | MergeSort $O(N \log N)$ | Factor de Mejora |
 | :---: | :---: | :---: | :---: |
-| 10 | 100 | ~33 | $`\times 3`$ |
-| 100 | 10,000 | ~664 | $`\times 15`$ |
-| 1,000 | 1,000,000 | ~9,965 | $`\times 100`$ |
-| 10,000 | 100,000,000 | ~132,877 | $`\times 753`$ |
-| 100,000 | **10,000,000,000** | ~1,660,964 | **$`\times 6,021`$** |
+| 10 | 100 | ~33 | $\times 3$ |
+| 100 | 10,000 | ~664 | $\times 15$ |
+| 1,000 | 1,000,000 | ~9,965 | $\times 100$ |
+| 10,000 | 100,000,000 | ~132,877 | $\times 753$ |
+| 100,000 | **10,000,000,000** | ~1,660,964 | **$\times 6,021$** |
 
 > *"For large vectors, merge sort clearly represents a significant improvement."*
 > — CS106B, Sec. 10.3
@@ -197,16 +197,16 @@ En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectore
 
 ## 7. Clases de Complejidad Estándar (Sección 10.4)
 
-MergeSort introdujo la importancia de la clase $`O(N \log N)`$. El texto de Sección 10.4 presenta la jerarquía completa:
+MergeSort introdujo la importancia de la clase $O(N \log N)$. El texto de Sección 10.4 presenta la jerarquía completa:
 
 | Clase | Nombre | Ejemplo |
 | :---: | :--- | :--- |
-| $`O(1)`$ | Constante | Acceso a un índice de arreglo |
-| $`O(\log N)`$ | Logarítmica | Búsqueda Binaria |
-| $`O(N)`$ | Lineal | Búsqueda Lineal |
-| $`O(N \log N)`$ | **Lineal-logarítmica** | **MergeSort** |
-| $`O(N^2)`$ | Cuadrática | Selection Sort |
-| $`O(2^N)`$ | Exponencial | Backtracking sin poda |
+| $O(1)$ | Constante | Acceso a un índice de arreglo |
+| $O(\log N)$ | Logarítmica | Búsqueda Binaria |
+| $O(N)$ | Lineal | Búsqueda Lineal |
+| $O(N \log N)$ | **Lineal-logarítmica** | **MergeSort** |
+| $O(N^2)$ | Cuadrática | Selection Sort |
+| $O(2^N)$ | Exponencial | Backtracking sin poda |
 
 ```mermaid
 graph LR
@@ -221,21 +221,21 @@ graph LR
 
 > [!IMPORTANT]
 > **Tractable vs Intractable (Sec. 10.4):**  
-> Los problemas solubles en tiempo **polinomial** ($`O(N^k)`$) se consideran **tractables** (computacionalmente viables).  
-> Los que solo tienen soluciones **exponenciales** ($`O(2^N)`$) son **intratables** — por ejemplo, el Subset-Sum Problem (Cap. 8) y el Travelling Salesman Problem.
+> Los problemas solubles en tiempo **polinomial** ($O(N^k)$) se consideran **tractables** (computacionalmente viables).  
+> Los que solo tienen soluciones **exponenciales** ($O(2^N)$) son **intratables** — por ejemplo, el Subset-Sum Problem (Cap. 8) y el Travelling Salesman Problem.
 
 ---
 
 ## ❓ Pregunta de Chequeo #1 — Árbol de Recursión
 
-Para un vector de $`N = 16`$ elementos, ¿cuántos **niveles** tendrá el árbol de recursión de MergeSort y cuántas llamadas habrá en el último nivel antes de los casos base?
+Para un vector de $N = 16$ elementos, ¿cuántos **niveles** tendrá el árbol de recursión de MergeSort y cuántas llamadas habrá en el último nivel antes de los casos base?
 
 <details>
 <summary>🔍 <strong>Ver Solución</strong></summary>
 
-**Niveles:** $`\log_2(16) = 4`$ niveles de recursión (sin contar el nivel base).
+**Niveles:** $\log_2(16) = 4$ niveles de recursión (sin contar el nivel base).
 
-**Llamadas en el último nivel antes de los casos base:** $`2^4 = 16`$ llamadas, cada una con un sub-vector de **2 elementos** que se mezclan en vectores de **1 elemento**.
+**Llamadas en el último nivel antes de los casos base:** $2^4 = 16$ llamadas, cada una con un sub-vector de **2 elementos** que se mezclan en vectores de **1 elemento**.
 
 </details>
 
@@ -256,11 +256,11 @@ Para un vector de $`N = 16`$ elementos, ¿cuántos **niveles** tendrá el árbol
 
 ## 📝 Resumen de L36
 
-1. **MergeSort** aplica la estrategia **Divide y Vencerás** recursivamente para alcanzar $`O(N \log N)`$.
-2. El paso `merge` combina dos sub-vectores **ya ordenados** en $`O(N)`$ comparaciones.
-3. El **árbol de recursión** tiene $`\log_2 N`$ niveles, con $`N`$ trabajo total por nivel → $`O(N \log N)`$.
-4. Para $`N = 100,000`$: Selection Sort tardó **>2.5 minutos**; MergeSort **<0.5 segundos** (Sec. 10.3).
-5. MergeSort es **estable** y **no in-place** — requiere $`O(N)`$ memoria auxiliar para los sub-vectores.
+1. **MergeSort** aplica la estrategia **Divide y Vencerás** recursivamente para alcanzar $O(N \log N)$.
+2. El paso `merge` combina dos sub-vectores **ya ordenados** en $O(N)$ comparaciones.
+3. El **árbol de recursión** tiene $\log_2 N$ niveles, con $N$ trabajo total por nivel → $O(N \log N)$.
+4. Para $N = 100,000$: Selection Sort tardó **>2.5 minutos**; MergeSort **<0.5 segundos** (Sec. 10.3).
+5. MergeSort es **estable** y **no in-place** — requiere $O(N)$ memoria auxiliar para los sub-vectores.
 
 ---
 

@@ -21,7 +21,7 @@
 
 ## 📌 Module Overview
 
-This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `char`, `bool`), binary memory layouts, integer overflow/underflow, floating-point precision hazards, Uniform Initialization `{}` (C++11/17), safe float comparisons using $`\epsilon`$, conditional branching (`if`, `else if`, `else`, `switch`), and loop control (`while`, `do-while`, `for`, `break`, `continue`).
+This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `char`, `bool`), binary memory layouts, integer overflow/underflow, floating-point precision hazards, Uniform Initialization `{}` (C++11/17), safe float comparisons using $\epsilon$, conditional branching (`if`, `else if`, `else`, `switch`), and loop control (`while`, `do-while`, `for`, `break`, `continue`).
 
 ---
 
@@ -39,7 +39,7 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | **L13** | **If Statements** | 📘 [`theory/L13_If.md`](theory/L13_If.md) | 💻 [`code/L13_If.cpp`](code/L13_If.cpp) | Basic conditional evaluation, boolean expressions. | ✅ |
 | **L14** | **If-Else** | 📘 [`theory/L14_IfElse.md`](theory/L14_IfElse.md) | 💻 [`code/L14_IfElse.cpp`](code/L14_IfElse.cpp) | Binary decision branching, alternative execution paths. | ✅ |
 | **L15** | **If-Else-If** | 📘 [`theory/L15_IfElseIfElse.md`](theory/L15_IfElseIfElse.md) | 💻 [`code/L15_IfElseIfElse.cpp`](code/L15_IfElseIfElse.cpp) | Multi-way decision trees, mutually exclusive checks. | ✅ |
-| **L16** | **Comparing Floats** | 📘 [`theory/L16_ComparingFloats.md`](theory/L16_ComparingFloats.md) | 💻 [`code/L16_ComparingFloats.cpp`](code/L16_ComparingFloats.cpp) | Floating-point rounding errors, epsilon $`\epsilon`$ thresholding. | ✅ |
+| **L16** | **Comparing Floats** | 📘 [`theory/L16_ComparingFloats.md`](theory/L16_ComparingFloats.md) | 💻 [`code/L16_ComparingFloats.cpp`](code/L16_ComparingFloats.cpp) | Floating-point rounding errors, epsilon $\epsilon$ thresholding. | ✅ |
 | **L17** | **Conditions** | 📘 [`theory/L17_Conditions.md`](theory/L17_Conditions.md) | 💻 [`code/L17_Conditions.cpp`](code/L17_Conditions.cpp) | Complex expressions, logical AND `&&`, OR `\|\|`, NOT `!`. | ✅ |
 | **L18** | **While Loops** | 📘 [`theory/L18_WhileLoops.md`](theory/L18_WhileLoops.md) | 💻 [`code/L18_WhileLoops.cpp`](code/L18_WhileLoops.cpp) | Pre-test iterative execution, loop counters. | ✅ |
 | **L19** | **Do-While Loops** | 📘 [`theory/L19_DoWhileLoops.md`](theory/L19_DoWhileLoops.md) | 💻 [`code/L19_DoWhileLoops.cpp`](code/L19_DoWhileLoops.cpp) | Post-test iterative execution, input validation loop. | ✅ |
@@ -58,7 +58,7 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | **E01** | **Variable Types** | Declarations & types | 💻 [`exercise/E01_VariableTypes.cpp`](exercise/E01_VariableTypes.cpp) | ✅ |
 | **E02** | **Name and Age** | Data I/O & string combination | 💻 [`exercise/E02_NameAndAge.cpp`](exercise/E02_NameAndAge.cpp) | ✅ |
 | **E03** | **Sizeof Types** | Memory size inspection | 💻 [`exercise/E03_SizeofTypes.cpp`](exercise/E03_SizeofTypes.cpp) | ✅ |
-| **E04** | **Float Precision** | Floating-point $`\epsilon`$ comparison | 💻 [`exercise/E04_FloatPrecision.cpp`](exercise/E04_FloatPrecision.cpp) | ✅ |
+| **E04** | **Float Precision** | Floating-point $\epsilon$ comparison | 💻 [`exercise/E04_FloatPrecision.cpp`](exercise/E04_FloatPrecision.cpp) | ✅ |
 | **E05** | **Integer Division** | Integer truncation vs `double` | 💻 [`exercise/E05_IntegerDivision.cpp`](exercise/E05_IntegerDivision.cpp) | ✅ |
 | **E06** | **Char ASCII** | Character encoding & casting | 💻 [`exercise/E06_CharASCII.cpp`](exercise/E06_CharASCII.cpp) | ✅ |
 | **E07** | **Grade Check** | Simple conditional branching | 💻 [`exercise/E07_GradeCheck.cpp`](exercise/E07_GradeCheck.cpp) | ✅ |
