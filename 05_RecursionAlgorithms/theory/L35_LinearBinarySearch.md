@@ -62,7 +62,9 @@ int busquedaLineal(const int arr[], int size, int target) {
 
 ### Estrategia Divide y Vencerás
 
-![Binary Search Execution Visualization](assets/binary_search.svg)
+<div align="center">
+  <img src="assets/binary_search.svg" alt="Binary Search Execution Visualization">
+</div>
 
 Los 4 pasos del algoritmo:
 1. Calcular el punto medio `mid = low + (high - low) / 2`.

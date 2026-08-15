@@ -40,7 +40,9 @@ El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado
 
 En cada iteración $i$, busca el **elemento mínimo** del subarreglo no ordenado $[i \dots N-1]$ y lo intercambia con la posición $i$.
 
-![Selection Sort Steps](assets/L36_SelectionSteps.svg)
+<div align="center">
+  <img src="assets/selection_sort.svg" alt="Selection Sort Steps">
+</div>
 
 ### Implementación en C++
 
@@ -77,7 +79,9 @@ void selectionSort(int arr[], int n) {
 
 Mantiene una **sub-lista izquierda ordenada**. Para cada nuevo elemento `key`, desplaza los elementos mayores a la derecha e inserta `key` en el espacio libre.
 
-![Insertion Sort Steps](assets/L36_InsertionSteps.svg)
+<div align="center">
+  <img src="assets/insertion_sort.svg" alt="Insertion Sort Steps">
+</div>
 
 ### Implementación en C++
 
@@ -109,6 +113,10 @@ void insertionSort(int arr[], int n) {
 ## 4. Bubble Sort — Ordenamiento por Burbuja
 
 Recorre el arreglo comparando pares adyacentes e intercambiándolos si están desordenados. Los elementos grandes "flotan" hacia el final como burbujas.
+
+<div align="center">
+  <img src="assets/bubble_sort.svg" alt="Bubble Sort Steps">
+</div>
 
 ### Implementación Optimizada con Parada Temprana
 
