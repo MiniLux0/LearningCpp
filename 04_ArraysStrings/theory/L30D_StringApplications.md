@@ -44,8 +44,9 @@ bool isPalindromeBad(string str) {
 
 - **Why is it $O(N^2)$?**  
   Every recursive call invokes `str.substr(1, len - 2)`, allocating a **new `string` object on the heap** and copying $O(N)$ characters.
-  $$\text{Total Operations} = (N - 2) + (N - 4) + \dots + 2 = \sum_{k=1}^{N/2} 2k = O(N^2)$$
-
+```math
+\text{Total Operations} = (N - 2) + (N - 4) + \dots + 2 = \sum_{k=1}^{N/2} 2k = O(N^2)
+```
 ### ✅ 1.2 Efficient Frontier Index Approach ($O(N)$ Time, $O(1)$ Extra Space)
 
 Instead of creating substrings in RAM memory, pass original string by constant reference (`const string&`) and shift two numerical frontier index markers (`low` and `high`):
@@ -135,9 +136,9 @@ string wordToPigLatin(const string& word) {
 ## 3. Caesar Cipher ($k$-Shift)
 
 Shifts each alphabetic character $k$ positions within the 26-letter alphabet:
-
-$$\text{Encrypt}(c, k) = 'A' + ((c - 'A' + k) \pmod{26})$$
-
+```math
+\text{Encrypt}(c, k) = 'A' + ((c - 'A' + k) \pmod{26})
+```
 ```cpp
 #include <iostream>
 #include <string>

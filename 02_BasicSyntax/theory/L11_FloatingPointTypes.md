@@ -26,9 +26,9 @@
 
 Real numbers with fractional decimals are represented using floating-point scientific notation under the IEEE 754 binary standard:
 
-$$
+```math
 \text{Value} = (-1)^{\text{sign}} \times \text{mantissa} \times 2^{\text{exponent}}
-$$
+```
 
 | Data Type | Memory Size | Mantissa Bits | Decimal Precision | Standard Usage |
 | :--- | :---: | :---: | :---: | :--- |

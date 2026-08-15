@@ -30,9 +30,9 @@ La velocidad de ejecución de un programa depende del reloj de la CPU, el compil
 > [!TIP]
 > **Definición Formal de Big-O (Sec. 10.2):**  
 > Decimos que un algoritmo tiene un tiempo de ejecución $O(g(N))$ si existen constantes positivas $C$ y $N_0$ tales que para todo $N \ge N_0$:
-> $$
+> ```math
 > T(N) \le C \times g(N)
-> $$
+> ```
 
 ### Las 2 Reglas de Simplificación Asintótica:
 1. **Descartar las constantes multiplicativas:** $O(5 \cdot N) \longrightarrow O(N)$.
@@ -44,9 +44,9 @@ La velocidad de ejecución de un programa depende del reloj de la CPU, el compil
 
 Se clasifican las familias de rendimiento algorítmico en una jerarquía de crecimiento de menor a mayor costo:
 
-$$
+```math
 O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)
-$$
+```
 
 ```mermaid
 graph LR

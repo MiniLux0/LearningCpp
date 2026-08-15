@@ -139,9 +139,9 @@ void quickSort(int arr[], int low, int high) {
 
 Si el pivote es siempre la **mediana** del sub-arreglo, cada partición divide en dos mitades iguales → árbol de recursión de $\log_2 N$ niveles con $O(N)$ trabajo cada uno:
 
-$$
+```math
 T(N) = O(N \log N)
-$$
+```
 
 ### Peor Caso: $O(N^2)$ — El Arreglo Ya Ordenado
 
@@ -149,9 +149,9 @@ $$
 > **La Paradoja del Peor Caso (Sec. 10.5, p. 458):**
 > Si el pivote siempre es el **elemento más pequeño** del subarreglo (ej. primer elemento de un arreglo ya ordenado), una partición de $N$ elementos produce subarreglos de tamaños **0** y **N-1**, degenerando a:
 >
-> $$
+> ```math
 > T(N) = N + (N-1) + (N-2) + \dots + 1 = \frac{N(N-1)}{2} = O(N^2)
-> $$
+> ```
 >
 > En el código del laboratorio esto se puede ver en la Demo 2: para $N=8$ ya ordenado, se requieren **35 comparaciones** vs **17** en el caso aleatorio.
 

@@ -164,9 +164,9 @@ graph TD
 
 Cada nivel divide $N$ por 2. El número de niveles $k$ es aquel tal que $2^k = N$:
 
-$$
+```math
 k = \log_2 N
-$$
+```
 
 ### Trabajo en Cada Nivel
 
@@ -174,9 +174,9 @@ En cada nivel se realiza una mezcla completa. La mezcla de todos los sub-vectore
 
 ### Total de Trabajo
 
-$$
+```math
 \text{Niveles} \times \text{Trabajo por nivel} = \log_2 N \times N = O(N \log N)
-$$
+```
 
 ---
 

@@ -43,11 +43,11 @@ graph LR
 ### 2D-to-1D Index Flattening Formula
 
 To access cell at row $i$ and column $j$ in a matrix of size $R \times C$:
-
-$$\text{1D Flat Index} = (i \times C) + j$$
-
-$$\text{Memory Address} = \text{Base} + [((i \times C) + j) \times \text{sizeof}(\text{type})]$$
-
+```math
+\text{1D Flat Index} = (i \times C) + j
+``````math
+\text{Memory Address} = \text{Base} + [((i \times C) + j) \times \text{sizeof}(\text{type})]
+```
 ---
 
 ## 2. Matrix Declaration & Initialization
@@ -108,7 +108,9 @@ Given matrix `int grid[4][5]` (4 rows, 5 columns). If representing this matrix i
 
 > [!NOTE]
 > **Calculation:**  
-> $$\text{Flat Index} = (i \times \text{COLS}) + j = (2 \times 5) + 3 = 10 + 3 = 13$$
+```math
+\text{Flat Index} = (i \times \text{COLS}) + j = (2 \times 5) + 3 = 10 + 3 = 13
+```
 >
 > **Explanation:**  
 > The first 2 rows (indices 0 and 1) occupy $2 \times 5 = 10$ elements. Adding 3 column offsets in row 2 ($j = 3$), the element sits at index `13` in the flattened array.

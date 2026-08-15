@@ -38,9 +38,9 @@ graph LR
 ### Exact Memory Address Calculation
 
 The memory address of the $i$-th element is calculated directly via arithmetic:
-
-$$\text{Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))$$
-
+```math
+\text{Address}(i) = \text{Base Address} + (i \times \text{sizeof}(\text{type}))
+```
 > [!TIP]
 > **Why do indices start at 0?**
 > The index $i$ acts as an **offset multiplier** from the base address. Index `0` represents a zero offset ($0 \times \text{sizeof}(\text{type}) = 0$), pointing directly to the start of the data structure.
@@ -108,8 +108,12 @@ An array `int table[8]` of type integer (`sizeof(int) == 4` bytes) starts at mem
 
 > [!NOTE]
 > **Calculation:**  
-> $$\text{Address} = \text{0x7FFF00} + (5 \times 4 \text{ bytes}) = \text{0x7FFF00} + 20 \text{ bytes (0x14 in hex)}$$  
-> $$\text{Final Address} = \text{0x7FFF14}$$
+```math
+\text{Address} = \text{0x7FFF00} + (5 \times 4 \text{ bytes}) = \text{0x7FFF00} + 20 \text{ bytes (0x14 in hex)}
+```
+```math
+\text{Final Address} = \text{0x7FFF14}
+```
 >
 > **Explanation:**  
 > The processor multiplies index `5` by element size `4` bytes, yielding a 20-byte decimal offset (equivalent to `0x14` in base 16) added to the base address.

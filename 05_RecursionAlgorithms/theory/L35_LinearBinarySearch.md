@@ -160,9 +160,9 @@ int busquedaBinariaIterativa(const int arr[], int size, int target) {
 > La fórmula tradicional `int mid = (low + high) / 2;` tiene un error sutil. En arreglos masivos donde `low + high > 2,147,483,647` (límite de `int` de 32-bit signed), la suma sufre un **Overflow Entero** produciendo un número negativo y causando un crash o resultado incorrecto.
 >
 > **La fórmula segura siempre:**
-> $$
+> ```math
 > \text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2}
-> $$
+> ```
 > Dado que `high - low` nunca supera el rango del arreglo, la suma parcial nunca desborda.
 
 ---
@@ -198,9 +198,9 @@ Para un arreglo ordenado de **$8{,}000{,}000$ elementos**, ¿cuál es el número
 **Respuesta:** Máximo **23 comparaciones**.
 
 **Cálculo:**
-$$
+```math
 \lceil \log_2(8{,}000{,}000) \rceil = \lceil 22.93 \rceil = 23
-$$
+```
 
 Esto contrasta con los $8{,}000{,}000$ de pasos que requeriría la búsqueda lineal en el peor caso.
 

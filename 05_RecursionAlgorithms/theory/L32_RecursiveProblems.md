@@ -26,14 +26,14 @@
 ## 1. La Función Factorial ($n!$ — Sección 7.2)
 
 El factorial de un número entero no negativo $n$, denotado como $n!$, se define matemáticamente como:
-$$
+```math
 n! = \left\{
 \begin{array}{ll}
 1 & \text{si } n = 0 \text{ (Caso Base)} \\
 n \times (n - 1)! & \text{si } n > 0 \text{ (Paso Recursivo)}
 \end{array}
 \right.
-$$
+```
 
 ### Implementación en C++
 
@@ -63,7 +63,7 @@ long long factorial(int n) {
 ## 2. La Función de Fibonacci y la Secuencia Aditiva ($F_n$ — Sección 7.3)
 
 La sucesión de Fibonacci ($0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$) se define por:
-$$
+```math
 F_n = \left\{
 \begin{array}{ll}
 0 & \text{si } n = 0 \\
@@ -71,7 +71,7 @@ F_n = \left\{
 F_{n-1} + F_{n-2} & \text{si } n \ge 2
 \end{array}
 \right.
-$$
+```
 
 ### Implementación Directa (Naive — $O(2^N)$)
 
@@ -253,14 +253,14 @@ void torresDeHanoi(int n, char origen, char destino, char auxiliar, int& totalMo
 ### Análisis Matemático del Número de Movimientos
 
 El número de movimientos $M(N)$ para $N$ discos satisface la ecuación de recurrencia:
-$$
+```math
 M(N) = 2 \times M(N-1) + 1
-$$
+```
 
 Con caso base $M(1) = 1$. La solución cerrada es:
-$$
+```math
 M(N) = 2^N - 1
-$$
+```
 
 - Para $N = 3$ discos: $2^3 - 1 =$ **7 movimientos**.
 - Para $N = 64$ discos: $2^{64} - 1 \approx 1.84 \times 10^{19}$ movimientos ($\approx$ **584 mil millones de años** a 1 mov/seg).
@@ -278,9 +278,9 @@ Si ejecutas `torresDeHanoi(5, 'A', 'C', 'B', mov)`, **¿cuántos movimientos tot
 
 **Explicación:**
 Aplicando la fórmula $M(N) = 2^N - 1$:
-$$
+```math
 M(5) = 2^5 - 1 = 32 - 1 = 31
-$$
+```
 
 </details>
 

@@ -43,9 +43,9 @@ if (a == b) {
 
 Instead of checking exact binary equality (`a == b`), verify whether the absolute difference between `a` and `b` is smaller than a tiny tolerance value **Epsilon ($\epsilon$)**:
 
-$$
+```math
 \text{are equal}(a, b) = |a - b| < \epsilon
-$$
+```
 
 ```cpp
 #include <iostream>
