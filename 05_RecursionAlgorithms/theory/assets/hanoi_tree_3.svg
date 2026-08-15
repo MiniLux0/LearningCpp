@@ -1,65 +1,119 @@
-<svg width="750" height="300" xmlns="http://www.w3.org/2000/svg">
-<rect width="750" height="300" fill="#ffffff" rx="10"/>
+<svg width="850" height="300" xmlns="http://www.w3.org/2000/svg">
+<rect width="850" height="300" fill="#ffffff" rx="10"/>
 <style>
     text { font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; font-size: 13px; font-weight: bold; }
     .node-box { fill: #f3e5f5; stroke: #8e24aa; stroke-width: 2; rx: 6; }
     .node-move { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 6; }
     .edge { stroke: #adb5bd; stroke-width: 2; }
-    
-    @keyframes fadeInScale {
-        0% { opacity: 0; transform: scale(0.7); }
-        100% { opacity: 1; transform: scale(1); }
+
+    @keyframes show-node-0 {
+        0%, 0.0% { opacity: 0; }
+        0.0%, 100% { opacity: 1; }
     }
-    .anim-item { opacity: 0; animation: fadeInScale 0.6s forwards; }
+    .node-0 { animation: show-node-0 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-1 {
+        0%, 8.2% { opacity: 0; }
+        8.3%, 100% { opacity: 1; }
+    }
+    .node-1 { animation: show-node-1 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-2 {
+        0%, 16.6% { opacity: 0; }
+        16.7%, 100% { opacity: 1; }
+    }
+    .node-2 { animation: show-node-2 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-3 {
+        0%, 24.9% { opacity: 0; }
+        25.0%, 100% { opacity: 1; }
+    }
+    .node-3 { animation: show-node-3 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-4 {
+        0%, 33.2% { opacity: 0; }
+        33.3%, 100% { opacity: 1; }
+    }
+    .node-4 { animation: show-node-4 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-5 {
+        0%, 41.6% { opacity: 0; }
+        41.7%, 100% { opacity: 1; }
+    }
+    .node-5 { animation: show-node-5 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-6 {
+        0%, 49.9% { opacity: 0; }
+        50.0%, 100% { opacity: 1; }
+    }
+    .node-6 { animation: show-node-6 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-7 {
+        0%, 58.2% { opacity: 0; }
+        58.3%, 100% { opacity: 1; }
+    }
+    .node-7 { animation: show-node-7 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-8 {
+        0%, 66.6% { opacity: 0; }
+        66.7%, 100% { opacity: 1; }
+    }
+    .node-8 { animation: show-node-8 9.600000000000001s infinite; opacity: 0; }
+
+    @keyframes show-node-9 {
+        0%, 74.9% { opacity: 0; }
+        75.0%, 100% { opacity: 1; }
+    }
+    .node-9 { animation: show-node-9 9.600000000000001s infinite; opacity: 0; }
 </style>
-<text x="375.0" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Árbol de Recursión Animado: Torres de Hanói (N=3)</text>
-<g class="anim-item" style="animation-delay: 0.0s; transform-origin: 375px 50px;">
-  <rect x="320.0" y="35" width="110" height="30" class="node-box"/>
-  <text x="375" y="55" text-anchor="middle" fill="#212529">Hanoi(3, A→C)</text>
+<text x="425.0" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Árbol de Recursión Animado: Torres de Hanói (N=3)</text>
+<g class="node-0">
+  <rect x="365.0" y="35" width="120" height="30" class="node-box"/>
+  <text x="425" y="55" text-anchor="middle" fill="#212529">Hanoi(3, A→C)</text>
 </g>
-<g class="anim-item" style="animation-delay: 0.8s; transform-origin: 180px 130px;">
-  <line x1="375" y1="65" x2="180" y2="115" class="edge"/>
-  <rect x="125.0" y="115" width="110" height="30" class="node-box"/>
-  <text x="180" y="135" text-anchor="middle" fill="#212529">Hanoi(2, A→B)</text>
+<g class="node-1">
+  <line x1="425" y1="65" x2="200" y2="115" class="edge"/>
+  <rect x="140.0" y="115" width="120" height="30" class="node-box"/>
+  <text x="200" y="135" text-anchor="middle" fill="#212529">Hanoi(2, A→B)</text>
 </g>
-<g class="anim-item" style="animation-delay: 1.6s; transform-origin: 80px 210px;">
-  <line x1="180" y1="145" x2="80" y2="195" class="edge"/>
-  <rect x="10.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="80" y="215" text-anchor="middle" fill="#212529">Hanoi(1, A→C)</text>
+<g class="node-2">
+  <line x1="200" y1="145" x2="70" y2="195" class="edge"/>
+  <rect x="10.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="70" y="215" text-anchor="middle" fill="#212529">Hanoi(1, A→C)</text>
 </g>
-<g class="anim-item" style="animation-delay: 2.4000000000000004s; transform-origin: 180px 210px;">
-  <line x1="180" y1="145" x2="180" y2="195" class="edge"/>
-  <rect x="110.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="180" y="215" text-anchor="middle" fill="#212529">Mover Disco 2 (A→B)</text>
+<g class="node-3">
+  <line x1="200" y1="145" x2="200" y2="195" class="edge"/>
+  <rect x="140.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="200" y="215" text-anchor="middle" fill="#212529">Mover 2 (A→B)</text>
 </g>
-<g class="anim-item" style="animation-delay: 3.2s; transform-origin: 280px 210px;">
-  <line x1="180" y1="145" x2="280" y2="195" class="edge"/>
-  <rect x="210.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="280" y="215" text-anchor="middle" fill="#212529">Hanoi(1, C→B)</text>
+<g class="node-4">
+  <line x1="200" y1="145" x2="330" y2="195" class="edge"/>
+  <rect x="270.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="330" y="215" text-anchor="middle" fill="#212529">Hanoi(1, C→B)</text>
 </g>
-<g class="anim-item" style="animation-delay: 4.0s; transform-origin: 375px 130px;">
-  <line x1="375" y1="65" x2="375" y2="115" class="edge"/>
-  <rect x="305.0" y="115" width="140" height="30" class="node-move"/>
-  <text x="375" y="135" text-anchor="middle" fill="#212529">Mover Disco 3 (A→C)</text>
+<g class="node-5">
+  <line x1="425" y1="65" x2="425" y2="115" class="edge"/>
+  <rect x="365.0" y="115" width="120" height="30" class="node-move"/>
+  <text x="425" y="135" text-anchor="middle" fill="#212529">Mover 3 (A→C)</text>
 </g>
-<g class="anim-item" style="animation-delay: 4.800000000000001s; transform-origin: 570px 130px;">
-  <line x1="375" y1="65" x2="570" y2="115" class="edge"/>
-  <rect x="515.0" y="115" width="110" height="30" class="node-box"/>
-  <text x="570" y="135" text-anchor="middle" fill="#212529">Hanoi(2, B→C)</text>
+<g class="node-6">
+  <line x1="425" y1="65" x2="650" y2="115" class="edge"/>
+  <rect x="590.0" y="115" width="120" height="30" class="node-box"/>
+  <text x="650" y="135" text-anchor="middle" fill="#212529">Hanoi(2, B→C)</text>
 </g>
-<g class="anim-item" style="animation-delay: 5.6000000000000005s; transform-origin: 470px 210px;">
-  <line x1="570" y1="145" x2="470" y2="195" class="edge"/>
-  <rect x="400.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="470" y="215" text-anchor="middle" fill="#212529">Hanoi(1, B→A)</text>
+<g class="node-7">
+  <line x1="650" y1="145" x2="520" y2="195" class="edge"/>
+  <rect x="460.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="520" y="215" text-anchor="middle" fill="#212529">Hanoi(1, B→A)</text>
 </g>
-<g class="anim-item" style="animation-delay: 6.4s; transform-origin: 570px 210px;">
-  <line x1="570" y1="145" x2="570" y2="195" class="edge"/>
-  <rect x="500.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="570" y="215" text-anchor="middle" fill="#212529">Mover Disco 2 (B→C)</text>
+<g class="node-8">
+  <line x1="650" y1="145" x2="650" y2="195" class="edge"/>
+  <rect x="590.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="650" y="215" text-anchor="middle" fill="#212529">Mover 2 (B→C)</text>
 </g>
-<g class="anim-item" style="animation-delay: 7.2s; transform-origin: 670px 210px;">
-  <line x1="570" y1="145" x2="670" y2="195" class="edge"/>
-  <rect x="600.0" y="195" width="140" height="30" class="node-move"/>
-  <text x="670" y="215" text-anchor="middle" fill="#212529">Hanoi(1, A→C)</text>
+<g class="node-9">
+  <line x1="650" y1="145" x2="780" y2="195" class="edge"/>
+  <rect x="720.0" y="195" width="120" height="30" class="node-move"/>
+  <text x="780" y="215" text-anchor="middle" fill="#212529">Hanoi(1, A→C)</text>
 </g>
 </svg>

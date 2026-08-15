@@ -5,109 +5,182 @@
     .peg { fill: #dee2e6; rx: 4; }
     .base { fill: #ced4da; rx: 6; }
     .disk { stroke: #fff; stroke-width: 2; rx: 10; }
-    .msg-text { font-size: 16px; font-weight: bold; fill: #343a40; opacity: 0; }
-</style>
-<text x="300.0" y="40" font-size="22" font-weight="bold" text-anchor="middle" fill="#212529">Torres de Hanói (N=3) Animado</text>
-<rect x="50" y="280" width="500" height="20" class="base"/>
-<rect x="144" y="120" width="12" height="160" class="peg"/>
-<rect x="294" y="120" width="12" height="160" class="peg"/>
-<rect x="444" y="120" width="12" height="160" class="peg"/>
-<text x="150" y="325" font-size="18" font-weight="bold" text-anchor="middle" fill="#6c757d">Origen (A)</text>
-<text x="300" y="325" font-size="18" font-weight="bold" text-anchor="middle" fill="#6c757d">Auxiliar (B)</text>
-<text x="450" y="325" font-size="18" font-weight="bold" text-anchor="middle" fill="#6c757d">Destino (C)</text>
 
-<style>
-    @keyframes show-msg-0 {
+    @keyframes show-step-0 {
         0%, 0.0% { opacity: 0; }
         0.0%, 12.4% { opacity: 1; }
         12.5%, 100% { opacity: 0; }
     }
-    .msg-0 { animation: show-msg-0 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-0" text-anchor="middle" fill="#0288d1">Estado Inicial</text>
+    .step-0 { animation: show-step-0 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-1 {
+    @keyframes show-step-1 {
         0%, 12.4% { opacity: 0; }
         12.5%, 24.9% { opacity: 1; }
         25.0%, 100% { opacity: 0; }
     }
-    .msg-1 { animation: show-msg-1 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-1" text-anchor="middle" fill="#0288d1">Movimiento 1 de 7</text>
+    .step-1 { animation: show-step-1 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-2 {
+    @keyframes show-step-2 {
         0%, 24.9% { opacity: 0; }
         25.0%, 37.4% { opacity: 1; }
         37.5%, 100% { opacity: 0; }
     }
-    .msg-2 { animation: show-msg-2 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-2" text-anchor="middle" fill="#0288d1">Movimiento 2 de 7</text>
+    .step-2 { animation: show-step-2 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-3 {
+    @keyframes show-step-3 {
         0%, 37.4% { opacity: 0; }
         37.5%, 49.9% { opacity: 1; }
         50.0%, 100% { opacity: 0; }
     }
-    .msg-3 { animation: show-msg-3 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-3" text-anchor="middle" fill="#0288d1">Movimiento 3 de 7</text>
+    .step-3 { animation: show-step-3 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-4 {
+    @keyframes show-step-4 {
         0%, 49.9% { opacity: 0; }
         50.0%, 62.4% { opacity: 1; }
         62.5%, 100% { opacity: 0; }
     }
-    .msg-4 { animation: show-msg-4 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-4" text-anchor="middle" fill="#0288d1">Movimiento 4 de 7</text>
+    .step-4 { animation: show-step-4 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-5 {
+    @keyframes show-step-5 {
         0%, 62.4% { opacity: 0; }
         62.5%, 74.9% { opacity: 1; }
         75.0%, 100% { opacity: 0; }
     }
-    .msg-5 { animation: show-msg-5 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-5" text-anchor="middle" fill="#0288d1">Movimiento 5 de 7</text>
+    .step-5 { animation: show-step-5 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-6 {
+    @keyframes show-step-6 {
         0%, 74.9% { opacity: 0; }
         75.0%, 87.4% { opacity: 1; }
         87.5%, 100% { opacity: 0; }
     }
-    .msg-6 { animation: show-msg-6 12.0s infinite; opacity: 0; }
-</style>
-<text x="300.0" y="80" class="msg-text msg-6" text-anchor="middle" fill="#0288d1">Movimiento 6 de 7</text>
+    .step-6 { animation: show-step-6 8.0s infinite; opacity: 0; }
 
-<style>
-    @keyframes show-msg-7 {
+    @keyframes show-step-7 {
         0%, 87.4% { opacity: 0; }
         87.5%, 99.9% { opacity: 1; }
         100.0%, 100% { opacity: 0; }
     }
-    .msg-7 { animation: show-msg-7 12.0s infinite; opacity: 0; }
+    .step-7 { animation: show-step-7 8.0s infinite; opacity: 0; }
 </style>
-<text x="300.0" y="80" class="msg-text msg-7" text-anchor="middle" fill="#0288d1">¡Completado!</text>
+<text x="300.0" y="40" font-size="22" font-weight="bold" text-anchor="middle" fill="#212529">Torres de Hanói (N=3) Animado</text>
+<g class="step-0">
 
-<rect x="120.0" y="208" width="60" height="24" fill="#ef5350" class="disk">
-    <animate attributeName="x" values="120.0;420.0;420.0;270.0;270.0;120.0;120.0;420.0" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-    <animate attributeName="y" values="208;256;256;232;232;256;256;208" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-</rect>
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 0: Estado Inicial</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="80.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="100.0" y="232" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="120.0" y="208" width="60" height="24" fill="#ef5350" class="disk"/>
+</g>
+<g class="step-1">
 
-<rect x="100.0" y="232" width="100" height="24" fill="#ff9800" class="disk">
-    <animate attributeName="x" values="100.0;100.0;250.0;250.0;250.0;250.0;400.0;400.0" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-    <animate attributeName="y" values="232;232;256;256;256;256;232;232" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-</rect>
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 1: Movimiento: Disco 1 de A a C</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="80.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="100.0" y="232" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="420.0" y="256" width="60" height="24" fill="#ef5350" class="disk"/>
+</g>
+<g class="step-2">
 
-<rect x="80.0" y="256" width="140" height="24" fill="#42a5f5" class="disk">
-    <animate attributeName="x" values="80.0;80.0;80.0;80.0;380.0;380.0;380.0;380.0" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-    <animate attributeName="y" values="256;256;256;256;256;256;256;256" keyTimes="0.000,0.143,0.286,0.429,0.571,0.714,0.857,1.000" dur="12.0s" repeatCount="indefinite" calcMode="discrete"/>
-</rect>
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 2: Movimiento: Disco 2 de A a B</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="80.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="250.0" y="256" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="420.0" y="256" width="60" height="24" fill="#ef5350" class="disk"/>
+</g>
+<g class="step-3">
+
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 3: Movimiento: Disco 1 de C a B</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="80.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="250.0" y="256" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="270.0" y="232" width="60" height="24" fill="#ef5350" class="disk"/>
+</g>
+<g class="step-4">
+
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 4: Movimiento: Disco 3 de A a C</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="250.0" y="256" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="270.0" y="232" width="60" height="24" fill="#ef5350" class="disk"/>
+    <rect x="380.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+</g>
+<g class="step-5">
+
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 5: Movimiento: Disco 1 de B a A</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="120.0" y="256" width="60" height="24" fill="#ef5350" class="disk"/>
+    <rect x="250.0" y="256" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="380.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+</g>
+<g class="step-6">
+
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 6: Movimiento: Disco 2 de B a C</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="120.0" y="256" width="60" height="24" fill="#ef5350" class="disk"/>
+    <rect x="380.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="400.0" y="232" width="100" height="24" fill="#ff9800" class="disk"/>
+</g>
+<g class="step-7">
+
+    <rect x="100.0" y="295" width="400" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+    <text x="300.0" y="320" font-size="16" font-weight="bold" text-anchor="middle" fill="#0288d1">Paso 7: ¡Completado!</text>
+    <rect x="50" y="280" width="500" height="10" class="base"/>
+    <rect x="144" y="120" width="12" height="160" class="peg"/>
+    <rect x="294" y="120" width="12" height="160" class="peg"/>
+    <rect x="444" y="120" width="12" height="160" class="peg"/>
+    <text x="150" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">A</text>
+    <text x="300" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">B</text>
+    <text x="450" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">C</text>
+    <rect x="380.0" y="256" width="140" height="24" fill="#42a5f5" class="disk"/>
+    <rect x="400.0" y="232" width="100" height="24" fill="#ff9800" class="disk"/>
+    <rect x="420.0" y="208" width="60" height="24" fill="#ef5350" class="disk"/>
+</g>
 </svg>
