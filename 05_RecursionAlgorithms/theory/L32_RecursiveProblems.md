@@ -171,52 +171,11 @@ bool esPalindromo(const string& str) {
 
 ### Estado Inicial (3 Discos)
 
-```mermaid
-graph TB
-    subgraph TorreA [Torre A — Origen]
-        D3A[████████████ Disco 3 ████████████]
-        D2A[██████ Disco 2 ██████]
-        D1A[██ Disco 1 ██]
-    end
-    subgraph TorreB [Torre B — Auxiliar]
-        EmptyB[(Vacía)]
-    end
-    subgraph TorreC [Torre C — Destino]
-        EmptyC[(Vacía)]
-    end
-
-    D3A --> D2A --> D1A
-```
+![Torres de Hanói: secuencia completa de 7 movimientos en cuadrícula para 3 discos](assets/hanoi_steps.svg)
 
 ### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
 
-```mermaid
-graph TD
-    H3["Hanoi(3, A→C, B)"]
-    H3 --> H2a["Hanoi(2, A→B, C)"]
-    H3 --> Move3["Mover D3: A → C"]
-    H3 --> H2b["Hanoi(2, B→C, A)"]
-
-    H2a --> H1a["Hanoi(1, A→C, B)"]
-    H2a --> Move2a["Mover D2: A → B"]
-    H2a --> H1b["Hanoi(1, C→B, A)"]
-
-    H2b --> H1c["Hanoi(1, B→A, C)"]
-    H2b --> Move2b["Mover D2: B → C"]
-    H2b --> H1d["Hanoi(1, A→C, B)"]
-
-    H1a --> M1a["Mover D1: A → C"]
-    H1b --> M1b["Mover D1: C → B"]
-    H1c --> M1c["Mover D1: B → A"]
-    H1d --> M1d["Mover D1: A → C"]
-
-    style H3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style H2a fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style H2b fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Move3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Move2a fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Move2b fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-```
+![Árbol de Recursión de las Torres de Hanói para N=3, mostrando 7 llamadas de movimiento y 7 llamadas recursivas](assets/hanoi_tree.svg)
 
 ### La Estrategia Divide y Vencerás (3 Pasos):
 
