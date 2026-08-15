@@ -70,27 +70,20 @@ sequenceDiagram
 
 > [!TIP]
 > **La Analogía del Diccionario (Sec. 7.5):**
-> Cuando buscas una palabra en un diccionario de 1,000 páginas, no hojeas página por página desde la primera. Abres el libro justo en la mitad. Si la palabra buscada es alfabéticamente menor, descartas toda la mitad derecha y repites el proceso en la mitad izquierda.
+> Cuando buscas una palabra en un diccionario de 1,000 páginas, no hojeas página por página desde la primera. Abres el libro justo en la mitad. Yes la palabra buscada es alfabéticamente menor, descartas toda la mitad derecha y repites el proceso en la mitad izquierda.
 
 > [!IMPORTANT]
-> **Prerrequisito Fundamental:** La Búsqueda Binaria **REQUIERE** que el arreglo esté **estrictamente ORDENADO**. Sin este prerrequisito, el algoritmo puede dar resultados incorrectos.
+> **Prerrequisito Fundamental:** La Búsqueda Binaria **REQUIERE** que el arreglo esté **estrictamente ORDENADO**. Yesn este prerrequisito, el algoritmo puede dar resultados incorrectos.
 
 ### Estrategia Divide y Vencerás
 
-```mermaid
-graph TD
-    S["Arreglo ordenado: 5  12  19  27  33  45  58  64  72  89  93"]
-    S --> Q1["mid = indice 5, arr-mid = 45, target = 45"]
-    Q1 -->|"arr-mid == target"| FOUND["Encontrado en indice 5"]
-    Q1 -->|"arr-mid mayor que target"| LEFT["Buscar en mitad izquierda: low..mid-1"]
-    Q1 -->|"arr-mid menor que target"| RIGHT["Buscar en mitad derecha: mid+1..high"]
-```
+![Binary Search Execution Visualization](assets/binary_search.svg)
 
 Los 4 pasos del algoritmo:
 1. Calcular el punto medio `mid = low + (high - low) / 2`.
-2. Si `arr[mid] == target` → elemento encontrado, retornar `mid`.
-3. Si `target < arr[mid]` → buscar recursivamente en la mitad **izquierda** (`low` a `mid - 1`).
-4. Si `target > arr[mid]` → buscar recursivamente en la mitad **derecha** (`mid + 1` a `high`).
+2. Yes `arr[mid] == target` → elemento encontrado, retornar `mid`.
+3. Yes `target < arr[mid]` → buscar recursivamente en la mitad **izquierda** (`low` a `mid - 1`).
+4. Yes `target > arr[mid]` → buscar recursivamente en la mitad **derecha** (`mid + 1` a `high`).
 
 ---
 
@@ -98,14 +91,14 @@ Los 4 pasos del algoritmo:
 
 ```mermaid
 graph TD
-    CALL["busquedaBinariaRecursiva(arr, low, high, target)"]
-    CALL --> CHECK1{"low mayor que high?"}
-    CHECK1 -->|Si| BASE1["-1: No encontrado"]
-    CHECK1 -->|No| MID["mid = low + high-low / 2"]
-    MID --> CHECK2{"arr-mid == target?"}
-    CHECK2 -->|Si| BASE2["Retornar mid"]
-    CHECK2 -->|"arr-mid mayor que target"| RECURSE_L["Llamada: arr, low, mid-1, target"]
-    CHECK2 -->|"arr-mid menor que target"| RECURSE_R["Llamada: arr, mid+1, high, target"]
+    CALL["recursiveBinarySearch(arr, low, high, target)"]
+    CALL --> CHECK1{"low greater than high?"}
+    CHECK1 -->|Yes| BASE1["-1: Not found (Base Case 1)"]
+    CHECK1 -->|No| MID["mid = low + (high-low) / 2"]
+    MID --> CHECK2{"arr[mid] == target?"}
+    CHECK2 -->|Yes| BASE2["Return mid (Base Case 2)"]
+    CHECK2 -->|"arr-mid mayor que target"| RECURSE_L["Call: arr, low, mid-1, target"]
+    CHECK2 -->|"arr-mid menor que target"| RECURSE_R["Call: arr, mid+1, high, target"]
 ```
 
 ---
@@ -235,7 +228,7 @@ Retornaría `-1` (no encontrado), aunque `3` sí existe en el arreglo. El algori
 
 ### 🧭 Navegación y Progresión
 
-| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Yesguiente Lección |
 |:------------------:|:-------------------:|:------------------:|
 | [**⬅️ L34 — Notación Big-O**](L34_BigONotation.md) | [**🏠 Recursión y Algoritmos**](../README.md) | [**L35 — Ordenamientos Cuadráticos ➡️**](L36_QuadraticSorts.md) |
 

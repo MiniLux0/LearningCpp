@@ -45,16 +45,7 @@ Los algoritmos cuadráticos como Selection Sort e Insertion Sort requieren $\fra
 
 El algoritmo **MergeSort** (*Ordenamiento por Mezcla*) descrito en la Sección 10.3 usando la siguiente estrategia de 5 pasos:
 
-```mermaid
-graph TD
-    A["vec: 56 25 37 58 19 30 40 70"]
-    A -->|"1. DIVIDIR"| B["v1: 56 25 37 58"]
-    A -->|"1. DIVIDIR"| C["v2: 19 30 40 70"]
-    B -->|"2. CONQUISTAR recursivo"| D["v1 ordenado: 25 37 56 58"]
-    C -->|"2. CONQUISTAR recursivo"| E["v2 ordenado: 19 30 40 70"]
-    D -->|"3. COMBINAR merge"| F["Resultado: 19 25 30 37 40 56 58 70"]
-    E -->|"3. COMBINAR merge"| F
-```
+![Merge Sort Divide and Conquer Tree](assets/merge_sort.svg)
 
 ---
 

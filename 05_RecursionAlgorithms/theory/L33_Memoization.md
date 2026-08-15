@@ -27,23 +27,7 @@
 
 En la Lección **L32** observamos que la llamada recursiva ingenua `fibonacciNaive(N)` genera un árbol de decisiones desproporcionado:
 
-```mermaid
-graph TD
-    F5["fib(5)"] --> F4["fib(4)"]
-    F5 --> F3_A["fib(3)"]
-    F4 --> F3_B["fib(3)"]
-    F4 --> F2_A["fib(2)"]
-    F3_A --> F2_B["fib(2)"]
-    F3_A --> F1_A["fib(1)"]
-    F3_B --> F2_C["fib(2)"]
-    F3_B --> F1_B["fib(1)"]
-
-    style F3_A fill:#ff9999,stroke:#333,stroke-width:2px
-    style F3_B fill:#ff9999,stroke:#333,stroke-width:2px
-    style F2_A fill:#ffcc99,stroke:#333,stroke-width:2px
-    style F2_B fill:#ffcc99,stroke:#333,stroke-width:2px
-    style F2_C fill:#ffcc99,stroke:#333,stroke-width:2px
-```
+![Memoized Fibonacci Tree: Overlapping Subproblems Pruned](assets/fib_memo_tree.svg)
 
 Notice que `fib(3)` se calcula **2 veces** y `fib(2)` se calcula **3 veces**. A medida que $N$ aumenta a 50, el número de recalculaciones explota a $O(2^{50}) \approx 1.12 \times 10^{15}$ operaciones.
 
@@ -59,13 +43,13 @@ Para transformar cualquier función recursiva exponencial $O(2^N)$ en una versi�
 
 ```mermaid
 graph TD
-    IN["Invocacion: f(n)"] --> C1{"1. Consulta Cache: ¿n ya fue calculado?"}
-    C1 -->|SI| RET1["Retornar valor guardado en O(1)"]
-    C1 -->|NO| BASE{"2. Evaluacion Caso Base: ¿n es trivial?"}
-    BASE -->|SI| SET1["Guardar caso base en cache y retornar"]
-    BASE -->|NO| REC["3. Paso Recursivo: Calcular subproblemas"]
-    REC --> STORE["4. Guardar resultado en cache"]
-    STORE --> RET2["Retornar resultado guardado"]
+    IN["Invocation: f(n)"] --> C1{"1. Cache Check: Is n already computed?"}
+    C1 -->|YES| RET1["Return cached value in O(1)"]
+    C1 -->|NO| BASE{"2. Base Case Evaluation: Is n trivial?"}
+    BASE -->|YES| SET1["Save base case to cache and return"]
+    BASE -->|NO| REC["3. Recursive Step: Compute subproblems"]
+    REC --> STORE["4. Save result to cache"]
+    STORE --> RET2["Return saved result"]
 ```
 
 ### Plantilla Genérica en C++:
@@ -134,8 +118,8 @@ Imagina un robot ubicado en la esquina superior izquierda de una grilla de $R \t
 ```mermaid
 graph TD
     G["Grid Traveler (R, C)"]
-    G -->|"Mover Abajo"| DOWN["Grid Traveler (R - 1, C)"]
-    G -->|"Mover Derecha"| RIGHT["Grid Traveler (R, C - 1)"]
+    G -->|"Move Down"| DOWN["Grid Traveler (R - 1, C)"]
+    G -->|"Move Right"| RIGHT["Grid Traveler (R, C - 1)"]
 ```
 
 ### Implementación Recursiva con Memoización de Estados Bidimensionales:

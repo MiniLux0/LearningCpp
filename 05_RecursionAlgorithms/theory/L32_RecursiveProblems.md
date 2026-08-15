@@ -86,20 +86,7 @@ long long fibonacciNaive(int n) {
 #### ⚠️ El Árbol Binario de Llamadas y la Redundancia
 Al calcular `fibonacciNaive(4)`, la función genera llamadas duplicadas:
 
-```mermaid
-graph TD
-    F4["fib(4)"] --> F3["fib(3)"]
-    F4 --> F2_A["fib(2)"]
-    F3 --> F2_B["fib(2)"]
-    F3 --> F1_A["fib(1)"]
-    F2_B --> F1_B["fib(1)"]
-    F2_B --> F0_A["fib(0)"]
-    F2_A --> F1_C["fib(1)"]
-    F2_A --> F0_B["fib(0)"]
-
-    style F2_A fill:#ff9999,stroke:#333,stroke-width:2px
-    style F2_B fill:#ff9999,stroke:#333,stroke-width:2px
-```
+![Fibonacci Recursion Tree: Exponential O(2^N) Growth](assets/fib_tree.svg)
 
 > [!CAUTION]
 > **Explosión Exponencial:**

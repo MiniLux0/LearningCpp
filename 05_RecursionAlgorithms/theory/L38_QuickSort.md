@@ -46,16 +46,16 @@ El algoritmo de 3 pasos de la Sección 10.5:
 
 ```mermaid
 graph TD
-    START["quickSort llamada"]
-    CB{"0 o 1 elementos?"}
-    PIVOT["1. Elegir Pivote: arr-low"]
-    PART["2. Particionar: elementos menores a la izquierda, mayores a la derecha"]
-    RECL["3a. quickSort subarreglo izquierdo"]
-    RECR["3b. quickSort subarreglo derecho"]
-    DONE["Arreglo Ordenado"]
+    START["quickSort Call"]
+    CB{"0 or 1 elements?"}
+    PIVOT["1. Choose Pivot: arr[low]"]
+    PART["2. Partition: smaller to left, larger to right"]
+    RECL["3a. quickSort Left Sub-array"]
+    RECR["3b. quickSort Right Sub-array"]
+    DONE["Sorted Array"]
 
     START --> CB
-    CB -->|"Si: Caso Base"| DONE
+    CB -->|"Yes: Base Case"| DONE
     CB -->|"No"| PIVOT
     PIVOT --> PART
     PART --> RECL

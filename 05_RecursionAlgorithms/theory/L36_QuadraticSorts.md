@@ -167,7 +167,7 @@ graph LR
     BEST["Mejor caso: datos casi ordenados"]
     BEST -->|"O(N) lineal"| IS["Insertion Sort"]
     BEST -->|"O(N) lineal"| BS["Bubble Sort optimizado"]
-    BEST -->|"O(N^2) SIEMPRE"| SS["Selection Sort"]
+    BEST -->|"O(N^2) YESEMPRE"| SS["Selection Sort"]
 ```
 
 ---
