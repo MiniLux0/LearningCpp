@@ -1,0 +1,41 @@
+<svg width="400" height="320" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#ffffff" />
+<style>
+  .title { font-family: sans-serif; font-size: 16px; font-weight: bold; fill: #343a40; }
+  .text { font-family: sans-serif; font-size: 13px; fill: #212529; }
+  .mono { font-family: monospace; font-size: 12px; fill: #e63946; font-weight: bold; }
+  .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 2; }
+  .box-blue { fill: #e1f5fe; stroke: #0288d1; stroke-width: 2; }
+  .box-green { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+  .box-orange { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+  .box-red { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; }
+  .diamond { fill: #fff8e1; stroke: #ffb300; stroke-width: 2; }
+</style>
+<defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#388e3c"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#d32f2f"/>
+    </marker>
+</defs>
+<text class="title" x="80" y="30">If-Else Statement Flow</text>
+<polygon points="200.0,60 280,90.0 200.0,120 120,90.0" class="diamond"/>
+<text x="200.0" y="94.0" class="text" font-weight="bold" text-anchor="middle">Condition == true?</text>
+<path d="M 120 90 L 80 90 L 80 140" fill="none" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow-green)"/>
+<text x="100" y="80" class="text" font-size="11" text-anchor="middle" fill="#388e3c">True</text>
+<rect x="30" y="140" width="100" height="40" rx="8" class="box-green"/>
+<text x="80.0" y="164.0" class="text" font-weight="bold" text-anchor="middle">'if' Block</text>
+<path d="M 80 180 L 80 230 L 180 230" fill="none" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 280 90 L 320 90 L 320 140" fill="none" stroke="#d32f2f" stroke-width="2" marker-end="url(#arrow-red)"/>
+<text x="300" y="80" class="text" font-size="11" text-anchor="middle" fill="#d32f2f">False</text>
+<rect x="270" y="140" width="100" height="40" rx="8" class="box-red"/>
+<text x="320.0" y="164.0" class="text" font-weight="bold" text-anchor="middle">'else' Block</text>
+<path d="M 320 180 L 320 230 L 220 230" fill="none" stroke="#adb5bd" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="130" y="250" width="140" height="40" rx="8" class="box"/>
+<text x="200.0" y="274.0" class="text" font-weight="bold" text-anchor="middle">Resume Flow</text>
+
+</svg>

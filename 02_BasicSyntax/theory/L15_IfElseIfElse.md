@@ -26,16 +26,7 @@
 
 When a scenario requires evaluating multiple distinct conditions sequentially, C++ chains `else if` statements:
 
-```mermaid
-graph TD
-    Start["Check Condition 1"] --> Cond1{"score >= 90?"}
-    Cond1 -- Yes --> A["Grade = A"]
-    Cond1 -- No --> Cond2{"score >= 80?"}
-    Cond2 -- Yes --> B["Grade = B"]
-    Cond2 -- No --> Cond3{"score >= 70?"}
-    Cond3 -- Yes --> C["Grade = C"]
-    Cond3 -- No --> Fallback["Grade = F"]
-```
+![Flowchart](assets/L15_IfElseIfElse.svg)
 
 ```cpp
 #include <iostream>

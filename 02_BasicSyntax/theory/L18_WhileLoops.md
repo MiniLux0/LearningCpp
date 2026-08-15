@@ -26,14 +26,7 @@
 
 A `while` loop repeatedly executes a block of code **as long as its boolean condition remains `true`**:
 
-```mermaid
-graph TD
-    Start["Enter Loop"] --> Cond{"Is condition true?"}
-    Cond -- True --> Body["Execute Body Block { }"]
-    Body --> Update["Update Loop State"]
-    Update --> Cond
-    Cond -- False --> Exit["Exit Loop & Continue"]
-```
+![Flowchart](assets/L18_WhileLoops.svg)
 
 ```cpp
 #include <iostream>

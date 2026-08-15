@@ -26,14 +26,7 @@
 
 When the exact number of iterations is known beforehand, the `for` loop combines all three loop control elements into a single header statement:
 
-```mermaid
-graph LR
-    Init["1. Initialization<br/>int i = 0"] --> Cond{"2. Condition<br/>i < 5"}
-    Cond -- True --> Body["3. Execute Body Block"]
-    Body --> Step["4. Step Increment<br/>i++"]
-    Step --> Cond
-    Cond -- False --> Exit["Exit Loop"]
-```
+![Flowchart](assets/L20_ForLoops.svg)
 
 ```cpp
 #include <iostream>

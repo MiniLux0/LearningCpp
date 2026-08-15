@@ -27,13 +27,7 @@
 
 When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ($O(1)$ Jump Table dispatch):
 
-```mermaid
-graph TD
-    Input["switch (val)"] --> Table{"Jump Table Index"}
-    Table -- case 1 --> Code1["Code Block 1 -> break;"]
-    Table -- case 2 --> Code2["Code Block 2 -> break;"]
-    Table -- default --> CodeDef["Default Block"]
-```
+![Flowchart](assets/L22_Switch.svg)
 
 ```cpp
 #include <iostream>

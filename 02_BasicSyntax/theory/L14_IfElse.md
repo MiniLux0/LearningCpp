@@ -26,14 +26,7 @@
 
 When a program needs to guarantee that **exactly one of two alternative paths** executes, use `if-else`:
 
-```mermaid
-graph TD
-    Start["Program Entry"] --> Cond{"Is condition true?"}
-    Cond -- True --> PathA["Execute 'if' Block"]
-    Cond -- False --> PathB["Execute 'else' Block"]
-    PathA --> End["Resume Sequential Flow"]
-    PathB --> End
-```
+![Flowchart](assets/L14_IfElse.svg)
 
 ```cpp
 #include <iostream>
