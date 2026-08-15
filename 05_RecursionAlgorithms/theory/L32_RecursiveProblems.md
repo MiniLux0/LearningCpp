@@ -158,11 +158,11 @@ bool esPalindromo(const string& str) {
 
 ### Estado Inicial (3 Discos)
 
-![Torres de Hanói: secuencia completa de 7 movimientos en cuadrícula para 3 discos](assets/hanoi_steps.svg)
+![Torres de Hanói: secuencia completa de 7 movimientos en cuadrícula para 3 discos](assets/hanoi_steps_3.svg)
 
 ### Estrategia Divide y Vencerás (Árbol de Llamadas Recursivas)
 
-![Árbol de Recursión de las Torres de Hanói para N=3, mostrando 7 llamadas de movimiento y 7 llamadas recursivas](assets/hanoi_tree.svg)
+![Árbol de Recursión de las Torres de Hanói para N=3, mostrando 7 llamadas de movimiento y 7 llamadas recursivas](assets/hanoi_tree_3.svg)
 
 ### La Estrategia Divide y Vencerás (3 Pasos):
 
