@@ -163,10 +163,6 @@
 
 ---
 
-*MiniLux0 — Master Syllabus (MIT 6.096 + Stanford CS106B / CS106X / CS106L)*
-
----
-
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
 </div>
