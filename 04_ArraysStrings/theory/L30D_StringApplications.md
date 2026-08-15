@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 3.6 & 3.7: Applications & strlib (pp. 141–146)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 3.6 & 3.7: Applications & strlib (pp. 141–146)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Code Lab:** [`L30D_StringApplications.cpp`](../code/L30D_StringApplications.cpp)
 
 ---

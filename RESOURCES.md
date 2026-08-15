@@ -37,7 +37,7 @@ Top-tier academic resources utilized to build this learning plan for C++, Modern
   - [CS106B Course Page](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1224/)
   - [CS106B YouTube Playlist](https://www.youtube.com/playlist?list=PL-h0BZdG_K4kAmsfvAik-Za826pNbQd0d)
 - **Syllabus & PDF Analysis**: 📄 [`files/cs106b/README.md`](files/cs106b/README.md)
-- **Official Textbook**: Eric Roberts — *Programming Abstractions in C++* (saved at [`files/cs106b/textbook/CS106BX-Reader.pdf`](files/cs106b/textbook/CS106BX-Reader.pdf)).
+- **Official Textbook**: Eric Roberts — *Programming Abstractions in C++* (saved at [`files/cs106b/textbook/CS106BX-Reader.pdf`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)).
 - **Local Course Code & Materials**: [`files/cs106b/`](files/cs106b/)
 - **Why this course?**: To transition from basic C++ syntax to advanced problem solving using **Recursion**, **Backtracking**, **Big-O Notation**, **ADTs (`std::vector`, `Grid`, `Stack`, `Queue`, `Map`, `Set`)**, **Sorting/Searching Algorithms**, **Linked Lists**, **BST Trees**, **Hash Tables**, and **Graphs**.
 

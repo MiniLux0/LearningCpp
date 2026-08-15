@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 3.3: The cctype library (pp. 137–138)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 3.3: The cctype library (pp. 137–138)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Code Lab:** [`L30C_CCtype.cpp`](../code/L30C_CCtype.cpp)
 
 ---

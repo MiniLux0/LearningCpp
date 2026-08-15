@@ -1,7 +1,7 @@
 # Lesson 19 — Iteration: Post-Test `do-while` Loops
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)).
 
 ---
 
@@ -9,7 +9,7 @@
 
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Post-Test Iteration Loops](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
-  - 🌲 [Stanford CS106B — Chapter 1: Interactive Menu Loops](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Interactive Menu Loops](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Code Lab:** [`L19_DoWhileLoops.cpp`](../code/L19_DoWhileLoops.cpp)
 
 ---

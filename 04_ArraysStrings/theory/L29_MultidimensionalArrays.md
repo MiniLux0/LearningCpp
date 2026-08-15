@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 11.4: Multidimensional Arrays (pp. 506–510)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 11.4: Multidimensional Arrays (pp. 506–510)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 04: Matrix Memory Layout](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)
 - 💻 **Code Lab:** [`L29_MultidimensionalArrays.cpp`](../code/L29_MultidimensionalArrays.cpp)
 

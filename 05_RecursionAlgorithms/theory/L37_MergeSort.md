@@ -8,7 +8,7 @@
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 10.3 (p. 443) & Ch 10.4 (p. 449)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.3 (p. 443) & Ch 10.4 (p. 449)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Laboratorio de Código:** [`L37_MergeSort.cpp`](../code/L37_MergeSort.cpp)
 
 ---

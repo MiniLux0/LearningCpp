@@ -8,7 +8,7 @@
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 10.2 & 10.4 (pp. 429–478)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 10.2 & 10.4 (pp. 429–478)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Asymptotic Algorithmic Analysis](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L34_BigONotation.cpp`](../code/L34_BigONotation.cpp)
 

@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 3.5: C-Style Strings (pp. 140–141)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 3.5: C-Style Strings (pp. 140–141)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 04: Character Arrays & Buffer Overflows](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)
 - 💻 **Code Lab:** [`L30A_CStrings.cpp`](../code/L30A_CStrings.cpp)
 

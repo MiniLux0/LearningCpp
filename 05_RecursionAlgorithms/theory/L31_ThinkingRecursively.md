@@ -11,7 +11,7 @@
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 10.6 (p. 458)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 10.6 (p. 458)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 05: Stack Allocation & Memory](../../files/mit6096/lectures/Lecture05_Pointers.pdf)
 - 💻 **Laboratorio de Código:** [`L31_ThinkingRecursively.cpp`](../code/L31_ThinkingRecursively.cpp)
 

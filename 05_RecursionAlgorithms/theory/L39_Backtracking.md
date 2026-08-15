@@ -8,7 +8,7 @@
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 8 (p. 349) & Ch 9 (p. 389)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 8 (p. 349) & Ch 9 (p. 389)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Laboratorio de Código:** [`L39_Backtracking.cpp`](../code/L39_Backtracking.cpp)
 
 ---

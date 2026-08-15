@@ -8,7 +8,7 @@
 ## 🧭 Navegación Rápida
 
 - 📄 **Lecturas Académicas Base:**
-  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 8.1 (pp. 349–360)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 7 (pp. 315–348) & Ch 8.1 (pp. 349–360)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - ⚡ [Stanford CS106X — Recursive Problem Solving](../../files/cs106x/README.md)
 - 💻 **Laboratorio de Código:** [`L32_RecursiveProblems.cpp`](../code/L32_RecursiveProblems.cpp)
 

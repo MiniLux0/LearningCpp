@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 11.3: Passing Arrays as Parameters (pp. 501–506)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 11.3: Passing Arrays as Parameters (pp. 501–506)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 04: Fixed-Size Array Allocation](../../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf)
 - 💻 **Code Lab:** [`L28_ArraysAsParameters.cpp`](../code/L28_ArraysAsParameters.cpp)
 

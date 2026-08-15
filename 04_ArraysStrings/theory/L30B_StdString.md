@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Readings:**
-  - 🌲 [Stanford CS106B Textbook — Ch 3.1–3.4: Strings (pp. 125–140)](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B Textbook — Ch 3.1–3.4: Strings (pp. 125–140)](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Code Lab:** [`L30B_StdString.cpp`](../code/L30B_StdString.cpp)
 
 ---

@@ -1,14 +1,14 @@
 # Lesson 16 — Safely Comparing Floating-Point Numbers (`Epsilon`)
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](../../files/cs106b/textbook/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106B Textbook Chapter 1** ([`CS106BX-Reader.pdf`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Lectures:**
-  - 🌲 [Stanford CS106B — Chapter 1: Floating-Point Roundoff Errors](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B — Chapter 1: Floating-Point Roundoff Errors](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
   - 🏛️ [MIT 6.096 — Lecture 01: IEEE 754 Representation Traps](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
 - 💻 **Code Lab:** [`L16_ComparingFloats.cpp`](../code/L16_ComparingFloats.cpp)
 

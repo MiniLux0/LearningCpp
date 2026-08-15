@@ -64,11 +64,11 @@ This module covers sequential data structures in contiguous memory: from 1D and 
 
 | Lessons | Academic Source PDF | Key Theoretical Topics |
 |---------|---------------------|------------------------|
-| **L27–L29** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106B Textbook Ch 11`](../files/cs106b/textbook/CS106BX-Reader.pdf) | 1D/2D static arrays, contiguous memory, Row-Major Order, pointer decay. |
-| **L30A** | 📄 [`CS106B Textbook Ch 3.5`](../files/cs106b/textbook/CS106BX-Reader.pdf) \| [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) | `<cstring>` library, C-strings, `'\0'` null sentinel, buffer overflows. |
-| **L30B** | 📄 [`CS106B Textbook Ch 3.1-3.4`](../files/cs106b/textbook/CS106BX-Reader.pdf) | `<string>` library, `string` object, substrings, searching, `const string&` passing. |
-| **L30C** | 📄 [`CS106B Textbook Ch 3.3`](../files/cs106b/textbook/CS106BX-Reader.pdf) | `<cctype>` library, predicates (`isalpha`, `isdigit`), transformations (`tolower`, `toupper`). |
-| **L30D** | 📄 [`CS106B Textbook Ch 3.6-3.7`](../files/cs106b/textbook/CS106BX-Reader.pdf) | Palindromes $`O(N)`$ vs $`O(N^2)`$, Pig Latin, Caesar Cipher, `strlib.h` abstractions. |
+| **L27–L29** | 📄 [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) \| [`CS106B Textbook Ch 11`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | 1D/2D static arrays, contiguous memory, Row-Major Order, pointer decay. |
+| **L30A** | 📄 [`CS106B Textbook Ch 3.5`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) \| [`MIT 6.096 Lecture 04`](../files/mit6096/lectures/Lecture04_ArraysAndStrings.pdf) | `<cstring>` library, C-strings, `'\0'` null sentinel, buffer overflows. |
+| **L30B** | 📄 [`CS106B Textbook Ch 3.1-3.4`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | `<string>` library, `string` object, substrings, searching, `const string&` passing. |
+| **L30C** | 📄 [`CS106B Textbook Ch 3.3`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | `<cctype>` library, predicates (`isalpha`, `isdigit`), transformations (`tolower`, `toupper`). |
+| **L30D** | 📄 [`CS106B Textbook Ch 3.6-3.7`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf) | Palindromes $`O(N)`$ vs $`O(N^2)`$, Pig Latin, Caesar Cipher, `strlib.h` abstractions. |
 
 ---
 

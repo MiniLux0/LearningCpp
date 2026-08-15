@@ -9,7 +9,7 @@
 
 - 📄 **Lecturas Académicas Base:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Return Values & Type Matching](../../files/mit6096/lectures/Lecture03_Functions.pdf)
-  - 🌲 [Stanford CS106B — Chapter 2: Functional Composition](../../files/cs106b/textbook/CS106BX-Reader.pdf)
+  - 🌲 [Stanford CS106B — Chapter 2: Functional Composition](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
 - 💻 **Laboratorio de Código:** [`L24_ReturnValues.cpp`](../code/L24_ReturnValues.cpp)
 
 ---
