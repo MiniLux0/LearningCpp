@@ -28,7 +28,7 @@
 
 An **array** in C++ is an ordered collection of elements of the same type stored in **contiguous (consecutive)** RAM memory locations.
 
-![Animation](assets/array_1d.gif)
+<img src="assets/array_1d.gif" alt="Animation">
 
 ### Exact Memory Address Calculation
 

@@ -50,7 +50,7 @@ En ciencias de la computación, la **recursividad** es la técnica de resolver u
 > - La respuesta regresa desapilándose: tu fila es $\text{fila delante} + 1$.
 
 <div align="center">
-  ![Animation](assets/l31_factorial_flow.gif)
+  <img src="assets/l31_factorial_flow.gif" alt="Animation">
 </div>
 
 ---
@@ -104,7 +104,7 @@ void cuentaRegresiva(int n) {
 #### Diagrama de Secuencia y Desapilado:
 
 <div align="center">
-  ![Animation](assets/l31_base_case_flow.gif)
+  <img src="assets/l31_base_case_flow.gif" alt="Animation">
 </div>
 
 ---
