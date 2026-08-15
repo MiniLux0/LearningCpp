@@ -19,13 +19,13 @@
 - [ ] Implement multiway integral value matching using `switch`.
 - [ ] Prevent unintentional **Fallthrough** bugs using `break`.
 - [ ] Handle unhandled cases using the `default:` label.
-- [ ] Understand why `switch` evaluates faster than `if-else` chains ($O(1)$ Jump Table compilation).
+- [ ] Understand why `switch` evaluates faster than `if-else` chains ($`O(1)`$ Jump Table compilation).
 
 ---
 
 ## 1. `switch` Mechanics & Jump Tables
 
-When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ($O(1)$ Jump Table dispatch):
+When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ($`O(1)`$ Jump Table dispatch):
 
 ```mermaid
 graph TD

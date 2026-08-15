@@ -18,7 +18,7 @@
 
 - [ ] Differentiate single-precision (`float`) vs. double-precision (`double`) types under the IEEE 754 standard.
 - [ ] Control output stream formatting with `<iomanip>` (`fixed`, `setprecision()`).
-- [ ] Understand why floating-point numbers incur binary representation rounding errors ($0.1 + 0.2 \neq 0.3$).
+- [ ] Understand why floating-point numbers incur binary representation rounding errors ($`0.1 + 0.2 \neq 0.3`$).
 
 ---
 
@@ -32,8 +32,8 @@ Real numbers with fractional decimals are represented using floating-point scien
 
 | Data Type | Memory Size | Mantissa Bits | Decimal Precision | Standard Usage |
 | :--- | :---: | :---: | :---: | :--- |
-| **`float`** | 4 Bytes (32 bits) | 23 bits | $\approx 7$ significant digits | GPU graphics, games, embedded audio buffers. |
-| **`double`** | 8 Bytes (64 bits) | 52 bits | $\approx 15-17$ significant digits | **Standard default** for engineering, math, and physics. |
+| **`float`** | 4 Bytes (32 bits) | 23 bits | $`\approx 7`$ significant digits | GPU graphics, games, embedded audio buffers. |
+| **`double`** | 8 Bytes (64 bits) | 52 bits | $`\approx 15-17`$ significant digits | **Standard default** for engineering, math, and physics. |
 
 ```cpp
 float  fVal = 3.14159265f; // 'f' suffix specifies float literal
@@ -63,7 +63,7 @@ int main() {
 
 > [!WARNING]
 > **Binary Rounding Representation Errors:**
-> Numbers like $0.1$ ($1/10$) cannot be represented exactly in binary powers of 2. In binary floating-point representation, $0.1$ is an infinitely repeating fraction:
+> Numbers like $`0.1`$ ($`1/10`$) cannot be represented exactly in binary powers of 2. In binary floating-point representation, $`0.1`$ is an infinitely repeating fraction:
 > ```text
 > 0.1 (decimal) = 0.00011001100110011... (binary)
 > ```
@@ -92,7 +92,7 @@ What is the type of the literal `3.14` versus `3.14f` in C++?
 
 1. **Default Type:** Always use `double` for general floating-point math.
 2. **Formatting:** Use `#include <iomanip>` with `fixed` and `setprecision()`.
-3. **Imprecision:** Binary floating-point cannot store fractions like $1/10$ with 100% exactness.
+3. **Imprecision:** Binary floating-point cannot store fractions like $`1/10`$ with 100% exactness.
 
 ---
 

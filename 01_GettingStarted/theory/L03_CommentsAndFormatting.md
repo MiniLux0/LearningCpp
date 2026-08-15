@@ -76,7 +76,7 @@ graph TD
 - **`std::endl`:** Appends a newline **AND forces an immediate hardware flush** of the stream buffer to screen.
 
 > [!IMPORTANT]
-> Calling `std::endl` repeatedly in tight loops (e.g., printing $1,000,000$ lines) slows down execution significantly due to millions of redundant hardware I/O flushes. Use `\n` by default, and reserve `std::endl` for interactive prompts where immediate screen feedback is required.
+> Calling `std::endl` repeatedly in tight loops (e.g., printing $`1,000,000`$ lines) slows down execution significantly due to millions of redundant hardware I/O flushes. Use `\n` by default, and reserve `std::endl` for interactive prompts where immediate screen feedback is required.
 
 ---
 

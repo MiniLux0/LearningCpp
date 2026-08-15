@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Understand C-style strings (*C-Strings*) as native `char[]` character arrays terminated with **`'\0'` null sentinel (ASCII 0)**.
-- [ ] Differentiate between **physical array capacity** and **useful text length** ($\text{Capacity} \ge \text{strlen} + 1$).
+- [ ] Differentiate between **physical array capacity** and **useful text length** ($`\text{Capacity} \ge \text{strlen} + 1`$).
 - [ ] Master core functions from `#include <cstring>` (`strlen`, `strcpy`, `strcat`, `strcmp`, `strchr`).
 - [ ] Prevent Buffer Overflow vulnerabilities and un-delimited memory reads.
 
@@ -36,7 +36,7 @@ graph LR
 
 > [!CAUTION]
 > **The Null Sentinel Rule (+1 Byte):**  
-> An array storing a C-String of $N$ visible characters **MUST reserve at least $N+1$ bytes** in RAM to hold the `'\0'` character. Omitting the null sentinel causes functions like `strlen()` or `cout` to read past array boundaries into adjacent memory.
+> An array storing a C-String of $`N`$ visible characters **MUST reserve at least $`N+1`$ bytes** in RAM to hold the `'\0'` character. Omitting the null sentinel causes functions like `strlen()` or `cout` to read past array boundaries into adjacent memory.
 
 ---
 
@@ -73,11 +73,11 @@ int main() {
 
 | Function | Description | Complexity | Safety Notes |
 | :--- | :--- | :---: | :--- |
-| `strlen(str)` | Calculates character count before `'\0'`. | $O(N)$ | Requires `str` to contain `'\0'`. |
-| `strcpy(dest, src)` | Copies characters from `src` to `dest`. | $O(N)$ | Risk of Buffer Overflow if `dest` is too small. |
-| `strcat(dest, src)` | Appends `src` to end of `dest`. | $O(N)$ | Overwrites original `'\0'` of `dest`. |
-| `strcmp(s1, s2)` | Compares lexicographical order ($<0$, $0$, $>0$). | $O(N)$ | Case-sensitive comparison. |
-| `strchr(str, ch)` | Finds first occurrence of character `ch`. | $O(N)$ | Returns `char*` pointer to char or `nullptr`. |
+| `strlen(str)` | Calculates character count before `'\0'`. | $`O(N)`$ | Requires `str` to contain `'\0'`. |
+| `strcpy(dest, src)` | Copies characters from `src` to `dest`. | $`O(N)`$ | Risk of Buffer Overflow if `dest` is too small. |
+| `strcat(dest, src)` | Appends `src` to end of `dest`. | $`O(N)`$ | Overwrites original `'\0'` of `dest`. |
+| `strcmp(s1, s2)` | Compares lexicographical order ($`<0`$, $`0`$, $`>0`$). | $`O(N)`$ | Case-sensitive comparison. |
+| `strchr(str, ch)` | Finds first occurrence of character `ch`. | $`O(N)`$ | Returns `char*` pointer to char or `nullptr`. |
 
 ---
 
@@ -119,7 +119,7 @@ Given `char dest[5];`, what danger occurs when executing `strcpy(dest, "Toolbox"
 
 1. **`<cstring>` Library:** Designed to operate on native `char[]` arrays from C language.
 2. **Null Sentinel:** Every C-String relies on byte `'\0'` to delimit text boundary.
-3. **Mandatory Capacity:** Always allocate at least $\text{strlen}(s) + 1$ bytes to store `'\0'`.
+3. **Mandatory Capacity:** Always allocate at least $`\text{strlen}(s) + 1`$ bytes to store `'\0'`.
 
 ---
 

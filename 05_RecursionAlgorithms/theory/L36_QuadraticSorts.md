@@ -18,9 +18,9 @@
 
 ## Objetivos de Aprendizaje
 
-- [ ] Comprender la familia de algoritmos de **ordenamiento de complejidad cuadrática ($O(N^2)$)** (Sección 10.1).
+- [ ] Comprender la familia de algoritmos de **ordenamiento de complejidad cuadrática ($`O(N^2)`$)** (Sección 10.1).
 - [ ] Dominar **Selection Sort** y su propiedad de mínimos intercambios.
-- [ ] Dominar **Insertion Sort** y su rendimiento óptimo $O(N)$ en datos casi ordenados.
+- [ ] Dominar **Insertion Sort** y su rendimiento óptimo $`O(N)`$ en datos casi ordenados.
 - [ ] Comprender **Bubble Sort** y su optimización de parada temprana.
 - [ ] Diferenciar entre **Estabilidad de Ordenamiento** (*Stability*) y **Ordenamiento In-Place**.
 
@@ -28,7 +28,7 @@
 
 ## 1. El Problema del Ordenamiento (Sección 10.1)
 
-El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ($O(\log N)$).
+El ordenamiento consiste en reorganizar $`N`$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ($`O(\log N)`$).
 
 ```mermaid
 graph LR
@@ -44,7 +44,7 @@ graph LR
 
 ### Mecánica del Algoritmo
 
-En cada iteración $i$, busca el **elemento mínimo** del subarreglo no ordenado $[i \dots N-1]$ y lo intercambia con la posición $i$.
+En cada iteración $`i`$, busca el **elemento mínimo** del subarreglo no ordenado $`[i \dots N-1]`$ y lo intercambia con la posición $`i`$.
 
 ```mermaid
 graph TD
@@ -74,10 +74,10 @@ void selectionSort(int arr[], int n) {
 
 > [!NOTE]
 > **Análisis de Complejidad de Selection Sort:**
-> - **Comparaciones:** $\frac{N(N-1)}{2} = O(N^2)$ en **todos los casos** (mejor, promedio y peor).
-> - **Intercambios:** Como máximo **$N-1$ intercambios** ($O(N)$) — ventaja cuando escribir en memoria es costoso.
+> - **Comparaciones:** $`\frac{N(N-1)}{2} = O(N^2)`$ en **todos los casos** (mejor, promedio y peor).
+> - **Intercambios:** Como máximo **$`N-1`$ intercambios** ($`O(N)`$) — ventaja cuando escribir en memoria es costoso.
 > - **Estabilidad:** ❌ **Inestable** — los intercambios a larga distancia pueden alterar el orden relativo de duplicados.
-> - **Espacio:** $O(1)$ — in-place.
+> - **Espacio:** $`O(1)`$ — in-place.
 
 ---
 
@@ -121,10 +121,10 @@ void insertionSort(int arr[], int n) {
 
 > [!IMPORTANT]
 > **El Comportamiento Adaptativo de Insertion Sort:**
-> - **Peor Caso (arreglo invertido):** $O(N^2)$ — máximos desplazamientos.
-> - **Mejor Caso (arreglo ya ordenado):** $\mathbf{O(N)}$ lineal — solo 1 comparación por elemento, 0 desplazamientos.
+> - **Peor Caso (arreglo invertido):** $`O(N^2)`$ — máximos desplazamientos.
+> - **Mejor Caso (arreglo ya ordenado):** $`\mathbf{O(N)}`$ lineal — solo 1 comparación por elemento, 0 desplazamientos.
 > - **Estabilidad:** ✅ **Estable** — preserva el orden relativo de claves iguales.
-> - **Uso ideal:** Arreglos pequeños ($N < 20$) o datos casi ordenados.
+> - **Uso ideal:** Arreglos pequeños ($`N < 20`$) o datos casi ordenados.
 
 ---
 
@@ -150,7 +150,7 @@ void bubbleSort(int arr[], int n) {
 ```
 
 > [!TIP]
-> La bandera `swapped` permite detectar cuando el arreglo ya está ordenado antes de completar todas las pasadas, logrando $O(N)$ en el mejor caso — igual que Insertion Sort.
+> La bandera `swapped` permite detectar cuando el arreglo ya está ordenado antes de completar todas las pasadas, logrando $`O(N)`$ en el mejor caso — igual que Insertion Sort.
 
 ---
 
@@ -158,9 +158,9 @@ void bubbleSort(int arr[], int n) {
 
 | Algoritmo | Mejor Caso | Caso Promedio | Peor Caso | Espacio | Estabilidad | Swaps |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Selection Sort** | $O(N^2)$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ❌ Inestable | $O(N)$ mínimo |
-| **Insertion Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
-| **Bubble Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
+| **Selection Sort** | $`O(N^2)`$ | $`O(N^2)`$ | $`O(N^2)`$ | $`O(1)`$ | ❌ Inestable | $`O(N)`$ mínimo |
+| **Insertion Sort** | $`\mathbf{O(N)}`$ | $`O(N^2)`$ | $`O(N^2)`$ | $`O(1)`$ | ✅ Estable | $`O(N^2)`$ |
+| **Bubble Sort** | $`\mathbf{O(N)}`$ | $`O(N^2)`$ | $`O(N^2)`$ | $`O(1)`$ | ✅ Estable | $`O(N^2)`$ |
 
 ```mermaid
 graph LR
@@ -174,16 +174,16 @@ graph LR
 
 ## ❓ Pregunta de Chequeo #1 — Selección del Algoritmo
 
-Tienes $10{,}000$ registros que ya están **prácticamente ordenados** (solo 5 elementos fuera de lugar). ¿Qué algoritmo cuadrático deberías elegir y por qué?
+Tienes $`10{,}000`$ registros que ya están **prácticamente ordenados** (solo 5 elementos fuera de lugar). ¿Qué algoritmo cuadrático deberías elegir y por qué?
 
 <details>
 <summary>🔍 <strong>Ver Explicación y Selección</strong></summary>
 
 **Respuesta:** **Insertion Sort**.
 
-**Justificación:** Insertion Sort es adaptativo y opera en tiempo casi lineal $O(N)$ cuando los datos están casi ordenados. Con solo 5 elementos fuera de lugar realizará aproximadamente $N + 5$ operaciones.
+**Justificación:** Insertion Sort es adaptativo y opera en tiempo casi lineal $`O(N)`$ cuando los datos están casi ordenados. Con solo 5 elementos fuera de lugar realizará aproximadamente $`N + 5`$ operaciones.
 
-En contraste, Selection Sort **siempre** realiza $\frac{N(N-1)}{2} \approx 50{,}000{,}000$ comparaciones sin importar si el arreglo ya está ordenado.
+En contraste, Selection Sort **siempre** realiza $`\frac{N(N-1)}{2} \approx 50{,}000{,}000`$ comparaciones sin importar si el arreglo ya está ordenado.
 
 </details>
 
@@ -206,11 +206,11 @@ Tienes el arreglo de pares `[(3,A), (1,B), (3,C), (2,D)]` ordenado por el primer
 
 ## 📝 Resumen de L35
 
-1. **Selection Sort:** $O(N^2)$ comparaciones siempre, pero solo $O(N)$ intercambios — ideal cuando el costo de escritura es alto. Inestable.
-2. **Insertion Sort:** $O(N)$ en el mejor caso (datos casi ordenados). Estable. Preferido para arreglos pequeños.
+1. **Selection Sort:** $`O(N^2)`$ comparaciones siempre, pero solo $`O(N)`$ intercambios — ideal cuando el costo de escritura es alto. Inestable.
+2. **Insertion Sort:** $`O(N)`$ en el mejor caso (datos casi ordenados). Estable. Preferido para arreglos pequeños.
 3. **Bubble Sort:** Fácil de implementar, optimizable con parada temprana, pero ineficiente para datos grandes.
 4. **Estabilidad:** Un algoritmo es estable si preserva el orden relativo de elementos con claves duplicadas.
-5. **In-Place:** Los tres algoritmos operan en $O(1)$ espacio auxiliar — sin necesidad de copias del arreglo.
+5. **In-Place:** Los tres algoritmos operan en $`O(1)`$ espacio auxiliar — sin necesidad de copias del arreglo.
 
 ---
 

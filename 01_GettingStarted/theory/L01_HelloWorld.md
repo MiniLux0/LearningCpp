@@ -17,7 +17,7 @@
 ## Learning Objectives
 
 - [ ] Understand what C++ is and its position as a high-performance compiled language.
-- [ ] Master the 4-stage GCC compilation pipeline (`.cpp` $\to$ Preprocessor $\to$ Compiler $\to$ Linker $\to$ `.exe`).
+- [ ] Master the 4-stage GCC compilation pipeline (`.cpp` $`\to`$ Preprocessor $`\to`$ Compiler $`\to`$ Linker $`\to`$ `.exe`).
 - [ ] Dissect the line-by-line anatomy of a standard C++ program.
 - [ ] Understand preprocessor directives (`#include`), the `main()` entry point, and output streams (`std::cout`).
 

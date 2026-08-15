@@ -18,7 +18,7 @@
 
 - [ ] Execute repetitive tasks using pre-test `while` loops.
 - [ ] Maintain loop control variables and update conditions to prevent infinite loops.
-- [ ] Understand pre-test evaluation behavior ($0 \dots N$ iteration guarantee).
+- [ ] Understand pre-test evaluation behavior ($`0 \dots N`$ iteration guarantee).
 
 ---
 
@@ -75,7 +75,7 @@ How many times does the body of `while (x < 0)` execute if `x = 10` initially?
 
 ## 📝 Summary & Key Takeaways
 
-1. **Pre-Test:** Condition is tested *before* executing the body (may execute $0$ times).
+1. **Pre-Test:** Condition is tested *before* executing the body (may execute $`0`$ times).
 2. **Loop Control:** Always initialize, check, and update loop state variables.
 
 ---

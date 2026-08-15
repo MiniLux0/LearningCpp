@@ -104,7 +104,7 @@ graph TD
     style R8 fill:#023e8a,color:#fff
 ```
 
-Total: $2^3 = 8$ subconjuntos — el Power Set completo.
+Total: $`2^3 = 8`$ subconjuntos — el Power Set completo.
 
 ---
 
@@ -248,7 +248,7 @@ bool isBadPosition(int nCoins) {
 | **9** | ❌ Mala | Análoga a 5 |
 | **13** | ✅ Buena | La computadora toma 1 → rival con 12 (buena para la compu) |
 
-**Patrón:** las posiciones malas son $1, 5, 9, 13, \ldots$ — números de la forma $4k+1$.
+**Patrón:** las posiciones malas son $`1, 5, 9, 13, \ldots`$ — números de la forma $`4k+1`$.
 
 ---
 
@@ -260,7 +260,7 @@ bool isBadPosition(int nCoins) {
 | **Estado** | No modifica estado compartido | Modifica y **revierte** estado |
 | **Clave** | Reducción del problema | **Choose → Explore → Unchoose** |
 | **Ejemplo** | Factorial, Fibonacci | Laberinto, N-Reinas, Sudoku |
-| **Peor caso** | $O(2^N)$ sin poda | $O(2^N)$ pero con poda se reduce mucho |
+| **Peor caso** | $`O(2^N)`$ sin poda | $`O(2^N)`$ pero con poda se reduce mucho |
 
 ---
 
@@ -295,7 +295,7 @@ Sin el paso de desmarcar, las celdas exploradas en caminos fallidos quedarían m
 1. **Backtracking:** Estrategia recursiva que explora todas las opciones posibles, deshaciendo elecciones incorrectas al encontrar callejones sin salida.
 2. **Patrón universal:** `Choose → Explore → Unchoose` — toda implementación de backtracking sigue esta plantilla de 3 pasos.
 3. **Laberinto (Sec. 9.1):** Los dos casos base son `salida encontrada` y `celda bloqueada/visitada`. El marcado/desmarcado (`.`/` `) implementa el backtracking.
-4. **Nim (Sec. 9.2):** `findGoodMove` e `isBadPosition` son mutuamente recursivas; las posiciones malas tienen la forma $4k+1$.
+4. **Nim (Sec. 9.2):** `findGoodMove` e `isBadPosition` son mutuamente recursivas; las posiciones malas tienen la forma $`4k+1`$.
 5. **Aplicaciones:** Laberintos, N-Reinas, Sudoku, generación de permutaciones/subconjuntos, juegos de estrategia.
 
 ---

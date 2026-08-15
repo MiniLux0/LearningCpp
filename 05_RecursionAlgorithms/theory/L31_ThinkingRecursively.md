@@ -47,7 +47,7 @@ En ciencias de la computación, la **recursividad** es la técnica de resolver u
 > **Analogía 2: La Fila del Cine**
 > - Para saber en qué fila estás en un cine a oscuras: le preguntas a la persona **directamente delante de ti**: *“¿En qué fila estás?”*.
 > - La pregunta viaja hacia adelante hasta la **Fila 1** (Caso Base: contesta *“¡Estoy en la fila 1!”*).
-> - La respuesta regresa desapilándose: tu fila es $\text{fila delante} + 1$.
+> - La respuesta regresa desapilándose: tu fila es $`\text{fila delante} + 1`$.
 
 ```mermaid
 graph TD
@@ -139,8 +139,8 @@ El mayor obstáculo mental al aprender recursividad es intentar seguir el flujo 
 > [!IMPORTANT]
 > **El Método de 3 Pasos para Diseñar Algoritmos Recursivos:**
 > 1. **Identificar los Casos Simples (Casos Base):** Resolver directamente las instancias triviales del problema.
-> 2. **Buscar la Descomposición Recursiva:** Determinar cómo resolver el problema de tamaño $N$ combinando una operación con la solución del problema de tamaño $N-1$ (o subproblemas más pequeños).
-> 3. **Aplicar el Salto de Fe (*Leap of Faith*):** **Asume con confianza** que la llamada recursiva para $N-1$ devuelve la respuesta correcta. No traces su ejecución interna; concéntrate únicamente en cómo usar ese resultado para construir la solución de $N$.
+> 2. **Buscar la Descomposición Recursiva:** Determinar cómo resolver el problema de tamaño $`N`$ combinando una operación con la solución del problema de tamaño $`N-1`$ (o subproblemas más pequeños).
+> 3. **Aplicar el Salto de Fe (*Leap of Faith*):** **Asume con confianza** que la llamada recursiva para $`N-1`$ devuelve la respuesta correcta. No traces su ejecución interna; concéntrate únicamente en cómo usar ese resultado para construir la solución de $`N`$.
 
 ---
 
@@ -177,9 +177,9 @@ Existe un isomorfismo estructural perfecto entre la **Inducción Matemática** y
 
 | Inducción Matemática | Programación Recursiva |
 | :--- | :--- |
-| **Base Inductiva ($P(0)$ o $P(1)$)** | **Caso Base** (`if (n == 0) return ...;`) |
-| **Hipótesis Inductiva (Asumir cierta $P(k)$)** | **Salto de Fe Recursivo** (Asumir que `f(k)` funciona) |
-| **Paso Inductivo ($P(k) \Rightarrow P(k+1)$)** | **Paso Recursivo** (`return n + f(n - 1);`) |
+| **Base Inductiva ($`P(0)`$ o $`P(1)`$)** | **Caso Base** (`if (n == 0) return ...;`) |
+| **Hipótesis Inductiva (Asumir cierta $`P(k)`$)** | **Salto de Fe Recursivo** (Asumir que `f(k)` funciona) |
+| **Paso Inductivo ($`P(k) \Rightarrow P(k+1)`$)** | **Paso Recursivo** (`return n + f(n - 1);`) |
 
 ---
 
@@ -188,7 +188,7 @@ Existe un isomorfismo estructural perfecto entre la **Inducción Matemática** y
 | Criterio | Iteración (`for` / `while`) | Recursividad |
 | :--- | :--- | :--- |
 | **Mecanismo de control** | Bucles y contadores explícitos. | Llamadas a funciones sobre la pila RAM. |
-| **Uso de memoria** | $O(1)$ constante (solo variables de contador). | $O(N)$ proporcional a la profundidad de llamadas. |
+| **Uso de memoria** | $`O(1)`$ constante (solo variables de contador). | $`O(N)`$ proporcional a la profundidad de llamadas. |
 | **Riesgo de error** | Bucle infinito (no agota la memoria). | **Stack Overflow** (Cuelga el programa). |
 | **Aplicación ideal** | Procesamiento de arreglos y contadores simples. | Estructuras de datos jerárquicas (árboles, grafos, fractales, divide y vencerás). |
 
@@ -228,7 +228,7 @@ void contarInfinito(int n) {
 2. **Estructura de 2 partes:**
    - **Caso Base:** Interrumpe la recursión resolviendo el problema trivialmente.
    - **Paso Recursivo:** Reduce el problema y llama a la función avanzando hacia el caso base.
-3. **Salto de Fe Recursivo:** Diseña asumiendo que la llamada $(N-1)$ funciona correctamente.
+3. **Salto de Fe Recursivo:** Diseña asumiendo que la llamada $`(N-1)`$ funciona correctamente.
 4. **Recursión Mutua:** Funciones que se invocan circularmente (`esPar` / `esImpar`), requiriendo prototipos o declaraciones previas en C++.
 5. **Inducción:** La recursividad es la implementación en software del principio de Inducción Matemática (Sección 10.6).
 

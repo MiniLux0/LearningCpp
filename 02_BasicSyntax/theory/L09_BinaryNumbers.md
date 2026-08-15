@@ -16,8 +16,8 @@
 
 ## Learning Objectives
 
-- [ ] Understand the binary base-2 positional numeral system ($2^0, 2^1, 2^2, 2^3 \dots$).
-- [ ] Understand bit vs. byte memory units ($1\text{ byte} = 8\text{ bits}$).
+- [ ] Understand the binary base-2 positional numeral system ($`2^0, 2^1, 2^2, 2^3 \dots`$).
+- [ ] Understand bit vs. byte memory units ($`1\text{ byte} = 8\text{ bits}`$).
 - [ ] Master bitwise operators in C++ (`&`, `|`, `^`, `~`, `<<`, `>>`).
 - [ ] Calculate bitmasking operations used in low-level graphics and hardware programming.
 
@@ -27,13 +27,13 @@
 
 At the physical hardware layer, computer RAM consists of microscopic transistor capacitors that store electrical charges representing binary states: **HIGH (`1`)** or **LOW (`0`)**.
 
-- **Bit (Binary Digit):** The fundamental unit of data ($0$ or $1$).
-- **Byte:** A contiguous collection of 8 bits ($2^8 = 256$ distinct combinations, $0 \dots 255$).
+- **Bit (Binary Digit):** The fundamental unit of data ($`0`$ or $`1`$).
+- **Byte:** A contiguous collection of 8 bits ($`2^8 = 256`$ distinct combinations, $`0 \dots 255`$).
 
 ### Positional Binary Evaluation:
 To evaluate binary `00001011` to decimal:
 
-| Bit Position | $2^7 (128)$ | $2^6 (64)$ | $2^5 (32)$ | $2^4 (16)$ | $2^3 (8)$ | $2^2 (4)$ | $2^1 (2)$ | $2^0 (1)$ |
+| Bit Position | $`2^7 (128)`$ | $`2^6 (64)`$ | $`2^5 (32)`$ | $`2^4 (16)`$ | $`2^3 (8)`$ | $`2^2 (4)`$ | $`2^1 (2)`$ | $`2^0 (1)`$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Bit Value** | 0 | 0 | 0 | 0 | **1** | 0 | **1** | **1** |
 
@@ -55,14 +55,14 @@ graph TD
     A ^ B --> XOR["a ^ b = 9 (1001)"]
 ```
 
-| Operator | Operation | Description | Example ($a=12\text{ [1100]}$, $b=5\text{ [0101]}$) | Result |
+| Operator | Operation | Description | Example ($`a=12\text{ [1100]}`$, $`b=5\text{ [0101]}`$) | Result |
 | :---: | :--- | :--- | :--- | :---: |
-| **`&`** | Bitwise AND | Bit is 1 if BOTH corresponding bits are 1. | `1100 & 0101` $\rightarrow$ `0100` | `4` |
-| **`\|`** | Bitwise OR | Bit is 1 if AT LEAST ONE bit is 1. | `1100 \| 0101` $\rightarrow$ `1101` | `13` |
-| **`^`** | Bitwise XOR | Bit is 1 if bits ARE DIFFERENT. | `1100 ^ 0101` $\rightarrow$ `1001` | `9` |
-| **`~`** | Bitwise NOT | Inverts all bits (1 $\rightarrow$ 0, 0 $\rightarrow$ 1). | `~00001100` | `-13` |
-| **`<<`** | Left Shift | Shifts bits left by $N$ places (multiplies by $2^N$). | `5 << 1` (`0101` $\rightarrow$ `1010`) | `10` |
-| **`>>`** | Right Shift | Shifts bits right by $N$ places (divides by $2^N$). | `12 >> 2` (`1100` $\rightarrow$ `0011`) | `3` |
+| **`&`** | Bitwise AND | Bit is 1 if BOTH corresponding bits are 1. | `1100 & 0101` $`\rightarrow`$ `0100` | `4` |
+| **`\|`** | Bitwise OR | Bit is 1 if AT LEAST ONE bit is 1. | `1100 \| 0101` $`\rightarrow`$ `1101` | `13` |
+| **`^`** | Bitwise XOR | Bit is 1 if bits ARE DIFFERENT. | `1100 ^ 0101` $`\rightarrow`$ `1001` | `9` |
+| **`~`** | Bitwise NOT | Inverts all bits (1 $`\rightarrow`$ 0, 0 $`\rightarrow`$ 1). | `~00001100` | `-13` |
+| **`<<`** | Left Shift | Shifts bits left by $`N`$ places (multiplies by $`2^N`$). | `5 << 1` (`0101` $`\rightarrow`$ `1010`) | `10` |
+| **`>>`** | Right Shift | Shifts bits right by $`N`$ places (divides by $`2^N`$). | `12 >> 2` (`1100` $`\rightarrow`$ `0011`) | `3` |
 
 ---
 
@@ -74,10 +74,10 @@ What is the decimal result of computing `1 << 4` in C++?
 <summary>🔍 <strong>View Explanation & Calculation</strong></summary>
 
 > [!TIP]
-> **Calculation:** `1 << 4` $= 1 \times 2^4 = 16$.
+> **Calculation:** `1 << 4` $`= 1 \times 2^4 = 16`$.
 >
 > **Explanation:**
-> Left shifting bit `00000001` by 4 places produces `00010000` (binary for decimal $16$). In high-performance C++ code, bit-shifting left by $N$ is used as an ultra-fast hardware replacement for exponentiation $2^N$.
+> Left shifting bit `00000001` by 4 places produces `00010000` (binary for decimal $`16`$). In high-performance C++ code, bit-shifting left by $`N`$ is used as an ultra-fast hardware replacement for exponentiation $`2^N`$.
 
 </details>
 
@@ -85,9 +85,9 @@ What is the decimal result of computing `1 << 4` in C++?
 
 ## 📝 Summary & Key Takeaways
 
-1. **Binary:** Base-2 system powered by $2^k$ bit positions.
+1. **Binary:** Base-2 system powered by $`2^k`$ bit positions.
 2. **Byte:** 8 bits forming the basic addressable unit of memory.
-3. **Shift Operators:** `<< N` multiplies by $2^N$; `>> N` divides by $2^N$.
+3. **Shift Operators:** `<< N` multiplies by $`2^N`$; `>> N` divides by $`2^N`$.
 
 ---
 

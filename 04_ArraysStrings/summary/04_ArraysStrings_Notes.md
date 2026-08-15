@@ -1,7 +1,7 @@
 # 📝 Section 04: Arrays, C-Strings & Modern `string` — Study Summary and Notes
 
 Study notes and executive summary of **Section 04: Arrays, C-Strings, and Modern `string`** from the C++ course (Stanford CS106B Chapter 3 / MIT 6.096 Lecture 04).
-It covers contiguous memory representation of 1D/2D arrays, array decay to pointers (`T*`), traditional C-strings (`<cstring>`), modern `string` operations (`<string>`), character predicates (`<cctype>`), and algorithmic string processing (palindromes $O(N^2)$ vs $O(N)$, Pig Latin, ciphers).
+It covers contiguous memory representation of 1D/2D arrays, array decay to pointers (`T*`), traditional C-strings (`<cstring>`), modern `string` operations (`<string>`), character predicates (`<cctype>`), and algorithmic string processing (palindromes $`O(N^2)`$ vs $`O(N)`$, Pig Latin, ciphers).
 
 ---
 
@@ -58,28 +58,28 @@ It covers contiguous memory representation of 1D/2D arrays, array decay to point
 
 ### L27 — Array Basics
 - An array reserves a contiguous block of RAM memory to store multiple elements of the same type.
-- Address calculation: $\text{address} = \text{start} + \text{index} \times \text{sizeof(type)}$.
+- Address calculation: $`\text{address} = \text{start} + \text{index} \times \text{sizeof(type)}`$.
 - Indexing starts at `0`. Uninitialized local arrays contain garbage values.
 - `sizeof(arr) / sizeof(arr[0])` calculates the number of elements only within the scope of array definition.
 
 ### L28 — Arrays as Parameters
-- When an array is passed to a function, it decays into a raw pointer (*array decay*): `int arr[]` $\rightarrow$ `int*`.
+- When an array is passed to a function, it decays into a raw pointer (*array decay*): `int arr[]` $`\rightarrow`$ `int*`.
 - Modifying elements inside the function alters the original array in `main`.
 - Use `const int arr[]` for read-only parameters. Always pass `size` as an explicit parameter.
 
 ### L29 — Multidimensional Arrays
 - 2D arrays are stored in contiguous memory in **Row-Major Order** (row by row).
-- Offset formula: $\text{flat index} = i \times \text{COLS} + j$.
+- Offset formula: $`\text{flat index} = i \times \text{COLS} + j`$.
 - Column dimension must be explicitly specified in function signatures: `void func(int mat[][10], int rows)`.
 
 ### L30A — `<cstring>` Library
 - A C-string is a `char` array ending with the null character sentinel **`'\0'`** (ASCII 0).
-- Array capacity must be at least $\text{length} + 1$ bytes.
+- Array capacity must be at least $`\text{length} + 1`$ bytes.
 - `#include <cstring>` provides `strlen`, `strcpy`, `strcat`, `strcmp`, `strchr`.
 
 ### L30B — `<string>` Library
 - `string` (from `#include <string>`) is an abstract object managing its dynamic memory automatically on the heap.
-- Always pass strings as `const string&` to avoid $O(N)$ string copying overhead.
+- Always pass strings as `const string&` to avoid $`O(N)`$ string copying overhead.
 - Essential operations: `.length()`, `.empty()`, `.substr(pos, len)`, `.find(target, pos)`, `.rfind()`, `.insert()`, `.erase()`, `.replace()`.
 - Access bounds: `str[i]` is fast and unchecked, while `str.at(i)` performs bounds checking and throws `out_of_range`.
 
@@ -90,9 +90,9 @@ It covers contiguous memory representation of 1D/2D arrays, array decay to point
 
 ### L30D — String Applications
 - **Palindrome Complexity:**
-  - Naïve recursive `substr(1, len-2)` creates heap string copies at every step $\rightarrow O(N^2)$ time & space!
-  - Optimized Frontier Indices (or Two-Pointer `low`/`high`) operates in $O(N)$ time and $O(1)$ extra space.
-- **Pig Latin Translation:** Checks vowel rules (`"apple"` $\rightarrow$ `"appleway"`) and splits consonant clusters (`"trash"` $\rightarrow$ `"ashtray"`).
+  - Naïve recursive `substr(1, len-2)` creates heap string copies at every step $`\rightarrow O(N^2)`$ time & space!
+  - Optimized Frontier Indices (or Two-Pointer `low`/`high`) operates in $`O(N)`$ time and $`O(1)`$ extra space.
+- **Pig Latin Translation:** Checks vowel rules (`"apple"` $`\rightarrow`$ `"appleway"`) and splits consonant clusters (`"trash"` $`\rightarrow`$ `"ashtray"`).
 - **Ciphers:** Caesar cipher rotates letters modulo 26 preserving case; Letter-substitution cipher maps alphabet bijectively.
 - **Stanford `strlib` Helpers:** Functions like `startsWith`, `endsWith`, `trim`, and `split`.
 
@@ -103,8 +103,8 @@ It covers contiguous memory representation of 1D/2D arrays, array decay to point
 1. **Implicit initialization:** Always initialize arrays to avoid reading garbage from RAM (`int arr[10] = {};`).
 2. **Use of `const`:** Protect arrays and strings in function signatures when read-only (`const int arr[]`, `const string& str`).
 3. **Passing dimensions:** Explicitly pass array dimensions along with raw C arrays.
-4. **Respect the `'\0'`:** Ensure space for the null character when declaring C-strings ($\text{capacity} \ge \text{strlen} + 1$).
-5. **Frontier Pointers ($O(N)$):** Use two indices (`low` and `high`) for string reversal and palindrome verification to avoid $O(N^2)$ substring copies.
+4. **Respect the `'\0'`:** Ensure space for the null character when declaring C-strings ($`\text{capacity} \ge \text{strlen} + 1`$).
+5. **Frontier Pointers ($`O(N)`$):** Use two indices (`low` and `high`) for string reversal and palindrome verification to avoid $`O(N^2)`$ substring copies.
 
 ---
 

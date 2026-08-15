@@ -1,7 +1,7 @@
 # 📝 Section 02: Basic Syntax — Study Summary and Notes
 
 Study notes and executive summary for **Section 02: Basic C++ Syntax**.
-Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), binary representation and 2's complement, overflow, type casting, safe floating-point comparison with epsilon ($\epsilon$), conditionals (`if`, `else`, `switch`), and loop control structures (`while`, `do-while`, `for`, `break`, `continue`).
+Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), binary representation and 2's complement, overflow, type casting, safe floating-point comparison with epsilon ($`\epsilon`$), conditionals (`if`, `else`, `switch`), and loop control structures (`while`, `do-while`, `for`, `break`, `continue`).
 
 ---
 
@@ -48,7 +48,7 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 | **E01** | Variable Types | Declaration and initialization | 💻 [`E01_VariableTypes.cpp`](../exercise/E01_VariableTypes.cpp) | ✅ |
 | **E02** | Name and Age | Input and data combination | 💻 [`E02_NameAndAge.cpp`](../exercise/E02_NameAndAge.cpp) | ✅ |
 | **E03** | Sizeof Types | Memory size inspection | 💻 [`E03_SizeofTypes.cpp`](../exercise/E03_SizeofTypes.cpp) | ✅ |
-| **E04** | Float Precision | Precision and comparison with $\epsilon$ | 💻 [`E04_FloatPrecision.cpp`](../exercise/E04_FloatPrecision.cpp) | ✅ |
+| **E04** | Float Precision | Precision and comparison with $`\epsilon`$ | 💻 [`E04_FloatPrecision.cpp`](../exercise/E04_FloatPrecision.cpp) | ✅ |
 | **E05** | Integer Division | Integer division vs `double` | 💻 [`E05_IntegerDivision.cpp`](../exercise/E05_IntegerDivision.cpp) | ✅ |
 | **E06** | Char ASCII | Character encoding | 💻 [`E06_CharASCII.cpp`](../exercise/E06_CharASCII.cpp) | ✅ |
 | **E07** | Grade Check | Simple conditionals | 💻 [`E07_GradeCheck.cpp`](../exercise/E07_GradeCheck.cpp) | ✅ |
@@ -85,8 +85,8 @@ Covers variables, primitive types (`int`, `float`, `double`, `char`, `bool`), bi
 ## 🛡️ Best Practices and Key Patterns
 
 1. **Uniform Initialization (C++11):** Use brace syntax `int x{0};` to prevent narrowing conversions.
-2. **Safe floating-point comparison:** Use an epsilon value ($\epsilon$) when evaluating decimal numbers.
-3. **Floating-point division:** Ensure at least one operand is a `double` when dividing numbers to avoid integer truncation (`5.0 / 2` $\rightarrow$ `2.5`).
+2. **Safe floating-point comparison:** Use an epsilon value ($`\epsilon`$) when evaluating decimal numbers.
+3. **Floating-point division:** Ensure at least one operand is a `double` when dividing numbers to avoid integer truncation (`5.0 / 2` $`\rightarrow`$ `2.5`).
 
 ---
 

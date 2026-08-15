@@ -25,11 +25,11 @@
 
 ## 1. Integer Data Types & Memory Bounds
 
-| Data Type | Standard Memory | Minimum Value ($2^{k-1}$) | Maximum Value ($2^{k-1}-1$) | Typical Application |
+| Data Type | Standard Memory | Minimum Value ($`2^{k-1}`$) | Maximum Value ($`2^{k-1}-1`$) | Typical Application |
 | :--- | :---: | :---: | :---: | :--- |
-| **`short`** | 2 Bytes (16 bits) | $-32,768$ | $+32,767$ | Memory-constrained embedded sensors. |
-| **`int`** | 4 Bytes (32 bits) | $-2,147,483,648$ | $+2,147,483,647$ | Default choice for general loop counters and quantities. |
-| **`long long`** | 8 Bytes (64 bits) | $\approx -9.22 \times 10^{18}$ | $\approx +9.22 \times 10^{18}$ | Financial balances, timestamps, planetary distances. |
+| **`short`** | 2 Bytes (16 bits) | $`-32,768`$ | $`+32,767`$ | Memory-constrained embedded sensors. |
+| **`int`** | 4 Bytes (32 bits) | $`-2,147,483,648`$ | $`+2,147,483,647`$ | Default choice for general loop counters and quantities. |
+| **`long long`** | 8 Bytes (64 bits) | $`\approx -9.22 \times 10^{18}`$ | $`\approx +9.22 \times 10^{18}`$ | Financial balances, timestamps, planetary distances. |
 
 > [!TIP]
 > **Checking Machine Limits at Runtime:**
