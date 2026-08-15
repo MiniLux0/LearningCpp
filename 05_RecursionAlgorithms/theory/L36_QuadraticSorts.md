@@ -30,13 +30,7 @@
 
 El ordenamiento consiste en reorganizar $N$ elementos en un orden predeterminado. Es fundamental porque habilita algoritmos más rápidos como la **Búsqueda Binaria** ( $O(\log N)$ ).
 
-```mermaid
-graph LR
-    A["Arreglo desordenado: 64 25 12 22 11"]
-    B["Algoritmo de Ordenamiento"]
-    C["Arreglo ordenado: 11 12 22 25 64"]
-    A --> B --> C
-```
+![Sorting Goal](assets/L36_SortIntro.svg)
 
 ---
 
@@ -46,15 +40,7 @@ graph LR
 
 En cada iteración $i$, busca el **elemento mínimo** del subarreglo no ordenado $[i \dots N-1]$ y lo intercambia con la posición $i$.
 
-```mermaid
-graph TD
-    P0["Inicial:  64  25  12  22  11"]
-    P1["Paso 1: min=11 en pos 4 swap con pos 0 -> 11  25  12  22  64"]
-    P2["Paso 2: min=12 en pos 2 swap con pos 1 -> 11  12  25  22  64"]
-    P3["Paso 3: min=22 en pos 3 swap con pos 2 -> 11  12  22  25  64"]
-    P4["Paso 4: min=25 ya en pos 3, sin swap  -> 11  12  22  25  64"]
-    P0 --> P1 --> P2 --> P3 --> P4
-```
+![Selection Sort Steps](assets/L36_SelectionSteps.svg)
 
 ### Implementación en C++
 
@@ -91,15 +77,7 @@ void selectionSort(int arr[], int n) {
 
 Mantiene una **sub-lista izquierda ordenada**. Para cada nuevo elemento `key`, desplaza los elementos mayores a la derecha e inserta `key` en el espacio libre.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    Note over Arr: Estado inicial: 12  11  13  5  6
-    Note over Arr: i=1, key=11. Desplazar 12 -> insertar 11: 11  12  13  5  6
-    Note over Arr: i=2, key=13. 12 menor, sin desplazamiento: 11  12  13  5  6
-    Note over Arr: i=3, key=5. Desplazar 13,12,11 -> insertar 5: 5  11  12  13  6
-    Note over Arr: i=4, key=6. Desplazar 13,12,11 -> insertar 6: 5  6  11  12  13
-```
+![Insertion Sort Steps](assets/L36_InsertionSteps.svg)
 
 ### Implementación en C++
 
@@ -162,13 +140,7 @@ void bubbleSort(int arr[], int n) {
 | **Insertion Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 | **Bubble Sort** | $\mathbf{O(N)}$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | ✅ Estable | $O(N^2)$ |
 
-```mermaid
-graph LR
-    BEST["Mejor caso: datos casi ordenados"]
-    BEST -->|"O(N) lineal"| IS["Insertion Sort"]
-    BEST -->|"O(N) lineal"| BS["Bubble Sort optimizado"]
-    BEST -->|"O(N^2) YESEMPRE"| SS["Selection Sort"]
-```
+![Best Case Comparison](assets/L36_BestCaseComp.svg)
 
 ---
 

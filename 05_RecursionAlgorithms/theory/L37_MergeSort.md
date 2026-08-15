@@ -117,39 +117,7 @@ void mergeSort(vector<int>& vec) {
 
 ### Árbol para `N = 8`
 
-```mermaid
-graph TD
-    N0["Nivel 0: 56 25 37 58 19 30 40 70   - 8 elems, 1 llamada"]
-    N1a["Nivel 1a: 56 25 37 58"]
-    N1b["Nivel 1b: 19 30 40 70"]
-    N2a["56 25"]
-    N2b["37 58"]
-    N2c["19 30"]
-    N2d["40 70"]
-    N3a["56"]
-    N3b["25"]
-    N3c["37"]
-    N3d["58"]
-    N3e["19"]
-    N3f["30"]
-    N3g["40"]
-    N3h["70"]
-
-    N0 --> N1a
-    N0 --> N1b
-    N1a --> N2a
-    N1a --> N2b
-    N1b --> N2c
-    N1b --> N2d
-    N2a --> N3a
-    N2a --> N3b
-    N2b --> N3c
-    N2b --> N3d
-    N2c --> N3e
-    N2c --> N3f
-    N2d --> N3g
-    N2d --> N3h
-```
+![Merge Sort Tree](assets/L37_MergeTree.svg)
 
 ### ¿Cuántos Niveles Hay?
 
@@ -199,16 +167,7 @@ MergeSort introdujo la importancia de la clase $O(N \log N)$. El texto de Secci�
 | $O(N^2)$ | Cuadrática | Selection Sort |
 | $O(2^N)$ | Exponencial | Backtracking sin poda |
 
-```mermaid
-graph LR
-    C1["O(1) Constante"] --> C2["O(log N) Logaritmica"]
-    C2 --> C3["O(N) Lineal"]
-    C3 --> C4["O(N log N) MergeSort"]
-    C4 --> C5["O(N^2) Cuadratica"]
-    C5 --> C6["O(2^N) Exponencial"]
-    style C4 fill:#2d6a4f,color:#fff
-    style C6 fill:#9d0208,color:#fff
-```
+![Merge Sort Complexity](assets/L37_Complexity.svg)
 
 > [!IMPORTANT]
 > **Tractable vs Intractable (Sec. 10.4):**  

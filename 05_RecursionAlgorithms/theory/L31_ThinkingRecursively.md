@@ -49,16 +49,7 @@ En ciencias de la computación, la **recursividad** es la técnica de resolver u
 > - La pregunta viaja hacia adelante hasta la **Fila 1** (Caso Base: contesta *“¡Estoy en la fila 1!”*).
 > - La respuesta regresa desapilándose: tu fila es $\text{fila delante} + 1$.
 
-```mermaid
-graph TD
-    A["You: Row?"] -->|Asks| B["Row 3: Row?"]
-    B -->|Asks| C["Row 2: Row?"]
-    C -->|Asks| D["Row 1: Row 1! (Base Case)"]
-    D -->|Retorna 1| C
-    C -->|Returns 1 + 1 = 2| B
-    B -->|Returns 2 + 1 = 3| A
-    A -->|Final Result: 3 + 1 = 4| E["Row 4"]
-```
+![Factorial Recursion Flow](assets/L31_FactorialFlow.svg)
 
 ---
 
@@ -110,25 +101,7 @@ void cuentaRegresiva(int n) {
 
 #### Diagrama de Secuencia y Desapilado:
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Main as main()
-    participant F3 as countDown(3)
-    participant F2 as countDown(2)
-    participant F1 as countDown(1)
-    participant F0 as countDown(0)
-
-    Main->>F3: n = 3
-    F3->>F2: n = 2
-    F2->>F1: n = 1
-    F1->>F0: n = 0
-    Note over F0: Base Case (n == 0)<br/>Prints "Blastoff!"
-    F0-->>F1: Return (Stack Pop)
-    F1-->>F2: Return (Stack Pop)
-    F2-->>F3: Return (Stack Pop)
-    F3-->>Main: End of Execution
-```
+![Base Case Flow](assets/L31_BaseCaseFlow.svg)
 
 ---
 
