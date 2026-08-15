@@ -13,7 +13,7 @@
   .box-sorted { fill: #c8e6c9; stroke: #388e3c; stroke-width: 2; }
 </style>
 
-    <text class="title" x="50" y="40">Merge Sort: Divide & Conquer (O(N log N))</text>
+    <text class="title" x="50" y="40">Merge Sort: Divide &amp; Conquer (O(N log N))</text>
     
     <!-- Level 0: [38, 27, 43, 3] -->
     <rect class="box" x="250" y="70" width="160" height="30" rx="4"/>

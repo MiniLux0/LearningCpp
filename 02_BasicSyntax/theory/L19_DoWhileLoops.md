@@ -26,13 +26,7 @@
 
 Unlike pre-test `while` loops, a `do-while` loop executes its body block **first** and checks the continuation condition **at the bottom**:
 
-```mermaid
-graph TD
-    Start["Enter Loop"] --> Body["Execute Body Block { }"]
-    Body --> Cond{"Is condition true?"}
-    Cond -- True --> Body
-    Cond -- False --> Exit["Exit Loop"]
-```
+![Do-While Flow](assets/L19_DoWhileLoops.svg)
 
 ```cpp
 #include <iostream>

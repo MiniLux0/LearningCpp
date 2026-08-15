@@ -26,11 +26,7 @@
 
 The stream extraction operator `cin >>` reads formatted tokens until it encounters the first **whitespace character** (space, tab, newline).
 
-```mermaid
-graph TD
-    Input["Keyboard Input: 'Albert Einstein\n'"] -->|cin >> name| Part1["name = 'Albert'"]
-    Input -->|Residual in Buffer| Buffer["Stream Buffer: ' Einstein\n'"]
-```
+![std::cin Input Buffer](assets/L08_UserInput.svg)
 
 If the user enters `"Albert Einstein"`, `cin >> name` extracts `"Albert"` and leaves `" Einstein\n"` inside the RAM stream buffer, contaminating subsequent reads.
 

@@ -85,12 +85,7 @@ int main() {
 
 ## 3. Method Reference Table & Code Examples
 
-```mermaid
-graph TD
-    S["string object"] --> M1["1. Inspection & Access: .length(), .empty(), [i], .at(i), .front(), .back(), .c_str()"]
-    S["string object"] --> M2["2. Search & Substrings: .find(pat, pos), .rfind(pat, pos), .substr(pos, len)"]
-    S["string object"] --> M3["3. Text Mutation: +, +=, .insert(pos, txt), .erase(pos, len), .replace(pos, n, txt), .clear()"]
-```
+![std::string Core Methods](assets/L30B_StdString.svg)
 
 ### 📋 `#include <string>` Method Reference
 

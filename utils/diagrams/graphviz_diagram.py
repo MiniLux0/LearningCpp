@@ -10,6 +10,11 @@ import os
 import sys
 import shutil
 
+# Force add Graphviz default install paths to PATH (for unrefreshed terminal sessions)
+for g_path in [r"C:\Program Files\Graphviz\bin", r"C:\Program Files (x86)\Graphviz\bin"]:
+    if os.path.exists(g_path) and g_path not in os.environ["PATH"]:
+        os.environ["PATH"] += os.pathsep + g_path
+
 # Ensure Graphviz binary is installed
 if not shutil.which("dot"):
     print("CRITICAL ERROR: 'dot' binary not found in system PATH.", file=sys.stderr)

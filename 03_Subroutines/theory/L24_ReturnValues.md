@@ -27,12 +27,7 @@
 
 Una función puede calcular un valor y transmitirlo de vuelta a la función invocadora mediante la sentencia `return`:
 
-```mermaid
-graph LR
-    Caller["int res = alCuadrado(4);"] -->|Function Call| Func["square(int n)"]
-    Func -->|Calculates 4 * 4 = 16| Ret["return 16;"]
-    Ret -->|Returns 16| Caller
-```
+![Return Value Flow](assets/L24_ReturnValues.svg)
 
 ```cpp
 #include <iostream>

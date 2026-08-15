@@ -27,11 +27,7 @@
 
 In C++, a `char` stores a single character enclosed in **single quotes** (`'A'`). Under the hood, a `char` is simply a 1-byte (8-bit) integer storing an **ASCII code**:
 
-```mermaid
-graph LR
-    Literal["char letter = 'A';"] -->|Compiler Mapping| ASCII["ASCII Integer: 65"]
-    ASCII -->|RAM Memory| Binary["Binary: 01000001 (1 byte)"]
-```
+![Char & Bool Memory](assets/L12_CharAndBool.svg)
 
 - `'A'` $\rightarrow$ ASCII `65`
 - `'a'` $\rightarrow$ ASCII `97`

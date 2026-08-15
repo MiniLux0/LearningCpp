@@ -51,14 +51,7 @@ bool isPalindromeBad(string str) {
 
 Instead of creating substrings in RAM memory, pass original string by constant reference (`const string&`) and shift two numerical frontier index markers (`low` and `high`):
 
-```mermaid
-graph LR
-    Str["'R A C E C A R'"]
-    low["low = 0 ('R')"] --> Str
-    high["high = 6 ('R')"] --> Str
-    low -->|"low++"| Step1["low = 1 ('A')"]
-    high -->|"high--"| Step2["high = 5 ('A')"]
-```
+![Two Pointers Technique](assets/L30D_TwoPointers.svg)
 
 ```cpp
 #include <iostream>

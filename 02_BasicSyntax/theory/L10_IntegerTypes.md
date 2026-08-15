@@ -49,11 +49,7 @@ By default, integers are **signed** (the most significant bit MSB acts as a nega
 
 When a variable is declared `unsigned`, the sign bit is re-purposed as a magnitude bit, **doubling the positive maximum range**:
 
-```mermaid
-graph LR
-    Signed["signed int (32 bits)<br/>Range: -2,147,483,648 to +2,147,483,647"]
-    Unsigned["unsigned int (32 bits)<br/>Range: 0 to 4,294,967,295"]
-```
+![Integer Types Memory Sizes](assets/L10_IntegerTypes.svg)
 
 ```cpp
 unsigned int score = 4000000000U; // Valid! Fits within 4.2 billion unsigned limit
