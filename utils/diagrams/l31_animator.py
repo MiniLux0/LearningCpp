@@ -1,0 +1,151 @@
+import os
+
+def gen_factorial_animation(path):
+    svg = '''<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="400" fill="#ffffff" rx="10"/>
+<style>
+    text { font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
+    .frame { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 2; rx: 8; transition: all 0.3s; }
+    .frame-hl { fill: #e1f5fe; stroke: #0288d1; stroke-width: 3; }
+    .frame-done { fill: #d4edda; stroke: #28a745; stroke-width: 3; }
+    
+    .call-text { font-size: 16px; font-weight: bold; fill: #343a40; }
+    .ret-text { font-size: 14px; fill: #d32f2f; font-weight: bold; opacity: 0; }
+    
+    /* Animation Keyframes for Stack (Total 16 seconds) */
+    
+    /* Box Opacities (appear sequentially, then disappear sequentially) */
+    @keyframes appear-3 { 0%, 5% {opacity:0;} 10%, 100% {opacity:1;} }
+    @keyframes appear-2 { 0%, 15% {opacity:0;} 20%, 90% {opacity:1;} 95%, 100% {opacity:0;} }
+    @keyframes appear-1 { 0%, 25% {opacity:0;} 30%, 80% {opacity:1;} 85%, 100% {opacity:0;} }
+    @keyframes appear-0 { 0%, 35% {opacity:0;} 40%, 70% {opacity:1;} 75%, 100% {opacity:0;} }
+    
+    /* Return Text Opacities */
+    @keyframes ret-0 { 0%, 45% {opacity:0;} 50%, 70% {opacity:1;} 75%, 100% {opacity:0;} }
+    @keyframes ret-1 { 0%, 55% {opacity:0;} 60%, 80% {opacity:1;} 85%, 100% {opacity:0;} }
+    @keyframes ret-2 { 0%, 65% {opacity:0;} 70%, 90% {opacity:1;} 95%, 100% {opacity:0;} }
+    @keyframes ret-3 { 0%, 75% {opacity:0;} 80%, 100% {opacity:1;} }
+    
+    /* Box Coloring (turning green when returning) */
+    @keyframes color-0 { 0%, 45% { fill: #e1f5fe; stroke: #0288d1; } 50%, 100% { fill: #d4edda; stroke: #28a745; } }
+    @keyframes color-1 { 0%, 55% { fill: #e1f5fe; stroke: #0288d1; } 60%, 100% { fill: #d4edda; stroke: #28a745; } }
+    @keyframes color-2 { 0%, 65% { fill: #e1f5fe; stroke: #0288d1; } 70%, 100% { fill: #d4edda; stroke: #28a745; } }
+    @keyframes color-3 { 0%, 75% { fill: #e1f5fe; stroke: #0288d1; } 80%, 100% { fill: #d4edda; stroke: #28a745; } }
+
+    #g3 { animation: appear-3 16s infinite; }
+    #g3 rect { animation: color-3 16s infinite; }
+    #g3 .ret-text { animation: ret-3 16s infinite; }
+    
+    #g2 { animation: appear-2 16s infinite; }
+    #g2 rect { animation: color-2 16s infinite; }
+    #g2 .ret-text { animation: ret-2 16s infinite; }
+    
+    #g1 { animation: appear-1 16s infinite; }
+    #g1 rect { animation: color-1 16s infinite; }
+    #g1 .ret-text { animation: ret-1 16s infinite; }
+    
+    #g0 { animation: appear-0 16s infinite; }
+    #g0 rect { animation: color-0 16s infinite; }
+    #g0 .ret-text { animation: ret-0 16s infinite; }
+
+</style>
+
+<text x="300" y="40" font-size="22" font-weight="bold" text-anchor="middle" fill="#212529">Call Stack Animado: factorial(3)</text>
+'''
+    
+    # Boxes stack from bottom (y=320) to top (y=80)
+    stack = [
+        ("g3", 320, "factorial(3)", "return 3 * 2 = 6"),
+        ("g2", 240, "factorial(2)", "return 2 * 1 = 2"),
+        ("g1", 160, "factorial(1)", "return 1 * 1 = 1"),
+        ("g0", 80,  "factorial(0)  [BASE CASE]", "return 1")
+    ]
+    
+    for gid, y, call, ret in stack:
+        svg += f'''
+<g id="{gid}">
+    <rect x="150" y="{y}" width="300" height="60" class="frame" />
+    <text x="300" y="{y + 25}" class="call-text" text-anchor="middle">{call}</text>
+    <text x="300" y="{y + 45}" class="ret-text" text-anchor="middle">{ret}</text>
+</g>
+'''
+    
+    svg += '</svg>'
+    with open(path, "w", encoding="utf-8") as f: f.write(svg)
+
+def gen_basecase_flow(path):
+    svg = '''<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="400" fill="#ffffff" rx="10"/>
+<style>
+    text { font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
+    .box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 2; rx: 8; }
+    .diamond { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+    .base { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; rx: 8; }
+    .rec { fill: #fce4ec; stroke: #d81b60; stroke-width: 2; rx: 8; }
+    
+    .label { font-size: 14px; font-weight: bold; fill: #343a40; }
+    .arrow { stroke: #adb5bd; stroke-width: 2; fill: none; }
+    
+    /* Animated glowing dot tracing the path */
+    @keyframes trace {
+        0%, 10%   { transform: translate(300px, 60px); opacity: 1; } /* At Call */
+        15%, 25%  { transform: translate(300px, 140px); opacity: 1; } /* At Cond */
+        30%, 40%  { transform: translate(300px, 260px); opacity: 1; } /* At Rec */
+        45%, 55%  { transform: translate(300px, 140px); opacity: 1; } /* Back to Cond */
+        60%, 70%  { transform: translate(100px, 140px); opacity: 1; } /* To Base */
+        75%, 100% { transform: translate(100px, 140px); opacity: 0; }
+    }
+    
+    #dot {
+        fill: #0288d1;
+        animation: trace 6s infinite;
+    }
+</style>
+
+<text x="300" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#212529">Arquitectura General de la Recursividad</text>
+
+<!-- Flowchart -->
+<!-- Call Function -->
+<rect x="220" y="60" width="160" height="50" class="box"/>
+<text x="300" y="90" class="label" text-anchor="middle">Llamada a Función</text>
+
+<path d="M300,110 L300,140" class="arrow" marker-end="url(#arrowhead)"/>
+
+<!-- Diamond Condition -->
+<polygon points="300,140 380,180 300,220 220,180" class="diamond"/>
+<text x="300" y="185" class="label" text-anchor="middle">¿Es Caso Base?</text>
+
+<path d="M300,220 L300,260" class="arrow" marker-end="url(#arrowhead)"/>
+<text x="310" y="245" font-size="12" fill="#d81b60" font-weight="bold">No</text>
+
+<path d="M220,180 L180,180" class="arrow" marker-end="url(#arrowhead)"/>
+<text x="200" y="175" font-size="12" fill="#388e3c" font-weight="bold">Sí</text>
+
+<!-- Recursive Step -->
+<rect x="220" y="260" width="160" height="50" class="rec"/>
+<text x="300" y="285" class="label" fill="#d81b60" text-anchor="middle">Paso Recursivo</text>
+<!-- Loop back -->
+<path d="M380,285 L440,285 L440,180 L380,180" class="arrow" stroke-dasharray="5"/>
+
+<!-- Base Case -->
+<rect x="20" y="155" width="160" height="50" class="base"/>
+<text x="100" y="185" class="label" fill="#388e3c" text-anchor="middle">Retornar y Detener</text>
+
+<!-- The animated dot -->
+<circle id="dot" r="6" cx="0" cy="0" />
+
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#adb5bd" />
+  </marker>
+</defs>
+
+</svg>'''
+    with open(path, "w", encoding="utf-8") as f: f.write(svg)
+
+if __name__ == "__main__":
+    out_dir = "05_RecursionAlgorithms/theory/assets"
+    os.makedirs(out_dir, exist_ok=True)
+    gen_factorial_animation(os.path.join(out_dir, "L31_FactorialFlow.svg"))
+    gen_basecase_flow(os.path.join(out_dir, "L31_BaseCaseFlow.svg"))
+    print("L31 Animated SVGs generated successfully!")
