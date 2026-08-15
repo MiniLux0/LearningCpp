@@ -41,7 +41,16 @@ Notice que `fib(3)` se calcula **2 veces** y `fib(2)` se calcula **3 veces**. A 
 
 Para transformar cualquier función recursiva exponencial $O(2^N)$ en una versión memoizada lineal $O(N)$, se sigue esta plantilla:
 
-![Logic Flow Diagram](assets/flow_L33_Memoization_1.svg)
+```mermaid
+graph TD
+    IN["Invocation: f(n)"] --> C1{"1. Cache Check: Is n already computed?"}
+    C1 -->|YES| RET1["Return cached value in O(1)"]
+    C1 -->|NO| BASE{"2. Base Case Evaluation: Is n trivial?"}
+    BASE -->|YES| SET1["Save base case to cache and return"]
+    BASE -->|NO| REC["3. Recursive Step: Compute subproblems"]
+    REC --> STORE["4. Save result to cache"]
+    STORE --> RET2["Return saved result"]
+```
 
 ### Plantilla Genérica en C++:
 
@@ -106,7 +115,12 @@ long long fibMapHelper(int n, unordered_map<int, long long>& memo) {
 
 Imagina un robot ubicado en la esquina superior izquierda de una grilla de $R \times C$ casillas que solo puede moverse **hacia la Derecha** o **hacia Abajo**. ¿Cuántos caminos únicos existen para llegar a la esquina inferior derecha?
 
-![Logic Flow Diagram](assets/flow_L33_Memoization_2.svg)
+```mermaid
+graph TD
+    G["Grid Traveler (R, C)"]
+    G -->|"Move Down"| DOWN["Grid Traveler (R - 1, C)"]
+    G -->|"Move Right"| RIGHT["Grid Traveler (R, C - 1)"]
+```
 
 ### Implementación Recursiva con Memoización de Estados Bidimensionales:
 

@@ -38,7 +38,16 @@ Complex conditions combine simple boolean expressions using logical operators:
 
 In C++, boolean expressions evaluate strictly from **left to right**. Evaluation stops immediately as soon as the overall result is guaranteed:
 
-![Logic Flow Diagram](assets/flow_L17_Conditions_1.svg)
+```mermaid
+graph TD
+    A["AND Expression: A && B"] --> CheckA{"Is A false?"}
+    CheckA -- Yes --> StopA["Stop! Evaluate entire expression as FALSE.<br/>(B is NEVER evaluated)"]
+    CheckA -- No --> EvalB["Evaluate B"]
+
+    C["OR Expression: A || B"] --> CheckC{"Is A true?"}
+    CheckC -- Yes --> StopC["Stop! Evaluate entire expression as TRUE.<br/>(B is NEVER evaluated)"]
+    CheckC -- No --> EvalD["Evaluate B"]
+```
 
 ---
 

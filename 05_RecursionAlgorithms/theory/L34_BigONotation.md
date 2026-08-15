@@ -48,7 +48,23 @@ Se clasifican las familias de rendimiento algorítmico en una jerarquía de crec
 O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)
 ```
 
-![Logic Flow Diagram](assets/flow_L34_BigONotation_1.svg)
+```mermaid
+graph LR
+    O1["O(1) Constante"] --> OlogN["O(log N) Logarítmico"]
+    OlogN --> ON["O(N) Lineal"]
+    ON --> ONlogN["O(N log N) Linealítmico"]
+    ONlogN --> ON2["O(N²) Cuadrático"]
+    ON2 --> O2N["O(2ᴺ) Exponencial"]
+    O2N --> ONFact["O(N!) Factorial"]
+
+    style O1 fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style OlogN fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style ON fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style ONlogN fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style ON2 fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    style O2N fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    style ONFact fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+```
 
 ---
 

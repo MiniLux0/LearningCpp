@@ -27,7 +27,10 @@
 
 In C++, a **variable** is a named, typed memory location reserved in RAM.
 
-![Logic Flow Diagram](assets/flow_L06_Variables_1.svg)
+```mermaid
+graph LR
+    Code["int age = 20;"] -->|Compiler Allocation| RAM["RAM Address: 0x7ffd<br/>Type: int (4 bytes)<br/>Binary Value: 00000000 00000000 00000000 00010100"]
+```
 
 > [!TIP]
 > **The Type Contract:**

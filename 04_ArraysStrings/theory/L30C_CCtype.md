@@ -26,7 +26,14 @@
 
 Unlike `#include <string>` (which manages full string objects) or `#include <cstring>` (which manages `char[]` arrays), **`#include <cctype>` is designed exclusively to inspect and transform individual characters (`char`)**.
 
-![Logic Flow Diagram](assets/flow_L30C_CCtype_1.svg)
+```mermaid
+graph TD
+    CC["#include <cctype>"] --> P1["Classification Predicates (Return bool)"]
+    CC --> P2["Case Transformations (Return int/char)"]
+    P1 --> A1["isalpha(), isdigit(), isalnum()"]
+    P1 --> A2["islower(), isupper(), isspace(), ispunct()"]
+    P2 --> B1["tolower(), toupper()"]
+```
 
 ---
 

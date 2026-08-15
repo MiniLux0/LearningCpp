@@ -44,7 +44,25 @@ Tanto MergeSort como QuickSort emplean **Divide y Vencerás**, pero con una dife
 
 El algoritmo de 3 pasos de la Sección 10.5:
 
-![Logic Flow Diagram](assets/flow_L38_QuickSort_1.svg)
+```mermaid
+graph TD
+    START["quickSort Call"]
+    CB{"0 or 1 elements?"}
+    PIVOT["1. Choose Pivot: arr[low]"]
+    PART["2. Partition: smaller to left, larger to right"]
+    RECL["3a. quickSort Left Sub-array"]
+    RECR["3b. quickSort Right Sub-array"]
+    DONE["Sorted Array"]
+
+    START --> CB
+    CB -->|"Yes: Base Case"| DONE
+    CB -->|"No"| PIVOT
+    PIVOT --> PART
+    PART --> RECL
+    PART --> RECR
+    RECL --> DONE
+    RECR --> DONE
+```
 
 ---
 
@@ -59,7 +77,29 @@ La parte más importante y sutil de QuickSort. Tony Hoare's original partitionin
 
 Asumimos que el pivote es `arr[low]` (primer elemento). Se usan dos punteros `lh` (left-hand) y `rh` (right-hand):
 
-![Logic Flow Diagram](assets/flow_L38_QuickSort_2.svg)
+```mermaid
+sequenceDiagram
+    autonumber
+    participant P  as Pivote=56
+    participant LH as lh avanza -->
+    participant RH as <-- rh retrocede
+
+    Note over P,RH: Array inicial: 56  25  37  58  19  30  40  70
+    LH->>LH: lh en idx 1 (25): 25 menor que 56, avanzar
+    LH->>LH: lh en idx 2 (37): 37 menor que 56, avanzar
+    LH->>LH: lh en idx 3 (58): 58 mayor que 56, DETENERSE
+    RH->>RH: rh en idx 7 (70): 70 mayor que 56, retroceder
+    RH->>RH: rh en idx 6 (40): 40 menor que 56, DETENERSE
+    Note over LH,RH: lh=3 menor que rh=6: swap arr-3 con arr-6
+    Note over P,RH: Array: 56  25  37  40  19  30  58  70
+    LH->>LH: lh=4 (19): menor que 56, avanzar
+    LH->>LH: lh=5 (30): menor que 56, avanzar
+    LH->>LH: lh=6 (58): mayor que 56, DETENERSE
+    RH->>RH: rh=5 (30): menor que 56, DETENERSE
+    Note over LH,RH: lh=6 mayor que rh=5: ROMPER BUCLE
+    P->>RH: swap Pivote con arr-rh: swap arr-0 con arr-5
+    Note over P,RH: Array final: 30  25  37  40  19  56  58  70. Pivote 56 en posicion definitiva idx 5
+```
 
 ### Implementación C++ del Esquema de Hoare
 
@@ -115,7 +155,29 @@ T(N) = O(N \log N)
 >
 > En el código del laboratorio esto se puede ver en la Demo 2: para $N=8$ ya ordenado, se requieren **35 comparaciones** vs **17** en el caso aleatorio.
 
-![Logic Flow Diagram](assets/flow_L38_QuickSort_3.svg)
+```mermaid
+graph TD
+    subgraph Equilibrado ["Caso Promedio: arbol equilibrado O(N log N)"]
+        A0["1 2 3 4 5 6 7 8 - Pivote aleatorio"]
+        A1["1 2 3 4"]
+        A2["5 6 7 8"]
+        A1 --> A3["1 2"]
+        A1 --> A4["3 4"]
+        A2 --> A5["5 6"]
+        A2 --> A6["7 8"]
+        A0 --> A1
+        A0 --> A2
+    end
+    subgraph Degenerado ["Peor Caso: arbol degenerado O(N^2)"]
+        B0["1 2 3 4 5 6 7 8 - Pivote=1"]
+        B1["2 3 4 5 6 7 8 - Pivote=2"]
+        B2["3 4 5 6 7 8 - Pivote=3"]
+        B3["..."]
+        B0 --> B1 --> B2 --> B3
+    end
+    style Equilibrado fill:#1b4332,color:#fff
+    style Degenerado fill:#370617,color:#fff
+```
 
 ---
 

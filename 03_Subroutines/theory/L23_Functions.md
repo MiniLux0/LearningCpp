@@ -27,7 +27,12 @@
 
 Una **función** es un bloque de código reutilizable diseñado para realizar una tarea específica. Las funciones permiten descomponer programas complejos y monolíticos en módulos independientes y fáciles de mantener.
 
-![Logic Flow Diagram](assets/flow_L23_Functions_1.svg)
+```mermaid
+graph LR
+    Caller["main() Call"] -->|Pass Arguments| Func["Function Body: showWelcome()"]
+    Func -->|Execute Instructions| Ops["Console Output / Calculations"]
+    Ops -->|Return Control| Caller
+```
 
 ```cpp
 #include <iostream>

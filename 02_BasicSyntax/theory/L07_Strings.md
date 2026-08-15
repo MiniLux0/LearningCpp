@@ -27,7 +27,12 @@
 
 A `string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `string` manages its own memory automatically on the heap as text grows or shrinks.
 
-![Logic Flow Diagram](assets/flow_L07_Strings_1.svg)
+```mermaid
+graph LR
+    Str["string name = 'Ada';"] -->|Internal Memory Layout| Arr["['A'] ['d'] ['a'] ['\0']"]
+    Arr --> Method1[".length() -> 3"]
+    Arr --> Method2["operator[0] -> 'A'"]
+```
 
 ---
 

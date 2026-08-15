@@ -26,7 +26,13 @@
 
 Unlike pre-test `while` loops, a `do-while` loop executes its body block **first** and checks the continuation condition **at the bottom**:
 
-![Logic Flow Diagram](assets/flow_L19_DoWhileLoops_1.svg)
+```mermaid
+graph TD
+    Start["Enter Loop"] --> Body["Execute Body Block { }"]
+    Body --> Cond{"Is condition true?"}
+    Cond -- True --> Body
+    Cond -- False --> Exit["Exit Loop"]
+```
 
 ```cpp
 #include <iostream>

@@ -26,7 +26,14 @@
 
 Programs often require executing specific blocks of code only when dynamic runtime conditions are met. The `if` statement evaluates a boolean expression:
 
-![Logic Flow Diagram](assets/flow_L13_If_1.svg)
+```mermaid
+graph TD
+    Start["Program Flow"] --> Cond{"Is condition true?"}
+    Cond -- Yes (true) --> Branch["Execute Code Block inside { }"]
+    Cond -- No (false) --> Skip["Skip Code Block"]
+    Branch --> Continue["Continue Sequential Execution"]
+    Skip --> Continue
+```
 
 ```cpp
 #include <iostream>
