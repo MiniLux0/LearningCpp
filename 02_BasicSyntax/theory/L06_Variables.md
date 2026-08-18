@@ -1,7 +1,7 @@
 # Lesson 06 — Variables, Primitive Types & Initialization
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106L Lecture 02** ([`WL2-Structures.pdf`](../../files/cs106l/lectures/WL2-Structures.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 02** ([`Lecture02_FlowOfControl.pdf`](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)) and **Stanford CS106L Lecture 03** ([`Lecture03_Structures.pdf`](../../files/cs106l/lectures/Lecture03_Structures.pdf)).
 
 ---
 
@@ -9,8 +9,8 @@
 
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Primitive Data Types & Allocation](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
-  - ⚙️ [Stanford CS106L — Lecture 02: Uniform Brace Initialization `{}`](../../files/cs106l/lectures/WL2-Structures.pdf)
-- 💻 **Code Lab:** [`l06_variables.cpp`](../code/l06_variables.cpp)
+  - ⚙️ [Stanford CS106L — Lecture 03: Uniform Brace Initialization `{}`](../../files/cs106l/lectures/Lecture03_Structures.pdf)
+- 💻 **Code Lab:** [`L06_Variables.cpp`](../code/L06_Variables.cpp)
 
 ---
 
@@ -27,7 +27,9 @@
 
 In C++, a **variable** is a named, typed memory location reserved in RAM.
 
-![l06_variables](assets/l06_variables.svg)
+<div align="center">
+  <img src="assets/l06_variables_manim.gif" alt="l06_variables">
+</div>
 
 > [!TIP]
 > **The Type Contract:**
@@ -107,7 +109,7 @@ int temperature{72.8};
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ Section 01 Capstone**](../../01_GettingStarted/theory/L05_InteractiveProfileApp.md) | [**🏠 Basic Syntax**](../README.md) | [**L07 — Strings & Text ➡️**](l07_strings.md) |
+| [**⬅️ Section 01 Capstone**](../../01_GettingStarted/theory/L05_InteractiveProfileApp.md) | [**🏠 Basic Syntax**](../README.md) | [**L07 — Strings & Text ➡️**](L07_Strings.md) |
 
 </div>
 

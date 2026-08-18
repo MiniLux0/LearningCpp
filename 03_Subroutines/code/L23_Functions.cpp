@@ -9,7 +9,7 @@ int raiseToPower(int base, int exponent) {
     return result;
 }
 
-int resta(int a, int b) {
+int subtract(int a, int b) {
     return a - b;
 }
 
@@ -24,8 +24,8 @@ int main() {
     cout << "raiseToPower(3, 2) = " << raiseToPower(3, 2) << " (3^2)" << endl;
 
     cout << "\nSubtraction check:" << endl;
-    cout << "resta(10, 3) = " << resta(10, 3) << endl;
-    cout << "resta(3, 10) = " << resta(3, 10) << endl;
+    cout << "subtract(10, 3) = " << subtract(10, 3) << endl;
+    cout << "subtract(3, 10) = " << subtract(3, 10) << endl;
 
     return 0;
 }

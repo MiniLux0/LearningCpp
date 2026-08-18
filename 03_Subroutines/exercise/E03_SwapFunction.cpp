@@ -2,42 +2,42 @@
 using namespace std;
 
 
-void estadisticasArreglo(int arr[], int tam, int &mayor, int &menor, double &promedio);
+void arrayStatistics(int arr[], int size, int &max, int &min, double &average);
 
 int main() {
     
     int matrix[]= {1,2,3,4,5,6,2,4,5,6};
-    int tam = 10;
-    int nmayor;
-    int nmenor;
-    double npromedio;
+    int size = 10;
+    int maxVal;
+    int minVal;
+    double avgVal;
 
-    estadisticasArreglo(matrix, tam, nmayor, nmenor, npromedio);
+    arrayStatistics(matrix, size, maxVal, minVal, avgVal);
 
-    cout << "Highest Number: " << nmayor  <<  endl;
-    cout << "Lowest Number: " << nmenor  <<  endl;
-    cout << "Average Number: " << npromedio  <<  endl;
+    cout << "Highest Number: " << maxVal  <<  endl;
+    cout << "Lowest Number: " << minVal  <<  endl;
+    cout << "Average Number: " << avgVal  <<  endl;
     return 0;
 }
 
-void estadisticasArreglo(int arr[], int tam, int &mayor, int &menor, double &promedio){
+void arrayStatistics(int arr[], int size, int &max, int &min, double &average){
 
-    mayor = arr[0];
-    menor = arr[0];
-    promedio = 0;
+    max = arr[0];
+    min = arr[0];
+    average = 0;
 
-    for (int i = 0; i < tam ; i++) {
-        if(arr[i] > mayor){
-            mayor = arr[i];
+    for (int i = 0; i < size ; i++) {
+        if(arr[i] > max){
+            max = arr[i];
         }
 
-        if(arr[i] < menor){
-            menor = arr[i];
+        if(arr[i] < min){
+            min = arr[i];
         }
 
-        promedio = (promedio + arr[i]);
+        average = (average + arr[i]);
         
     }
 
-    promedio = promedio/tam;
+    average = average/size;
 }

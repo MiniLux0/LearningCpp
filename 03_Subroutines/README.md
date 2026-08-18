@@ -29,8 +29,8 @@ This module covers code modularization in C++: function declarations and signatu
 
 | # | Lesson Name | 📘 Theory Note | 💻 Code Lab | Key Technical Concepts | Status |
 |---|-------------|----------------|-------------|------------------------|:------:|
-| **L23** | **Function Basics** | 📘 [`theory/l23_functions.md`](theory/l23_functions.md) | 💻 [`code/l23_functions.cpp`](code/l23_functions.cpp) | Function declaration, parameters, return type, `void`, DRY principle. | ✅ |
-| **L24** | **Return Values** | 📘 [`theory/l24_return_values.md`](theory/l24_return_values.md) | 💻 [`code/l24_return_values.cpp`](code/l24_return_values.cpp) | `return` statement, data flow, function overloading. | ✅ |
+| **L23** | **Function Basics** | 📘 [`theory/L23_Functions.md`](theory/L23_Functions.md) | 💻 [`code/L23_Functions.cpp`](code/L23_Functions.cpp) | Function declaration, parameters, return type, `void`, DRY principle. | ✅ |
+| **L24** | **Return Values** | 📘 [`theory/L24_ReturnValues.md`](theory/L24_ReturnValues.md) | 💻 [`code/L24_ReturnValues.cpp`](code/L24_ReturnValues.cpp) | `return` statement, data flow, function overloading. | ✅ |
 | **L25** | **Parameters & References** | 📘 [`theory/L25_FunctionParameters.md`](theory/L25_FunctionParameters.md) | 💻 [`code/L25_FunctionParameters.cpp`](code/L25_FunctionParameters.cpp) | Pass-by-value vs reference (`&`), optimization with `const &`. | ✅ |
 | **L26** | **Headers & Prototypes** | 📘 [`theory/L26_HeadersAndPrototypes.md`](theory/L26_HeadersAndPrototypes.md) | 💻 [`code/L26_HeadersAndPrototypes.cpp`](code/L26_HeadersAndPrototypes.cpp) | Function prototypes, `.h` / `.cpp` separation, `#pragma once` guards. | ✅ |
 
@@ -55,7 +55,7 @@ This module covers code modularization in C++: function declarations and signatu
 | Lessons | Academic Source PDF | Key Theoretical Topics |
 |---------|---------------------|------------------------|
 | **L23–L25** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) | Subroutine stack frames, return types, pass by value vs reference, overloading. |
-| **L26** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/WLecture_3_Init_and_Ref.pdf) | Function prototypes, `.h` / `.cpp` separation, `#pragma once` guards. |
+| **L26** | 📄 [`MIT 6.096 Lecture 03`](../files/mit6096/lectures/Lecture03_Functions.pdf) \| [`CS106L Lecture 04`](../files/cs106l/lectures/Lecture04_InitAndRef.pdf) | Function prototypes, `.h` / `.cpp` separation, `#pragma once` guards. |
 
 ---
 

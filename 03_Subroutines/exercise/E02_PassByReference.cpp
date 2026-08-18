@@ -3,20 +3,20 @@ using namespace std;
 
 
 // prototype (declaration)
-void division(int numerador, int divisor, int &cociente, int &residuo);
+void division(int numerator, int denominator, int &quotient, int &remainder);
 
 int main() {
     
-    int num =11, div = 3, coc, re;
+    int num = 11, div = 3, quot, rem;
 
-    division(num,div,coc,re);
+    division(num, div, quot, rem);
 
-    cout << coc << re;
+    cout << quot << rem;
     return 0;
 }
 
-void division(int numerador, int divisor, int &cociente, int &residuo){
+void division(int numerator, int denominator, int &quotient, int &remainder){
 
-    cociente = numerador / divisor;
-    residuo = numerador - (divisor * cociente);
+    quotient = numerator / denominator;
+    remainder = numerator - (denominator * quotient);
 }

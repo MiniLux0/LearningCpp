@@ -1,7 +1,7 @@
 # Lesson 05 — Capstone Project: Interactive Profile Generator
 
 > [!NOTE]
-> **Academic Foundation:** This capstone lesson integrates concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106L Lecture 01** ([`WLecture1_intro.pdf`](../../files/cs106l/lectures/WLecture1_intro.pdf)).
+> **Academic Foundation:** This capstone lesson integrates concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106L Lecture 01** ([`Lecture01_WelcomeToCpp.pdf`](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)).
 
 ---
 
@@ -9,7 +9,7 @@
 
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Consolidated I/O Syntax](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
-  - ⚙️ [Stanford CS106L — Lecture 01: Interactive Program Design](../../files/cs106l/lectures/WLecture1_intro.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 01: Interactive Program Design](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)
 - 💻 **Code Lab:** [`L05_InteractiveProfileApp.cpp`](../code/L05_InteractiveProfileApp.cpp)
 
 ---
@@ -30,7 +30,9 @@ The **Interactive Profile Generator** acts as a comprehensive capstone for Secti
 2. **Interactive Prompts:** Sequentially prompts the user for name, academic interest, and a lucky integer.
 3. **Formatted Card Output:** Displays an aligned user profile summary block.
 
-![l05_profile](assets/l05_profile.svg)
+<div align="center">
+  <img src="assets/l05_profile_manim.gif" alt="Interactive profile generator flow" />
+</div>
 
 ---
 

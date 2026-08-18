@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Count-Controlled Loop Structures](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: The for Loop Header](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l20_for_loops.cpp`](../code/l20_for_loops.cpp)
+- 💻 **Code Lab:** [`L20_ForLoops.cpp`](../code/L20_ForLoops.cpp)
 
 ---
 
@@ -22,18 +22,39 @@
 
 ---
 
-## 1. The Anatomy of a `for` Loop
+## 1. The Anatomy of a `for` Loop (1-2-3-4 Sequence)
 
-When the exact number of iterations is known beforehand, the `for` loop combines all three loop control elements into a single header statement:
+For a beginner, a `for` loop header can look like a soup of semicolons. The correct way to understand it is to mentally map its parts in the exact order the computer executes them:
 
-![l20_for_loops](assets/l20_for_loops.svg)
+```text
+       (1)             (2)             (4)
+for (  INIT ;      CONDITION ;        STEP ) {
+    
+    // (3) LOOP BODY
+    cout << "Iterating...\n";
+
+}
+```
+
+### The Exact Lifecycle:
+1. **[1] INIT (`int i = 0`)**: Executes **ONLY ONCE** at the very beginning. It creates and prepares your counter variable.
+2. **[2] CONDITION (`i < 5`)**: The gatekeeper. It is evaluated *before* entering. If `true`, it lets you proceed to step 3. If `false`, it exits the loop entirely.
+3. **[3] BODY**: Executes all the code inside the curly braces `{ ... }`.
+4. **[4] STEP (`i++`)**: After completing the body, control jumps back up to update the counter.
+5. **Repeat starting from [2]**. The initialization step [1] is never touched again!
+
+<div align="center">
+  <img src="assets/l20_for_loops_manim.gif" alt="for loop execution trace">
+  <p><em><strong>Execution Trace:</strong> Look closely at the animation above. Notice how the highlighter jumps in the exact order 1 → 2 → 3 → 4, and then loops in the cycle 2 → 3 → 4 until the condition becomes false.</em></p>
+</div>
 
 ```cpp
 #include <iostream>
 
 int main() {
-    // for (Init; Condition; Step)
+    // 1. Init i=0 | 2. Check i<5 | 4. Increment i++
     for (int i = 0; i < 5; i++) {
+        // 3. Print
         cout << "Iteration i = " << i << "\n";
     }
     return 0;
@@ -76,7 +97,7 @@ How do you write a `for` loop header that counts down from `10` to `1` inclusive
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L19 — Post-Test do-while Loops**](l19_do_while_loops.md) | [**🏠 Basic Syntax**](../README.md) | [**L21 — Loop Interruptions: break & continue ➡️**](l21_break_and_continue.md) |
+| [**⬅️ L19 — Post-Test do-while Loops**](L19_DoWhileLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L21 — Loop Interruptions: break & continue ➡️**](L21_BreakAndContinue.md) |
 
 </div>
 

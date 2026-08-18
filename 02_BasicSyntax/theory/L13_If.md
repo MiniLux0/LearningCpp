@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Branching & Conditional Execution](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Control Statements in C++](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l13_if.cpp`](../code/l13_if.cpp)
+- 💻 **Code Lab:** [`L13_If.cpp`](../code/L13_If.cpp)
 
 ---
 
@@ -26,7 +26,9 @@
 
 Programs often require executing specific blocks of code only when dynamic runtime conditions are met. The `if` statement evaluates a boolean expression:
 
-![l13_if](assets/l13_if.svg)
+<div align="center">
+  <img src="assets/l13_if_manim.gif" alt="l13_if">
+</div>
 
 ```cpp
 #include <iostream>
@@ -95,7 +97,7 @@ What happens if you write `if (age = 18)` when `age` was previously `10`?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L12 — Char & Bool Types**](l12_char_and_bool.md) | [**🏠 Basic Syntax**](../README.md) | [**L14 — Control Flow: if-else ➡️**](l14_if_else.md) |
+| [**⬅️ L12 — Char & Bool Types**](L12_CharAndBool.md) | [**🏠 Basic Syntax**](../README.md) | [**L14 — Control Flow: if-else ➡️**](L14_IfElse.md) |
 
 </div>
 

@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-bool esMayor(int a, int b);
-bool esMayor(double a, double b, double tolerancia);
+bool isGreater(int a, int b);
+bool isGreater(double a, double b, double tolerance);
 
 int main() {
     
     return 0;
 }
 
-bool esMayor(int a, int b){
+bool isGreater(int a, int b){
 
     if(a > b){
         return true;
@@ -17,9 +17,9 @@ bool esMayor(int a, int b){
     return false;
 }
 
-bool esMayor(double a, double b, double toleracion){
+bool isGreater(double a, double b, double tolerance){
 
-    if(a - b > toleracion){
+    if(a - b > tolerance){
         return true;
     }
     return false;

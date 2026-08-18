@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 
-    int opcion;
+    int option;
 
     do {
         cout << "\nMENU\n";
@@ -11,19 +11,19 @@ int main() {
         cout << "2. Say your name\n";
         cout << "3. Exit\n";
         cout << "Choose an option: ";
-        cin >> opcion;
+        cin >> option;
 
-        if (opcion == 1) {
+        if (option == 1) {
             cout << "Hello!\n";
-        } else if (opcion == 2) {
+        } else if (option == 2) {
             cout << "Your name is ??? (not yet implemented)\n";
-        } else if (opcion == 3) {
+        } else if (option == 3) {
             cout << "Exiting...\n";
         } else {
             cout << "Invalid option\n";
         }
 
-    } while (opcion != 3); // 🔥 repeats until exit is chosen
+    } while (option != 3); // 🔥 repeats until exit is chosen
 
     return 0;
 }

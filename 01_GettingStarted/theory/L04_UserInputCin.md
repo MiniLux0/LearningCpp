@@ -1,14 +1,14 @@
 # Lesson 04 — Interactive User Input (`std::cin` & Stream Extraction)
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 04** ([`WL4_Streams.pdf`](../../files/cs106l/lectures/WL4_Streams.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 05** ([`Lecture05_Streams.pdf`](../../files/cs106l/lectures/Lecture05_Streams.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Lectures:**
-  - ⚙️ [Stanford CS106L — Lecture 04: Stream Abstractions & Abuses](../../files/cs106l/lectures/WL4_Streams.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 05: Stream Abstractions & Abuses](../../files/cs106l/lectures/Lecture05_Streams.pdf)
   - 🏛️ [MIT 6.096 — Lecture 01: Interactive Keyboard Input](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
 - 💻 **Code Lab:** [`L04_UserInputCin.cpp`](../code/L04_UserInputCin.cpp)
 
@@ -27,7 +27,9 @@
 
 While `std::cout` pushes data **OUT** to the screen, `std::cin` pulls data **IN** from the user's keyboard.
 
-![l04_io](assets/l04_io.svg)
+<div align="center">
+  <img src="assets/l04_io_manim.gif" alt="cin whitespace extraction" />
+</div>
 
 - **Insertion (`std::cout << data`):** Points left $\leftarrow$, pushing data toward output.
 - **Extraction (`std::cin >> variable`):** Points right $\rightarrow$, extracting tokens from the input buffer into variables.

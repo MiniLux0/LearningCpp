@@ -65,9 +65,15 @@ int main() {
 > **Binary Rounding Representation Errors:**
 > Numbers like $0.1$ ( $1/10$ ) cannot be represented exactly in binary powers of 2. In binary floating-point representation, $0.1$ is an infinitely repeating fraction:
 > ```text
+> ```text
 > 0.1 (decimal) = 0.00011001100110011... (binary)
 > ```
 > Consequently, computing `0.1 + 0.2` in `double` yields `0.30000000000000004`!
+
+<div align="center">
+  <img src="assets/l11_floating_point_manim.gif" alt="floating point precision truncation trace">
+  <p><em><strong>Precision Truncation:</strong> Floating-point numbers are divided into Sign, Exponent, and Mantissa bits. Because numbers like 0.1 become infinitely repeating in binary, they get violently truncated when hitting the 23-bit Mantissa limit. This truncation causes the microscopic rounding errors you see when adding them together!</em></p>
+</div>
 
 ---
 
@@ -102,7 +108,7 @@ What is the type of the literal `3.14` versus `3.14f` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L10 — Integer Types & Limits**](l10_integer_types.md) | [**🏠 Basic Syntax**](../README.md) | [**L12 — Char & Bool Types ➡️**](l12_char_and_bool.md) |
+| [**⬅️ L10 — Integer Types & Limits**](L10_IntegerTypes.md) | [**🏠 Basic Syntax**](../README.md) | [**L12 — Char & Bool Types ➡️**](L12_CharAndBool.md) |
 
 </div>
 

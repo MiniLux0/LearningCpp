@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Bitwise Memory Representation](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
   - 🌲 [Stanford CS106B — Appendix A: Representation of Data in Memory](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l09_binary_numbers.cpp`](../code/l09_binary_numbers.cpp)
+- 💻 **Code Lab:** [`L09_BinaryNumbers.cpp`](../code/L09_BinaryNumbers.cpp)
 
 ---
 
@@ -43,20 +43,89 @@ To evaluate binary `00001011` to decimal:
 
 ---
 
-## 2. Bitwise Operators in C++
+## 2. Bitwise Operators in C++: The Column Rule
 
-C++ provides native operators to manipulate individual bits within integer variables:
+To understand bitwise operators (`&`, `|`, `^`), the key is to **compare the numbers vertically**, as if placing one number on top of the other in primary school addition.
 
-![l09_binary_numbers](assets/l09_binary_numbers.svg)
+<div align="center">
+  <img src="assets/l09_binary_numbers_manim.gif" alt="bitwise AND vertical alignment">
+  <p><em><strong>Vertical Alignment:</strong> Notice how Bitwise AND (<code>&amp;</code>) operates vertically column-by-column. A result bit is <code>1</code> only if both top and bottom bits in that exact column are <code>1</code>.</em></p>
+</div>
 
-| Operator | Operation | Description | Example ( $a=12\text{ [1100]}$, $b=5\text{ [0101]}$ ) | Result |
-| :---: | :--- | :--- | :--- | :---: |
-| **`&`** | Bitwise AND | Bit is 1 if BOTH corresponding bits are 1. | `1100 & 0101` $\rightarrow$ `0100` | `4` |
-| **`\|`** | Bitwise OR | Bit is 1 if AT LEAST ONE bit is 1. | `1100 \| 0101` $\rightarrow$ `1101` | `13` |
-| **`^`** | Bitwise XOR | Bit is 1 if bits ARE DIFFERENT. | `1100 ^ 0101` $\rightarrow$ `1001` | `9` |
-| **`~`** | Bitwise NOT | Inverts all bits (1 $\rightarrow$ 0, 0 $\rightarrow$ 1). | `~00001100` | `-13` |
-| **`<<`** | Left Shift | Shifts bits left by $N$ places (multiplies by $2^N$). | `5 << 1` (`0101` $\rightarrow$ `1010`) | `10` |
-| **`>>`** | Right Shift | Shifts bits right by $N$ places (divides by $2^N$). | `12 >> 2` (`1100` $\rightarrow$ `0011`) | `3` |
+Suppose we have $12$ and $5$ in binary:
+```text
+12 = 1100
+ 5 = 0101
+```
+
+Imagine the bits are four people in a line. The operators ask a question **in each column**:
+
+### `&` — AND ("Are BOTH bits 1?")
+Output is `1` only if **BOTH** corresponding bits are `1`.
+```text
+  1 1 0 0
+& 0 1 0 1
+  --------
+  0 1 0 0   (Value: 4)
+```
+
+### `|` — OR ("Is AT LEAST ONE bit 1?")
+If **at least one** bit is `1`, the result is `1`.
+```text
+  1 1 0 0
+| 0 1 0 1
+  --------
+  1 1 0 1   (Value: 8 + 4 + 1 = 13)
+```
+
+### `^` — XOR ("Are the bits DIFFERENT?")
+Outputs `1` **only if** the top bit is different from the bottom bit.
+```text
+  1 1 0 0
+^ 0 1 0 1
+  --------
+  1 0 0 1   (Value: 8 + 1 = 9)
+```
+
+### `~` — NOT ("INVERT the bit")
+This operator works on a single number. It simply **flips each bit to its opposite** (`0` $\rightarrow$ `1`, `1` $\rightarrow$ `0`).
+```text
+~ 00001100
+  --------
+  11110011  (Value: -13 in Two's Complement representation)
+```
+
+### `<<` and `>>` — Shifts (Bitwise Shifts)
+These operators **shift** all bits in a specific direction. It is the binary equivalent of adding or removing zeros in base 10.
+
+- **Left Shift (`<<`)**: Shifts to the LEFT (Multiplies by 2).
+  ```cpp
+  5 << 1 // Shifts 1 position to the left
+  ```
+  ```text
+    0101 (5)
+  <<   1
+  --------
+    1010 (10)
+  ```
+- **Right Shift (`>>`)**: Shifts to the RIGHT (Divides by 2).
+  ```cpp
+  12 >> 2 // Shifts 2 positions to the right
+  ```
+  ```text
+    1100 (12)
+  >>   2
+  --------
+    0011 (3)
+  ```
+
+> [!TIP]
+> **Mental Summary:**
+> - `&` $\rightarrow$ **Both**
+> - `|` $\rightarrow$ **At least one**
+> - `^` $\rightarrow$ **Different**
+> Do not try to memorize massive tables; practice comparing 4-bit numbers column by column.
+
 
 ---
 
@@ -71,7 +140,7 @@ What is the decimal result of computing `1 << 4` in C++?
 > **Calculation:** `1 << 4` $= 1 \times 2^4 = 16$.
 >
 > **Explanation:**
-> Left shifting bit `00000001` by 4 places produces `00010000` (binary for decimal $16$). In high-performance C++ code, bit-shifting left by $N$ is used as an ultra-fast hardware replacement for exponentiation $2^N$.
+> Left shifting bit `00000001` by 4 places produces `00010000` (binary for decimal $16$ ). In high-performance C++ code, bit-shifting left by $N$ is used as an ultra-fast hardware replacement for exponentiation $2^N$.
 
 </details>
 
@@ -91,7 +160,7 @@ What is the decimal result of computing `1 << 4` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L08 — Advanced User Input**](l08_user_input.md) | [**🏠 Basic Syntax**](../README.md) | [**L10 — Integer Data Types ➡️**](l10_integer_types.md) |
+| [**⬅️ L08 — Advanced User Input**](L08_UserInput.md) | [**🏠 Basic Syntax**](../README.md) | [**L10 — Integer Data Types ➡️**](L10_IntegerTypes.md) |
 
 </div>
 

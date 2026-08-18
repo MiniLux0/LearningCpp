@@ -2,7 +2,7 @@
 using namespace std;
 
 
-void intercambiar(int &a , int &b){
+void swapValues(int &a , int &b){
 
     int t = a;
     a = b;
@@ -10,7 +10,7 @@ void intercambiar(int &a , int &b){
     
 }
 
-void intercambiar(double &a, double &b){
+void swapValues(double &a, double &b){
 
     double t = a;
     a = b;
@@ -24,8 +24,8 @@ int main() {
     int p = 4, q = 2;
     double x = 5.5, y = 7.5;
 
-    intercambiar(p, q);   // resolves to the int version
-    intercambiar(x, y);   // resolves to the double version
+    swapValues(p, q);   // resolves to the int version
+    swapValues(x, y);   // resolves to the double version
 
     cout << "p=" << p << " q=" << q;
     cout << "x=" << x << " y=" << y;

@@ -78,7 +78,7 @@ int main() {
 > [!IMPORTANT]
 > **The Constant Reference Rule (`const string&`):**  
 > 
-> - ❌ **Pass by Value (`void func(string s)`):** C++ requests additional RAM memory on the **Heap** and performs a **full copy of $N$ characters** ($O(N)$ time & space). Equivalent to printing a full physical photocopy of a 500-page document before handing it over.
+> - ❌ **Pass by Value (`void func(string s)`):** C++ requests additional RAM memory on the **Heap** and performs a **full copy of $N$ characters** ( $O(N)$ time & space ). Equivalent to printing a full physical photocopy of a 500-page document before handing it over.
 > - ✅ **Pass by Constant Reference (`void func(const string& s)`):** The `&` operator transmits **only the memory address** of the original string (8 bytes on Stack), achieving constant **$O(1)$ instant transfer time**. The `const` keyword protects the original string from accidental modifications. Equivalent to sharing a read-only Google Doc link.
 
 ---

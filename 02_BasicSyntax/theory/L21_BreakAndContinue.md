@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Early Loop Termination & Jump Statements](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Managing Loop Iterations](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l21_break_and_continue.cpp`](../code/l21_break_and_continue.cpp)
+- 💻 **Code Lab:** [`L21_BreakAndContinue.cpp`](../code/L21_BreakAndContinue.cpp)
 
 ---
 
@@ -24,7 +24,10 @@
 
 ## 1. `break` vs. `continue` Mechanics
 
-![l21_break_and_continue](assets/l21_break_and_continue.svg)
+<div align="center">
+  <img src="assets/l21_break_and_continue_manim.gif" alt="break vs continue execution trace">
+  <p><em><strong>Execution Trace:</strong> Notice how <code>continue</code> intercepts execution, skipping the <code>print</code> and forcing an immediate jump back to the top of the loop (or the increment step). In contrast, <code>break</code> violently escapes the loop block entirely.</em></p>
+</div>
 
 ```cpp
 #include <iostream>
@@ -89,7 +92,7 @@ for (int i = 1; i <= 4; i++) {
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L20 — Count-Controlled for Loops**](l20_for_loops.md) | [**🏠 Basic Syntax**](../README.md) | [**L22 — Multiway Branching: switch ➡️**](l22_switch.md) |
+| [**⬅️ L20 — Count-Controlled for Loops**](L20_ForLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L22 — Multiway Branching: switch ➡️**](L22_Switch.md) |
 
 </div>
 

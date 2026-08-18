@@ -1,7 +1,7 @@
 # 📝 Section 04: Arrays, C-Strings & Modern `string` — Study Summary and Notes
 
 Study notes and executive summary of **Section 04: Arrays, C-Strings, and Modern `string`** from the C++ course (Stanford CS106B Chapter 3 / MIT 6.096 Lecture 04).
-It covers contiguous memory representation of 1D/2D arrays, array decay to pointers (`T*`), traditional C-strings (`<cstring>`), modern `string` operations (`<string>`), character predicates (`<cctype>`), and algorithmic string processing (palindromes $O(N^2)$ vs $O(N)$, Pig Latin, ciphers).
+It covers contiguous memory representation of 1D/2D arrays, array decay to pointers (`T*`), traditional C-strings (`<cstring>`), modern `string` operations (`<string>`), character predicates (`<cctype>`), and algorithmic string processing ( palindromes $O(N^2)$ vs $O(N)$, Pig Latin, ciphers ).
 
 ---
 

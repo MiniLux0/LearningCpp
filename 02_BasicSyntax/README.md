@@ -29,23 +29,23 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 
 | # | Lesson Name | 📘 Theory Note | 💻 Code Lab | Key Technical Concepts | Status |
 |---|-------------|----------------|-------------|------------------------|:------:|
-| **L06** | **Variables** | 📘 [`theory/l06_variables.md`](theory/l06_variables.md) | 💻 [`code/l06_variables.cpp`](code/l06_variables.cpp) | Variable declaration, assignment, Lvalues, initial values. | ✅ |
-| **L07** | **Strings Intro** | 📘 [`theory/l07_strings.md`](theory/l07_strings.md) | 💻 [`code/l07_strings.cpp`](code/l07_strings.cpp) | Basic `string` concatenation and output. | ✅ |
-| **L08** | **User Input** | 📘 [`theory/l08_user_input.md`](theory/l08_user_input.md) | 💻 [`code/l08_user_input.cpp`](code/l08_user_input.cpp) | Reading typed inputs, prompt string chaining. | ✅ |
-| **L09** | **Binary Numbers** | 📘 [`theory/l09_binary_numbers.md`](theory/l09_binary_numbers.md) | 💻 [`code/l09_binary_numbers.cpp`](code/l09_binary_numbers.cpp) | Bit representations, 2's complement, binary layout. | ✅ |
-| **L10** | **Integer Types** | 📘 [`theory/l10_integer_types.md`](theory/l10_integer_types.md) | 💻 [`code/l10_integer_types.cpp`](code/l10_integer_types.cpp) | `short`, `int`, `long`, `long long`, `unsigned`, `sizeof()`, overflow. | ✅ |
+| **L06** | **Variables** | 📘 [`theory/L06_Variables.md`](theory/L06_Variables.md) | 💻 [`code/L06_Variables.cpp`](code/L06_Variables.cpp) | Variable declaration, assignment, Lvalues, initial values. | ✅ |
+| **L07** | **Strings Intro** | 📘 [`theory/L07_Strings.md`](theory/L07_Strings.md) | 💻 [`code/L07_Strings.cpp`](code/L07_Strings.cpp) | Basic `string` concatenation and output. | ✅ |
+| **L08** | **User Input** | 📘 [`theory/L08_UserInput.md`](theory/L08_UserInput.md) | 💻 [`code/L08_UserInput.cpp`](code/L08_UserInput.cpp) | Reading typed inputs, prompt string chaining. | ✅ |
+| **L09** | **Binary Numbers** | 📘 [`theory/L09_BinaryNumbers.md`](theory/L09_BinaryNumbers.md) | 💻 [`code/L09_BinaryNumbers.cpp`](code/L09_BinaryNumbers.cpp) | Bit representations, 2's complement, binary layout. | ✅ |
+| **L10** | **Integer Types** | 📘 [`theory/L10_IntegerTypes.md`](theory/L10_IntegerTypes.md) | 💻 [`code/L10_IntegerTypes.cpp`](code/L10_IntegerTypes.cpp) | `short`, `int`, `long`, `long long`, `unsigned`, `sizeof()`, overflow. | ✅ |
 | **L11** | **Floating-Point** | 📘 [`theory/L11_FloatingPointTypes.md`](theory/L11_FloatingPointTypes.md) | 💻 [`code/L11_FloatingPointTypes.cpp`](code/L11_FloatingPointTypes.cpp) | `float`, `double`, scientific notation, IEEE 754 precision limit. | ✅ |
-| **L12** | **Char and Bool** | 📘 [`theory/l12_char_and_bool.md`](theory/l12_char_and_bool.md) | 💻 [`code/l12_char_and_bool.cpp`](code/l12_char_and_bool.cpp) | ASCII character encoding, `bool` truth values, `boolalpha`. | ✅ |
-| **L13** | **If Statements** | 📘 [`theory/l13_if.md`](theory/l13_if.md) | 💻 [`code/l13_if.cpp`](code/l13_if.cpp) | Basic conditional evaluation, boolean expressions. | ✅ |
-| **L14** | **If-Else** | 📘 [`theory/l14_if_else.md`](theory/l14_if_else.md) | 💻 [`code/l14_if_else.cpp`](code/l14_if_else.cpp) | Binary decision branching, alternative execution paths. | ✅ |
-| **L15** | **If-Else-If** | 📘 [`theory/l15_if_else_if_else.md`](theory/l15_if_else_if_else.md) | 💻 [`code/l15_if_else_if_else.cpp`](code/l15_if_else_if_else.cpp) | Multi-way decision trees, mutually exclusive checks. | ✅ |
+| **L12** | **Char and Bool** | 📘 [`theory/L12_CharAndBool.md`](theory/L12_CharAndBool.md) | 💻 [`code/L12_CharAndBool.cpp`](code/L12_CharAndBool.cpp) | ASCII character encoding, `bool` truth values, `boolalpha`. | ✅ |
+| **L13** | **If Statements** | 📘 [`theory/L13_If.md`](theory/L13_If.md) | 💻 [`code/L13_If.cpp`](code/L13_If.cpp) | Basic conditional evaluation, boolean expressions. | ✅ |
+| **L14** | **If-Else** | 📘 [`theory/L14_IfElse.md`](theory/L14_IfElse.md) | 💻 [`code/L14_IfElse.cpp`](code/L14_IfElse.cpp) | Binary decision branching, alternative execution paths. | ✅ |
+| **L15** | **If-Else-If** | 📘 [`theory/L15_IfElseIfElse.md`](theory/L15_IfElseIfElse.md) | 💻 [`code/L15_IfElseIfElse.cpp`](code/L15_IfElseIfElse.cpp) | Multi-way decision trees, mutually exclusive checks. | ✅ |
 | **L16** | **Comparing Floats** | 📘 [`theory/L16_ComparingFloats.md`](theory/L16_ComparingFloats.md) | 💻 [`code/L16_ComparingFloats.cpp`](code/L16_ComparingFloats.cpp) | Floating-point rounding errors, epsilon $\epsilon$ thresholding. | ✅ |
-| **L17** | **Conditions** | 📘 [`theory/l17_conditions.md`](theory/l17_conditions.md) | 💻 [`code/l17_conditions.cpp`](code/l17_conditions.cpp) | Complex expressions, logical AND `&&`, OR `\|\|`, NOT `!`. | ✅ |
-| **L18** | **While Loops** | 📘 [`theory/l18_while_loops.md`](theory/l18_while_loops.md) | 💻 [`code/l18_while_loops.cpp`](code/l18_while_loops.cpp) | Pre-test iterative execution, loop counters. | ✅ |
-| **L19** | **Do-While Loops** | 📘 [`theory/l19_do_while_loops.md`](theory/l19_do_while_loops.md) | 💻 [`code/l19_do_while_loops.cpp`](code/l19_do_while_loops.cpp) | Post-test iterative execution, input validation loop. | ✅ |
-| **L20** | **For Loops** | 📘 [`theory/l20_for_loops.md`](theory/l20_for_loops.md) | 💻 [`code/l20_for_loops.cpp`](code/l20_for_loops.cpp) | Counter-controlled iterations, initialization, condition, step. | ✅ |
-| **L21** | **Break & Continue** | 📘 [`theory/l21_break_and_continue.md`](theory/l21_break_and_continue.md) | 💻 [`code/l21_break_and_continue.cpp`](code/l21_break_and_continue.cpp) | Loop control flow alteration, early termination, skipping steps. | ✅ |
-| **L22** | **Switch Case** | 📘 [`theory/l22_switch.md`](theory/l22_switch.md) | 💻 [`code/l22_switch.cpp`](code/l22_switch.cpp) | Discrete integral branching, `case`, `break`, `default`. | ✅ |
+| **L17** | **Conditions** | 📘 [`theory/L17_Conditions.md`](theory/L17_Conditions.md) | 💻 [`code/L17_Conditions.cpp`](code/L17_Conditions.cpp) | Complex expressions, logical AND `&&`, OR `\|\|`, NOT `!`. | ✅ |
+| **L18** | **While Loops** | 📘 [`theory/L18_WhileLoops.md`](theory/L18_WhileLoops.md) | 💻 [`code/L18_WhileLoops.cpp`](code/L18_WhileLoops.cpp) | Pre-test iterative execution, loop counters. | ✅ |
+| **L19** | **Do-While Loops** | 📘 [`theory/L19_DoWhileLoops.md`](theory/L19_DoWhileLoops.md) | 💻 [`code/L19_DoWhileLoops.cpp`](code/L19_DoWhileLoops.cpp) | Post-test iterative execution, input validation loop. | ✅ |
+| **L20** | **For Loops** | 📘 [`theory/L20_ForLoops.md`](theory/L20_ForLoops.md) | 💻 [`code/L20_ForLoops.cpp`](code/L20_ForLoops.cpp) | Counter-controlled iterations, initialization, condition, step. | ✅ |
+| **L21** | **Break & Continue** | 📘 [`theory/L21_BreakAndContinue.md`](theory/L21_BreakAndContinue.md) | 💻 [`code/L21_BreakAndContinue.cpp`](code/L21_BreakAndContinue.cpp) | Loop control flow alteration, early termination, skipping steps. | ✅ |
+| **L22** | **Switch Case** | 📘 [`theory/L22_Switch.md`](theory/L22_Switch.md) | 💻 [`code/L22_Switch.cpp`](code/L22_Switch.cpp) | Discrete integral branching, `case`, `break`, `default`. | ✅ |
 
 ---
 
@@ -73,7 +73,7 @@ This module covers core C++ syntax: primitive types (`int`, `float`, `double`, `
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
 | **L06–L12** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) | Primitive types, binary representations, `sizeof()`, integer overflow, IEEE floating-point. |
-| **L13–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) \| [`CS106L Lecture 02`](../files/cs106l/lectures/WL2-Structures.pdf) | Conditionals, logical operators, float comparison, loop control structures (`while`, `for`, `switch`). |
+| **L13–L22** | 📄 [`MIT 6.096 Lecture 02`](../files/mit6096/lectures/Lecture02_FlowOfControl.pdf) \| [`CS106L Lecture 03`](../files/cs106l/lectures/Lecture03_Structures.pdf) | Conditionals, logical operators, float comparison, loop control structures (`while`, `for`, `switch`). |
 
 ---
 

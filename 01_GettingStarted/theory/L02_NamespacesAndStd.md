@@ -1,14 +1,14 @@
 # Lesson 02 — Namespaces & Understanding `using namespace std;`
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 01** ([`WLecture1_intro.pdf`](../../files/cs106l/lectures/WLecture1_intro.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 01** ([`Lecture01_WelcomeToCpp.pdf`](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)) and **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Lectures:**
-  - ⚙️ [Stanford CS106L — Lecture 01: Namespaces & Scope Resolution](../../files/cs106l/lectures/WLecture1_intro.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 01: Namespaces & Scope Resolution](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)
   - 🏛️ [MIT 6.096 — Lecture 01: C++ Standard Library Identifiers](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
 - 💻 **Code Lab:** [`L02_NamespacesAndStd.cpp`](../code/L02_NamespacesAndStd.cpp)
 
@@ -37,7 +37,9 @@ A **namespace** is a named declarative region that groups related functions, cla
 >
 > Namespaces allow both functions to coexist seamlessly without causing compiler symbol collisions!
 
-![l02_namespaces](assets/l02_namespaces.svg)
+<div align="center">
+  <img src="assets/l02_namespaces_manim.gif" alt="Namespaces resolving collisions" />
+</div>
 
 ---
 

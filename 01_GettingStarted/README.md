@@ -56,7 +56,7 @@ This module introduces the basic syntax and structure of a C++ program: `#includ
 | Lessons | Academic PDF Source | Key Theoretical Topics Covered |
 |---------|---------------------|--------------------------------|
 | **L01–L03** | 📄 [`MIT 6.096 Lecture 01`](../files/mit6096/lectures/Lecture01_Introduction.pdf) | C++ compilation pipeline, anatomy of `main()`, streams, namespaces. |
-| **L04–L05** | 📄 [`CS106L Lecture 01`](../files/cs106l/lectures/WLecture1_intro.pdf) | Standard stream abstractions, `cin` extraction, console formatting. |
+| **L04–L05** | 📄 [`CS106L Lecture 01`](../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf) | Standard stream abstractions, `cin` extraction, console formatting. |
 
 ---
 

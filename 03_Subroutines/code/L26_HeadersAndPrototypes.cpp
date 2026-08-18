@@ -29,17 +29,17 @@ int bar() {
 // ---------------------------------------------------------------------------
 
 // Prototypes BEFORE use
-int mutuoFoo(int n);
-int mutuoBar(int n);
+int mutualFoo(int n);
+int mutualBar(int n);
 
-int mutuoFoo(int n) {
+int mutualFoo(int n) {
     if (n <= 0) return 1;
-    return mutuoBar(n - 1) * 2;
+    return mutualBar(n - 1) * 2;
 }
 
-int mutuoBar(int n) {
+int mutualBar(int n) {
     if (n <= 0) return 1;
-    return mutuoFoo(n - 1) + 1;
+    return mutualFoo(n - 1) + 1;
 }
 
 // ---------------------------------------------------------------------------
@@ -83,8 +83,8 @@ int main() {
     cout << "   foo() = " << foo() << "  (calls bar() declared after via prototype)\n\n";
 
     cout << "2. Mutual recursion (foo <-> bar):\n";
-    cout << "   mutuoFoo(3) = " << mutuoFoo(3) << "\n";
-    cout << "   mutuoBar(3) = " << mutuoBar(3) << "\n\n";
+    cout << "   mutualFoo(3) = " << mutualFoo(3) << "\n";
+    cout << "   mutualBar(3) = " << mutualBar(3) << "\n\n";
 
     cout << "3. Header pattern (square/cube):\n";
     cout << "   square(5) = " << square(5) << "\n";
@@ -128,12 +128,12 @@ HEADER PATTERN:
   int cube(int);
 
   // myLib.cpp
-  #include "miLib.h"
+  #include "myLib.h"
   int square(int x) { return x * x; }
   int cube(int x) { return x * square(x); }
 
   // main.cpp
-  #include "miLib.h"
+  #include "myLib.h"
   int main() { cout << cube(3); }
 
 WHY .h + .dll/.so WITHOUT .cpp:

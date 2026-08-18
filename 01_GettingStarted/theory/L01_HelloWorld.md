@@ -1,7 +1,7 @@
 # Lesson 01 — Hello World & C++ Program Anatomy
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106L Lecture 01** ([`WLecture1_intro.pdf`](../../files/cs106l/lectures/WLecture1_intro.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 01** ([`Lecture01_Introduction.pdf`](../../files/mit6096/lectures/Lecture01_Introduction.pdf)) and **Stanford CS106L Lecture 01** ([`Lecture01_WelcomeToCpp.pdf`](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)).
 
 ---
 
@@ -9,7 +9,7 @@
 
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Introduction & C++ Anatomy](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
-  - ⚙️ [Stanford CS106L — Lecture 01: Overview of C++](../../files/cs106l/lectures/WLecture1_intro.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 01: Overview of C++](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)
 - 💻 **Code Lab:** [`L01_HelloWorld.cpp`](../code/L01_HelloWorld.cpp)
 
 ---
@@ -41,7 +41,9 @@ C++ is a high-performance, compiled, statically-typed programming language creat
 
 Unlike interpreted languages (like Python or JavaScript), C++ source code cannot be executed directly by the CPU. It must be translated into native machine code binary (`0`s and `1`s) through a 4-step pipeline:
 
-![l01_pipeline](assets/l01_pipeline.svg)
+<div align="center">
+  <img src="assets/l01_pipeline_manim.gif" alt="GCC compilation pipeline" />
+</div>
 
 1. **Preprocessing (`#include`):** Copies standard headers and resolves macro directives before compilation.
 2. **Compilation:** Translates high-level C++ statements into architecture-specific assembly instructions.

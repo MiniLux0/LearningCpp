@@ -33,11 +33,11 @@ void printOnNewLine(int x, int y) {
     cout << "Two integers: " << x << " and " << y << endl;
 }
 
-void mostrar(int x) {
+void show(int x) {
     cout << "int: " << x << endl;
 }
 
-void mostrar(double x) {
+void show(double x) {
     cout << "double: " << x << endl;
 }
 
@@ -64,9 +64,9 @@ int main() {
     printOnNewLine(10, 20);
 
     cout << "\n6. Char promotion:" << endl;
-    mostrar(5);
-    mostrar(5.0);
-    mostrar('A');
+    show(5);
+    show(5.0);
+    show('A');
 
     return 0;
 }

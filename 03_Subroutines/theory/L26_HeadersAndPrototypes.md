@@ -1,103 +1,112 @@
-# L26 — Declaraciones Adelantadas, Prototipos de Función y Archivos de Cabecera (`.h` / `.hpp`)
+# L26 — Forward Declarations, Function Prototypes, and Header Files (`.h` / `.hpp`)
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos de la **Lectura 03** de MIT 6.096 ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) y la **Lectura 01** de Stanford CS106L ([`WLecture1_intro.pdf`](../../files/cs106l/lectures/WLecture1_intro.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 03** ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) and **Stanford CS106L Lecture 01** ([`Lecture01_WelcomeToCpp.pdf`](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)).
 
 ---
 
-## 🧭 Navegación Rápida
+## 🧭 Quick Navigation
 
-- 📄 **Lecturas Académicas Base:**
+- 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 03: Function Prototypes & Header Files](../../files/mit6096/lectures/Lecture03_Functions.pdf)
-  - ⚙️ [Stanford CS106L — Lecture 01: Multi-File Compilation & Header Guards](../../files/cs106l/lectures/WLecture1_intro.pdf)
-- 💻 **Laboratorio de Código:** [`L26_HeadersAndPrototypes.cpp`](../code/L26_HeadersAndPrototypes.cpp)
+  - ⚙️ [Stanford CS106L — Lecture 01: Multi-File Compilation & Header Guards](../../files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf)
+- 💻 **Code Lab:** [`L26_HeadersAndPrototypes.cpp`](../code/L26_HeadersAndPrototypes.cpp)
 
 ---
 
-## Objetivos de Aprendizaje
+## Learning Objectives
 
-- [ ] Declarar **Prototipos de Función (*Forward Declarations*)** para informar al compilador sobre la firma de las funciones antes de su definición.
-- [ ] Organizar proyectos en C++ dividiendo el código en archivos de interfaz (`.h` / `.hpp`) y archivos de implementación (`.cpp`).
-- [ ] Implementar **Guardas de Inclusión (*Header Guards*)** con `#ifndef` o `#pragma once` para evitar errores de compilación por doble inclusión de símbolos.
+- [ ] Declare **Function Prototypes (*Forward Declarations*)** to inform the compiler of function signatures before their definitions.
+- [ ] Organize C++ projects by separating code into interface files (`.h` / `.hpp`) and implementation files (`.cpp`).
+- [ ] Implement **Inclusion Guards (*Header Guards*)** using `#ifndef` or `#pragma once` to prevent compilation errors caused by double inclusion of symbols.
 
 ---
 
-## 1. Prototipos de Función (*Forward Declarations*)
+## 1. Function Prototypes (*Forward Declarations*)
 
-El compilador de C++ lee los archivos fuente estrictamente de arriba a abajo (*top-to-bottom*). Si `main()` invoca una función definida más abajo en el archivo, el compilador genera un error de identificador no declarado.
+The C++ compiler reads source files strictly from top to bottom (*top-to-bottom*). If `main()` invokes a function defined further down in the file, the compiler will generate an undeclared identifier error.
 
-Un **Prototipo de Función** declara únicamente la firma (tipo de retorno, nombre y parámetros) finalizando con punto y coma `;` antes de `main()`:
+A **Function Prototype** declares only the signature (return type, name, and parameters) ending with a semicolon `;` before `main()`:
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// 1. Prototipo de Función (Declaración Adelantada)
-int sumar(int a, int b);
+// 1. Function Prototype (Forward Declaration)
+int sum(int a, int b);
 
 int main() {
-    cout << "Resultado: " << sumar(5, 3) << endl; // ¡Válido! El compilador sabe que sumar() existe.
+    cout << "Result: " << sum(5, 3) << endl; // Valid! The compiler knows sum() exists.
     return 0;
 }
 
-// 2. Definición de la Función
-int sumar(int a, int b) {
+// 2. Function Definition
+int sum(int a, int b) {
     return a + b;
 }
 ```
 
 ---
 
-## 2. Archivos de Cabecera y Guardas de Inclusión (`#pragma once`)
+## 2. Header Files and Inclusion Guards (`#pragma once`)
 
-Al dividir código en múltiples archivos `.h`, incluir la misma cabecera varias veces en diferentes unidades de traducción genera errores de redefinición de símbolos en el enlazador (*linker*). Usar `#pragma once` o guardas de preprocesador tradicionales resuelve este problema:
+When splitting code into multiple `.h` files, including the same header multiple times in different translation units generates symbol redefinition errors at link time (*linker*). Using `#pragma once` or traditional preprocessor guards resolves this issue:
 
 ```cpp
-#ifndef UTILIDADES_MATEMATICAS_H
-#define UTILIDADES_MATEMATICAS_H
+#ifndef MATH_UTILITIES_H
+#define MATH_UTILITIES_H
 
-// Declaraciones de prototipos en el archivo de cabecera (.h)
-int sumar(int a, int b);
+// Prototype declarations in the header file (.h)
+int sum(int a, int b);
 
-#endif // UTILIDADES_MATEMATICAS_H
+#endif // MATH_UTILITIES_H
 ```
 
 > [!TIP]
-> **Práctica Moderna:**  
-> Los compiladores modernos (GCC, Clang, MSVC) soportan la directiva `#pragma once` colocada en la primera línea de los archivos de cabecera como una alternativa más limpia a las guardas `#ifndef`.
+> **Modern Practice:**  
+> Modern compilers (GCC, Clang, MSVC) support the `#pragma once` directive placed at the very first line of header files as a cleaner alternative to `#ifndef` guards.
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — Definiciones en Archivos `.h`
+## ❓ Self-Assessment Checkpoint #1 — Definitions in Header `.h` Files
 
-¿Por qué las definiciones completas de funciones (`{ ... }`) NO deben colocarse generalmente dentro de archivos de cabecera (`.h`)?
+Why should full function definitions (`{ ... }`) generally NOT be placed inside header files (`.h`)?
 
 <details>
-<summary>🔍 <strong>Ver Explicación y Diagnóstico</strong></summary>
+<summary>🔍 <strong>View Explanation & Diagnosis</strong></summary>
 
 > [!CAUTION]
-> **Error de Múltiple Definición del Enlazador (*Multiple Definition Error*):**  
-> Si una cabecera que contiene cuerpos de función con código ejecutable se incluye en múltiples archivos `.cpp`, el compilador genera símbolos binarios duplicados en cada archivo objeto `.o`. Al ejecutar el enlazador (*linker*), este fallará con el error `multiple definition of 'funcion'`.
+> **Linker Multiple Definition Error:**  
+> If a header containing function bodies with executable code is included in multiple `.cpp` source files, the compiler generates duplicate binary symbols in each object file (`.o` / `.obj`). When the linker runs, it will fail with a `multiple definition of 'functionName'` error.
 
 </details>
 
 ---
 
-## 📝 Resumen de L26
+## 🎬 Visualización
 
-1. **Prototipos:** Informan al compilador sobre las firmas de las funciones antes de sus definiciones completas.
-2. **Cabeceras (`.h`):** Almacenan contratos de interfaz y declaraciones.
-3. **Guardas:** Usar `#pragma once` para prevenir la inclusión duplicada de cabeceras.
+<div align="center">
+  <img src="assets/l26_headers_prototypes_manim.gif" alt="L26 Headers and Prototypes animation">
+  <p><em><strong>The Sequential Reader Problem:</strong> The C++ compiler reads code from top to bottom. If you call a function before defining it, compilation fails. The <strong>Prototype</strong> tells the compiler "trust me, this function exists further down." Additionally, by moving these prototypes to <code>.h</code> files and adding <code>#pragma once</code> protection, we can share them without colliding on duplicate symbol errors.</em></p>
+</div>
+
+---
+
+## 📝 Summary & Key Takeaways
+
+1. **Prototypes:** Inform the compiler of function signatures before their full definitions.
+2. **Headers (`.h`):** Store interface contracts and declarations.
+3. **Guards:** Use `#pragma once` to prevent duplicate inclusion of header files.
 
 ---
 
 <div align="center">
 
-### 🧭 Navegación y Progresión
+### 🧭 Navigation & Progression
 
-| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Sección |
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ L25 — Parámetros de Funciones**](L25_FunctionParameters.md) | [**🏠 Subrutines**](../README.md) | [**Sección 04: Arreglos y Cadenas ➡️**](../../04_ArraysStrings/README.md) |
+| [**⬅️ L25 — Function Parameters**](L25_FunctionParameters.md) | [**🏠 Subroutines**](../README.md) | [**Section 04: Arrays and Strings ➡️**](../../04_ArraysStrings/README.md) |
 
 </div>
 

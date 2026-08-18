@@ -114,23 +114,23 @@ Top-tier academic resources utilized to build this learning plan for C++, Modern
 #### 📋 CS106L Lecture Catalog ([`files/cs106l/lectures/`](files/cs106l/lectures/))
 | # | File / Lecture PDF | Key Topic |
 |---|--------------------|-----------|
-| 1 | [`Welcome to C++!.pdf`](files/cs106l/lectures/Welcome%20to%20C++!.pdf) | Introduction to modern C++ & course overview |
-| 2 | [`WLecture1_intro.pdf`](files/cs106l/lectures/WLecture1_intro.pdf) | C++ philosophy, compilation pipeline & types |
-| 3 | [`WL2-Structures.pdf`](files/cs106l/lectures/WL2-Structures.pdf) | Structs & primitive data binding |
-| 4 | [`WLecture_3_Init_and_Ref.pdf`](files/cs106l/lectures/WLecture_3_Init_and_Ref.pdf) | Uniform Initialization `{}` & References (`&`, `const &`) |
-| 5 | [`WL4_Streams.pdf`](files/cs106l/lectures/WL4_Streams.pdf) | Input/Output Streams (`std::stringstream`, `std::ifstream`, `std::ofstream`) |
-| 6 | [`WL5_Containers.pdf`](files/cs106l/lectures/WL5_Containers.pdf) | STL Containers (`vector`, `deque`, `map`, `set`, `unordered_map`) |
-| 7 | [`WL6_Iterators.pdf`](files/cs106l/lectures/WL6_Iterators.pdf) | STL Iterators (`begin()`, `end()`, iterator categories, range-based loops) |
-| 8 | [`WL7_Templates.pdf`](files/cs106l/lectures/WL7_Templates.pdf) | Function Templates & Generic Programming |
-| 9 | [`WL8_Functions.pdf`](files/cs106l/lectures/WL8_Functions.pdf) | Function Pointers, Functors, Lambdas & STL Algorithms |
-| 10 | [`WL9-STL-Summary.pdf`](files/cs106l/lectures/WL9-STL-Summary.pdf) | Comprehensive STL Summary & Best Practices |
-| 11 | [`WL10_Temp_classes.pdf`](files/cs106l/lectures/WL10_Temp_classes.pdf) | Template Classes |
-| 12 | [`WL11_Const.pdf`](files/cs106l/lectures/WL11_Const.pdf) | Const-Correctness (`const` methods, references & pointers) |
-| 13 | [`WL12_Operators.pdf`](files/cs106l/lectures/WL12_Operators.pdf) | Operator Overloading (`+`, `<<`, `==`, `[]`) |
-| 14 | [`WL13_SMF.pdf`](files/cs106l/lectures/WL13_SMF.pdf) | Special Member Functions (Rule of 0 / 3 / 5) |
-| 15 | [`WL14-Move.pdf`](files/cs106l/lectures/WL14-Move.pdf) | Move Semantics & Rvalue References (`T&&`, `std::move`) |
-| 16 | [`WL15_RAII.pdf`](files/cs106l/lectures/WL15_RAII.pdf) | RAII & Smart Pointers (`unique_ptr`, `shared_ptr`, `weak_ptr`) |
-| 17 | [`WL16-Wrapup.pdf`](files/cs106l/lectures/WL16-Wrapup.pdf) | Modern C++ Wrap-up & Advanced Features |
+| 1 | [`Lecture01_WelcomeToCpp.pdf`](files/cs106l/lectures/Lecture01_WelcomeToCpp.pdf) | Introduction to modern C++ & course overview |
+| 2 | [`Lecture02_Intro.pdf`](files/cs106l/lectures/Lecture02_Intro.pdf) | C++ philosophy, compilation pipeline & types |
+| 3 | [`Lecture03_Structures.pdf`](files/cs106l/lectures/Lecture03_Structures.pdf) | Structs & primitive data binding |
+| 4 | [`Lecture04_InitAndRef.pdf`](files/cs106l/lectures/Lecture04_InitAndRef.pdf) | Uniform Initialization `{}` & References (`&`, `const &`) |
+| 5 | [`Lecture05_Streams.pdf`](files/cs106l/lectures/Lecture05_Streams.pdf) | Input/Output Streams (`std::stringstream`, `std::ifstream`, `std::ofstream`) |
+| 6 | [`Lecture06_Containers.pdf`](files/cs106l/lectures/Lecture06_Containers.pdf) | STL Containers (`vector`, `deque`, `map`, `set`, `unordered_map`) |
+| 7 | [`Lecture07_Iterators.pdf`](files/cs106l/lectures/Lecture07_Iterators.pdf) | STL Iterators (`begin()`, `end()`, iterator categories, range-based loops) |
+| 8 | [`Lecture08_Templates.pdf`](files/cs106l/lectures/Lecture08_Templates.pdf) | Function Templates & Generic Programming |
+| 9 | [`Lecture09_Functions.pdf`](files/cs106l/lectures/Lecture09_Functions.pdf) | Function Pointers, Functors, Lambdas & STL Algorithms |
+| 10 | [`Lecture10_STLSummary.pdf`](files/cs106l/lectures/Lecture10_STLSummary.pdf) | Comprehensive STL Summary & Best Practices |
+| 11 | [`Lecture11_TempClasses.pdf`](files/cs106l/lectures/Lecture11_TempClasses.pdf) | Template Classes |
+| 12 | [`Lecture12_Const.pdf`](files/cs106l/lectures/Lecture12_Const.pdf) | Const-Correctness (`const` methods, references & pointers) |
+| 13 | [`Lecture13_Operators.pdf`](files/cs106l/lectures/Lecture13_Operators.pdf) | Operator Overloading (`+`, `<<`, `==`, `[]`) |
+| 14 | [`Lecture14_SMF.pdf`](files/cs106l/lectures/Lecture14_SMF.pdf) | Special Member Functions (Rule of 0 / 3 / 5) |
+| 15 | [`Lecture15_Move.pdf`](files/cs106l/lectures/Lecture15_Move.pdf) | Move Semantics & Rvalue References (`T&&`, `std::move`) |
+| 16 | [`Lecture16_RAII.pdf`](files/cs106l/lectures/Lecture16_RAII.pdf) | RAII & Smart Pointers (`unique_ptr`, `shared_ptr`, `weak_ptr`) |
+| 17 | [`Lecture17_Wrapup.pdf`](files/cs106l/lectures/Lecture17_Wrapup.pdf) | Modern C++ Wrap-up & Advanced Features |
 
 #### 💻 CS106L Programming Assignments Catalog ([`files/cs106l/assignments/`](files/cs106l/assignments/))
 | Assignment | Local Path | Description & Features |

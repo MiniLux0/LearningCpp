@@ -10,14 +10,14 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Post-Test Iteration Loops](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Interactive Menu Loops](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l19_do_while_loops.cpp`](../code/l19_do_while_loops.cpp)
+- 💻 **Code Lab:** [`L19_DoWhileLoops.cpp`](../code/L19_DoWhileLoops.cpp)
 
 ---
 
 ## Learning Objectives
 
 - [ ] Execute post-test iterative loops using `do-while`.
-- [ ] Guarantee at least **one mandatory execution** of the loop body ($1 \dots N$ times).
+- [ ] Guarantee at least **one mandatory execution** of the loop body ( $1 \dots N$ times).
 - [ ] Implement interactive CLI menus and user input validation loops.
 
 ---
@@ -26,7 +26,10 @@
 
 Unlike pre-test `while` loops, a `do-while` loop executes its body block **first** and checks the continuation condition **at the bottom**:
 
-![l19_do_while_loops](assets/l19_do_while_loops.svg)
+<div align="center">
+  <img src="assets/l19_do_while_loops_manim.gif" alt="do-while loop execution trace">
+  <p><em><strong>Execution Trace:</strong> Notice how the execution highlight completely ignores the condition at the top. It enters the body unconditionally for the first pass, updating the state before hitting the condition check at the bottom.</em></p>
+</div>
 
 ```cpp
 #include <iostream>
@@ -85,7 +88,7 @@ How many times does a `do-while` loop execute if the continuation condition is `
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L18 — Pre-Test while Loops**](l18_while_loops.md) | [**🏠 Basic Syntax**](../README.md) | [**L20 — Count-Controlled for Loops ➡️**](l20_for_loops.md) |
+| [**⬅️ L18 — Pre-Test while Loops**](L18_WhileLoops.md) | [**🏠 Basic Syntax**](../README.md) | [**L20 — Count-Controlled for Loops ➡️**](L20_ForLoops.md) |
 
 </div>
 

@@ -1,16 +1,16 @@
 # Lesson 07 — Working with Text Strings (`string`)
 
 > [!NOTE]
-> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 05** ([`WL5_Containers.pdf`](../../files/cs106l/lectures/WL5_Containers.pdf)) and **Stanford CS106B Textbook Chapter 3** ([`CS106BX-Reader.pdf`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)).
+> **Academic Foundation:** This lesson synthesizes core concepts from **Stanford CS106L Lecture 06** ([`Lecture06_Containers.pdf`](../../files/cs106l/lectures/Lecture06_Containers.pdf)) and **Stanford CS106B Textbook Chapter 3** ([`CS106BX-Reader.pdf`](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)).
 
 ---
 
 ## 🧭 Quick Navigation
 
 - 📄 **Base Academic Lectures:**
-  - ⚙️ [Stanford CS106L — Lecture 05: STL String Containers](../../files/cs106l/lectures/WL5_Containers.pdf)
+  - ⚙️ [Stanford CS106L — Lecture 06: STL String Containers](../../files/cs106l/lectures/Lecture06_Containers.pdf)
   - 🌲 [Stanford CS106B — Chapter 3: Strings & Characters](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l07_strings.cpp`](../code/l07_strings.cpp)
+- 💻 **Code Lab:** [`L07_Strings.cpp`](../code/L07_Strings.cpp)
 
 ---
 
@@ -27,7 +27,9 @@
 
 A `string` is an object representing a dynamic sequence of characters. Unlike legacy C-style character arrays (`char[]`), `string` manages its own memory automatically on the heap as text grows or shrinks.
 
-![l07_strings](assets/l07_strings.svg)
+<div align="center">
+  <img src="assets/l07_strings_manim.gif" alt="l07_strings">
+</div>
 
 ---
 
@@ -93,7 +95,7 @@ What is the difference between `'A'` and `"A"` in C++?
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L06 — Variables & Types**](l06_variables.md) | [**🏠 Basic Syntax**](../README.md) | [**L08 — Advanced User Input ➡️**](l08_user_input.md) |
+| [**⬅️ L06 — Variables & Types**](L06_Variables.md) | [**🏠 Basic Syntax**](../README.md) | [**L08 — Advanced User Input ➡️**](L08_UserInput.md) |
 
 </div>
 

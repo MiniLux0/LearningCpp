@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 01: Integer Types & Fixed Width Allocation](../../files/mit6096/lectures/Lecture01_Introduction.pdf)
   - 🌲 [Stanford CS106B — Appendix A: Representation of Integers & Limits](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l10_integer_types.cpp`](../code/l10_integer_types.cpp)
+- 💻 **Code Lab:** [`L10_IntegerTypes.cpp`](../code/L10_IntegerTypes.cpp)
 
 ---
 
@@ -49,7 +49,10 @@ By default, integers are **signed** (the most significant bit MSB acts as a nega
 
 When a variable is declared `unsigned`, the sign bit is re-purposed as a magnitude bit, **doubling the positive maximum range**:
 
-![l10_integer_types](assets/l10_integer_types.svg)
+<div align="center">
+  <img src="assets/l10_integer_types_manim.gif" alt="integer overflow and sign bit flipping">
+  <p><em><strong>Integer Overflow:</strong> When you add 1 to the maximum positive limit, the binary carries over entirely to the MSB (Most Significant Bit). Since this bit represents the sign in Two's Complement, the value wraps around to the lowest possible negative number!</em></p>
+</div>
 
 ```cpp
 unsigned int score = 4000000000U; // Valid! Fits within 4.2 billion unsigned limit
@@ -57,18 +60,32 @@ unsigned int score = 4000000000U; // Valid! Fits within 4.2 billion unsigned lim
 
 ---
 
-## 3. Integer Overflow (Two's Complement Wrap-Around)
+## 3. Integer Overflow: The "Odometer" Effect
 
-What happens if you add `1` to `INT_MAX`?
+To understand **Overflow**, imagine the mechanical odometer of an old car that only has 4 digits. What happens when you reach `9999` kilometers and drive 1 more kilometer? 
+
+The counter clicks over, it has no room for the `1`, and it **rolls all the way back to `0000`**.
+
+Integers in computer memory do exactly the same thing because they have a fixed maximum size limit.
+
+### Overflow in Unsigned Numbers (`unsigned`)
+If you have an `unsigned short` with a maximum limit of `65535` and you add `1`, the counter simply wraps around to `0`.
+
+### Overflow in Signed Numbers (`signed`)
+Here, the infamous negative wrap-around occurs. C++ uses **Two's Complement** representation, where the most significant bit (MSB) acts as a sign indicator.
+
+If you reach the maximum positive limit (e.g., `2,147,483,647` for a 32-bit `int`), all magnitude bits are set to `1`. When you add `1` more, the arithmetic carry propagates to the left, **accidentally flipping the sign bit to 1**.
+
+As a result, your maximum positive number instantly turns into the most extreme negative number (`-2,147,483,648`)!
 
 ```cpp
-int maxVal = INT_MAX; // 2,147,483,647
-maxVal = maxVal + 1;  // OVERFLOW! Wraps around to -2,147,483,648
+int maxVal = INT_MAX; // 2,147,483,647 (The odometer is at its maximum)
+maxVal = maxVal + 1;  // OVERFLOW! The sign bit flips: -2,147,483,648
 ```
 
 > [!CAUTION]
 > **Undefined Behavior (UB):**
-> In C++, signed integer overflow is officially **Undefined Behavior (UB)** under the ISO C++ standard. Modern compilers with optimization enabled (`-O2` or `-O3`) may assume signed overflow never happens and optimize away loop termination checks entirely!
+> In C++, signed integer overflow is officially **Undefined Behavior (UB)** under the ISO C++ standard. Modern compilers with optimization enabled (`-O2` or `-O3`) can assume that signed overflow "never happens" and optimize away safety boundary checks in your code. Handle type limits carefully!
 
 ---
 
@@ -103,7 +120,7 @@ If `short count = 32767;` and you execute `count++;`, what value will `count` co
 
 | ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:--------------:|:--------------:|
-| [**⬅️ L09 — Binary & Bit Layouts**](l09_binary_numbers.md) | [**🏠 Basic Syntax**](../README.md) | [**L11 — Floating-Point Types ➡️**](L11_FloatingPointTypes.md) |
+| [**⬅️ L09 — Binary & Bit Layouts**](L09_BinaryNumbers.md) | [**🏠 Basic Syntax**](../README.md) | [**L11 — Floating-Point Types ➡️**](L11_FloatingPointTypes.md) |
 
 </div>
 

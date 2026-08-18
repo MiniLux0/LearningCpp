@@ -1,122 +1,125 @@
-# L25 — Parámetros de Funciones: Paso por Valor vs. Paso por Referencia (`&`)
+# L25 — Function Parameters: Pass-by-Value vs. Pass-by-Reference (`&`)
 
 > [!NOTE]
-> **Fundamentación Académica:** Esta lección sintetiza los conceptos de la **Lectura 03** de MIT 6.096 ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) y el **Capítulo 2 (*Reference Parameters & Aliasing*)** del libro de Stanford CS106B (*Programming Abstractions in C++* por Eric Roberts).
+> **Academic Foundation:** This lesson synthesizes core concepts from **MIT 6.096 Lecture 03** ([`Lecture03_Functions.pdf`](../../files/mit6096/lectures/Lecture03_Functions.pdf)) and **Stanford CS106B Textbook Chapter 2 (*Reference Parameters & Aliasing*)** (*Programming Abstractions in C++* by Eric Roberts).
 
 ---
 
-## 🧭 Navegación Rápida
+## 🧭 Quick Navigation
 
-- 📄 **Lecturas Académicas Base:**
+- 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 03: Pass-by-Value vs. Reference Mechanics](../../files/mit6096/lectures/Lecture03_Functions.pdf)
   - 🌲 [Stanford CS106B — Chapter 2: Reference Parameters & Aliasing](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Laboratorio de Código:** [`L25_FunctionParameters.cpp`](../code/L25_FunctionParameters.cpp)
+- 💻 **Code Lab:** [`L25_FunctionParameters.cpp`](../code/L25_FunctionParameters.cpp)
 
 ---
 
-## Objetivos de Aprendizaje
+## Learning Objectives
 
-- [ ] Diferenciar entre **Paso por Valor** (copia de datos) y **Paso por Referencia (`&`)** (compartir dirección de memoria).
-- [ ] Mutar variables de la función invocadora utilizando parámetros por referencia.
-- [ ] Aplicar la referencia constante (**`const string&`**) para evitar copias costosas de memoria sin permitir modificaciones.
+- [ ] Differentiate between **Pass-by-Value** (copying data) and **Pass-by-Reference (`&`)** (sharing memory locations).
+- [ ] Mutate variables in the calling function using reference parameters.
+- [ ] Apply constant references (**`const string&`**) to avoid expensive memory copies while prohibiting modifications.
 
 ---
 
-## 1. Paso por Valor (*Pass-by-Value*)
+## 1. Pass-by-Value
 
-Por defecto, C++ pasa los argumentos por **valor**. El compilador crea una copia local e independiente dentro del marco de la pila de la función:
+By default, C++ passes arguments by **value**. The compiler creates an independent, local copy of the variable inside the function's stack frame:
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-void intentarModificar(int x) { // x es una copia local independiente
-    x = 99; // Modifica únicamente la copia local
+void tryToModify(int x) { // x is an independent local copy
+    x = 99; // Modifies only the local copy
 }
 
 int main() {
     int num = 10;
-    intentarModificar(num);
-    cout << num << endl; // Imprime 10 (¡El valor original NO cambió!)
+    tryToModify(num);
+    cout << num << endl; // Prints 10 (the original value did NOT change!)
     return 0;
 }
 ```
 
 ---
 
-## 2. Paso por Referencia (`&`)
+## 2. Pass-by-Reference (`&`)
 
-Al añadir el ampersand `&` al tipo del parámetro (`int& x`), el parámetro se convierte en un **alias de referencia** que apunta directamente a la misma celda de memoria RAM que la variable del invocador:
+By appending an ampersand `&` to the parameter type (`int& x`), the parameter becomes a **reference alias** pointing directly to the same RAM memory cell as the caller's variable:
 
-![pass_by_ref](assets/pass_by_ref.svg)
+<div align="center">
+  <img src="assets/l25_pass_by_ref_manim.gif" alt="pass by reference memory trace">
+  <p><em><strong>Pass-by-Reference in Memory:</strong> Pay close attention to how, when using <code>&amp;</code>, the function <code>mutate()</code> does not create a new variable. Instead, the alias <code>ref</code> is literally an invisible arrow pointing directly to the original box in <code>main</code>. When you mutate <code>ref</code>, you are mutating the original data!</em></p>
+</div>
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-void modificarDeVerdad(int& x) { // x es una referencia a la memoria original
-    x = 99; // ¡Muta directamente la variable 'num' de main!
+void modifyForReal(int& x) { // x is a reference to the original memory
+    x = 99; // Mutates main's 'num' variable directly!
 }
 
 int main() {
     int num = 10;
-    modificarDeVerdad(num);
-    cout << num << endl; // ¡Imprime 99!
+    modifyForReal(num);
+    cout << num << endl; // Prints 99!
     return 0;
 }
 ```
 
 ---
 
-## 3. Paso por Referencia Constante (`const Type&`)
+## 3. Passing by Constant Reference (`const Type&`)
 
-Copiar objetos grandes (como una cadena `string` de 1,000 caracteres) por valor requiere reservar memoria y copiar caracteres uno por uno. El uso de `const string&` pasa la dirección por referencia para máxima velocidad, mientras el compilador garantiza que el texto no sea modificado:
+Copying large objects (such as a `string` with 1,000 characters) by value requires allocating memory and copying characters one by one. Using `const string&` passes the address by reference for maximum speed, while the compiler guarantees that the text cannot be modified:
 
 ```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-void imprimirCadenaGrande(const string& texto) {
-    // ¡Eficiente! Cero copias en memoria y el compilador prohíbe modificar 'texto'
-    cout << texto << endl;
+void printLargeString(const string& text) {
+    // Efficient! Zero memory copies, and compiler prohibits modifying 'text'
+    cout << text << endl;
 }
 ```
 
 ---
 
-## ❓ Pregunta de Chequeo #1 — Intercambio de Valores
+## ❓ Self-Assessment Checkpoint #1 — Swapping Values
 
-¿Por qué una función `swap(int a, int b)` falla en intercambiar dos enteros en `main()` a menos que se declare como `swap(int& a, int& b)`?
+Why does a `swap(int a, int b)` function fail to swap two integers in `main()` unless it is declared as `swap(int& a, int& b)`?
 
 <details>
-<summary>🔍 <strong>Ver Explicación y Respuesta</strong></summary>
+<summary>🔍 <strong>View Explanation & Answer</strong></summary>
 
 > [!NOTE]
-> **Respuesta:** Porque sin `&`, `swap` solo intercambia copias temporales aisladas en su propia pila de llamadas.
+> **Answer:** Because without `&`, `swap` only exchanges temporary copies isolated inside its own call stack frame.
 >
-> **Explicación:**  
-> Al finalizar `swap(int a, int b)`, las copias locales son destruidas de la memoria RAM, dejando las variables originales en `main()` completamente intactas. Con `int& a, int& b`, se intercambian directamente los contenidos de las direcciones de memoria originales.
+> **Explanation:**  
+> When `swap(int a, int b)` terminates, its local copies are destroyed from RAM, leaving the original variables in `main()` completely intact. With `int& a, int& b`, the contents of the original memory addresses are swapped directly.
 
 </details>
 
 ---
 
-## 📝 Resumen de L25
+## 📝 Summary & Key Takeaways
 
-1. **Paso por Valor (`int x`):** Crea una copia independiente; las modificaciones no afectan al invocador.
-2. **Paso por Referencia (`int& x`):** Comparte la celda de memoria RAM del invocador; permite mutar la variable original.
-3. **Referencia Constante (`const string&`):** Elimina el costo de copia en memoria garantizando seguridad de solo lectura.
+1. **Pass-by-Value (`int x`):** Creates an independent copy; modifications do not affect the caller.
+2. **Pass-by-Reference (`int& x`):** Shares the caller's RAM memory cell; allows mutating the original variable.
+3. **Constant Reference (`const string&`):** Eliminates memory copy overhead while ensuring read-only safety.
 
 ---
 
 <div align="center">
 
-### 🧭 Navegación y Progresión
+### 🧭 Navigation & Progression
 
-| ⬅️ Lección Anterior | 🏠 Inicio de Sección | ➡️ Siguiente Lección |
+| ⬅️ Previous Lesson | 🏠 Section Home | ➡️ Next Lesson |
 |:------------------:|:-------------------:|:------------------:|
-| [**⬅️ L24 — Valores de Retorno**](l24_return_values.md) | [**🏠 Subrutines**](../README.md) | [**L26 — Cabeceras y Prototipos ➡️**](L26_HeadersAndPrototypes.md) |
+| [**⬅️ L24 — Return Values**](L24_ReturnValues.md) | [**🏠 Subroutines**](../README.md) | [**L26 — Headers and Prototypes ➡️**](L26_HeadersAndPrototypes.md) |
 
 </div>
 

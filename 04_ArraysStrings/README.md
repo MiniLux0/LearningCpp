@@ -5,7 +5,7 @@
 > **Lessons**: L27 – L30D  
 > 🏛️ **Academic Base Source**: Stanford CS106B (Chapters 3 & 11) / MIT 6.096 (Lecture 04) / Stanford CS106L (Lectures 04 & 05)  
 > 📝 **Executive Summary**: 📝 [**`summary/04_ArraysStrings_Notes.md`**](summary/04_ArraysStrings_Notes.md)  
-> 🎯 **Primary Focus**: 1D/2D static arrays, RAM memory layout, Row-Major Order, array decay to pointers (`int*`), C-strings (`<cstring>`), modern dynamic strings (`<string>`), character inspection (`<cctype>`), and string algorithms ($O(N)$ Palindromes, Pig Latin, Caesar Cipher).
+> 🎯 **Primary Focus**: 1D/2D static arrays, RAM memory layout, Row-Major Order, array decay to pointers (`int*`), C-strings (`<cstring>`), modern dynamic strings (`<string>`), character inspection (`<cctype>`), and string algorithms ( $O(N)$ Palindromes, Pig Latin, Caesar Cipher ).
 
 ---
 

@@ -10,7 +10,7 @@
 - 📄 **Base Academic Lectures:**
   - 🏛️ [MIT 6.096 — Lecture 02: Switch Statements & Jump Table Optimization](../../files/mit6096/lectures/Lecture02_FlowOfControl.pdf)
   - 🌲 [Stanford CS106B — Chapter 1: Integral Choice Branching](https://web.stanford.edu/class/cs106x/res/reader/CS106BX-Reader.pdf)
-- 💻 **Code Lab:** [`l22_switch.cpp`](../code/l22_switch.cpp)
+- 💻 **Code Lab:** [`L22_Switch.cpp`](../code/L22_Switch.cpp)
 
 ---
 
@@ -19,15 +19,18 @@
 - [ ] Implement multiway integral value matching using `switch`.
 - [ ] Prevent unintentional **Fallthrough** bugs using `break`.
 - [ ] Handle unhandled cases using the `default:` label.
-- [ ] Understand why `switch` evaluates faster than `if-else` chains ($O(1)$ Jump Table compilation).
+- [ ] Understand why `switch` evaluates faster than `if-else` chains ( $O(1)$ Jump Table compilation).
 
 ---
 
 ## 1. `switch` Mechanics & Jump Tables
 
-When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ($O(1)$ Jump Table dispatch):
+When testing an **integral expression** (`int`, `char`, `enum`) against multiple constant values, `switch` provides cleaner syntax and superior compiler optimization ( $O(1)$ Jump Table dispatch):
 
-![l22_switch](assets/l22_switch.svg)
+<div align="center">
+  <img src="assets/l22_switch_manim.gif" alt="switch execution trace and fallthrough">
+  <p><em><strong>Execution Trace:</strong> Observe the $O(1)$ direct jump to <code>case 2</code>. However, because <code>break;</code> is missing, execution "falls through" downwards, erroneously executing <code>case 3</code> as well!</em></p>
+</div>
 
 ```cpp
 #include <iostream>
