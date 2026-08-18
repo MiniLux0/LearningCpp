@@ -1,4 +1,4 @@
-﻿// L41_PointersAndArrays
+// L41_PointersAndArrays
 #include <iostream>
 
 int main() {

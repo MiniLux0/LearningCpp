@@ -1,4 +1,4 @@
-﻿// L59_StackVsHeap
+// L59_StackVsHeap
 #include <iostream>
 
 int main() {

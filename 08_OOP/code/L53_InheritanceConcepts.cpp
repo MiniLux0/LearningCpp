@@ -1,4 +1,4 @@
-﻿// L53_InheritanceConcepts
+// L53_InheritanceConcepts
 #include <iostream>
 
 int main() {

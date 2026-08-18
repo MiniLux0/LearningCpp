@@ -1,4 +1,4 @@
-﻿// L57_AbstractClasses
+// L57_AbstractClasses
 #include <iostream>
 
 int main() {

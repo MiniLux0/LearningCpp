@@ -1,4 +1,4 @@
-﻿// L52_ThisKeyword
+// L52_ThisKeyword
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-﻿// L58_VirtualDestructors
+// L58_VirtualDestructors
 #include <iostream>
 
 int main() {

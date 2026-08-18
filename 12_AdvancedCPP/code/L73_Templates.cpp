@@ -1,4 +1,4 @@
-﻿// L73_Templates
+// L73_Templates
 #include <iostream>
 
 int main() {

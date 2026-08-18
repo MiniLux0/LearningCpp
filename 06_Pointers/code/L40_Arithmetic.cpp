@@ -1,4 +1,4 @@
-﻿// L40_Arithmetic
+// L40_Arithmetic
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-﻿// L65_LinkedListsOperations
+// L65_LinkedListsOperations
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-﻿// L56_PolymorphismVirtual
+// L56_PolymorphismVirtual
 #include <iostream>
 
 int main() {

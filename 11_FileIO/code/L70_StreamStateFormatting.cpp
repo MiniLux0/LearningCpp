@@ -1,4 +1,4 @@
-﻿// L70_StreamStateFormatting
+// L70_StreamStateFormatting
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-﻿// L66_DoublyLinkedLists
+// L66_DoublyLinkedLists
 #include <iostream>
 
 int main() {

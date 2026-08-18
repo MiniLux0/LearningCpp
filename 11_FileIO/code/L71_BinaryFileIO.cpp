@@ -1,4 +1,4 @@
-﻿// L71_BinaryFileIO
+// L71_BinaryFileIO
 #include <iostream>
 
 int main() {

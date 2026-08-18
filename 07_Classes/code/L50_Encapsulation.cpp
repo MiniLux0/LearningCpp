@@ -1,4 +1,4 @@
-﻿// L50_Encapsulation
+// L50_Encapsulation
 #include <iostream>
 
 int main() {

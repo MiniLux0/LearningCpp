@@ -1,4 +1,4 @@
-﻿// L72_RandomFileAccess
+// L72_RandomFileAccess
 #include <iostream>
 
 int main() {

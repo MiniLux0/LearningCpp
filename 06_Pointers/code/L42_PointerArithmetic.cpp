@@ -1,4 +1,4 @@
-﻿// L42_PointerArithmetic
+// L42_PointerArithmetic
 #include <iostream>
 
 int main() {

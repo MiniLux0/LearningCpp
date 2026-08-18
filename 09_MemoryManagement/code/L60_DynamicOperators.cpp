@@ -1,4 +1,4 @@
-﻿// L60_DynamicOperators
+// L60_DynamicOperators
 #include <iostream>
 
 int main() {

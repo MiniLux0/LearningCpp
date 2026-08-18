@@ -1,4 +1,4 @@
-﻿// L74_STLContainersIterators
+// L74_STLContainersIterators
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-﻿// L45_References
+// L45_References
 #include <iostream>
 
 int main() {

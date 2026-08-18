@@ -1,4 +1,4 @@
-﻿// L64_LinkedListsNodes
+// L64_LinkedListsNodes
 #include <iostream>
 
 int main() {

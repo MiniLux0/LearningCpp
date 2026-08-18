@@ -1,4 +1,4 @@
-﻿// L48_Classes
+// L48_Classes
 #include <iostream>
 
 int main() {

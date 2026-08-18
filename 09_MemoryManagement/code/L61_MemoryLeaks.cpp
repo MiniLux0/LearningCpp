@@ -1,4 +1,4 @@
-﻿// L61_MemoryLeaks
+// L61_MemoryLeaks
 #include <iostream>
 
 int main() {

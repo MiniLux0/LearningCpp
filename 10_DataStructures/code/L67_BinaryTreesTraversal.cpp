@@ -1,4 +1,4 @@
-﻿// L67_BinaryTreesTraversal
+// L67_BinaryTreesTraversal
 #include <iostream>
 
 int main() {

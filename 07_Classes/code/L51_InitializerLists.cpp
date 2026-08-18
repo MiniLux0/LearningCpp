@@ -1,4 +1,4 @@
-﻿// L51_InitializerLists
+// L51_InitializerLists
 #include <iostream>
 
 int main() {

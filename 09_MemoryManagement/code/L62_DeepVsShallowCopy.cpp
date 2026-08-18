@@ -1,4 +1,4 @@
-﻿// L62_DeepVsShallowCopy
+// L62_DeepVsShallowCopy
 #include <iostream>
 
 int main() {

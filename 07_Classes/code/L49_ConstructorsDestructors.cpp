@@ -1,4 +1,4 @@
-﻿// L49_ConstructorsDestructors
+// L49_ConstructorsDestructors
 #include <iostream>
 
 int main() {

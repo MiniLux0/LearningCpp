@@ -1,4 +1,4 @@
-﻿// L63_RuleOfThree_RAII
+// L63_RuleOfThree_RAII
 #include <iostream>
 
 int main() {

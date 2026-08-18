@@ -1,4 +1,4 @@
-﻿// L47_Structs
+// L47_Structs
 #include <iostream>
 
 int main() {

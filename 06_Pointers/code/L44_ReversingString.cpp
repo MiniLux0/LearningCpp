@@ -1,4 +1,4 @@
-﻿// L44_ReversingString
+// L44_ReversingString
 #include <iostream>
 
 int main() {

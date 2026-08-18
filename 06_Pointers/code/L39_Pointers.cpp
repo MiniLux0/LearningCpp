@@ -1,4 +1,4 @@
-﻿// L39_Pointers
+// L39_Pointers
 #include <iostream>
 
 int main() {

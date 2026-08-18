@@ -1,4 +1,4 @@
-﻿// L43_CharArrays
+// L43_CharArrays
 #include <iostream>
 
 int main() {

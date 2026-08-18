@@ -1,4 +1,4 @@
-﻿// L55_MethodOverriding
+// L55_MethodOverriding
 #include <iostream>
 
 int main() {
