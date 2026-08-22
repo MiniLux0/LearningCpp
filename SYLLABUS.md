@@ -78,22 +78,22 @@
 ### 🔹 Section 04 — Arrays and Strings (L27–L30D) · CS106B Ch 3 & 11 / MIT L4 ✅
 - **L27**: Array Basics (Contiguous memory, initialization, `for` loop traversal, bounds checking).
 - **L28**: Arrays as Function Parameters (Pointer decay `int*`, passing size, read-only `const int arr[]`).
-- **L29**: Multidimensional Arrays (2D matrix, Row-Major Order storage, flat index formula $(i \times C) + j$).
+- **L29**: Multidimensional Arrays ( Row-Major Order storage, flat index formula $(i \times C) + j$ ).
 - **L30A**: Traditional C-Strings (`char[]` terminated with `'\0'`, `<cstring>` functions).
 - **L30B**: Modern `std::string` (`<string>` initialization forms, methods `substr`, `find`, `replace`, `.at(i)` vs `[]`, `const string&`).
 - **L30C**: `<cctype>` Character Inspection & Transformation (`isalpha`, `isdigit`, `isspace`, `tolower`, `toupper`, `static_cast<unsigned char>`).
-- **L30D**: String Processing & Applications (Palindrome complexity $O(N)$ vs $O(N^2)$, Pig Latin, Caesar Cipher, Stanford `strlib.h`).
+- **L30D**: String Processing & Applications ( Palindrome complexity $O(N)$ vs $O(N^2)$, Pig Latin, Caesar Cipher, Stanford `strlib.h` ).
 
 ---
 
 ### 🔹 Section 05 — Recursion & Algorithms (L31–L39) · Stanford CS106B / CS106X ✅
 - **L31**: Thinking Recursively (Base case, recursive step, call stack, mutual recursion, induction).
 - **L32**: Classic Recursive Problems (Factorial, Fibonacci, Towers of Hanoi).
-- **L33**: Memoization & Top-Down Dynamic Programming (Eliminating $O(2^N)$ redundancy, lookup caching with `vector` and `unordered_map`, Grid Traveler).
-- **L34**: Algorithmic Complexity & Big-O Notation (Time and space complexity: $O(1), O(\log N), O(N), O(N \log N), O(N^2)$).
+- **L33**: Memoization & Top-Down Dynamic Programming ( Eliminating $O(2^N)$ redundancy, lookup caching with `vector` and `unordered_map`, Grid Traveler ).
+- **L34**: Algorithmic Complexity & Big-O Notation ( Time and space complexity: $O(1), O(\log N), O(N), O(N \log N), O(N^2)$ ).
 - **L35**: Linear & Binary Search (Linear search on unsorted arrays vs binary search on sorted arrays, safe midpoint calculation).
 - **L36**: Quadratic Sorting Algorithms (Bubble Sort, Selection Sort, Insertion Sort — analysis & stability).
-- **L37**: Divide & Conquer Sorting (Merge Sort — $O(N \log N)$ recursion & subarray merging).
+- **L37**: Divide & Conquer Sorting ( Merge Sort — $O(N \log N)$ recursion & subarray merging ).
 - **L38**: Fast Sorting (Quick Sort — pivot selection, Hoare & Lomuto partitioning, randomized pivots).
 - **L39**: Recursive Backtracking (Choose-Explore-Unchoose pattern, Mazes, Nim Game, subset generation).
 
@@ -144,7 +144,7 @@
 - **L65**: Linked Lists I — Nodes & Dynamic Allocation (`Node` definition with `struct`, heap allocation).
 - **L66**: Linked Lists II & Custom Iterators (Insertion/deletion, creating custom iterators with `begin()` and `end()`).
 - **L67**: Doubly Linked Lists & Template Linked Lists (Doubly linked lists, templated container nodes).
-- **L68**: Binary Search Trees (BST) & Traversals (Search property $L < N < R$, recursive traversals).
+- **L68**: Binary Search Trees (BST) & Traversals ( Search property $L < N < R$, recursive traversals ).
 - **L69**: Hash Tables & HashMap Implementation (Bucket hashing, collision resolution, CS106L HashMap project).
 
 ---
