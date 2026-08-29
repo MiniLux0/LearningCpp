@@ -1,0 +1,153 @@
+/* ==========================================================================
+   DESIGN TOKENS - PRECISION SWISS & MODERN DEVELOPER DESIGN SYSTEM
+   3-Layer Token Architecture: Primitive -> Semantic -> Component
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+     1. PRIMITIVE TOKENS (Pure neutral zinc scale & high-contrast tech palette)
+     -------------------------------------------------------------------------- */
+  --zinc-50:  #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* Semantic Brand & State Colors */
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+
+  /* Typography Scale */
+  --font-family-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  --font-size-xs:   0.75rem;    /* 12px */
+  --font-size-sm:   0.875rem;   /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg:   1.125rem;   /* 18px */
+  --font-size-xl:   1.25rem;    /* 20px */
+  --font-size-2xl:  1.5rem;     /* 24px */
+  --font-size-3xl:  1.875rem;   /* 30px */
+  --font-size-4xl:  clamp(2rem, 4vw, 2.5rem);   /* Fluid 32px-40px */
+  --font-size-5xl:  clamp(2.5rem, 6vw, 3.5rem); /* Fluid 40px-56px */
+
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Spacing Scale (8dp Minimal Harmonic Rhythm) */
+  --space-1:  0.25rem;  /* 4px */
+  --space-2:  0.5rem;   /* 8px */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.25rem;  /* 20px */
+  --space-6:  1.5rem;   /* 24px */
+  --space-8:  2rem;     /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+
+  /* Border Radii */
+  --radius-sm:   0.375rem; /* 6px */
+  --radius-md:   0.5rem;   /* 8px */
+  --radius-lg:   0.75rem;  /* 12px */
+  --radius-xl:   1rem;     /* 16px */
+  --radius-2xl:  1.25rem;  /* 20px */
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --------------------------------------------------------------------------
+     2. SEMANTIC TOKENS (DARK MODE DEFAULT)
+     -------------------------------------------------------------------------- */
+  --bg-app:        #09090b;       /* Deep matte charcoal */
+  --bg-surface:    #111114;       /* Subtle layered section surface */
+  --bg-card:       #141417;       /* Card background */
+  --bg-card-hover: #19191e;       /* Card hover state */
+  --bg-muted:      #1f1f24;       /* Badges & code inline */
+  --bg-code:       #0d1117;       /* GitHub Dark code block */
+  --bg-glass:      rgba(9, 9, 11, 0.85);
+
+  --text-primary:   #f4f4f5;      /* High contrast zinc */
+  --text-secondary: #a1a1aa;      /* Medium contrast */
+  --text-muted:     #71717a;      /* Subdued labels */
+  --text-inverse:   #09090b;      /* Dark text on light button */
+
+  --brand-primary:   #3b82f6;     /* Tech Blue */
+  --brand-secondary: #2563eb;
+  --brand-gradient:  linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+
+  --color-success:        #10b981;
+  --color-success-bg:     rgba(16, 185, 129, 0.08);
+  --color-success-border: rgba(16, 185, 129, 0.2);
+
+  --color-danger:        #f43f5e;
+  --color-danger-bg:     rgba(244, 63, 94, 0.08);
+  --color-danger-border: rgba(244, 63, 94, 0.2);
+
+  --color-warning:        #f59e0b;
+  --color-warning-bg:     rgba(245, 158, 11, 0.08);
+  --color-warning-border: rgba(245, 158, 11, 0.2);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus:  #3b82f6;
+
+  --shadow-subtle:   0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-card:     0 4px 12px -2px rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 16px 36px -6px rgba(0, 0, 0, 0.55);
+
+  --header-height: 4rem;
+  --container-max: 76rem; /* 1216px */
+}
+
+/* --------------------------------------------------------------------------
+   3. LIGHT MODE THEME OVERRIDES
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  --bg-app:        #fafafa;
+  --bg-surface:    #ffffff;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f4f4f5;
+  --bg-muted:      #f4f4f5;
+  --bg-code:       #18181b;
+  --bg-glass:      rgba(250, 250, 250, 0.9);
+
+  --text-primary:   #09090b;
+  --text-secondary: #52525b;
+  --text-muted:     #71717a;
+  --text-inverse:   #ffffff;
+
+  --brand-primary:   #2563eb;
+  --brand-secondary: #1d4ed8;
+  --brand-gradient:  linear-gradient(135deg, #09090b 0%, #52525b 100%);
+
+  --border-subtle: rgba(0, 0, 0, 0.07);
+  --border-strong: rgba(0, 0, 0, 0.14);
+  --border-focus:  #2563eb;
+  
+  --shadow-subtle:   0 1px 3px 0 rgba(0, 0, 0, 0.06);
+  --shadow-card:     0 4px 10px -1px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 12px 28px -4px rgba(0, 0, 0, 0.14);
+}

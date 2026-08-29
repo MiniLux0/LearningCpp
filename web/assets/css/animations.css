@@ -1,0 +1,49 @@
+/* ==========================================================================
+   ANIMATIONS & MOTION - GPU-ACCELERATED & ACCESSIBLE
+   ========================================================================== */
+
+/* Cursor Blinking */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background-color: var(--text-primary);
+  vertical-align: -0.15em;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* GPU Hardware-Accelerated Fade In */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cursor-blink {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

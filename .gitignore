@@ -1,0 +1,141 @@
+# ================================================================
+# LearningCpp
+# ================================================================
+
+
+# ── AI / Agents / Internal Configuration ─────────────────────────
+
+.agents/
+.gemini/
+GEMINI.md
+
+
+# ── Internal Backups / Private Documentation ────────────────────
+
+_backup_docs/
+_backup/
+
+
+# ── Project Utilities / Generated Resources ─────────────────────
+
+utils/
+
+
+# ── C++ Compiled Files ──────────────────────────────────────────
+
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Debug / compiler files
+*.pdb
+*.ilk
+*.gch
+*.pch
+
+
+# ── Build Directories ────────────────────────────────────────────
+
+build/
+bin/
+out/
+dist/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_mani    st.txt
+compile_commands.json
+
+
+# ── Python / Manim ───────────────────────────────────────────────
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Manim generated files
+media/
+.manim_cache/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+
+# ── VS Code ─────────────────────────────────────────────────────
+
+# Personal/local configuration
+.vscode/settings.json
+.vscode/*.log
+.vscode/
+
+# Shared project tasks can remain tracked
+*.user
+*.suo
+.vs/
+
+
+# ── Operating System ────────────────────────────────────────────
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ── Temporary / Backup Files ────────────────────────────────────
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+Feed.txt
+
+
+# ── LaTeX Generated Files ───────────────────────────────────────
+
+*.aux
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.txt
+
+**/_minted/
+**/latexmk/
+
+
+# ── Coverage / Profiling ────────────────────────────────────────
+
+*.gcda
+*.gcno
+*.gcov
+
+
+# ── Environment / Secrets ───────────────────────────────────────
+
+.env
+.env.*
+!.env.example
+
+*.local
