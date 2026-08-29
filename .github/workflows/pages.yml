@@ -1,4 +1,3 @@
-```yaml
 name: Deploy LearningCpp Web
 
 on:
@@ -17,34 +16,29 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
-
     steps:
-      # 1. Descargar el repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Configurar GitHub Pages
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      # 3. Publicar SOLAMENTE la carpeta web/
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./web"
+          path: ./web
 
-      # 4. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-```
+        uses: actions/deploy-pages@v4git status
