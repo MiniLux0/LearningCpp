@@ -617,16 +617,32 @@
       if (!this.modal) return;
       const modalTitle = this.modal.querySelector('#modal-module-title');
       const modalContent = this.modal.querySelector('#modal-module-body');
+      const modalGithubBtn = this.modal.querySelector('#modal-github-btn');
+
+      const githubModuleUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}`;
+      const githubTheoryUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/theory`;
+      const githubLabUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/lab`;
+      const githubExerciseUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/exercise`;
+
+      if (modalGithubBtn) {
+        modalGithubBtn.href = githubModuleUrl;
+      }
 
       modalTitle.innerHTML = `
-        <div style="display: flex; align-items: center; gap: var(--space-3);">
-          <span class="module-id-badge" style="font-size: 0.9rem; padding: 0.25rem 0.6rem;">${mod.id}</span>
-          <div>
-            <div style="font-size: var(--font-size-xs); color: var(--text-muted); font-family: var(--font-family-mono); text-transform: uppercase; letter-spacing: 0.05em;">
-              ${mod.phaseName}
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: var(--space-3); flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span class="module-id-badge" style="font-size: 0.9rem; padding: 0.25rem 0.6rem;">${mod.id}</span>
+            <div>
+              <div style="font-size: var(--font-size-xs); color: var(--text-muted); font-family: var(--font-family-mono); text-transform: uppercase; letter-spacing: 0.05em;">
+                ${mod.phaseName}
+              </div>
+              <h2 style="font-size: var(--font-size-xl); font-family: var(--font-family-display); font-weight: 700; margin-top: 2px;">${mod.title}</h2>
             </div>
-            <h2 style="font-size: var(--font-size-xl); font-family: var(--font-family-display); font-weight: 700; margin-top: 2px;">${mod.title}</h2>
           </div>
+          <a href="${githubModuleUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; display: inline-flex; align-items: center; gap: 5px;" aria-label="Abrir módulo en GitHub">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>GitHub</span>
+          </a>
         </div>
       `;
 
@@ -638,12 +654,15 @@
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-5);">
-          <div style="background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Proyecto Integrador</div>
+          <a href="${githubExerciseUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: block; transition: all 0.2s ease;">
+            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;">
+              <span>Proyecto Integrador</span>
+              <span style="color: var(--color-cyan); font-size: 0.68rem;">Retos ↗</span>
+            </div>
             <div style="font-weight: 600; font-size: var(--font-size-sm); margin-top: 2px; color: var(--text-primary);">
               ${mod.project}
             </div>
-          </div>
+          </a>
           <div style="background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Estado del Módulo</div>
             <div style="font-weight: 600; font-size: var(--font-size-sm); margin-top: 2px; display: flex; align-items: center; gap: 6px; color: ${mod.status === 'completed' ? 'var(--color-success)' : 'var(--text-muted)'};">
@@ -653,32 +672,50 @@
           </div>
         </div>
 
-        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
-          Lecciones del Módulo (${mod.lessons.length})
-        </h4>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
+          <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 0;">
+            Lecciones Teóricas (${mod.lessons.length})
+          </h4>
+          <a href="${githubTheoryUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; font-weight: 600;">
+            Abrir carpeta theory/ ↗
+          </a>
+        </div>
+
         <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5);">
           ${mod.lessons.map(l => `
-            <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--text-primary); font-weight: 700; padding: 2px 6px; background: var(--bg-muted); border: 1px solid var(--border-subtle); border-radius: 4px; height: fit-content;">
-                ${l.id}
-              </span>
-              <div>
-                <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+            <a href="${githubTheoryUrl}" target="_blank" rel="noopener noreferrer" class="lesson-link-card" title="Abrir lección en GitHub">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <span class="lesson-link-badge">
+                  ${l.id}
+                </span>
+                <div>
+                  <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+                </div>
               </div>
-            </div>
+              <span class="lesson-action-tag">
+                <span>Estudiar</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </a>
           `).join('')}
         </div>
 
         ${mod.bugDemos && mod.bugDemos.length > 0 ? `
-          <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
-            Demos de Bugs Intencionales (Break-First)
-          </h4>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
+            <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 0;">
+              Demos de Bugs Intencionales (Break-First)
+            </h4>
+            <a href="${githubLabUrl}/demos" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; color: #f43f5e; text-decoration: none; font-weight: 600;">
+              Abrir lab/demos/ ↗
+            </a>
+          </div>
           <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5);">
             ${mod.bugDemos.map(b => `
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">
-                ${b}
-              </span>
+              <a href="${githubLabUrl}/demos" target="_blank" rel="noopener noreferrer" class="demo-link-badge" title="Ver código del demo en GitHub">
+                <span>🐞 ${b}</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
             `).join('')}
           </div>
         ` : ''}

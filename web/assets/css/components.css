@@ -1420,6 +1420,69 @@
   }
 }
 
+/* Interactive Lesson & Demo Links in Modal */
+.lesson-link-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.lesson-link-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+  transform: translateX(3px);
+}
+
+.lesson-link-badge {
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 2px 6px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  height: fit-content;
+}
+
+.lesson-action-tag {
+  font-size: 0.75rem;
+  color: #38bdf8;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.demo-link-badge {
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.demo-link-badge:hover {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: #f43f5e;
+  color: #fda4af;
+}
+
 /* 12. Lightbox Modal for Manim Visuals */
 .lightbox-backdrop {
   position: fixed;
