@@ -48,6 +48,7 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
     - Bloqueo de desplazamiento horizontal en celulares mediante `overflow-x: hidden` raíz en `html`/`body`, reseteo universal `min-width: 0` y contenedores fluidos.
     - Botones con áreas táctiles ergonómicas de **44px a 48px** (WCAG AAA).
   - **Optimización de Rendimiento (`app.js`)**: Reducción masiva de peso de **110 KB a ~20 KB**, conservando búsqueda en tiempo real (Ctrl+K), modal de lecciones, lightbox Manim y conmutador de tema oscuro/claro.
+  - **Autosuficiencia de Recursos Multimedia (`web/assets/animations/`)**: Sincronización local de todas las animaciones Manim dentro de la plataforma web, garantizando carga 100% libre de errores 404 en GitHub Pages tanto online como en modo offline local.
 - **Módulos 01 a 05 Finalizados al 100%**:
   - **M01 — Getting Started**: 7 lecciones, laboratorios, demos, 6 retos y 6 animaciones Manim (`l00` a `l06`).
   - **M02 — Fundamental Types**: 7 lecciones, 7 laboratorios, 4 demos de bugs, 7 retos y 7 animaciones Manim (`l01` a `l07`).

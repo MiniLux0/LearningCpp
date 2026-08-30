@@ -763,7 +763,7 @@
       this.data = {
         compilation: {
           title: "El Pipeline del Compilador (C++ a Binario x86_64)",
-          src: "../01_GettingStarted/theory/assets/l00_compilation.gif",
+          src: "assets/animations/l00_compilation.gif",
           alt: "Pipeline del Compilador C++",
           breakdown: [
             { tag: "Preprocesador", desc: "Expande las directivas #include e inserta el contenido crudo de las cabeceras." },
@@ -773,7 +773,7 @@
         },
         narrowing: {
           title: "Narrowing Conversions & Inicialización Uniforme {}",
-          src: "../02_FundamentalTypes/theory/assets/l02_narrowing_conversion.gif",
+          src: "assets/animations/l02_narrowing_conversion.gif",
           alt: "Narrowing Conversions en memoria",
           breakdown: [
             { tag: "Peligro en C++ Clásico", desc: "Asignar un double a un int trunca silenciosamente la información sin avisar." },
@@ -783,7 +783,7 @@
         },
         division: {
           title: "La Trampa de la División Entera (ALU)",
-          src: "../02_FundamentalTypes/theory/assets/l03_division_entera.gif",
+          src: "assets/animations/l03_division_entera.gif",
           alt: "División entera a nivel de ALU",
           breakdown: [
             { tag: "Operación en CPU", desc: "Al dividir dos enteros (7 / 2), el registro ALU descarta la parte fraccional arrojando 3." },
@@ -793,7 +793,7 @@
         },
         shadowing: {
           title: "Variable Shadowing en el Stack",
-          src: "../03_ScopeAndControlFlow/theory/assets/l03_variable_shadowing.gif",
+          src: "assets/animations/l03_variable_shadowing.gif",
           alt: "Variable Shadowing en memoria",
           breakdown: [
             { tag: "Stack Externo", desc: "Variable original viva en el marco del bloque superior." },
@@ -803,7 +803,7 @@
         },
         switch: {
           title: "Switch Jump Table & Prevención de Fallthrough",
-          src: "../03_ScopeAndControlFlow/theory/assets/l04_switch_fallthrough.gif",
+          src: "assets/animations/l04_switch_fallthrough.gif",
           alt: "Switch Jump Table",
           breakdown: [
             { tag: "Jump Table O(1)", desc: "El compilador optimiza el switch convirtiéndolo en un salto de dirección directo." },
@@ -813,7 +813,7 @@
         },
         passbyvalue: {
           title: "La Trampa del Clon: Pass-by-Value en Stack",
-          src: "../04_Functions/theory/assets/l04_pass_by_value.gif",
+          src: "assets/animations/l04_pass_by_value.gif",
           alt: "Pass-by-value en la pila",
           breakdown: [
             { tag: "Stack Frame main()", desc: "Almacena la variable original en su dirección física de memoria." },
@@ -823,7 +823,7 @@
         },
         const: {
           title: "Blindaje de Inmutabilidad (const) en RAM",
-          src: "../05_ConstantsAndStrings/theory/assets/l01_const_memory.gif",
+          src: "assets/animations/l01_const_memory.gif",
           alt: "Escudo inmutable const",
           breakdown: [
             { tag: "Celda en Stack", desc: "La variable recibe un candado de solo lectura verificado por el compilador." },
@@ -833,7 +833,7 @@
         },
         stringview: {
           title: "Vistas Zero-Copy con std::string_view",
-          src: "../05_ConstantsAndStrings/theory/assets/l04_string_view_ref.gif",
+          src: "assets/animations/l04_string_view_ref.gif",
           alt: "Vistas Zero-Copy string_view",
           breakdown: [
             { tag: "Problema de std::string", desc: "Pasar texto por valor fuerza asignación dinámica y copia costosa en Heap." },
