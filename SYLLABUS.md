@@ -1,5 +1,6 @@
 # 📜 Syllabus Oficial del Programa de Especialización en C++ Moderno
-### **LearningCpp — De Cero Absoluto a C++ Moderno: Fundamentos de Grado Profesional**
+### **LearningCpp — Entiende primero. Abstrae después.**
+**De Cero Absoluto a C++ Moderno: Fundamentos de Grado Profesional**  
 **Estándar Oficial:** ISO/IEC 14882:2017 (C++17 Base con bloques de Evolución a C++20)  
 **Autor & Dirección Pedagógica:** Jesus Vera V. (MiniLux0) · **Comunidad:** [Discord Code Lab](https://discord.gg/JExCwZ3YyC)
 

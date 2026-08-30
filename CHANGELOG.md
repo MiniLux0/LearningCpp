@@ -8,6 +8,13 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
 ## [Unreleased]
 
 ### Completado
+- **Blindaje de Rigor Técnico & Lema Formativo**:
+  - Adopción del lema pedagógico oficial: **"Entiende primero. Abstrae después."**
+  - Clarificación en teoría y web sobre `std::mt19937` como PRNG determinista de alto rendimiento (no criptográfico).
+  - Sustitución de afirmaciones absolutas por terminología técnica rigurosa: *gestión determinista de recursos con RAII* y *prevención sistemática de lecturas de valores residuales indeterminados (UB)*.
+  - Explicación fundamentada de `std::endl` basada en la eliminación de vaciados síncronos forzados de buffer.
+- **Pipeline de Integración Continua (CI Matrix)**:
+  - Creación de `.github/workflows/ci.yml` con compilación estricta C++17 (`-Wall -Wextra -Wpedantic`) y auditoría de estándares en Linux (Ubuntu) y Windows (MinGW).
 - **Alineación a C++17 Base con Evolución a C++20**:
   - Estandarización oficial de todo el código ejecutable, laboratorios, retos y comandos en **C++17 puro (`-std=c++17`)**.
   - Incorporación en la teoría de bloques pedagógicos comparativos de *Evolución a C++20* (Designated Initializers en M07, `std::erase_if` en M06/M15, Concepts en M14 y Ranges en M15).

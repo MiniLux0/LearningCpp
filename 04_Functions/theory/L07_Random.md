@@ -10,7 +10,7 @@ A partir de aquí, formalizaremos la arquitectura del PRNG. Para construir este 
 
 ## La Arquitectura del PRNG (3 Capas)
 
-Para generar secuencias pseudo-aleatorias criptográficamente limpias, ensamblamos:
+Para generar secuencias pseudo-aleatorias de alta calidad para simulación y lógica de sistemas (no criptográficas), ensamblamos:
 1. **La Entropía (`std::random_device`):** Lee ruido físico real del hardware (ej. temperatura de la CPU, variaciones magnéticas del disco duro) para generar un número caótico inicial. A esto se le conoce como *Semilla (Seed)*.
 2. **El Motor (`std::mt19937`):** Es el algoritmo estocástico (conocido como *Mersenne Twister*) que ingiere la semilla de entropía y comienza a procesar secuencias numéricas altamente impredecibles y gigantescas.
 3. **La Distribución (`std::uniform_int_distribution`):** Toma las secuencias masivas del Mersenne Twister y las normaliza estadísticamente para que caigan uniformemente dentro de un rango específico (ej. del 1 al 6).

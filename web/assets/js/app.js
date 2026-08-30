@@ -1036,9 +1036,9 @@
       {
         num: "03",
         title: "Inicialización de Variables",
-        badCode: "int x; (Basura residual)",
+        badCode: "int x; (Valor indeterminado)",
         goodCode: "int x{0}; (Uniforme)",
-        advantage: "Previene basura en RAM y conversiones estrechas destructivas (Narrowing)."
+        advantage: "Previene lectura de valores residuales indeterminados (UB) y conversiones estrechas."
       },
       {
         num: "04",
@@ -1052,14 +1052,14 @@
         title: "Gestión de Memoria",
         badCode: "new[] / delete[] crudos",
         goodCode: "std::unique_ptr&lt;T&gt; (RAII)",
-        advantage: "Destrucción determinista de memoria en Heap 100% libre de fugas (Memory Leaks)."
+        advantage: "Destrucción determinista y gestión segura de ownership en Heap mediante RAII."
       },
       {
         num: "06",
         title: "Números Aleatorios",
         badCode: "rand() % N (Sesgado)",
         goodCode: "std::mt19937 (&lt;random&gt;)",
-        advantage: "Distribución uniforme real de grado industrial sin sesgos matemáticos."
+        advantage: "Distribución uniforme determinista de alta calidad para simulación y juegos (No criptográfico)."
       }
     ];
 

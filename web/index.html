@@ -247,11 +247,11 @@
             </span>
           </div>
           <h1 class="hero-title">
-            Aprende C++ Moderno <br>
-            <span class="text-gradient">sin arrastrar vicios del pasado</span>
+            Entiende primero. <br>
+            <span class="text-gradient">Abstrae después.</span>
           </h1>
           <p class="hero-subtitle">
-            El curso interactivo y visual que te enseña a programar desde cero comprendiendo qué ocurre físicamente en la memoria RAM, blindando tu código con RAII y resolviendo fallos reales mediante la metodología <strong>"Break-First, Fix-Later"</strong>.
+            Aprende C++ Moderno desde cero absoluto comprendiendo el modelo de memoria del proceso, blindando tus recursos con RAII y resolviendo fallos reales mediante la metodología <strong>"Break-First, Fix-Later"</strong>.
           </p>
 
           <div class="hero-ctas">
@@ -318,9 +318,9 @@
           <div class="terminal-footer-bar">
             <span style="display: flex; align-items: center; gap: 6px;">
               <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
-              <span>Cero Undefined Behavior</span>
+              <span>Prevención Sistemática de UB</span>
             </span>
-            <span style="font-family: var(--font-family-mono); color: #38bdf8;">100% RAII & Safe</span>
+            <span style="font-family: var(--font-family-mono); color: #38bdf8;">RAII & Single Ownership</span>
           </div>
         </div>
       </div>
@@ -547,9 +547,9 @@
                 </tr>
                 <tr>
                   <td><strong>Inicialización</strong></td>
-                  <td><code style="color: #fca5a5;">int x;</code> (Basura en RAM)</td>
+                  <td><code style="color: #fca5a5;">int x;</code> (Valor indeterminado)</td>
                   <td><code style="color: #6ee7b7;">int x{0};</code> (Uniforme)</td>
-                  <td>Previene basura residual y conversiones estrechas destructivas.</td>
+                  <td>Previene lectura de valores indeterminados (UB) y conversiones estrechas.</td>
                 </tr>
                 <tr>
                   <td><strong>Colecciones Dinámicas</strong></td>
@@ -561,13 +561,13 @@
                   <td><strong>Gestión de Memoria</strong></td>
                   <td><code style="color: #fca5a5;">new[] / delete[]</code></td>
                   <td><code style="color: #6ee7b7;">std::unique_ptr&lt;T&gt;</code> (RAII)</td>
-                  <td>Destrucción determinista 100% libre de fugas de memoria.</td>
+                  <td>Destrucción determinista y gestión segura de ownership mediante RAII.</td>
                 </tr>
                 <tr>
                   <td><strong>Aleatoriedad (RNG)</strong></td>
                   <td><code style="color: #fca5a5;">rand() % N</code> (Sesgado)</td>
                   <td><code style="color: #6ee7b7;">std::mt19937</code> (&lt;random&gt;)</td>
-                  <td>Distribución uniforme de grado criptográfico y simulación.</td>
+                  <td>Distribución uniforme de alta calidad para simulación y videojuegos (No criptográfico).</td>
                 </tr>
               </tbody>
             </table>
@@ -683,7 +683,7 @@ clang++ --version</code></pre>
               <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="accordion-content">
-              Porque en proyectos del mundo real, <code>using namespace std;</code> causa colisiones de nombres impredecibles, y <code>std::endl</code> fuerza un vaciado de buffer (*flush*) innecesario que ralentiza el rendimiento de entrada/salida hasta en un 400%.
+              Porque en proyectos profesionales, <code>using namespace std;</code> contamina el ámbito global causando colisiones de nombres, y <code>std::endl</code> fuerza un vaciado síncrono del buffer (*flush*) innecesario que degrada severamente el rendimiento de entrada/salida frente al carácter <code>'\n'</code> directo.
             </div>
           </div>
 
