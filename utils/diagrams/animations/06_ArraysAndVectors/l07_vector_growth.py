@@ -12,30 +12,30 @@ class L07VectorGrowth(BaseLearningScene):
         self.add(header)
         self.wait(0.6)
 
-        Y_MAIN = 0.2
+        Y_MAIN = 0.25
 
-        # PANEL IZQUIERDO: Ventana de Código IDE (Aprovechamiento completo del ancho)
-        win_group, code_bg = self.create_code_window(width=5.8, height=3.3, title="main.cpp")
+        # PANEL IZQUIERDO: Ventana de Código IDE con MarkupText Hiper-Realista
+        win_group, code_bg = self.create_code_window(width=5.8, height=3.4, title="main.cpp")
         win_group.move_to(LEFT * 3.4 + UP * Y_MAIN)
 
-        code_lines = VGroup(
-            Text("std::vector<int> v{10, 20};", font="Consolas", font_size=12, color=self.COLOR_CYAN),
-            Text("// size: 2, capacity: 2 (Bloque Lleno)", font="Consolas", font_size=11, color=self.COLOR_MUTED),
-            Text("\nv.push_back(30); // Requiere Espacio!", font="Consolas", font_size=12, color=self.COLOR_GOLD_LIGHT, weight=BOLD),
-            Text("// 1. Reserva nuevo bloque (cap: 4)", font="Consolas", font_size=11, color=self.COLOR_GREEN_LIGHT),
-            Text("// 2. Mueve datos existentes", font="Consolas", font_size=11, color=self.COLOR_CYAN),
-            Text("// 3. Inserta 30 y libera bloque viejo", font="Consolas", font_size=11, color=self.COLOR_PURPLE_LIGHT)
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.09).move_to(code_bg.get_center() + DOWN * 0.05)
+        l1 = MarkupText('<span foreground="#38bdf8">std::vector</span>&lt;<span foreground="#10b981"><b>int</b></span>&gt; <span foreground="#fbbf24">v</span>{<span foreground="#fbbf24">10</span>, <span foreground="#fbbf24">20</span>};', font="Consolas", font_size=12)
+        l2 = MarkupText('<span foreground="#8b949e">// size: 2, capacity: 2 (Lleno)</span>', font="Consolas", font_size=11)
+        l3 = MarkupText('<span foreground="#fbbf24">v</span>.<span foreground="#38bdf8"><b>push_back</b></span>(<span foreground="#fbbf24">30</span>); <span foreground="#8b949e">// Realocacion</span>', font="Consolas", font_size=12)
+        l4 = MarkupText('<span foreground="#8b949e">// 1. Reserva bloque doble (cap: 4)</span>', font="Consolas", font_size=11)
+        l5 = MarkupText('<span foreground="#8b949e">// 2. Mueve datos existentes</span>', font="Consolas", font_size=11)
+        l6 = MarkupText('<span foreground="#8b949e">// 3. Inserta 30 y libera bloque A</span>', font="Consolas", font_size=11)
+
+        code_group = VGroup(l1, l2, l3, l4, l5, l6).arrange(DOWN, aligned_edge=LEFT, buff=0.10).move_to(code_bg.get_center() + DOWN * 0.05)
 
         # PANEL DERECHO: Tarjeta de Memoria Heap (Amplio y sin desbordamientos)
-        ram_group, ram_bg = self.create_card_panel(width=5.8, height=3.3, title="Memoria Dinámica (Heap)", subtitle="Estrategia de Capacidad Duplicada")
+        ram_group, ram_bg = self.create_card_panel(width=5.8, height=3.4, title="Memoria Dinámica (Heap)", subtitle="Estrategia de Capacidad Duplicada")
         ram_group.move_to(RIGHT * 3.4 + UP * Y_MAIN)
 
         self.play(FadeIn(win_group), FadeIn(ram_group), run_time=0.6)
         self.wait(0.5)
 
         # ACTO 1: Bloque Antiguo Lleno (Capacidad 2)
-        self.play(Write(code_lines[0]), Write(code_lines[1]), run_time=0.7)
+        self.play(Write(l1), Write(l2), run_time=0.7)
 
         old_tag = Text("Bloque Heap A (cap: 2)", font="Consolas", font_size=11, color=self.COLOR_MUTED).move_to(ram_bg.get_center() + UP * 0.95)
         old_0 = self.create_cell("10", width=1.2, height=0.55, color=self.COLOR_CYAN, font_size=11)
@@ -43,11 +43,11 @@ class L07VectorGrowth(BaseLearningScene):
         old_block = VGroup(old_0, old_1).arrange(RIGHT, buff=0.08).next_to(old_tag, DOWN, buff=0.1)
 
         self.play(FadeIn(old_tag), FadeIn(old_block), run_time=0.6)
-        self.wait(1.0)
+        self.wait(2.5)
 
         # ACTO 2: push_back y Realocación a Bloque B (Capacidad 4)
         self.play(
-            Write(code_lines[2]), Write(code_lines[3]), Write(code_lines[4]), Write(code_lines[5]),
+            Write(l3), Write(l4), Write(l5), Write(l6),
             run_time=0.9
         )
 
@@ -64,7 +64,7 @@ class L07VectorGrowth(BaseLearningScene):
             Flash(new_2.get_center(), color=self.COLOR_GOLD, flash_radius=1.1),
             run_time=0.9
         )
-        self.wait(1.2)
+        self.wait(2.8)
 
         # ACTO 3: Liberación del bloque antiguo
         old_x = Text("[LIBERADO: delete[]]", font="Consolas", font_size=11, color=self.COLOR_RED, weight=BOLD).move_to(old_block.get_center())
@@ -73,12 +73,12 @@ class L07VectorGrowth(BaseLearningScene):
             FadeIn(old_x),
             run_time=0.7
         )
-        self.wait(1.5)
+        self.wait(2.8)
 
         # ACTO 4: HUD Footer
         hud_group = self.create_hud_footer("CRECIMIENTO AMORTIZADO", "std::vector duplica su capacidad (2 -> 4 -> 8) para garantizar un costo amortizado O(1).", color=self.COLOR_CYAN)
         self.play(FadeIn(hud_group, shift=UP * 0.2), run_time=0.7)
-        self.wait(5.5)
+        self.wait(5.0)
 
 if __name__ == "__main__":
     export_manim_scenes(__file__, "06_ArraysAndVectors", {"L07VectorGrowth": "l07_vector_growth.gif"})

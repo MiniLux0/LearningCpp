@@ -12,29 +12,29 @@ class L04BoundsChecking(BaseLearningScene):
         self.add(header)
         self.wait(0.6)
 
-        Y_MAIN = 0.2
+        Y_MAIN = 0.25
 
-        # PANEL IZQUIERDO: Ventana de Código IDE (Aprovechando el ancho)
-        win_group, code_bg = self.create_code_window(width=5.8, height=3.3, title="main.cpp")
+        # PANEL IZQUIERDO: Ventana de Código IDE con MarkupText Hiper-Realista
+        win_group, code_bg = self.create_code_window(width=5.8, height=3.4, title="main.cpp")
         win_group.move_to(LEFT * 3.4 + UP * Y_MAIN)
 
-        code_lines = VGroup(
-            Text("std::vector<int> v{10, 20, 30}; // size = 3", font="Consolas", font_size=12, color=self.COLOR_CYAN),
-            Text("\n// 1. operator[] (Ciego / Sin Bounds Checking)", font="Consolas", font_size=11, color=self.COLOR_MUTED),
-            Text("int x = v[5]; // Acceso Ciego a Memoria!", font="Consolas", font_size=12, color=self.COLOR_RED, weight=BOLD),
-            Text("\n// 2. Metodo .at() (Protegido con Excepcion)", font="Consolas", font_size=11, color=self.COLOR_MUTED),
-            Text("int y = v.at(5); // Lanza std::out_of_range", font="Consolas", font_size=12, color=self.COLOR_GREEN_LIGHT, weight=BOLD)
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.10).move_to(code_bg.get_center() + DOWN * 0.05)
+        l1 = MarkupText('<span foreground="#38bdf8">std::vector</span>&lt;<span foreground="#10b981"><b>int</b></span>&gt; <span foreground="#fbbf24">v</span>{<span foreground="#fbbf24">10</span>, <span foreground="#fbbf24">20</span>, <span foreground="#fbbf24">30</span>}; <span foreground="#8b949e">// size = 3</span>', font="Consolas", font_size=11)
+        l2 = MarkupText('<span foreground="#8b949e">// 1. Acceso ciego sin comprobacion:</span>', font="Consolas", font_size=11)
+        l3 = MarkupText('<span foreground="#10b981"><b>int</b></span> <span foreground="#fca5a5">x</span> = <span foreground="#ef4444"><b>v[5];</b></span> <span foreground="#8b949e">// UB / Memoria Basura</span>', font="Consolas", font_size=12)
+        l4 = MarkupText('<span foreground="#8b949e">// 2. Metodo .at() con validacion:</span>', font="Consolas", font_size=11)
+        l5 = MarkupText('<span foreground="#10b981"><b>int</b></span> <span foreground="#6ee7b7">y</span> = <span foreground="#10b981"><b>v.at(5);</b></span> <span foreground="#8b949e">// std::out_of_range</span>', font="Consolas", font_size=12)
+
+        code_group = VGroup(l1, l2, l3, l4, l5).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to(code_bg.get_center() + DOWN * 0.05)
 
         # PANEL DERECHO: Tarjeta de Memoria RAM
-        ram_group, ram_bg = self.create_card_panel(width=5.8, height=3.3, title="Validacion de Limites", subtitle="size = 3 (indices validos: 0, 1, 2)")
+        ram_group, ram_bg = self.create_card_panel(width=5.8, height=3.4, title="Validacion de Limites", subtitle="size = 3 (indices validos: 0, 1, 2)")
         ram_group.move_to(RIGHT * 3.4 + UP * Y_MAIN)
 
         self.play(FadeIn(win_group), FadeIn(ram_group), run_time=0.6)
         self.wait(0.5)
 
         # ACTO 1: Renderizar celdas válidas en memoria
-        self.play(Write(code_lines[0]), run_time=0.6)
+        self.play(Write(l1), run_time=0.6)
 
         c0 = self.create_cell("[0]\n10", width=1.1, height=0.7, color=self.COLOR_CYAN, font_size=11)
         c1 = self.create_cell("[1]\n20", width=1.1, height=0.7, color=self.COLOR_CYAN, font_size=11)
@@ -45,7 +45,7 @@ class L04BoundsChecking(BaseLearningScene):
         self.wait(0.8)
 
         # ACTO 2: Error ciego con [] - Flecha roja gruesa y clara
-        self.play(Write(code_lines[1]), Write(code_lines[2]), run_time=0.7)
+        self.play(Write(l2), Write(l3), run_time=0.7)
 
         blind_arrow = Arrow(
             start=c2.get_right() + RIGHT * 0.08,
@@ -63,12 +63,12 @@ class L04BoundsChecking(BaseLearningScene):
             Flash(blind_arrow.get_end(), color=self.COLOR_RED, flash_radius=1.2),
             run_time=0.9
         )
-        self.wait(1.8)
+        self.wait(2.8)
 
         # ACTO 3: Protección con .at()
         self.play(
             FadeOut(blind_arrow), FadeOut(blind_badge),
-            Write(code_lines[3]), Write(code_lines[4]),
+            Write(l4), Write(l5),
             run_time=0.8
         )
 
@@ -86,12 +86,12 @@ class L04BoundsChecking(BaseLearningScene):
             Flash(shield_barrier.get_center(), color=self.COLOR_GREEN, flash_radius=1.3),
             run_time=0.9
         )
-        self.wait(2.0)
+        self.wait(2.8)
 
         # ACTO 4: HUD Footer con tiempo generoso de lectura
         hud_group = self.create_hud_footer("ACCESO SEGURO", ".at() valida los limites en cada lectura, previniendo lecturas y corrupciones silenciosas.", color=self.COLOR_GREEN)
         self.play(FadeIn(hud_group, shift=UP * 0.2), run_time=0.7)
-        self.wait(6.0)
+        self.wait(5.0)
 
 if __name__ == "__main__":
     export_manim_scenes(__file__, "06_ArraysAndVectors", {"L04BoundsChecking": "l04_bounds_checking.gif"})
