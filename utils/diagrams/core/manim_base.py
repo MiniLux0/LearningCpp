@@ -315,3 +315,35 @@ def export_manim_scenes(script_file: str, module_name: str, scenes_dict: Dict[st
         cache_dir = os.path.join(out_dir, folder)
         if os.path.exists(cache_dir):
             shutil.rmtree(cache_dir, ignore_errors=True)
+
+def export_manim_image(script_file: str, module_name: str, scenes_dict: Dict[str, str]):
+    """
+    Renders static Manim scenes directly to high-resolution PNG images (1080p).
+    """
+    script_dir = os.path.dirname(os.path.abspath(script_file))
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))
+    out_dir = os.path.join(repo_root, module_name, "theory", "assets")
+    web_dir = os.path.join(repo_root, "web", "assets", "images")
+    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(web_dir, exist_ok=True)
+    script_path = os.path.abspath(script_file)
+
+    for scene_name, final_png_name in scenes_dict.items():
+        print(f"--> [MANIM STATIC] Rendering snapshot '{scene_name}' from {os.path.basename(script_file)}...")
+        command = f'python -m manim -s -qh --media_dir "{out_dir}" "{script_path}" {scene_name}'
+        subprocess.run(command, shell=True)
+
+        matches = glob.glob(os.path.join(out_dir, "images", "**", f"{scene_name}*.png"), recursive=True)
+        if matches:
+            png_src = matches[0]
+            final_png_path = os.path.join(out_dir, final_png_name)
+            shutil.copy(png_src, final_png_path)
+            shutil.copy(png_src, os.path.join(web_dir, final_png_name))
+            print(f"--> [SUCCESS] Created static image: {final_png_path}")
+
+    # Limpieza de caché temporal de Manim
+    for folder in ["videos", "images", "texts", "Tex"]:
+        cache_dir = os.path.join(out_dir, folder)
+        if os.path.exists(cache_dir):
+            shutil.rmtree(cache_dir, ignore_errors=True)
+

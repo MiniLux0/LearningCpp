@@ -73,12 +73,14 @@ g++ -std=c++17 -Wall -Wextra Estadisticas.cpp main.cpp -o app
 ./app
 ```
 
-```text
-PROCESO DE COMPILACIÓN Y ENLACE:
-Estadisticas.cpp ──[Compilador]──> Estadisticas.o ──┐
-                                                    ├──[Linker]──> app.exe
-main.cpp         ──[Compilador]──> main.o         ──┘
-```
+<div align="center">
+  <img src="assets/l08_compilacion_separada.png" alt="Pipeline de Compilación Multi-Archivo y Enlazado (Linker)">
+</div>
+
+#### 🔍 Traducción Visual del Pipeline de Compilación:
+* **Fuentes (`.h` / `.cpp`):** La cabecera define el contrato público mientras cada archivo `.cpp` implementa la lógica o consume la interfaz.
+* **Unidades de Traducción (`.o`):** El compilador procesa cada archivo `.cpp` independientemente generando código objeto binario intermedio.
+* **Enlazador (*Linker*):** Ensambla todos los archivos `.o` y las funciones de la biblioteca estándar de C++ para producir el ejecutable final (`app.exe`).
 
 ---
 
