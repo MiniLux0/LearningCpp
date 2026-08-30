@@ -901,7 +901,7 @@
 
       if (title) title.textContent = item.title;
       if (media) {
-        media.innerHTML = `<img src="${item.src}" alt="${item.alt}">`;
+        media.innerHTML = `<img src="${item.src}" alt="${item.alt}" style="max-width: 100%; max-height: 48vh; object-fit: contain; display: block; margin: 0 auto; border-radius: var(--radius-sm);" />`;
       }
       if (desc) {
         desc.innerHTML = `
