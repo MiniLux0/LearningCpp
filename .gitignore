@@ -16,9 +16,6 @@ _backup_docs/
 _backup/
 
 
-# ── Project Utilities / Generated Resources ─────────────────────
-
-utils/
 
 
 # ── C++ Compiled Files ──────────────────────────────────────────
