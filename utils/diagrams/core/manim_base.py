@@ -29,10 +29,12 @@ class BaseLearningScene(Scene):
     COLOR_GREEN_LIGHT = "#6ee7b7"
     COLOR_RED = "#ef4444"
     COLOR_RED_LIGHT = "#fca5a5"
+    COLOR_RED_ACCENT = "#ef4444"
     COLOR_PURPLE = "#c084fc"
     COLOR_PURPLE_LIGHT = "#e9d5ff"
     COLOR_PANEL = "#161b22"
     COLOR_BORDER = "#30363d"
+    COLOR_MUTED = "#8b949e"
     
     # Pastel node colors for collections
     PALETTE = ["#ef4444", "#fbbf24", "#38bdf8", "#10b981", "#c084fc"]
@@ -143,6 +145,20 @@ class BaseLearningScene(Scene):
         )
         lbl = Text(text, font="Consolas", font_size=13, color=text_color, weight=BOLD).move_to(box.get_center())
         return VGroup(box, lbl)
+
+    def create_cell(self, text: str, width: float = 1.2, height: float = 0.6, color: str = None, font_size: int = 12) -> VGroup:
+        """
+        Creates a standardized memory cell (for Arrays, Vectors, Stack/Heap cells).
+        """
+        if color is None:
+            color = self.COLOR_CYAN
+        rect = RoundedRectangle(
+            width=width, height=height, corner_radius=0.08,
+            fill_color="#1e293b", fill_opacity=0.9,
+            stroke_color=color, stroke_width=1.8
+        )
+        txt = Text(text, font="Consolas", font_size=font_size, color=self.TEXT_COLOR).move_to(rect.get_center())
+        return VGroup(rect, txt)
 
     def create_hud_footer(self, tag: str, message: str, color: str = None, width: float = 12.2, height: float = 0.85) -> VGroup:
         """

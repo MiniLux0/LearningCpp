@@ -14,8 +14,8 @@ Este documento contiene el registro activo de trabajo para los módulos y compon
   * `04_Functions` — ✅ **Completado** (8 Lecciones)
   * `05_ConstantsAndStrings` — ✅ **Completado** (6 Lecciones)
 * **Fase 3 (Colecciones):**
-  * `06_ArraysAndVectors` — ⏳ **Siguiente en Cola** (9 Lecciones)
-  * `07_CompoundTypes` — ⏳ **Pendiente** (7 Lecciones)
+  * `06_ArraysAndVectors` — ✅ **Completado** (9 Lecciones)
+  * `07_CompoundTypes` — ⏳ **Siguiente en Cola** (7 Lecciones)
 * **Fase 4 (Memoria Real):**
   * `08_ReferencesAndAddresses` — ⏳ **Pendiente** (8 Lecciones)
   * `09_DynamicMemory` — ⏳ **Pendiente** (9 Lecciones)
@@ -33,15 +33,15 @@ Este documento contiene el registro activo de trabajo para los módulos y compon
 ## 🎯 Backlog Detallado por Módulo
 
 ### 📦 Módulo 06: Arrays & Vectors (Fase 3)
-- [ ] **L01 (Variables Sueltas vs Colecciones)**: Teoría, Lab. Por qué colapsa el código con datos dispersos.
-- [ ] **L02 (C-Arrays & Buffer Overflow)**: Teoría, Demo de Bug (`D02_BufferOverflowBug.cpp`). *Trampa*: Escribir fuera del límite de `int arr[5]` (Uso de C-array solo como advertencia visual de Buffer Overflow).
-- [ ] **L03 (std::vector, el estándar moderno)**: Teoría, Lab, Demo de Bug (`D03_BraceInitBug.cpp`), Reto (`E03_InventarioDinamico`). Creación e inicialización. *Trampa*: La ambigüedad de inicializar con llaves `{5}` vs paréntesis `(5)`.
-- [ ] **L04 (Acceso seguro: .at() vs [])**: Teoría, Lab, Demo de Bug (`D04_SilentOutofBoundsBug.cpp`), Reto (`E04_ElIndicePerdido`). Prevenir Undefined Behavior forzando `.at()`.
-- [ ] **L05 (Atrapando la bomba: try/catch básico)**: Teoría, Lab, Reto (`E05_AtrapandoLaBomba`). Captura táctica de `std::out_of_range` sin cerrar el programa.
-- [ ] **L06 (Range-based for)**: Teoría, Lab, Demo de Bug (`D06_OffByOneBug.cpp`), Reto (`E06_IteracionSegura`). Reemplazo de bucles manuales con índices.
-- [ ] **L07 (Métodos Esenciales de Vector)**: Teoría, Lab, Reto (`E07_CreciendoVectores`). `push_back()`, `size()`, `empty()`, `reserve()`.
-- [ ] **L08 (Arquitectura Multi-Archivo)**: Teoría, Lab, Reto (`E08_RefactorizacionHeader`). Modularización con `.h`, `.cpp` y `#pragma once`.
-- [ ] **L09 (Mini-proyecto)**: Registro de Calificaciones. Integración total con arquitectura multi-archivo. Reto (`E09_RegistroDeCalificaciones`).
+- [x] **L01 (Variables Sueltas vs Colecciones)**: Teoría, Lab. Por qué colapsa el código con datos dispersos.
+- [x] **L02 (C-Arrays & Buffer Overflow)**: Teoría, Demo de Bug (`D02_BufferOverflowBug.cpp`). *Trampa*: Escribir fuera del límite de `int arr[5]` (Uso de C-array solo como advertencia visual de Buffer Overflow).
+- [x] **L03 (std::vector, el estándar moderno)**: Teoría, Lab, Demo de Bug (`D03_BraceInitBug.cpp`), Reto (`E03_InventarioDinamico`). Creación e inicialización. *Trampa*: La ambigüedad de inicializar con llaves `{5}` vs paréntesis `(5)`.
+- [x] **L04 (Acceso seguro: .at() vs [])**: Teoría, Lab, Demo de Bug (`D04_SilentOutofBoundsBug.cpp`), Reto (`E04_ElIndicePerdido`). Prevenir Undefined Behavior forzando `.at()`.
+- [x] **L05 (Atrapando la bomba: try/catch básico)**: Teoría, Lab, Reto (`E05_AtrapandoLaBomba`). Captura táctica de `std::out_of_range` sin cerrar el programa.
+- [x] **L06 (Range-based for)**: Teoría, Lab, Demo de Bug (`D06_OffByOneBug.cpp`), Reto (`E06_IteracionSegura`). Reemplazo de bucles manuales con índices.
+- [x] **L07 (Métodos Esenciales de Vector)**: Teoría, Lab, Reto (`E07_CreciendoVectores`). `push_back()`, `size()`, `empty()`, `reserve()`.
+- [x] **L08 (Arquitectura Multi-Archivo)**: Teoría, Lab, Reto (`E08_RefactorizacionHeader`). Modularización con `.h`, `.cpp` y `#pragma once`.
+- [x] **L09 (Mini-proyecto)**: Registro de Calificaciones. Integración total con arquitectura multi-archivo. Reto (`E09_RegistroDeCalificaciones`).
 
 ---
 

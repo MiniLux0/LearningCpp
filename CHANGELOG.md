@@ -57,26 +57,20 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
     - Botones con áreas táctiles ergonómicas de **44px a 48px** (WCAG AAA).
   - **Optimización de Rendimiento (`app.js`)**: Reducción masiva de peso de **110 KB a ~20 KB**, conservando búsqueda en tiempo real (Ctrl+K), modal de lecciones, lightbox Manim y conmutador de tema oscuro/claro.
   - **Autosuficiencia de Recursos Multimedia (`web/assets/animations/`)**: Sincronización local de todas las animaciones Manim dentro de la plataforma web, garantizando carga 100% libre de errores 404 en GitHub Pages tanto online como en modo offline local.
-- **Módulos 01 a 05 Finalizados al 100%**:
+- **Módulos 01 a 06 Finalizados al 100%**:
   - **M01 — Getting Started**: 7 lecciones, laboratorios, demos, 6 retos y 6 animaciones Manim (`l00` a `l06`).
   - **M02 — Fundamental Types**: 7 lecciones, 7 laboratorios, 4 demos de bugs, 7 retos y 7 animaciones Manim (`l01` a `l07`).
   - **M03 — Scope & Control Flow**: 8 lecciones, 8 laboratorios, 9 demos de bugs, 8 retos y 7 animaciones Manim (`l01` a `l07`).
   - **M04 — Functions**: 8 lecciones, 8 laboratorios, 6 demos de bugs, 8 retos y 7 animaciones Manim (`l01` a `l07`).
   - **M05 — Constants & Strings**: 6 lecciones, 6 laboratorios, 4 demos de bugs, 6 retos y 5 animaciones Manim (`l01` a `l05`).
-- **Auditoría Técnica y Pedagógica Integral (Módulos 01 a 05)**:
-  - 100% de conformidad en 756 pruebas automatizadas de compilación limpia con `g++ -std=c++17 -Wall -Wextra`.
+  - **M06 — Arrays & Vectors**: 9 lecciones teóricas completas con *Scaffolding & Fading*, 9 laboratorios prácticos guiados, 4 demos de bugs intencionales (`D02_BufferOverflowBug`, `D03_BraceInitBug`, `D04_SilentOutofBoundsBug`, `D06_OffByOneBug`), 7 retos prácticos aislados con lore y soluciones verificadas, hoja de repaso `Module06_Cheatsheet.md` y proyecto integrador multi-archivo "Registro de Calificaciones".
+- **Auditoría Técnica y Pedagógica Integral (Módulos 01 a 06)**:
+  - 100% de conformidad en suite automatizada de verificaciones con `g++ -std=c++17 -Wall -Wextra`.
   - Cero emojis en código fuente (`.cpp` y `.h`).
   - Estandarización de avisos de autochequeo interactivo `<details>` en todas las lecciones teóricas.
-- **Higiene del Repositorio y Raíz Limpia**:
-  - Reubicación de archivos de soporte (`package.json`, `CITATION.cff`) dentro de `web/` para mantener la raíz con únicamente archivos esenciales de C++ y documentación oficial.
-  - Integración formal de la suite de herramientas y scripts de soporte ([`utils/scripts/`](utils/scripts/), [`utils/diagrams/`](utils/diagrams/)) bajo control de versiones para ejecución transparente en pipelines de CI/CD.
-  - Consolidación limpia de `docs/` en únicamente [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) y [`docs/BACKLOG.md`](docs/BACKLOG.md).
-  - Eliminación de scripts muertos en `web/assets/js/` (`code-viewer.js`, `modules-explorer.js`, `ram-visualizer.js`, `terminal-simulator.js`).
-  - Eliminación de archivos temporales de análisis, caché de Manim (`media/`), respaldos obsoletos y archivos de compilación de Python (`__pycache__`/`.pyc`).
-  - Purgado absoluto de referencias internas no estudiantiles en toda la documentación pública del curso.
 
 ### En progreso
-- **Implementación de Módulo 06 (Arrays & Vectors)**: Desarrollo activo de la Fase 3 (Colecciones) con sus 9 lecciones teóricas, laboratorios, demos de Buffer Overflow (`D02`), límites seguros `.at()` y arquitectura multi-archivo.
+- **Implementación de Módulo 07 (Compound Types)**: Inicio de desarrollo de la Fase 3 (Colecciones y Entidades) con `struct`, `enum class`, Agregados C++17 y el proyecto "Bestiario RPG V1".
 
 ---
 

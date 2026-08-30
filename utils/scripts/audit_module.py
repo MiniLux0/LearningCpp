@@ -83,7 +83,24 @@ def audit_module(mod_dir):
 
         if not is_demo:
             out_bin = os.path.join(os.path.dirname(cpp), "temp_audit_bin.exe")
-            cmd = ["g++", "-std=c++17", "-Wall", "-Wextra", cpp, "-o", out_bin]
+            if cpp.endswith(".h") or cpp.endswith(".hpp"):
+                cmd = ["g++", "-std=c++17", "-Wall", "-Wextra", "-fsyntax-only", cpp]
+            else:
+                has_main = bool(re.search(r'\bint\s+main\s*\(', content))
+                if has_main:
+                    # Incluir archivos .cpp auxiliares del mismo directorio que no contengan main
+                    dir_cpps = glob.glob(os.path.join(os.path.dirname(cpp), "*.cpp"))
+                    aux_cpps = []
+                    for other in dir_cpps:
+                        if other != cpp:
+                            with open(other, "r", encoding="utf-8", errors="ignore") as of:
+                                if not re.search(r'\bint\s+main\s*\(', of.read()):
+                                    aux_cpps.append(other)
+                    cmd = ["g++", "-std=c++17", "-Wall", "-Wextra", cpp] + aux_cpps + ["-o", out_bin]
+                else:
+                    # Es una unidad de traducción auxiliar (sin main)
+                    cmd = ["g++", "-std=c++17", "-Wall", "-Wextra", "-c", cpp, "-o", out_bin]
+
             res = subprocess.run(cmd, capture_output=True, text=True)
             
             if is_ex_template:
@@ -130,7 +147,7 @@ def audit_module(mod_dir):
     # 4. Auditoría de Markdown (.md), Enlaces y Visual Translations
     # -------------------------------------------------------------------------
     md_files = glob.glob(os.path.join(mod_dir, "**", "*.md"), recursive=True)
-    footer_pattern = re.compile(r'Maintained by\s*<strong>MiniLux0</strong>\s*·\s*2026', re.IGNORECASE)
+    footer_pattern = re.compile(r'Maintained by\s*<strong>(Jesus Vera V\.\s*\(\s*MiniLux0\s*\)|MiniLux0)</strong>\s*·\s*2026', re.IGNORECASE)
 
     for md in md_files:
         rel_md = os.path.relpath(md, REPO_ROOT)
