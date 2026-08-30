@@ -50,31 +50,6 @@ jobs:
         run: |
           g++ --version
 
-      - name: Run Course Standards & Pedagogy Auditor
+      - name: Run Course Standards, Pedagogy & Compilation Auditor
         run: |
           python utils/scripts/audit_module.py --completed
-
-      - name: Compile Verification (All Labs, Demos & Solutions)
-        shell: bash
-        run: |
-          echo "Compilando todo el código C++ con banderas estrictas (-std=c++17 -Wall -Wextra -Wpedantic)..."
-          FAILURES=0
-          TOTAL=0
-          
-          # Buscar archivos .cpp en módulos completados
-          for f in $(find 0[1-5]_* -name "*.cpp" ! -path "*/demos/D07_HiddenInfiniteLoopBug.cpp" ! -path "*/demos/D05_CinInfiniteLoopBug.cpp"); do
-            ((TOTAL++))
-            echo "-> Compilando: $f"
-            if ! g++ -std=c++17 -Wall -Wextra -Wpedantic -c "$f" -o /dev/null; then
-              echo "❌ Error de compilación en: $f"
-              ((FAILURES++))
-            fi
-          done
-          
-          echo "================================================================="
-          echo "Resultado de compilación: $TOTAL archivos procesados, $FAILURES fallos."
-          echo "================================================================="
-          
-          if [ $FAILURES -ne 0 ]; then
-            exit 1
-          fi
