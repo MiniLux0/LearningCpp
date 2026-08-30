@@ -2173,3 +2173,185 @@ pre:hover .code-copy-btn, .code-copy-btn:focus-visible {
   }
 }
 
+/* ==========================================================================
+   13. COMPREHENSIVE LIGHT MODE SUPPORT (WCAG AAA CONTRAST)
+   ========================================================================== */
+[data-theme="light"] {
+  /* Navigation & Headers */
+  .site-header {
+    background: rgba(248, 250, 252, 0.85);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .mobile-nav-backdrop {
+    background: rgba(15, 23, 42, 0.6);
+  }
+
+  .mobile-nav-drawer {
+    background: #ffffff;
+    border-left: 1px solid #e2e8f0;
+  }
+
+  /* Cards & Spotlights */
+  .card-pillar,
+  .module-card,
+  .compare-card,
+  .faq-item,
+  .metric-item {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+
+  .card-pillar:hover,
+  .module-card:hover,
+  .faq-item:hover {
+    border-color: #0284c7;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .card-icon-wrapper {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+  }
+
+  /* Badges */
+  .badge-cyan {
+    background: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+  }
+
+  .badge-emerald {
+    background: #d1fae5;
+    color: #047857;
+    border-color: #a7f3d0;
+  }
+
+  .badge-purple {
+    background: #ede9fe;
+    color: #6d28d9;
+    border-color: #ddd6fe;
+  }
+
+  .badge-amber {
+    background: #fef3c7;
+    color: #b45309;
+    border-color: #fde68a;
+  }
+
+  .badge-secondary {
+    background: #f1f5f9;
+    color: #334155;
+    border-color: #cbd5e1;
+  }
+
+  /* Tables & Comparison */
+  .table-modern {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+
+  .table-modern th {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-bottom: 2px solid #cbd5e1;
+  }
+
+  .table-modern td {
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .table-modern tr:hover td {
+    background: #f8fafc;
+  }
+
+  /* Interactive Studio Hub */
+  .studio-tabs-nav {
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+  }
+
+  .studio-tab-btn {
+    color: #475569;
+  }
+
+  .studio-tab-btn:hover {
+    color: #0f172a;
+  }
+
+  .studio-tab-btn.active {
+    background: #ffffff;
+    color: #0284c7;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  }
+
+  .compare-pill-btn {
+    background: #e2e8f0;
+    color: #334155;
+    border-color: #cbd5e1;
+  }
+
+  .compare-pill-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+
+  /* Search & Controls */
+  .search-input {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+
+  .search-input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+
+  .search-input::placeholder {
+    color: #94a3b8;
+  }
+
+  /* Modals & Dialogs */
+  .modal-dialog,
+  .lightbox-dialog {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+  }
+
+  .modal-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    color: #0f172a;
+  }
+
+  .modal-footer {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Buttons */
+  .btn-secondary {
+    background: #ffffff;
+    color: #0f172a;
+    border-color: #cbd5e1;
+  }
+
+  .btn-secondary:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+  }
+}
+
+
