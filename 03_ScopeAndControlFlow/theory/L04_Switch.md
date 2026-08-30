@@ -82,7 +82,7 @@ switch (opcion) {
 > 🏋️ **Ejercicio:** Pon a prueba lo aprendido. Atrévete con el reto en [`../exercise/E04_SelectorDeClase/E04_SelectorDeClase.cpp`](../exercise/E04_SelectorDeClase/E04_SelectorDeClase.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si quiero comprobar si la variable `peso` es mayor a 500, ¿es viable utilizar la arquitectura `switch`?</b></summary>

@@ -4,7 +4,8 @@
 // Objetivo: Observar el comportamiento indefinido al incumplir la firma de
 //           retorno de una funcion en un flujo condicional.
 //
-// INSTRUCCIONES: Compila con `g++ D02_UndefinedReturnBug.cpp -o bug` y ejecuta.
+// INSTRUCCIONES:
+// Compila con: g++ -std=c++17 D02_UndefinedReturnBug.cpp -o bug
 // Observa como el segundo descuento devuelve un fragmento de RAM corrupta.
 // ============================================================================
 

@@ -49,10 +49,10 @@ FASE 5 — POO Moderna
   ├── M11: Inheritance (7 lecciones) ─────────────────── [⏳ Planificado]
   └── M12: Polymorphism (8 lecciones) ────────────────── [⏳ Planificado]
 
-FASE 6 — Nivel Profesional
+FASE 6 — Resiliencia & Especialización
   ├── M13: Error Handling & std::optional (7 lecciones) ─ [⏳ Planificado]
   ├── M14: Templates & Generic Programming (8 lecciones) ─ [⏳ Planificado]
-  └── M15: STL Algorithms, Ranges & Capstone (8 lecciones) [⏳ Planificado]
+  └── M15: STL Algorithms & Pipelines (8 lecciones) ──── [⏳ Planificado]
 ```
 
 ---
@@ -138,14 +138,14 @@ FASE 6 — Nivel Profesional
 * **Trampa Mortal de Capturas en Lambdas (`D07_DanglingLambdaCaptureBug.cpp`):** Prevención del *Use-After-Free* al capturar por referencia `[&]` en lambdas que sobreviven al ámbito creador.
 
 ### 20. Culminación del Plan de Estudios y Capstone (Módulo 15)
-* **Doctrina "No Raw Loops":** Erradicación de bucles manuales con índices mediante el demo `D01_RawLoopOffByOneBug.cpp` en favor de algoritmos estándar declarativos (`all_of`, `any_of`, `count_if`).
-* **Invalidación de Iteradores:** El demo `D02_IteratorInvalidationBug.cpp` ilustra el Segfault al mutar colecciones durante la iteración tradicional, enseñando la solución moderna de C++20: `std::erase_if`.
-* **Revolución C++20 Ranges y Evaluación Perezosa:** Eliminación de vectores temporales mediante `std::views` y el operador tubería `|`.
-* **Concurrencia Básica Segura:** El demo `D07_DataRaceIntroBug.cpp` para prevenir *Data Races* y enseñar ejecución en segundo plano con `std::async` y `std::jthread`.
-* **El Capstone Final ("El Motor RPG Definitivo" - L08):** Consolidación armónica de los 15 módulos del curso en una arquitectura multi-archivo de grado profesional.
+* **Claridad ante todo (Algoritmos STL vs Bucles Manuales):** Privilegiar algoritmos estándar declarativos (`std::all_of`, `std::any_of`, `std::count_if`, `std::transform`) cuando aporten expresividad y seguridad, reservando `range-based for` para secuencias directas.
+* **Invalidación de Iteradores:** El demo `D02_IteratorInvalidationBug.cpp` ilustra el fallo de memoria al mutar colecciones durante la iteración tradicional, enseñando el *Erase-Remove Idiom* canónico de C++17 y el puente a `std::erase_if` de C++20.
+* **Mirada al Futuro (C++20 Ranges):** Bloque comparativo sobre evaluación perezosa (*Lazy Evaluation*) con `std::views` y el operador tubería `|`.
+* **Concurrencia y Asincronía Básica:** El demo `D07_DataRaceIntroBug.cpp` para comprender *Data Races* y la ejecución de tareas en segundo plano con `std::async` y `std::future`.
+* **El Capstone Final ("El Motor RPG Definitivo" - L08):** Consolidación armónica de los 15 módulos del curso en una arquitectura multi-archivo modular y robusta.
 
 ---
 
 <div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+  <sub>Maintained by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026</sub>
 </div>

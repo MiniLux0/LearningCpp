@@ -1,4 +1,5 @@
 # L07: Mini-proyecto "Split the Bill"
+> **Módulo 02 — Fundamental Types**
 
 Hemos llegado al final del Módulo 02. Has aprendido sobre la memoria, los tipos primitivos, cómo inicializarlos de forma segura (`{}`), cómo operarlos matemáticamente, cómo hacer conversiones sin perder datos (`static_cast`) y cómo la computadora responde a preguntas (`bool`).
 
@@ -35,7 +36,7 @@ Este mini-proyecto requiere la combinación de:
 > 🏋️ **Ejercicio:** Es tu turno de brillar. Completa el desarrollo del sistema de facturación en [`../exercise/E07_SplitTheBill/E07_SplitTheBill.cpp`](../exercise/E07_SplitTheBill/E07_SplitTheBill.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si aún no sabemos usar `if`, ¿cómo puede el usuario saber si ingresó datos incorrectos?</b></summary>

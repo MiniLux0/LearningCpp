@@ -4,7 +4,7 @@
 // Objetivo: Entender que los literales de texto estaticos carecen de metodos de concatenacion.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D03_LiteralConcatBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D03_LiteralConcatBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

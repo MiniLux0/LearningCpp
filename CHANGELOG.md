@@ -1,72 +1,75 @@
 # Changelog — LearningCpp
 
-Todos los cambios notables de este proyecto se documentan aquí.  
-El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
+Todos los cambios notables de este proyecto se documentan en este archivo.  
+El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ---
 
 ## [Unreleased]
 
 ### Completado
-- **Diseño Curricular Completo (15 Módulos / 6 Fases)**: Se finalizó la planificación arquitectónica y pedagógica de todo el curso (M01 a M15). Se fijaron las 20 decisiones de diseño fundamentales, garantizando la progresión desde Cero Absoluto hasta Nivel Profesional con C++20 Ranges, Programación Genérica y Capstone Integrador.
+- **Alineación a C++17 Base con Evolución a C++20**:
+  - Estandarización oficial de todo el código ejecutable, laboratorios, retos y comandos en **C++17 puro (`-std=c++17`)**.
+  - Incorporación en la teoría de bloques pedagógicos comparativos de *Evolución a C++20* (Designated Initializers en M07, `std::erase_if` en M06/M15, Concepts en M14 y Ranges en M15).
+  - Promesa formativa ajustada a: *"De Cero Absoluto a C++ Moderno — Fundamentos de Grado Profesional"*.
+  - Modelo pedagógico formalizado de **Ownership (`std::unique_ptr`) vs. Observación (`T*` / `T&`)**.
+  - Filosofía de bucles refinada a *"Claridad ante todo: Algoritmos STL para transformaciones y range-for para secuencias directas"*.
 - **Enriquecimiento del Syllabus (`SYLLABUS.md`)**:
   - Incorporación del diagrama del **Bucle de Aprendizaje** en 5 pasos (*Teoría & RAM ➔ Laboratorio ➔ Bug Demo ➔ Reto Práctico ➔ Cheatsheet*).
   - Creación de la **Matriz Ejecutiva** de 15 módulos detallando lecciones, ejes conceptuales y proyectos integradores.
+  - Estimación de **Carga Horaria (Workload)** (16 semanas regular / 8 semanas intensiva).
+  - Integración del **Grafo Visual de Dependencias de Conocimiento (Mermaid)** conectando las 6 fases formativas hasta el Capstone.
+  - Definición de las **Rúbricas de Dominio por Niveles** (Nivel Aprendiz, Intermedio y Avanzado).
   - Redacción exhaustiva y estandarizada de las **117 lecciones** del temario oficial.
 - **Compilación del PDF Oficial (`LearningCpp_Syllabus_Oficial.pdf`)**:
   - Maquetación y diseño de publicación ejecutiva en PDF multi-página con degradados oscuros, tarjetas de fase, matriz dashboard en una sola página, insignias codificadas por color y paginación profesional.
 - **Nuevo README Principal (`README.md`)**:
-  - Reescritura total con estética y narrativa de grado profesional: manifiesto "¿Por qué existe LearningCpp?", los 4 pilares pedagógicos, guía de inicio rápido en terminal y enlaces oficiales.
-- **Refactorización y Limpieza de Documentación**: 
-  - Se consolidaron `CRITICAL_REVISION.md` y `COURSE_PLAN.md` en un único documento maestro de ingeniería: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-  - Se migró y renombró `PENDING.md` a [`docs/BACKLOG.md`](docs/BACKLOG.md) con el checklist completo de lecciones, demos de bugs y retos.
-  - Se trasladó la referencia de LearnCpp a [`docs/learncpp_reference.txt`](docs/learncpp_reference.txt).
-  - Se respaldó toda la documentación original en [`_backup_docs/`](_backup_docs/).
-  - Se limpió la raíz del repositorio dejando únicamente los archivos esenciales para el alumno y agentes (`README.md`, `SYLLABUS.md`, `CHANGELOG.md`, `GEMINI.md`, `LearningCpp_Syllabus_Oficial.pdf`).
-- **Estandarización y Protocolo Maestro (`GEMINI.md`)**: Reescritura integral del reglamento para agentes de IA. Se incluyó el pipeline paso a paso para la creación de módulos, el mapa de referencia de los 15 módulos, los vetos absolutos (`using namespace std;` y `std::endl`), las reglas de scaffolding/fading, estándares de C++17/C++20 y los protocolos de validación pre-entrega.
-- **Módulo 01 — Getting Started**: Finalizado al 100% con 7 lecciones teóricas, laboratorios, demos, 6 retos y sus 6 animaciones Manim (`l00` a `l06`) bajo la paleta Cyber-Academic Dark.
-- **Módulo 02 — Fundamental Types**: Finalizado al 100% con 7 lecciones, 7 laboratorios, 4 demos de bugs, 7 retos y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con celdas estructuradas de memoria RAM Stack, diagnóstico de narrowing y pipeline de ALU.
-- **Módulo 03 — Scope & Control Flow**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 8 demos de bugs intencionales (`D01`–`D07b`), 8 retos prácticos con lore inmersivo (`E01`–`E08`), cheatsheet técnico y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con evaluación de bifurcaciones, jump tables, mutación en RAM y shadowing.
-- **Módulo 04 — Functions**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 6 demos de bugs, 8 retos y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con tipografía `MarkupText` a 20pt, sangría de 4 espacios (tab), puntero de depuración (`▶`), celdas estructuradas de Stack RAM y tarjetas de error de compilador de alto contraste.
-- **Módulo 05 — Constants & Strings**: Finalizado al 100% con 6 lecciones teóricas, 6 laboratorios, 4 demos de bugs, 6 retos prácticos y sus **5 animaciones Manim de alta fidelidad** (`l01` a `l05`) bajo la paleta Cyber-Academic Dark y sistema de no-solapamiento.
-- **Motor Central de Animaciones (`utils/`)**: Implementación del CLI de renderizado y auditoría `render_manager.py` y expansión de `BaseLearningScene` con primitivas UI estandarizadas.
-- **Estandarización Total Módulos 01 a 05**: Homologación absoluta de banners, cero emojis en código `.cpp`, prohibición estricta de `using namespace std;` y `std::endl`, 100% de enlaces Markdown validados y pausas pedagógicas ampliadas (3.0s / 5.0s).
+  - Reescritura total con narrativa de grado profesional: manifiesto "¿Por qué existe LearningCpp?", los 4 pilares pedagógicos, guía de inicio rápido en terminal, insignia de autor **MiniLux0**, licencia MIT y enlaces oficiales.
+- **Mejora Canónica de Licencia (`LICENSE`)**:
+  - Actualización formal de la **Licencia MIT (Copyright © 2026 MiniLux0)** con 100% de compatibilidad para detectores SPDX de GitHub.
+  - Clarificación explícita de cobertura para código fuente (`.cpp`/`.hpp`), material educativo (`.md`/`SYLLABUS.md`) y plataforma web/animaciones (`web/`, `utils/`).
+- **Indexación Global & Metadatos Sociales (WhatsApp, Instagram, Facebook, Twitter/X, Discord, Google)**:
+  - Creación de `web/CITATION.cff` y `web/package.json` para atribución canónica de autoría (**MiniLux0**) y palabras clave de búsqueda.
+  - Generación de imagen de vista previa HD [`web/assets/images/og-preview.png`](web/assets/images/og-preview.png) (1200×630 px, optimizada a 55 KB) e iconos de aplicación [`web/assets/images/apple-touch-icon.png`](web/assets/images/apple-touch-icon.png).
+  - Metadatos OpenGraph completos con dimensiones, tipos MIME y URLs canónicas seguras.
+  - Esquema estructurado Schema.org JSON-LD en grafo (`@graph`) vinculando la entidad `Person (MiniLux0)` con el curso (`Course`) y el repositorio (`SoftwareSourceCode`).
+  - Actualización de `web/sitemap.xml` y `web/robots.txt` orientados a `https://minilux0.github.io/LearningCpp/`.
+- **Nueva Animación Hero Cinematográfica (`assets/hero_learningcpp.gif`)**:
+  - Programación con ManimCE en [`utils/diagrams/animations/hero_readme_showcase.py`](utils/diagrams/animations/hero_readme_showcase.py) estructurada en **3 Actos independientes (cero solapes visuales)**:
+    - *Acto 1:* Bienvenida oficial con logotipo neón `C++`, título del curso e insignia de autor `MiniLux0`.
+    - *Acto 2:* Vistazo panorámico al plan de estudios en 6 fases y 15 módulos.
+    - *Acto 3:* El Circuito de Aprendizaje en 5 pasos conectados y tarjeta de bienvenida final.
+  - Erradicación de cajas blancas ("tofu" missing glyphs) asegurando compatibilidad tipográfica nativa.
+  - Compresión Lanczos + doble pasada de paleta optimizada en FFmpeg (2.4 MB).
+- **Rediseño, Depuración y Optimización de la Plataforma Web (`web/`)**:
+  - **Corrección del Salto Involuntario de Scroll**: Eliminación de `body.style.overflow = 'hidden'` que reiniciaba el scroll a 0 en dispositivos móviles al abrir el menú/modales, y retiro de `scrollIntoView()` forzado en el cambio de fases.
+  - **Rediseño de Pestañas de Fases (`.phase-tabs`)**: Contenedor envolvente (`flex-wrap: wrap`) con badge numérico independiente (`.tab-btn-count`), resolviendo el bloqueo de navegación en PC y adaptándose fluidamente a pantallas móviles.
+  - **Soporte Móvil Integral**:
+    - Bloqueo de desplazamiento horizontal en celulares mediante `overflow-x: hidden` raíz en `html`/`body`, reseteo universal `min-width: 0` y contenedores fluidos.
+    - Botones con áreas táctiles ergonómicas de **44px a 48px** (WCAG AAA).
+  - **Optimización de Rendimiento (`app.js`)**: Reducción masiva de peso de **110 KB a ~20 KB**, conservando búsqueda en tiempo real (Ctrl+K), modal de lecciones, lightbox Manim y conmutador de tema oscuro/claro.
+- **Módulos 01 a 05 Finalizados al 100%**:
+  - **M01 — Getting Started**: 7 lecciones, laboratorios, demos, 6 retos y 6 animaciones Manim (`l00` a `l06`).
+  - **M02 — Fundamental Types**: 7 lecciones, 7 laboratorios, 4 demos de bugs, 7 retos y 7 animaciones Manim (`l01` a `l07`).
+  - **M03 — Scope & Control Flow**: 8 lecciones, 8 laboratorios, 9 demos de bugs, 8 retos y 7 animaciones Manim (`l01` a `l07`).
+  - **M04 — Functions**: 8 lecciones, 8 laboratorios, 6 demos de bugs, 8 retos y 7 animaciones Manim (`l01` a `l07`).
+  - **M05 — Constants & Strings**: 6 lecciones, 6 laboratorios, 4 demos de bugs, 6 retos y 5 animaciones Manim (`l01` a `l05`).
+- **Auditoría Técnica y Pedagógica Integral (Módulos 01 a 05)**:
+  - 100% de conformidad en 756 pruebas automatizadas de compilación limpia con `g++ -std=c++17 -Wall -Wextra`.
+  - Cero emojis en código fuente (`.cpp` y `.h`).
+  - Estandarización de avisos de autochequeo interactivo `<details>` en todas las lecciones teóricas.
+- **Higiene del Repositorio y Raíz Limpia**:
+  - Reubicación de archivos de soporte (`package.json`, `CITATION.cff`) dentro de `web/` para mantener la raíz con únicamente archivos esenciales de C++ y documentación oficial.
+  - Consolidación limpia de `docs/` en únicamente [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) y [`docs/BACKLOG.md`](docs/BACKLOG.md).
+  - Eliminación de scripts muertos en `web/assets/js/` (`code-viewer.js`, `modules-explorer.js`, `ram-visualizer.js`, `terminal-simulator.js`).
+  - Eliminación de archivos temporales de análisis, caché de Manim (`media/`), respaldos obsoletos y archivos de compilación de Python (`__pycache__`/`.pyc`).
+  - Purgado absoluto de referencias internas no estudiantiles en toda la documentación pública del curso.
 
 ### En progreso
 - **Implementación de Módulo 06 (Arrays & Vectors)**: Desarrollo activo de la Fase 3 (Colecciones) con sus 9 lecciones teóricas, laboratorios, demos de Buffer Overflow (`D02`), límites seguros `.at()` y arquitectura multi-archivo.
 
 ---
 
-## [2.0.0] — 2026-08-25 · Refactorización completa
-
-### Identidad y filosofía
-- Curso redefinido como **independiente** — sin atribución a MIT/Stanford.
-- Público objetivo declarado: **cero absoluto → profesional**.
-- Filosofía: C++ moderno (C++17/20) desde la lección 1, sin sintaxis legada como base.
-
-### Nueva estructura de módulos (13 módulos, 6 fases)
-- **Fase 1 — Fundamentos:** `01_GettingStarted`, `02_FundamentalTypes`, `03_ScopeAndControlFlow`
-- **Fase 2 — Funciones y STL básica:** `04_Functions`, `05_StringsAndVectors`
-- **Fase 3 — POO Moderna:** `06_CompoundTypes`, `07_Classes`, `08_Inheritance`, `09_Polymorphism`
-- **Fase 4 — Memoria:** `10_MemoryManagement`
-- **Fase 5 — Estructuras de Datos:** `11_RecursionAlgorithms`, `12_DataStructures`
-- **Fase 6 — Nivel Profesional:** `13_AdvancedCPP`
-
-### Módulo 01 — Getting Started
-- Nueva lección **L00 ¿Qué es programar?** — conceptual, sin código ni instalación.
-- Renumeración completa: L00–L05 (viejo) → L01–L06 (nuevo).
-- Estructura `exercise/` migrada a subcarpetas individuales `E0X_Nombre/`.
-- Archivos de `theory/` y `code/` renombrados al nuevo esquema.
-- `summary/` renombrado a `Module01_Cheatsheet.md`.
-
-### Documentación raíz
-- `README.md` — reescrito con nueva identidad, comunidad Discord, guía de contribución.
-- `SYLLABUS.md` — reescrito desde cero; 13 módulos, voz propia, sin tags MIT/CS106.
-- `COURSE_PLAN.md` — nuevo documento maestro del plan de refactorización.
-- `.gitignore` — reescrito moderno (`build/`, `*.o`, `*.exe`, `__pycache__/`).
-
----
-
 <div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+  <sub>Maintained by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026</sub>
 </div>

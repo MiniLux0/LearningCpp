@@ -5,7 +5,7 @@
 //           creyendo que el Scope interno afecta la memoria original.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D04_PassByValueBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D04_PassByValueBug.cpp -o bug
 // Ejecuta y observa el fallo en la actualizacion de los datos.
 // ============================================================================
 

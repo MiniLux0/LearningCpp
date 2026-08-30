@@ -1,0 +1,31 @@
+{
+  "name": "learningcpp-web",
+  "version": "2.1.0",
+  "description": "Portal interactivo y visual de C++ Moderno (C++17 Base · Evolución C++20)",
+  "homepage": "https://minilux0.github.io/LearningCpp/",
+  "author": {
+    "name": "MiniLux0",
+    "url": "https://github.com/MiniLux0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MiniLux0/LearningCpp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MiniLux0/LearningCpp/issues"
+  },
+  "keywords": [
+    "MiniLux0",
+    "LearningCpp",
+    "cpp",
+    "cpp17",
+    "cpp20",
+    "cplusplus",
+    "modern-cpp",
+    "raii",
+    "manim",
+    "course",
+    "education"
+  ],
+  "license": "MIT"
+}

@@ -4,7 +4,7 @@
 // Objetivo: Mostrar el temido bug del continue en un while que omite el incremento.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D07_HiddenInfiniteLoopBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D07_HiddenInfiniteLoopBug.cpp -o bug
 // ¡Prepara Ctrl+C para matar el programa cuando se cuelgue!
 // ============================================================================
 

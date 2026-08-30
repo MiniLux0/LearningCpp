@@ -4,7 +4,7 @@
 // Objetivo: Observar un bucle infinito provocado por un buffer de entrada corrompido.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D05_CinInfiniteLoopBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D05_CinInfiniteLoopBug.cpp -o bug
 // Al ejecutar, escribe una palabra (ej. "hola") en lugar de un numero.
 // PREPARATE PARA PULSAR [Ctrl + C] en tu terminal para detener el bucle infinito.
 // ============================================================================

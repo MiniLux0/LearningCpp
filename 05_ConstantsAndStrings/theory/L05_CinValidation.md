@@ -57,7 +57,7 @@ int main() {
 ---
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste. No intentes adivinar con conocimientos externos.
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si omites el paso de <code>std::cin.ignore()</code>, ¿qué sucederá la próxima vez que intentes leer datos?</b></summary>

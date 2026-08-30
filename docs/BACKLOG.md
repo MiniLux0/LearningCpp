@@ -23,7 +23,7 @@ Este documento contiene el registro activo de trabajo para los módulos y compon
   * `10_Classes` — ⏳ **Pendiente** (10 Lecciones)
   * `11_Inheritance` — ⏳ **Pendiente** (7 Lecciones)
   * `12_Polymorphism` — ⏳ **Pendiente** (8 Lecciones)
-* **Fase 6 (Nivel Profesional):**
+* **Fase 6 (Resiliencia, Especialización & Capstone):**
   * `13_ErrorHandling` — ⏳ **Pendiente** (7 Lecciones)
   * `14_TemplatesAndLambdas` — ⏳ **Pendiente** (8 Lecciones)
   * `15_STLAlgorithms` — ⏳ **Pendiente** (8 Lecciones)
@@ -48,7 +48,7 @@ Este documento contiene el registro activo de trabajo para los módulos y compon
 ### 🧩 Módulo 07: Compound Types (Fase 3)
 - [ ] **L01 (El caos de parámetros sueltos)**: Teoría, Lab. Pasar múltiples variables inconexas a una función.
 - [ ] **L02 (Creando estructuras: struct)**: Teoría, Lab, Demo de Bug (`D02_MissingSemicolonBug.cpp`), Reto (`E02_FichaDePersonaje`). Operador punto y el error de compilar sin `};`.
-- [ ] **L03 (Designated Initializers C++20)**: Teoría, Lab, Demo de Bug (`D03_OutOfOrderInitBug.cpp`), Reto (`E03_EnsamblajeSeguro`). Inicialización nombrada `Jugador{.hp=100}` y respeto del orden de declaración.
+- [ ] **L03 (Agregados y Constructores C++17)**: Teoría, Lab, Demo de Bug (`D03_AggregateInitOrderBug.cpp`), Reto (`E03_EnsamblajeSeguro`). Inicialización uniforme `{}` y puente comparativo a Designated Initializers de C++20.
 - [ ] **L04 (El Peligro de Números Mágicos)**: Teoría, Demo de Bug (`D04_MagicNumberBug.cpp`). *Trampa*: Asignar `estado = 999` a un entero y corromper la lógica.
 - [ ] **L05 (Estados Seguros: enum class)**: Teoría, Lab, Demo de Bug (`D05_EnumPrintBug.cpp`), Reto (`E05_EstadosSeguros`). Evitando contaminación de ámbito y tipos débiles.
 - [ ] **L06 (Colecciones de Entidades)**: Teoría, Lab, Reto (`E06_BaseDeDatos`). Combinando vectores y structs para simular una base de datos en memoria.
@@ -141,18 +141,18 @@ Este documento contiene el registro activo de trabajo para los módulos y compon
 
 ---
 
-### ⚡ Módulo 15: STL Algorithms, Ranges & Capstone (Fase 6)
-- [ ] **L01 (La Muerte del Bucle Manual)**: Teoría, Demo de Bug (`D01_RawLoopOffByOneBug.cpp`), Reto (`E01_RefactorizandoBucles`). Filosofía "No Raw Loops" (`std::all_of`, `std::count_if`).
-- [ ] **L02 (Iteradores y su Invalidación)**: Teoría, Lab, Demo de Bug (`D02_IteratorInvalidationBug.cpp`), Reto (`E02_RecorridoSeguro`). `begin()`, `end()` y eliminación segura con `std::erase_if` (C++20).
+### ⚡ Módulo 15: STL Algorithms, Pipelines & Capstone (Fase 6)
+- [ ] **L01 (Algoritmos STL vs Bucles Manuales)**: Teoría, Demo de Bug (`D01_RawLoopOffByOneBug.cpp`), Reto (`E01_RefactorizandoBucles`). Expresividad con `std::all_of`, `std::count_if` frente a bucles manuales.
+- [ ] **L02 (Iteradores y su Invalidación)**: Teoría, Lab, Demo de Bug (`D02_IteratorInvalidationBug.cpp`), Reto (`E02_RecorridoSeguro`). `begin()`, `end()` y eliminación segura con el Erase-Remove Idiom (y mención a `std::erase_if` C++20).
 - [ ] **L03 (Búsqueda y Predicados)**: Teoría, Lab, Reto (`E03_BuscadorAvanzado`). `std::find_if` y `std::min_element` con lambdas y `std::optional`.
 - [ ] **L04 (Transformación y Reducción)**: Teoría, Lab, Reto (`E04_TransformadorDeDatos`). Mapeo funcional con `std::transform` y `std::accumulate`.
-- [ ] **L05 (Ordenamiento y Comparadores Custom)**: Teoría, Lab, Reto (`E05_OrdenamientoCustom`). `std::ranges::sort` con comparadores multicriterio.
-- [ ] **L06 (C++20 Ranges y Vistas)**: Teoría, Lab, Reto (`E06_PipelinesConRanges`). Vistas perezosas y composición con tuberías `|` sin copias.
-- [ ] **L07 (Concurrencia Básica)**: Teoría, Lab, Demo de Bug (`D07_DataRaceIntroBug.cpp`), Reto (`E07_CargaAsincrona`). Asincronía con `std::async` y `std::jthread`.
-- [ ] **L08 (Capstone Final del Curso)**: El Motor RPG Definitivo. Reto (`E08_MotorRPGDefinitivo`). Integración total de los 15 módulos en una arquitectura profesional completa.
+- [ ] **L05 (Ordenamiento y Comparadores Custom)**: Teoría, Lab, Reto (`E05_OrdenamientoCustom`). `std::sort` con lambdas y comparadores multicriterio.
+- [ ] **L06 (Evolución C++20: Ranges y Vistas)**: Teoría, Lab, Reto (`E06_PipelinesConRanges`). Mirada al futuro: vistas perezosas y composición con tuberías `|`.
+- [ ] **L07 (Concurrencia y Asincronía Básica)**: Teoría, Lab, Demo de Bug (`D07_DataRaceIntroBug.cpp`), Reto (`E07_CargaAsincrona`). Asincronía con `std::async` y `std::future`.
+- [ ] **L08 (Capstone Final del Curso: El Motor RPG Definitivo)**: Reto (`E08_MotorRPGDefinitivo`). Integración total de los 15 módulos en una arquitectura sólida de grado profesional.
 
 ---
 
 <div align="center">
-  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+  <sub>Maintained by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026</sub>
 </div>

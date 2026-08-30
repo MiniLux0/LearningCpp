@@ -4,7 +4,7 @@
 // Objetivo: Ver que pasa cuando intentas adivinar el futuro con constexpr.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D02_RuntimeConstexprBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D02_RuntimeConstexprBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

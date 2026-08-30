@@ -44,11 +44,9 @@ Si necesitas el resultado exacto con decimales, la regla es simple: **al menos u
 * **`double / int` (Promoción de tipo):** `5.0 / 2` asciende la operación a tipo `double`, conservando el resultado decimal exacto `2.5`.
 
 ```cpp
-double rebanadas_pizza{7.0}; // Ahora es un double
+double rebanadas_pizza{7.0}; // Al ser double, no trunca
 int personas{2};
 double resultado{rebanadas_pizza / personas}; // 3.5 Exacto
-```
-double porciones_por_persona{rebanadas_pizza / personas}; // Esto sí dará 3.5
 ```
 
 > 🧪 **Laboratorio:** Para ver cómo esta trampa destruye el cálculo de un promedio de calificaciones, ejecuta la demostración en [`../lab/demos/D01_TrampaDivisionEntera.cpp`](../lab/demos/D01_TrampaDivisionEntera.cpp).

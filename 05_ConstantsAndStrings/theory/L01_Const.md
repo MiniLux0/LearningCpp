@@ -44,7 +44,7 @@ Cualquier intento posterior de reasignar `diasPorSemana` será bloqueado por el 
 ---
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste.
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. ¿Qué ocurre si intentas reasignar el valor de una variable declarada con `const`?</b></summary>

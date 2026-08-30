@@ -81,7 +81,7 @@ En C++, el `;` indica el final de una instrucción. Al colocarlo ahí, el compil
 > 🏋️ **Ejercicio:** Pon a prueba tu lógica booleana. Atrévete con el reto en [`../exercise/E01_SistemaDeClima/E01_SistemaDeClima.cpp`](../exercise/E01_SistemaDeClima/E01_SistemaDeClima.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si la condición dentro de un `if` evalúa a falso y no hay ningún bloque `else`, ¿qué hace el flujo de control?</b></summary>

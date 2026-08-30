@@ -4,7 +4,7 @@
 // Objetivo: Observar el comportamiento indefinido (Undefined Behavior) al acceder a un Dangling View.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D04_DanglingViewBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D04_DanglingViewBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

@@ -55,7 +55,7 @@ El bucle ejecutará **4 iteraciones** (la 0, 1, 2 y 3). Un desvío por uno parec
 > 🏋️ **Ejercicio:** Pon a prueba tu manejo de iteraciones. Atrévete con el reto en [`../exercise/E06_CuentaRegresiva/E06_CuentaRegresiva.cpp`](../exercise/E06_CuentaRegresiva/E06_CuentaRegresiva.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si inicializo la variable `int i{1};` dentro de la estructura de un `for`, ¿es válido leer esa variable en la línea posterior al cierre del bucle?</b></summary>

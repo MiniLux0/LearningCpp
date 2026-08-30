@@ -3,13 +3,15 @@
 # 🚀 LearningCpp
 
 ### **El Curso Interactivo y Visual de C++ Moderno**
-**De Cero Absoluto a Desarrollador Profesional de la Industria (C++17 / C++20)**
+**De Cero Absoluto a C++ Moderno — Fundamentos de Grado Profesional (C++17 Base · Evolución C++20)**
 
-[![C++17](https://img.shields.io/badge/C%2B%2B-17%2F20-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
+[![Autor](https://img.shields.io/badge/Autor-Jesus%20Vera%20V.%20(MiniLux0)-10b981?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MiniLux0)
+[![C++17 Base](https://img.shields.io/badge/C%2B%2B-17_Base-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![GCC](https://img.shields.io/badge/GCC-13%2B-F16822?style=for-the-badge&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
 [![Plataforma](https://img.shields.io/badge/Plataforma-Windows%20%7C%20Linux%20%7C%20macOS-0078D4?style=for-the-badge&logo=windows&logoColor=white)](README.md)
 [![Web Oficial](https://img.shields.io/badge/🌐_Portal_Web-Online_Live-2563eb?style=for-the-badge)](https://minilux0.github.io/LearningCpp/)
 [![PDF Syllabus](https://img.shields.io/badge/📥_Descargar-Syllabus_PDF-dc2626?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](LearningCpp_Syllabus_Oficial.pdf)
+[![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-059669?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-Code_Lab-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JExCwZ3YyC)
 
 <br/>
@@ -26,10 +28,10 @@
 
 ## 💡 ¿Por qué existe LearningCpp?
 
-La mayoría de cursos tradicionales de C++ cometen dos errores formativos: enseñan **C++ arcaico de hace 25 años** (punteros crudos obligatorios, `printf`, arreglos estilo C y `using namespace std;`) o **asumen experiencia previa avanzada** en hardware y compiladores.
+La mayoría de cursos tradicionales de C++ cometen dos errores formativos: enseñan **C++ arcaico de hace 25 años** (punteros crudos obligatorios para todo, `printf`, arreglos estilo C y `using namespace std;`) o **asumen experiencia previa avanzada** en hardware y compiladores.
 
 **LearningCpp rompe ambos paradigmas:**
-* 🛡️ **C++ Moderno desde el Día 1:** Sintaxis segura con `std::string`, `{}` inicialización uniforme, `std::vector`, `constexpr`, `std::unique_ptr` (RAII) y tuberías de rangos de C++20 (`|`).
+* 🛡️ **C++ Moderno desde el Día 1:** Sintaxis segura con `std::string`, `{}` inicialización uniforme, `std::vector`, `constexpr`, `std::unique_ptr` (RAII) y algoritmos estándar de la STL.
 * 🪜 **Nivel Cero Absoluto:** Diseñado para estudiantes sin conocimientos previos de memoria RAM ni compilación.
 
 ---
@@ -64,9 +66,9 @@ La mayoría de cursos tradicionales de C++ cometen dos errores formativos: ense�
 Accede a la plataforma web interactiva del curso online o de manera offline:
 
 * 🚀 **Sitio Web Oficial en Vivo:** 👉 [**minilux0.github.io/LearningCpp**](https://minilux0.github.io/LearningCpp/)
-* 🧠 **Simulador Visual de RAM (Stack vs Heap):** Visualiza la asignación de memoria física en tiempo real.
-* 🐞 **Bugs Sandbox:** Experimenta interactivamente los fallos más comunes del lenguaje y su corrección.
-* 📑 **Portal del Temario & Roadmap:** Explora las 117 lecciones con filtros de búsqueda y estado.
+* 📖 **Explorador Interactivo del Temario:** Navega entre las 6 fases y 117 lecciones con búsqueda instantánea (Ctrl+K).
+* 🎬 **Galería de Animaciones Manim:** Visualiza los modelos de memoria RAM física (Stack vs Heap, VTable, RAII).
+* 💻 **Showcase de C++17 Idiomático:** Ejemplos directos de inicialización uniforme, `std::vector` y `std::unique_ptr`.
 * 💡 **Uso Offline:** Haz doble clic en [`web/index.html`](web/index.html) desde tu explorador de archivos.
 
 ---
@@ -81,15 +83,15 @@ Accede a la plataforma web interactiva del curso online o de manera offline:
 | **Fase 2: Funciones & Textos** | **04** | [**Functions**](04_Functions/) | 8 | Paso por valor, aislamiento, RNG moderno `<random>` | Generador Atributos RPG | ✅ |
 | | **05** | [**Constants & Strings**](05_ConstantsAndStrings/) | 6 | Inmutabilidad `constexpr`, `std::string`, `string_view` | Generador de Claves | ✅ |
 | **Fase 3: Colecciones** | **06** | [**Arrays & Vectors**](06_ArraysAndVectors/) | 9 | `std::vector`, límites seguros `.at()`, multi-archivo | Registro Calificaciones | 🔄 |
-| | **07** | [**Compound Types**](07_CompoundTypes/) | 7 | `struct`, `enum class`, Designated Initializers C++20 | Bestiario RPG V1 | 🔄 |
+| | **07** | [**Compound Types**](07_CompoundTypes/) | 7 | `struct`, `enum class`, Agregados C++17 (Mirada C++20) | Bestiario RPG V1 | 🔄 |
 | **Fase 4: Memoria Real** | **08** | [**References & Addresses**](08_ReferencesAndAddresses/) | 8 | Direcciones `&`, paso por referencia `const &`, alias | Bestiario V2 (Zero-Copy) | 🔄 |
-| | **09** | [**Dynamic Memory**](09_DynamicMemory/) | 9 | Heap, punteros, `std::unique_ptr`, `std::move`, RAII | Bestiario V3 (Heap RAII) | 🔄 |
+| | **09** | [**Dynamic Memory**](09_DynamicMemory/) | 9 | Heap, punteros observadores, `unique_ptr`, `move`, RAII | Bestiario V3 (Heap RAII) | 🔄 |
 | **Fase 5: POO Moderna** | **10** | [**Classes & Encapsulation**](10_Classes/) | 10 | Encapsulamiento `m_`, constructores, operadores `<<`/`==` | Bestiario V4 (Modular) | 🔄 |
 | | **11** | [**Inheritance**](11_Inheritance/) | 7 | Herencia `: public`, constructores derivados, slicing | Jerarquía del Bestiario | 🔄 |
 | | **12** | [**Polymorphism**](12_Polymorphism/) | 8 | `virtual`, VTable, `override`, interfaces puras | El Coliseo (Game Loop) | 🔄 |
-| **Fase 6: Profesional** | **13** | [**Error Handling**](13_ErrorHandling/) | 7 | Stack Unwinding, excepciones de dominio, `std::optional` | Motor Mazmorras Resiliente | 🔄 |
-| | **14** | [**Templates & Lambdas**](14_TemplatesAndLambdas/) | 8 | Polimorfismo estático, templates en `.hpp`, NTTP, lambdas | Pipeline Genérico Eventos | 🔄 |
-| | **15** | [**STL Algorithms & Ranges**](15_STLAlgorithms/) | 8 | "No Raw Loops", C++20 Ranges `\|`, asincronía, Capstone | El Motor RPG Definitivo | 🔄 |
+| **Fase 6: Resiliencia & Especialización** | **13** | [**Error Handling**](13_ErrorHandling/) | 7 | Stack Unwinding, excepciones de dominio, `std::optional` | Motor Mazmorras Resiliente | 🔄 |
+| | **14** | [**Templates & Lambdas**](14_TemplatesAndLambdas/) | 8 | Polimorfismo estático, templates `.hpp`, `if constexpr` | Pipeline Genérico Eventos | 🔄 |
+| | **15** | [**STL Algorithms & Pipelines**](15_STLAlgorithms/) | 8 | Algoritmos STL, Erase-Remove, iteradores, Capstone Final | El Motor RPG Definitivo | 🔄 |
 
 > **Leyenda:** ✅ *Módulo completo e implementado* · 🔄 *Módulo en desarrollo activo*.
 
@@ -159,6 +161,6 @@ XX_NombreDelModulo/
 ---
 
 <div align="center">
-  <sub>Maintained with ❤️ by <strong>MiniLux0</strong> · 2026</sub><br>
-  <sub>Un curso interactivo de C++ Moderno desde Cero Absoluto hasta Grado Profesional.</sub>
+  <sub>Maintained with ❤️ by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026</sub><br>
+  <sub>Un curso interactivo de C++ Moderno desde Cero Absoluto hasta Fundamentos de Grado Profesional.</sub>
 </div>

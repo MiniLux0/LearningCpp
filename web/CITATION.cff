@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Si utilizas este proyecto o su material en tus estudios, investigaciones o cursos, por favor cítalo como se indica a continuación."
+title: "LearningCpp — Curso Interactivo y Visual de C++ Moderno"
+abstract: "Curso interactivo y visual de C++ Moderno (C++17 Base · Evolución C++20) desde cero absoluto hasta fundamentos de grado profesional con modelos de memoria RAM, animaciones Manim y metodología Break-First, Fix-Later."
+authors:
+  - name: "Jesus Vera V. (MiniLux0)"
+    given-names: "Jesus"
+    family-names: "Vera V."
+    alias: "MiniLux0"
+    website: "https://github.com/MiniLux0"
+type: software
+url: "https://minilux0.github.io/LearningCpp/"
+repository-code: "https://github.com/MiniLux0/LearningCpp"
+keywords:
+  - "MiniLux0"
+  - "LearningCpp"
+  - "cplusplus"
+  - "cpp17"
+  - "cpp20"
+  - "modern-cpp"
+  - "raii"
+  - "memory-management"
+  - "manim-animations"
+  - "computer-science"
+  - "programming-course"
+license: "MIT"
+version: "2.1.0"
+date-released: "2026-08-30"

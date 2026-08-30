@@ -4,7 +4,7 @@
 // Objetivo: Mostrar el peligro de olvidar modificar la variable de control.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D05_InfiniteLoopBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D05_InfiniteLoopBug.cpp -o bug
 // ¡Prepara Ctrl+C para matar el programa cuando se cuelgue!
 // ============================================================================
 

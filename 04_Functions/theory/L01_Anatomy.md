@@ -86,7 +86,7 @@ Al llamar a `sumar(5, 10)`, el flujo de ejecución pausa temporalmente el `main(
 ---
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste.
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si una función está diseñada exclusivamente para imprimir texto en la consola y no necesita devolver ningún valor numérico ni texto al main, ¿qué "Tipo de Retorno" debe usar?</b></summary>

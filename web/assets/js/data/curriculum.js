@@ -11,7 +11,7 @@ export const PHASES = [
   { id: "fase-3", name: "Fase 3: Colecciones", count: 2, badge: "Estructuras" },
   { id: "fase-4", name: "Fase 4: Memoria Real", count: 2, badge: "Stack & Heap" },
   { id: "fase-5", name: "Fase 5: POO Moderna", count: 3, badge: "Arquitectura" },
-  { id: "fase-6", name: "Fase 6: Nivel Profesional", count: 3, badge: "Industria" }
+  { id: "fase-6", name: "Fase 6: Resiliencia & Especialización", count: 3, badge: "Industria" }
 ];
 
 export const MODULES = [
@@ -178,19 +178,19 @@ export const MODULES = [
     status: "planned",
     statusLabel: "Planificado",
     lessonsCount: 7,
-    tagline: "struct, enum class y Designated Initializers de C++20",
+    tagline: "struct, enum class y Agregados C++17 (Mirada a C++20)",
     project: "Bestiario RPG V1",
     description: "Agrupación de datos heterogéneos, tipado fuerte para máquinas de estado y colecciones de estructuras en memoria contigua.",
     lessons: [
       { id: "L01", title: "El caos de parámetros", desc: "Por qué colapsan las firmas de 6 variables sueltas." },
       { id: "L02", title: "Estructuras (struct)", desc: "Agrupación heterogénea y el operador punto." },
-      { id: "L03", title: "Designated Initializers", desc: "Inicialización C++20 Jugador{.hp=100} en orden estricto." },
+      { id: "L03", title: "Inicialización de Agregados", desc: "Inicialización uniforme {} y puente a Designated Initializers C++20." },
       { id: "L04", title: "Peligro de Números Mágicos", desc: "Fragilidad al usar enteros para representar estados." },
       { id: "L05", title: "Estados seguros enum class", desc: "Enumeraciones fuertemente tipadas con ámbito." },
       { id: "L06", title: "Colecciones de Entidades", desc: "Combinación de std::vector y structs." },
       { id: "L07", title: "Mini-proyecto Bestiario V1", desc: "Base de datos en memoria con monstruos y combate elemental." }
     ],
-    bugDemos: ["D02_MissingSemicolonBug.cpp", "D03_OutOfOrderInitBug.cpp", "D04_MagicNumberBug.cpp"],
+    bugDemos: ["D02_MissingSemicolonBug.cpp", "D03_AggregateInitOrderBug.cpp", "D04_MagicNumberBug.cpp"],
     keyDecision: "Veto a los enum clásicos de C; adopción exclusiva de enum class."
   },
   {
@@ -329,7 +329,7 @@ export const MODULES = [
     id: "13",
     slug: "13_ErrorHandling",
     phase: "fase-6",
-    phaseName: "Fase 6: Nivel Profesional",
+    phaseName: "Fase 6: Resiliencia & Especialización",
     title: "Error Handling & Resilience",
     icon: "🛡️",
     status: "planned",
@@ -354,7 +354,7 @@ export const MODULES = [
     id: "14",
     slug: "14_TemplatesAndLambdas",
     phase: "fase-6",
-    phaseName: "Fase 6: Nivel Profesional",
+    phaseName: "Fase 6: Resiliencia & Especialización",
     title: "Templates & Metaprogramming",
     icon: "📦",
     status: "planned",
@@ -380,26 +380,26 @@ export const MODULES = [
     id: "15",
     slug: "15_STLAlgorithms",
     phase: "fase-6",
-    phaseName: "Fase 6: Nivel Profesional",
-    title: "STL Algorithms & Ranges",
+    phaseName: "Fase 6: Especialización & Resiliencia",
+    title: "STL Algorithms & Pipelines",
     icon: "⚡",
     status: "planned",
     statusLabel: "Planificado",
     lessonsCount: 8,
-    tagline: "No Raw Loops, C++20 Ranges |, std::erase_if, Capstone Final",
+    tagline: "Algoritmos STL, Erase-Remove Idiom, Iteradores y Capstone Final",
     project: "El Motor RPG Definitivo (Capstone Final)",
-    description: "Reemplazo de bucles manuales con algoritmos estándar, composición perezosa con tuberías |, tareas asíncronas con std::jthread y consolidación de los 15 módulos.",
+    description: "Dominio de algoritmos estándar de la STL, gestión segura de iteradores con Erase-Remove, transformaciones funcionales y el gran Capstone Final de los 15 módulos.",
     lessons: [
-      { id: "L01", title: "Doctrina No Raw Loops", desc: "Reemplazo de bucles por all_of, any_of y count_if." },
-      { id: "L02", title: "Invalidación de Iteradores", desc: "Prevención de Segfaults con std::erase_if de C++20." },
+      { id: "L01", title: "Algoritmos vs Bucles Manuales", desc: "Expresividad con all_of, any_of y count_if vs range-for idiomático." },
+      { id: "L02", title: "Invalidación de Iteradores", desc: "Prevención de fallos con Erase-Remove Idiom (y std::erase_if C++20)." },
       { id: "L03", title: "Búsqueda y Predicados", desc: "std::find_if y min_element retornando std::optional." },
       { id: "L04", title: "Transformación y Reducción", desc: "Mapeo funcional con std::transform y std::accumulate." },
-      { id: "L05", title: "Ordenamiento Avanzado", desc: "std::ranges::sort con comparadores multicriterio." },
-      { id: "L06", title: "C++20 Ranges & Views", desc: "Evaluación perezosa sin vectores intermedios con tuberías |." },
-      { id: "L07", title: "Concurrencia Básica", desc: "Ejecución en segundo plano con std::async y std::jthread." },
-      { id: "L08", title: "Capstone Final del Curso", desc: "Arquitectura multi-archivo que consolida armónicamente los 15 módulos." }
+      { id: "L05", title: "Ordenamiento Avanzado", desc: "std::sort con lambdas y comparadores multicriterio." },
+      { id: "L06", title: "Evolución C++20: Ranges & Views", desc: "Mirada al futuro: evaluación perezosa y tuberías funcionales |." },
+      { id: "L07", title: "Asincronía Básica", desc: "Ejecución paralela de tareas en segundo plano con std::async y std::future." },
+      { id: "L08", title: "El Motor RPG Definitivo (Capstone)", desc: "Arquitectura multi-archivo que consolida armónicamente los 15 módulos." }
     ],
     bugDemos: ["D01_RawLoopOffByOneBug.cpp", "D02_IteratorInvalidationBug.cpp", "D07_DataRaceIntroBug.cpp"],
-    keyDecision: "Doctrina estricta 'No Raw Loops': privilegiar algoritmos estándar de la STL."
+    keyDecision: "Privilegiar claridad e idiomaticidad: usar algoritmos STL para transformaciones y range-for para secuencias directas."
   }
 ];

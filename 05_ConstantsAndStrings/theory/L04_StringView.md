@@ -60,7 +60,7 @@ Dado que `std::string_view` no es dueño de la memoria (solo la observa), debes 
 ---
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste. No intentes adivinar con conocimientos externos.
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si necesitas añadir una nueva palabra a un texto recibido en una función, ¿el parámetro debe ser <code>std::string</code> o <code>std::string_view</code>?</b></summary>

@@ -1,4 +1,5 @@
 # L05: Conversión Segura (`static_cast`)
+> **Módulo 02 — Fundamental Types**
 
 Imagina que tienes `7` pizzas y quieres dividirlas entre `2` amigos. Matemáticamente, a cada uno le tocan `3.5` pizzas. Pero si le pides a C++ que haga esta división usando números enteros (`int`), te llevarás una sorpresa.
 
@@ -76,7 +77,7 @@ Esto se llama "C-Style Cast" (conversión al estilo C). En C++ moderno, esto est
 > 🏋️ **Ejercicio:** Es hora de arreglar un programa de calificaciones escolares. Atrévete con el reto en [`../exercise/E05_Promedio/E05_Promedio.cpp`](../exercise/E05_Promedio/E05_Promedio.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si tienes `int x{9};` y haces `x / 2`, ¿cuál es el resultado exacto?</b></summary>

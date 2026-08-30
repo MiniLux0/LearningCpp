@@ -3,47 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>LearningCpp — El Curso Interactivo y Visual de C++ Moderno (C++17/20)</title>
-  <meta name="description" content="Aprende C++ Moderno desde cero absoluto comprendiendo qué ocurre en la memoria RAM con RAII y resolviendo fallos reales mediante la metodología Break-First, Fix-Later.">
-  <meta name="keywords" content="C++, C++17, C++20, RAII, Programación, Memoria RAM, Stack, Heap, Punteros, Metodología Break-First, MiniLux0">
-  <meta name="author" content="MiniLux0">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://learningcpp.dev/">
+  <!-- ======================================================================
+       METADATOS DE INDEXACIÓN & AUTORÍA (GitHub, Google, Bing)
+       ====================================================================== -->
+  <title>LearningCpp — Curso Interactivo y Visual de C++ Moderno | por Jesus Vera V. (MiniLux0)</title>
+  <meta name="description" content="Aprende C++ Moderno desde cero absoluto hasta fundamentos de grado profesional con modelos de memoria RAM, RAII y la metodología Break-First, Fix-Later. Desarrollado por Jesus Vera V. (MiniLux0).">
+  <meta name="keywords" content="Jesus Vera V., MiniLux0, LearningCpp, C++, C++17, C++20, RAII, Programación, Memoria RAM, Stack, Heap, Punteros, Metodología Break-First, MiniLux0 GitHub, Curso C++ Español">
+  <meta name="author" content="Jesus Vera V. (MiniLux0)">
+  <meta name="creator" content="Jesus Vera V. (MiniLux0)">
+  <meta name="publisher" content="Jesus Vera V. (MiniLux0)">
+  <meta name="copyright" content="© 2026 Jesus Vera V. (MiniLux0)">
+  <meta name="application-name" content="LearningCpp">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://minilux0.github.io/LearningCpp/">
 
-  <!-- Theme Color for Mobile Browsers -->
-  <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+  <!-- Theme Color for Mobile Browsers & Discord Embed Highlight Strip -->
+  <meta name="theme-color" content="#38bdf8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LearningCpp">
 
-  <!-- OpenGraph / Social Meta Tags -->
+  <!-- ======================================================================
+       OPEN GRAPH PROTOCOL (WhatsApp, Facebook, Instagram, LinkedIn, Discord)
+       ====================================================================== -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="LearningCpp">
+  <meta property="og:site_name" content="LearningCpp · por Jesus Vera V. (MiniLux0)">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:url" content="https://learningcpp.dev/">
-  <meta property="og:title" content="LearningCpp — C++ Moderno Visual e Interactivo (C++17/20)">
-  <meta property="og:description" content="De cero absoluto a nivel profesional de la industria. 15 módulos, 117 lecciones, animaciones de memoria RAM y simuladores interactivos.">
-  <meta property="og:image" content="https://learningcpp.dev/assets/images/og-preview.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LearningCpp — C++ Moderno Visual e Interactivo">
-  <meta name="twitter:description" content="Aprende C++ Moderno desde cero absoluto con modelos mentales de RAM, RAII y la metodología Break-First, Fix-Later.">
+  <meta property="og:locale:alternate" content="es_LA">
+  <meta property="og:url" content="https://minilux0.github.io/LearningCpp/">
+  <meta property="og:title" content="LearningCpp — Curso Interactivo y Visual de C++ Moderno">
+  <meta property="og:description" content="De Cero Absoluto a Fundamentos de Grado Profesional en C++17/20. Modelos de memoria RAM física, RAII y metodología Break-First, Fix-Later. Desarrollado por Jesus Vera V. (MiniLux0).">
+  
+  <!-- Imagen de Vista Previa Social HD (1200x630) -->
+  <meta property="og:image" content="https://minilux0.github.io/LearningCpp/assets/images/og-preview.png">
+  <meta property="og:image:secure_url" content="https://minilux0.github.io/LearningCpp/assets/images/og-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LearningCpp — Curso Interactivo y Visual de C++ Moderno por Jesus Vera V. (MiniLux0)">
+  <meta property="article:author" content="https://github.com/MiniLux0">
 
-  <!-- JSON-LD Structured Data Schema -->
+  <!-- ======================================================================
+       TWITTER / X CARDS & THREADS
+       ====================================================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@MiniLux0">
+  <meta name="twitter:creator" content="@MiniLux0">
+  <meta name="twitter:title" content="LearningCpp — Curso Interactivo y Visual de C++ Moderno | por Jesus Vera V. (MiniLux0)">
+  <meta name="twitter:description" content="Aprende C++ Moderno desde cero absoluto con modelos mentales de RAM, RAII y la metodología Break-First, Fix-Later. Desarrollado por Jesus Vera V. (MiniLux0).">
+  <meta name="twitter:image" content="https://minilux0.github.io/LearningCpp/assets/images/og-preview.png">
+  <meta name="twitter:image:alt" content="LearningCpp — C++ Moderno por Jesus Vera V. (MiniLux0)">
+
+  <!-- ======================================================================
+       JSON-LD STRUCTURED DATA (Google Rich Results & Knowledge Graph)
+       ====================================================================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "LearningCpp: C++ Moderno y Arquitectura de Sistemas",
-    "description": "Curso interactivo y visual de C++ Moderno (C++17/C++20) desde cero absoluto hasta grado profesional con simuladores de memoria física y metodología Break-First, Fix-Later.",
-    "provider": {
-      "@type": "Person",
-      "name": "MiniLux0",
-      "url": "https://github.com/MiniLux0/LearningCpp"
-    },
-    "educationalLevel": "Beginner to Advanced",
-    "inLanguage": "es",
-    "isAccessibleForFree": true,
-    "coursePrerequisites": "Ninguno (Cero Absoluto)"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://github.com/MiniLux0",
+        "name": "Jesus Vera V. (MiniLux0)",
+        "givenName": "Jesus",
+        "familyName": "Vera Vivanco",
+        "alternateName": "MiniLux0",
+        "url": "https://github.com/MiniLux0",
+        "sameAs": [
+          "https://github.com/MiniLux0",
+          "https://github.com/MiniLux0/LearningCpp"
+        ]
+      },
+      {
+        "@type": "Course",
+        "@id": "https://minilux0.github.io/LearningCpp/#course",
+        "name": "LearningCpp: C++ Moderno y Arquitectura de Sistemas",
+        "description": "Curso interactivo y visual de C++ Moderno (C++17 base con evolución a C++20) desde cero absoluto hasta fundamentos de grado profesional con simuladores de memoria física y metodología Break-First, Fix-Later.",
+        "author": {
+          "@type": "Person",
+          "name": "Jesus Vera V. (MiniLux0)",
+          "url": "https://github.com/MiniLux0"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Jesus Vera V. (MiniLux0)",
+          "url": "https://github.com/MiniLux0"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Jesus Vera V. (MiniLux0)",
+          "url": "https://github.com/MiniLux0"
+        },
+        "provider": {
+          "@type": "Person",
+          "name": "Jesus Vera V. (MiniLux0)",
+          "url": "https://github.com/MiniLux0"
+        },
+        "educationalLevel": "Beginner to Advanced",
+        "inLanguage": "es",
+        "isAccessibleForFree": true,
+        "coursePrerequisites": "Ninguno (Cero Absoluto)"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "LearningCpp Codebase",
+        "codeRepository": "https://github.com/MiniLux0/LearningCpp",
+        "programmingLanguage": "C++",
+        "runtimePlatform": "C++17",
+        "author": {
+          "@type": "Person",
+          "name": "Jesus Vera V. (MiniLux0)",
+          "url": "https://github.com/MiniLux0"
+        }
+      }
+    ]
   }
   </script>
 
@@ -71,7 +144,7 @@
        ======================================================================== -->
   <header class="site-header" role="banner">
     <div class="container header-container">
-      <a href="#" class="brand-logo" aria-label="LearningCpp Inicio">
+      <a href="#main-content" class="brand-logo" aria-label="LearningCpp Inicio">
         <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="logo-bg-hdr" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
@@ -95,7 +168,6 @@
         <ul class="nav-menu">
           <li><a href="#pilares" class="nav-link">Pilares</a></li>
           <li><a href="#temario" class="nav-link">Temario</a></li>
-          <li><a href="#laboratorio" class="nav-link">Laboratorio</a></li>
           <li><a href="#hardware" class="nav-link">Animaciones</a></li>
           <li><a href="#comparativa" class="nav-link">Evolución</a></li>
           <li><a href="#instalacion" class="nav-link">Instalación</a></li>
@@ -104,7 +176,7 @@
       </nav>
 
       <div class="header-actions">
-        <button id="theme-toggle-btn" class="btn btn-icon" title="Cambiar Tema (Oscuro / Claro)" aria-label="Cambiar Tema">
+        <button id="theme-toggle-btn" type="button" class="btn btn-icon" title="Cambiar Tema (Oscuro / Claro)" aria-label="Cambiar Tema">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
         <a href="../LearningCpp_Syllabus_Oficial.pdf" download class="btn btn-primary btn-header-cta" aria-label="Descargar Syllabus en PDF">
@@ -112,7 +184,7 @@
           <span>Syllabus PDF</span>
         </a>
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="btn btn-icon mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
+        <button id="mobile-menu-btn" type="button" class="btn btn-icon mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
@@ -123,7 +195,7 @@
   <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true">
     <div id="mobile-nav-drawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menú Móvil">
       <div class="mobile-nav-header">
-        <div class="brand-logo">
+        <a href="#main-content" class="brand-logo" aria-label="LearningCpp Inicio">
           <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#logo-bg-hdr)" stroke="url(#logo-stroke-hdr)" stroke-width="1.5"/>
             <path d="M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8" stroke="#f8fafc" stroke-width="2.4" stroke-linecap="round"/>
@@ -131,8 +203,8 @@
             <path d="M25.5 15.3 V19.7 M23.3 17.5 H27.7" stroke="#38bdf8" stroke-width="2.0" stroke-linecap="round"/>
           </svg>
           <span class="brand-name">Learning<span class="brand-name-gradient">Cpp</span></span>
-        </div>
-        <button id="mobile-nav-close-btn" class="btn btn-icon" aria-label="Cerrar menú móvil">
+        </a>
+        <button id="mobile-nav-close-btn" type="button" class="btn btn-icon" aria-label="Cerrar menú móvil">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
@@ -140,7 +212,6 @@
         <ul class="mobile-nav-links">
           <li><a href="#pilares" class="mobile-nav-link">🎯 Pilares Pedagógicos</a></li>
           <li><a href="#temario" class="mobile-nav-link">📖 Plan de Estudios (15 Módulos)</a></li>
-          <li><a href="#laboratorio" class="mobile-nav-link">🔬 Laboratorio Interactivo (RAM & Sandbox)</a></li>
           <li><a href="#hardware" class="mobile-nav-link">⚡ Modelos Visuales Manim</a></li>
           <li><a href="#comparativa" class="mobile-nav-link">⚔️ C++ Clásico vs Moderno</a></li>
           <li><a href="#instalacion" class="mobile-nav-link">🛠️ Instalación (Quick Start)</a></li>
@@ -164,15 +235,15 @@
   <main id="main-content">
 
     <!-- ======================================================================
-         2. HERO SECTION CON TERMINAL BASH INTERACTIVA
+         2. HERO SECTION CON CÓDIGO C++17 MODERNO
          ====================================================================== -->
     <section class="hero-section" aria-label="Introducción al curso">
       <div class="container hero-grid">
         <div>
           <div class="hero-tag">
             <span class="badge badge-cyan">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
-              Estándar C++17 / C++20 · De Cero Absoluto a Pro
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"/></svg>
+              <span>Estándar C++17 Base (Evolución C++20) · Grado Profesional</span>
             </span>
           </div>
           <h1 class="hero-title">
@@ -214,9 +285,43 @@
           </div>
         </div>
 
-        <!-- Terminal Simulator Widget -->
-        <div id="hero-terminal-container" class="terminal-window" aria-label="Simulador de terminal interactiva">
-          <!-- Dynamic Terminal Simulator -->
+        <!-- Modern C++ Code Preview Showcase -->
+        <div class="terminal-window" aria-label="Código C++ Moderno de Ejemplo">
+          <div class="terminal-header">
+            <div class="terminal-dots" aria-hidden="true">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">main.cpp — C++17 Idiomático & Seguro</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);" aria-hidden="true">g++ -std=c++17</div>
+          </div>
+          <div class="terminal-body" style="padding: var(--space-4); max-height: none; overflow-x: auto; font-size: 0.825rem; line-height: 1.65;">
+            <pre style="margin: 0; padding: 0; background: transparent; border: none;"><code class="language-cpp"><span style="color: #818cf8;">#include</span> <span style="color: #34d399;">&lt;iostream&gt;</span>
+<span style="color: #818cf8;">#include</span> <span style="color: #34d399;">&lt;vector&gt;</span>
+<span style="color: #818cf8;">#include</span> <span style="color: #34d399;">&lt;memory&gt;</span>
+
+<span style="color: #f43f5e;">int</span> <span style="color: #38bdf8;">main</span>() {
+    <span style="color: #64748b;">// 1. Inicialización uniforme: cero basura en RAM</span>
+    <span style="color: #f43f5e;">int</span> vidas{<span style="color: #fbbf24;">3</span>};
+
+    <span style="color: #64748b;">// 2. Contenedor dinámico contiguo con .at() verificado</span>
+    <span style="color: #38bdf8;">std::vector</span>&lt;<span style="color: #f43f5e;">int</span>&gt; inventario{<span style="color: #fbbf24;">10</span>, <span style="color: #fbbf24;">20</span>, <span style="color: #fbbf24;">30</span>};
+
+    <span style="color: #64748b;">// 3. Puntero inteligente RAII (Cero fugas en Heap)</span>
+    <span style="color: #f43f5e;">auto</span> heroe = <span style="color: #38bdf8;">std::make_unique</span>&lt;Guerrero&gt;(<span style="color: #34d399;">"Lux"</span>, vidas);
+
+    <span style="color: #38bdf8;">std::cout</span> &lt;&lt; <span style="color: #34d399;">"LearningCpp: C++ Moderno sin vicios\n"</span>;
+    <span style="color: #818cf8;">return</span> <span style="color: #fbbf24;">0</span>;
+}</code></pre>
+          </div>
+          <div class="terminal-footer-bar">
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+              <span>Cero Undefined Behavior</span>
+            </span>
+            <span style="font-family: var(--font-family-mono); color: #38bdf8;">100% RAII & Safe</span>
+          </div>
         </div>
       </div>
     </section>
@@ -254,7 +359,7 @@
           </article>
 
           <article class="card-pillar">
-            <div class="card-icon-wrapper" aria-hidden="true" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">
+            <div class="card-icon-wrapper" aria-hidden="true" style="color: #10b981; background: rgba(168, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15v4M10 15v4M14 15v4M18 15v4M6 9h12M6 12h8"/></svg>
             </div>
             <h3>3. Modelos Mentales de RAM</h3>
@@ -295,11 +400,6 @@
           </div>
         </div>
 
-        <!-- Student Local Progress Tracker Widget -->
-        <div id="student-progress-widget" class="progress-strip-wrapper" role="region" aria-label="Progreso local del alumno">
-          <!-- Dynamic Progress Bar via app.js -->
-        </div>
-
         <!-- Phase Tabs Container -->
         <div id="phase-tabs-container" class="phase-tabs" role="tablist" aria-label="Filtro de módulos por fase">
           <!-- Dynamic Phase Tabs -->
@@ -313,65 +413,9 @@
     </section>
 
     <!-- ======================================================================
-         5. LABORATORIO INTERACTIVO UNIFICADO (STUDIO HUB)
+         5. MODELOS VISUALES MANIM (HARDWARE GALLERY)
          ====================================================================== -->
-    <section id="laboratorio" class="section-padding section-surface" aria-labelledby="laboratorio-title">
-      <div class="container">
-        <header class="section-header">
-          <span class="badge badge-cyan">Studio en el Navegador</span>
-          <h2 id="laboratorio-title">Laboratorio Interactivo de Software & Hardware</h2>
-          <p class="text-muted">Explora la memoria RAM física, experimenta con la metodología Break-First y audita tu código C++ al instante.</p>
-        </header>
-
-        <!-- Studio Hub Navigation Tabs -->
-        <div class="studio-tabs-nav" role="tablist" aria-label="Herramientas del Laboratorio">
-          <button class="studio-tab-btn active" data-tab="tab-ram" role="tab" aria-selected="true" aria-controls="tab-ram">
-            <span class="tab-icon">🧠</span>
-            <span>Simulador RAM (Stack/Heap)</span>
-          </button>
-          <button class="studio-tab-btn" data-tab="tab-bugs" role="tab" aria-selected="false" aria-controls="tab-bugs">
-            <span class="tab-icon">🐞</span>
-            <span>Bugs Sandbox (Break-First)</span>
-          </button>
-          <button class="studio-tab-btn" data-tab="tab-pipeline" role="tab" aria-selected="false" aria-controls="tab-pipeline">
-            <span class="tab-icon">⚙️</span>
-            <span>Pipeline del Compilador</span>
-          </button>
-          <button class="studio-tab-btn" data-tab="tab-linter" role="tab" aria-selected="false" aria-controls="tab-linter">
-            <span class="tab-icon">🔍</span>
-            <span>Auditor de Sintaxis</span>
-          </button>
-        </div>
-
-        <!-- Studio Hub Panels -->
-        <div class="studio-panels-container">
-          <!-- Panel 1: RAM Visualizer (Active) -->
-          <div id="tab-ram" class="studio-tab-panel" role="tabpanel" aria-label="Simulador de Memoria RAM">
-            <div id="interactive-ram-visualizer-container"></div>
-          </div>
-
-          <!-- Panel 2: Bugs Sandbox -->
-          <div id="tab-bugs" class="studio-tab-panel" role="tabpanel" aria-label="Bugs Sandbox" style="display: none;">
-            <div id="interactive-code-playground"></div>
-          </div>
-
-          <!-- Panel 3: Compiler Pipeline Explorer -->
-          <div id="tab-pipeline" class="studio-tab-panel" role="tabpanel" aria-label="Pipeline del Compilador" style="display: none;">
-            <div id="compiler-pipeline-explorer-container"></div>
-          </div>
-
-          <!-- Panel 4: C++ Syntax Linter -->
-          <div id="tab-linter" class="studio-tab-panel" role="tabpanel" aria-label="Auditor de Sintaxis" style="display: none;">
-            <div id="interactive-linter-container"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         6. MODELOS VISUALES MANIM (HARDWARE GALLERY)
-         ====================================================================== -->
-    <section id="hardware" class="section-padding" aria-labelledby="hardware-title">
+    <section id="hardware" class="section-padding section-surface" aria-labelledby="hardware-title">
       <div class="container">
         <header class="section-header">
           <span class="badge badge-purple">Animaciones Manim</span>
@@ -456,7 +500,7 @@
     </section>
 
     <!-- ======================================================================
-         7. C++ CLÁSICO VS C++ MODERNO (COMPARATIVA)
+         6. C++ CLÁSICO VS C++ MODERNO (COMPARATIVA)
          ====================================================================== -->
     <section id="comparativa" class="section-padding" aria-labelledby="comparativa-title">
       <div class="container">
@@ -549,7 +593,7 @@
     </section>
 
     <!-- ======================================================================
-         9. GUÍA DE INSTALACIÓN DEL TOOLCHAIN (QUICK START)
+         7. GUÍA DE INSTALACIÓN DEL TOOLCHAIN (QUICK START)
          ====================================================================== -->
     <section id="instalacion" class="section-padding section-surface" aria-labelledby="instalacion-title">
       <div class="container" style="max-width: 52rem;">
@@ -612,7 +656,7 @@ clang++ --version</code></pre>
     </section>
 
     <!-- ======================================================================
-         10. FAQ ACCORDION
+         8. FAQ ACCORDION
          ====================================================================== -->
     <section id="faq" class="section-padding" aria-labelledby="faq-title">
       <div class="container" style="max-width: 48rem;">
@@ -659,7 +703,7 @@ clang++ --version</code></pre>
               <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="accordion-content">
-              Sí. Todo el temario, lecciones, código de ejemplo, simulaciones y ejercicios están disponibles libremente en el repositorio oficial.
+              Sí. Todo el temario, lecciones, código de ejemplo, animaciones y ejercicios están disponibles libremente en el repositorio oficial.
             </div>
           </div>
         </div>
@@ -669,54 +713,54 @@ clang++ --version</code></pre>
   </main>
 
   <!-- ========================================================================
-       11. MODAL / DRAWER DE DETALLE DE MÓDULO
+       9. MODAL DE DETALLE DE MÓDULO (SYLLABUS & LECCIONES)
        ======================================================================== -->
   <div id="module-detail-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-module-title" aria-hidden="true">
     <div class="modal-dialog">
       <header class="modal-header">
         <div id="modal-module-title"></div>
-        <button class="btn btn-icon modal-close-btn" aria-label="Cerrar modal de lecciones">
+        <button id="modal-close-btn" type="button" class="btn btn-icon modal-close-btn" aria-label="Cerrar modal de lecciones">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </header>
       <div id="modal-module-body" class="modal-body"></div>
       <footer class="modal-footer">
-        <button class="btn btn-secondary modal-close-btn">Cerrar</button>
+        <button id="modal-close-footer-btn" type="button" class="btn btn-secondary modal-close-btn">Cerrar</button>
       </footer>
     </div>
   </div>
 
   <!-- ========================================================================
-       11B. LIGHTBOX MODAL PARA ANIMACIONES MANIM HD
+       10. LIGHTBOX MODAL PARA ANIMACIONES MANIM HD
        ======================================================================== -->
   <div id="manim-lightbox-modal" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
     <div class="lightbox-dialog">
       <header class="modal-header">
         <div id="lightbox-title" style="font-family: var(--font-family-display); font-weight: 700; font-size: var(--font-size-base);"></div>
-        <button id="lightbox-close-btn" class="btn btn-icon" aria-label="Cerrar visor de animación">
+        <button id="lightbox-close-btn" type="button" class="btn btn-icon" aria-label="Cerrar visor de animación">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </header>
       <div id="lightbox-media-container" class="lightbox-media"></div>
       <div id="lightbox-description-container" class="modal-body" style="background: var(--bg-surface);"></div>
       <footer class="modal-footer">
-        <button id="lightbox-replay-btn" class="btn btn-primary" style="font-size: 0.75rem;">
+        <button id="lightbox-replay-btn" type="button" class="btn btn-primary" style="font-size: 0.75rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-          <span>Reiniciar Bucle</span>
+          <span>Reiniciar Animación</span>
         </button>
-        <button id="lightbox-close-footer-btn" class="btn btn-secondary" style="font-size: 0.75rem;">Cerrar</button>
+        <button id="lightbox-close-footer-btn" type="button" class="btn btn-secondary" style="font-size: 0.75rem;">Cerrar</button>
       </footer>
     </div>
   </div>
 
   <!-- ========================================================================
-       12. FOOTER
+       11. FOOTER
        ======================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#" class="brand-logo" style="margin-bottom: var(--space-3);" aria-label="LearningCpp Inicio">
+          <a href="#main-content" class="brand-logo" style="margin-bottom: var(--space-3);" aria-label="LearningCpp Inicio">
             <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#logo-bg-hdr)" stroke="url(#logo-stroke-hdr)" stroke-width="1.5"/>
               <path d="M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8" stroke="#f8fafc" stroke-width="2.4" stroke-linecap="round"/>
@@ -735,9 +779,10 @@ clang++ --version</code></pre>
           <ul class="footer-links">
             <li><a href="#pilares">Pilares Pedagógicos</a></li>
             <li><a href="#temario">Plan de Estudios</a></li>
-            <li><a href="#laboratorio">Laboratorio Interactivo</a></li>
             <li><a href="#hardware">Modelos Visuales</a></li>
             <li><a href="#comparativa">Evolución C++</a></li>
+            <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
           </ul>
         </div>
 
@@ -762,8 +807,8 @@ clang++ --version</code></pre>
       </div>
 
       <div class="footer-bottom">
-        <div>Maintained with ❤️ by <strong>MiniLux0</strong> · 2026</div>
-        <div>C++17 / C++20 · Licencia de Código Abierto</div>
+        <div>Maintained with ❤️ by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026</div>
+        <div>C++17 Base (Evolución C++20) · Licencia de Código Abierto</div>
       </div>
     </div>
   </footer>

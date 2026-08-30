@@ -4,7 +4,7 @@
 // Objetivo: Mostrar el temido error "por uno" al confundir <= con <
 //
 // INSTRUCCIONES:
-// Compila con `g++ D06_OffByOneBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D06_OffByOneBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

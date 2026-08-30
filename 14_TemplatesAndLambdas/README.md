@@ -4,7 +4,7 @@
 ### **Polimorfismo Estático, Headers .hpp, NTTP y Lambdas Modernas**
 
 [![Estado](https://img.shields.io/badge/Estado-Planificado-64748b?style=for-the-badge)](../docs/BACKLOG.md)
-[![Fase](https://img.shields.io/badge/Fase_6-Nivel_Profesional-0ea5e9?style=for-the-badge)](../SYLLABUS.md)
+[![Fase](https://img.shields.io/badge/Fase_6-Resiliencia_y_Especializacion-0ea5e9?style=for-the-badge)](../SYLLABUS.md)
 
 </div>
 

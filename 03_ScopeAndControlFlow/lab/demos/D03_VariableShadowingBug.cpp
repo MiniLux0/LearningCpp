@@ -4,7 +4,7 @@
 // Objetivo: Mostrar como redeclarar una variable anula silenciosamente nuestra logica.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D03_VariableShadowingBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D03_VariableShadowingBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

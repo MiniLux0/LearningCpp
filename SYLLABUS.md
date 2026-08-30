@@ -1,7 +1,7 @@
 # 📜 Syllabus Oficial del Programa de Especialización en C++ Moderno
-### **LearningCpp — De Cero Absoluto a Desarrollador de Grado Profesional**
-**Estándares Oficiales:** ISO/IEC 14882:2017 (C++17) & ISO/IEC 14882:2020 (C++20)  
-**Autor & Dirección Pedagógica:** MiniLux0 · **Comunidad:** [Discord Code Lab](https://discord.gg/JExCwZ3YyC)
+### **LearningCpp — De Cero Absoluto a C++ Moderno: Fundamentos de Grado Profesional**
+**Estándar Oficial:** ISO/IEC 14882:2017 (C++17 Base con bloques de Evolución a C++20)  
+**Autor & Dirección Pedagógica:** Jesus Vera V. (MiniLux0) · **Comunidad:** [Discord Code Lab](https://discord.gg/JExCwZ3YyC)
 
 ---
 
@@ -23,8 +23,8 @@
 | :--- | :--- |
 | **Denominación** | *Especialización Integral en C++ Moderno y Arquitectura de Sistemas* |
 | **Programa Oficial** | `LearningCpp: Modern C++ Systems Programming` |
-| **Nivel** | Progresión estructurada: De *Cero Absoluto* (Nivel 1) a *Ingeniero de Software de Producción* (Nivel 6) |
-| **Estándar de Referencia** | C++17 (Estándar Base) y C++20 (Extensiones de Ranges, Designated Initializers, `std::jthread`) |
+| **Nivel** | Progresión estructurada: De *Cero Absoluto* (Nivel 1) a *Fundamentos de Grado Profesional* (Nivel 6) |
+| **Estándar de Referencia** | C++17 (Estándar Base Oficial) con Puentes Comparativos de Evolución a C++20 |
 | **Duración Estimada** | 15 Módulos · 6 Fases Estratégicas · 117 Lecciones Teórico-Prácticas |
 | **Toolchain Oficial** | `g++ >= 13.0` (MSYS2 UCRT64 / Linux) o `Clang++ >= 16.0` (Apple Clang / LLVM) |
 | **Flags de Compilación** | `-std=c++17 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -O2` |
@@ -41,7 +41,7 @@ Al completar satisfactoriamente este programa de estudios, el estudiante habrá 
 * **RA3 — Arquitectura Orientada a Objetos Segura:** Diseñar clases encapsuladas con constructores seguros (*Member Initializer List*), despacho dinámico mediante tabla virtual (`__vptr`/`VTable`), destructores virtuales obligatorios y blindaje contra *Object Slicing*.
 * **RA4 — Resiliencia y Manejo de Errores:** Implementar estrategias de manejo de excepciones basadas en el desenrollado de pila (*Stack Unwinding*), optimizaciones de relocalización con `noexcept` y modelado funcional de ausencias mediante `std::optional`.
 * **RA5 — Programación Genérica y Metaprogramación:** Construir plantillas monomórficas evaluadas en tiempo de compilación con cero costo en runtime, buffers estáticos mediante parámetros no-tipo (NTTP) y funciones anónimas (*Lambdas*).
-* **RA6 — Computación Declarativa ("No Raw Loops"):** Reemplazar sistemáticamente los bucles manuales de bajo nivel por algoritmos de la STL y tuberías de composición perezosa (*Lazy Evaluation*) con **C++20 Ranges & Views**.
+* **RA6 — Computación Declarativa y Algoritmos STL:** Utilizar algoritmos estándar de la STL (`<algorithm>`) para transformaciones, búsquedas y filtros cuando aporten máxima expresividad y seguridad, combinándolos con `range-for` idiomáticos para recorridos secuenciales directos.
 
 ---
 
@@ -64,7 +64,41 @@ Cada tema del curso sigue rigurosamente el siguiente flujo formativo:
 
 ---
 
-## 🗺️ 4. Matriz General del Plan de Estudios (15 Módulos / 6 Fases)
+## ⏱️ 4. Estimación de Carga Horaria y Grafo de Dependencias
+
+### 4.1. Carga Horaria Sugerida (Workload)
+* **Ruta Regular (Semestral):** 16 semanas (dedicación estimada de 6 a 8 horas por semana).
+* **Ruta Intensiva (Bootcamp):** 8 semanas (dedicación estimada de 12 a 15 horas por semana).
+* **Desglose de Horas por Fase:**
+  * **Fase 1 (Fundamentos I/O y Tipos):** ~15 horas
+  * **Fase 2 (Funciones y Textos):** ~12 horas
+  * **Fase 3 (Colecciones y Structs):** ~18 horas
+  * **Fase 4 (Memoria Física y RAII):** ~20 horas
+  * **Fase 5 (POO y Polimorfismo):** ~25 horas
+  * **Fase 6 (Resiliencia, Templates y STL):** ~30 horas
+
+### 4.2. Grafo de Dependencias de Conocimiento
+```mermaid
+graph TD
+    F1[Fase 1: Fundamentos & Tipado Estricto] --> F2[Fase 2: Funciones & Gestión de Strings]
+    F2 --> F3[Fase 3: Colecciones Dinámicas & Agregados]
+    F3 --> F4[Fase 4: Direcciones, Heap & Ownership RAII]
+    F4 --> F5[Fase 5: POO, Encapsulamiento & VTable]
+    F5 --> F6[Fase 6: Resiliencia, Genéricos & Algoritmos STL]
+    F6 --> Capstone[Capstone Final: El Motor RPG Definitivo]
+```
+
+---
+
+## 📊 5. Rúbricas de Dominio por Niveles
+
+* **Nivel Aprendiz (Fases 1–2):** Manipulación segura de streams `cin`/`cout`, prevención de narrowing con inicialización uniforme `{}`, casting explícito seguro con `static_cast` y aislamiento de stack frames en funciones por valor.
+* **Nivel Intermedio (Fases 3–4):** Dominio de arreglos dinámicos contiguos con `std::vector` y límites verificados con `.at()`, paso de parámetros eficiente *Zero-Copy* con `const &`, comprensión física del Heap y gestión de memoria con `std::unique_ptr` garantizando cero fugas de memoria (*Memory Leaks*).
+* **Nivel Avanzado (Fases 5–6):** Jerarquías polimórficas robustas con tabla virtual (`VTable`) y destructores virtuales obligatorios, control de flujo tolerante a fallos mediante desenrollado de pila (*Stack Unwinding*), metaprogramación monomórfica con `if constexpr` y pipelines declarativos eficientes con `<algorithm>`.
+
+---
+
+## 🗺️ 6. Matriz General del Plan de Estudios (15 Módulos / 6 Fases)
 
 ```text
 FASE 1: FUNDAMENTOS
@@ -89,15 +123,15 @@ FASE 5: POO MODERNA
 ├── M11: Inheritance (7 lecciones) ───────────────────> Jerarquía del Bestiario
 └── M12: Polymorphism (8 lecciones) ──────────────────> El Coliseo (Game Loop)
 
-FASE 6: NIVEL PROFESIONAL
+FASE 6: RESILIENCIA, ESPECIALIZACIÓN Y CAPSTONE
 ├── M13: Error Handling & Resilience (7 lecciones) ───> Motor de Mazmorras
 ├── M14: Templates & Lambdas (8 lecciones) ───────────> Pipeline de Eventos
-└── M15: STL Algorithms & Ranges (8 lecciones) ────────> EL MOTOR RPG DEFINITIVO (Capstone)
+└── M15: STL Algorithms & Pipelines (8 lecciones) ────> EL MOTOR RPG DEFINITIVO (Capstone)
 ```
 
 ---
 
-## 📘 5. Temario Detallado Módulo por Módulo
+## 📘 7. Temario Detallado Módulo por Módulo
 
 ---
 
@@ -205,12 +239,12 @@ FASE 6: NIVEL PROFESIONAL
 * **Lecciones (7):**
   * `L01`: El colapso de firmas extensas — Por qué las funciones con 6 parámetros individuales destruyen el diseño.
   * `L02`: Estructuras con `struct` — Agrupación heterogénea en memoria contigua y operador punto (`.`).
-  * `L03`: *Designated Initializers* de C++20 — Sintaxis `Jugador{.hp = 100}` y regla estricta del orden de declaración.
+  * `L03`: Inicialización de Agregados y Constructores — Sintaxis `{}` uniforme C++17 y puente comparativo a *Designated Initializers* de C++20.
   * `L04`: El peligro de los números mágicos — Por qué representar estados con enteros causa vulnerabilidades.
   * `L05`: Máquinas de estado con `enum class` — Enumeraciones con ámbito y tipado fuerte para eliminar conversiones implícitas.
   * `L06`: Colecciones de Entidades — Integración armónica de `std::vector<struct>` en memoria contigua.
   * `L07`: Mini-proyecto integrador — *Bestiario RPG V1*: Base de datos en memoria con combate elemental tipado.
-* **Bugs Demostrados:** `D02_MissingSemicolonBug.cpp`, `D03_OutOfOrderInitBug.cpp`, `D04_MagicNumberBug.cpp`.
+* **Bugs Demostrados:** `D02_MissingSemicolonBug.cpp`, `D03_AggregateInitOrderBug.cpp`, `D04_MagicNumberBug.cpp`.
 * **Decisión Arquitectónica (ADR 07):** Veto a los `enum` clásicos de C; adopción exclusiva de `enum class`.
 
 ---
@@ -301,7 +335,7 @@ FASE 6: NIVEL PROFESIONAL
 
 ---
 
-### 🔹 FASE 6 — NIVEL PROFESIONAL Y RESILIENCIA
+### 🔹 FASE 6 — RESILIENCIA, ESPECIALIZACIÓN Y CAPSTONE
 
 #### 🛡️ [Módulo 13 — Error Handling & Resilience](13_ErrorHandling/)
 * **Objetivo:** Construir sistemas tolerantes a fallos con *Stack Unwinding*, excepciones de dominio y `std::optional`.
@@ -330,27 +364,27 @@ FASE 6: NIVEL PROFESIONAL
   * `L07`: Capturas de Lambdas — Copia `[=]` vs referencia `[&]` y prevención de *Dangling Lambda Captures*.
   * `L08`: Mini-proyecto integrador — *Pipeline Genérico de Eventos*: Bus de eventos desacoplado con templates y lambdas.
 * **Bugs Demostrados:** `D02_TemplateDeductionBug.cpp`, `D03_TemplateLinkerBug.cpp`, `D07_DanglingLambdaCaptureBug.cpp`.
-* **Decisión Arquitectónica (ADR 14):** Las plantillas deben implementarse obligatoriamente en archivos de cabecera (`.hpp`).
+* **Decisión Arquitectónica (ADR 14):** Las plantillas deben implementarse obligatoriamente en archivos de cabecera (`.hpp`); se incluye puente a Concepts C++20.
 
 ---
 
-#### ⚡ [Módulo 15 — STL Algorithms, Ranges & Capstone Final](15_STLAlgorithms/)
-* **Objetivo:** Dominar los algoritmos estándar declarativos, pipelines de C++20 Ranges y culminar el Capstone del curso.
+#### ⚡ [Módulo 15 — STL Algorithms, Pipelines & Capstone Final](15_STLAlgorithms/)
+* **Objetivo:** Dominar los algoritmos estándar declarativos, pipelines funcionales y culminar el Capstone integral del curso.
 * **Lecciones (8):**
-  * `L01`: Doctrina *"No Raw Loops"* — Sustitución de bucles manuales por `std::all_of`, `std::any_of` y `std::count_if`.
-  * `L02`: Invalidación de Iteradores — Prevención de *Undefined Behavior* mediante `std::erase_if` de C++20.
+  * `L01`: Algoritmos STL vs Bucles Manuales — Sustitución de bucles por `std::all_of`, `std::any_of` y `std::count_if` vs `range-for` idiomático.
+  * `L02`: Invalidación de Iteradores — Prevención de *Undefined Behavior* mediante el *Erase-Remove Idiom* (con mención a `std::erase_if` de C++20).
   * `L03`: Búsqueda y Predicados — `std::find_if` y `std::min_element` retornando `std::optional`.
   * `L04`: Transformación y Reducción — Mapeo funcional con `std::transform` y reducción acumulativa con `std::accumulate`.
-  * `L05`: Ordenamiento Avanzado — `std::ranges::sort` con comparadores multicriterio personalizados.
-  * `L06`: La Revolución de C++20: Ranges & Views — Evaluación perezosa (*Lazy Evaluation*) con tuberías de composición `|`.
-  * `L07`: Concurrencia y Asincronía Básica — Tareas en segundo plano con `std::async` y el hilo seguro `std::jthread` (C++20).
-  * `L08`: **Capstone Final del Curso: "El Motor RPG Definitivo"** — Proyecto maestro multi-archivo que consolida armónicamente los 15 módulos del plan de estudios: POO polimórfica, RAII con `unique_ptr`, excepciones de dominio, templates, lambdas y pipelines de C++20 Ranges.
+  * `L05`: Ordenamiento Avanzado — `std::sort` con lambdas y comparadores multicriterio personalizados.
+  * `L06`: Evolución C++20: Ranges & Views — Evaluación perezosa (*Lazy Evaluation*) con tuberías de composición `|`.
+  * `L07`: Concurrencia y Asincronía Básica — Tareas en segundo plano con `std::async` y `std::future`.
+  * `L08`: **Capstone Final del Curso: "El Motor RPG Definitivo"** — Proyecto maestro multi-archivo que consolida armónicamente los 15 módulos del plan de estudios: POO polimórfica, RAII con `unique_ptr`, excepciones de dominio, templates, lambdas y algoritmos STL.
 * **Bugs Demostrados:** `D01_RawLoopOffByOneBug.cpp`, `D02_IteratorInvalidationBug.cpp`, `D07_DataRaceIntroBug.cpp`.
-* **Decisión Arquitectónica (ADR 15):** Doctrina estricta *"No Raw Loops"*: privilegiar algoritmos estándar de la STL y Ranges sobre bucles manuales.
+* **Decisión Arquitectónica (ADR 15):** Privilegiar claridad e idiomaticidad: usar algoritmos de la STL para transformaciones y `range-for` para secuencias directas.
 
 ---
 
-## ⚖️ 6. Mandamientos de Codificación y Estándares de Ingeniería
+## ⚖️ 8. Mandamientos de Codificación y Estándares de Ingeniería
 
 Para garantizar la formación de desarrolladores del más alto calibre técnico, todo el código desarrollado en este curso se rige por las siguientes reglas estrictas:
 
@@ -364,13 +398,13 @@ Para garantizar la formación de desarrolladores del más alto calibre técnico,
 │ 6. VETO A "rand()" / "srand()"     │ Aleatoriedad exclusiva con la librería <random>.   │
 │ 7. ACCESO VERIFICADO CON ".at()"   │ Evitar [] no verificado en etapas formativas.      │
 │ 8. DESTRUCTOR VIRTUAL OBLIGATORIO  │ virtual ~Base() = default; en toda clase base.     │
-│ 9. "NO RAW LOOPS"                  │ Privilegiar algoritmos de la STL y C++20 Ranges.   │
+│ 9. CLARIDAD ANTE TODO              │ Algoritmos STL para procesar; range-for directo.   │
 └─────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📚 7. Bibliografía y Recursos de Referencia Recomendados
+## 📚 9. Bibliografía y Recursos de Referencia Recomendados
 
 1. **Bjarne Stroustrup** — *A Tour of C++* (3rd Edition, C++20), Addison-Wesley.
 2. **Scott Meyers** — *Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14*, O'Reilly Media.
@@ -383,6 +417,6 @@ Para garantizar la formación de desarrolladores del más alto calibre técnico,
 <div align="center">
 
 ### **LearningCpp — Crafted with Precision Engineering**
-<sub>Maintained by <strong>MiniLux0</strong> · 2026 · Licencia de Código Abierto</sub>
+<sub>Maintained by <strong>Jesus Vera V. (MiniLux0)</strong> · 2026 · Licencia de Código Abierto</sub>
 
 </div>

@@ -64,12 +64,14 @@ while (i <= 5) {
 
 > 🧪 **Laboratorio:** ¡Es hora de experimentar! Abre el archivo [`../lab/L07_BreakContinue.cpp`](../lab/L07_BreakContinue.cpp).
 >
-> 🐞 **Demo de Bug (Opcional):** Aprende de los errores comunes. Ejecuta la trampa en [`../lab/demos/D07_HiddenInfiniteLoopBug.cpp`](../lab/demos/D07_HiddenInfiniteLoopBug.cpp).
+> 🐞 **Demo de Bug (Opcional 1):** Trampa del continue en bucles while. Ejecuta el fallo en [`../lab/demos/D07_HiddenInfiniteLoopBug.cpp`](../lab/demos/D07_HiddenInfiniteLoopBug.cpp).
+>
+> 🐞 **Demo de Bug (Opcional 2):** Trampa de break en bucles anidados. Ejecuta el fallo en [`../lab/demos/D07_NestedBreakBug.cpp`](../lab/demos/D07_NestedBreakBug.cpp).
 >
 > 🏋️ **Ejercicio:** Pon a prueba lo aprendido. Atrévete con el reto en [`../exercise/E07_BuscadorDeArchivos/E07_BuscadorDeArchivos.cpp`](../exercise/E07_BuscadorDeArchivos/E07_BuscadorDeArchivos.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si tengo un bucle anidado (un bucle dentro de otro bucle), y ejecuto un `break` en el bucle interior, ¿se destruyen ambas estructuras?</b></summary>

@@ -4,7 +4,7 @@
 // Objetivo: Demostrar como un orden incorrecto genera codigo muerto.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D02_UnreachableCodeBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D02_UnreachableCodeBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

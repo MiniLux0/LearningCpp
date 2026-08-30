@@ -4,7 +4,8 @@
 // Objetivo: Observar el fallo de aleatoriedad cuando el motor PRNG se 
 //           destruye y reconstruye instantaneamente por falta del `static`.
 //
-// INSTRUCCIONES: Compila con `g++ D07_StaticRngBug.cpp -o bug` y ejecuta.
+// INSTRUCCIONES:
+// Compila con: g++ -std=c++17 D07_StaticRngBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

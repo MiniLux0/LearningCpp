@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * LEARNINGCPP WEB PLATFORM - HIGH PERFORMANCE BUNDLE
- * Standalone, Highly Optimized, Accessible Architecture
+ * Standalone, Highly Optimized, Accessible & Smooth Interaction Architecture
  * Compatible with file:// protocol and modern HTTP/HTTPS servers
  * ============================================================================
  */
@@ -10,7 +10,7 @@
   'use strict';
 
   /* ==========================================================================
-     1. CURRICULUM DATA MODEL
+     1. CURRICULUM DATA MODEL (15 MODULES / 6 PHASES / 117 LESSONS)
      ========================================================================== */
   const PHASES = [
     { id: "fase-1", name: "Fase 1: Fundamentos", count: 3, subtitle: "De Cero Absoluto a tu Primer Binario: Compilador g++, tipos estáticos, Stack y control de flujo." },
@@ -18,7 +18,7 @@
     { id: "fase-3", name: "Fase 3: Colecciones", count: 2, subtitle: "Estructuras y datos: Arreglos dinámicos std::vector, structs heterogéneos y arquitectura multi-archivo .h/.cpp." },
     { id: "fase-4", name: "Fase 4: Memoria Real", count: 2, subtitle: "Arquitectura de hardware: Operador &, paso Zero-Copy const &, Heap dinámico y punteros RAII std::unique_ptr." },
     { id: "fase-5", name: "Fase 5: POO Moderna", count: 3, subtitle: "Ingeniería orientada a objetos: Encapsulamiento m_, constructores seguros, sobrecarga de operadores y VTable." },
-    { id: "fase-6", name: "Fase 6: Nivel Profesional", count: 3, subtitle: "Sistemas de alta resiliencia: Stack Unwinding, templates genéricos, lambdas, C++20 Ranges y Capstone Final." },
+    { id: "fase-6", name: "Fase 6: Especialización & Resiliencia", count: 3, subtitle: "Sistemas de alta resiliencia: Stack Unwinding, templates genéricos, lambdas, algoritmos STL y Capstone Final." },
     { id: "all", name: "Ver Todo el Roadmap", count: 15, subtitle: "Vista panorámica de los 15 módulos del plan de estudios oficial." }
   ];
 
@@ -186,19 +186,19 @@
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 7,
-      tagline: "struct, enum class y Designated Initializers de C++20",
+      tagline: "struct, enum class y Agregados C++17 (Mirada a C++20)",
       project: "Bestiario RPG V1",
       description: "Agrupación de datos heterogéneos, tipado fuerte para máquinas de estado y colecciones de estructuras en memoria contigua.",
       lessons: [
         { id: "L01", title: "El caos de parámetros", desc: "Por qué colapsan las firmas de 6 variables sueltas." },
         { id: "L02", title: "Estructuras (struct)", desc: "Agrupación heterogénea y el operador punto." },
-        { id: "L03", title: "Designated Initializers", desc: "Inicialización C++20 Jugador{.hp=100} en orden estricto." },
+        { id: "L03", title: "Inicialización de Agregados", desc: "Inicialización uniforme {} y puente a Designated Initializers C++20." },
         { id: "L04", title: "Peligro de Números Mágicos", desc: "Fragilidad al usar enteros para representar estados." },
         { id: "L05", title: "Estados seguros enum class", desc: "Enumeraciones fuertemente tipadas con ámbito." },
         { id: "L06", title: "Colecciones de Entidades", desc: "Combinación de std::vector y structs." },
         { id: "L07", title: "Mini-proyecto Bestiario V1", desc: "Base de datos en memoria con monstruos y combate elemental." }
       ],
-      bugDemos: ["D02_MissingSemicolonBug.cpp", "D03_OutOfOrderInitBug.cpp", "D04_MagicNumberBug.cpp"],
+      bugDemos: ["D02_MissingSemicolonBug.cpp", "D03_AggregateInitOrderBug.cpp", "D04_MagicNumberBug.cpp"],
       keyDecision: "Veto a los enum clásicos de C; adopción exclusiva de enum class."
     },
     {
@@ -248,11 +248,11 @@
         { id: "L05", title: "Memory Leaks", desc: "La pérdida invisible de memoria por omitir delete." },
         { id: "L06", title: "Dangling Pointers", desc: "Uso de punteros tras ejecutar delete (Use-After-Free)." },
         { id: "L07", title: "RAII & std::unique_ptr", desc: "Gestión determinista con make_unique<T>()." },
-        { id: "L08", title: "Movimiento (std::move)", desc: "Transferencia de propiedad única sin clonar recursos." },
-        { id: "L09", title: "Mini-proyecto Bestiario V3", desc: "Gestión de entidades dinámicas 100% gobernadas por unique_ptr." }
+        { id: "L08", title: "Semántica de Movimiento", desc: "Transferencia de propiedad exclusiva con std::move." },
+        { id: "L09", title: "Mini-proyecto Bestiario V3", desc: "Polimorfismo dinámico seguro en Heap con RAII total." }
       ],
-      bugDemos: ["D03_NullPointerCrashBug.cpp", "D05_MemoryLeakBug.cpp", "D06_DanglingPointerBug.cpp"],
-      keyDecision: "Veto absoluto a new[] y delete[]; adopción estricta de RAII con std::unique_ptr."
+      bugDemos: ["D03_NullptrDerefBug.cpp", "D05_MemoryLeakBug.cpp", "D06_UseAfterFreeBug.cpp"],
+      keyDecision: "Propiedad exclusiva obligatoria con std::unique_ptr; punteros crudos como observadores no propietarios."
     },
     {
       id: "10",
@@ -260,27 +260,25 @@
       phase: "fase-5",
       phaseName: "Fase 5: POO Moderna",
       title: "Classes & Encapsulation",
-      icon: "🏛️",
+      icon: "🛡️",
       status: "planned",
       statusLabel: "Planificado",
-      lessonsCount: 10,
-      tagline: "Encapsulamiento m_, const methods, operadores << y constructores",
-      project: "Bestiario V4 (Multi-Archivo)",
-      description: "Blindaje de invariantes de datos, privacidad por defecto, constructores con Member Initializer List, explicit y sobrecarga idiomática de operadores.",
+      lessonsCount: 8,
+      tagline: "Encapsulamiento m_, constructores, inicializadores y operadores << / ==",
+      project: "Simulador de Cuenta Bancaria / RPG",
+      description: "Invariantes de clase, constructores seguros con listas de inicialización, métodos const y sobrecarga de operadores de flujo.",
       lessons: [
-        { id: "L01", title: "Estado Inconsistente", desc: "Por qué los structs públicos permiten corromper invariantes." },
-        { id: "L02", title: "El candado de class", desc: "Privacidad por defecto y nomenclatura estándar m_." },
-        { id: "L03", title: "Métodos y const correctness", desc: "Métodos const invocados desde referencias inmutables." },
-        { id: "L04", title: "Getters y Setters", desc: "Retorno seguro por const & y validación de rangos." },
-        { id: "L05", title: "Member Initializer List", desc: "Inicialización segura, -Wreorder y calificador explicit." },
-        { id: "L06", title: "Tell, Don't Ask", desc: "Por qué generar getters indiscriminados destruye el diseño OO." },
-        { id: "L07", title: "Sobrecarga operator<<", desc: "Integración natural e idiomática con streams y comparaciones." },
-        { id: "L08", title: "Clases Multi-Archivo", desc: "Interfaces en .h e implementaciones con Clase:: en .cpp." },
-        { id: "L09", title: "Destructores y RAII", desc: "Limpieza determinista al expirar el ciclo de vida." },
-        { id: "L10", title: "Mini-proyecto Bestiario V4", desc: "Clases POO robustas con operadores y destructores blindados." }
+        { id: "L01", title: "De struct a class", desc: "Protección de estados corruptos e invariantes de clase." },
+        { id: "L02", title: "Encapsulamiento", desc: "Acceso private vs public y convención prefijo m_." },
+        { id: "L03", title: "Constructores seguros", desc: "Inicialización obligatoria mediante listas directas : m_vida{v}." },
+        { id: "L04", title: "Métodos const", desc: "Garantía de inmutabilidad en métodos de solo lectura (getters)." },
+        { id: "L05", title: "Sobrecarga de Operador <<", desc: "Impresión limpia directa con std::ostream&." },
+        { id: "L06", title: "Sobrecarga de Operador ==", desc: "Comparación de igualdad idiomática y semántica de valor." },
+        { id: "L07", title: "Separación de Clases", desc: "Implementación en .h (declaración) y .cpp (definición)." },
+        { id: "L08", title: "Mini-proyecto Cuenta Bancaria", desc: "Clase encapsulada con validación estricta de transacciones." }
       ],
-      bugDemos: ["D01_InconsistentStateBug.cpp", "D03_ConstMemberFunctionBug.cpp", "D05_InitOrderBug.cpp"],
-      keyDecision: "Atributos estrictamente privados con m_ y constructores con Member Initializer List."
+      bugDemos: ["D01_CorruptStateBug.cpp", "D03_UninitializedMemberBug.cpp", "D04_NonConstGetterBug.cpp"],
+      keyDecision: "Encapsulamiento estricto con m_ y constructores que protejan las invariantes."
     },
     {
       id: "11",
@@ -292,546 +290,134 @@
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 7,
-      tagline: "Herencia simple : public, protected, constructores y Object Slicing",
-      project: "Jerarquía del Bestiario",
-      description: "Reutilización de lógica con la relación IS-A, encapsulamiento en clases derivadas y la trampa destructiva del Object Slicing por valor.",
+      tagline: "Herencia simple, visibilidad protected, llamada a constructores y Object Slicing",
+      project: "Jerarquía de Entidades RPG",
+      description: "Reutilización de código con herencia simple (: public), llamada ordenada a constructores base y diagnóstico del corte de objetos (Object Slicing).",
       lessons: [
-        { id: "L01", title: "Anti-patrón Copiar/Pegar", desc: "El costo de duplicar lógica en entidades hermanas." },
-        { id: "L02", title: "Herencia Simple (: public)", desc: "Relación IS-A y prevención de herencia privada accidental." },
-        { id: "L03", title: "Visibilidad protected", desc: "Atributos privados protegidos con métodos controlados." },
-        { id: "L04", title: "Cadenas de Constructores", desc: "Delegación obligatoria hacia el constructor base." },
-        { id: "L05", title: "Ciclo de Vida en Herencia", desc: "Construcción Padre->Hijo y destrucción inversa Hijo->Padre." },
-        { id: "L06", title: "Object Slicing", desc: "La trampa de almacenar clases derivadas por valor en vector<Base>." },
-        { id: "L07", title: "Mini-proyecto Jerarquía", desc: "Árbol de 3 niveles: Entidad -> Monstruo -> Jefe." }
+        { id: "L01", title: "Duplicación de Código", desc: "Por qué copiar campos en 10 clases rompe la mantenibilidad." },
+        { id: "L02", title: "Herencia Simple (: public)", desc: "Relación 'Es-Un' y extensión de clases base." },
+        { id: "L03", title: "Visibilidad protected", desc: "Acceso para clases hijas manteniendo aislamiento exterior." },
+        { id: "L04", title: "Llamada al Constructor Base", desc: "Paso de parámetros obligatorios de la clase hija a la base." },
+        { id: "L05", title: "Orden de Destrucción", desc: "Secuencia física de inicialización y limpieza en memoria." },
+        { id: "L06", title: "La Trampa de Object Slicing", desc: "Pérdida fatal de atributos al pasar derivados por valor." },
+        { id: "L07", title: "Mini-proyecto Jerarquía RPG", desc: "Sistema de personajes derivados (Guerrero, Mago) con atributos compartidos." }
       ],
-      bugDemos: ["D02b_PrivateInheritanceBug.cpp", "D04_ConstructorChainBug.cpp", "D06_ObjectSlicingBug.cpp"],
-      keyDecision: "Veto absoluto a la herencia múltiple de implementación con estado."
+      bugDemos: ["D04_MissingBaseConstructorBug.cpp", "D06_ObjectSlicingBug.cpp"],
+      keyDecision: "Herencia simple y explícita; prevención de Object Slicing mediante referencias/punteros."
     },
     {
       id: "12",
       slug: "12_Polymorphism",
       phase: "fase-5",
       phaseName: "Fase 5: POO Moderna",
-      title: "Polymorphism",
+      title: "Polymorphism & VTable",
       icon: "🎭",
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 8,
-      tagline: "virtual, VTable, override, destructor virtual, interfaces puras",
-      project: "El Coliseo (Game Loop Polimórfico)",
-      description: "Despacho dinámico en tiempo de ejecución, tabla virtual __vptr, sellado con final, colecciones con smart pointers y downcasting seguro.",
+      tagline: "virtual, VTable, override, interfaces puras = 0 y dynamic_cast",
+      project: "Motor de Batalla Polimórfico",
+      description: "Comportamiento dinámico en tiempo de ejecución, comprensión física de la tabla virtual (VTable), destructores virtuales y contratos puros.",
       lessons: [
-        { id: "L01", title: "Enlace Estático (Early Binding)", desc: "Por qué el compilador enlaza al tipo del puntero." },
-        { id: "L02", title: "virtual y la VTable", desc: "Despacho dinámico a través de la tabla virtual __vptr." },
-        { id: "L03", title: "override y final", desc: "Red de seguridad para detectar errores de firma y sellar clases." },
-        { id: "L04", title: "El Destructor Virtual", desc: "La fuga de memoria letal al destruir polimórficamente." },
-        { id: "L05", title: "Interfaces Puras (= 0)", desc: "Contratos abstractos puros y herencia múltiple exclusiva." },
-        { id: "L06", title: "Colecciones Polimórficas", desc: "vector<unique_ptr<Base>> y dynamic_cast seguro." },
-        { id: "L07", title: "Impresión Polimórfica", desc: "operator<< delegando en virtual void imprimir() const." },
-        { id: "L08", title: "Mini-proyecto El Coliseo", desc: "Game Loop de combate polimórfico sin if/else de tipo." }
+        { id: "L01", title: "Enlace Estático (Early Binding)", desc: "Por qué los punteros base ignoran los métodos hijos." },
+        { id: "L02", title: "Funciones virtual", desc: "Enlace dinámico (Late Binding) y despacho en runtime." },
+        { id: "L03", title: "Cómo funciona la VTable", desc: "Puntero vptr y tabla virtual física en memoria RAM." },
+        { id: "L04", title: "La Cláusula override", desc: "Prevención de errores de firma detectados por el compilador." },
+        { id: "L05", title: "Destructores Virtuales", desc: "La trampa de la fuga de memoria al destruir derivados vía puntero base." },
+        { id: "L06", title: "Interfaces Puras (= 0)", desc: "Clases abstractas y contratos obligatorios de diseño." },
+        { id: "L07", title: "Downcasting con dynamic_cast", desc: "Inspección segura de tipos en tiempo de ejecución (RTTI)." },
+        { id: "L08", title: "Mini-proyecto Motor de Batalla", desc: "Bucle de combate polimórfico con std::vector<std::unique_ptr<Entidad>>." }
       ],
-      bugDemos: ["D01_StaticBindingBug.cpp", "D03_SilentTypoBug.cpp", "D04_VirtualDestructorLeakBug.cpp"],
-      keyDecision: "Destructor virtual obligatorio (virtual ~Base() = default;) en toda jerarquía."
+      bugDemos: ["D01_EarlyBindingBug.cpp", "D04_MissingOverrideBug.cpp", "D05_NonVirtualDestructorBug.cpp"],
+      keyDecision: "Destructores virtuales obligatorios en toda clase base polimórfica y override estricto."
     },
     {
       id: "13",
       slug: "13_ErrorHandling",
       phase: "fase-6",
-      phaseName: "Fase 6: Nivel Profesional",
-      title: "Error Handling & Resilience",
-      icon: "🛡️",
+      phaseName: "Fase 6: Especialización & Resiliencia",
+      title: "Error Handling & Exceptions",
+      icon: "⚡",
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 7,
-      tagline: "Stack Unwinding, excepciones de dominio, std::optional y noexcept",
-      project: "Motor de Mazmorras Resiliente",
-      description: "Manejo profesional de errores, desenrollado de pila con RAII, excepciones en constructores contra objetos zombi y alternativa ligera std::optional.",
+      tagline: "Stack Unwinding, std::exception, std::optional, noexcept y RAII",
+      project: "Cargador Resiliente de Archivos",
+      description: "Manejo profesional de errores, desenrollado de pila seguro con RAII, superación de códigos de error arcaicos con std::optional y cláusula noexcept.",
       lessons: [
-        { id: "L01", title: "Fragilidad de Códigos de Retorno", desc: "Errores silenciosos ignorados en producción." },
-        { id: "L02", title: "Stack Unwinding & RAII", desc: "Destrucción automática de objetos en vuelo de excepción." },
-        { id: "L03", title: "Jerarquía std::exception", desc: "Captura obligatoria por const std::exception& contra slicing." },
-        { id: "L04", title: "Excepciones en Constructores", desc: "Abortar creación de objetos zombi inválidos." },
-        { id: "L05", title: "std::optional (C++17)", desc: "Manejo idiomático de ausencias esperadas con std::nullopt." },
-        { id: "L06", title: "Garantía de noexcept", desc: "Optimización crítica de relocalización en std::vector." },
-        { id: "L07", title: "Mini-proyecto Motor Resiliente", desc: "Carga de mapas y archivos con recuperación ante corrupción." }
+        { id: "L01", title: "Códigos de Retorno vs Excepciones", desc: "Fragilidad al ignorar códigos de error clásicos." },
+        { id: "L02", title: "Mecanismo try / catch / throw", desc: "Propagación controlada de fallos en el hilo de ejecución." },
+        { id: "L03", title: "Stack Unwinding & RAII", desc: "Garantía de liberación automática de recursos ante fallos." },
+        { id: "L04", title: "Jerarquía std::exception", desc: "Uso de runtime_error, invalid_argument y creación de excepciones propias." },
+        { id: "L05", title: "Captura por const &", desc: "Prevención de Object Slicing al capturar excepciones derivadas." },
+        { id: "L06", title: "std::optional de C++17", desc: "Manejo idiomático y de alto rendimiento de valores opcionales sin lanzar excepciones." },
+        { id: "L07", title: "Cláusula noexcept", desc: "Optimización y garantías de no-lanzamiento en destructores y movimiento." }
       ],
-      bugDemos: ["D01_IgnoredReturnCodeBug.cpp", "D02_RawPointerLeakOnThrowBug.cpp", "D06_VectorCopyFallbackBug.cpp"],
-      keyDecision: "Captura exclusiva por referencia constante; uso de std::optional para ausencias normales."
+      bugDemos: ["D03_RawPointerUnwindingLeakBug.cpp", "D05_ExceptionSlicingBug.cpp"],
+      keyDecision: "Uso de std::optional para flujos esperados y excepciones para fallos excepcionales; RAII total."
     },
     {
       id: "14",
       slug: "14_TemplatesAndLambdas",
       phase: "fase-6",
-      phaseName: "Fase 6: Nivel Profesional",
-      title: "Templates & Metaprogramming",
-      icon: "📦",
+      phaseName: "Fase 6: Especialización & Resiliencia",
+      title: "Templates & Lambdas",
+      icon: "✨",
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 8,
-      tagline: "Polimorfismo estático, templates en .hpp, NTTP y lambdas modernas",
-      project: "Pipeline Genérico de Eventos",
-      description: "Generación de código monomórfico en tiempo de compilación con cero costo en runtime, buffers contiguos con NTTP y funciones anónimas instantáneas.",
+      tagline: "Templates de función/clase, if constexpr, lambdas y C++20 Concepts",
+      project: "Contenedor Genérico Seguro (Mini-Vector)",
+      description: "Programación genérica sin costo en runtime (polimorfismo estático), templates en archivos .hpp, bifurcación en tiempo de compilación y lambdas modernas.",
       lessons: [
-        { id: "L01", title: "La Fábrica de Código", desc: "Polimorfismo estático vs dinámico (cero sobrecarga en runtime)." },
-        { id: "L02", title: "Plantillas de Funciones", desc: "Deducción automática y plantillas multiparámetro." },
-        { id: "L03", title: "La Trampa del Linker", desc: "Por qué las plantillas deben residir en cabeceras (.hpp)." },
-        { id: "L04", title: "Plantillas de Clases", desc: "Contenedores genéricos con deducción automática CTAD." },
-        { id: "L05", title: "Parámetros No-Tipo (NTTP)", desc: "Buffers estáticos contiguos en el Stack sin tocar el Heap." },
-        { id: "L06", title: "Lambdas Modernas [](){}", desc: "Funciones anónimas como predicados de primer nivel." },
-        { id: "L07", title: "Capturas en Lambdas", desc: "Trampa mortal del Use-After-Free al capturar por referencia." },
-        { id: "L08", title: "Mini-proyecto Pipeline", desc: "Bus de eventos genérico desacoplado de alto rendimiento." }
+        { id: "L01", title: "Sobrecarga vs Polimorfismo Estático", desc: "El costo de mantener 10 funciones idénticas con distinto tipo." },
+        { id: "L02", title: "Templates de Función (template<typename T>)", desc: "Generación de código especializado por el compilador." },
+        { id: "L03", title: "Por qué los templates van en .hpp", desc: "Resolución del clásico Linker Error (undefined reference)." },
+        { id: "L04", title: "Templates de Clase", desc: "Estructuras de datos genéricas parametrizadas por tipo." },
+        { id: "L05", title: "Parámetros No-Tipo (NTTP)", desc: "Paso de constantes fijas a templates en tiempo de compilación." },
+        { id: "L06", title: "if constexpr de C++17", desc: "Bifurcación estática sin generar código muerto en binario." },
+        { id: "L07", title: "Expresiones Lambda", desc: "Funciones anónimas con clausura de captura [=, &]." },
+        { id: "L08", title: "Evolución C++20: Concepts", desc: "Restricción de tipos con sintaxis limpia y mensajes de error legibles." }
       ],
-      bugDemos: ["D02_TemplateDeductionBug.cpp", "D03_TemplateLinkerBug.cpp", "D07_DanglingLambdaCaptureBug.cpp"],
-      keyDecision: "Templates obligatoriamente en archivos de cabecera (.hpp/.h)."
+      bugDemos: ["D03_TemplateLinkerErrorBug.cpp", "D07_DanglingLambdaCaptureBug.cpp"],
+      keyDecision: "Definición completa de templates en archivos de cabecera (.hpp) e if constexpr para branching estático."
     },
     {
       id: "15",
       slug: "15_STLAlgorithms",
       phase: "fase-6",
-      phaseName: "Fase 6: Nivel Profesional",
-      title: "STL Algorithms & Ranges",
-      icon: "⚡",
+      phaseName: "Fase 6: Especialización & Resiliencia",
+      title: "STL Algorithms & Capstone",
+      icon: "🏆",
       status: "planned",
       statusLabel: "Planificado",
       lessonsCount: 8,
-      tagline: "No Raw Loops, C++20 Ranges |, std::erase_if, Capstone Final",
-      project: "El Motor RPG Definitivo (Capstone Final)",
-      description: "Reemplazo de bucles manuales con algoritmos estándar, composición perezosa con tuberías |, tareas asíncronas con std::jthread y consolidación de los 15 módulos.",
+      tagline: "Algoritmos STL, iteradores, Erase-Remove, C++20 Ranges y Capstone Final",
+      project: "Motor RPG Definitivo (Capstone Final)",
+      description: "Superación definitiva de bucles manuales mediante <algorithm>, seguridad de iteradores, tuberías C++20 Ranges y proyecto integrador de fin de curso.",
       lessons: [
-        { id: "L01", title: "Doctrina No Raw Loops", desc: "Reemplazo de bucles por all_of, any_of y count_if." },
-        { id: "L02", title: "Invalidación de Iteradores", desc: "Prevención de Segfaults con std::erase_if de C++20." },
+        { id: "L01", title: "Algoritmos vs Bucles Manuales", desc: "Expresividad con all_of, any_of y count_if vs range-for idiomático." },
+        { id: "L02", title: "Invalidación de Iteradores", desc: "Prevención de fallos con Erase-Remove Idiom (y std::erase_if C++20)." },
         { id: "L03", title: "Búsqueda y Predicados", desc: "std::find_if y min_element retornando std::optional." },
         { id: "L04", title: "Transformación y Reducción", desc: "Mapeo funcional con std::transform y std::accumulate." },
-        { id: "L05", title: "Ordenamiento Avanzado", desc: "std::ranges::sort con comparadores multicriterio." },
-        { id: "L06", title: "C++20 Ranges & Views", desc: "Evaluación perezosa sin vectores intermedios con tuberías |." },
-        { id: "L07", title: "Concurrencia Básica", desc: "Ejecución en segundo plano con std::async y std::jthread." },
-        { id: "L08", title: "Capstone Final del Curso", desc: "Arquitectura multi-archivo que consolida armónicamente los 15 módulos." }
+        { id: "L05", title: "Ordenamiento Avanzado", desc: "std::sort con lambdas y comparadores multicriterio." },
+        { id: "L06", title: "Evolución C++20: Ranges & Views", desc: "Mirada al futuro: evaluación perezosa y tuberías funcionales |." },
+        { id: "L07", title: "Asincronía Básica", desc: "Ejecución paralela de tareas en segundo plano con std::async y std::future." },
+        { id: "L08", title: "El Motor RPG Definitivo (Capstone)", desc: "Arquitectura multi-archivo que consolida armónicamente los 15 módulos." }
       ],
       bugDemos: ["D01_RawLoopOffByOneBug.cpp", "D02_IteratorInvalidationBug.cpp", "D07_DataRaceIntroBug.cpp"],
-      keyDecision: "Doctrina estricta 'No Raw Loops': privilegiar algoritmos estándar de la STL."
+      keyDecision: "Privilegiar claridad e idiomaticidad: usar algoritmos STL para transformaciones y range-for para secuencias directas."
     }
   ];
 
   /* ==========================================================================
-     2. TERMINAL SIMULATOR
-     ========================================================================== */
-  class TerminalSimulator {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      if (!this.container) return;
-
-      this.history = [];
-      this.historyIndex = -1;
-      this.currentCode = `#include <iostream>
-
-int main() {
-    int oro_del_jugador{100};
-    std::cout << "Bienvenido a LearningCpp!\\n";
-    std::cout << "Oro inicial en Stack: " << oro_del_jugador << "\\n";
-    return 0;
-}`;
-      this.isCompiled = false;
-      this.init();
-    }
-
-    init() {
-      this.render();
-      this.bindEvents();
-      this.printInitialBanner();
-    }
-
-    render() {
-      this.container.innerHTML = `
-        <div class="terminal-header">
-          <div class="terminal-dots" aria-hidden="true">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <div class="terminal-title">bash — LearningCpp Shell v2.0 (g++ 13.2 C++17/20)</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);" aria-hidden="true">x86_64</div>
-        </div>
-        <div class="terminal-body" id="term-output" role="log" aria-live="polite"></div>
-        <div class="terminal-interactive-bar">
-          <span class="terminal-prompt" aria-hidden="true">user@learningcpp:~$</span>
-          <input type="text" id="term-input" autocomplete="off" spellcheck="false" 
-            placeholder="Prueba: 'compile', 'run', 'help', o 'modules'..." 
-            style="flex: 1; background: transparent; border: none; color: #fff; font-family: var(--font-family-mono); font-size: 0.85rem; outline: none;" 
-            aria-label="Línea de comandos de la terminal C++" />
-          <button id="term-send-btn" class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;">Ejecutar</button>
-        </div>
-      `;
-    }
-
-    bindEvents() {
-      const input = this.container.querySelector('#term-input');
-      const sendBtn = this.container.querySelector('#term-send-btn');
-
-      const handleCommand = () => {
-        const val = input.value.trim();
-        if (!val) return;
-        this.history.push(val);
-        this.historyIndex = this.history.length;
-        this.execute(val);
-        input.value = '';
-      };
-
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          handleCommand();
-        } else if (e.key === 'ArrowUp') {
-          if (this.historyIndex > 0) {
-            this.historyIndex--;
-            input.value = this.history[this.historyIndex];
-          }
-        } else if (e.key === 'ArrowDown') {
-          if (this.historyIndex < this.history.length - 1) {
-            this.historyIndex++;
-            input.value = this.history[this.historyIndex];
-          } else {
-            this.historyIndex = this.history.length;
-            input.value = '';
-          }
-        }
-      });
-
-      sendBtn.addEventListener('click', handleCommand);
-    }
-
-    printInitialBanner() {
-      this.printLine('user@learningcpp:~$ ', 'cat welcome.txt', 'prompt-cmd');
-      this.printLine('', '🚀 Entorno interactivo de compilación C++17/20 listo.', 'terminal-out-info');
-      this.printLine('', 'Escribe "compile" para compilar tu primer programa o "help" para ver comandos.', 'terminal-out-info');
-    }
-
-    printLine(prefix, text, className = '') {
-      const output = this.container.querySelector('#term-output');
-      if (!output) return;
-
-      const line = document.createElement('div');
-      line.className = 'terminal-line';
-      
-      if (prefix) {
-        const promptSpan = document.createElement('span');
-        promptSpan.className = 'terminal-prompt';
-        promptSpan.textContent = prefix;
-        line.appendChild(promptSpan);
-      }
-
-      const textSpan = document.createElement('span');
-      if (className) textSpan.className = className;
-      textSpan.textContent = text;
-      line.appendChild(textSpan);
-
-      output.appendChild(line);
-      output.scrollTop = output.scrollHeight;
-    }
-
-    execute(cmd) {
-      this.printLine('user@learningcpp:~$ ', cmd, 'cmd-text');
-      const lower = cmd.toLowerCase().trim();
-
-      if (lower === 'clear' || lower === 'cls') {
-        const output = this.container.querySelector('#term-output');
-        if (output) output.innerHTML = '';
-        return;
-      }
-
-      if (lower === 'help') {
-        this.printLine('', 'Comandos disponibles:', 'terminal-out-info');
-        this.printLine('', '  compile | g++     - Compila el programa actual con C++17 y warnings (-Wall -Wextra)', 'terminal-out-info');
-        this.printLine('', '  run | ./app       - Ejecuta el binario compilado', 'terminal-out-info');
-        this.printLine('', '  cat main.cpp      - Muestra el código fuente actual', 'terminal-out-info');
-        this.printLine('', '  modules           - Lista los 15 módulos del plan de estudios', 'terminal-out-info');
-        this.printLine('', '  test bug          - Simula la detonación de un Undefined Behavior', 'terminal-out-info');
-        this.printLine('', '  clear             - Limpia la pantalla de la terminal', 'terminal-out-info');
-        return;
-      }
-
-      if (lower.startsWith('g++') || lower === 'compile') {
-        this.printLine('', '[INFO] g++ -std=c++17 -Wall -Wextra -O2 main.cpp -o app', 'terminal-out-info');
-        setTimeout(() => {
-          this.printLine('', '✔ Compilación exitosa con C++17 (0 errores, 0 warnings). Binario generado: app.exe', 'terminal-out-success');
-          this.isCompiled = true;
-        }, 150);
-        return;
-      }
-
-      if (lower === './app' || lower === 'run' || lower === '.\\app.exe') {
-        if (!this.isCompiled) {
-          this.printLine('', 'bash: ./app: No such file or directory. Debes compilar primero con "compile".', 'terminal-out-error');
-          return;
-        }
-        this.printLine('', '--- EJECUTANDO ./app ---', 'terminal-out-info');
-        this.printLine('', 'Bienvenido a LearningCpp!', 'terminal-out-success');
-        this.printLine('', 'Oro inicial en Stack: 100', 'terminal-out-success');
-        this.printLine('', '[Proceso finalizado con código de salida: 0 (0x0)]', 'terminal-out-info');
-        return;
-      }
-
-      if (lower === 'cat main.cpp' || lower === 'cat') {
-        this.printLine('', this.currentCode, 'terminal-out-info');
-        return;
-      }
-
-      if (lower === 'modules') {
-        this.printLine('', '=== PLAN DE ESTUDIOS LEARNINGCPP (15 MÓDULOS) ===', 'terminal-out-info');
-        this.printLine('', 'Fase 1: M01 (Getting Started) | M02 (Fundamental Types) | M03 (Scope & Control Flow)', 'terminal-out-success');
-        this.printLine('', 'Fase 2: M04 (Functions) | M05 (Constants & Strings)', 'terminal-out-success');
-        this.printLine('', 'Fase 3: M06 (Arrays & Vectors) | M07 (Compound Types)', 'terminal-out-warn');
-        this.printLine('', 'Fase 4: M08 (References & Addresses) | M09 (Dynamic Memory & RAII)', 'terminal-out-warn');
-        this.printLine('', 'Fase 5: M10 (Classes) | M11 (Inheritance) | M12 (Polymorphism)', 'terminal-out-warn');
-        this.printLine('', 'Fase 6: M13 (Error Handling) | M14 (Templates) | M15 (STL Algorithms & Capstone)', 'terminal-out-warn');
-        return;
-      }
-
-      if (lower === 'test bug') {
-        this.printLine('', '[ALERTA] Detonando D03_IntegerDivisionBug.cpp...', 'terminal-out-warn');
-        this.printLine('', 'Calculando division entera: 7 / 2 = 3 (PERDIDA DE PRECISION CRITICA)', 'terminal-out-error');
-        this.printLine('', 'Solucion moderna aplicada: static_cast<double>(7) / 2 = 3.5', 'terminal-out-success');
-        return;
-      }
-
-      this.printLine('', `bash: ${cmd}: orden no encontrada. Escribe "help" para ver la lista de comandos.`, 'terminal-out-error');
-    }
-  }
-
-  /* ==========================================================================
-     3. CODE PLAYGROUND ("BREAK-FIRST, FIX-LATER")
-     ========================================================================== */
-  const BUGS_DATA = [
-    {
-      id: "division",
-      title: "1. La Trampa de la División Entera (7 / 2 = 3)",
-      topic: "Tipos Fundamentales & Casting",
-      module: "M02 (Fundamental Types - L03/L05)",
-      brokenSnippet: `// ❌ FALLO CLÁSICO: División entera truncada
-#include <iostream>
-
-int main() {
-    int total_cuenta{70};
-    int amigos{20};
-    
-    // El hardware ejecuta división entera truncando los decimales
-    double por_persona = total_cuenta / amigos; // 70 / 20 = 3.0 (ERROR LÓGICO)
-    
-    std::cout << "Monto por persona: $" << por_persona << '\\n'; 
-    // Muestra $3 en lugar de $3.5 (Faltan $10 en total)
-    return 0;
-}`,
-      fixedSnippet: `// ✅ SOLUCIÓN MODERNA: Casting explícito en compilación
-#include <iostream>
-
-int main() {
-    int total_cuenta{70};
-    int amigos{20};
-    
-    // static_cast promueve explícitamente a double antes de la división
-    double por_persona{ static_cast<double>(total_cuenta) / amigos };
-    
-    std::cout << "Monto exacto: $" << por_persona << '\\n'; 
-    // Muestra $3.5 de forma exacta sin pérdidas
-    return 0;
-}`,
-      explanation: "En C++, cuando ambos operandos son enteros, el operador `/` descarta silenciosamente los decimales. Con `static_cast<double>()` forzamos la división en punto flotante sin recurrir a C-casts inseguros."
-    },
-    {
-      id: "passbyvalue",
-      title: "2. Pass-by-value: La Trampa del Clon Aislado",
-      topic: "Funciones & Memoria en Stack",
-      module: "M04 (Functions - L04) & M08",
-      brokenSnippet: `// ❌ FALLO CLÁSICO: Mutar una copia aislada
-#include <iostream>
-
-void duplicarOro(int cantidad) {
-    // Esta variable es un CLON en una nueva dirección del Stack
-    cantidad = cantidad * 2; 
-}
-
-int main() {
-    int oro{100};
-    duplicarOro(oro);
-    
-    // El oro original jamás cambió en el main
-    std::cout << "Oro: " << oro << '\\n'; // Imprime 100
-    return 0;
-}`,
-      fixedSnippet: `// ✅ SOLUCIÓN MODERNA: Paso por referencia (Zero-Copy)
-#include <iostream>
-
-// El operador '&' enlaza directamente con la dirección de memoria original
-void duplicarOro(int& cantidad) {
-    cantidad = cantidad * 2; // Muta directamente la variable original
-}
-
-int main() {
-    int oro{100};
-    duplicarOro(oro);
-    
-    std::cout << "Oro mutado: " << oro << '\\n'; // Imprime 200
-    return 0;
-}`,
-      explanation: "Por defecto, C++ clona cada argumento en el Stack (Pass-by-value). Con referencias `&` creamos un alias directo a la memoria física original, eliminando copias pesadas."
-    },
-    {
-      id: "uninitialized",
-      title: "3. La Variable sin Inicializar (Basura en RAM)",
-      topic: "Inicialización Uniforme {}",
-      module: "M01 (Getting Started - L05)",
-      brokenSnippet: `// ❌ FALLO CLÁSICO: Basura residual en el Stack
-#include <iostream>
-
-int main() {
-    int vidas_jugador; // ¡Memoria sin inicializar!
-    
-    // Lee lo que sea que estuviese antes en esa dirección física
-    std::cout << "Vidas: " << vidas_jugador << '\\n'; 
-    // Salida impredecible (Undefined Behavior): ej. 4201952 o crasheo
-    return 0;
-}`,
-      fixedSnippet: `// ✅ SOLUCIÓN MODERNA: Inicialización uniforme {}
-#include <iostream>
-
-int main() {
-    // Las llaves garantizan inicialización inmediata por defecto (0)
-    int vidas_jugador{3}; 
-    
-    std::cout << "Vidas garantizadas: " << vidas_jugador << '\\n'; 
-    // Siempre imprime 3 limpiamente
-    return 0;
-}`,
-      explanation: "Declarar variables primitivas sin inicializar es una de las causas #1 de bugs de seguridad. C++17/20 impone la inicialización uniforme con llaves `{}`."
-    },
-    {
-      id: "slicing",
-      title: "4. Object Slicing: Destrucción de Datos en Polimorfismo",
-      topic: "Herencia & Polimorfismo",
-      module: "M11 (Inheritance - L06) & M12",
-      brokenSnippet: `// ❌ FALLO CLÁSICO: Almacenar derivadas por valor
-#include <iostream>
-#include <vector>
-
-class Base { public: virtual void atacar() { std::cout << "Base\\n"; } };
-class Jefe : public Base { public: int vidaExtra{500}; void atacar() override { std::cout << "Jefe\\n"; } };
-
-int main() {
-    std::vector<Base> enemigos;
-    enemigos.push_back(Jefe{}); // 💥 SLICING: 'vidaExtra' es recortada y destruida
-    enemigos[0].atacar(); // Llama a Base::atacar en vez de Jefe::atacar
-}
-`,
-      fixedSnippet: `// ✅ SOLUCIÓN MODERNA: Punteros inteligentes polimórficos
-#include <iostream>
-#include <vector>
-#include <memory>
-
-class Base { public: virtual void atacar() const = 0; virtual ~Base() = default; };
-class Jefe : public Base { public: void atacar() const override { std::cout << "Ataque de Jefe!\\n"; } };
-
-int main() {
-    std::vector<std::unique_ptr<Base>> enemigos;
-    enemigos.push_back(std::make_unique<Jefe>());
-    
-    enemigos[0]->atacar(); // Despacho dinámico VTable perfecto
-}
-`,
-      explanation: "Guardar objetos derivados por valor en contenedores base recorta (*slices*) los campos especializados. La solución idiomática es `std::vector<std::unique_ptr<Base>>` con destructores virtuales."
-    }
-  ];
-
-  class CodePlayground {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      if (!this.container) return;
-      this.currentBugIndex = 0;
-      this.init();
-    }
-
-    init() {
-      this.render();
-      this.bindEvents();
-    }
-
-    render() {
-      const bug = BUGS_DATA[this.currentBugIndex];
-      this.container.innerHTML = `
-        <div class="playground-header">
-          <div class="playground-title-area">
-            <span class="badge badge-amber">${bug.module}</span>
-            <h3 class="playground-title">${bug.title}</h3>
-          </div>
-          <div class="bug-tabs-scroll" role="tablist" aria-label="Selector de Bugs Educativos">
-            ${BUGS_DATA.map((b, idx) => `
-              <button class="btn btn-secondary bug-tab-btn ${idx === this.currentBugIndex ? 'active' : ''}" data-index="${idx}" role="tab" aria-selected="${idx === this.currentBugIndex}" style="${idx === this.currentBugIndex ? 'background: var(--text-primary); color: var(--text-inverse); font-weight: 700;' : ''}">
-                Bug #${idx + 1}
-              </button>
-            `).join('')}
-          </div>
-        </div>
-
-        <div class="diff-container">
-          <!-- 1. Break-First Box -->
-          <div class="diff-box">
-            <div class="diff-header broken">
-              <div class="diff-title-wrap">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                <span>1. Break-First: Código Roto</span>
-              </div>
-              <span class="diff-tag">Error / Bug Lógico</span>
-            </div>
-            <pre><code class="language-cpp">${this.escapeHtml(bug.brokenSnippet)}</code></pre>
-          </div>
-
-          <!-- 2. Fix-Later Box -->
-          <div class="diff-box">
-            <div class="diff-header fixed">
-              <div class="diff-title-wrap">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span>2. Fix-Later: Solución C++17/20</span>
-              </div>
-              <span class="diff-tag">Seguro & Idiomático</span>
-            </div>
-            <pre><code class="language-cpp">${this.escapeHtml(bug.fixedSnippet)}</code></pre>
-          </div>
-        </div>
-
-        <div class="playground-explanation-box">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--space-2); color: var(--brand-primary); font-weight: 700; font-size: var(--font-size-sm);">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-            <span>Modelo Mental & Hardware (Por qué ocurre)</span>
-          </div>
-          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">${bug.explanation}</p>
-        </div>
-      `;
-    }
-
-    escapeHtml(str) {
-      return str
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    }
-
-    bindEvents() {
-      this.container.querySelectorAll('.bug-tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.dataset.index, 10);
-          this.currentBugIndex = idx;
-          this.render();
-          this.bindEvents();
-        });
-      });
-    }
-  }
-
-  /* ==========================================================================
-     4. MODULES EXPLORER & MODAL
+     2. MODULES EXPLORER & MODAL
      ========================================================================== */
   class ModulesExplorer {
     constructor(containerId, modalId) {
       this.container = document.getElementById(containerId);
       this.modal = document.getElementById(modalId);
-      this.activePhase = 'fase-1'; // Focused default: Phase 1 (3 clean cards)
+      this.activePhase = 'fase-1';
       this.searchQuery = '';
       
       if (this.container) {
@@ -850,8 +436,9 @@ int main() {
       if (!tabsContainer) return;
 
       tabsContainer.innerHTML = PHASES.map(p => `
-        <button class="tab-btn ${p.id === this.activePhase ? 'active' : ''}" data-phase="${p.id}" role="tab" aria-selected="${p.id === this.activePhase}">
-          ${p.name} <span style="opacity: 0.6; font-size: 0.8em; margin-left: 3px;">(${p.count})</span>
+        <button type="button" class="tab-btn ${p.id === this.activePhase ? 'active' : ''}" data-phase="${p.id}" role="tab" aria-selected="${p.id === this.activePhase}">
+          <span>${p.name}</span>
+          <span class="tab-btn-count">${p.count}</span>
         </button>
       `).join('');
     }
@@ -880,12 +467,10 @@ int main() {
         return;
       }
 
-      // Calculate phase navigation indices
       const phaseList = PHASES.filter(p => p.id !== 'all');
       const currentIdx = phaseList.findIndex(p => p.id === this.activePhase);
       const prevPhase = currentIdx > 0 ? phaseList[currentIdx - 1] : null;
       const nextPhase = currentIdx >= 0 && currentIdx < phaseList.length - 1 ? phaseList[currentIdx + 1] : null;
-
       const totalLessonsInView = filtered.reduce((acc, m) => acc + m.lessonsCount, 0);
 
       const heroStripHtml = `
@@ -935,16 +520,16 @@ int main() {
       const navFooterHtml = (this.activePhase !== 'all') ? `
         <div class="phase-nav-footer">
           ${prevPhase ? `
-            <button class="btn btn-secondary btn-switch-phase" data-target-phase="${prevPhase.id}" style="font-size: var(--font-size-xs);">
+            <button type="button" class="btn btn-secondary btn-switch-phase" data-target-phase="${prevPhase.id}" style="font-size: var(--font-size-xs);">
               &larr; ${prevPhase.name}
             </button>
           ` : `<div></div>`}
           ${nextPhase ? `
-            <button class="btn btn-primary btn-switch-phase" data-target-phase="${nextPhase.id}" style="font-size: var(--font-size-xs);">
+            <button type="button" class="btn btn-primary btn-switch-phase" data-target-phase="${nextPhase.id}" style="font-size: var(--font-size-xs);">
               ${nextPhase.name} &rarr;
             </button>
           ` : `
-            <button class="btn btn-secondary btn-switch-phase" data-target-phase="all" style="font-size: var(--font-size-xs);">
+            <button type="button" class="btn btn-secondary btn-switch-phase" data-target-phase="all" style="font-size: var(--font-size-xs);">
               Ver Todos los Módulos &rarr;
             </button>
           `}
@@ -960,6 +545,7 @@ int main() {
         tabsContainer.addEventListener('click', (e) => {
           const btn = e.target.closest('.tab-btn');
           if (!btn) return;
+          e.preventDefault();
           this.activePhase = btn.dataset.phase;
           this.renderTabs();
           this.renderModules();
@@ -971,29 +557,26 @@ int main() {
         searchInput.addEventListener('input', (e) => {
           this.searchQuery = e.target.value.trim();
           if (this.searchQuery) {
-            this.activePhase = 'all'; // Auto switch to all when searching
+            this.activePhase = 'all';
             this.renderTabs();
           }
           this.renderModules();
         });
       }
 
-      // Event Delegation for module clicks & phase navigation buttons
       this.container.addEventListener('click', (e) => {
         const switchBtn = e.target.closest('.btn-switch-phase');
         if (switchBtn) {
+          e.preventDefault();
           this.activePhase = switchBtn.dataset.targetPhase;
           this.renderTabs();
           this.renderModules();
-          const targetElem = document.getElementById('temario');
-          if (targetElem) {
-            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
           return;
         }
 
         const card = e.target.closest('.module-card');
         if (!card) return;
+        e.preventDefault();
         this.handleSelectModule(card.dataset.moduleId);
       });
 
@@ -1010,6 +593,7 @@ int main() {
       if (this.modal) {
         this.modal.addEventListener('click', (e) => {
           if (e.target === this.modal || e.target.closest('.modal-close-btn')) {
+            e.preventDefault();
             this.closeModal();
           }
         });
@@ -1069,31 +653,21 @@ int main() {
           </div>
         </div>
 
-        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary); display: flex; justify-content: space-between; align-items: center;">
-          <span>Lecciones del Módulo (${mod.lessons.length})</span>
-          <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal; font-family: var(--font-family-body);">Marca tus lecciones completadas</span>
+        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
+          Lecciones del Módulo (${mod.lessons.length})
         </h4>
         <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5);">
-          ${mod.lessons.map(l => {
-            const isDone = window.__progressTracker && window.__progressTracker.isCompleted(mod.id, l.id);
-            return `
-              <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); flex-wrap: wrap;">
-                <div style="display: flex; gap: var(--space-3); align-items: flex-start; flex: 1; min-width: 200px;">
-                  <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--text-primary); font-weight: 700; padding: 2px 6px; background: var(--bg-muted); border: 1px solid var(--border-subtle); border-radius: 4px; height: fit-content;">
-                    ${l.id}
-                  </span>
-                  <div>
-                    <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary); text-decoration: ${isDone ? 'line-through' : 'none'}; opacity: ${isDone ? '0.7' : '1'};">${l.title}</div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
-                  </div>
-                </div>
-                <button class="lesson-check-btn ${isDone ? 'completed' : ''}" data-mod-id="${mod.id}" data-lesson-id="${l.id}" aria-label="Marcar lección ${l.id}">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>${isDone ? 'Completada' : 'Marcar'}</span>
-                </button>
+          ${mod.lessons.map(l => `
+            <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--text-primary); font-weight: 700; padding: 2px 6px; background: var(--bg-muted); border: 1px solid var(--border-subtle); border-radius: 4px; height: fit-content;">
+                ${l.id}
+              </span>
+              <div>
+                <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
               </div>
-            `;
-          }).join('')}
+            </div>
+          `).join('')}
         </div>
 
         ${mod.bugDemos && mod.bugDemos.length > 0 ? `
@@ -1115,19 +689,6 @@ int main() {
         </div>
       `;
 
-      // Bind lesson check button clicks inside modal
-      modalContent.querySelectorAll('.lesson-check-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const modId = btn.dataset.modId;
-          const lessonId = btn.dataset.lessonId;
-          if (window.__progressTracker) {
-            window.__progressTracker.toggleLesson(modId, lessonId);
-            this.openModal(mod); // Re-render modal to reflect status
-          }
-        });
-      });
-
       this.modal.classList.add('open');
       this.modal.setAttribute('aria-hidden', 'false');
     }
@@ -1140,304 +701,14 @@ int main() {
   }
 
   /* ==========================================================================
-     5. RAM & HARDWARE VISUALIZER
-     ========================================================================== */
-  class RamVisualizer {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      if (!this.container) return;
-
-      this.stackVariables = [
-        { name: "int vidas_jugador{3}", address: "0x7ffee14b8a08", value: "3", size: "4 bytes", type: "int" }
-      ];
-      this.heapBlocks = [];
-
-      this.init();
-    }
-
-    init() {
-      this.render();
-      this.bindEvents();
-    }
-
-    render() {
-      this.container.innerHTML = `
-        <div style="background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden;">
-          
-          <!-- Controls Bar -->
-          <div class="ram-controls-bar">
-            <div>
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); text-transform: uppercase; letter-spacing: 0.05em;">Simulador de Memoria Física (x86_64 RAM)</span>
-              <h4 style="font-size: var(--font-size-base); margin-top: 2px;">Inspección en Tiempo Real: Stack vs Heap & Ciclo RAII</h4>
-            </div>
-            <div class="ram-buttons-group">
-              <button id="ram-btn-push-stack" class="btn btn-secondary ram-btn">
-                + Push Stack
-              </button>
-              <button id="ram-btn-alloc-heap" class="btn btn-secondary ram-btn">
-                + make_unique&lt;T&gt;
-              </button>
-              <button id="ram-btn-scope-exit" class="btn btn-secondary ram-btn" style="color: var(--color-warning);">
-                ⚡ Salir de Ámbito {}
-              </button>
-              <button id="ram-btn-reset" class="btn btn-secondary ram-btn">
-                ↺ Reset
-              </button>
-            </div>
-          </div>
-
-          <!-- Visual Memory Layout -->
-          <div class="ram-memory-grid">
-            
-            <!-- Stack Memory -->
-            <div style="background: var(--bg-surface); padding: var(--space-5);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                <span style="font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
-                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #3b82f6;" aria-hidden="true"></span>
-                  STACK (Pila de Ejecución)
-                </span>
-                <span style="font-family: var(--font-family-mono); font-size: 0.7rem; color: var(--zinc-500);">LIFO · Automática</span>
-              </div>
-
-              <div id="ram-stack-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
-                ${this.stackVariables.map(v => `
-                  <div class="fade-in-up" style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-md); padding: var(--space-3); font-family: var(--font-family-mono); font-size: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; color: #93c5fd; font-weight: 600; flex-wrap: wrap; gap: 4px;">
-                      <span>${v.name}</span>
-                      <span>${v.address}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px; flex-wrap: wrap; gap: 4px;">
-                      <span>Valor: <strong style="color: #fff;">${v.value}</strong></span>
-                      <span>${v.size}</span>
-                    </div>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-
-            <!-- Heap Memory -->
-            <div style="background: var(--bg-surface); padding: var(--space-5);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                <span style="font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
-                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;" aria-hidden="true"></span>
-                  HEAP (Memoria Dinámica)
-                </span>
-                <span style="font-family: var(--font-family-mono); font-size: 0.7rem; color: var(--zinc-500);">RAII Smart Pointers</span>
-              </div>
-
-              <div id="ram-heap-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
-                ${this.heapBlocks.length === 0 ? `
-                  <div style="border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; color: var(--zinc-500); font-size: 0.75rem; font-family: var(--font-family-mono);">
-                    [ Heap Vacío — Cero fugas ]<br>
-                    Pulsa "+ make_unique" para crear memoria dinámica
-                  </div>
-                ` : this.heapBlocks.map(b => `
-                  <div class="fade-in-up" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: var(--space-3); font-family: var(--font-family-mono); font-size: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; color: #6ee7b7; font-weight: 600; flex-wrap: wrap; gap: 4px;">
-                      <span>${b.name}</span>
-                      <span>${b.address}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px; flex-wrap: wrap; gap: 4px;">
-                      <span>Propietario RAII: <strong style="color: #93c5fd;">${b.owner}</strong></span>
-                      <span>${b.size}</span>
-                    </div>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Log Bar -->
-          <div id="ram-log-bar" style="padding: var(--space-3) var(--space-6); background: #11161d; border-top: 1px solid var(--border-subtle); font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400);" role="status" aria-live="polite">
-            <span style="color: var(--text-primary); font-weight: 600;">[SYS_LOG]</span> Estado actual: 1 variable en Stack (0x7ffee14b8a08), 0 bloques dinámicos en Heap.
-          </div>
-        </div>
-      `;
-    }
-
-    bindEvents() {
-      const btnPush = this.container.querySelector('#ram-btn-push-stack');
-      const btnAlloc = this.container.querySelector('#ram-btn-alloc-heap');
-      const btnScope = this.container.querySelector('#ram-btn-scope-exit');
-      const btnReset = this.container.querySelector('#ram-btn-reset');
-
-      if (btnPush) {
-        btnPush.addEventListener('click', () => {
-          const id = this.stackVariables.length + 1;
-          const hex = (0x7ffee14b8a08 + id * 8).toString(16);
-          this.stackVariables.push({
-            name: `double ataque{${(id * 14.5).toFixed(1)}}`,
-            address: `0x${hex}`,
-            value: `${(id * 14.5).toFixed(1)}`,
-            size: "8 bytes",
-            type: "double"
-          });
-          this.render();
-          this.bindEvents();
-          this.updateLog(`Push en Stack: variable 'ataque' alojada en 0x${hex} (+8 bytes).`);
-        });
-      }
-
-      if (btnAlloc) {
-        btnAlloc.addEventListener('click', () => {
-          const id = this.heapBlocks.length + 1;
-          const heapHex = (0x600003a201b0 + id * 32).toString(16);
-          const stackHex = (0x7ffee14b8a50 + id * 8).toString(16);
-
-          this.stackVariables.push({
-            name: `std::unique_ptr<Monstruo> p${id}`,
-            address: `0x${stackHex}`,
-            value: `-> 0x${heapHex}`,
-            size: "8 bytes (ptr)",
-            type: "smart_ptr"
-          });
-
-          this.heapBlocks.push({
-            id: id,
-            name: `Monstruo { hp: ${100 * id}, nivel: ${id} }`,
-            address: `0x${heapHex}`,
-            owner: `p${id} (Stack)`,
-            size: "32 bytes"
-          });
-
-          this.render();
-          this.bindEvents();
-          this.updateLog(`Asignación dinámica: std::make_unique<Monstruo>() asignó 32 bytes en Heap (0x${heapHex}) gobernados por p${id} en Stack.`);
-        });
-      }
-
-      if (btnScope) {
-        btnScope.addEventListener('click', () => {
-          if (this.stackVariables.length <= 1 && this.heapBlocks.length === 0) {
-            this.updateLog("No hay variables temporales de ámbito que liberar.");
-            return;
-          }
-
-          const freedHeap = this.heapBlocks.length;
-          this.heapBlocks = [];
-          this.stackVariables = [this.stackVariables[0]];
-
-          this.render();
-          this.bindEvents();
-          this.updateLog(`⚡ Cierre de bloque {}: El Stack Unwinding destruyó las variables locales y RAII liberó automáticamente ${freedHeap} bloque(s) en el Heap sin fugas (delete implícito).`);
-        });
-      }
-
-      if (btnReset) {
-        btnReset.addEventListener('click', () => {
-          this.stackVariables = [
-            { name: "int vidas_jugador{3}", address: "0x7ffee14b8a08", value: "3", size: "4 bytes", type: "int" }
-          ];
-          this.heapBlocks = [];
-          this.render();
-          this.bindEvents();
-          this.updateLog("Memoria reinicializada al estado base.");
-        });
-      }
-    }
-
-    updateLog(msg) {
-      const logBar = this.container.querySelector('#ram-log-bar');
-      if (logBar) {
-        logBar.innerHTML = `<span style="color: var(--text-primary); font-weight: 600;">[SYS_LOG]</span> ${msg}`;
-      }
-    }
-  }
-
-  /* ==========================================================================
-     6. STUDENT LOCAL PROGRESS TRACKER
-     ========================================================================== */
-  class ProgressTracker {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      this.storageKey = 'learningcpp_completed_lessons_v1';
-      this.totalLessons = MODULES.reduce((acc, m) => acc + m.lessonsCount, 0); // 117
-      this.completedLessons = this.load();
-      this.init();
-    }
-
-    load() {
-      try {
-        const data = localStorage.getItem(this.storageKey);
-        return data ? new Set(JSON.parse(data)) : new Set();
-      } catch {
-        return new Set();
-      }
-    }
-
-    save() {
-      try {
-        localStorage.setItem(this.storageKey, JSON.stringify(Array.from(this.completedLessons)));
-      } catch {}
-    }
-
-    toggleLesson(modId, lessonId) {
-      const key = `${modId}_${lessonId}`;
-      if (this.completedLessons.has(key)) {
-        this.completedLessons.delete(key);
-      } else {
-        this.completedLessons.add(key);
-      }
-      this.save();
-      this.render();
-    }
-
-    isCompleted(modId, lessonId) {
-      return this.completedLessons.has(`${modId}_${lessonId}`);
-    }
-
-    reset() {
-      if (confirm("¿Deseas reiniciar tu progreso guardado en este navegador?")) {
-        this.completedLessons.clear();
-        this.save();
-        this.render();
-      }
-    }
-
-    init() {
-      this.render();
-    }
-
-    render() {
-      if (!this.container) return;
-      const count = this.completedLessons.size;
-      const percent = Math.round((count / this.totalLessons) * 100);
-      this.container.innerHTML = `
-        <div class="progress-info-row">
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-weight: 700; color: var(--text-primary); font-family: var(--font-family-display);">Tu Progreso de Aprendizaje</span>
-            <span class="badge badge-cyan" style="font-size: 0.7rem;">${count} / ${this.totalLessons} Lecciones</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-family: var(--font-family-mono); font-weight: 700; color: ${percent > 0 ? '#34d399' : 'var(--text-muted)'};">${percent}%</span>
-            ${count > 0 ? `
-              <button id="btn-reset-progress" style="background: none; border: none; font-size: 0.7rem; color: var(--text-muted); cursor: pointer; text-decoration: underline;">
-                Reiniciar
-              </button>
-            ` : ''}
-          </div>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" style="width: ${percent}%;"></div>
-        </div>
-      `;
-
-      const resetBtn = this.container.querySelector('#btn-reset-progress');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', () => this.reset());
-      }
-    }
-  }
-
-  /* ==========================================================================
-     7. CODE COPY MANAGER (CLICK TO COPY)
+     3. CODE COPY MANAGER
      ========================================================================== */
   class CodeCopyManager {
     static init() {
       document.querySelectorAll('pre').forEach(pre => {
         if (pre.querySelector('.code-copy-btn')) return;
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'code-copy-btn';
         btn.setAttribute('aria-label', 'Copiar código al portapapeles');
         btn.innerHTML = `
@@ -1445,7 +716,8 @@ int main() {
           <span>Copiar</span>
         `;
 
-        btn.addEventListener('click', async () => {
+        btn.addEventListener('click', async (e) => {
+          e.preventDefault();
           const codeElem = pre.querySelector('code') || pre;
           const text = codeElem.innerText;
           try {
@@ -1482,293 +754,7 @@ int main() {
   }
 
   /* ==========================================================================
-     8. LIVE C++ ANTI-PATTERN LINTER
-     ========================================================================== */
-  class CxxLinter {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      if (!this.container) return;
-      this.sampleCodes = {
-        badNamespaces: `#include <iostream>\nusing namespace std; // ❌ Anti-patrón\n\nint main() {\n    cout << "Hola Mundo" << endl; // ❌ std::endl forzado\n    return 0;\n}`,
-        badInit: `#include <iostream>\n\nint main() {\n    int puntos; // ❌ Basura en RAM\n    double precio = (double)100 / 3; // ❌ C-cast inseguro\n    std::cout << "Puntos: " << puntos << '\\n';\n    return 0;\n}`,
-        goodModern: `#include <iostream>\n\nint main() {\n    // ✅ Inicialización uniforme {} y static_cast seguro\n    int puntos{100};\n    double precio{ static_cast<double>(100) / 3 };\n    std::cout << "Puntos garantizados: " << puntos << '\\n';\n    return 0;\n}`
-      };
-      this.currentCode = this.sampleCodes.badNamespaces;
-      this.init();
-    }
-
-    init() {
-      this.render();
-      this.bindEvents();
-      this.analyze();
-    }
-
-    render() {
-      this.container.innerHTML = `
-        <div class="linter-container">
-          <div class="linter-top-bar">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); font-weight: 700;">AUDITOR ESTÁTICO C++17/20 EN VIVO</span>
-            </div>
-            <div class="linter-presets">
-              <span style="font-size: 0.72rem; color: var(--text-muted); align-self: center;">Ejemplos:</span>
-              <button class="linter-preset-btn" data-preset="badNamespaces">using namespace std;</button>
-              <button class="linter-preset-btn" data-preset="badInit">Basura & C-Cast</button>
-              <button class="linter-preset-btn" data-preset="goodModern">C++ Moderno Idiomático</button>
-            </div>
-          </div>
-
-          <div class="linter-editor-area">
-            <textarea id="linter-code-input" class="linter-textarea" spellcheck="false" placeholder="Escribe o pega código C++ aquí para analizarlo en vivo...">${this.currentCode}</textarea>
-            <div id="linter-diagnostics" class="linter-diagnostics-panel" role="log" aria-live="polite"></div>
-          </div>
-        </div>
-      `;
-    }
-
-    bindEvents() {
-      const textarea = this.container.querySelector('#linter-code-input');
-      if (textarea) {
-        textarea.addEventListener('input', () => {
-          this.currentCode = textarea.value;
-          this.analyze();
-        });
-      }
-
-      this.container.querySelectorAll('.linter-preset-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const key = btn.dataset.preset;
-          if (this.sampleCodes[key]) {
-            this.currentCode = this.sampleCodes[key];
-            if (textarea) textarea.value = this.currentCode;
-            this.analyze();
-          }
-        });
-      });
-    }
-
-    analyze() {
-      const code = this.currentCode;
-      const diagPanel = this.container.querySelector('#linter-diagnostics');
-      if (!diagPanel) return;
-
-      const issues = [];
-      const goods = [];
-
-      if (/using\s+namespace\s+std\s*;/i.test(code)) {
-        issues.push({
-          title: "Veto a 'using namespace std;'",
-          desc: "Provoca colisiones de nombres globales en proyectos medianos y grandes. Usa siempre 'std::cout', 'std::cin', 'std::string'.",
-          rule: "Veto #1"
-        });
-      } else if (/std::/i.test(code)) {
-        goods.push({
-          title: "Prefijo explícito 'std::' verificado",
-          desc: "Excelente. El código tiene aislamiento estricto de ámbito sin colisiones globales."
-        });
-      }
-
-      if (/std::endl/i.test(code)) {
-        issues.push({
-          title: "Veto a 'std::endl' (Forced Flush)",
-          desc: "Fuerza un vaciado de buffer (flush) costoso e innecesario que degrada el I/O. Sustitúyelo por el carácter de salto de línea '\\n'.",
-          rule: "Veto #2"
-        });
-      } else if (/['"]\\n['"]/.test(code)) {
-        goods.push({
-          title: "Salto de línea '\\n' directo verificado",
-          desc: "Óptimo rendimiento de E/S sin forzar flushes destructivos."
-        });
-      }
-
-      if (/\b(int|double|float|char|bool)\s+[a-zA-Z_]\w*\s*;/i.test(code)) {
-        issues.push({
-          title: "Peligro de Basura Residual en RAM",
-          desc: "Declaraste variables primitivas sin inicializar. Usa siempre inicialización uniforme: 'int x{0};', 'double y{0.0};'.",
-          rule: "Inicialización Uniforme"
-        });
-      } else if (/\b(int|double|float|char|bool)\s+[a-zA-Z_]\w*\s*\{/i.test(code)) {
-        goods.push({
-          title: "Inicialización uniforme '{}' verificada",
-          desc: "Previene conversiones estrechas (*Narrowing*) y garantiza memoria limpia en Stack."
-        });
-      }
-
-      if (/\((int|double|float|char)\)\s*[a-zA-Z0-9_]+/i.test(code)) {
-        issues.push({
-          title: "C-Style Cast Inseguro detectado",
-          desc: "Los castings de C '(tipo)x' anulan la verificación de tipos. Usa 'static_cast<tipo>(x)'.",
-          rule: "Casting Seguro"
-        });
-      } else if (/static_cast<.*?>/i.test(code)) {
-        goods.push({
-          title: "static_cast explícito verificado",
-          desc: "Conversión de tipos validada en tiempo de compilación."
-        });
-      }
-
-      if (/\brand\s*\(\s*\)/i.test(code)) {
-        issues.push({
-          title: "Función arcaica 'rand()' detectada",
-          desc: "Genera números sesgados y no uniformes. Usa <random> con 'std::mt19937' y distribuciones estándar.",
-          rule: "Aleatoriedad Moderna"
-        });
-      }
-
-      let html = `
-        <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-family-mono); letter-spacing: 0.05em; font-weight: 700; margin-bottom: 2px;">
-          Diagnóstico en Tiempo Real (${issues.length} advertencias · ${goods.length} conformidades)
-        </div>
-      `;
-
-      if (issues.length === 0 && goods.length === 0) {
-        html += `
-          <div style="padding: var(--space-4); color: var(--text-muted); font-size: 0.8rem; text-align: center;">
-            Escribe código en el editor para auditarlo según los estándares de C++17/20.
-          </div>
-        `;
-      } else {
-        issues.forEach(iss => {
-          html += `
-            <div class="diagnostic-item danger">
-              <div style="display: flex; justify-content: space-between; font-weight: 700;">
-                <span>❌ ${iss.title}</span>
-                <span class="diff-tag" style="background: rgba(244, 63, 94, 0.2);">${iss.rule}</span>
-              </div>
-              <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; line-height: 1.4;">${iss.desc}</div>
-            </div>
-          `;
-        });
-
-        goods.forEach(g => {
-          html += `
-            <div class="diagnostic-item success">
-              <div style="font-weight: 700;">✅ ${g.title}</div>
-              <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; line-height: 1.4;">${g.desc}</div>
-            </div>
-          `;
-        });
-      }
-
-      diagPanel.innerHTML = html;
-    }
-  }
-
-  /* ==========================================================================
-     9. PIPELINE EXPLORER (AST & ASSEMBLY)
-     ========================================================================== */
-  class PipelineExplorer {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      if (!this.container) return;
-      this.presets = [
-        {
-          id: "arithmetic",
-          name: "1. Suma Aritmética",
-          badge: "Función Simple",
-          cpp: `int sumar(int a, int b) {\n    return a + b;\n}`,
-          ast: `FunctionDecl sumar 'int (int, int)'\n|-ParmVarDecl a 'int'\n|-ParmVarDecl b 'int'\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-BinaryOperator '+' 'int'\n      |-DeclRefExpr 'a'\n      \`-DeclRefExpr 'b'`,
-          asm: `sumar(int, int):\n    lea     eax, [rdi+rsi]    ; Carga directa de la suma en registro EAX\n    ret                       ; Retorna al llamador con el resultado en EAX`,
-          opt: `// Optimización -O2:\n// El compilador elimina la sobrecarga de marco de pila y usa la instrucción x86 LEA.\n// Ciclos de CPU consumidos: 1 ciclo (~0.3 nanosegundos).`
-        },
-        {
-          id: "constexpr",
-          name: "2. Constexpr (Cero Costo)",
-          badge: "Compile-Time",
-          cpp: `constexpr int calcularArea(int base, int altura) {\n    return base * altura;\n}\n\nint main() {\n    constexpr int area = calcularArea(10, 20);\n    return area;\n}`,
-          ast: `FunctionDecl constexpr calcularArea 'int (int, int)'\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-BinaryOperator '*' 'int'\nVarDecl area 'const int' constexpr cinit\n\`-ConstantExpr 'int' [value = 200]`,
-          asm: `main:\n    mov     eax, 200          ; ¡El cálculo 10 * 20 fue resuelto en compilación!\n    ret                       ; Retorna el valor inmediato 200 con cero llamadas.`,
-          opt: `// Optimización -O2 / constexpr:\n// CERO operaciones de multiplicación en tiempo de ejecución.\n// El binario almacena directamente el número $200.`
-        },
-        {
-          id: "passbyref",
-          name: "3. Paso por Referencia const &",
-          badge: "Zero-Copy",
-          cpp: `struct Jugador { int hp; char nombre[64]; };\n\nint obtenerVida(const Jugador& p) {\n    return p.hp; // Cero copias de los 68 bytes\n}`,
-          ast: `FunctionDecl obtenerVida 'int (const Jugador &)'\n|-ParmVarDecl p 'const Jugador &' (LValueReference)\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-MemberExpr .hp 'int'\n      \`-DeclRefExpr 'p'`,
-          asm: `obtenerVida(Jugador const&):\n    mov     eax, DWORD PTR [rdi] ; Lee los 4 bytes de hp a través del puntero RDI\n    ret`,
-          opt: `// Optimización Zero-Copy:\n// En lugar de clonar 68 bytes en el Stack, pasa un puntero de 8 bytes.\n// Reducción del 88% en ancho de banda de memoria.`
-        }
-      ];
-      this.currentPresetIndex = 0;
-      this.init();
-    }
-
-    init() {
-      this.render();
-      this.bindEvents();
-    }
-
-    render() {
-      const item = this.presets[this.currentPresetIndex];
-      this.container.innerHTML = `
-        <div style="background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card);">
-          <div style="padding: var(--space-4) var(--space-6); background: #161b22; border-bottom: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);">
-            <div>
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); font-weight: 700;">EXPLORADOR DEL PIPELINE DEL COMPILADOR (g++ / Clang x86_64)</span>
-              <h4 style="font-size: var(--font-size-base); margin-top: 2px;">De Código C++ a Instrucciones Nativas de CPU</h4>
-            </div>
-            <div class="pipeline-tabs-nav">
-              ${this.presets.map((p, idx) => `
-                <button class="btn btn-secondary pipeline-preset-btn ${idx === this.currentPresetIndex ? 'active' : ''}" data-index="${idx}" style="font-size: 0.72rem; padding: 0.35rem 0.75rem; ${idx === this.currentPresetIndex ? 'background: var(--text-primary); color: var(--text-inverse); font-weight: 700;' : ''}">
-                  ${p.name}
-                </button>
-              `).join('')}
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border-subtle);">
-            
-            <!-- Stage 1: C++ -->
-            <div class="pipeline-stage-card">
-              <div class="pipeline-stage-header">
-                <span>1. Código Fuente C++</span>
-                <span class="badge badge-cyan">${item.badge}</span>
-              </div>
-              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px;"><code class="language-cpp">${item.cpp}</code></pre>
-            </div>
-
-            <!-- Stage 2: AST -->
-            <div class="pipeline-stage-card">
-              <div class="pipeline-stage-header">
-                <span>2. Árbol de Sintaxis (AST)</span>
-                <span style="font-size: 0.7rem; color: var(--text-muted);">Clang Parser</span>
-              </div>
-              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px; color: #93c5fd;"><code class="language-text">${item.ast}</code></pre>
-            </div>
-
-            <!-- Stage 3: x86_64 Assembly -->
-            <div class="pipeline-stage-card">
-              <div class="pipeline-stage-header">
-                <span>3. Ensamblador x86_64</span>
-                <span style="font-size: 0.7rem; color: #34d399;">CPU Nativa</span>
-              </div>
-              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px; color: #6ee7b7;"><code class="language-nasm">${item.asm}</code></pre>
-            </div>
-
-          </div>
-
-          <div style="padding: var(--space-4) var(--space-6); background: var(--bg-surface); border-top: 1px solid var(--border-subtle); font-family: var(--font-family-mono); font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;">
-            ${item.opt}
-          </div>
-        </div>
-      `;
-    }
-
-    bindEvents() {
-      this.container.querySelectorAll('.pipeline-preset-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          this.currentPresetIndex = parseInt(btn.dataset.index, 10);
-          this.render();
-          this.bindEvents();
-          CodeCopyManager.init();
-        });
-      });
-    }
-  }
-
-  /* ==========================================================================
-     10. MANIM LIGHTBOX VISUAL MODAL
+     4. MANIM LIGHTBOX VISUAL MODAL
      ========================================================================== */
   class ManimLightbox {
     constructor(modalId) {
@@ -1865,7 +851,8 @@ int main() {
 
     bindEvents() {
       document.querySelectorAll('.gallery-trigger-card').forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
           const id = card.dataset.animId;
           if (this.data[id]) {
             this.open(this.data[id]);
@@ -1884,16 +871,20 @@ int main() {
       const closeFooterBtn = document.getElementById('lightbox-close-footer-btn');
       const replayBtn = document.getElementById('lightbox-replay-btn');
 
-      if (closeBtn) closeBtn.addEventListener('click', () => this.close());
-      if (closeFooterBtn) closeFooterBtn.addEventListener('click', () => this.close());
+      if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); this.close(); });
+      if (closeFooterBtn) closeFooterBtn.addEventListener('click', (e) => { e.preventDefault(); this.close(); });
       if (this.modal) {
         this.modal.addEventListener('click', (e) => {
-          if (e.target === this.modal) this.close();
+          if (e.target === this.modal) {
+            e.preventDefault();
+            this.close();
+          }
         });
       }
 
       if (replayBtn) {
-        replayBtn.addEventListener('click', () => {
+        replayBtn.addEventListener('click', (e) => {
+          e.preventDefault();
           const img = this.modal.querySelector('#lightbox-media-container img');
           if (img) {
             const src = img.src.split('?')[0];
@@ -1940,10 +931,10 @@ int main() {
   }
 
   /* ==========================================================================
-     11. MAIN APPLICATION INITIALIZATION
+     5. MAIN APPLICATION INITIALIZATION
      ========================================================================== */
   function initApp() {
-    // 1. Theme Management
+    // 1. Theme Management (Dark / Light)
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('learningcpp_theme') || (prefersDark ? 'dark' : 'dark');
@@ -1952,7 +943,8 @@ int main() {
     updateThemeIcon(savedTheme);
 
     if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
+      themeToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
@@ -1968,101 +960,64 @@ int main() {
         : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
     }
 
-    // 2. Mobile Navigation Drawer Controls
+    // 2. Mobile Navigation Drawer
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
     const mobileNavCloseBtn = document.getElementById('mobile-nav-close-btn');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    const openMobileMenu = () => {
+    const openMobileMenu = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
       if (mobileNavBackdrop) {
         mobileNavBackdrop.classList.add('open');
         mobileNavBackdrop.setAttribute('aria-hidden', 'false');
         if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
       }
     };
 
-    const closeMobileMenu = () => {
+    const closeMobileMenu = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
       if (mobileNavBackdrop) {
         mobileNavBackdrop.classList.remove('open');
         mobileNavBackdrop.setAttribute('aria-hidden', 'true');
         if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
       }
     };
 
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', openMobileMenu);
-    }
-
-    if (mobileNavCloseBtn) {
-      mobileNavCloseBtn.addEventListener('click', closeMobileMenu);
-    }
-
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (mobileNavCloseBtn) mobileNavCloseBtn.addEventListener('click', closeMobileMenu);
     if (mobileNavBackdrop) {
       mobileNavBackdrop.addEventListener('click', (e) => {
-        if (e.target === mobileNavBackdrop) {
-          closeMobileMenu();
-        }
+        if (e.target === mobileNavBackdrop) closeMobileMenu(e);
       });
     }
 
     mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeMobileMenu();
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            closeMobileMenu();
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          } else {
+            closeMobileMenu();
+          }
+        } else {
+          closeMobileMenu();
+        }
       });
     });
 
-    // 3. Initialize Core & Senior Components
-    window.__progressTracker = new ProgressTracker('student-progress-widget');
-    new TerminalSimulator('hero-terminal-container');
-    new CodePlayground('interactive-code-playground');
+    // 3. Initialize Core Components
     new ModulesExplorer('modules-grid-container', 'module-detail-modal');
-    new CxxLinter('interactive-linter-container');
-    new RamVisualizer('interactive-ram-visualizer-container');
-    new PipelineExplorer('compiler-pipeline-explorer-container');
     new ManimLightbox('manim-lightbox-modal');
     CodeCopyManager.init();
 
-    // 4. Throttled Spotlight Mouse Tracking
-    let rafId = null;
-    document.addEventListener('mousemove', (e) => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(() => {
-        const target = e.target.closest('.card-pillar, .module-card, .diff-box');
-        if (target) {
-          const rect = target.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          target.style.setProperty('--mouse-x', `${x}px`);
-          target.style.setProperty('--mouse-y', `${y}px`);
-        }
-        rafId = null;
-      });
-    }, { passive: true });
-
-    // 4B. Interactive Studio Hub Tabs
-    const studioTabs = document.querySelectorAll('.studio-tab-btn');
-    const studioPanels = document.querySelectorAll('.studio-tab-panel');
-
-    studioTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetId = tab.dataset.tab;
-        studioTabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-
-        studioPanels.forEach(panel => {
-          panel.style.display = (panel.id === targetId) ? 'block' : 'none';
-        });
-      });
-    });
-
-    // 4C. Mobile Interactive Comparison Hub
+    // 4. Mobile Interactive Comparison Hub
     const compareData = [
       {
         num: "01",
@@ -2145,7 +1100,8 @@ int main() {
     if (comparePills.length > 0) {
       renderCompareCard(0);
       comparePills.forEach((pill, idx) => {
-        pill.addEventListener('click', () => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
           comparePills.forEach(p => p.classList.remove('active'));
           pill.classList.add('active');
           renderCompareCard(idx);
@@ -2158,7 +1114,8 @@ int main() {
     const platformContents = document.querySelectorAll('.platform-snippet');
 
     platformTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
         const platform = tab.dataset.platform;
         platformTabs.forEach(t => {
           t.classList.remove('active');
@@ -2178,7 +1135,8 @@ int main() {
     accordionItems.forEach(item => {
       const header = item.querySelector('.accordion-header');
       if (header) {
-        const toggleAccordion = () => {
+        const toggleAccordion = (e) => {
+          if (e && e.preventDefault) e.preventDefault();
           const isActive = item.classList.contains('active');
           accordionItems.forEach(i => {
             i.classList.remove('active');
@@ -2195,7 +1153,7 @@ int main() {
         header.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            toggleAccordion();
+            toggleAccordion(e);
           }
         });
       }

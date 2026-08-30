@@ -1,4 +1,5 @@
 # L06: La Magia de `auto` (y sus peligros)
+> **Módulo 02 — Fundamental Types**
 
 Imagina que estás empacando mudanzas. Si ves un televisor, no necesitas que alguien te diga "consigue una caja cuadrada y frágil", simplemente lo deduces al mirar el objeto. 
 
@@ -64,7 +65,7 @@ auto resultado{static_cast<double>(total) / divisor};
 > 🏋️ **Ejercicio:** Un desarrollador perezoso usó `auto` en todas partes y rompió el sistema. Arréglalo jugando al detective en [`../exercise/E06_DetectiveAuto/E06_DetectiveAuto.cpp`](../exercise/E06_DetectiveAuto/E06_DetectiveAuto.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si declaras <code>auto valor{5};</code> y luego intentas <code>valor = 3.14;</code>, ¿qué ocurre en la RAM?</b></summary>

@@ -4,7 +4,7 @@
 // Objetivo: Demostrar como un simple punto y coma destruye el control de flujo.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D01_IfSemicolonBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D01_IfSemicolonBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

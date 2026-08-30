@@ -4,7 +4,7 @@
 // Objetivo: Mostrar como el Fallthrough ejecuta condigo indeseado y el error de Scope.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D04_ScopeAndFallthroughBug.cpp -o bug`
+// Compila con: g++ -std=c++17 D04_ScopeAndFallthroughBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

@@ -62,7 +62,7 @@ En este modelo, el menú siempre se renderizará la primera vez independientemen
 > 🏋️ **Ejercicio:** Pon a prueba lo aprendido. Atrévete con el reto en [`../exercise/E05_ContrasenaSegura/E05_ContrasenaSegura.cpp`](../exercise/E05_ContrasenaSegura/E05_ContrasenaSegura.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si la condición del `while` evalúa a falso desde el primer contacto, ¿cuántas veces se ejecuta el bloque de iteración?</b></summary>

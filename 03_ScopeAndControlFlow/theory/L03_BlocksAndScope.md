@@ -72,7 +72,7 @@ Este fenómeno se documenta como **Variable Shadowing** (Sombreamiento de Variab
 > 🏋️ **Ejercicio:** Pon a prueba tu manejo de la memoria. Atrévete con el reto en [`../exercise/E03_RescateDeVariables/E03_RescateDeVariables.cpp`](../exercise/E03_RescateDeVariables/E03_RescateDeVariables.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si declaro la variable `std::string nombre{"Juan"};` dentro de un bloque `if`, ¿puedo acceder a `nombre` en la línea inmediata después de que cierre el `if`?</b></summary>

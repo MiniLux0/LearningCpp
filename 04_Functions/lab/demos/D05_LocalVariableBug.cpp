@@ -5,7 +5,7 @@
 //           variable cuyo ciclo de vida fue destruido en un Scope adyacente.
 //
 // INSTRUCCIONES:
-// Compila con `g++ D05_LocalVariableBug.cpp -o bug` y audita el error.
+// Compila con: g++ -std=c++17 D05_LocalVariableBug.cpp -o bug
 // ============================================================================
 
 #include <iostream>

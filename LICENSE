@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 MiniLux0
+Copyright (c) 2026 Jesus Vera V. (MiniLux0)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+### Project Coverage and Scope (LearningCpp)
+
+This license covers all components contained within this repository:
+1. **Source Code and Exercises:** All code files (`.cpp`, `.h`, `.hpp`), practical challenges, solutions, and bug demonstration laboratories.
+2. **Educational Materials and Documentation:** Theory lessons (`.md`), study guides, cheatsheets, and the official course syllabus (`SYLLABUS.md`).
+3. **Web Platform and Tooling:** The interactive web interface (`web/`), automation scripts, compilation utilities, and Manim animations (`utils/`).
+
+You are free to use, study, modify, fork, distribute, and teach with this material, provided that the original copyright notice and attribution to **Jesus Vera V. (MiniLux0)** are retained.

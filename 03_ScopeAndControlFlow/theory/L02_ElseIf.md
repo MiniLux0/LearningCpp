@@ -58,7 +58,7 @@ En ciencias de la computación, a los bloques de código que son matemáticament
 > 🏋️ **Ejercicio:** Demuestra tu dominio de la evaluación secuencial. Atrévete con el reto en [`../exercise/E02_CalculadoraDeRangos/E02_CalculadoraDeRangos.cpp`](../exercise/E02_CalculadoraDeRangos/E02_CalculadoraDeRangos.cpp).
 
 > [!WARNING]
-> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste...
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>1. Si tengo un `if`, seguido de cinco `else if`, y el segundo `else if` resulta verdadero, ¿se evalúan las expresiones booleanas restantes?</b></summary>
