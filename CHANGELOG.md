@@ -49,6 +49,7 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
   - Erradicación de cajas blancas ("tofu" missing glyphs) asegurando compatibilidad tipográfica nativa.
   - Compresión Lanczos + doble pasada de paleta optimizada en FFmpeg (2.4 MB).
 - **Rediseño, Depuración y Optimización de la Plataforma Web (`web/`)**:
+  - **Redirección Directa 1:1 a Lecciones en GitHub**: Vinculación de cada tarjeta de lección dentro del modal directamente a su archivo Markdown específico (`blob/main/.../theory/LXX_Nombre.md`), eliminando enlaces intermedios o redundantes para una experiencia de lectura fluida con un solo clic.
   - **Corrección del Salto Involuntario de Scroll**: Eliminación de `body.style.overflow = 'hidden'` que reiniciaba el scroll a 0 en dispositivos móviles al abrir el menú/modales, y retiro de `scrollIntoView()` forzado en el cambio de fases.
   - **Rediseño de Pestañas de Fases (`.phase-tabs`)**: Contenedor envolvente (`flex-wrap: wrap`) con badge numérico independiente (`.tab-btn-count`), resolviendo el bloqueo de navegación en PC y adaptándose fluidamente a pantallas móviles.
   - **Soporte Móvil Integral**:
