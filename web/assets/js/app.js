@@ -1785,6 +1785,26 @@ int main() {
             { tag: "Linker", desc: "Enlaza símbolos y bibliotecas estándar para generar el archivo ejecutable final." }
           ]
         },
+        narrowing: {
+          title: "Narrowing Conversions & Inicialización Uniforme {}",
+          src: "../02_FundamentalTypes/theory/assets/l02_narrowing_conversion.gif",
+          alt: "Narrowing Conversions en memoria",
+          breakdown: [
+            { tag: "Peligro en C++ Clásico", desc: "Asignar un double a un int trunca silenciosamente la información sin avisar." },
+            { tag: "Inicialización Uniforme {}", desc: "Obliga al compilador a emitir un error estático ante conversiones destructivas." },
+            { tag: "Seguridad en RAM", desc: "Garantiza que toda variable contenga exactamente el valor y tipo declarado." }
+          ]
+        },
+        division: {
+          title: "La Trampa de la División Entera (ALU)",
+          src: "../02_FundamentalTypes/theory/assets/l03_division_entera.gif",
+          alt: "División entera a nivel de ALU",
+          breakdown: [
+            { tag: "Operación en CPU", desc: "Al dividir dos enteros (7 / 2), el registro ALU descarta la parte fraccional arrojando 3." },
+            { tag: "Solución Estática", desc: "Uso obligatorio de static_cast<double>(a) para forzar aritmética en coma flotante (3.5)." },
+            { tag: "Casting C++ Moderno", desc: "static_cast es explícito y verificado en tiempo de compilación frente a C-casts arcaicos." }
+          ]
+        },
         shadowing: {
           title: "Variable Shadowing en el Stack",
           src: "../03_ScopeAndControlFlow/theory/assets/l03_variable_shadowing.gif",
@@ -1795,6 +1815,16 @@ int main() {
             { tag: "Cierre de Bloque", desc: "Destrucción de la variable local interna, revelando nuevamente la original." }
           ]
         },
+        switch: {
+          title: "Switch Jump Table & Prevención de Fallthrough",
+          src: "../03_ScopeAndControlFlow/theory/assets/l04_switch_fallthrough.gif",
+          alt: "Switch Jump Table",
+          breakdown: [
+            { tag: "Jump Table O(1)", desc: "El compilador optimiza el switch convirtiéndolo en un salto de dirección directo." },
+            { tag: "El Peligro Fallthrough", desc: "Omitir el break provoca que la CPU ejecute en cascada todos los casos siguientes." },
+            { tag: "Control Moderno", desc: "Uso de break y atributos C++17 como [[fallthrough]] cuando la caída es intencional." }
+          ]
+        },
         passbyvalue: {
           title: "La Trampa del Clon: Pass-by-Value en Stack",
           src: "../04_Functions/theory/assets/l04_pass_by_value.gif",
@@ -1802,7 +1832,7 @@ int main() {
           breakdown: [
             { tag: "Stack Frame main()", desc: "Almacena la variable original en su dirección física de memoria." },
             { tag: "Stack Frame función()", desc: "Copia/clona el valor en una nueva dirección aislada sin mutar el original." },
-            { tag: "Solución Idiomática", desc: "Usar referencias '&' o 'const &' para operar directamente sobre la dirección original." }
+            { tag: "Solución Idiomática", desc: "Usar referencias 'const &' para operar con costo cero de copia (Zero-Copy)." }
           ]
         },
         const: {
@@ -1813,6 +1843,16 @@ int main() {
             { tag: "Celda en Stack", desc: "La variable recibe un candado de solo lectura verificado por el compilador." },
             { tag: "Intento de Mutación", desc: "El compilador emite un error estático antes de que el programa pueda ejecutarse." },
             { tag: "Constexpr", desc: "Permite evaluar expresiones fijas en tiempo de compilación con cero sobrecarga en runtime." }
+          ]
+        },
+        stringview: {
+          title: "Vistas Zero-Copy con std::string_view",
+          src: "../05_ConstantsAndStrings/theory/assets/l04_string_view_ref.gif",
+          alt: "Vistas Zero-Copy string_view",
+          breakdown: [
+            { tag: "Problema de std::string", desc: "Pasar texto por valor fuerza asignación dinámica y copia costosa en Heap." },
+            { tag: "string_view (Puntero + Tamaño)", desc: "Ventana no propietaria de solo 16 bytes que apunta al texto existente." },
+            { tag: "Rendimiento C++17", desc: "Inspección de cadenas de texto con costo O(1) y cero fragmentación de memoria." }
           ]
         }
       };

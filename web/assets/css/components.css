@@ -2058,7 +2058,27 @@ pre:hover .code-copy-btn, .code-copy-btn:focus-visible {
   animation: fadeIn 0.25s ease-out;
 }
 
-/* Hardware Visual Gallery */
+/* Hardware Visual Gallery - Balanced Symmetrical Responsive Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+}
+
 .gallery-card-fig {
   height: 160px;
   background: #000;
