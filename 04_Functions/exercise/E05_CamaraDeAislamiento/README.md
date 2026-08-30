@@ -15,3 +15,16 @@ Tu misión es arreglar el flujo de retorno para que la puerta vuelva a funcionar
 1. No modifiques el algoritmo interno de `escanearTarjeta()`.
 2. Modifica la firma de la función para que **inyecte (retorne)** el nivel calculado hacia el Scope externo usando `return`.
 3. Intercepta el flujo de retorno en el `main()` inicializando una variable local que almacene la transferencia del dato.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E05_CamaraDeAislamiento.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

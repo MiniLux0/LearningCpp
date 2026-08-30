@@ -78,8 +78,8 @@ En este modelo, el menú siempre se renderizará la primera vez independientemen
 
 ---
 
-| ⬅️ [Anterior: L04_Switch.md](L04_Switch.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L06_For.md](L06_For.md) |
-|---|---|---|
+| ⬅️ [Anterior: L04_Switch.md](L04_Switch.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L06_For.md](L06_For.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

@@ -13,6 +13,13 @@ Las reglas de la auditoría estipulan dos excepciones al flujo:
 2. Implementa una instrucción `continue` para abortar la iteración correspondiente al archivo índice 13.
 3. Implementa una instrucción `break` para destruir el bucle inmediatamente tras extraer la información del índice 18.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E07_BuscadorDeArchivos.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

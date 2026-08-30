@@ -14,3 +14,16 @@ Tu misión es refactorizar la instanciación del motor para restaurar la distrib
 1. Inspecciona la función delegada `generarNivelEnemigo()`.
 2. Localiza la instanciación del motor Mersenne Twister (`std::mt19937`).
 3. Inyecta el modificador de memoria que le indica al compilador que aloje el motor de forma persistente, previniendo la destrucción y regeneración de su estado interno entre llamadas.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E07_GeneradorDeSemillas.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

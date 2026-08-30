@@ -11,6 +11,13 @@ El programador junior anterior desconocía la mecánica de exclusión de la estr
 2. Interrumpe el *Fallthrough* añadiendo las instrucciones de escape (`break`) para garantizar que cada rama sea mutuamente excluyente.
 3. Resuelve la vulnerabilidad de memoria encapsulando cada `case` con llaves `{ }` para crear un Scope aislado estricto.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E04_SelectorDeClase.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

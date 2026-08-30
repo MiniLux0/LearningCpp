@@ -22,9 +22,15 @@ void cargarInventarioJugadorDos() {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l05_function_scope.gif`*: Dos cuadrículas de memoria RAM (una etiquetada `main` y otra `funcion`). Ambas declaran una variable llamada `puntuacion`. Cuando la cámara hace zoom sobre las cuadrículas, la animación revela que los punteros hexadecimales de memoria (ej. `0x7ff0` y `0x7ff8`) son físicamente distintos, demostrando que los identificadores coexisten sin chocar porque su Scope no se solapa.
+<div align="center">
+  <img src="assets/l05_function_scope.gif" alt="Aislamiento de Scope y coexistencia de identificadores en C++">
+</div>
+
+#### 🔍 Traducción Visual del Aislamiento de Scope:
+* **Panel Izquierdo (`alcance.cpp`):** Dos funciones independientes declaran una variable local con el mismo identificador (`oro`).
+* **Stack RAM (Derecha):** `cargarP1()` aloja `oro` en `0x7FFEE0` y `cargarP2()` en `0x7FFEE8`.
+* **Coexistencia sin Colisiones:** Al residir en direcciones físicas separadas, no existe conflicto ni sobreescritura entre Scopes locales.
+* **Fuga de Scope Ilegal:** Si `main()` intenta leer `oro`, el compilador aborta la compilación (`not declared in this scope`) porque la memoria local es invisible desde el exterior.
 
 ---
 

@@ -13,6 +13,13 @@ El programador junior asignado cometió dos errores arquitectónicos críticos e
 2. Refactoriza el encabezado de control del `for`: corrige la Inicialización, ajusta la Condición relacional y repara la Mutación para configurar un decremento estricto (`10, 9, 8... 1`).
 3. Verifica la ejecución del proceso iterativo, garantizando que el sistema no incurra en un error *Off-By-One* que procese el índice 0.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E06_CuentaRegresiva.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

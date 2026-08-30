@@ -15,3 +15,16 @@ Tu misión es **Refactorizar (Delegar)**:
 1. La función debe llamarse `saludarInvitado`.
 2. Debe ir construida obligatoriamente **arriba** del `main()`.
 3. Debe usar un `switch` o `if/else if` en su interior para determinar el tipo de saludo según la prioridad.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E01_ConstructorDeSaludos.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

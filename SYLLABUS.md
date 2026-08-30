@@ -47,21 +47,12 @@ Al completar satisfactoriamente este programa de estudios, el estudiante habrá 
 
 ## 🧠 3. Metodología Pedagógica: Los 4 Pilares Inquebrantables
 
-```text
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│ 1. PRINCIPIO DE LA ESCALERA       │ Cero saltos mágicos de conocimiento. Cada lección  │
-│    (Strict Progression)           │ se apoya exclusivamente en conceptos ya explicados. │
-├───────────────────────────────────┼─────────────────────────────────────────────────────┤
-│ 2. BREAK-FIRST, FIX-LATER         │ Cada característica moderna existe porque algo en  │
-│    (Intentional Bug Demos)        │ C clásico fallaba. El alumno detona el fallo real.  │
-├───────────────────────────────────┼─────────────────────────────────────────────────────┤
-│ 3. MODELOS MENTALES DE RAM        │ Diagramas y animaciones físicas de Stack, Heap,     │
-│    (Physical Hardware View)       │ VTable, registros y desbordamiento de buffers.      │
-├───────────────────────────────────┼─────────────────────────────────────────────────────┤
-│ 4. SCAFFOLDING & FADING           │ Analogías intuitivas para romper el hielo que se   │
-│    (Industry Terminology)         │ desvanecen hacia la jerga profesional estricta.    │
-└─────────────────────────────────────────────────────────────────────────────────────────┘
-```
+| Pilar | Definición Técnica | Enfoque Pedagógico |
+|:---|:---|:---|
+| **1. Principio de la Escalera** | Progresión estrictamente acumulativa | Cero saltos de conocimiento. Cada lección se apoya exclusivamente en conceptos explicados previamente. |
+| **2. Break-First, Fix-Later** | Diagnóstico intencional de fallos | Cada característica moderna resuelve un problema clásico. El alumno detona el fallo real antes de la solución. |
+| **3. Modelos Mentales de RAM** | Arquitectura física de hardware | Diagramas y animaciones físicas de *Stack*, *Heap*, direcciones hexadecimales, registros y *VTable*. |
+| **4. Scaffolding & Fading** | Terminología rigurosa de la industria | Analogías intuitivas iniciales que se desvanecen de inmediato hacia la jerga técnica profesional. |
 
 ### El Ciclo Didáctico de Cada Lección:
 Cada tema del curso sigue rigurosamente el siguiente flujo formativo:

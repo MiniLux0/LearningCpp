@@ -40,6 +40,10 @@ Esto imprimirá los sectores 1, 2, (ignorará el 3), 4 y 5.
   <img src="assets/l07_break_continue.gif" alt="Sentencias Break Continua">
 </div>
 
+#### 🔍 Traducción Visual de `break` y `continue`:
+* **Salto con `continue` (Omitir Iteración):** Cuando el hilo de ejecución encuentra `continue`, aborta las instrucciones restantes del cuerpo y salta directamente al siguiente ciclo de evaluación.
+* **Terminación con `break` (Salida Forzada):** Al encontrar `break`, el bucle se destruye instantáneamente y el flujo de control escapa fuera del bloque, transfiriendo la ejecución a la siguiente línea del programa.
+
 ## El Defecto Estructural del `continue` en un `while`
 
 El `continue` dentro de un bucle `for` es arquitectónicamente seguro porque el `for` ejecutará automáticamente su sección de Mutación (paso 4) antes de iniciar la siguiente iteración.
@@ -81,8 +85,8 @@ while (i <= 5) {
 
 ---
 
-| ⬅️ [Anterior: L06_For.md](L06_For.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L08_ProyectoCajero.md](L08_ProyectoCajero.md) |
-|---|---|---|
+| ⬅️ [Anterior: L06_For.md](L06_For.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L08_ProyectoCajero.md](L08_ProyectoCajero.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

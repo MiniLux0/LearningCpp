@@ -16,7 +16,7 @@ Esta carpeta contiene los retos diseñados para asimilar los conceptos teóricos
 1. Entra a la carpeta del reto de tu interés.
 2. Todo reto tiene un contexto o "lore", así que **siempre lee el `README.md`** que está dentro de la carpeta antes de tocar el código.
 3. Abre el archivo principal `.cpp` y sigue las instrucciones que están detalladas en los comentarios (busca los `TODO`).
-4. Compila el archivo a mano usando la terminal (ej: `g++ E01_Nombre.cpp -o app`).
+4. Compila el archivo a mano usando la terminal (ej: `g++ -std=c++17 E01_AsegurandoInventario.cpp -o app`).
 5. Si no sabes cómo continuar o el compilador arroja errores, entra a la subcarpeta `solution/` y revisa el código resuelto.
 
 ---

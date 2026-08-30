@@ -10,3 +10,14 @@ Abre el archivo `E05_EscudoAntiTrolls.cpp`.
 1. Detecta si el flujo de entrada (buffer) colapsó usando el medidor de fallos interno del sistema.
 2. Si detectas un error, apaga inmediatamente la alarma de fallo para que la lectura pueda reiniciarse.
 3. Desatasca el flujo de entrada (buffer) lavando la basura estancada (indicando descartar hasta 10000 caracteres o hasta hallar el salto de línea `\n`).
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E05_EscudoAntiTrolls.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

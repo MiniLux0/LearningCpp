@@ -12,3 +12,14 @@ Abre el archivo `E06_GeneradorDeContrasenas.cpp`. Tu deber es aplicar TODO lo ap
 - **`std::string`**: Usa el poder del objeto dinámico para concatenar la contraseña final y solucionar los Type Errors al fusionar literales estáticos.
 - **`const`**: Aplica el modificador inquebrantable a las variables generadas para evitar mutaciones accidentales post-creación.
 - **Protocolo de Validación (`std::cin`)**: Limpia el buffer de entrada para que el sistema rechace el *trolleo* (entradas no numéricas) sin entrar en bucles infinitos.
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E06_GeneradorDeContrasenas.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

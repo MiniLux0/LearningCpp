@@ -5,17 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>LearningCpp — El Curso Interactivo y Visual de C++ Moderno (C++17/20)</title>
   <meta name="description" content="Aprende C++ Moderno desde cero absoluto comprendiendo qué ocurre en la memoria RAM con RAII y resolviendo fallos reales mediante la metodología Break-First, Fix-Later.">
-  <meta name="keywords" content="C++, C++17, C++20, RAII, Programación, Memoria RAM, Stack, Heap, Punteros, Metodología Break-First">
+  <meta name="keywords" content="C++, C++17, C++20, RAII, Programación, Memoria RAM, Stack, Heap, Punteros, Metodología Break-First, MiniLux0">
   <meta name="author" content="MiniLux0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://learningcpp.dev/">
+
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- OpenGraph / Social Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="LearningCpp — C++ Moderno Visual e Interactivo">
-  <meta property="og:description" content="De cero absoluto a nivel profesional de la industria. 15 módulos, 117 lecciones y simuladores de hardware.">
+  <meta property="og:site_name" content="LearningCpp">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://learningcpp.dev/">
+  <meta property="og:title" content="LearningCpp — C++ Moderno Visual e Interactivo (C++17/20)">
+  <meta property="og:description" content="De cero absoluto a nivel profesional de la industria. 15 módulos, 117 lecciones, animaciones de memoria RAM y simuladores interactivos.">
+  <meta property="og:image" content="https://learningcpp.dev/assets/images/og-preview.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LearningCpp — C++ Moderno Visual e Interactivo">
+  <meta name="twitter:description" content="Aprende C++ Moderno desde cero absoluto con modelos mentales de RAM, RAII y la metodología Break-First, Fix-Later.">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "LearningCpp: C++ Moderno y Arquitectura de Sistemas",
+    "description": "Curso interactivo y visual de C++ Moderno (C++17/C++20) desde cero absoluto hasta grado profesional con simuladores de memoria física y metodología Break-First, Fix-Later.",
+    "provider": {
+      "@type": "Person",
+      "name": "MiniLux0",
+      "url": "https://github.com/MiniLux0/LearningCpp"
+    },
+    "educationalLevel": "Beginner to Advanced",
+    "inLanguage": "es",
+    "isAccessibleForFree": true,
+    "coursePrerequisites": "Ninguno (Cero Absoluto)"
+  }
+  </script>
 
   <!-- Favicon SVG Data URI -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2309090b'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%233b82f6' font-family='monospace' font-size='42' font-weight='bold'>C++</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect x='1' y='1' width='30' height='30' rx='8' fill='%230f172a' stroke='%2338bdf8' stroke-width='1.5'/><path d='M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8' stroke='%23f8fafc' stroke-width='2.4' stroke-linecap='round'/><path d='M19.5 11.8 V16.2 M17.3 14 H21.7' stroke='%2310b981' stroke-width='2.0' stroke-linecap='round'/><path d='M25.5 15.3 V19.7 M23.3 17.5 H27.7' stroke='%2338bdf8' stroke-width='2.0' stroke-linecap='round'/></svg>">
 
   <!-- Google Fonts: Space Grotesk (Headings), Inter (UI), JetBrains Mono (Code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,23 +63,41 @@
 </head>
 <body>
 
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <!-- ========================================================================
        1. HEADER & STICKY NAVBAR
        ======================================================================== -->
   <header class="site-header" role="banner">
     <div class="container header-container">
       <a href="#" class="brand-logo" aria-label="LearningCpp Inicio">
-        <div class="brand-icon" aria-hidden="true">C++</div>
-        <span>Learning<span class="text-gradient">Cpp</span></span>
+        <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-bg-hdr" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#1e293b"/>
+            </linearGradient>
+            <linearGradient id="logo-stroke-hdr" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#logo-bg-hdr)" stroke="url(#logo-stroke-hdr)" stroke-width="1.5"/>
+          <path d="M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8" stroke="#f8fafc" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M19.5 11.8 V16.2 M17.3 14 H21.7" stroke="#10b981" stroke-width="2.0" stroke-linecap="round"/>
+          <path d="M25.5 15.3 V19.7 M23.3 17.5 H27.7" stroke="#38bdf8" stroke-width="2.0" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Learning<span class="brand-name-gradient">Cpp</span></span>
       </a>
 
       <nav aria-label="Navegación principal">
         <ul class="nav-menu">
           <li><a href="#pilares" class="nav-link">Pilares</a></li>
           <li><a href="#temario" class="nav-link">Temario</a></li>
-          <li><a href="#playground" class="nav-link">Bugs Sandbox</a></li>
-          <li><a href="#ram-simulator" class="nav-link">Simulador RAM</a></li>
-          <li><a href="#hardware" class="nav-link">Hardware</a></li>
+          <li><a href="#laboratorio" class="nav-link">Laboratorio</a></li>
+          <li><a href="#hardware" class="nav-link">Animaciones</a></li>
+          <li><a href="#comparativa" class="nav-link">Evolución</a></li>
           <li><a href="#instalacion" class="nav-link">Instalación</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
@@ -60,9 +111,52 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           <span>Syllabus PDF</span>
         </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="btn btn-icon mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true">
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menú Móvil">
+      <div class="mobile-nav-header">
+        <div class="brand-logo">
+          <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#logo-bg-hdr)" stroke="url(#logo-stroke-hdr)" stroke-width="1.5"/>
+            <path d="M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8" stroke="#f8fafc" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M19.5 11.8 V16.2 M17.3 14 H21.7" stroke="#10b981" stroke-width="2.0" stroke-linecap="round"/>
+            <path d="M25.5 15.3 V19.7 M23.3 17.5 H27.7" stroke="#38bdf8" stroke-width="2.0" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name">Learning<span class="brand-name-gradient">Cpp</span></span>
+        </div>
+        <button id="mobile-nav-close-btn" class="btn btn-icon" aria-label="Cerrar menú móvil">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav>
+        <ul class="mobile-nav-links">
+          <li><a href="#pilares" class="mobile-nav-link">🎯 Pilares Pedagógicos</a></li>
+          <li><a href="#temario" class="mobile-nav-link">📖 Plan de Estudios (15 Módulos)</a></li>
+          <li><a href="#laboratorio" class="mobile-nav-link">🔬 Laboratorio Interactivo (RAM & Sandbox)</a></li>
+          <li><a href="#hardware" class="mobile-nav-link">⚡ Modelos Visuales Manim</a></li>
+          <li><a href="#comparativa" class="mobile-nav-link">⚔️ C++ Clásico vs Moderno</a></li>
+          <li><a href="#instalacion" class="mobile-nav-link">🛠️ Instalación (Quick Start)</a></li>
+          <li><a href="#faq" class="mobile-nav-link">❓ Preguntas Frecuentes</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-nav-footer">
+        <a href="https://discord.gg/JExCwZ3YyC" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%;">
+          <span>Comunidad en Discord</span>
+        </a>
+        <a href="../LearningCpp_Syllabus_Oficial.pdf" download class="btn btn-primary" style="width: 100%;">
+          <span>Descargar Syllabus Oficial PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        MAIN CONTENT
@@ -138,10 +232,10 @@
           <p class="text-muted">Cuatro principios pedagógicos inquebrantables que diferencian este curso de cualquier tutorial tradicional.</p>
         </header>
 
-        <div class="grid-auto-fit">
+        <div class="pillars-grid">
           <article class="card-pillar">
-            <div class="card-icon-wrapper" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <div class="card-icon-wrapper" aria-hidden="true" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8"/></svg>
             </div>
             <h3>1. Principio de la Escalera</h3>
             <p class="text-muted" style="font-size: var(--font-size-sm); margin-top: var(--space-2);">
@@ -150,8 +244,8 @@
           </article>
 
           <article class="card-pillar">
-            <div class="card-icon-wrapper" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="8" rx="1"></rect><path d="M17 14v7M7 14v7M17 3v3M7 3v3M10 14v3M14 14v3"></path></svg>
+            <div class="card-icon-wrapper" aria-hidden="true" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="14" x="8" y="6" rx="4"/><path d="m19 7-3 2M5 7l3 2M19 19l-3-2M5 19l3-2M20 13h-4M4 13h4M10 4l-1-2M14 4l1-2"/></svg>
             </div>
             <h3>2. Break-First, Fix-Later</h3>
             <p class="text-muted" style="font-size: var(--font-size-sm); margin-top: var(--space-2);">
@@ -160,8 +254,8 @@
           </article>
 
           <article class="card-pillar">
-            <div class="card-icon-wrapper" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+            <div class="card-icon-wrapper" aria-hidden="true" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15v4M10 15v4M14 15v4M18 15v4M6 9h12M6 12h8"/></svg>
             </div>
             <h3>3. Modelos Mentales de RAM</h3>
             <p class="text-muted" style="font-size: var(--font-size-sm); margin-top: var(--space-2);">
@@ -170,8 +264,8 @@
           </article>
 
           <article class="card-pillar">
-            <div class="card-icon-wrapper" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <div class="card-icon-wrapper" aria-hidden="true" style="color: #a855f7; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.25);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <h3>4. Scaffolding & Fading</h3>
             <p class="text-muted" style="font-size: var(--font-size-sm); margin-top: var(--space-2);">
@@ -201,6 +295,11 @@
           </div>
         </div>
 
+        <!-- Student Local Progress Tracker Widget -->
+        <div id="student-progress-widget" class="progress-strip-wrapper" role="region" aria-label="Progreso local del alumno">
+          <!-- Dynamic Progress Bar via app.js -->
+        </div>
+
         <!-- Phase Tabs Container -->
         <div id="phase-tabs-container" class="phase-tabs" role="tablist" aria-label="Filtro de módulos por fase">
           <!-- Dynamic Phase Tabs -->
@@ -214,89 +313,112 @@
     </section>
 
     <!-- ======================================================================
-         5. "BREAK-FIRST, FIX-LATER" INTERACTIVE PLAYGROUND
+         5. LABORATORIO INTERACTIVO UNIFICADO (STUDIO HUB)
          ====================================================================== -->
-    <section id="playground" class="section-padding section-surface" aria-labelledby="playground-title">
+    <section id="laboratorio" class="section-padding section-surface" aria-labelledby="laboratorio-title">
       <div class="container">
         <header class="section-header">
-          <span class="badge badge-amber">Sandbox Interactivo</span>
-          <h2 id="playground-title">La Metodología "Break-First, Fix-Later" en Acción</h2>
-          <p class="text-muted">Explora cómo el curso enseña a detectar trampas letales del lenguaje clásico y cómo se resuelven idiomáticamente en C++17/20.</p>
+          <span class="badge badge-cyan">Studio en el Navegador</span>
+          <h2 id="laboratorio-title">Laboratorio Interactivo de Software & Hardware</h2>
+          <p class="text-muted">Explora la memoria RAM física, experimenta con la metodología Break-First y audita tu código C++ al instante.</p>
         </header>
 
-        <!-- Dynamic Code Playground -->
-        <div id="interactive-code-playground" role="region" aria-label="Comparador de código Break-First y Fix-Later">
-          <!-- Dynamic Code Playground -->
+        <!-- Studio Hub Navigation Tabs -->
+        <div class="studio-tabs-nav" role="tablist" aria-label="Herramientas del Laboratorio">
+          <button class="studio-tab-btn active" data-tab="tab-ram" role="tab" aria-selected="true" aria-controls="tab-ram">
+            <span class="tab-icon">🧠</span>
+            <span>Simulador RAM (Stack/Heap)</span>
+          </button>
+          <button class="studio-tab-btn" data-tab="tab-bugs" role="tab" aria-selected="false" aria-controls="tab-bugs">
+            <span class="tab-icon">🐞</span>
+            <span>Bugs Sandbox (Break-First)</span>
+          </button>
+          <button class="studio-tab-btn" data-tab="tab-pipeline" role="tab" aria-selected="false" aria-controls="tab-pipeline">
+            <span class="tab-icon">⚙️</span>
+            <span>Pipeline del Compilador</span>
+          </button>
+          <button class="studio-tab-btn" data-tab="tab-linter" role="tab" aria-selected="false" aria-controls="tab-linter">
+            <span class="tab-icon">🔍</span>
+            <span>Auditor de Sintaxis</span>
+          </button>
+        </div>
+
+        <!-- Studio Hub Panels -->
+        <div class="studio-panels-container">
+          <!-- Panel 1: RAM Visualizer (Active) -->
+          <div id="tab-ram" class="studio-tab-panel" role="tabpanel" aria-label="Simulador de Memoria RAM">
+            <div id="interactive-ram-visualizer-container"></div>
+          </div>
+
+          <!-- Panel 2: Bugs Sandbox -->
+          <div id="tab-bugs" class="studio-tab-panel" role="tabpanel" aria-label="Bugs Sandbox" style="display: none;">
+            <div id="interactive-code-playground"></div>
+          </div>
+
+          <!-- Panel 3: Compiler Pipeline Explorer -->
+          <div id="tab-pipeline" class="studio-tab-panel" role="tabpanel" aria-label="Pipeline del Compilador" style="display: none;">
+            <div id="compiler-pipeline-explorer-container"></div>
+          </div>
+
+          <!-- Panel 4: C++ Syntax Linter -->
+          <div id="tab-linter" class="studio-tab-panel" role="tabpanel" aria-label="Auditor de Sintaxis" style="display: none;">
+            <div id="interactive-linter-container"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         6. SIMULADOR INTERACTIVO DE MEMORIA FÍSICA (RAM: STACK VS HEAP)
+         6. MODELOS VISUALES MANIM (HARDWARE GALLERY)
          ====================================================================== -->
-    <section id="ram-simulator" class="section-padding" aria-labelledby="ram-simulator-title">
-      <div class="container">
-        <header class="section-header">
-          <span class="badge badge-cyan">Hardware & Arquitectura Real</span>
-          <h2 id="ram-simulator-title">Inspecciona la Memoria RAM en Tiempo Real</h2>
-          <p class="text-muted">Interactúa con el simulador de arquitectura x86_64 para observar cómo las variables se apilan en el Stack, cómo los smart pointers gobiernan el Heap y cómo RAII previene fugas de memoria al salir de un ámbito {}.</p>
-        </header>
-
-        <div id="interactive-ram-visualizer-container" role="region" aria-label="Simulador interactivo de memoria RAM">
-          <!-- Dynamic RAM Visualizer -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         7. HARDWARE VISUAL GALLERY (ANIMACIONES MANIM)
-         ====================================================================== -->
-    <section id="hardware" class="section-padding section-surface" aria-labelledby="hardware-title">
+    <section id="hardware" class="section-padding" aria-labelledby="hardware-title">
       <div class="container">
         <header class="section-header">
           <span class="badge badge-purple">Animaciones Manim</span>
           <h2 id="hardware-title">Modelos Visuales de Memoria y Compilación</h2>
-          <p class="text-muted">El curso integra animaciones matemáticas y de sistemas que ilustran el flujo de datos exacto en la arquitectura del computador.</p>
+          <p class="text-muted">Toca o haz clic en cualquier tarjeta para abrir la animación en alta resolución con su explicación técnica.</p>
         </header>
 
         <div class="grid-responsive">
-          <article class="card-pillar">
-            <figure style="height: 180px; background: #000; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: var(--space-4);">
-              <img src="../01_GettingStarted/theory/assets/l00_compilation.gif" alt="Animación del Pipeline del Compilador C++" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+          <article class="card-pillar gallery-trigger-card" data-anim-id="compilation" role="button" tabindex="0" aria-label="Ver animación del Pipeline del Compilador C++">
+            <figure class="gallery-card-fig">
+              <img src="../01_GettingStarted/theory/assets/l00_compilation.gif" alt="Animación del Pipeline del Compilador C++" loading="lazy">
             </figure>
-            <h4>El Pipeline del Compilador</h4>
-            <p class="text-muted" style="font-size: var(--font-size-xs); line-height: 1.5; margin-top: var(--space-1);">
-              Del código fuente .cpp, pasando por preprocesador, ensamblador y linker hasta el binario ejecutable final.
-            </p>
+            <h4>Pipeline de Compilación</h4>
+            <p class="text-muted gallery-card-desc">Del código .cpp pasando por preprocesador, ensamblador y linker hasta el binario.</p>
           </article>
 
-          <article class="card-pillar">
-            <figure style="height: 180px; background: #000; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: var(--space-4);">
-              <img src="../04_Functions/theory/assets/l04_pass_by_value.gif" alt="Animación de paso de argumentos por valor en la pila" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
-            </figure>
-            <h4>La Trampa del Clon (Stack)</h4>
-            <p class="text-muted" style="font-size: var(--font-size-xs); line-height: 1.5; margin-top: var(--space-1);">
-              Visualización de cómo los argumentos por valor duplican memoria en la pila en lugar de mutar el dato original.
-            </p>
-          </article>
-
-          <article class="card-pillar">
-            <figure style="height: 180px; background: #000; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: var(--space-4);">
-              <img src="../03_ScopeAndControlFlow/theory/assets/l03_variable_shadowing.gif" alt="Animación de Variable Shadowing en ámbitos de memoria" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+          <article class="card-pillar gallery-trigger-card" data-anim-id="shadowing" role="button" tabindex="0" aria-label="Ver animación de Variable Shadowing">
+            <figure class="gallery-card-fig">
+              <img src="../03_ScopeAndControlFlow/theory/assets/l03_variable_shadowing.gif" alt="Animación de Variable Shadowing" loading="lazy">
             </figure>
             <h4>Variable Shadowing</h4>
-            <p class="text-muted" style="font-size: var(--font-size-xs); line-height: 1.5; margin-top: var(--space-1);">
-              Demostración visual de cómo las llaves {} abren nuevos ámbitos en el Stack y ocultan variables externas.
-            </p>
+            <p class="text-muted gallery-card-desc">Demostración visual de cómo las llaves {} ocultan variables externas en el Stack.</p>
+          </article>
+
+          <article class="card-pillar gallery-trigger-card" data-anim-id="passbyvalue" role="button" tabindex="0" aria-label="Ver animación de Pass by value">
+            <figure class="gallery-card-fig">
+              <img src="../04_Functions/theory/assets/l04_pass_by_value.gif" alt="Animación de paso por valor" loading="lazy">
+            </figure>
+            <h4>La Trampa del Clon (Stack)</h4>
+            <p class="text-muted gallery-card-desc">Visualización de la duplicación de memoria en la pila en paso por valor.</p>
+          </article>
+
+          <article class="card-pillar gallery-trigger-card" data-anim-id="const" role="button" tabindex="0" aria-label="Ver animación de const inmutabilidad">
+            <figure class="gallery-card-fig">
+              <img src="../05_ConstantsAndStrings/theory/assets/l01_const_memory.gif" alt="Animación de inmutabilidad const" loading="lazy">
+            </figure>
+            <h4>Blindaje Inmutable (const)</h4>
+            <p class="text-muted gallery-card-desc">Protección de celdas físicas en Stack bloqueadas contra mutaciones ilegales.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         8. C++ CLÁSICO VS C++ MODERNO (TABLA COMPARATIVA)
+         7. C++ CLÁSICO VS C++ MODERNO (COMPARATIVA)
          ====================================================================== -->
-    <section class="section-padding" aria-labelledby="comparativa-title">
+    <section id="comparativa" class="section-padding" aria-labelledby="comparativa-title">
       <div class="container">
         <header class="section-header">
           <span class="badge badge-cyan">Evolución del Lenguaje</span>
@@ -304,55 +426,84 @@
           <p class="text-muted">Compara la fragilidad del C++ arcaico de hace 25 años frente al enfoque idiomático y seguro de LearningCpp.</p>
         </header>
 
-        <div class="table-responsive-wrapper">
-          <table class="table-modern" aria-label="Tabla comparativa de C++ Clásico versus C++ Moderno">
-            <thead>
-              <tr>
-                <th>Concepto / Tarea</th>
-                <th>❌ C++ Clásico / Arcaico (C++98)</th>
-                <th>✅ C++ Moderno (C++17 / C++20)</th>
-                <th>Ventaja en Producción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Espacio de Nombres</strong></td>
-                <td><code>using namespace std;</code> global</td>
-                <td>Prefijo explícito <code>std::</code></td>
-                <td>Cero colisiones de nombres globales en proyectos grandes.</td>
-              </tr>
-              <tr>
-                <td><strong>Salto de Línea</strong></td>
-                <td><code>std::endl</code> (Forced Flush)</td>
-                <td>Carácter <code>'\n'</code> directo</td>
-                <td>Elimina el cuello de botella de I/O por flushes innecesarios.</td>
-              </tr>
-              <tr>
-                <td><strong>Inicialización</strong></td>
-                <td><code>int x;</code> (Basura residual)</td>
-                <td>Uniforme <code>int x{0};</code></td>
-                <td>Previene basura en RAM y conversiones estrechas destructivas.</td>
-              </tr>
-              <tr>
-                <td><strong>Colecciones Dinámicas</strong></td>
-                <td>Arreglos de C <code>int arr[N];</code></td>
-                <td><code>std::vector&lt;T&gt;</code> con <code>.at()</code></td>
-                <td>Gestión automática de memoria contigua y límites seguros.</td>
-              </tr>
-              <tr>
-                <td><strong>Gestión de Memoria</strong></td>
-                <td>Punteros crudos <code>new[] / delete[]</code></td>
-                <td><code>std::unique_ptr&lt;T&gt;</code> (RAII)</td>
-                <td>Destrucción determinista 100% libre de memory leaks.</td>
-              </tr>
-              <tr>
-                <td><strong>Aleatoriedad</strong></td>
-                <td><code>rand() % N</code> (Inseguro/Sesgado)</td>
-                <td>Mersenne Twister <code>std::mt19937</code></td>
-                <td>Distribución uniforme de grado criptográfico y simulación.</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Desktop Table View (>= 768px) -->
+        <div class="table-desktop-view">
+          <div class="table-responsive-wrapper">
+            <table class="table-modern" aria-label="Tabla comparativa de C++ Clásico versus C++ Moderno">
+              <thead>
+                <tr>
+                  <th>Concepto / Tarea</th>
+                  <th style="color: #fb7185;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                      <span>C++ Clásico (C++98)</span>
+                    </div>
+                  </th>
+                  <th style="color: #34d399;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                      <span>C++ Moderno (C++17/20)</span>
+                    </div>
+                  </th>
+                  <th>Ventaja en Producción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Espacio de Nombres</strong></td>
+                  <td><code style="color: #fca5a5;">using namespace std;</code></td>
+                  <td><code style="color: #6ee7b7;">std::</code> explícito</td>
+                  <td>Cero colisiones de nombres globales en proyectos grandes.</td>
+                </tr>
+                <tr>
+                  <td><strong>Salto de Línea</strong></td>
+                  <td><code style="color: #fca5a5;">std::endl</code> (Flush Forzado)</td>
+                  <td><code style="color: #6ee7b7;">'\n'</code> directo</td>
+                  <td>Elimina cuellos de botella en I/O al evitar flushes innecesarios.</td>
+                </tr>
+                <tr>
+                  <td><strong>Inicialización</strong></td>
+                  <td><code style="color: #fca5a5;">int x;</code> (Basura en RAM)</td>
+                  <td><code style="color: #6ee7b7;">int x{0};</code> (Uniforme)</td>
+                  <td>Previene basura residual y conversiones estrechas destructivas.</td>
+                </tr>
+                <tr>
+                  <td><strong>Colecciones Dinámicas</strong></td>
+                  <td><code style="color: #fca5a5;">int arr[N];</code> (C-Arrays)</td>
+                  <td><code style="color: #6ee7b7;">std::vector&lt;T&gt;</code> con <code style="color: #6ee7b7;">.at()</code></td>
+                  <td>Gestión automática de memoria contigua y límites verificados.</td>
+                </tr>
+                <tr>
+                  <td><strong>Gestión de Memoria</strong></td>
+                  <td><code style="color: #fca5a5;">new[] / delete[]</code></td>
+                  <td><code style="color: #6ee7b7;">std::unique_ptr&lt;T&gt;</code> (RAII)</td>
+                  <td>Destrucción determinista 100% libre de fugas de memoria.</td>
+                </tr>
+                <tr>
+                  <td><strong>Aleatoriedad (RNG)</strong></td>
+                  <td><code style="color: #fca5a5;">rand() % N</code> (Sesgado)</td>
+                  <td><code style="color: #6ee7b7;">std::mt19937</code> (&lt;random&gt;)</td>
+                  <td>Distribución uniforme de grado criptográfico y simulación.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mobile Interactive Compact Comparison (< 768px) -->
+        <div class="comparison-mobile-hub" role="region" aria-label="Comparativa interactiva para móviles">
+          <div class="compare-mobile-pills" role="tablist" aria-label="Selecciona un concepto para comparar">
+            <button class="compare-pill-btn active" data-compare="0" role="tab">Namespaces</button>
+            <button class="compare-pill-btn" data-compare="1" role="tab">Salto '\n'</button>
+            <button class="compare-pill-btn" data-compare="2" role="tab">Inicialización</button>
+            <button class="compare-pill-btn" data-compare="3" role="tab">std::vector</button>
+            <button class="compare-pill-btn" data-compare="4" role="tab">Smart Pointers</button>
+            <button class="compare-pill-btn" data-compare="5" role="tab">RNG &lt;random&gt;</button>
+          </div>
+
+          <div id="compare-mobile-display" class="compare-card">
+            <!-- Dynamic Compact Content Rendered via JS -->
+          </div>
         </div>
       </div>
     </section>
@@ -496,16 +647,44 @@ clang++ --version</code></pre>
   </div>
 
   <!-- ========================================================================
+       11B. LIGHTBOX MODAL PARA ANIMACIONES MANIM HD
+       ======================================================================== -->
+  <div id="manim-lightbox-modal" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <header class="modal-header">
+        <div id="lightbox-title" style="font-family: var(--font-family-display); font-weight: 700; font-size: var(--font-size-base);"></div>
+        <button id="lightbox-close-btn" class="btn btn-icon" aria-label="Cerrar visor de animación">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+      <div id="lightbox-media-container" class="lightbox-media"></div>
+      <div id="lightbox-description-container" class="modal-body" style="background: var(--bg-surface);"></div>
+      <footer class="modal-footer">
+        <button id="lightbox-replay-btn" class="btn btn-primary" style="font-size: 0.75rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          <span>Reiniciar Bucle</span>
+        </button>
+        <button id="lightbox-close-footer-btn" class="btn btn-secondary" style="font-size: 0.75rem;">Cerrar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        12. FOOTER
        ======================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: var(--space-3);">
-            <div class="brand-icon" aria-hidden="true">C++</div>
-            <span>Learning<span class="text-gradient">Cpp</span></span>
-          </div>
+          <a href="#" class="brand-logo" style="margin-bottom: var(--space-3);" aria-label="LearningCpp Inicio">
+            <svg class="brand-isotype" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#logo-bg-hdr)" stroke="url(#logo-stroke-hdr)" stroke-width="1.5"/>
+              <path d="M14.5 11.2 C10.5 11.2 8.5 13.2 8.5 16 C8.5 18.8 10.5 20.8 14.5 20.8" stroke="#f8fafc" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M19.5 11.8 V16.2 M17.3 14 H21.7" stroke="#10b981" stroke-width="2.0" stroke-linecap="round"/>
+              <path d="M25.5 15.3 V19.7 M23.3 17.5 H27.7" stroke="#38bdf8" stroke-width="2.0" stroke-linecap="round"/>
+            </svg>
+            <span class="brand-name">Learning<span class="brand-name-gradient">Cpp</span></span>
+          </a>
           <p class="text-muted" style="font-size: var(--font-size-sm); line-height: 1.6; max-width: 22rem;">
             El curso interactivo y visual de C++ Moderno diseñado para formar desarrolladores de grado profesional desde cero absoluto.
           </p>
@@ -516,9 +695,9 @@ clang++ --version</code></pre>
           <ul class="footer-links">
             <li><a href="#pilares">Pilares Pedagógicos</a></li>
             <li><a href="#temario">Plan de Estudios</a></li>
-            <li><a href="#playground">Bugs Sandbox</a></li>
-            <li><a href="#ram-simulator">Simulador RAM</a></li>
-            <li><a href="#hardware">Visual Hardware</a></li>
+            <li><a href="#laboratorio">Laboratorio Interactivo</a></li>
+            <li><a href="#hardware">Modelos Visuales</a></li>
+            <li><a href="#comparativa">Evolución C++</a></li>
           </ul>
         </div>
 
@@ -536,7 +715,7 @@ clang++ --version</code></pre>
           <h4>Comunidad</h4>
           <ul class="footer-links">
             <li><a href="https://discord.gg/JExCwZ3YyC" target="_blank" rel="noopener noreferrer">Servidor de Discord</a></li>
-            <li><a href="https://github.com/tu-usuario/LearningCpp" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+            <li><a href="https://github.com/MiniLux0/LearningCpp" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
             <li><a href="https://en.cppreference.com/w/cpp/17" target="_blank" rel="noopener noreferrer">cppreference.com</a></li>
           </ul>
         </div>

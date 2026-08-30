@@ -74,8 +74,8 @@ En ciencias de la computación, a los bloques de código que son matemáticament
 
 ---
 
-| ⬅️ [Anterior: L01_IfElse.md](L01_IfElse.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L03_BlocksAndScope.md](L03_BlocksAndScope.md) |
-|---|---|---|
+| ⬅️ [Anterior: L01_IfElse.md](L01_IfElse.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L03_BlocksAndScope.md](L03_BlocksAndScope.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

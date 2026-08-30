@@ -15,3 +15,16 @@ Tu misión es refactorizar la función `calcularArea` para cubrir las fugas.
 ### Reglas de Oro:
 1. Inspecciona la función y encuentra el camino lógico (la rama de decisión) que carece de un bloque `return`.
 2. Asegúrate de que **absolutamente todos** los caminos lógicos retornen explícitamente un valor tipo `int` al hilo principal (`main`).
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E02_CalculadoraDeArea.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

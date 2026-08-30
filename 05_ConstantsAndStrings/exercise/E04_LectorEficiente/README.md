@@ -10,3 +10,14 @@ Abre el archivo `E04_LectorEficiente.cpp`.
 1. Incluye la librería moderna necesaria para crear "vistas ligeras" de texto.
 2. Modifica la firma (los parámetros) de la función `analizarArticulo` para que utilice "Referencias Ligeras" ultraligeros en lugar de clonar un pesado objeto dinámico de texto `std::string`.
 3. Modifica la variable estática dentro del `main` para que también sea una vista ligera y no asigne memoria innecesaria.
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E04_LectorEficiente.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

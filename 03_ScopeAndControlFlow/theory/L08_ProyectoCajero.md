@@ -11,14 +11,16 @@ Ahora es el momento de juntarlo todo en un programa real.
 No hay nuevos conceptos que leer en esta lección. Tu única tarea es construir un **Cajero Automático** funcional.
 Deberás crear un programa que no se cierre hasta que el usuario decida salir, utilizando un menú interactivo, validaciones de saldo, y manejando el *Scope* de las variables correctamente.
 
-> 🏋️ **Proyecto Final:** Atrévete con el reto en [`../exercise/E08_CajeroAutomatico/E08_CajeroAutomatico.cpp`](../exercise/E08_CajeroAutomatico/E08_CajeroAutomatico.cpp). (No olvides leer el README de la carpeta).
+> 🧪 **Laboratorio:** Observa la estructura modular y de Scope del cajero en [`../lab/L08_MiniProject.cpp`](../lab/L08_MiniProject.cpp).
+>
+> 🏋️ **Ejercicio:** Atrévete con el reto en [`../exercise/E08_CajeroAutomatico/E08_CajeroAutomatico.cpp`](../exercise/E08_CajeroAutomatico/E08_CajeroAutomatico.cpp). (No olvides leer el README de la carpeta).
 
 Una vez que domines este proyecto, ¡estarás listo para enfrentar las Funciones en el Módulo 04! Revisa la **[Hoja de Repaso](../summary/Module03_Cheatsheet.md)** si olvidaste algo.
 
 ---
 
-| ⬅️ [Anterior: Botones de Emergencia](L07_BreakContinue.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: Modulo 04 (Proximamente)](../../04_Functions/README.md) |
-|---|---|---|
+| ⬅️ [Anterior: L07_BreakContinue.md](L07_BreakContinue.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: Módulo 04](../../04_Functions/README.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

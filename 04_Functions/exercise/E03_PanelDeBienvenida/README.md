@@ -15,3 +15,16 @@ Tu misión es refactorizar este desastre arquitectónico.
 1. Mueve TODO el código de impresión (Efecto Secundario) del banner del hotel a una nueva rutina aislada que se llame `imprimirBanner`.
 2. Como esta función solo ejecuta una acción y no transfiere datos de regreso, **su firma de retorno debe ser estrictamente `void`**.
 3. Asegúrate de invocar `imprimirBanner()` desde el `main()` como una instrucción independiente, sin intentar asignar su ejecución a la memoria.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E03_PanelDeBienvenida.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

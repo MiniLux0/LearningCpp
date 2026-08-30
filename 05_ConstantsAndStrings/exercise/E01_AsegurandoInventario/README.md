@@ -10,3 +10,14 @@ Abre el archivo `E01_AsegurandoInventario.cpp`. Tu tarea es aplicar el principio
 1. Declara como `const` las variables que por diseño de sistema **nunca** deberían ser reasignadas en tiempo de ejecución.
 2. Utiliza la inicialización uniforme con llaves `{}` en lugar de la asignación clásica `=`.
 3. Borra o comenta la línea defectuosa que intenta alterar la dirección de memoria protegida, de lo contrario, el compilador abortará el proceso.
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E01_AsegurandoInventario.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

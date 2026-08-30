@@ -10,6 +10,13 @@ El código actual implementó un bucle `while` (Pre-comprobación) con un defect
 1. Abre `E05_ContrasenaSegura.cpp`.
 2. Refactoriza el bloque de iteración para utilizar una arquitectura `do-while` (Post-comprobación). De este modo, garantizas que la solicitud de recolección de datos (`std::cin`) ocurra al menos una vez, encapsulándola de forma segura dentro del ciclo de iteración.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E05_ContrasenaSegura.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

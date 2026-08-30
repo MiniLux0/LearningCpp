@@ -19,9 +19,16 @@ void imprimirAlerta() {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l03_void_action.gif`*: Un hilo de ejecución (punto de luz) sale del `main()`. Ingresa al Scope de `void imprimirAlerta()`. Ejecuta la línea de código provocando un destello rojo en el sistema (Efecto Secundario), y el punto de luz simplemente retorna a su origen al llegar a la llave de cierre `}`, sin transportar ninguna caja de datos.
+<div align="center">
+  <img src="assets/l03_void_action.gif" alt="Acciones y efectos secundarios en funciones void de C++">
+</div>
+
+#### 🔍 Traducción Visual de Funciones Void y Efectos Secundarios:
+* **Panel Izquierdo (`alerta.cpp`):** Código fuente invocando la función `imprimirAlerta()`.
+* **Invocación Pura:** El hilo de control se transfiere al cuerpo de la función sin reservar memoria de retorno.
+* **Side Effect (Terminal I/O):** Se emite el texto `"Peligro!"` hacia la consola sin modificar variables en la RAM.
+* **Cierre de Scope:** Al tocar `}`, el hilo regresa al `main()` transportando **cero bytes de datos**.
+* **Trampa de Asignación Ilegal:** Intentar capturar la rutina (`int x{imprimirAlerta()}`) aborta la compilación (*void value not ignored*).
 
 Si bajo cierta condición crítica necesitas abortar la ejecución de una rutina `void` antes de que alcance el final de su Scope, puedes invocar la instrucción `return;` (sola, sin datos):
 
@@ -65,6 +72,9 @@ imprimirAlerta();
 > 🏋️ **Ejercicio:** El código de inicialización del hotel es un desastre y el becario asignó ilegalmente un bloque `void` a una variable. Atrévete con el reto en [`../exercise/E03_PanelDeBienvenida/E03_PanelDeBienvenida.cpp`](../exercise/E03_PanelDeBienvenida/E03_PanelDeBienvenida.cpp).
 
 ---
+
+> [!WARNING]
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>Autochequeo: ¿Puedes imprimir el resultado de una función void pasándola directamente a <code>std::cout</code>?</b></summary>

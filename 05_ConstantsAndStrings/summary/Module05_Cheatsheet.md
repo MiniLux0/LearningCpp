@@ -23,7 +23,7 @@ La estructura fundamental para gestionar memoria de texto de forma segura. Se re
 #include <string>
 
 std::string palabra{"Hola"};
-std::string frase = palabra + " Mundo"; // ⚡ Correcto: Un objeto dinámico gestiona la memoria del literal.
+std::string frase{palabra + " Mundo"}; // ⚡ Correcto: Un objeto dinámico gestiona la memoria del literal.
 // std::string fallo = "Hola" + " Mundo"; // 🐞 ERROR: Los literales estáticos (C-strings) carecen de métodos de concatenación.
 ```
 

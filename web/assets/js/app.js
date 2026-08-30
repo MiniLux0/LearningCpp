@@ -755,14 +755,14 @@ int main() {
     render() {
       const bug = BUGS_DATA[this.currentBugIndex];
       this.container.innerHTML = `
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div>
-            <span class="badge badge-amber" style="margin-bottom: var(--space-2);">${bug.module}</span>
-            <h3 style="font-size: var(--font-size-2xl);">${bug.title}</h3>
+        <div class="playground-header">
+          <div class="playground-title-area">
+            <span class="badge badge-amber">${bug.module}</span>
+            <h3 class="playground-title">${bug.title}</h3>
           </div>
-          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+          <div class="bug-tabs-scroll" role="tablist" aria-label="Selector de Bugs Educativos">
             ${BUGS_DATA.map((b, idx) => `
-              <button class="btn btn-secondary bug-tab-btn ${idx === this.currentBugIndex ? 'active' : ''}" data-index="${idx}" style="font-size: 0.75rem; padding: 0.4rem 0.8rem; ${idx === this.currentBugIndex ? 'background: var(--text-primary); color: var(--text-inverse);' : ''}">
+              <button class="btn btn-secondary bug-tab-btn ${idx === this.currentBugIndex ? 'active' : ''}" data-index="${idx}" role="tab" aria-selected="${idx === this.currentBugIndex}" style="${idx === this.currentBugIndex ? 'background: var(--text-primary); color: var(--text-inverse); font-weight: 700;' : ''}">
                 Bug #${idx + 1}
               </button>
             `).join('')}
@@ -770,26 +770,37 @@ int main() {
         </div>
 
         <div class="diff-container">
+          <!-- 1. Break-First Box -->
           <div class="diff-box">
             <div class="diff-header broken">
-              <span>🐞 1. Break-First (El Dolor del Fallo)</span>
-              <span>ERROR EN RUNTIME / LÓGICO</span>
+              <div class="diff-title-wrap">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <span>1. Break-First: Código Roto</span>
+              </div>
+              <span class="diff-tag">Error / Bug Lógico</span>
             </div>
             <pre><code class="language-cpp">${this.escapeHtml(bug.brokenSnippet)}</code></pre>
           </div>
 
+          <!-- 2. Fix-Later Box -->
           <div class="diff-box">
             <div class="diff-header fixed">
-              <span>✨ 2. Fix-Later (La Solución Moderna C++17/20)</span>
-              <span>IDIOMÁTICO & SEGURO</span>
+              <div class="diff-title-wrap">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>2. Fix-Later: Solución C++17/20</span>
+              </div>
+              <span class="diff-tag">Seguro & Idiomático</span>
             </div>
             <pre><code class="language-cpp">${this.escapeHtml(bug.fixedSnippet)}</code></pre>
           </div>
         </div>
 
-        <div style="margin-top: var(--space-6); padding: var(--space-5); background: var(--bg-card); border-radius: var(--radius-lg); border-left: 3px solid var(--text-primary);">
-          <h4 style="font-size: var(--font-size-base); margin-bottom: var(--space-2); color: var(--text-primary);">🧠 Modelo Mental & Hardware:</h4>
-          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6;">${bug.explanation}</p>
+        <div class="playground-explanation-box">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--space-2); color: var(--brand-primary); font-weight: 700; font-size: var(--font-size-sm);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            <span>Modelo Mental & Hardware (Por qué ocurre)</span>
+          </div>
+          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">${bug.explanation}</p>
         </div>
       `;
     }
@@ -1058,21 +1069,31 @@ int main() {
           </div>
         </div>
 
-        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
-          Lecciones del Módulo (${mod.lessons.length})
+        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary); display: flex; justify-content: space-between; align-items: center;">
+          <span>Lecciones del Módulo (${mod.lessons.length})</span>
+          <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal; font-family: var(--font-family-body);">Marca tus lecciones completadas</span>
         </h4>
         <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5);">
-          ${mod.lessons.map(l => `
-            <div style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); align-items: flex-start;">
-              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--text-primary); font-weight: 700; padding: 2px 6px; background: var(--bg-muted); border: 1px solid var(--border-subtle); border-radius: 4px; height: fit-content;">
-                ${l.id}
-              </span>
-              <div>
-                <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+          ${mod.lessons.map(l => {
+            const isDone = window.__progressTracker && window.__progressTracker.isCompleted(mod.id, l.id);
+            return `
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); flex-wrap: wrap;">
+                <div style="display: flex; gap: var(--space-3); align-items: flex-start; flex: 1; min-width: 200px;">
+                  <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--text-primary); font-weight: 700; padding: 2px 6px; background: var(--bg-muted); border: 1px solid var(--border-subtle); border-radius: 4px; height: fit-content;">
+                    ${l.id}
+                  </span>
+                  <div>
+                    <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary); text-decoration: ${isDone ? 'line-through' : 'none'}; opacity: ${isDone ? '0.7' : '1'};">${l.title}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+                  </div>
+                </div>
+                <button class="lesson-check-btn ${isDone ? 'completed' : ''}" data-mod-id="${mod.id}" data-lesson-id="${l.id}" aria-label="Marcar lección ${l.id}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>${isDone ? 'Completada' : 'Marcar'}</span>
+                </button>
               </div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
 
         ${mod.bugDemos && mod.bugDemos.length > 0 ? `
@@ -1093,6 +1114,19 @@ int main() {
           <p style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.5;">${mod.keyDecision}</p>
         </div>
       `;
+
+      // Bind lesson check button clicks inside modal
+      modalContent.querySelectorAll('.lesson-check-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const modId = btn.dataset.modId;
+          const lessonId = btn.dataset.lessonId;
+          if (window.__progressTracker) {
+            window.__progressTracker.toggleLesson(modId, lessonId);
+            this.openModal(mod); // Re-render modal to reflect status
+          }
+        });
+      });
 
       this.modal.classList.add('open');
       this.modal.setAttribute('aria-hidden', 'false');
@@ -1131,29 +1165,29 @@ int main() {
         <div style="background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden;">
           
           <!-- Controls Bar -->
-          <div style="padding: var(--space-4) var(--space-6); background: #161b22; border-bottom: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);">
+          <div class="ram-controls-bar">
             <div>
               <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); text-transform: uppercase; letter-spacing: 0.05em;">Simulador de Memoria Física (x86_64 RAM)</span>
               <h4 style="font-size: var(--font-size-base); margin-top: 2px;">Inspección en Tiempo Real: Stack vs Heap & Ciclo RAII</h4>
             </div>
-            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-              <button id="ram-btn-push-stack" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
-                + Push Variable en Stack
+            <div class="ram-buttons-group">
+              <button id="ram-btn-push-stack" class="btn btn-secondary ram-btn">
+                + Push Stack
               </button>
-              <button id="ram-btn-alloc-heap" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
-                + make_unique&lt;T&gt; (Heap)
+              <button id="ram-btn-alloc-heap" class="btn btn-secondary ram-btn">
+                + make_unique&lt;T&gt;
               </button>
-              <button id="ram-btn-scope-exit" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; color: var(--color-warning);">
-                ⚡ Salir de Ámbito {} (RAII Destructor)
+              <button id="ram-btn-scope-exit" class="btn btn-secondary ram-btn" style="color: var(--color-warning);">
+                ⚡ Salir de Ámbito {}
               </button>
-              <button id="ram-btn-reset" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
+              <button id="ram-btn-reset" class="btn btn-secondary ram-btn">
                 ↺ Reset
               </button>
             </div>
           </div>
 
           <!-- Visual Memory Layout -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-subtle); min-height: 260px;">
+          <div class="ram-memory-grid">
             
             <!-- Stack Memory -->
             <div style="background: var(--bg-surface); padding: var(--space-5);">
@@ -1162,17 +1196,17 @@ int main() {
                   <span style="width: 8px; height: 8px; border-radius: 50%; background: #3b82f6;" aria-hidden="true"></span>
                   STACK (Pila de Ejecución)
                 </span>
-                <span style="font-family: var(--font-family-mono); font-size: 0.7rem; color: var(--zinc-500);">LIFO · Memoria Automática</span>
+                <span style="font-family: var(--font-family-mono); font-size: 0.7rem; color: var(--zinc-500);">LIFO · Automática</span>
               </div>
 
               <div id="ram-stack-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
                 ${this.stackVariables.map(v => `
                   <div class="fade-in-up" style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-md); padding: var(--space-3); font-family: var(--font-family-mono); font-size: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; color: #93c5fd; font-weight: 600;">
+                    <div style="display: flex; justify-content: space-between; color: #93c5fd; font-weight: 600; flex-wrap: wrap; gap: 4px;">
                       <span>${v.name}</span>
                       <span>${v.address}</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px;">
+                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px; flex-wrap: wrap; gap: 4px;">
                       <span>Valor: <strong style="color: #fff;">${v.value}</strong></span>
                       <span>${v.size}</span>
                     </div>
@@ -1194,16 +1228,16 @@ int main() {
               <div id="ram-heap-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
                 ${this.heapBlocks.length === 0 ? `
                   <div style="border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; color: var(--zinc-500); font-size: 0.75rem; font-family: var(--font-family-mono);">
-                    [ Heap Vacío — Cero fugas de memoria ]<br>
-                    Haz clic en "+ make_unique" para solicitar memoria dinámica
+                    [ Heap Vacío — Cero fugas ]<br>
+                    Pulsa "+ make_unique" para crear memoria dinámica
                   </div>
                 ` : this.heapBlocks.map(b => `
                   <div class="fade-in-up" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: var(--space-3); font-family: var(--font-family-mono); font-size: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; color: #6ee7b7; font-weight: 600;">
+                    <div style="display: flex; justify-content: space-between; color: #6ee7b7; font-weight: 600; flex-wrap: wrap; gap: 4px;">
                       <span>${b.name}</span>
                       <span>${b.address}</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px;">
+                    <div style="display: flex; justify-content: space-between; color: var(--zinc-400); margin-top: 4px; flex-wrap: wrap; gap: 4px;">
                       <span>Propietario RAII: <strong style="color: #93c5fd;">${b.owner}</strong></span>
                       <span>${b.size}</span>
                     </div>
@@ -1312,7 +1346,561 @@ int main() {
   }
 
   /* ==========================================================================
-     6. MAIN APPLICATION INITIALIZATION
+     6. STUDENT LOCAL PROGRESS TRACKER
+     ========================================================================== */
+  class ProgressTracker {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      this.storageKey = 'learningcpp_completed_lessons_v1';
+      this.totalLessons = MODULES.reduce((acc, m) => acc + m.lessonsCount, 0); // 117
+      this.completedLessons = this.load();
+      this.init();
+    }
+
+    load() {
+      try {
+        const data = localStorage.getItem(this.storageKey);
+        return data ? new Set(JSON.parse(data)) : new Set();
+      } catch {
+        return new Set();
+      }
+    }
+
+    save() {
+      try {
+        localStorage.setItem(this.storageKey, JSON.stringify(Array.from(this.completedLessons)));
+      } catch {}
+    }
+
+    toggleLesson(modId, lessonId) {
+      const key = `${modId}_${lessonId}`;
+      if (this.completedLessons.has(key)) {
+        this.completedLessons.delete(key);
+      } else {
+        this.completedLessons.add(key);
+      }
+      this.save();
+      this.render();
+    }
+
+    isCompleted(modId, lessonId) {
+      return this.completedLessons.has(`${modId}_${lessonId}`);
+    }
+
+    reset() {
+      if (confirm("¿Deseas reiniciar tu progreso guardado en este navegador?")) {
+        this.completedLessons.clear();
+        this.save();
+        this.render();
+      }
+    }
+
+    init() {
+      this.render();
+    }
+
+    render() {
+      if (!this.container) return;
+      const count = this.completedLessons.size;
+      const percent = Math.round((count / this.totalLessons) * 100);
+      this.container.innerHTML = `
+        <div class="progress-info-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-weight: 700; color: var(--text-primary); font-family: var(--font-family-display);">Tu Progreso de Aprendizaje</span>
+            <span class="badge badge-cyan" style="font-size: 0.7rem;">${count} / ${this.totalLessons} Lecciones</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-family: var(--font-family-mono); font-weight: 700; color: ${percent > 0 ? '#34d399' : 'var(--text-muted)'};">${percent}%</span>
+            ${count > 0 ? `
+              <button id="btn-reset-progress" style="background: none; border: none; font-size: 0.7rem; color: var(--text-muted); cursor: pointer; text-decoration: underline;">
+                Reiniciar
+              </button>
+            ` : ''}
+          </div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: ${percent}%;"></div>
+        </div>
+      `;
+
+      const resetBtn = this.container.querySelector('#btn-reset-progress');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => this.reset());
+      }
+    }
+  }
+
+  /* ==========================================================================
+     7. CODE COPY MANAGER (CLICK TO COPY)
+     ========================================================================== */
+  class CodeCopyManager {
+    static init() {
+      document.querySelectorAll('pre').forEach(pre => {
+        if (pre.querySelector('.code-copy-btn')) return;
+        const btn = document.createElement('button');
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', 'Copiar código al portapapeles');
+        btn.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copiar</span>
+        `;
+
+        btn.addEventListener('click', async () => {
+          const codeElem = pre.querySelector('code') || pre;
+          const text = codeElem.innerText;
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+            }
+            btn.classList.add('copied');
+            btn.innerHTML = `
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Copiado!</span>
+            `;
+            setTimeout(() => {
+              btn.classList.remove('copied');
+              btn.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copiar</span>
+              `;
+            }, 2000);
+          } catch (err) {
+            console.error("Error al copiar:", err);
+          }
+        });
+
+        pre.appendChild(btn);
+      });
+    }
+  }
+
+  /* ==========================================================================
+     8. LIVE C++ ANTI-PATTERN LINTER
+     ========================================================================== */
+  class CxxLinter {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      if (!this.container) return;
+      this.sampleCodes = {
+        badNamespaces: `#include <iostream>\nusing namespace std; // ❌ Anti-patrón\n\nint main() {\n    cout << "Hola Mundo" << endl; // ❌ std::endl forzado\n    return 0;\n}`,
+        badInit: `#include <iostream>\n\nint main() {\n    int puntos; // ❌ Basura en RAM\n    double precio = (double)100 / 3; // ❌ C-cast inseguro\n    std::cout << "Puntos: " << puntos << '\\n';\n    return 0;\n}`,
+        goodModern: `#include <iostream>\n\nint main() {\n    // ✅ Inicialización uniforme {} y static_cast seguro\n    int puntos{100};\n    double precio{ static_cast<double>(100) / 3 };\n    std::cout << "Puntos garantizados: " << puntos << '\\n';\n    return 0;\n}`
+      };
+      this.currentCode = this.sampleCodes.badNamespaces;
+      this.init();
+    }
+
+    init() {
+      this.render();
+      this.bindEvents();
+      this.analyze();
+    }
+
+    render() {
+      this.container.innerHTML = `
+        <div class="linter-container">
+          <div class="linter-top-bar">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); font-weight: 700;">AUDITOR ESTÁTICO C++17/20 EN VIVO</span>
+            </div>
+            <div class="linter-presets">
+              <span style="font-size: 0.72rem; color: var(--text-muted); align-self: center;">Ejemplos:</span>
+              <button class="linter-preset-btn" data-preset="badNamespaces">using namespace std;</button>
+              <button class="linter-preset-btn" data-preset="badInit">Basura & C-Cast</button>
+              <button class="linter-preset-btn" data-preset="goodModern">C++ Moderno Idiomático</button>
+            </div>
+          </div>
+
+          <div class="linter-editor-area">
+            <textarea id="linter-code-input" class="linter-textarea" spellcheck="false" placeholder="Escribe o pega código C++ aquí para analizarlo en vivo...">${this.currentCode}</textarea>
+            <div id="linter-diagnostics" class="linter-diagnostics-panel" role="log" aria-live="polite"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindEvents() {
+      const textarea = this.container.querySelector('#linter-code-input');
+      if (textarea) {
+        textarea.addEventListener('input', () => {
+          this.currentCode = textarea.value;
+          this.analyze();
+        });
+      }
+
+      this.container.querySelectorAll('.linter-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.preset;
+          if (this.sampleCodes[key]) {
+            this.currentCode = this.sampleCodes[key];
+            if (textarea) textarea.value = this.currentCode;
+            this.analyze();
+          }
+        });
+      });
+    }
+
+    analyze() {
+      const code = this.currentCode;
+      const diagPanel = this.container.querySelector('#linter-diagnostics');
+      if (!diagPanel) return;
+
+      const issues = [];
+      const goods = [];
+
+      if (/using\s+namespace\s+std\s*;/i.test(code)) {
+        issues.push({
+          title: "Veto a 'using namespace std;'",
+          desc: "Provoca colisiones de nombres globales en proyectos medianos y grandes. Usa siempre 'std::cout', 'std::cin', 'std::string'.",
+          rule: "Veto #1"
+        });
+      } else if (/std::/i.test(code)) {
+        goods.push({
+          title: "Prefijo explícito 'std::' verificado",
+          desc: "Excelente. El código tiene aislamiento estricto de ámbito sin colisiones globales."
+        });
+      }
+
+      if (/std::endl/i.test(code)) {
+        issues.push({
+          title: "Veto a 'std::endl' (Forced Flush)",
+          desc: "Fuerza un vaciado de buffer (flush) costoso e innecesario que degrada el I/O. Sustitúyelo por el carácter de salto de línea '\\n'.",
+          rule: "Veto #2"
+        });
+      } else if (/['"]\\n['"]/.test(code)) {
+        goods.push({
+          title: "Salto de línea '\\n' directo verificado",
+          desc: "Óptimo rendimiento de E/S sin forzar flushes destructivos."
+        });
+      }
+
+      if (/\b(int|double|float|char|bool)\s+[a-zA-Z_]\w*\s*;/i.test(code)) {
+        issues.push({
+          title: "Peligro de Basura Residual en RAM",
+          desc: "Declaraste variables primitivas sin inicializar. Usa siempre inicialización uniforme: 'int x{0};', 'double y{0.0};'.",
+          rule: "Inicialización Uniforme"
+        });
+      } else if (/\b(int|double|float|char|bool)\s+[a-zA-Z_]\w*\s*\{/i.test(code)) {
+        goods.push({
+          title: "Inicialización uniforme '{}' verificada",
+          desc: "Previene conversiones estrechas (*Narrowing*) y garantiza memoria limpia en Stack."
+        });
+      }
+
+      if (/\((int|double|float|char)\)\s*[a-zA-Z0-9_]+/i.test(code)) {
+        issues.push({
+          title: "C-Style Cast Inseguro detectado",
+          desc: "Los castings de C '(tipo)x' anulan la verificación de tipos. Usa 'static_cast<tipo>(x)'.",
+          rule: "Casting Seguro"
+        });
+      } else if (/static_cast<.*?>/i.test(code)) {
+        goods.push({
+          title: "static_cast explícito verificado",
+          desc: "Conversión de tipos validada en tiempo de compilación."
+        });
+      }
+
+      if (/\brand\s*\(\s*\)/i.test(code)) {
+        issues.push({
+          title: "Función arcaica 'rand()' detectada",
+          desc: "Genera números sesgados y no uniformes. Usa <random> con 'std::mt19937' y distribuciones estándar.",
+          rule: "Aleatoriedad Moderna"
+        });
+      }
+
+      let html = `
+        <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-family-mono); letter-spacing: 0.05em; font-weight: 700; margin-bottom: 2px;">
+          Diagnóstico en Tiempo Real (${issues.length} advertencias · ${goods.length} conformidades)
+        </div>
+      `;
+
+      if (issues.length === 0 && goods.length === 0) {
+        html += `
+          <div style="padding: var(--space-4); color: var(--text-muted); font-size: 0.8rem; text-align: center;">
+            Escribe código en el editor para auditarlo según los estándares de C++17/20.
+          </div>
+        `;
+      } else {
+        issues.forEach(iss => {
+          html += `
+            <div class="diagnostic-item danger">
+              <div style="display: flex; justify-content: space-between; font-weight: 700;">
+                <span>❌ ${iss.title}</span>
+                <span class="diff-tag" style="background: rgba(244, 63, 94, 0.2);">${iss.rule}</span>
+              </div>
+              <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; line-height: 1.4;">${iss.desc}</div>
+            </div>
+          `;
+        });
+
+        goods.forEach(g => {
+          html += `
+            <div class="diagnostic-item success">
+              <div style="font-weight: 700;">✅ ${g.title}</div>
+              <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; line-height: 1.4;">${g.desc}</div>
+            </div>
+          `;
+        });
+      }
+
+      diagPanel.innerHTML = html;
+    }
+  }
+
+  /* ==========================================================================
+     9. PIPELINE EXPLORER (AST & ASSEMBLY)
+     ========================================================================== */
+  class PipelineExplorer {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      if (!this.container) return;
+      this.presets = [
+        {
+          id: "arithmetic",
+          name: "1. Suma Aritmética",
+          badge: "Función Simple",
+          cpp: `int sumar(int a, int b) {\n    return a + b;\n}`,
+          ast: `FunctionDecl sumar 'int (int, int)'\n|-ParmVarDecl a 'int'\n|-ParmVarDecl b 'int'\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-BinaryOperator '+' 'int'\n      |-DeclRefExpr 'a'\n      \`-DeclRefExpr 'b'`,
+          asm: `sumar(int, int):\n    lea     eax, [rdi+rsi]    ; Carga directa de la suma en registro EAX\n    ret                       ; Retorna al llamador con el resultado en EAX`,
+          opt: `// Optimización -O2:\n// El compilador elimina la sobrecarga de marco de pila y usa la instrucción x86 LEA.\n// Ciclos de CPU consumidos: 1 ciclo (~0.3 nanosegundos).`
+        },
+        {
+          id: "constexpr",
+          name: "2. Constexpr (Cero Costo)",
+          badge: "Compile-Time",
+          cpp: `constexpr int calcularArea(int base, int altura) {\n    return base * altura;\n}\n\nint main() {\n    constexpr int area = calcularArea(10, 20);\n    return area;\n}`,
+          ast: `FunctionDecl constexpr calcularArea 'int (int, int)'\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-BinaryOperator '*' 'int'\nVarDecl area 'const int' constexpr cinit\n\`-ConstantExpr 'int' [value = 200]`,
+          asm: `main:\n    mov     eax, 200          ; ¡El cálculo 10 * 20 fue resuelto en compilación!\n    ret                       ; Retorna el valor inmediato 200 con cero llamadas.`,
+          opt: `// Optimización -O2 / constexpr:\n// CERO operaciones de multiplicación en tiempo de ejecución.\n// El binario almacena directamente el número $200.`
+        },
+        {
+          id: "passbyref",
+          name: "3. Paso por Referencia const &",
+          badge: "Zero-Copy",
+          cpp: `struct Jugador { int hp; char nombre[64]; };\n\nint obtenerVida(const Jugador& p) {\n    return p.hp; // Cero copias de los 68 bytes\n}`,
+          ast: `FunctionDecl obtenerVida 'int (const Jugador &)'\n|-ParmVarDecl p 'const Jugador &' (LValueReference)\n\`-CompoundStmt\n  \`-ReturnStmt\n    \`-MemberExpr .hp 'int'\n      \`-DeclRefExpr 'p'`,
+          asm: `obtenerVida(Jugador const&):\n    mov     eax, DWORD PTR [rdi] ; Lee los 4 bytes de hp a través del puntero RDI\n    ret`,
+          opt: `// Optimización Zero-Copy:\n// En lugar de clonar 68 bytes en el Stack, pasa un puntero de 8 bytes.\n// Reducción del 88% en ancho de banda de memoria.`
+        }
+      ];
+      this.currentPresetIndex = 0;
+      this.init();
+    }
+
+    init() {
+      this.render();
+      this.bindEvents();
+    }
+
+    render() {
+      const item = this.presets[this.currentPresetIndex];
+      this.container.innerHTML = `
+        <div style="background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card);">
+          <div style="padding: var(--space-4) var(--space-6); background: #161b22; border-bottom: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);">
+            <div>
+              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; color: var(--zinc-400); font-weight: 700;">EXPLORADOR DEL PIPELINE DEL COMPILADOR (g++ / Clang x86_64)</span>
+              <h4 style="font-size: var(--font-size-base); margin-top: 2px;">De Código C++ a Instrucciones Nativas de CPU</h4>
+            </div>
+            <div class="pipeline-tabs-nav">
+              ${this.presets.map((p, idx) => `
+                <button class="btn btn-secondary pipeline-preset-btn ${idx === this.currentPresetIndex ? 'active' : ''}" data-index="${idx}" style="font-size: 0.72rem; padding: 0.35rem 0.75rem; ${idx === this.currentPresetIndex ? 'background: var(--text-primary); color: var(--text-inverse); font-weight: 700;' : ''}">
+                  ${p.name}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border-subtle);">
+            
+            <!-- Stage 1: C++ -->
+            <div class="pipeline-stage-card">
+              <div class="pipeline-stage-header">
+                <span>1. Código Fuente C++</span>
+                <span class="badge badge-cyan">${item.badge}</span>
+              </div>
+              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px;"><code class="language-cpp">${item.cpp}</code></pre>
+            </div>
+
+            <!-- Stage 2: AST -->
+            <div class="pipeline-stage-card">
+              <div class="pipeline-stage-header">
+                <span>2. Árbol de Sintaxis (AST)</span>
+                <span style="font-size: 0.7rem; color: var(--text-muted);">Clang Parser</span>
+              </div>
+              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px; color: #93c5fd;"><code class="language-text">${item.ast}</code></pre>
+            </div>
+
+            <!-- Stage 3: x86_64 Assembly -->
+            <div class="pipeline-stage-card">
+              <div class="pipeline-stage-header">
+                <span>3. Ensamblador x86_64</span>
+                <span style="font-size: 0.7rem; color: #34d399;">CPU Nativa</span>
+              </div>
+              <pre style="margin: 0; border: none; border-radius: 0; min-height: 180px; color: #6ee7b7;"><code class="language-nasm">${item.asm}</code></pre>
+            </div>
+
+          </div>
+
+          <div style="padding: var(--space-4) var(--space-6); background: var(--bg-surface); border-top: 1px solid var(--border-subtle); font-family: var(--font-family-mono); font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;">
+            ${item.opt}
+          </div>
+        </div>
+      `;
+    }
+
+    bindEvents() {
+      this.container.querySelectorAll('.pipeline-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this.currentPresetIndex = parseInt(btn.dataset.index, 10);
+          this.render();
+          this.bindEvents();
+          CodeCopyManager.init();
+        });
+      });
+    }
+  }
+
+  /* ==========================================================================
+     10. MANIM LIGHTBOX VISUAL MODAL
+     ========================================================================== */
+  class ManimLightbox {
+    constructor(modalId) {
+      this.modal = document.getElementById(modalId);
+      if (!this.modal) return;
+      this.data = {
+        compilation: {
+          title: "El Pipeline del Compilador (C++ a Binario x86_64)",
+          src: "../01_GettingStarted/theory/assets/l00_compilation.gif",
+          alt: "Pipeline del Compilador C++",
+          breakdown: [
+            { tag: "Preprocesador", desc: "Expande las directivas #include e inserta el contenido crudo de las cabeceras." },
+            { tag: "Compilador (g++)", desc: "Genera el Árbol AST y traduce a código de máquina x86_64 optimizado." },
+            { tag: "Linker", desc: "Enlaza símbolos y bibliotecas estándar para generar el archivo ejecutable final." }
+          ]
+        },
+        shadowing: {
+          title: "Variable Shadowing en el Stack",
+          src: "../03_ScopeAndControlFlow/theory/assets/l03_variable_shadowing.gif",
+          alt: "Variable Shadowing en memoria",
+          breakdown: [
+            { tag: "Stack Externo", desc: "Variable original viva en el marco del bloque superior." },
+            { tag: "Llaves {}", desc: "Apertura de un nuevo ámbito que oculta la variable externa con el mismo nombre." },
+            { tag: "Cierre de Bloque", desc: "Destrucción de la variable local interna, revelando nuevamente la original." }
+          ]
+        },
+        passbyvalue: {
+          title: "La Trampa del Clon: Pass-by-Value en Stack",
+          src: "../04_Functions/theory/assets/l04_pass_by_value.gif",
+          alt: "Pass-by-value en la pila",
+          breakdown: [
+            { tag: "Stack Frame main()", desc: "Almacena la variable original en su dirección física de memoria." },
+            { tag: "Stack Frame función()", desc: "Copia/clona el valor en una nueva dirección aislada sin mutar el original." },
+            { tag: "Solución Idiomática", desc: "Usar referencias '&' o 'const &' para operar directamente sobre la dirección original." }
+          ]
+        },
+        const: {
+          title: "Blindaje de Inmutabilidad (const) en RAM",
+          src: "../05_ConstantsAndStrings/theory/assets/l01_const_memory.gif",
+          alt: "Escudo inmutable const",
+          breakdown: [
+            { tag: "Celda en Stack", desc: "La variable recibe un candado de solo lectura verificado por el compilador." },
+            { tag: "Intento de Mutación", desc: "El compilador emite un error estático antes de que el programa pueda ejecutarse." },
+            { tag: "Constexpr", desc: "Permite evaluar expresiones fijas en tiempo de compilación con cero sobrecarga en runtime." }
+          ]
+        }
+      };
+      this.init();
+    }
+
+    init() {
+      this.bindEvents();
+    }
+
+    bindEvents() {
+      document.querySelectorAll('.gallery-trigger-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const id = card.dataset.animId;
+          if (this.data[id]) {
+            this.open(this.data[id]);
+          }
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const id = card.dataset.animId;
+            if (this.data[id]) this.open(this.data[id]);
+          }
+        });
+      });
+
+      const closeBtn = document.getElementById('lightbox-close-btn');
+      const closeFooterBtn = document.getElementById('lightbox-close-footer-btn');
+      const replayBtn = document.getElementById('lightbox-replay-btn');
+
+      if (closeBtn) closeBtn.addEventListener('click', () => this.close());
+      if (closeFooterBtn) closeFooterBtn.addEventListener('click', () => this.close());
+      if (this.modal) {
+        this.modal.addEventListener('click', (e) => {
+          if (e.target === this.modal) this.close();
+        });
+      }
+
+      if (replayBtn) {
+        replayBtn.addEventListener('click', () => {
+          const img = this.modal.querySelector('#lightbox-media-container img');
+          if (img) {
+            const src = img.src.split('?')[0];
+            img.src = src + '?t=' + Date.now();
+          }
+        });
+      }
+    }
+
+    open(item) {
+      const title = document.getElementById('lightbox-title');
+      const media = document.getElementById('lightbox-media-container');
+      const desc = document.getElementById('lightbox-description-container');
+
+      if (title) title.textContent = item.title;
+      if (media) {
+        media.innerHTML = `<img src="${item.src}" alt="${item.alt}">`;
+      }
+      if (desc) {
+        desc.innerHTML = `
+          <h4 style="font-size: var(--font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin-bottom: var(--space-3);">
+            🧠 Traducción Visual a Memoria Física & Hardware
+          </h4>
+          <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+            ${item.breakdown.map(b => `
+              <div style="display: flex; gap: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.8rem;">
+                <span style="font-family: var(--font-family-mono); font-weight: 700; color: #93c5fd; min-width: 140px;">${b.tag}</span>
+                <span style="color: var(--text-secondary);">${b.desc}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      this.modal.classList.add('open');
+      this.modal.setAttribute('aria-hidden', 'false');
+    }
+
+    close() {
+      if (!this.modal) return;
+      this.modal.classList.remove('open');
+      this.modal.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  /* ==========================================================================
+     11. MAIN APPLICATION INITIALIZATION
      ========================================================================== */
   function initApp() {
     // 1. Theme Management
@@ -1340,13 +1928,64 @@ int main() {
         : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
     }
 
-    // 2. Initialize Core Components
+    // 2. Mobile Navigation Drawer Controls
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+    const mobileNavCloseBtn = document.getElementById('mobile-nav-close-btn');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const openMobileMenu = () => {
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.classList.add('open');
+        mobileNavBackdrop.setAttribute('aria-hidden', 'false');
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const closeMobileMenu = () => {
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.classList.remove('open');
+        mobileNavBackdrop.setAttribute('aria-hidden', 'true');
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    };
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileMenu);
+    }
+
+    if (mobileNavCloseBtn) {
+      mobileNavCloseBtn.addEventListener('click', closeMobileMenu);
+    }
+
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.addEventListener('click', (e) => {
+        if (e.target === mobileNavBackdrop) {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+
+    // 3. Initialize Core & Senior Components
+    window.__progressTracker = new ProgressTracker('student-progress-widget');
     new TerminalSimulator('hero-terminal-container');
     new CodePlayground('interactive-code-playground');
     new ModulesExplorer('modules-grid-container', 'module-detail-modal');
+    new CxxLinter('interactive-linter-container');
     new RamVisualizer('interactive-ram-visualizer-container');
+    new PipelineExplorer('compiler-pipeline-explorer-container');
+    new ManimLightbox('manim-lightbox-modal');
+    CodeCopyManager.init();
 
-    // 3. Throttled Spotlight Mouse Tracking (requestAnimationFrame for smooth 60fps)
+    // 4. Throttled Spotlight Mouse Tracking
     let rafId = null;
     document.addEventListener('mousemove', (e) => {
       if (rafId) return;
@@ -1363,7 +2002,118 @@ int main() {
       });
     }, { passive: true });
 
-    // 4. Platform Quick-Start Tabs
+    // 4B. Interactive Studio Hub Tabs
+    const studioTabs = document.querySelectorAll('.studio-tab-btn');
+    const studioPanels = document.querySelectorAll('.studio-tab-panel');
+
+    studioTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.dataset.tab;
+        studioTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        studioPanels.forEach(panel => {
+          panel.style.display = (panel.id === targetId) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // 4C. Mobile Interactive Comparison Hub
+    const compareData = [
+      {
+        num: "01",
+        title: "Espacio de Nombres",
+        badCode: "using namespace std;",
+        goodCode: "std::cout / std::cin",
+        advantage: "Cero colisiones de nombres globales en bases de código reales."
+      },
+      {
+        num: "02",
+        title: "Salto de Línea",
+        badCode: "std::endl (Flush forzado)",
+        goodCode: "'\\n' directo",
+        advantage: "Elimina cuellos de botella de E/S evitando vaciados de buffer innecesarios."
+      },
+      {
+        num: "03",
+        title: "Inicialización de Variables",
+        badCode: "int x; (Basura residual)",
+        goodCode: "int x{0}; (Uniforme)",
+        advantage: "Previene basura en RAM y conversiones estrechas destructivas (Narrowing)."
+      },
+      {
+        num: "04",
+        title: "Colecciones Dinámicas",
+        badCode: "int arr[N]; (C-Arrays)",
+        goodCode: "std::vector&lt;T&gt; con .at()",
+        advantage: "Gestión automática en memoria contigua y protección ante Buffer Overflow."
+      },
+      {
+        num: "05",
+        title: "Gestión de Memoria",
+        badCode: "new[] / delete[] crudos",
+        goodCode: "std::unique_ptr&lt;T&gt; (RAII)",
+        advantage: "Destrucción determinista de memoria en Heap 100% libre de fugas (Memory Leaks)."
+      },
+      {
+        num: "06",
+        title: "Números Aleatorios",
+        badCode: "rand() % N (Sesgado)",
+        goodCode: "std::mt19937 (&lt;random&gt;)",
+        advantage: "Distribución uniforme real de grado industrial sin sesgos matemáticos."
+      }
+    ];
+
+    const compareDisplay = document.getElementById('compare-mobile-display');
+    const comparePills = document.querySelectorAll('.compare-pill-btn');
+
+    const renderCompareCard = (index) => {
+      if (!compareDisplay) return;
+      const item = compareData[index] || compareData[0];
+      compareDisplay.innerHTML = `
+        <header class="compare-card-header">
+          <span class="module-id-badge" style="font-size: 0.7rem;">${item.num}</span>
+          <h3 class="compare-card-title">${item.title}</h3>
+        </header>
+        <div class="compare-dual-grid">
+          <div class="compare-box compare-box-broken">
+            <div class="compare-box-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>C++98 Clásico</span>
+            </div>
+            <div class="compare-box-content">${item.badCode}</div>
+          </div>
+          <div class="compare-box compare-box-fixed">
+            <div class="compare-box-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>C++17/20 Moderno</span>
+            </div>
+            <div class="compare-box-content">${item.goodCode}</div>
+          </div>
+        </div>
+        <div class="compare-advantage-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          <div><strong>Ventaja:</strong> ${item.advantage}</div>
+        </div>
+      `;
+    };
+
+    if (comparePills.length > 0) {
+      renderCompareCard(0);
+      comparePills.forEach((pill, idx) => {
+        pill.addEventListener('click', () => {
+          comparePills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          renderCompareCard(idx);
+        });
+      });
+    }
+
+    // 5. Platform Quick-Start Tabs
     const platformTabs = document.querySelectorAll('.platform-tab-btn');
     const platformContents = document.querySelectorAll('.platform-snippet');
 
@@ -1383,7 +2133,7 @@ int main() {
       });
     });
 
-    // 5. FAQ Accordions (Accessible with keyboard support)
+    // 6. FAQ Accordions
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
       const header = item.querySelector('.accordion-header');
@@ -1411,7 +2161,7 @@ int main() {
       }
     });
 
-    // 6. Global Search Shortcut (Ctrl+K or Cmd+K)
+    // 7. Global Shortcuts & Escape Handling
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
@@ -1419,6 +2169,14 @@ int main() {
         if (searchInput) {
           searchInput.focus();
           searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else if (e.key === 'Escape') {
+        if (mobileNavBackdrop && mobileNavBackdrop.classList.contains('open')) {
+          closeMobileMenu();
+        }
+        const lightbox = document.getElementById('manim-lightbox-modal');
+        if (lightbox && lightbox.classList.contains('open')) {
+          lightbox.classList.remove('open');
         }
       }
     });

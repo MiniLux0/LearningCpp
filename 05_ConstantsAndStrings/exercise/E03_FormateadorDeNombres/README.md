@@ -8,3 +8,14 @@ Abre el archivo `E03_FormateadorDeNombres.cpp`.
 1. Asegúrate de incluir la librería correcta que le da el poder al programa para entender y manipular `std::string`.
 2. Repara la línea que genera la etiqueta de chat. El error ocurre porque el compilador intenta evaluar `"Etiqueta: " + "[Novato] "` de izquierda a derecha. Ambos son literales estáticos (C-strings) y carecen de métodos de concatenación.
 3. Puedes repararlo encerrando la primera palabra en un tipo `std::string` explícitamente (ej: `std::string{"Etiqueta: "}`) para forzar que toda la cadena inicie como una estructura de datos dinámica.
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E03_FormateadorDeNombres.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

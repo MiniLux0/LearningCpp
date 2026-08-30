@@ -34,9 +34,16 @@ int main() {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l04_pass_by_value.gif`*: Mostrar la variable original brillante y protegida por un escudo de cristal (el Scope de `main`). Al invocar a la función, un haz de luz escanea la variable, crea un "clon holográfico" independiente, y este clon viaja hacia el bloque de la función. La función aplica una suma al clon mutándolo, pero al regresar la cámara al Scope principal, la variable original sigue intacta.
+<div align="center">
+  <img src="assets/l04_pass_by_value.gif" alt="Aislamiento de Scope y modelo Pass-by-value en C++">
+</div>
+
+#### 🔍 Traducción Visual del Modelo Pass-by-value:
+* **Panel Izquierdo (`copia.cpp`):** Código fuente donde `main()` invoca a `procesar(orig)`.
+* **Direcciones Físicas en Stack RAM (Derecha):** `orig` reside protegida en `0x7FFEE0` y `copia` nace en una dirección independiente `0x7FFEE8`.
+* **Clonación de Memoria:** Al invocar la función, el compilador duplica el valor (`5`) y lo transporta al nuevo espacio físico.
+* **Mutación Aislada:** La reasignación `copia = 999` modifica exclusivamente `0x7FFEE8`.
+* **Destrucción y Estado Intacto:** Al salir de `}`, el clon local desaparece y `orig` en `0x7FFEE0` conserva intacto su valor original `5`.
 
 ---
 

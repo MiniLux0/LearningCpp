@@ -18,7 +18,7 @@ Esta carpeta agrupa las simulaciones diseñadas para dominar el **Control de Flu
 1. Entra a la carpeta del reto de tu interés.
 2. Todo reto tiene un contexto o "lore", así que **siempre lee el `README.md`** que está dentro de la carpeta antes de tocar el código.
 3. Abre el archivo principal `.cpp` y sigue las instrucciones que están detalladas en los comentarios (busca los `TODO`).
-4. Compila el archivo a mano usando la terminal (ej: `g++ E01_SistemaDeClima.cpp -o app`).
+4. Compila el archivo a mano usando la terminal (ej: `g++ -std=c++17 E01_SistemaDeClima.cpp -o app`).
 5. Si encuentras un bloqueo arquitectónico o la terminal colapsa (ej. *Infinite Loop*), accede a la subcarpeta `solution/` y analiza el código resuelto de referencia.
 
 ---

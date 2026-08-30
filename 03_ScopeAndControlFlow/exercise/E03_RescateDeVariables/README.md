@@ -12,6 +12,13 @@ El código base tiene dos defectos estructurales relacionados con el Scope:
 2. Mueve la declaración de `recompensaTotal` hacia el Scope exterior (`main`) para extender su ciclo de vida y visibilidad.
 3. Elimina la redeclaración engañosa (Shadowing) removiendo la palabra clave `int` durante la operación aritmética para que la mutación modifique la variable correcta en memoria.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E03_RescateDeVariables.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

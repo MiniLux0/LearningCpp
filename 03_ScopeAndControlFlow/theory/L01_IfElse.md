@@ -97,8 +97,8 @@ En C++, el `;` indica el final de una instrucción. Al colocarlo ahí, el compil
 
 ---
 
-| ⬅️ [Anterior: README.md](../README.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L02_ElseIf.md](L02_ElseIf.md) |
-|---|---|---|
+| ⬅️ [Anterior: README.md](../README.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L02_ElseIf.md](L02_ElseIf.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

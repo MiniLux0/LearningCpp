@@ -59,7 +59,7 @@ Esto hace que tus programas (especialmente motores gráficos y sistemas embebido
 
 ---
 
-| ⬅️ [Anterior: L01_Const.md](L01_Const.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L03_String.md](L03_String.md) |
+| ⬅️ [Anterior: L01_Const.md](L01_Const.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L03_String.md](L03_String.md) |
 |---|---|---|
 
 ---

@@ -88,8 +88,8 @@ Este fenómeno se documenta como **Variable Shadowing** (Sombreamiento de Variab
 
 ---
 
-| ⬅️ [Anterior: L02_ElseIf.md](L02_ElseIf.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L04_Switch.md](L04_Switch.md) |
-|---|---|---|
+| ⬅️ [Anterior: L02_ElseIf.md](L02_ElseIf.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L04_Switch.md](L04_Switch.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

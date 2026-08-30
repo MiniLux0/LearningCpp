@@ -37,9 +37,15 @@ int main() {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l06_refactoring.gif`*: Un bloque de texto denso representando un `main()` monolítico. Un escáner resalta un sub-bloque de 5 líneas de código. Ese sub-bloque es extraído de la pantalla y comprimido en una sola caja etiquetada como invocación (ej. `validarDatos()`). El `main()` colapsa su tamaño, demostrando la limpieza visual del proceso de Extracción de Rutinas.
+<div align="center">
+  <img src="assets/l06_refactoring.gif" alt="Refactorización y extracción de rutinas en C++">
+</div>
+
+#### 🔍 Traducción Visual del Proceso de Refactorización:
+* **Panel Izquierdo (`monolito.cpp`):** Código acoplado y denso con múltiples responsabilidades concentradas en `main()`.
+* **Escaneo y Extracción:** Se identifican bloques especializados (dibujar menús, validar entradas, procesar cálculos).
+* **Panel Derecho (`modular.cpp`):** Arquitectura desacoplada (*Separation of Concerns*) donde `main()` actúa como un orquestador de alto nivel auto-documentado.
+* **Principio DRY:** Delegación limpia que facilita el mantenimiento, las pruebas unitarias y la reutilización.
 
 ---
 

@@ -33,9 +33,14 @@ int lanzarDado() {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l07_rng_machine.gif`*: Un pulso de entropía de hardware (`random_device`) inyecta una semilla en un complejo algoritmo matricial (`mt19937`). El algoritmo procesa un output de 10 dígitos. Ese output gigantesco atraviesa un filtro normalizador etiquetado `[1-6]` (`uniform_int_distribution`), extrayendo estadísticamente un número de un solo dígito (ej. `4`).
+<div align="center">
+  <img src="assets/l07_rng_machine.gif" alt="Arquitectura de 3 capas para números pseudo-aleatorios en C++">
+</div>
+
+#### 🔍 Traducción Visual del Pipeline de Azar (<random>):
+* **1. Entropía de Hardware (`std::random_device` - Rojo):** Captura ruido físico del hardware para inyectar una semilla impredecible.
+* **2. Motor Pseudo-Aleatorio (`static std::mt19937` - Cian):** Genera secuencias numéricas de 32 bits de alta calidad. El modificador `static` preserva el motor en RAM evitando secuencias duplicadas.
+* **3. Distribución Uniforme (`std::uniform_int_distribution` - Oro/Verde):** Normaliza y mapea el output masivo en un rango entero exacto (1 a 6) sin sesgo estadístico.
 
 ---
 
@@ -58,6 +63,9 @@ El modificador `static` le ordena al compilador: *"Alójalo en la sección de da
 > 🏋️ **Ejercicio:** El algoritmo de *spawneo* de enemigos del RPG está instanciando hordas de clones idénticos debido a este fallo de memoria temporal. Atrévete con el reto en [`../exercise/E07_GeneradorDeSemillas/E07_GeneradorDeSemillas.cpp`](../exercise/E07_GeneradorDeSemillas/E07_GeneradorDeSemillas.cpp).
 
 ---
+
+> [!WARNING]
+> **Regla de oro:** Estas preguntas se pueden responder *solo* con lo que leíste en esta lección. No busques respuestas en librerías avanzadas ni conceptos no vistos.
 
 <details>
 <summary><b>Autochequeo: ¿Por qué no utilizamos la antigua función legacy <code>rand()</code> heredada de C?</b></summary>

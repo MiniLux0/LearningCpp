@@ -71,8 +71,8 @@ El bucle ejecutará **4 iteraciones** (la 0, 1, 2 y 3). Un desvío por uno parec
 
 ---
 
-| ⬅️ [Anterior: L05_WhileDoWhile.md](L05_WhileDoWhile.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L07_BreakContinue.md](L07_BreakContinue.md) |
-|---|---|---|
+| ⬅️ [Anterior: L05_WhileDoWhile.md](L05_WhileDoWhile.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L07_BreakContinue.md](L07_BreakContinue.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

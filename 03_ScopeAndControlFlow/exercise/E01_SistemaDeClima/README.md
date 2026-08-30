@@ -16,6 +16,13 @@ El programador junior anterior escribió el código a las 3 AM y dejó un desast
 2. Encuentra y elimina el error de sintaxis ("el punto y coma asesino") que hace que la primera condición falle.
 3. Unifica la lógica usando un solo bloque `if-else` en lugar de dos comprobaciones separadas.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E01_SistemaDeClima.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

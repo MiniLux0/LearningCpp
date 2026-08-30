@@ -24,18 +24,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
   - Se respaldó toda la documentación original en [`_backup_docs/`](_backup_docs/).
   - Se limpió la raíz del repositorio dejando únicamente los archivos esenciales para el alumno y agentes (`README.md`, `SYLLABUS.md`, `CHANGELOG.md`, `GEMINI.md`, `LearningCpp_Syllabus_Oficial.pdf`).
 - **Estandarización y Protocolo Maestro (`GEMINI.md`)**: Reescritura integral del reglamento para agentes de IA. Se incluyó el pipeline paso a paso para la creación de módulos, el mapa de referencia de los 15 módulos, los vetos absolutos (`using namespace std;` y `std::endl`), las reglas de scaffolding/fading, estándares de C++17/C++20 y los protocolos de validación pre-entrega.
-- **Módulo 01 — Getting Started**: Refactorización visual integral con 6 animaciones Manim (`l00` a `l06`) bajo la paleta Cyber-Academic Dark, eliminación de scripts obsoletos y validación de enlaces.
-- **Módulo 02 — Fundamental Types**: Modernización completa de sus 7 animaciones Manim (`l01` a `l07`), reemplazo de imágenes PNG estáticas por GIFs animados, estandarización de nomenclatura y tablas de traducción visual de memoria física.
-- **Módulo 03 — Scope & Control Flow**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 8 demos de bugs intencionales (`D01`–`D07b`), 8 retos prácticos con lore inmersivo (`E01`–`E08`), cheatsheet técnico y 7 animaciones Manim integradas.
-- **Módulo 04 — Functions**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 6 demos de bugs, 8 retos y 7 animaciones Manim (`l01` a `l07`).
-- **Módulo 05 — Constants & Strings**: Finalizado y completado al 100% con 6 lecciones teóricas, 6 laboratorios, 4 demos de bugs, 6 retos prácticos y sus **5 animaciones Manim de alta fidelidad** (`l01` a `l05`) bajo la paleta Cyber-Academic Dark y sistema de no-solapamiento.
+- **Módulo 01 — Getting Started**: Finalizado al 100% con 7 lecciones teóricas, laboratorios, demos, 6 retos y sus 6 animaciones Manim (`l00` a `l06`) bajo la paleta Cyber-Academic Dark.
+- **Módulo 02 — Fundamental Types**: Finalizado al 100% con 7 lecciones, 7 laboratorios, 4 demos de bugs, 7 retos y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con celdas estructuradas de memoria RAM Stack, diagnóstico de narrowing y pipeline de ALU.
+- **Módulo 03 — Scope & Control Flow**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 8 demos de bugs intencionales (`D01`–`D07b`), 8 retos prácticos con lore inmersivo (`E01`–`E08`), cheatsheet técnico y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con evaluación de bifurcaciones, jump tables, mutación en RAM y shadowing.
+- **Módulo 04 — Functions**: Finalizado al 100% con 8 lecciones teóricas, 8 laboratorios guiados, 6 demos de bugs, 8 retos y sus **7 animaciones Manim modernizadas** (`l01` a `l07`) con tipografía `MarkupText` a 20pt, sangría de 4 espacios (tab), puntero de depuración (`▶`), celdas estructuradas de Stack RAM y tarjetas de error de compilador de alto contraste.
+- **Módulo 05 — Constants & Strings**: Finalizado al 100% con 6 lecciones teóricas, 6 laboratorios, 4 demos de bugs, 6 retos prácticos y sus **5 animaciones Manim de alta fidelidad** (`l01` a `l05`) bajo la paleta Cyber-Academic Dark y sistema de no-solapamiento.
 - **Motor Central de Animaciones (`utils/`)**: Implementación del CLI de renderizado y auditoría `render_manager.py` y expansión de `BaseLearningScene` con primitivas UI estandarizadas.
-- **Estandarización Total Módulos 01 a 05**: Homologación absoluta de banners, cero emojis en código `.cpp`, prohibición estricta de `using namespace std;` y `std::endl`, y 100% de enlaces Markdown validados.
+- **Estandarización Total Módulos 01 a 05**: Homologación absoluta de banners, cero emojis en código `.cpp`, prohibición estricta de `using namespace std;` y `std::endl`, 100% de enlaces Markdown validados y pausas pedagógicas ampliadas (3.0s / 5.0s).
 
 ### En progreso
-- **Estandarización Módulos 04 y 05 con nuevo motor gráfico**: Homologación de animaciones Manim (`04_Functions`: 7 GIFs, `05_ConstantsAndStrings`: 5 GIFs) a la paleta Cyber-Academic Dark, primitivas `BaseLearningScene` y CLI `render_manager.py`. Generación y validación de GIFs finales en `utils/diagrams/animations/`.
-- **Mejora del README Principal**: Actualización de la tabla de progreso de módulos, enlaces a assets animados y badges de estado de renderizado.
-- **Implementación de Módulo 06 (Arrays & Vectors)**: Inicio de la Fase 3 (Colecciones) con 9 lecciones teóricas, laboratorios, demos de Buffer Overflow (`D02`) y límites seguros `.at()`.
+- **Implementación de Módulo 06 (Arrays & Vectors)**: Desarrollo activo de la Fase 3 (Colecciones) con sus 9 lecciones teóricas, laboratorios, demos de Buffer Overflow (`D02`), límites seguros `.at()` y arquitectura multi-archivo.
 
 ---
 

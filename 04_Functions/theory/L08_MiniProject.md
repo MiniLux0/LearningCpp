@@ -48,8 +48,8 @@ void buscarArchivo() {
 
 ---
 
-| ⬅️ [Anterior: Números Aleatorios Modernos](L07_Random.md) | 📖 [Menú del Módulo](../README.md) |
-|---|---|
+| ⬅️ [Anterior: L07_Random.md](L07_Random.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: Módulo 05](../../05_ConstantsAndStrings/README.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

@@ -27,9 +27,16 @@ int calcularDoble(int numero) {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l02_return_value.gif`*: Un bloque de Scope (caja) recibe un parámetro de entrada. Un algoritmo lo transforma en un nuevo valor. Al ejecutar la línea `return`, el nuevo valor sale disparado por una tubería de regreso al `main()`, y la caja de Scope colapsa y desaparece de la pantalla, demostrando el cierre del hilo de ejecución secundario.
+<div align="center">
+  <img src="assets/l02_return_value.gif" alt="Mecánica de retorno de valores y destrucción de Scope en C++">
+</div>
+
+#### 🔍 Traducción Visual de la Mecánica de Return:
+* **Panel Izquierdo (`doble.cpp`):** Código fuente con la invocación y ejecución de `return res;`.
+* **Stack RAM (Derecha):** Marco de pila (*Stack Frame*) de `calcularDoble(5)` con variables locales aisladas `n = 5` y `res = 10`.
+* **Transferencia de Output:** Al alcanzar `return`, el valor procesado (`10`) viaja de vuelta al frame de `main()` y se almacena en `total`.
+* **Stack Pop (Destrucción de Scope):** El marco de memoria de la función se destruye inmediatamente tras el retorno.
+* **Dead Code (Código Inalcanzable):** Cualquier línea situada debajo de un `return` ejecutado queda inhabilitada y jamás consumirá ciclos de CPU.
 
 ---
 

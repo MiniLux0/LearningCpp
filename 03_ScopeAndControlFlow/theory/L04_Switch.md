@@ -98,8 +98,8 @@ switch (opcion) {
 
 ---
 
-| ⬅️ [Anterior: L03_BlocksAndScope.md](L03_BlocksAndScope.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L05_WhileDoWhile.md](L05_WhileDoWhile.md) |
-|---|---|---|
+| ⬅️ [Anterior: L03_BlocksAndScope.md](L03_BlocksAndScope.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L05_WhileDoWhile.md](L05_WhileDoWhile.md) |
+|:---|:---:|---:|
 
 ---
 <div align="center">

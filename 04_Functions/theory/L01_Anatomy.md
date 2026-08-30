@@ -18,9 +18,16 @@ TipoDeRetorno nombreDeLaFuncion(Parametros) {
 }
 ```
 
-> [!NOTE]
-> **Planificación de Animación (manim-composer):**
-> *`l01_anatomy_of_a_function.gif`*: Una animación tipo plano (blueprint) donde se muestra la estructura de una función de C++. La palabra `int` se ilumina y sale una flecha técnica: "Tipo de Retorno (Output)". El nombre se ilumina: "Identificador (Invocación)". Los paréntesis se iluminan: "Parámetros (Input)". Las llaves `{}` se iluminan: "Cuerpo (Scope / Ejecución)".
+<div align="center">
+  <img src="assets/l01_anatomy_of_a_function.gif" alt="Anatomía de una función en C++">
+</div>
+
+#### 🔍 Traducción Visual de la Firma y Componentes:
+* **Panel Izquierdo (`matematica.cpp`):** Código fuente de la función `sumar` con sus cuatro componentes analizados.
+* **1. Tipo de Retorno (`int` - Verde):** Define el tipo de dato garantizado que la función inyectará de vuelta al llamador.
+* **2. Identificador (`sumar` - Cian):** Nombre único mediante el cual el flujo de ejecución invoca y transfiere el control a la rutina.
+* **3. Parámetros (`(int a, int b)` - Oro):** Canales de entrada que reciben y alojan las variables clonadas por *Pass-by-value*.
+* **4. Scope Local (`{ ... }` - Púrpura):** Cuerpo y frontera estricta de memoria; toda variable interna se destruye al alcanzar la llave de cierre `}`.
 
 Si escribiéramos una función real para sumar números, se vería así:
 

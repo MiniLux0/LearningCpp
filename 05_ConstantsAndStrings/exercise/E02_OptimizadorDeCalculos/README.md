@@ -9,3 +9,14 @@ Por regla de oro, cualquier cálculo matemático que pueda realizarse **antes de
 Abre el archivo `E02_OptimizadorDeCalculos.cpp`. 
 1. Utiliza `constexpr` y la inicialización uniforme `{}` para todas las variables y cálculos cuyas respuestas el compilador puede saber por adelantado.
 2. Existe un sistema de simulación de temperatura que lee el estado térmico de los paneles solares usando `std::cin`. Este valor **solo** se conoce en el espacio, en vivo. Asegúrate de proteger esa variable correctamente (piensa: ¿aquí va `const` o `constexpr`?).
+
+## 💻 Compilación y Ejecución
+```bash
+g++ -std=c++17 E02_OptimizadorDeCalculos.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

@@ -17,6 +17,13 @@ El sistema debe instanciar un balance inicial de $1000 y gestionar un menú de 3
    - **Caso Default:** Atrapa *inputs* anómalos imprimiendo "Opción inválida".
 4. **Arquitectura de Memoria Estricta:** Asegura que la declaración de la variable `saldo` ocurra en el *Scope Exterior* (antes de iniciar la iteración) para evitar que la memoria sea reasignada a $1000 en cada ciclo. Aplica bloques de aislamiento `{ }` en tus ramas `case` si requieres inicializar variables locales.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E08_CajeroAutomatico.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

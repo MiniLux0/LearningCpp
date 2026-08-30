@@ -70,7 +70,7 @@ Dado que `std::string_view` no es dueño de la memoria (solo la observa), debes 
 
 ---
 
-| ⬅️ [Anterior: L03_String.md](L03_String.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L05_CinValidation.md](L05_CinValidation.md) |
+| ⬅️ [Anterior: L03_String.md](L03_String.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L05_CinValidation.md](L05_CinValidation.md) |
 |---|---|---|
 
 ---

@@ -14,3 +14,16 @@ Tu misión es arreglar el flujo de retorno de los datos.
 1. No alteres la fórmula matemática, el cálculo aritmético ya es correcto.
 2. Añade la capacidad de **retornar** la transformación matemática de vuelta al Scope que invocó a la función.
 3. Modifica la invocación en el `main()` para que atrape (reasigne) el valor que devuelve la función en lugar de perder el cálculo temporal.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E04_ConversorDeTemperaturas.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>

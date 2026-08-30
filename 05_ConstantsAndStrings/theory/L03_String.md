@@ -75,7 +75,7 @@ std::string mensaje = palabra + "Mundo";
 
 ---
 
-| ⬅️ [Anterior: L02_Constexpr.md](L02_Constexpr.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L04_StringView.md](L04_StringView.md) |
+| ⬅️ [Anterior: L02_Constexpr.md](L02_Constexpr.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L04_StringView.md](L04_StringView.md) |
 |---|---|---|
 
 ---

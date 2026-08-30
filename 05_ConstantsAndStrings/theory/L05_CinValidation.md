@@ -67,7 +67,7 @@ int main() {
 
 ---
 
-| ⬅️ [Anterior: L04_StringView.md](L04_StringView.md) | 📖 [Menu del Modulo](../README.md) | ➡️ [Siguiente: L06_MiniProject.md](L06_MiniProject.md) |
+| ⬅️ [Anterior: L04_StringView.md](L04_StringView.md) | 📖 [Menú del Módulo](../README.md) | ➡️ [Siguiente: L06_MiniProject.md](L06_MiniProject.md) |
 |---|---|---|
 
 ---

@@ -14,6 +14,13 @@ El problema es que el sistema tiene el orden invertido. Un camión monstruo de 6
 1. Abre el archivo `E02_CalculadoraDeRangos.cpp`.
 2. Reorganiza los bloques `if` y `else if` en el orden correcto (de la restricción más grande a la más pequeña) para que el flujo en cascada funcione correctamente.
 
+### ⚙️ Instrucciones de Compilación:
+Compila tu programa desde la terminal con:
+```bash
+g++ -std=c++17 E02_CalculadoraDeRangos.cpp -o app
+./app
+```
+
 ---
 <div align="center">
   <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>

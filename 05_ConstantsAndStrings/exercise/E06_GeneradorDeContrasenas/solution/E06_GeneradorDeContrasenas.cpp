@@ -40,7 +40,7 @@ int main() {
 
     // Solucion 7: Encapsulamos el primer literal estático en un objeto std::string dinámico
     // para invocar los métodos internos de concatenacion.
-    std::string password = std::string{"SEC_"} + "2026_" + departamento;
+    std::string password{std::string{"SEC_"} + "2026_" + departamento};
 
     // Solucion 8: const correctness. Blindamos el string contra modificaciones.
     const std::string passwordFinal{password};

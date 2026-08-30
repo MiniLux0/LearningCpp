@@ -16,3 +16,16 @@ Tu misión es aplicar el principio de *Extracción de Rutinas* para modularizar 
    * `void ejecutarSalida()` (Efecto Secundario: Exclusiva para la rutina de finalización).
 2. Refactoriza el `main()` eliminando las líneas acopladas y delegando el flujo invocando a tus nuevas sub-rutinas.
 3. Al finalizar, tu `main()` debería poseer un alto nivel de abstracción y leerse como un flujo auto-documentado de menos de 15 líneas.
+
+### ⚙️ Instrucciones de Compilación
+
+Compila tu solución desde la terminal con:
+```bash
+g++ -std=c++17 E06_RefactorizacionDelMenu.cpp -o app
+./app
+```
+
+---
+<div align="center">
+  <sub>Maintained by <strong>MiniLux0</strong> · 2026</sub>
+</div>
