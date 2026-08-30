@@ -31,23 +31,23 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
 - **Compilación del PDF Oficial (`LearningCpp_Syllabus_Oficial.pdf`)**:
   - Maquetación y diseño de publicación ejecutiva en PDF multi-página con degradados oscuros, tarjetas de fase, matriz dashboard en una sola página, insignias codificadas por color y paginación profesional.
 - **Nuevo README Principal (`README.md`)**:
-  - Reescritura total con narrativa de grado profesional: manifiesto "¿Por qué existe LearningCpp?", los 4 pilares pedagógicos, guía de inicio rápido en terminal, insignia de autor **MiniLux0**, licencia MIT y enlaces oficiales.
+  - Reescritura total con narrativa de grado profesional: manifiesto "¿Por qué existe LearningCpp?", los 4 pilares pedagógicos, guía de inicio rápido en terminal, consolidación minimalista a 4 badges esenciales (Autor, C++17 Base, CI Matrix y Licencia MIT), autoría de **Jesus Vera V. (MiniLux0)**, licencia MIT y enlaces oficiales.
 - **Mejora Canónica de Licencia (`LICENSE`)**:
-  - Actualización formal de la **Licencia MIT (Copyright © 2026 MiniLux0)** con 100% de compatibilidad para detectores SPDX de GitHub.
+  - Actualización formal de la **Licencia MIT (Copyright © 2026 Jesus Vera V. (MiniLux0))** con 100% de compatibilidad para detectores SPDX de GitHub.
   - Clarificación explícita de cobertura para código fuente (`.cpp`/`.hpp`), material educativo (`.md`/`SYLLABUS.md`) y plataforma web/animaciones (`web/`, `utils/`).
 - **Indexación Global & Metadatos Sociales (WhatsApp, Instagram, Facebook, Twitter/X, Discord, Google)**:
-  - Creación de `web/CITATION.cff` y `web/package.json` para atribución canónica de autoría (**MiniLux0**) y palabras clave de búsqueda.
+  - Creación de `web/CITATION.cff` y `web/package.json` para atribución canónica de autoría (**Jesus Vera V. (MiniLux0)**) y palabras clave de búsqueda.
   - Generación de imagen de vista previa HD [`web/assets/images/og-preview.png`](web/assets/images/og-preview.png) (1200×630 px, optimizada a 55 KB) e iconos de aplicación [`web/assets/images/apple-touch-icon.png`](web/assets/images/apple-touch-icon.png).
   - Metadatos OpenGraph completos con dimensiones, tipos MIME y URLs canónicas seguras.
-  - Esquema estructurado Schema.org JSON-LD en grafo (`@graph`) vinculando la entidad `Person (MiniLux0)` con el curso (`Course`) y el repositorio (`SoftwareSourceCode`).
+  - Esquema estructurado Schema.org JSON-LD en grafo (`@graph`) vinculando la entidad `Person (Jesus Vera V. (MiniLux0))` con el curso (`Course`) y el repositorio (`SoftwareSourceCode`).
   - Actualización de `web/sitemap.xml` y `web/robots.txt` orientados a `https://minilux0.github.io/LearningCpp/`.
 - **Nueva Animación Hero Cinematográfica (`assets/hero_learningcpp.gif`)**:
   - Programación con ManimCE en [`utils/diagrams/animations/hero_readme_showcase.py`](utils/diagrams/animations/hero_readme_showcase.py) estructurada en **3 Actos independientes (cero solapes visuales)**:
-    - *Acto 1:* Bienvenida oficial con logotipo neón `C++`, título del curso e insignia de autor `MiniLux0`.
-    - *Acto 2:* Vistazo panorámico al plan de estudios en 6 fases y 15 módulos.
+    - *Acto 1:* Bienvenida oficial con logotipo neón `C++`, título del curso e insignia de autor **Jesus Vera V. (MiniLux0)**.
+    - *Acto 2:* Vistazo panorámico al plan de estudios en 6 fases y 15 módulos con subtítulos auto-escalados sin desbordamiento.
     - *Acto 3:* El Circuito de Aprendizaje en 5 pasos conectados y tarjeta de bienvenida final.
   - Erradicación de cajas blancas ("tofu" missing glyphs) asegurando compatibilidad tipográfica nativa.
-  - Compresión Lanczos + doble pasada de paleta optimizada en FFmpeg (2.4 MB).
+  - Compresión Lanczos + doble pasada de paleta optimizada en FFmpeg (2.8 MB).
 - **Rediseño, Depuración y Optimización de la Plataforma Web (`web/`)**:
   - **Redirección Directa 1:1 a Lecciones en GitHub**: Vinculación de cada tarjeta de lección dentro del modal directamente a su archivo Markdown específico (`blob/main/.../theory/LXX_Nombre.md`), eliminando enlaces intermedios o redundantes para una experiencia de lectura fluida con un solo clic.
   - **Corrección del Salto Involuntario de Scroll**: Eliminación de `body.style.overflow = 'hidden'` que reiniciaba el scroll a 0 en dispositivos móviles al abrir el menú/modales, y retiro de `scrollIntoView()` forzado en el cambio de fases.
@@ -69,6 +69,7 @@ El formato sigue estrictamente el estándar de [Keep a Changelog](https://keepac
   - Estandarización de avisos de autochequeo interactivo `<details>` en todas las lecciones teóricas.
 - **Higiene del Repositorio y Raíz Limpia**:
   - Reubicación de archivos de soporte (`package.json`, `CITATION.cff`) dentro de `web/` para mantener la raíz con únicamente archivos esenciales de C++ y documentación oficial.
+  - Integración formal de la suite de herramientas y scripts de soporte ([`utils/scripts/`](utils/scripts/), [`utils/diagrams/`](utils/diagrams/)) bajo control de versiones para ejecución transparente en pipelines de CI/CD.
   - Consolidación limpia de `docs/` en únicamente [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) y [`docs/BACKLOG.md`](docs/BACKLOG.md).
   - Eliminación de scripts muertos en `web/assets/js/` (`code-viewer.js`, `modules-explorer.js`, `ram-visualizer.js`, `terminal-simulator.js`).
   - Eliminación de archivos temporales de análisis, caché de Manim (`media/`), respaldos obsoletos y archivos de compilación de Python (`__pycache__`/`.pyc`).
