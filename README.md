@@ -8,16 +8,11 @@
 [![Autor](https://img.shields.io/badge/Autor-Jesus%20Vera%20V.%20(MiniLux0)-10b981?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MiniLux0)
 [![C++17 Base](https://img.shields.io/badge/C%2B%2B-17_Base-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![CI Matrix](https://img.shields.io/github/actions/workflow/status/MiniLux0/LearningCpp/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI_Build)](https://github.com/MiniLux0/LearningCpp/actions/workflows/ci.yml)
-[![GCC](https://img.shields.io/badge/GCC-13%2B-F16822?style=for-the-badge&logo=gnu&logoColor=white)](https://gcc.gnu.org/)
-[![Plataforma](https://img.shields.io/badge/Plataforma-Windows%20%7C%20Linux%20%7C%20macOS-0078D4?style=for-the-badge&logo=windows&logoColor=white)](README.md)
-[![Web Oficial](https://img.shields.io/badge/🌐_Portal_Web-Online_Live-2563eb?style=for-the-badge)](https://minilux0.github.io/LearningCpp/)
-[![PDF Syllabus](https://img.shields.io/badge/📥_Descargar-Syllabus_PDF-dc2626?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](LearningCpp_Syllabus_Oficial.pdf)
 [![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-059669?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Code_Lab-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JExCwZ3YyC)
 
 <br/>
 
-[📜 Syllabus Completo](SYLLABUS.md) · [🌐 Portal Web Online](https://minilux0.github.io/LearningCpp/) · [🏛️ Arquitectura](docs/ARCHITECTURE.md) · [📋 Backlog](docs/BACKLOG.md) · [💬 Discord](https://discord.gg/JExCwZ3YyC)
+[🌐 Portal Web](https://minilux0.github.io/LearningCpp/) · [📜 Syllabus Oficial](SYLLABUS.md) · [📥 Descargar PDF](LearningCpp_Syllabus_Oficial.pdf) · [💬 Discord Code Lab](https://discord.gg/JExCwZ3YyC) · [🏛️ Arquitectura](docs/ARCHITECTURE.md) · [📋 Backlog](docs/BACKLOG.md)
 
 <br/><br/>
 
