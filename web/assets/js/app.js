@@ -37,13 +37,13 @@
       project: "Terminal Interactiva Multi-palabra",
       description: "Iniciación desde cero absoluto. Comprensión física del hardware, anatomía de main(), flujos seguros de entrada/salida y veto a malos hábitos como using namespace std.",
       lessons: [
-        { id: "L00", title: "¿Qué es programar?", desc: "100% conceptual: qué hace un compilador y por qué el hardware requiere código binario." },
-        { id: "L01", title: "Instalando tus herramientas", desc: "Verificación con g++ y supervivencia básica en la terminal." },
-        { id: "L02", title: "Tu primer programa", desc: "Anatomía de main(), std::cout y comando mínimo de compilación." },
-        { id: "L03", title: "Namespaces y std::", desc: "Prevención de colisión de nombres globales." },
-        { id: "L04", title: "Formato y salida limpia", desc: "Salto de línea '\\n' vs el costo innecesario de std::endl." },
-        { id: "L05", title: "Primer contacto con datos", desc: "std::cin seguro e inicialización uniforme {0} contra basura en RAM." },
-        { id: "L06", title: "Mini-proyecto Terminal", desc: "Lectura multi-palabra con std::getline y validación de buffers." }
+        { id: "L00", title: "¿Qué es programar?", desc: "100% conceptual: qué hace un compilador y por qué el hardware requiere código binario.", file: "L00_QueEsProgramar.md" },
+        { id: "L01", title: "Instalando tus herramientas", desc: "Verificación con g++ y supervivencia básica en la terminal.", file: "L01_InstalandoHerramientas.md" },
+        { id: "L02", title: "Tu primer programa", desc: "Anatomía de main(), std::cout y comando mínimo de compilación.", file: "L02_TuPrimerPrograma.md" },
+        { id: "L03", title: "Namespaces y std::", desc: "Prevención de colisión de nombres globales.", file: "L03_NamespacesYStd.md" },
+        { id: "L04", title: "Formato y salida limpia", desc: "Salto de línea '\\n' vs el costo innecesario de std::endl.", file: "L04_FormatoSalidaComentarios.md" },
+        { id: "L05", title: "Primer contacto con datos", desc: "std::cin seguro e inicialización uniforme {0} contra basura en RAM.", file: "L05_DatosYEntradaSegura.md" },
+        { id: "L06", title: "Mini-proyecto Terminal", desc: "Lectura multi-palabra con std::getline y validación de buffers.", file: "L06_MiniProyectoAppInteractiva.md" }
       ],
       bugDemos: ["D04_UninitializedBug.cpp", "D05_CinSpacesBug.cpp"],
       keyDecision: "Prohibición total de using namespace std; y std::endl."
@@ -62,13 +62,13 @@
       project: "Split the Bill Calculator",
       description: "Tipos primitivos (int, double, char, bool), límites físicos de sizeof, compuertas lógicas y solución de la división entera mediante casting explícito.",
       lessons: [
-        { id: "L01", title: "Tipos primitivos y RAM", desc: "Límites físicos de bytes en memoria con sizeof." },
-        { id: "L02", title: "Inicialización Uniforme {}", desc: "Prevención de Narrowing Conversions destructivas." },
-        { id: "L03", title: "Operadores aritméticos", desc: "Precedencia y la trampa de la división entera (7 / 2 = 3)." },
-        { id: "L04", title: "Operadores lógicos", desc: "Compuertas booleanas y prevención del bug 'if (x = 5)'." },
-        { id: "L05", title: "Conversión static_cast", desc: "Casting explícito seguro en tiempo de compilación." },
-        { id: "L06", title: "Deducción con auto", desc: "Uso idiomático de auto sin perder visibilidad en RAM." },
-        { id: "L07", title: "Mini-proyecto Split the Bill", desc: "Calculadora de gastos exactos con casting de alta precisión." }
+        { id: "L01", title: "Tipos primitivos y RAM", desc: "Límites físicos de bytes en memoria con sizeof.", file: "L01_TiposPrimitivos.md" },
+        { id: "L02", title: "Inicialización Uniforme {}", desc: "Prevención de Narrowing Conversions destructivas.", file: "L02_InicializacionUniforme.md" },
+        { id: "L03", title: "Operadores aritméticos", desc: "Precedencia y la trampa de la división entera (7 / 2 = 3).", file: "L03_OperadoresAritmeticos.md" },
+        { id: "L04", title: "Operadores lógicos", desc: "Compuertas booleanas y prevención del bug 'if (x = 5)'.", file: "L04_OperadoresRelacionalesYLogicos.md" },
+        { id: "L05", title: "Conversión static_cast", desc: "Casting explícito seguro en tiempo de compilación.", file: "L05_ConversionSegura.md" },
+        { id: "L06", title: "Deducción con auto", desc: "Uso idiomático de auto sin perder visibilidad en RAM.", file: "L06_MagiaDeAuto.md" },
+        { id: "L07", title: "Mini-proyecto Split the Bill", desc: "Calculadora de gastos exactos con casting de alta precisión.", file: "L07_SplitTheBill.md" }
       ],
       bugDemos: ["D02_NarrowingBug.cpp", "D03_IntegerDivisionBug.cpp", "D04_AssignmentInIfBug.cpp"],
       keyDecision: "Inicialización uniforme obligatoria {} en todas las variables."
@@ -87,14 +87,14 @@
       project: "Taberna RPG / Cajero Automático",
       description: "Dominio de la toma de decisiones, control de ciclos de vida de variables en el Stack, prevención de Variable Shadowing, Fallthrough y bucles infinitos.",
       lessons: [
-        { id: "L01", title: "Decisiones if/else", desc: "La trampa del punto y coma asesino 'if (cond);'." },
-        { id: "L02", title: "Cadenas else if", desc: "Evaluación por cortocircuito y prevención de código inalcanzable." },
-        { id: "L03", title: "Bloques y Ámbito (Scope)", desc: "El bug de Variable Shadowing en el Stack." },
-        { id: "L04", title: "Multi-caminos switch", desc: "Prevención de Fallthrough involuntario." },
-        { id: "L05", title: "Ciclos while/do-while", desc: "Prevención de bucles infinitos en consola." },
-        { id: "L06", title: "El bucle contador for", desc: "Prevención del error de desfase Off-By-One." },
-        { id: "L07", title: "Break y Continue", desc: "Control de flujo en bucles anidados." },
-        { id: "L08", title: "Mini-proyecto Taberna RPG", desc: "Menú interactivo resiliente con conmutación continua." }
+        { id: "L01", title: "Decisiones if/else", desc: "La trampa del punto y coma asesino 'if (cond);'.", file: "L01_IfElse.md" },
+        { id: "L02", title: "Cadenas else if", desc: "Evaluación por cortocircuito y prevención de código inalcanzable.", file: "L02_ElseIf.md" },
+        { id: "L03", title: "Bloques y Ámbito (Scope)", desc: "El bug de Variable Shadowing en el Stack.", file: "L03_BlocksAndScope.md" },
+        { id: "L04", title: "Multi-caminos switch", desc: "Prevención de Fallthrough involuntario.", file: "L04_Switch.md" },
+        { id: "L05", title: "Ciclos while/do-while", desc: "Prevención de bucles infinitos en consola.", file: "L05_WhileDoWhile.md" },
+        { id: "L06", title: "El bucle contador for", desc: "Prevención del error de desfase Off-By-One.", file: "L06_For.md" },
+        { id: "L07", title: "Break y Continue", desc: "Control de flujo en bucles anidados.", file: "L07_BreakContinue.md" },
+        { id: "L08", title: "Mini-proyecto Taberna RPG", desc: "Menú interactivo resiliente con conmutación continua.", file: "L08_ProyectoCajero.md" }
       ],
       bugDemos: ["D01_SemicolonIfBug.cpp", "D03_ShadowingBug.cpp", "D04_FallthroughBug.cpp", "D06_OffByOneBug.cpp"],
       keyDecision: "Modelado estricto del ciclo de vida en el Stack mediante llaves {}."
@@ -113,14 +113,14 @@
       project: "Generador de Atributos RPG",
       description: "Descomposición modular en funciones atómicas, aislamiento estricto de memoria en la pila y aleatoriedad moderna con std::mt19937.",
       lessons: [
-        { id: "L01", title: "Anatomía de una función", desc: "Declaración, parámetros y separación de responsabilidades." },
-        { id: "L02", title: "Retornando valores", desc: "Obligatoriedad de return en todos los caminos lógicos." },
-        { id: "L03", title: "Funciones void", desc: "Acciones sin retorno y comportamiento del compilador." },
-        { id: "L04", title: "Pass-by-value", desc: "Demostración de copias clonadas en la pila." },
-        { id: "L05", title: "Ámbito local", desc: "Aislamiento de memoria entre funciones y main." },
-        { id: "L06", title: "Refactorización modular", desc: "Descomposición de funciones monolíticas en unidades reutilizables." },
-        { id: "L07", title: "Aleatoriedad <random>", desc: "Uso de std::mt19937 evitando el arcaico rand()." },
-        { id: "L08", title: "Mini-proyecto Generador RPG", desc: "Simulador modular con tiradas aleatorias y atributos balanceados." }
+        { id: "L01", title: "Anatomía de una función", desc: "Declaración, parámetros y separación de responsabilidades.", file: "L01_Anatomy.md" },
+        { id: "L02", title: "Retornando valores", desc: "Obligatoriedad de return en todos los caminos lógicos.", file: "L02_Return.md" },
+        { id: "L03", title: "Funciones void", desc: "Acciones sin retorno y comportamiento del compilador.", file: "L03_Void.md" },
+        { id: "L04", title: "Pass-by-value", desc: "Demostración de copias clonadas en la pila.", file: "L04_Parameters.md" },
+        { id: "L05", title: "Ámbito local", desc: "Aislamiento de memoria entre funciones y main.", file: "L05_ScopeInFunctions.md" },
+        { id: "L06", title: "Refactorización modular", desc: "Descomposición de funciones monolíticas en unidades reutilizables.", file: "L06_Refactoring.md" },
+        { id: "L07", title: "Aleatoriedad <random>", desc: "Uso de std::mt19937 evitando el arcaico rand().", file: "L07_Random.md" },
+        { id: "L08", title: "Mini-proyecto Generador RPG", desc: "Simulador modular con tiradas aleatorias y atributos balanceados.", file: "L08_MiniProject.md" }
       ],
       bugDemos: ["D02_MissingReturnBug.cpp", "D04_PassByValueBug.cpp", "D07_StaticRngBug.cpp"],
       keyDecision: "Veto absoluto a rand(); adopción obligatoria de <random> de C++11/17."
@@ -139,12 +139,12 @@
       project: "Generador de Contraseñas Seguras",
       description: "Inmutabilidad por defecto (Const Correctness), evaluación en tiempo de compilación y manipulación segura de cadenas sin copias innecesarias.",
       lessons: [
-        { id: "L01", title: "Constantes (const)", desc: "Inmutabilidad en tiempo de ejecución." },
-        { id: "L02", title: "Expresiones constexpr", desc: "Cálculos resueltos directamente por el compilador." },
-        { id: "L03", title: "std::string a fondo", desc: "Cadenas dinámicas y superación definitiva de char[]." },
-        { id: "L04", title: "Vistas std::string_view", desc: "Paso de texto con cero costo de copia y prevención de Dangling Views." },
-        { id: "L05", title: "Validación de std::cin", desc: "Limpieza y saneamiento de buffers corruptos con cin.fail()." },
-        { id: "L06", title: "Mini-proyecto Generador Claves", desc: "Generador inmutable con validación estricta de entradas." }
+        { id: "L01", title: "Constantes (const)", desc: "Inmutabilidad en tiempo de ejecución.", file: "L01_Const.md" },
+        { id: "L02", title: "Expresiones constexpr", desc: "Cálculos resueltos directamente por el compilador.", file: "L02_Constexpr.md" },
+        { id: "L03", title: "std::string a fondo", desc: "Cadenas dinámicas y superación definitiva de char[].", file: "L03_String.md" },
+        { id: "L04", title: "Vistas std::string_view", desc: "Paso de texto con cero costo de copia y prevención de Dangling Views.", file: "L04_StringView.md" },
+        { id: "L05", title: "Validación de std::cin", desc: "Limpieza y saneamiento de buffers corruptos con cin.fail().", file: "L05_CinValidation.md" },
+        { id: "L06", title: "Mini-proyecto Generador Claves", desc: "Generador inmutable con validación estricta de entradas.", file: "L06_MiniProject.md" }
       ],
       bugDemos: ["D01_MutationBug.cpp", "D04_DanglingStringViewBug.cpp", "D05_CinInfiniteLoopBug.cpp"],
       keyDecision: "Separación clara entre const (runtime) y constexpr (compile-time)."
@@ -620,29 +620,20 @@
       const modalGithubBtn = this.modal.querySelector('#modal-github-btn');
 
       const githubModuleUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}`;
-      const githubTheoryUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/theory`;
-      const githubLabUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/lab`;
-      const githubExerciseUrl = `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}/exercise`;
 
       if (modalGithubBtn) {
         modalGithubBtn.href = githubModuleUrl;
       }
 
       modalTitle.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: var(--space-3); flex-wrap: wrap;">
-          <div style="display: flex; align-items: center; gap: var(--space-3);">
-            <span class="module-id-badge" style="font-size: 0.9rem; padding: 0.25rem 0.6rem;">${mod.id}</span>
-            <div>
-              <div style="font-size: var(--font-size-xs); color: var(--text-muted); font-family: var(--font-family-mono); text-transform: uppercase; letter-spacing: 0.05em;">
-                ${mod.phaseName}
-              </div>
-              <h2 style="font-size: var(--font-size-xl); font-family: var(--font-family-display); font-weight: 700; margin-top: 2px;">${mod.title}</h2>
+        <div style="display: flex; align-items: center; gap: var(--space-3);">
+          <span class="module-id-badge" style="font-size: 0.9rem; padding: 0.25rem 0.6rem;">${mod.id}</span>
+          <div>
+            <div style="font-size: var(--font-size-xs); color: var(--text-muted); font-family: var(--font-family-mono); text-transform: uppercase; letter-spacing: 0.05em;">
+              ${mod.phaseName}
             </div>
+            <h2 style="font-size: var(--font-size-xl); font-family: var(--font-family-display); font-weight: 700; margin-top: 2px;">${mod.title}</h2>
           </div>
-          <a href="${githubModuleUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; display: inline-flex; align-items: center; gap: 5px;" aria-label="Abrir módulo en GitHub">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            <span>GitHub</span>
-          </a>
         </div>
       `;
 
@@ -654,15 +645,12 @@
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-5);">
-          <a href="${githubExerciseUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: block; transition: all 0.2s ease;">
-            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;">
-              <span>Proyecto Integrador</span>
-              <span style="color: var(--color-cyan); font-size: 0.68rem;">Retos ↗</span>
-            </div>
+          <div style="background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Proyecto Integrador</div>
             <div style="font-weight: 600; font-size: var(--font-size-sm); margin-top: 2px; color: var(--text-primary);">
               ${mod.project}
             </div>
-          </a>
+          </div>
           <div style="background: var(--bg-surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Estado del Módulo</div>
             <div style="font-weight: 600; font-size: var(--font-size-sm); margin-top: 2px; display: flex; align-items: center; gap: 6px; color: ${mod.status === 'completed' ? 'var(--color-success)' : 'var(--text-muted)'};">
@@ -672,50 +660,44 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
-          <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 0;">
-            Lecciones Teóricas (${mod.lessons.length})
-          </h4>
-          <a href="${githubTheoryUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; font-weight: 600;">
-            Abrir carpeta theory/ ↗
-          </a>
-        </div>
+        <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
+          Lecciones del Módulo (${mod.lessons.length})
+        </h4>
 
         <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5);">
-          ${mod.lessons.map(l => `
-            <a href="${githubTheoryUrl}" target="_blank" rel="noopener noreferrer" class="lesson-link-card" title="Abrir lección en GitHub">
-              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
-                <span class="lesson-link-badge">
-                  ${l.id}
-                </span>
-                <div>
-                  <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+          ${mod.lessons.map(l => {
+            const lessonUrl = l.file 
+              ? `https://github.com/MiniLux0/LearningCpp/blob/main/${mod.slug}/theory/${l.file}`
+              : `https://github.com/MiniLux0/LearningCpp/tree/main/${mod.slug}`;
+            return `
+              <a href="${lessonUrl}" target="_blank" rel="noopener noreferrer" class="lesson-link-card" title="Abrir ${l.title} en GitHub">
+                <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                  <span class="lesson-link-badge">
+                    ${l.id}
+                  </span>
+                  <div>
+                    <div style="font-weight: 600; font-size: var(--font-size-sm); color: var(--text-primary);">${l.title}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${l.desc}</div>
+                  </div>
                 </div>
-              </div>
-              <span class="lesson-action-tag">
-                <span>Estudiar</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </span>
-            </a>
-          `).join('')}
+                <span class="lesson-action-tag">
+                  <span>Estudiar</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </a>
+            `;
+          }).join('')}
         </div>
 
         ${mod.bugDemos && mod.bugDemos.length > 0 ? `
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
-            <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 0;">
-              Demos de Bugs Intencionales (Break-First)
-            </h4>
-            <a href="${githubLabUrl}/demos" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; color: #f43f5e; text-decoration: none; font-weight: 600;">
-              Abrir lab/demos/ ↗
-            </a>
-          </div>
+          <h4 style="font-size: var(--font-size-sm); font-family: var(--font-family-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3); color: var(--text-primary);">
+            Demos de Bugs Intencionales (Break-First)
+          </h4>
           <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5);">
             ${mod.bugDemos.map(b => `
-              <a href="${githubLabUrl}/demos" target="_blank" rel="noopener noreferrer" class="demo-link-badge" title="Ver código del demo en GitHub">
-                <span>🐞 ${b}</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
+              <span style="font-family: var(--font-family-mono); font-size: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 4px 8px; border-radius: 4px; color: var(--text-secondary);">
+                ${b}
+              </span>
             `).join('')}
           </div>
         ` : ''}
